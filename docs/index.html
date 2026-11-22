@@ -17,6 +17,8 @@
     --exact-bg: #dcfce7; --exact-fg: #166534;
     --ver-bg: #dbeafe; --ver-fg: #1e40af;
     --read-bg: #fef3c7; --read-fg: #92400e;
+    --dead-bg: #fee2e2; --dead-fg: #991b1b;
+    --open-bg: #ede9fe; --open-fg: #5b21b6;
   }
   * { box-sizing: border-box; }
   body {
@@ -25,7 +27,7 @@
     line-height: 1.65; font-size: 15px;
   }
   a { color: var(--accent); }
-  .layout { display: grid; grid-template-columns: 270px 1fr; max-width: 1360px; margin: 0 auto; }
+  .layout { display: grid; grid-template-columns: 270px 1fr; max-width: 1380px; margin: 0 auto; }
   nav.sidebar {
     position: sticky; top: 0; height: 100vh; overflow-y: auto;
     border-right: 1px solid var(--border); padding: 24px 18px; background: var(--surface);
@@ -34,7 +36,7 @@
   nav.sidebar a { display: block; text-decoration: none; color: var(--muted); padding: 4px 0; font-size: 13px; line-height: 1.35; }
   nav.sidebar a:hover { color: var(--accent); }
   nav.sidebar a.toc-l3 { padding-left: 14px; font-size: 12px; }
-  main { padding: 32px 44px 80px; max-width: 980px; min-width: 0; }
+  main { padding: 32px 44px 80px; max-width: 1020px; min-width: 0; }
   .topbar {
     display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
     font-size: 13px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border);
@@ -49,7 +51,9 @@
   .kpi .k-num { font-size: 1.35rem; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
   .kpi .k-lbl { font-size: 12px; color: var(--muted); margin-top: 2px; }
   .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 22px; margin: 20px 0; }
-  .panel h3 { margin-top: 0; font-size: 1rem; }
+  .panel-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .panel h3 { margin: 0 0 6px; font-size: 1.02rem; }
+  .panel-sub { margin: 0 0 12px; font-size: 13px; color: var(--muted); }
   .wf-row { display: grid; grid-template-columns: 310px 1fr 155px; align-items: center; gap: 12px; margin: 8px 0; font-size: 13px; }
   .wf-track { background: #f1f5f9; height: 14px; border-radius: 7px; overflow: hidden; }
   .wf-fill { height: 100%; border-radius: 7px; }
@@ -58,6 +62,8 @@
   .badge-exact { background: var(--exact-bg); color: var(--exact-fg); }
   .badge-verified { background: var(--ver-bg); color: var(--ver-fg); }
   .badge-reading { background: var(--read-bg); color: var(--read-fg); }
+  .badge-dead { background: var(--dead-bg); color: var(--dead-fg); }
+  .badge-open { background: var(--open-bg); color: var(--open-fg); }
   code { font-family: "Cascadia Code", Consolas, "SFMono-Regular", monospace; font-size: 0.86em; background: #f1f5f9; padding: 1px 4px; border-radius: 4px; word-break: break-word; }
   pre { background: #0f172a; color: #e2e8f0; padding: 14px 16px; border-radius: 8px; overflow-x: auto; font-size: 12.2px; line-height: 1.5; }
   pre code { background: transparent; color: inherit; padding: 0; word-break: normal; }
@@ -76,21 +82,92 @@
   }
   select.chain-sel { flex: 1 1 360px; min-width: 0; }
   input.filter-in { width: 100%; max-width: 360px; }
-  button.btn {
-    padding: 7px 12px; border: 1px solid var(--border); border-radius: 6px;
+  button.btn, .pill-btn {
+    padding: 6px 11px; border: 1px solid var(--border); border-radius: 6px;
     background: #f8fafc; color: var(--text); font-size: 12.5px; font-weight: 500; cursor: pointer;
   }
-  button.btn:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+  button.btn:hover, .pill-btn:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+  .pill-btn.active { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+  .seg-group { display: inline-flex; gap: 4px; flex-wrap: wrap; }
   .chain-box { font-family: "Cascadia Code", Consolas, monospace; font-size: 12.3px; background: #f8fafc; border: 1px solid var(--border); border-radius: 6px; padding: 12px; line-height: 1.7; overflow-x: auto; }
   .chain-step { display: flex; gap: 10px; align-items: baseline; }
   .chain-d { color: var(--accent); font-weight: 700; min-width: 38px; flex-shrink: 0; }
   .legend { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; font-size: 12.5px; margin: 8px 0 16px; }
   .status-msg { color: var(--muted); font-size: 13px; font-style: italic; }
+
+  /* Upstream Frontier SVG Chart */
+  .frontier-stats { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); margin-bottom: 10px; }
+  .frontier-stats strong { color: var(--text); font-variant-numeric: tabular-nums; }
+  .chart-wrap { width: 100%; overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; background: #fafbfc; padding: 10px 8px 4px; }
+  .chart-wrap svg { display: block; width: 100%; min-width: 620px; height: auto; }
+  .frontier-dot { cursor: pointer; transition: transform .12s ease; }
+  .frontier-dot:hover { stroke-width: 3; }
+  .frontier-list { margin-top: 10px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 8px; }
+  .frontier-item {
+    border: 1px solid var(--border); border-radius: 7px; padding: 8px 11px; font-size: 12.5px;
+    background: #fcfcfd; display: flex; flex-direction: column; gap: 3px;
+  }
+  .frontier-item.clickable { cursor: pointer; }
+  .frontier-item.clickable:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .frontier-item-top { display: flex; justify-content: space-between; align-items: center; gap: 6px; font-weight: 600; }
+
+  /* Verified De-bloating Pattern Cards */
+  .pattern-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 10px; }
+  .pattern-card {
+    border: 1px solid var(--border); border-radius: 9px; padding: 14px 16px; background: #fcfcfd;
+    display: flex; flex-direction: column; gap: 8px; cursor: pointer; text-align: left;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .pattern-card:hover { border-color: var(--accent); box-shadow: 0 3px 12px rgba(15, 118, 110, 0.08); background: #ffffff; }
+  .pattern-kicker { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 11.5px; color: var(--muted); }
+  .pattern-title { font-size: 14.5px; font-weight: 700; color: var(--text); line-height: 1.35; }
+  .pattern-desc { font-size: 12.8px; color: var(--muted); line-height: 1.5; margin: 0; }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    font-family: "Cascadia Code", Consolas, monospace; font-size: 11.2px; padding: 2px 7px;
+    border-radius: 4px; background: #f1f5f9; color: #0f172a; border: 1px solid #e2e8f0;
+  }
+  .chip-good { background: var(--exact-bg); color: var(--exact-fg); border-color: #bbf7d0; }
+  .pattern-cta { font-size: 12px; font-weight: 600; color: var(--accent); margin-top: auto; }
+
+  /* Proof & Diff Inspector Slide-Over Drawer */
+  .drawer-backdrop {
+    position: fixed; inset: 0; background: rgba(15, 23, 42, 0.45);
+    z-index: 90; opacity: 0; pointer-events: none; transition: opacity .18s ease;
+  }
+  .drawer-backdrop.open { opacity: 1; pointer-events: auto; }
+  aside.drawer {
+    position: fixed; top: 0; right: 0; bottom: 0; width: min(720px, 94vw);
+    background: var(--surface); border-left: 1px solid var(--border); z-index: 100;
+    transform: translateX(100%); transition: transform .2s ease;
+    display: flex; flex-direction: column; box-shadow: -8px 0 30px rgba(15, 23, 42, 0.16);
+  }
+  aside.drawer.open { transform: translateX(0); }
+  .drawer-head {
+    padding: 16px 20px; border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+  }
+  .drawer-head h3 { margin: 4px 0 0; font-size: 1.08rem; }
+  .drawer-body { padding: 18px 20px 32px; overflow-y: auto; flex: 1; }
+  .metric-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 12px 0 16px; }
+  .metric-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 6px; padding: 8px 10px; }
+  .metric-box .m-k { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  .metric-box .m-v { font-size: 12.8px; font-weight: 600; color: var(--text); margin-top: 2px; font-family: "Cascadia Code", Consolas, monospace; word-break: break-word; }
+  .receipt-box { background: var(--accent-soft); border: 1px solid #99f6e4; color: #134e4a; border-radius: 7px; padding: 10px 12px; font-size: 12.5px; margin-bottom: 14px; }
+  .diff-view {
+    background: #0f172a; color: #e2e8f0; border-radius: 8px; padding: 12px 0;
+    overflow-x: auto; font-family: "Cascadia Code", Consolas, monospace; font-size: 11.8px; line-height: 1.48;
+  }
+  .diff-line { display: block; padding: 0 14px; white-space: pre; }
+  .diff-add { background: rgba(34, 197, 94, 0.18); color: #bbf7d0; }
+  .diff-del { background: rgba(239, 68, 68, 0.20); color: #fecaca; }
+  .diff-hunk { background: rgba(56, 189, 248, 0.14); color: #7dd3fc; }
+
   @media (max-width: 960px) {
     .layout { grid-template-columns: 1fr; }
     nav.sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
     main { padding: 24px 18px; }
-    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .kpi-grid, .pattern-grid, .metric-grid { grid-template-columns: 1fr; }
     .wf-row { grid-template-columns: 1fr; gap: 4px; }
   }
 </style>
@@ -100,6 +177,10 @@
   <nav class="sidebar" id="toc">
     <h4>Contents</h4>
     <a href="#interactive-dashboard">Kernel Dashboard</a>
+    <a href="#upstream-frontier" class="toc-l3">Upstream main Frontier</a>
+    <a href="#verified-patterns" class="toc-l3">Verified De-bloating Patterns</a>
+    <a href="#actionable-targets" class="toc-l3">Actionable Cleanup Targets</a>
+    <a href="#witness-explorer" class="toc-l3">Witness-Chain Explorer</a>
   </nav>
   <main>
     <div id="interactive-dashboard">
@@ -141,7 +222,50 @@
         </div>
       </div>
 
-      <div class="panel">
+      <div class="panel" id="upstream-frontier">
+        <div class="panel-head">
+          <div>
+            <h3>Upstream <code>main</code> Compression Frontier <span class="badge badge-exact">Exact</span></h3>
+            <p class="panel-sub">Real merged proof-cleanup PRs on <code>leanprover-community/riemann-hypothesis</code> (not an isolated sub-problem benchmark). Click any highlighted PR to inspect its diff &amp; verification receipt.</p>
+          </div>
+          <div class="seg-group" id="frontierToggle">
+            <button type="button" class="pill-btn active" data-mode="active">Active-Cone Refactors (#57–#68)</button>
+            <button type="button" class="pill-btn" data-mode="all">Full Repo incl. Dead Prune (#8–#68)</button>
+          </div>
+        </div>
+        <div class="frontier-stats" id="frontierStats">Loading upstream frontier metrics…</div>
+        <div class="chart-wrap" id="frontierChart"><span class="status-msg">Rendering frontier SVG…</span></div>
+        <div class="frontier-list" id="frontierList"></div>
+      </div>
+
+      <div class="panel" id="verified-patterns">
+        <h3>Verified De-bloating &amp; Audit Patterns (Click to Open Proof Inspector) <span class="badge badge-exact">Exact</span></h3>
+        <p class="panel-sub">Includes both raw line deltas and <strong>anti-golf normalized Lean 4 token counts</strong> (comments, whitespace, and <code>import</code> lines stripped) alongside full <code>Kernel.isDefEq</code> / <code>dist=1</code> verification receipts.</p>
+        <div class="pattern-grid" id="patternGrid"><span class="status-msg">Loading verified patterns…</span></div>
+      </div>
+
+      <div class="panel" id="actionable-targets">
+        <div class="panel-head">
+          <div>
+            <h3>Actionable Cleanup Targets (100% Kernel-Cone Grounded) <span class="badge badge-exact">Exact</span></h3>
+            <p class="panel-sub">Separates untouched kernel-active bloat (<code>in_cone = true</code>) from verified dead subtrees (<code>in_cone = false</code>) so contributors never waste refactors on dead files such as <code>BehrendSets</code> (0/89) or <code>Cheb.statement_holds</code> (0/1).</p>
+          </div>
+          <div class="seg-group" id="targetFilters">
+            <button type="button" class="pill-btn active" data-bucket="all">All (10)</button>
+            <button type="button" class="pill-btn" data-bucket="active-bloat">Active Bloat</button>
+            <button type="button" class="pill-btn" data-bucket="portability">Lean 4.36 Portability</button>
+            <button type="button" class="pill-btn" data-bucket="dead-prune">Dead Subtree Prune</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Bucket</th><th>Target &amp; Source Path</th><th>Kernel Cone</th><th>Measured Scale</th><th>Expected Impact &amp; Rationale</th></tr></thead>
+            <tbody id="targetBody"><tr><td colspan="5" class="status-msg">Loading actionable targets…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel" id="witness-explorer">
         <h3>Kernel Witness-Chain Explorer (<code>why-parents.csv.gz</code> → <code>LFunction_ne_zero_of_half_lt_re</code>) <span class="badge badge-exact">Exact</span></h3>
         <div class="controls">
           <select id="chainSel" class="chain-sel"><option>Loading 36 exact witness chains…</option></select>
@@ -172,6 +296,18 @@
   </main>
 </div>
 
+<div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+<aside class="drawer" id="inspectorDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+  <div class="drawer-head">
+    <div>
+      <div id="drawerKicker" style="font-size:12px;color:var(--muted);font-weight:600;">LEAN 4 PROOF &amp; AUDIT INSPECTOR</div>
+      <h3 id="drawerTitle">Inspector</h3>
+    </div>
+    <button type="button" class="btn" id="drawerCloseBtn" aria-label="Close inspector">Close (Esc)</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+
 <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
@@ -200,7 +336,6 @@ function slugify(text) {
 function protectMath(md) {
   const blocks = [];
   const stash = (m) => { const i = blocks.length; blocks.push(m); return `@@MATHBLOCK${i}@@`; };
-  // Protect fenced code blocks and inline code first so $ inside code is untouched
   const code = [];
   const stashCode = (m) => { const i = code.length; code.push(m); return `@@CODEBLOCK${i}@@`; };
   let s = md.replace(/```[\s\S]*?```/g, stashCode).replace(/`[^`\n]+`/g, stashCode);
@@ -269,6 +404,224 @@ function buildToc(root) {
   });
 }
 
+let PATTERNS_BY_ID = {};
+
+function renderDiffHtml(diffText) {
+  return diffText.split("\n").map((line) => {
+    let cls = "diff-line";
+    if (line.startsWith("+") && !line.startsWith("+++")) cls += " diff-add";
+    else if (line.startsWith("-") && !line.startsWith("---")) cls += " diff-del";
+    else if (line.startsWith("@@") || line.startsWith("diff ") || line.startsWith("---") || line.startsWith("+++")) cls += " diff-hunk";
+    return `<span class="${cls}">${escHtml(line)}</span>`;
+  }).join("");
+}
+
+function openInspector(patternId) {
+  const p = PATTERNS_BY_ID[patternId];
+  if (!p) return;
+  document.getElementById("drawerKicker").textContent = p.pr_label + " · " + p.category;
+  document.getElementById("drawerTitle").textContent = p.title;
+  const m = p.metrics || {};
+  document.getElementById("drawerBody").innerHTML = `
+    <p style="margin-top:0;font-size:13.5px;color:var(--muted);">${escHtml(p.summary)}</p>
+    <div class="metric-grid">
+      <div class="metric-box"><div class="m-k">Source Lines (LoC)</div><div class="m-v">${escHtml(m.loc || "—")}</div></div>
+      <div class="metric-box"><div class="m-k">Anti-Golf Normalized Tokens</div><div class="m-v">${escHtml(m.norm_tokens || "—")}</div></div>
+      <div class="metric-box"><div class="m-k">Warnings / Safety</div><div class="m-v">${escHtml(m.warnings || "—")}</div></div>
+      <div class="metric-box"><div class="m-k">Kernel Cone Scope</div><div class="m-v">${escHtml(m.cone || "—")}</div></div>
+      <div class="metric-box"><div class="m-k">Kernel Equivalence</div><div class="m-v">${escHtml(m.equivalence || "—")}</div></div>
+      <div class="metric-box"><div class="m-k">Axioms Verified</div><div class="m-v">${escHtml(m.axioms || "—")}</div></div>
+    </div>
+    <div class="receipt-box"><strong>Verification Receipt:</strong> ${escHtml(p.receipt)}</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+      <strong style="font-size:13px;">Unified Diff / Verified Audit Output</strong>
+      <a href="${escHtml(p.url)}" target="_blank" rel="noopener" style="font-size:12.5px;font-weight:600;">Open on GitHub →</a>
+    </div>
+    <div class="diff-view">${renderDiffHtml(p.diff || "")}</div>
+  `;
+  document.getElementById("drawerBackdrop").classList.add("open");
+  document.getElementById("inspectorDrawer").classList.add("open");
+}
+
+function closeInspector() {
+  document.getElementById("drawerBackdrop").classList.remove("open");
+  document.getElementById("inspectorDrawer").classList.remove("open");
+}
+
+document.getElementById("drawerCloseBtn").addEventListener("click", closeInspector);
+document.getElementById("drawerBackdrop").addEventListener("click", closeInspector);
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeInspector(); });
+
+function renderFrontier(fdata) {
+  const allEvents = fdata.upstream_frontier || [];
+  const merged = allEvents.filter((e) => e.status === "merged");
+  const totalNet = merged.reduce((acc, e) => acc + (e.net_lines || 0), 0);
+  const activeOnly = merged.filter((e) => e.category === "active-refactor");
+  const activeNet = activeOnly.reduce((acc, e) => acc + (e.net_lines || 0), 0);
+  const deadPrunedFiles = merged.reduce((acc, e) => acc + (e.files_deleted || 0), 0);
+
+  document.getElementById("frontierStats").innerHTML = `
+    <span>Merged proof-cleanup PRs: <strong>${merged.length - 1}</strong> (+1 open portability PR #71)</span>
+    <span>Total net removed on <code>main</code>: <strong>${totalNet.toLocaleString()} L</strong> (${deadPrunedFiles.toLocaleString()} dead files deleted)</span>
+    <span>Kernel-active refactorings: <strong>${activeNet.toLocaleString()} L</strong> across #57, #60, #65, #68</span>
+  `;
+
+  function drawChart(mode) {
+    const events = mode === "active"
+      ? [{ pr: 0, title: "Active-Cone Baseline", net_lines: 0, status: "merged", category: "baseline", author: "v0.2.1", date: "2026-11-21" },
+         ...allEvents.filter((e) => e.category === "active-refactor")]
+      : allEvents.filter((e) => e.status === "merged");
+
+    let cum = 0;
+    const pts = events.map((e, i) => {
+      cum += Math.max(0, -(e.net_lines || 0));
+      return { ...e, idx: i, cumSaved: cum };
+    });
+
+    const W = 760, H = 220, padL = 68, padR = 26, padT = 26, padB = 42;
+    const maxY = Math.max(1, pts[pts.length - 1].cumSaved) * 1.15;
+    const xOf = (i) => padL + (pts.length > 1 ? (i * (W - padL - padR)) / (pts.length - 1) : 0);
+    const yOf = (v) => padT + (H - padT - padB) * (1 - v / maxY);
+
+    let stepPath = "";
+    pts.forEach((p, i) => {
+      const x = xOf(i), y = yOf(p.cumSaved);
+      if (i === 0) stepPath += `M ${x} ${y}`;
+      else stepPath += ` L ${x} ${yOf(pts[i - 1].cumSaved)} L ${x} ${y}`;
+    });
+
+    const ticks = [0, 0.25, 0.5, 0.75, 1].map((t) => maxY * t);
+    const fmtY = (v) => v >= 1000 ? (v / 1000).toFixed(v >= 100000 ? 0 : 1) + "K L" : Math.round(v) + " L";
+
+    const gridSvg = ticks.map((v) => {
+      const y = yOf(v);
+      return `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="#e2e8f0" stroke-dasharray="3,3"/>
+              <text x="${padL - 8}" y="${y + 4}" text-anchor="end" font-size="11" fill="#64748b">${fmtY(v)}</text>`;
+    }).join("");
+
+    const dotsSvg = pts.map((p, i) => {
+      const x = xOf(i), y = yOf(p.cumSaved);
+      const isOurs = p.author === "thekeunpie-hash";
+      const fill = p.pr === 0 ? "#64748b" : isOurs ? "#0f766e" : (p.category === "dead-prune" ? "#dc2626" : "#2563eb");
+      const lbl = p.pr === 0 ? "v0.2.1" : `#${p.pr}`;
+      const deltaLbl = p.pr === 0 ? "" : `${p.net_lines.toLocaleString()} L`;
+      return `
+        <g class="frontier-dot" data-pr="${p.pr}" data-pattern="${p.pattern_id || ""}" data-url="${escHtml(p.url || "")}">
+          <circle cx="${x}" cy="${y}" r="${isOurs ? 6.5 : 5}" fill="${fill}" stroke="#ffffff" stroke-width="2">
+            <title>${escHtml(lbl + " (" + p.author + "): " + p.title + " | Cumulative saved: " + p.cumSaved.toLocaleString() + " L")}</title>
+          </circle>
+          <text x="${x}" y="${H - 18}" text-anchor="middle" font-size="11" font-weight="${isOurs ? 700 : 500}" fill="${isOurs ? "#0f766e" : "#334155"}">${lbl}</text>
+          ${deltaLbl ? `<text x="${x}" y="${Math.max(14, y - 10)}" text-anchor="middle" font-size="10.5" font-weight="600" fill="${fill}">${deltaLbl}</text>` : ""}
+        </g>`;
+    }).join("");
+
+    document.getElementById("frontierChart").innerHTML = `
+      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Upstream main compression frontier">
+        ${gridSvg}
+        <path d="${stepPath}" fill="none" stroke="#0f766e" stroke-width="2.5"/>
+        ${dotsSvg}
+      </svg>
+    `;
+
+    document.querySelectorAll(".frontier-dot").forEach((g) => {
+      g.addEventListener("click", () => {
+        const pid = g.getAttribute("data-pattern");
+        const url = g.getAttribute("data-url");
+        if (pid && PATTERNS_BY_ID[pid]) openInspector(pid);
+        else if (url) window.open(url, "_blank", "noopener");
+      });
+    });
+  }
+
+  document.querySelectorAll("#frontierToggle button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#frontierToggle button").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      drawChart(btn.getAttribute("data-mode"));
+    });
+  });
+  drawChart("active");
+
+  document.getElementById("frontierList").innerHTML = allEvents.filter((e) => e.pr > 0).map((e) => {
+    const badgeCls = e.status === "open" ? "badge-open" : (e.category === "dead-prune" ? "badge-dead" : "badge-exact");
+    const badgeTxt = e.status === "open" ? "Open" : (e.category === "dead-prune" ? "Dead Prune" : "Active Cone");
+    const tokNote = e.norm_tokens_before ? ` · norm tok ${e.norm_tokens_before.toLocaleString()}→${e.norm_tokens_after.toLocaleString()}` : "";
+    return `
+      <div class="frontier-item ${e.pattern_id ? "clickable" : ""}" data-pattern="${e.pattern_id || ""}" data-url="${escHtml(e.url || "")}">
+        <div class="frontier-item-top">
+          <span>PR #${e.pr} · @${escHtml(e.author)}</span>
+          <span class="badge ${badgeCls}">${badgeTxt}</span>
+        </div>
+        <div>${escHtml(e.title)}</div>
+        <div class="subpath">${e.net_lines > 0 ? "+" : ""}${e.net_lines.toLocaleString()} L (${e.files_changed.toLocaleString()} files)${tokNote}${e.pattern_id ? " · Inspect diff →" : ""}</div>
+      </div>`;
+  }).join("");
+
+  document.querySelectorAll(".frontier-item").forEach((el) => {
+    el.addEventListener("click", () => {
+      const pid = el.getAttribute("data-pattern");
+      const url = el.getAttribute("data-url");
+      if (pid && PATTERNS_BY_ID[pid]) openInspector(pid);
+      else if (url) window.open(url, "_blank", "noopener");
+    });
+  });
+}
+
+function renderPatternsAndTargets(fdata) {
+  const patterns = fdata.verified_patterns || [];
+  PATTERNS_BY_ID = {};
+  patterns.forEach((p) => { PATTERNS_BY_ID[p.id] = p; });
+
+  document.getElementById("patternGrid").innerHTML = patterns.map((p) => {
+    const stCls = p.status === "open" ? "badge-open" : (p.status === "verified" ? "badge-verified" : "badge-exact");
+    const stLbl = p.status === "open" ? "Open PR" : (p.status === "verified" ? "Verified Tool" : "Merged");
+    return `
+      <button type="button" class="pattern-card" data-pattern="${escHtml(p.id)}">
+        <div class="pattern-kicker">
+          <span>${escHtml(p.pr_label)}</span>
+          <span class="badge ${stCls}">${stLbl}</span>
+        </div>
+        <div class="pattern-title">${escHtml(p.title)}</div>
+        <p class="pattern-desc">${escHtml(p.summary)}</p>
+        <div class="chip-row">
+          <span class="chip chip-good">${escHtml(p.metrics.loc)}</span>
+          <span class="chip">${escHtml(p.metrics.norm_tokens)}</span>
+          <span class="chip">${escHtml(p.metrics.warnings)}</span>
+        </div>
+        <div class="pattern-cta">Inspect Unified Diff &amp; Verification Receipt →</div>
+      </button>`;
+  }).join("");
+
+  document.querySelectorAll(".pattern-card").forEach((card) => {
+    card.addEventListener("click", () => openInspector(card.getAttribute("data-pattern")));
+  });
+
+  const targets = fdata.actionable_targets || [];
+  const tbody = document.getElementById("targetBody");
+  function drawTargets(bucket) {
+    const rows = targets.filter((t) => bucket === "all" || t.bucket === bucket);
+    tbody.innerHTML = rows.map((t) => {
+      const bCls = t.bucket === "dead-prune" ? "badge-dead" : (t.bucket === "portability" ? "badge-open" : "badge-exact");
+      const bLbl = t.bucket === "dead-prune" ? "Dead Prune" : (t.bucket === "portability" ? "Portability" : "Active Bloat");
+      return `<tr>
+        <td><span class="badge ${bCls}">${bLbl}</span></td>
+        <td><code>${escHtml(t.target)}</code><br><span class="subpath">${escHtml(t.path)}</span></td>
+        <td class="num">${escHtml(t.in_cone)}</td>
+        <td>${escHtml(t.scale)}</td>
+        <td><strong>${escHtml(t.est_saving)}</strong><br><span class="subpath">${escHtml(t.why)}</span></td>
+      </tr>`;
+    }).join("");
+  }
+  document.querySelectorAll("#targetFilters button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#targetFilters button").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      drawTargets(btn.getAttribute("data-bucket"));
+    });
+  });
+  drawTargets("all");
+}
+
 function renderSummary(data) {
   const chains = data.witness_chains || {};
   const sel = document.getElementById("chainSel");
@@ -325,11 +678,16 @@ function renderSummary(data) {
 
 async function init() {
   try {
-    const [summaryText, specMd] = await Promise.all([
+    const [summaryText, frontierText, specMd] = await Promise.all([
       fetchWithFallback("data/kernel_backbone_summary.json"),
+      fetchWithFallback("data/upstream_frontier.json"),
       fetchWithFallback("SPEC.md")
     ]);
+    const frontierData = JSON.parse(frontierText);
+    renderPatternsAndTargets(frontierData);
+    renderFrontier(frontierData);
     renderSummary(JSON.parse(summaryText));
+
     const cleaned = specMd.replace(/<!--\s*audit:allow-dead-(?:start|end)\s*-->/g, "");
     const { text, blocks } = protectMath(cleaned);
     const html = restoreMath(marked.parse(text, { gfm: true }), blocks);
