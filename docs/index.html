@@ -198,7 +198,6 @@ function slugify(text) {
 function protectMath(md) {
   const blocks = [];
   const stash = (m) => { const i = blocks.length; blocks.push(m); return `@@MATHBLOCK${i}@@`; };
-  // Protect fenced code blocks and inline code first so $ inside code is untouched
   const code = [];
   const stashCode = (m) => { const i = code.length; code.push(m); return `@@CODEBLOCK${i}@@`; };
   let s = md.replace(/```[\s\S]*?```/g, stashCode).replace(/`[^`\n]+`/g, stashCode);
@@ -251,7 +250,9 @@ function buildToc(root) {
   const toc = document.getElementById("toc");
   const seen = new Map();
   root.querySelectorAll("h2, h3").forEach((h) => {
-    const clean = h.textContent.replace(/\b(Exact|Verified|Reading)\b/g, "").replace(/\s+/g, " ").trim();
+    const clone = h.cloneNode(true);
+    clone.querySelectorAll(".badge").forEach((b) => b.remove());
+    const clean = clone.textContent.replace(/\s+\+\s*$/, "").replace(/\s+/g, " ").trim();
     let id = slugify(clean) || "sec";
     const n = seen.get(id) || 0;
     seen.set(id, n + 1);
@@ -260,7 +261,7 @@ function buildToc(root) {
     const a = document.createElement("a");
     a.href = "#" + id;
     a.className = h.tagName === "H3" ? "toc-l3" : "toc-l2";
-    a.textContent = clean.replace(/\s*\+\s*$/, "");
+    a.textContent = clean;
     toc.appendChild(a);
   });
 }
@@ -335,7 +336,7 @@ async function init() {
     fixLinksAndTables(root);
     buildToc(root);
     if (window.renderMathInElement) {
-      renderMathInElement(root, {
+      renderMathInElement(document.body, {
         delimiters: [
           { left: "$$", right: "$$", display: true },
           { left: "$", right: "$", display: false }
