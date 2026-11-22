@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kernel-Grounded Minimal Backbone Specification — Lean 4.33.1 RH/GRH</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<style>
+  :root {
+    --bg: #fcfcfd;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --text: #0f172a;
+    --muted: #475569;
+    --accent: #0f766e;
+    --accent-soft: #f0fdfa;
+    --exact-bg: #dcfce7; --exact-fg: #166534;
+    --ver-bg: #dbeafe; --ver-fg: #1e40af;
+    --read-bg: #fef3c7; --read-fg: #92400e;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.65; font-size: 15px;
+  }
+  a { color: var(--accent); }
+  .layout { display: grid; grid-template-columns: 270px 1fr; max-width: 1360px; margin: 0 auto; }
+  nav.sidebar {
+    position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    border-right: 1px solid var(--border); padding: 24px 18px; background: var(--surface);
+  }
+  nav.sidebar h4 { margin: 0 0 12px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  nav.sidebar a { display: block; text-decoration: none; color: var(--muted); padding: 4px 0; font-size: 13px; line-height: 1.35; }
+  nav.sidebar a:hover { color: var(--accent); }
+  nav.sidebar a.toc-l3 { padding-left: 14px; font-size: 12px; }
+  main { padding: 32px 44px 80px; max-width: 980px; min-width: 0; }
+  .topbar {
+    display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+    font-size: 13px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border);
+  }
+  .topbar a { text-decoration: none; font-weight: 500; }
+  .topbar a.primary { font-weight: 700; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-size: 1.95rem; line-height: 1.25; margin-top: 0; border-bottom: 2px solid var(--text); padding-bottom: 12px; }
+  h2 { font-family: Georgia, "Times New Roman", serif; font-size: 1.42rem; margin-top: 2.3rem; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+  h3 { font-size: 1.08rem; margin-top: 1.5rem; color: #1e293b; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0 24px; }
+  .kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .kpi .k-num { font-size: 1.35rem; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
+  .kpi .k-lbl { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 22px; margin: 20px 0; }
+  .panel h3 { margin-top: 0; font-size: 1rem; }
+  .wf-row { display: grid; grid-template-columns: 310px 1fr 155px; align-items: center; gap: 12px; margin: 8px 0; font-size: 13px; }
+  .wf-track { background: #f1f5f9; height: 14px; border-radius: 7px; overflow: hidden; }
+  .wf-fill { height: 100%; border-radius: 7px; }
+  .wf-val { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); font-size: 12px; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 6px; border-radius: 4px; vertical-align: middle; letter-spacing: .02em; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  .badge-exact { background: var(--exact-bg); color: var(--exact-fg); }
+  .badge-verified { background: var(--ver-bg); color: var(--ver-fg); }
+  .badge-reading { background: var(--read-bg); color: var(--read-fg); }
+  code { font-family: "Cascadia Code", Consolas, "SFMono-Regular", monospace; font-size: 0.86em; background: #f1f5f9; padding: 1px 4px; border-radius: 4px; word-break: break-word; }
+  pre { background: #0f172a; color: #e2e8f0; padding: 14px 16px; border-radius: 8px; overflow-x: auto; font-size: 12.2px; line-height: 1.5; }
+  pre code { background: transparent; color: inherit; padding: 0; word-break: normal; }
+  .table-wrap { overflow-x: auto; margin: 14px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { border: 1px solid var(--border); padding: 7px 10px; text-align: left; vertical-align: top; }
+  th { background: #f8fafc; font-weight: 600; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .subpath { font-size: 11.5px; color: var(--muted); word-break: break-all; }
+  blockquote { border-left: 3px solid var(--accent); margin: 14px 0; padding: 8px 14px; background: var(--accent-soft); color: #134e4a; border-radius: 0 6px 6px 0; }
+  blockquote p { margin: 4px 0; }
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  select.chain-sel, input.filter-in {
+    padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px;
+    font-size: 13px; background: var(--surface); color: var(--text);
+  }
+  select.chain-sel { flex: 1 1 360px; min-width: 0; }
+  input.filter-in { width: 100%; max-width: 360px; }
+  button.btn {
+    padding: 7px 12px; border: 1px solid var(--border); border-radius: 6px;
+    background: #f8fafc; color: var(--text); font-size: 12.5px; font-weight: 500; cursor: pointer;
+  }
+  button.btn:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+  .chain-box { font-family: "Cascadia Code", Consolas, monospace; font-size: 12.3px; background: #f8fafc; border: 1px solid var(--border); border-radius: 6px; padding: 12px; line-height: 1.7; overflow-x: auto; }
+  .chain-step { display: flex; gap: 10px; align-items: baseline; }
+  .chain-d { color: var(--accent); font-weight: 700; min-width: 38px; flex-shrink: 0; }
+  .legend { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; font-size: 12.5px; margin: 8px 0 16px; }
+  .status-msg { color: var(--muted); font-size: 13px; font-style: italic; }
+  @media (max-width: 960px) {
+    .layout { grid-template-columns: 1fr; }
+    nav.sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+    main { padding: 24px 18px; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .wf-row { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="sidebar" id="toc">
+    <h4>Contents</h4>
+    <a href="#interactive-dashboard">Kernel Dashboard</a>
+  </nav>
+  <main>
+    <div id="interactive-dashboard">
+      <div class="topbar">
+        <a class="primary" href="https://github.com/thekeunpie-hash/rh-kernel-backbone" target="_blank" rel="noopener">GitHub Repository</a>
+        <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/SPEC.md" target="_blank" rel="noopener">SPEC.md</a>
+        <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/data/kernel_backbone_summary.json" target="_blank" rel="noopener">JSON Data</a>
+        <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/scripts/audit_spec_citations.py" target="_blank" rel="noopener">Citation Auditor</a>
+        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/60" target="_blank" rel="noopener">Upstream PR #60</a>
+        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/65" target="_blank" rel="noopener">Upstream PR #65</a>
+        <a href="https://github.com/thekeunpie-hash/rh-lean-dissection" target="_blank" rel="noopener" style="color:var(--muted);">Archive: rh-lean-dissection</a>
+      </div>
+
+      <div class="legend">
+        <strong>Epistemic Key:</strong>
+        <span><span class="badge badge-exact">Exact</span> Computed from Lean v4.33.1 kernel export / compiler</span>
+        <span><span class="badge badge-verified">Verified</span> Read from pinned source &amp; confirmed <code>in_cone = true</code></span>
+        <span><span class="badge badge-reading">Reading</span> Informal mathematical interpretation</span>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi"><div class="k-num" id="kpi-raw">17,374,215</div><div class="k-lbl">Raw source lines (175,187 files)</div></div>
+        <div class="kpi"><div class="k-num" id="kpi-active">10,737,728</div><div class="k-lbl">Kernel-used decl lines (61.8%)</div></div>
+        <div class="kpi"><div class="k-num" id="kpi-decls">804,912</div><div class="k-lbl">Active decls / 1,063,284 total</div></div>
+        <div class="kpi"><div class="k-num">99.997%</div><div class="k-lbl">Shared via <code>allChi</code> (only 25 decls differ)</div></div>
+      </div>
+
+      <div class="panel">
+        <h3>Kernel Bloat Waterfall <span class="badge badge-exact">Exact</span></h3>
+        <div id="waterfall">
+          <div class="wf-row"><div>Raw source files (175,187 files)</div><div class="wf-track"><div class="wf-fill" style="width:100.0%;background:#1e293b;"></div></div><div class="wf-val">17,374,215 L (100.0%)</div></div>
+          <div class="wf-row"><div>Non-declaration boilerplate (imports, opens, blanks)</div><div class="wf-track"><div class="wf-fill" style="width:22.7%;background:#94a3b8;"></div></div><div class="wf-val">3,941,735 L (22.7%)</div></div>
+          <div class="wf-row"><div>All parsed declarations (1,063,284 decls)</div><div class="wf-track"><div class="wf-fill" style="width:77.3%;background:#334155;"></div></div><div class="wf-val">13,432,480 L (77.3%)</div></div>
+          <div class="wf-row"><div>Dead declarations in 28,716 wholly-dead files</div><div class="wf-track"><div class="wf-fill" style="width:10.1%;background:#dc2626;"></div></div><div class="wf-val">1,754,237 L (10.1%)</div></div>
+          <div class="wf-row"><div>Dead declarations inside mixed active files</div><div class="wf-track"><div class="wf-fill" style="width:5.4%;background:#f97316;"></div></div><div class="wf-val">940,515 L (5.4%)</div></div>
+          <div class="wf-row"><div>Active kernel cone (804,912 decls, 146,287 files)</div><div class="wf-track"><div class="wf-fill" style="width:61.8%;background:#0f766e;"></div></div><div class="wf-val">10,737,728 L (61.8%)</div></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Kernel Witness-Chain Explorer (<code>why-parents.csv.gz</code> → <code>LFunction_ne_zero_of_half_lt_re</code>) <span class="badge badge-exact">Exact</span></h3>
+        <div class="controls">
+          <select id="chainSel" class="chain-sel"><option>Loading 36 exact witness chains…</option></select>
+          <button id="copyChainBtn" class="btn" type="button">Copy Chain</button>
+        </div>
+        <div id="chainOut" class="chain-box"><span class="status-msg">Loading kernel_backbone_summary.json…</span></div>
+      </div>
+
+      <div class="panel">
+        <details>
+          <summary style="cursor:pointer;font-weight:600;">Top 60 Kernel Dominator Nodes by Exclusive Subtree Lines (<code>dominators.tsv.gz</code>) <span class="badge badge-exact">Exact</span></summary>
+          <div style="margin:12px 0 8px;">
+            <input id="domFilter" class="filter-in" type="search" placeholder="Filter by declaration name or source path…">
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Depth</th><th>Declaration &amp; Source</th><th>Subtree Lines</th><th>% Cone</th><th>Subtree Decls</th></tr></thead>
+              <tbody id="domBody"><tr><td colspan="5" class="status-msg">Loading dominators…</td></tr></tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <article id="spec-root">
+      <p class="status-msg">Loading full kernel-grounded specification from <code>SPEC.md</code>…</p>
+    </article>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script>
+const RAW_BASE = "https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/";
+const BLOB_BASE = "https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/";
+
+async function fetchWithFallback(relPath) {
+  for (const url of [RAW_BASE + relPath, "../" + relPath]) {
+    try {
+      const r = await fetch(url);
+      if (r.ok) return await r.text();
+    } catch (_) {}
+  }
+  throw new Error("Could not fetch " + relPath);
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function slugify(text) {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+function protectMath(md) {
+  const blocks = [];
+  const stash = (m) => { const i = blocks.length; blocks.push(m); return `@@MATHBLOCK${i}@@`; };
+  // Protect fenced code blocks and inline code first so $ inside code is untouched
+  const code = [];
+  const stashCode = (m) => { const i = code.length; code.push(m); return `@@CODEBLOCK${i}@@`; };
+  let s = md.replace(/```[\s\S]*?```/g, stashCode).replace(/`[^`\n]+`/g, stashCode);
+  s = s.replace(/\$\$[\s\S]+?\$\$/g, stash);
+  s = s.replace(/\$(?!\s)(?:\\.|[^$\\\n])+(?<!\s)\$/g, stash);
+  s = s.replace(/@@CODEBLOCK(\d+)@@/g, (_, i) => code[Number(i)]);
+  return { text: s, blocks };
+}
+
+function restoreMath(html, blocks) {
+  return html.replace(/@@MATHBLOCK(\d+)@@/g, (_, i) => blocks[Number(i)]);
+}
+
+function applyBadges(root) {
+  root.querySelectorAll("code").forEach((el) => {
+    if (el.closest("pre")) return;
+    const t = el.textContent.trim();
+    if (t === "[Exact]" || t === "[Verified]" || t === "[Reading]") {
+      const span = document.createElement("span");
+      span.className = "badge " + (t === "[Exact]" ? "badge-exact" : t === "[Verified]" ? "badge-verified" : "badge-reading");
+      span.textContent = t.slice(1, -1);
+      el.replaceWith(span);
+    }
+  });
+}
+
+function fixLinksAndTables(root) {
+  root.querySelectorAll("a[href]").forEach((a) => {
+    const href = a.getAttribute("href");
+    if (href && !/^https?:\/\//i.test(href) && !href.startsWith("#")) {
+      a.href = BLOB_BASE + href.replace(/^\.\//, "");
+      a.target = "_blank";
+      a.rel = "noopener";
+    } else if (href && /^https?:\/\//i.test(href)) {
+      a.target = "_blank";
+      a.rel = "noopener";
+    }
+  });
+  root.querySelectorAll("table").forEach((tbl) => {
+    if (!tbl.parentElement.classList.contains("table-wrap")) {
+      const wrap = document.createElement("div");
+      wrap.className = "table-wrap";
+      tbl.parentNode.insertBefore(wrap, tbl);
+      wrap.appendChild(tbl);
+    }
+  });
+}
+
+function buildToc(root) {
+  const toc = document.getElementById("toc");
+  const seen = new Map();
+  root.querySelectorAll("h2, h3").forEach((h) => {
+    const clean = h.textContent.replace(/\b(Exact|Verified|Reading)\b/g, "").replace(/\s+/g, " ").trim();
+    let id = slugify(clean) || "sec";
+    const n = seen.get(id) || 0;
+    seen.set(id, n + 1);
+    if (n > 0) id += "-" + n;
+    h.id = id;
+    const a = document.createElement("a");
+    a.href = "#" + id;
+    a.className = h.tagName === "H3" ? "toc-l3" : "toc-l2";
+    a.textContent = clean.replace(/\s*\+\s*$/, "");
+    toc.appendChild(a);
+  });
+}
+
+function renderSummary(data) {
+  const chains = data.witness_chains || {};
+  const sel = document.getElementById("chainSel");
+  const out = document.getElementById("chainOut");
+  const keys = Object.keys(chains);
+  sel.innerHTML = keys.map((k) => {
+    const entry = chains[k];
+    const depth = Array.isArray(entry) ? entry[0].depth : entry.depth;
+    const shortName = k.split(".").pop();
+    return `<option value="${escHtml(k)}">${escHtml(shortName)} (depth ${depth}) — ${escHtml(k)}</option>`;
+  }).join("");
+
+  function getSteps(k) {
+    const entry = chains[k];
+    if (!entry) return [];
+    if (Array.isArray(entry)) return entry.map((s) => ({ node: s.node, depth: s.depth }));
+    const arr = entry.chain || [];
+    return arr.map((node, i) => ({ node, depth: arr.length - 1 - i }));
+  }
+
+  function showChain(k) {
+    const steps = getSteps(k);
+    out.innerHTML = steps.map((s, idx) =>
+      `<div class="chain-step"><span class="chain-d">d=${s.depth}</span><span>${idx > 0 ? "↳ " : ""}${escHtml(s.node)}</span></div>`
+    ).join("");
+  }
+
+  sel.addEventListener("change", () => showChain(sel.value));
+  document.getElementById("copyChainBtn").addEventListener("click", async () => {
+    const steps = getSteps(sel.value);
+    const txt = steps.map((s) => `[d=${s.depth}] ${s.node}`).join(" -> ");
+    try { await navigator.clipboard.writeText(txt); } catch (_) {}
+  });
+  if (keys.length) showChain(keys[0]);
+
+  const doms = data.top_dominators || [];
+  const activeLines = (data.global_totals && data.global_totals.active_decl_lines) || 10737728;
+  const tbody = document.getElementById("domBody");
+  const filterIn = document.getElementById("domFilter");
+
+  function renderDoms(q) {
+    const needle = (q || "").trim().toLowerCase();
+    const rows = doms.filter((d) =>
+      !needle || d.decl.toLowerCase().includes(needle) || (d.file || "").toLowerCase().includes(needle)
+    );
+    tbody.innerHTML = rows.map((d) => {
+      const pct = ((100 * d.sub_lines) / activeLines).toFixed(1) + "%";
+      return `<tr><td class="num">${d.dom_depth}</td><td><code>${escHtml(d.decl)}</code><br><span class="subpath">${escHtml(d.file)}:${d.start_line}</span></td><td class="num">${d.sub_lines.toLocaleString()}</td><td class="num">${pct}</td><td class="num">${d.sub_decls.toLocaleString()}</td></tr>`;
+    }).join("") || `<tr><td colspan="5" class="status-msg">No matching dominators.</td></tr>`;
+  }
+  filterIn.addEventListener("input", () => renderDoms(filterIn.value));
+  renderDoms("");
+}
+
+async function init() {
+  try {
+    const [summaryText, specMd] = await Promise.all([
+      fetchWithFallback("data/kernel_backbone_summary.json"),
+      fetchWithFallback("SPEC.md")
+    ]);
+    renderSummary(JSON.parse(summaryText));
+    const cleaned = specMd.replace(/<!--\s*audit:allow-dead-(?:start|end)\s*-->/g, "");
+    const { text, blocks } = protectMath(cleaned);
+    const html = restoreMath(marked.parse(text, { gfm: true }), blocks);
+    const root = document.getElementById("spec-root");
+    root.innerHTML = html;
+    applyBadges(root);
+    fixLinksAndTables(root);
+    buildToc(root);
+    if (window.renderMathInElement) {
+      renderMathInElement(root, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ],
+        throwOnError: false
+      });
+    }
+  } catch (err) {
+    document.getElementById("spec-root").innerHTML =
+      `<p>Could not load live specification data (${escHtml(err.message)}). Read <a href="${BLOB_BASE}SPEC.md">SPEC.md on GitHub</a>.</p>`;
+  }
+}
+
+init();
+</script>
+</body>
+</html>
