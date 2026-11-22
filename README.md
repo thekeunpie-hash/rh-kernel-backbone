@@ -1,7 +1,7 @@
 # Kernel-Grounded Minimal Backbone Specification (`leanprover-community/riemann-hypothesis`)
 
 > **Interactive Web Edition (GitHub Pages)**: [thekeunpie-hash.github.io/rh-kernel-backbone](https://thekeunpie-hash.github.io/rh-kernel-backbone/)  
-> **Full Specification**: [SPEC.md](SPEC.md) · **Machine-Readable Kernel Summary**: [data/kernel_backbone_summary.json](data/kernel_backbone_summary.json) · **Zero-Dead-Citation Auditor**: [scripts/audit_spec_citations.py](scripts/audit_spec_citations.py)
+> **Full Specification**: [SPEC.md](SPEC.md) · **Machine-Readable Kernel Summary**: [data/kernel_backbone_summary.json](data/kernel_backbone_summary.json) · **Citation Auditor**: [scripts/audit_spec_citations.py](scripts/audit_spec_citations.py) · **NDJSON Statement Auditor**: [scripts/audit_ndjson_statement.py](scripts/audit_ndjson_statement.py)
 
 A compact, kernel-audited technical map of Levent Alpöge's Lean `v4.33.1` formalization of the Riemann Hypothesis and Dirichlet $L$-function GRH ([`leanprover-community/riemann-hypothesis`](https://github.com/leanprover-community/riemann-hypothesis)), grounded directly in Andrew Sutherland and James Shore's `v0.2.1` Lean kernel export (`cone-constants.txt.gz`, `decls.csv.gz`, `dominators.tsv.gz`, `why-parents.csv.gz`, `directories.csv.gz`).
 
@@ -32,20 +32,22 @@ Every active qualified Lean declaration cited outside the fenced Dead-Code Self-
 2. **Iwasawa descent without $\mathbb{Z}_p[[T]]$ (`IwasawaModules/` is `0/16` dead `[Exact]`)**: Formal power-series ring theory over $\mathbb{Z}_p[[T]]$ is unused in the cone. Instead, `UpperTheory.V.FW.ferreroWashington` (`170/170` decls active) gives a finite $\mathbb{Z}_\ell$-generator bound `Tower.IsTower l L R` on the unramified Iwasawa module, and `UpperTheory.V.PropA.{exists_centres_norm, aBound_of_descends}` lifts $\gamma^{\ell^j}$ to an $R \times R$ matrix over $\mathbb{Z}_\ell$ and factors its determinant over $\overline{\mathbb{Q}}_\ell$ to dodge at most $R$ exceptional $\ell$-adic centers (`Win.thmBab_of_lemmaK`) `[Verified]`.
 3. **Standalone corollaries & clone asymmetry**: `SmallClassNumbers` (`0/23` decls active) is outside the 5-theorem kernel cone (and removed upstream). In `UnitaryGroupMassFormula`, the three near-duplicate directories have starkly asymmetric kernel usage: `StabilizerVolume` is **95.5%** active (`15,186 / 15,895` L), `StabilizerOrbitVolume` is **34.7%** active (`5,407 / 15,600` L), and `WeilStabilizerVolume` is **0.9%** active (`135 / 14,668` L — 99.1% dead) `[Exact]`.
 
-## Upstream Lean `v4.33.1` Simplification PRs
+## Upstream Lean `v4.33.1` Simplification & Modernization PRs
 
-All five rewritten files below are 100%-kernel-used (`in_cone = true`), verified locally under Lean `v4.33.1` (`-j1`, `-DwarningAsError=true`, `Kernel.isDefEq = true`, `Meta.isDefEq = true` on every declaration type and `def` value, exact `BinderInfo`/`levelParams`/imports, `{propext, Classical.choice, Quot.sound}` only, and clean compilation of all direct `dist=1` importers):
+All nine files modified across the three PRs below are 100%-kernel-used (`in_cone = true`), verified locally under Lean `v4.33.1` (`-j1`, `-DwarningAsError=true` with `0` warnings, `Kernel.isDefEq = true` and `Meta.isDefEq = true` on every declaration type and `def` value, exact `BinderInfo`/`levelParams`/imports, `{propext, Classical.choice, Quot.sound}` only, and clean compilation of all direct `dist=1` importers):
 
 - [PR #60](https://github.com/leanprover-community/riemann-hypothesis/pull/60) (**merged**, `173225e84`) — `CapelliIdentities/FixPiIff.lean` (`8,029 → 45` lines, `-99.4%`, `86.36s → 70.78s`).
 - [PR #65](https://github.com/leanprover-community/riemann-hypothesis/pull/65) (**merged**, `f1f6d6542`) — 4 remaining unclaimed kernel-used `CapelliIdentities` files (`FreeModuleQuotient.lean`, `ContDiffHerm.lean`, `SquareOfApproximation.lean`, `LimitOfFinite.lean`: `5,073 → 591` lines, `-88.4%`, `105 → 0` warnings).
+- [PR #71](https://github.com/leanprover-community/riemann-hypothesis/pull/71) (**open**, `ea66ac29e`) — removes **66** `backward.*` compatibility directives (**26 of 33** repo-wide `backward.defeqAttrib.useBackward` hits + **40** `backward.isDefEq.respectTransparency` hits) across 4 kernel-used scheme files (`CofilteredSchemeLimitExistsLocally.lean`, `CoequifiberedDiagramMap.lean`, `RelObjIsoHomSubtype.lean`, `ExistsEtaleNeighbourhoodFinitePieceIsolatedPoint.lean`; `0` warnings, `5/5` `dist=1` importers verified).
 
 ## Independent Verification & TCB Audit Summary `[Exact]`
 
-- **Four independent kernels accept the exported proof** (Andrew Sutherland, [MIT verification page](https://math.mit.edu/~drew/grh/), 2026-11-22 03:10 UTC): `leanchecker` (`175,187/175,187`), `lean4lean` (`175,187/175,187`), `nanoda` (Rust, full `61.57 GB` export, `exit 0`), `con-leche --compare` (`1,468,418` decls, all 5 `Main.lean` theorems justified against `Challenge.lean`), and `con-ron --compare` (Rust port, `exit 0`).
-- **Zeta-free arithmetic check (`Robin1984`)**: Combining the proof with `kimihiro64/Robin1984` proves `robin_inequality` and `lagarias_inequality` using only `{propext, Classical.choice, Quot.sound}`, accepted by `con-leche --compare`, `con-ron --compare` (`1,472,825` decls), and `nanoda`.
+- **Four independent kernels accept the exported proof** (Andrew Sutherland, [MIT verification page](https://math.mit.edu/~drew/grh/), 2026-11-22 04:35 UTC): `leanchecker` (`175,187/175,187`), `lean4lean` (`175,187/175,187`), `nanoda` (Rust, full `61.57 GB` export, `exit 0`), `con-leche --compare` (`1,468,418` decls, all 5 `Main.lean` theorems justified against `Challenge.lean`), and `con-ron --compare` (Rust port, `exit 0`).
+- **Zeta-free arithmetic check & explicit elaborated statements (`Robin1984` + [`explicit-statements.out`](https://math.mit.edu/~drew/grh/explicit-statements.out))**: Combining the proof with `kimihiro64/Robin1984` proves `robin_inequality` and `lagarias_inequality` using only `{propext, Classical.choice, Quot.sound}`, accepted by `con-leche --compare`, `con-ron --compare` (`1,472,825` decls), and `nanoda`. Elaborated against Mathlib `0df444a3` alone (zero proof loaded), `lagariasStmt` names **27** constants directly (**1,801** declaration closure) and `robinStmt` names **21** constants directly (**2,050** declaration closure).
+- **Lean-free raw NDJSON audit ([`scripts/audit_ndjson_statement.py`](scripts/audit_ndjson_statement.py))**: Parses MIT's `challenge.ndjson.zst` (`46.88 MB`, `sha256 bd484ac9…b2b9`, `51,692` top-level records, `0` unsafe, `0` missing) with Python's standard library alone, confirming all 5 raw kernel statement ASTs and `{Classical.choice, Quot.sound, propext}` only (`0` `sorryAx`) across their full statement-type closures (`52,527`–`52,992` declarations).
 - **Zero TCB bypasses**: Upstream `verification/static-scan.txt` and our line-by-line metaprogramming audit ([`meta_audit_verdict.md`](https://github.com/thekeunpie-hash/rh-lean-dissection/blob/main/reports/meta_audit_verdict.md)) confirm 0 `axiom`, 0 `sorry`, 0 `native_decide`/`ofReduceBool`/`trustCompiler`, 0 `implemented_by`/`extern`/`unsafe`/`opaque`, and 0 `skipKernelTC` across all 175,187 files. See Section 8 of [SPEC.md](SPEC.md) for the complete TCB breakdown.
 
-## Reproduce the Zero-Dead-Citation Audit
+## Reproduce the Audits
 
 Download `cone-constants.txt.gz` and `decls.csv.gz` from James Shore's `v0.2.1` kernel export, then run:
 
@@ -58,14 +60,23 @@ python scripts/audit_spec_citations.py \
 
 Expected result: `[PASS]` with `dead=0` on both files.
 
+To inspect the five raw kernel headline statements and verify their SHA-256 and axiom closures directly from MIT's `challenge.ndjson.zst` without Lean:
+
+```sh
+python scripts/audit_ndjson_statement.py \
+  --expected-sha256 bd484ac9886a96f26b1d9a7a59ebd45b7a70d102c015d4f31f9302bbdd6ab2b9 \
+  path/to/challenge.ndjson.zst
+```
+
 ## Repository Layout
 
 | Path | Description |
 | :--- | :--- |
-| [SPEC.md](SPEC.md) | Full kernel-grounded Minimal Backbone Specification (dominator spine, 3 pillars, 16-row witness table, and 24-item dead-code self-audit) |
+| [SPEC.md](SPEC.md) | Full kernel-grounded Minimal Backbone Specification (dominator spine, 3 pillars, 16-row witness table, 24-item dead-code self-audit, and Section 8 multi-kernel / TCB audit) |
 | [docs/index.html](docs/index.html) | Interactive web edition served via GitHub Pages (KaTeX typesetting, bloat waterfall, 36-landmark witness-chain explorer, searchable top-60 dominator table) |
 | [data/kernel_backbone_summary.json](data/kernel_backbone_summary.json) | Machine-readable global accounting, directory/subtree usage, top dominators, and 36 exact `why-parents` chains |
 | [scripts/audit_spec_citations.py](scripts/audit_spec_citations.py) | Zero-dependency Python auditor checking every active qualified Lean identifier against `cone-constants.txt.gz` and `decls.csv.gz` |
+| [scripts/audit_ndjson_statement.py](scripts/audit_ndjson_statement.py) | Zero-dependency Lean-free Python auditor inspecting raw `lean4export 3.1.0` NDJSON statements, safety flags, and axiom closures |
 | [LICENSE](LICENSE) | MIT License |
 
 For the broader Round 1–2 static dissection, metaprogramming soundness audit, standalone Lean harnesses, and Korean archives, see [`thekeunpie-hash/rh-lean-dissection`](https://github.com/thekeunpie-hash/rh-lean-dissection).
