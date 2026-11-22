@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kernel-Grounded Minimal Backbone Specification — Lean 4.33.1 RH/GRH</title>
+<title>Kernel-Grounded Minimal Backbone &amp; Live Upstream Tracker — Lean 4.36 RH/GRH</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
 <style>
   :root {
@@ -64,6 +64,25 @@
   .badge-reading { background: var(--read-bg); color: var(--read-fg); }
   .badge-dead { background: var(--dead-bg); color: var(--dead-fg); }
   .badge-open { background: var(--open-bg); color: var(--open-fg); }
+  .live-banner {
+    background: linear-gradient(135deg, #f0fdfa 0%, #eff6ff 100%);
+    border: 1px solid #99f6e4; border-radius: 10px; padding: 18px 22px; margin: 16px 0 22px;
+  }
+  .live-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .live-head h3 { margin: 0 0 4px; font-size: 1.05rem; color: #0f172a; }
+  .live-meta { font-size: 12px; color: var(--muted); font-family: "Cascadia Code", Consolas, monospace; }
+  .live-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 10px 0 14px; }
+  .live-kpi { background: rgba(255,255,255,0.92); border: 1px solid var(--border); border-radius: 8px; padding: 10px 13px; }
+  .live-kpi .lk-val { font-size: 1.18rem; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
+  .live-kpi .lk-delta { font-size: 11.5px; font-weight: 600; color: var(--exact-fg); margin-left: 6px; }
+  .live-kpi .lk-lbl { font-size: 11.8px; color: var(--muted); margin-top: 2px; }
+  .milestones-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
+  .ms-card { background: #ffffff; border: 1px solid var(--border); border-radius: 7px; padding: 10px 12px; font-size: 12.4px; }
+  .ms-card strong { display: block; margin-bottom: 3px; color: var(--text); font-size: 12.8px; }
+  .queue-table td, .queue-table th { font-size: 12.5px; padding: 6px 9px; }
+  @media (max-width: 960px) {
+    .live-grid, .milestones-strip { grid-template-columns: 1fr; }
+  }
   code { font-family: "Cascadia Code", Consolas, "SFMono-Regular", monospace; font-size: 0.86em; background: #f1f5f9; padding: 1px 4px; border-radius: 4px; word-break: break-word; }
   pre { background: #0f172a; color: #e2e8f0; padding: 14px 16px; border-radius: 8px; overflow-x: auto; font-size: 12.2px; line-height: 1.5; }
   pre code { background: transparent; color: inherit; padding: 0; word-break: normal; }
@@ -177,6 +196,7 @@
   <nav class="sidebar" id="toc">
     <h4>Contents</h4>
     <a href="#interactive-dashboard">Kernel Dashboard</a>
+    <a href="#live-upstream-tracker" class="toc-l3">Live Upstream Tracker (4.36)</a>
     <a href="#upstream-frontier" class="toc-l3">Upstream main Frontier</a>
     <a href="#verified-patterns" class="toc-l3">Verified De-bloating Patterns</a>
     <a href="#actionable-targets" class="toc-l3">Actionable Cleanup Targets</a>
@@ -187,26 +207,52 @@
       <div class="topbar">
         <a class="primary" href="https://github.com/thekeunpie-hash/rh-kernel-backbone" target="_blank" rel="noopener">GitHub Repository</a>
         <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/SPEC.md" target="_blank" rel="noopener">SPEC.md</a>
-        <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/data/kernel_backbone_summary.json" target="_blank" rel="noopener">JSON Data</a>
+        <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/data/upstream_frontier.json" target="_blank" rel="noopener">Live Tracker JSON</a>
+        <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/actions/workflows/update-tracker.yml" target="_blank" rel="noopener">Hourly Auto-Update</a>
         <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/scripts/audit_spec_citations.py" target="_blank" rel="noopener">Citation Auditor</a>
         <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/scripts/audit_ndjson_statement.py" target="_blank" rel="noopener">NDJSON Auditor</a>
-        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/60" target="_blank" rel="noopener">Upstream PR #60 (Merged)</a>
-        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/65" target="_blank" rel="noopener">Upstream PR #65 (Merged)</a>
-        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/71" target="_blank" rel="noopener">Upstream PR #71 (Open)</a>
+        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/60" target="_blank" rel="noopener">PR #60 (Merged)</a>
+        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/65" target="_blank" rel="noopener">PR #65 (Merged)</a>
+        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/71" target="_blank" rel="noopener">PR #71 (In #91)</a>
+        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/109" target="_blank" rel="noopener">PR #109 (4.36 Open)</a>
+        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/110" target="_blank" rel="noopener">PR #110 (4.36 Open)</a>
         <a href="https://github.com/thekeunpie-hash/rh-lean-dissection" target="_blank" rel="noopener" style="color:var(--muted);">Archive: rh-lean-dissection</a>
       </div>
 
       <div class="legend">
         <strong>Epistemic Key:</strong>
-        <span><span class="badge badge-exact">Exact</span> Computed from Lean v4.33.1 kernel export / compiler</span>
+        <span><span class="badge badge-exact">Exact</span> Computed from Lean kernel export / live upstream tree / compiler</span>
         <span><span class="badge badge-verified">Verified</span> Read from pinned source &amp; confirmed <code>in_cone = true</code></span>
         <span><span class="badge badge-reading">Reading</span> Informal mathematical interpretation</span>
       </div>
 
+      <section class="live-banner" id="live-upstream-tracker">
+        <div class="live-head">
+          <div>
+            <h3>Live Official <code>leanprover-community/riemann-hypothesis</code> Progress Tracker <span class="badge badge-exact">Exact</span> <span class="badge badge-verified" id="liveToolchainBadge">v4.36.0</span></h3>
+            <p class="panel-sub" style="margin:0;">Auto-updated hourly via GitHub Actions directly from official upstream <code>main</code> (not a synthetic sub-problem benchmark). Tracks exact <code>.lean</code> files, lines, imports, declarations, compatibility options, and the stacked Lean 4.36 PR queue.</p>
+          </div>
+          <div class="live-meta" id="liveMeta">Loading live upstream snapshot…</div>
+        </div>
+        <div class="live-grid" id="liveKpiGrid">
+          <div class="live-kpi"><div class="lk-val">—</div><div class="lk-lbl">Loading live metrics…</div></div>
+        </div>
+        <div class="milestones-strip" id="liveMilestones"></div>
+        <details style="margin-top:12px;" open>
+          <summary style="cursor:pointer;font-weight:600;font-size:13.2px;">Active Stacked Lean 4.36 PR Queue &amp; Verification Milestones <span class="badge badge-open" id="queueCountBadge">Queue</span></summary>
+          <div class="table-wrap" style="margin-top:8px;">
+            <table class="queue-table">
+              <thead><tr><th>PR</th><th>Status</th><th>Author</th><th>Scope &amp; Summary</th><th>Files</th><th>Net Lines</th></tr></thead>
+              <tbody id="queueBody"><tr><td colspan="6" class="status-msg">Loading stacked PR queue…</td></tr></tbody>
+            </table>
+          </div>
+        </details>
+      </section>
+
       <div class="kpi-grid">
-        <div class="kpi"><div class="k-num" id="kpi-raw">17,374,215</div><div class="k-lbl">Raw source lines (175,187 files)</div></div>
-        <div class="kpi"><div class="k-num" id="kpi-active">10,737,728</div><div class="k-lbl">Kernel-used decl lines (61.8%)</div></div>
-        <div class="kpi"><div class="k-num" id="kpi-decls">804,912</div><div class="k-lbl">Active decls / 1,063,284 total</div></div>
+        <div class="kpi"><div class="k-num" id="kpi-raw">17,374,215</div><div class="k-lbl">v0.2.1 Baseline raw lines (175,187 files)</div></div>
+        <div class="kpi"><div class="k-num" id="kpi-active">10,737,728</div><div class="k-lbl">v0.2.1 Kernel-used decl lines (61.8%)</div></div>
+        <div class="kpi"><div class="k-num" id="kpi-decls">804,912</div><div class="k-lbl">v0.2.1 Active decls / 1,063,284 total</div></div>
         <div class="kpi"><div class="k-num">99.997%</div><div class="k-lbl">Shared via <code>allChi</code> (only 25 decls differ)</div></div>
       </div>
 
@@ -229,8 +275,8 @@
             <p class="panel-sub">Real merged proof-cleanup PRs on <code>leanprover-community/riemann-hypothesis</code> (not an isolated sub-problem benchmark). Click any highlighted PR to inspect its diff &amp; verification receipt.</p>
           </div>
           <div class="seg-group" id="frontierToggle">
-            <button type="button" class="pill-btn active" data-mode="active">Active-Cone Refactors (#57–#68)</button>
-            <button type="button" class="pill-btn" data-mode="all">Full Repo incl. Dead Prune (#8–#68)</button>
+            <button type="button" class="pill-btn active" data-mode="active">Active-Cone Refactors (#57–#68+)</button>
+            <button type="button" class="pill-btn" data-mode="all">Full Repo incl. Dead Prune &amp; #66</button>
           </div>
         </div>
         <div class="frontier-stats" id="frontierStats">Loading upstream frontier metrics…</div>
@@ -251,7 +297,7 @@
             <p class="panel-sub">Separates untouched kernel-active bloat (<code>in_cone = true</code>) from verified dead subtrees (<code>in_cone = false</code>) so contributors never waste refactors on dead files such as <code>BehrendSets</code> (0/89) or <code>Cheb.statement_holds</code> (0/1).</p>
           </div>
           <div class="seg-group" id="targetFilters">
-            <button type="button" class="pill-btn active" data-bucket="all">All (10)</button>
+            <button type="button" class="pill-btn active" data-bucket="all" id="targetAllBtn">All Targets</button>
             <button type="button" class="pill-btn" data-bucket="active-bloat">Active Bloat</button>
             <button type="button" class="pill-btn" data-bucket="portability">Lean 4.36 Portability</button>
             <button type="button" class="pill-btn" data-bucket="dead-prune">Dead Subtree Prune</button>
@@ -452,6 +498,87 @@ document.getElementById("drawerCloseBtn").addEventListener("click", closeInspect
 document.getElementById("drawerBackdrop").addEventListener("click", closeInspector);
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeInspector(); });
 
+function renderLiveTracker(fdata) {
+  const lm = fdata.live_main;
+  if (!lm) return;
+  const tcShort = (lm.toolchain || "leanprover/lean4:v4.36.0").replace(/^leanprover\/lean4:/, "");
+  const badge = document.getElementById("liveToolchainBadge");
+  if (badge) badge.textContent = tcShort;
+  const meta = document.getElementById("liveMeta");
+  if (meta) {
+    const openNote = typeof lm.open_pr_count === "number" ? ` · ${lm.open_pr_count} open PRs` : "";
+    meta.innerHTML = `HEAD <a href="https://github.com/leanprover-community/riemann-hypothesis/commit/${escHtml(lm.sha)}" target="_blank" rel="noopener"><code>${escHtml(lm.sha)}</code></a>${openNote}<br>Measured ${escHtml(lm.measured_at || fdata.generated_at || "")}`;
+  }
+  const baseFiles = fdata.baseline_files || 175187;
+  const baseLines = fdata.baseline_raw_lines || 17374215;
+  const fPct = ((100 * (lm.lean_files - baseFiles)) / baseFiles).toFixed(1);
+  const lPct = ((100 * (lm.total_lines - baseLines)) / baseLines).toFixed(1);
+  const dDelta = lm.declarations - 1063284;
+  const dPct = ((100 * dDelta) / 1063284).toFixed(1);
+
+  document.getElementById("liveKpiGrid").innerHTML = `
+    <div class="live-kpi">
+      <div><span class="lk-val">${lm.lean_files.toLocaleString()}</span><span class="lk-delta">${lm.files_delta_vs_v021.toLocaleString()} (${fPct}%)</span></div>
+      <div class="lk-lbl">Live <code>src/**/*.lean</code> files vs. v0.2.1 (175,187)</div>
+    </div>
+    <div class="live-kpi">
+      <div><span class="lk-val">${lm.total_lines.toLocaleString()}</span><span class="lk-delta">${lm.lines_delta_vs_v021.toLocaleString()} (${lPct}%)</span></div>
+      <div class="lk-lbl">Live source lines vs. v0.2.1 (17,374,215)</div>
+    </div>
+    <div class="live-kpi">
+      <div><span class="lk-val">${lm.declarations.toLocaleString()}</span><span class="lk-delta">${dDelta.toLocaleString()} (${dPct}%)</span></div>
+      <div class="lk-lbl">Live declaration headers (${(lm.total_bytes / 1e6).toFixed(1)} MB)</div>
+    </div>
+    <div class="live-kpi">
+      <div><span class="lk-val">${lm.import_lines.toLocaleString()}</span></div>
+      <div class="lk-lbl">Live <code>import</code> / <code>public import</code> lines (target of PR #98)</div>
+    </div>
+    <div class="live-kpi">
+      <div><span class="lk-val">${lm.backward_options.toLocaleString()}</span></div>
+      <div class="lk-lbl">Remaining <code>set_option backward.*</code> directives</div>
+    </div>
+    <div class="live-kpi">
+      <div><span class="lk-val">${lm.heartbeat_options.toLocaleString()}</span></div>
+      <div class="lk-lbl">Remaining <code>maxHeartbeats</code> overrides (target of PR #79)</div>
+    </div>
+  `;
+
+  const ms = fdata.community_milestones || [];
+  const msEl = document.getElementById("liveMilestones");
+  if (msEl) {
+    msEl.innerHTML = ms.map((item) => `
+      <div class="ms-card">
+        <strong>${escHtml(item.title)} <span class="badge ${item.badge_cls || "badge-exact"}">${escHtml(item.badge || "Exact")}</span></strong>
+        <div style="color:var(--muted);line-height:1.45;">${escHtml(item.detail)}</div>
+        ${item.url ? `<div style="margin-top:4px;"><a href="${escHtml(item.url)}" target="_blank" rel="noopener" style="font-size:11.8px;font-weight:600;">${escHtml(item.link_label || "View source →")}</a></div>` : ""}
+      </div>
+    `).join("");
+  }
+
+  const queue = fdata.stacked_pr_queue || [];
+  const qBadge = document.getElementById("queueCountBadge");
+  if (qBadge) qBadge.textContent = `${queue.length} tracked PRs`;
+  const qBody = document.getElementById("queueBody");
+  if (qBody) {
+    qBody.innerHTML = queue.map((q) => {
+      const stCls = q.state === "merged" ? "badge-exact" : (q.state === "batched" ? "badge-verified" : (q.state === "closed" ? "badge-dead" : (q.draft ? "badge-reading" : "badge-open")));
+      const stLbl = q.state === "merged" ? "Merged" : (q.state === "batched" ? "In #91" : (q.state === "closed" ? "Closed" : (q.draft ? "Draft" : "Open")));
+      const filesStr = q.changed_files ? q.changed_files.toLocaleString() : "—";
+      const netStr = (!q.changed_files && q.net_lines === 0) || q.net_lines === null || q.net_lines === undefined
+        ? "—"
+        : (q.net_lines > 0 ? "+" : "") + q.net_lines.toLocaleString() + " L";
+      return `<tr>
+        <td><a href="${escHtml(q.url)}" target="_blank" rel="noopener"><strong>#${q.pr}</strong></a></td>
+        <td><span class="badge ${stCls}">${stLbl}</span></td>
+        <td>@${escHtml(q.author)}</td>
+        <td>${escHtml(q.title)}</td>
+        <td class="num">${filesStr}</td>
+        <td class="num">${netStr}</td>
+      </tr>`;
+    }).join("") || `<tr><td colspan="6" class="status-msg">No stacked PR data available.</td></tr>`;
+  }
+}
+
 function renderFrontier(fdata) {
   const allEvents = fdata.upstream_frontier || [];
   const merged = allEvents.filter((e) => e.status === "merged");
@@ -459,10 +586,12 @@ function renderFrontier(fdata) {
   const activeOnly = merged.filter((e) => e.category === "active-refactor");
   const activeNet = activeOnly.reduce((acc, e) => acc + (e.net_lines || 0), 0);
   const deadPrunedFiles = merged.reduce((acc, e) => acc + (e.files_deleted || 0), 0);
+  const lm = fdata.live_main;
+  const liveNetStr = lm ? `${lm.lines_delta_vs_v021.toLocaleString()} L (${Math.abs(lm.files_delta_vs_v021).toLocaleString()} fewer files)` : `${totalNet.toLocaleString()} L (${deadPrunedFiles.toLocaleString()} dead files deleted)`;
 
   document.getElementById("frontierStats").innerHTML = `
-    <span>Merged proof-cleanup PRs: <strong>${merged.length - 1}</strong> (+1 open portability PR #71)</span>
-    <span>Total net removed on <code>main</code>: <strong>${totalNet.toLocaleString()} L</strong> (${deadPrunedFiles.toLocaleString()} dead files deleted)</span>
+    <span>Merged landmark PRs: <strong>${merged.length - 1}</strong> (incl. #66 Lean 4.36.0)</span>
+    <span>Net delta on live <code>main</code> vs. v0.2.1: <strong>${liveNetStr}</strong></span>
     <span>Kernel-active refactorings: <strong>${activeNet.toLocaleString()} L</strong> across #57, #60, #65, #68</span>
   `;
 
@@ -543,8 +672,8 @@ function renderFrontier(fdata) {
   drawChart("active");
 
   document.getElementById("frontierList").innerHTML = allEvents.filter((e) => e.pr > 0).map((e) => {
-    const badgeCls = e.status === "open" ? "badge-open" : (e.category === "dead-prune" ? "badge-dead" : "badge-exact");
-    const badgeTxt = e.status === "open" ? "Open" : (e.category === "dead-prune" ? "Dead Prune" : "Active Cone");
+    const badgeCls = e.status === "open" ? "badge-open" : (e.status === "batched" ? "badge-verified" : (e.category === "dead-prune" ? "badge-dead" : (e.category === "toolchain-prune" ? "badge-verified" : "badge-exact")));
+    const badgeTxt = e.status === "open" ? "Open" : (e.status === "batched" ? "In #91 (4.36)" : (e.category === "dead-prune" ? "Dead Prune" : (e.category === "toolchain-prune" ? "Lean 4.36 + Prune" : "Active Cone")));
     const tokNote = e.norm_tokens_before ? ` · norm tok ${e.norm_tokens_before.toLocaleString()}→${e.norm_tokens_after.toLocaleString()}` : "";
     return `
       <div class="frontier-item ${e.pattern_id ? "clickable" : ""}" data-pattern="${e.pattern_id || ""}" data-url="${escHtml(e.url || "")}">
@@ -573,8 +702,8 @@ function renderPatternsAndTargets(fdata) {
   patterns.forEach((p) => { PATTERNS_BY_ID[p.id] = p; });
 
   document.getElementById("patternGrid").innerHTML = patterns.map((p) => {
-    const stCls = p.status === "open" ? "badge-open" : (p.status === "verified" ? "badge-verified" : "badge-exact");
-    const stLbl = p.status === "open" ? "Open PR" : (p.status === "verified" ? "Verified Tool" : "Merged");
+    const stCls = p.status === "open" ? "badge-open" : (p.status === "batched" || p.status === "verified" ? "badge-verified" : "badge-exact");
+    const stLbl = p.status === "open" ? "Open PR" : (p.status === "batched" ? "Ported in #91" : (p.status === "verified" ? "Verified Tool" : "Merged"));
     return `
       <button type="button" class="pattern-card" data-pattern="${escHtml(p.id)}">
         <div class="pattern-kicker">
@@ -597,6 +726,8 @@ function renderPatternsAndTargets(fdata) {
   });
 
   const targets = fdata.actionable_targets || [];
+  const allBtn = document.getElementById("targetAllBtn");
+  if (allBtn) allBtn.textContent = `All (${targets.length})`;
   const tbody = document.getElementById("targetBody");
   function drawTargets(bucket) {
     const rows = targets.filter((t) => bucket === "all" || t.bucket === bucket);
@@ -684,6 +815,7 @@ async function init() {
       fetchWithFallback("SPEC.md")
     ]);
     const frontierData = JSON.parse(frontierText);
+    renderLiveTracker(frontierData);
     renderPatternsAndTargets(frontierData);
     renderFrontier(frontierData);
     renderSummary(JSON.parse(summaryText));

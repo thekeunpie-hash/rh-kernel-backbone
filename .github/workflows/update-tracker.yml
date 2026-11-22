@@ -1,0 +1,43 @@
+name: Update Upstream RH Cleanup Tracker
+
+on:
+  schedule:
+    - cron: "15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-tracker
+  cancel-in-progress: false
+
+jobs:
+  update-tracker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout rh-kernel-backbone
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Measure live leanprover-community/riemann-hypothesis main and PR queue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/update_upstream_tracker.py --data data/upstream_frontier.json
+
+      - name: Commit updated metrics if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet data/upstream_frontier.json; then
+            git add data/upstream_frontier.json
+            git commit -m "chore(tracker): auto-update upstream main metrics ($(date -u +%Y-%m-%dT%H:%MZ))"
+            git push
+          else
+            echo "No upstream metric changes."
+          fi
