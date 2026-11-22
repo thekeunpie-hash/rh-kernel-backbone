@@ -36,8 +36,14 @@ Every active qualified Lean declaration cited outside the fenced Dead-Code Self-
 
 All five rewritten files below are 100%-kernel-used (`in_cone = true`), verified locally under Lean `v4.33.1` (`-j1`, `-DwarningAsError=true`, `Kernel.isDefEq = true`, `Meta.isDefEq = true` on every declaration type and `def` value, exact `BinderInfo`/`levelParams`/imports, `{propext, Classical.choice, Quot.sound}` only, and clean compilation of all direct `dist=1` importers):
 
-- [PR #60](https://github.com/leanprover-community/riemann-hypothesis/pull/60) — `CapelliIdentities/FixPiIff.lean` (`8,029 → 45` lines, `-99.4%`, `86.36s → 70.78s`).
-- [PR #65](https://github.com/leanprover-community/riemann-hypothesis/pull/65) — 4 remaining unclaimed kernel-used `CapelliIdentities` files (`FreeModuleQuotient.lean`, `ContDiffHerm.lean`, `SquareOfApproximation.lean`, `LimitOfFinite.lean`: `5,073 → 591` lines, `-88.4%`, `105 → 0` warnings).
+- [PR #60](https://github.com/leanprover-community/riemann-hypothesis/pull/60) (**merged**, `173225e84`) — `CapelliIdentities/FixPiIff.lean` (`8,029 → 45` lines, `-99.4%`, `86.36s → 70.78s`).
+- [PR #65](https://github.com/leanprover-community/riemann-hypothesis/pull/65) (open) — 4 remaining unclaimed kernel-used `CapelliIdentities` files (`FreeModuleQuotient.lean`, `ContDiffHerm.lean`, `SquareOfApproximation.lean`, `LimitOfFinite.lean`: `5,073 → 591` lines, `-88.4%`, `105 → 0` warnings).
+
+## Independent Verification & TCB Audit Summary `[Exact]`
+
+- **Four independent kernels accept the exported proof** (Andrew Sutherland, [MIT verification page](https://math.mit.edu/~drew/grh/), 2026-11-22 03:10 UTC): `leanchecker` (`175,187/175,187`), `lean4lean` (`175,187/175,187`), `nanoda` (Rust, full `61.57 GB` export, `exit 0`), `con-leche --compare` (`1,468,418` decls, all 5 `Main.lean` theorems justified against `Challenge.lean`), and `con-ron --compare` (Rust port, `exit 0`).
+- **Zeta-free arithmetic check (`Robin1984`)**: Combining the proof with `kimihiro64/Robin1984` proves `robin_inequality` and `lagarias_inequality` using only `{propext, Classical.choice, Quot.sound}`, accepted by `con-leche --compare`, `con-ron --compare` (`1,472,825` decls), and `nanoda`.
+- **Zero TCB bypasses**: Upstream `verification/static-scan.txt` and our line-by-line metaprogramming audit ([`meta_audit_verdict.md`](https://github.com/thekeunpie-hash/rh-lean-dissection/blob/main/reports/meta_audit_verdict.md)) confirm 0 `axiom`, 0 `sorry`, 0 `native_decide`/`ofReduceBool`/`trustCompiler`, 0 `implemented_by`/`extern`/`unsafe`/`opaque`, and 0 `skipKernelTC` across all 175,187 files. See Section 8 of [SPEC.md](SPEC.md) for the complete TCB breakdown.
 
 ## Reproduce the Zero-Dead-Citation Audit
 
