@@ -37,7 +37,7 @@ Every active qualified Lean declaration cited outside the fenced Dead-Code Self-
 All five rewritten files below are 100%-kernel-used (`in_cone = true`), verified locally under Lean `v4.33.1` (`-j1`, `-DwarningAsError=true`, `Kernel.isDefEq = true`, `Meta.isDefEq = true` on every declaration type and `def` value, exact `BinderInfo`/`levelParams`/imports, `{propext, Classical.choice, Quot.sound}` only, and clean compilation of all direct `dist=1` importers):
 
 - [PR #60](https://github.com/leanprover-community/riemann-hypothesis/pull/60) (**merged**, `173225e84`) — `CapelliIdentities/FixPiIff.lean` (`8,029 → 45` lines, `-99.4%`, `86.36s → 70.78s`).
-- [PR #65](https://github.com/leanprover-community/riemann-hypothesis/pull/65) (open) — 4 remaining unclaimed kernel-used `CapelliIdentities` files (`FreeModuleQuotient.lean`, `ContDiffHerm.lean`, `SquareOfApproximation.lean`, `LimitOfFinite.lean`: `5,073 → 591` lines, `-88.4%`, `105 → 0` warnings).
+- [PR #65](https://github.com/leanprover-community/riemann-hypothesis/pull/65) (**merged**, `f1f6d6542`) — 4 remaining unclaimed kernel-used `CapelliIdentities` files (`FreeModuleQuotient.lean`, `ContDiffHerm.lean`, `SquareOfApproximation.lean`, `LimitOfFinite.lean`: `5,073 → 591` lines, `-88.4%`, `105 → 0` warnings).
 
 ## Independent Verification & TCB Audit Summary `[Exact]`
 

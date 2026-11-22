@@ -108,8 +108,8 @@
         <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/SPEC.md" target="_blank" rel="noopener">SPEC.md</a>
         <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/data/kernel_backbone_summary.json" target="_blank" rel="noopener">JSON Data</a>
         <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/scripts/audit_spec_citations.py" target="_blank" rel="noopener">Citation Auditor</a>
-        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/60" target="_blank" rel="noopener">Upstream PR #60</a>
-        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/65" target="_blank" rel="noopener">Upstream PR #65</a>
+        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/60" target="_blank" rel="noopener">Upstream PR #60 (Merged)</a>
+        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/65" target="_blank" rel="noopener">Upstream PR #65 (Merged)</a>
         <a href="https://github.com/thekeunpie-hash/rh-lean-dissection" target="_blank" rel="noopener" style="color:var(--muted);">Archive: rh-lean-dissection</a>
       </div>
 
@@ -198,6 +198,7 @@ function slugify(text) {
 function protectMath(md) {
   const blocks = [];
   const stash = (m) => { const i = blocks.length; blocks.push(m); return `@@MATHBLOCK${i}@@`; };
+  // Protect fenced code blocks and inline code first so $ inside code is untouched
   const code = [];
   const stashCode = (m) => { const i = code.length; code.push(m); return `@@CODEBLOCK${i}@@`; };
   let s = md.replace(/```[\s\S]*?```/g, stashCode).replace(/`[^`\n]+`/g, stashCode);
