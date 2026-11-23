@@ -1,0 +1,3731 @@
+{
+  "generated_at": "2026-11-23T04:57:40Z",
+  "github": {
+    "zarnab222-dev": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 263,
+          "title": "perf(proofs): speed up the Hilbert–Samuel logarithmic bound",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "Deicyde": {
+      "association": "COLLABORATOR",
+      "prs_opened": [
+        {
+          "number": 262,
+          "title": "Batch/2026 11 22",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 233,
+          "title": "Batch queue: compare queued pull requests, assemble them into a batch, freeze it when it is built",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 226,
+          "title": "Add `batch queue` when a maintainer comments `batch`",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 124,
+          "title": "README: tighten the introduction and the checking section",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 121,
+          "title": "README: lead with `lake comparator`, and say which files are unchanged",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 118,
+          "title": "README: rewrite in plain prose",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 113,
+          "title": "Add a manually triggered workflow that runs the Lean auto-formatter over `src/`",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 111,
+          "title": "README: describe the Lean 4.36 port, its cache and its checking steps",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 97,
+          "title": "Run the Lean auto-formatter over `src/` (stacked on #66)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 91,
+          "title": "Shorten generated proofs and reuse existing results on Lean 4.36",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 88,
+          "title": "Add a second Comparator setup, with formal-conjectures' RH and GRH as the challenge",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 86,
+          "title": "Report vm.max_map_count at job start, fix the AWS template, clarify doctor output",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 85,
+          "title": "Pilot: Lean auto-formatter on a sample of the submission (not for merging)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 84,
+          "title": "Prototype Lean 4.36 cache import from volunteer artifacts",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 81,
+          "title": "Remove debugging output from the 4.36 port (stacked on #66)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 80,
+          "title": "Remove stub-check guards from the 4.36 port (stacked on #66)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 78,
+          "title": "Add `docs/references.bib` and cite it from two docstrings",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 74,
+          "title": "Give four duplicated theorems a single defining module",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 72,
+          "title": "Name the failed prerequisite when runner doctor reports not ready",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 43,
+          "title": "Improve cache client planning and failure handling",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 40,
+          "title": "Notes: .olean checksums depend on the build directory; compare exports",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 11,
+          "title": "Notes and README: account for the build cache added in #7",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 226,
+          "title": "Add `batch queue` when a maintainer comments `batch`",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 124,
+          "title": "README: tighten the introduction and the checking section",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 121,
+          "title": "README: lead with `lake comparator`, and say which files are unchanged",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 118,
+          "title": "README: rewrite in plain prose",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 111,
+          "title": "README: describe the Lean 4.36 port, its cache and its checking steps",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 88,
+          "title": "Add a second Comparator setup, with formal-conjectures' RH and GRH as the challenge",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 72,
+          "title": "Name the failed prerequisite when runner doctor reports not ready",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 43,
+          "title": "Improve cache client planning and failure handling",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 40,
+          "title": "Notes: .olean checksums depend on the build directory; compare exports",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 11,
+          "title": "Notes and README: account for the build cache added in #7",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 106,
+      "merge_commits_authored": 7,
+      "tier": "maintainer_or_collaborator"
+    },
+    "CubeJerry": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 261,
+          "title": "Simplify Whittaker relevance proofs and narrow their Mathlib imports",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 260,
+          "title": "Simplify kernel and cokernel length proofs",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 216,
+          "title": "Reuse Schur and finite Jacobson density in ScalarExtension",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 215,
+          "title": "Simplify the complement proof for saturated submodules",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 210,
+          "title": "Reuse Mathlib's polynomial eigenvector lemma",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 197,
+          "title": "Evaluate the Fubini–Study radial integral with the beta function",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 192,
+          "title": "Use block-diagonal identities for the Yangian matrix embeddings",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 261,
+          "title": "Simplify Whittaker relevance proofs and narrow their Mathlib imports",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 260,
+          "title": "Simplify kernel and cokernel length proofs",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 216,
+          "title": "Reuse Schur and finite Jacobson density in ScalarExtension",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 215,
+          "title": "Simplify the complement proof for saturated submodules",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 210,
+          "title": "Reuse Mathlib's polynomial eigenvector lemma",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 197,
+          "title": "Evaluate the Fubini–Study radial integral with the beta function",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 192,
+          "title": "Use block-diagonal identities for the Yangian matrix embeddings",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "active_contributor"
+    },
+    "JamCh01": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 259,
+          "title": "Port 1 Matrix mulVecLin-range rank proofs to Lean 4.37.0-rc1",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 258,
+          "title": "Repair 2 additional Lean 4.37.0-rc1 proof breakages on bump/lean-4.37.0-rc1 (batch 3)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 257,
+          "title": "Port LevelOne holomorphic irreducibility proof to Lean 4.37.0-rc1",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 254,
+          "title": "Port 10 Matrix rank and spectral-radius proofs to Lean 4.37.0-rc1",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 253,
+          "title": "Replace all 40 nlinarith calls in FormalGroupPointsNoPrimeToPTorsion and ContinuousInvSqrt (-49.8% build time)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 223,
+          "title": "Replace all 92 nlinarith calls across 5 proof modules (-63.6% combined build time)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 217,
+          "title": "Replace all 91 nlinarith calls across 4 proof modules (-35.1% combined build time)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 199,
+          "title": "Reuse 17 existing Main-cone proofs and prune 13 duplicate modules (−2,893 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 196,
+          "title": "Reuse 20 existing TwistedOperators proofs and prune 20 duplicate modules (−3,909 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 181,
+          "title": "Replace all 142 nlinarith calls across 4 proof modules (-56.8% combined build time)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 171,
+          "title": "Reuse 18 existing Main-cone proofs and prune 55 duplicate modules (−3,096 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 158,
+          "title": "Reuse 10 existing Main-cone proofs and prune 51 duplicate modules (−6,033 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 145,
+          "title": "Reuse existing AbelianDeRham proof and prune 204 duplicate modules (−17,488 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 140,
+          "title": "Reuse 5 existing Main-cone proofs and prune 88 duplicate modules (−6,385 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 132,
+          "title": "Reuse 4 existing Main-cone published proofs and prune 345 duplicate modules (−24,046 lines)",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "joshuanianji": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 256,
+          "title": "Use the StabilizerVolume copies of seven StabilizerOrbitVolume modules (−539 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 255,
+          "title": "Declare the I195 mixed-coordinate abbreviations once instead of 97 times (−1,597 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 252,
+          "title": "Use Mathlib lemmas instead of 11 local restatements",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 251,
+          "title": "Use the CompanionTheory copies of 23 Langlands-exhaustion and Grothendieck-ring modules (−3,206 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 249,
+          "title": "Use the CompanionTheory copies of six Galois-cohomology modules (−555 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 244,
+          "title": "Use the CompanionTheory copies of PlaceSeparation and WhittakerModels (−710 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 237,
+          "title": "Delete 112 FlagMeasures modules that nothing imports (−8,060 lines)",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "alectionary": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 248,
+          "title": "Replace 11 nlinarith calls with linarith in IntegrableOfContinuousCircleMeasure",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 247,
+          "title": "Replace 12 nlinarith calls with linarith in PrimesInProgressionCountLowerBound",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 245,
+          "title": "Replace 11 nlinarith calls with linarith in PlaneCountTheoremWithConstants",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 240,
+          "title": "Replace 12 nlinarith calls with linarith in MSqCount",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 236,
+          "title": "Replace 19 nlinarith calls with linarith in SevenLogLeLOfPowerBound",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 231,
+          "title": "Replace 9 nlinarith calls with linarith in GeometricStatement",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 228,
+          "title": "Replace 8 nlinarith calls with linarith in ExistsBoundRight",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 213,
+          "title": "Reuse quantitative bounds in the far-amplitude proof",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 211,
+          "title": "grok: shortcut IsScalarTower in log_abs_norm_sub_one_mul_totient_eq",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 209,
+          "title": "grok: shortcut SecondCountableTopologyEither in hasFDerivAt_partialFourierSnd (WIP)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 207,
+          "title": "grok: drop raised typeclass limits in del_sum/dbar_sum (WIP)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 204,
+          "title": "grok: speed up two exact elaborations in IsQuasicoherentOfForallExistsAffine.lean (WIP)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 201,
+          "title": "grok: speed up HasBasisAway.map elaboration in ExistsPowSmulMemRangeOfSurjectiveBaseChange.lean (~14.5 s → 5 s)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 195,
+          "title": "Replace 3 nlinarith calls in IteratedGainRapidDecay (−27% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 193,
+          "title": "Replace 3 nlinarith calls in ExistsIntegralPolyOfPrimitiveRootTotallyRamified (−29% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 190,
+          "title": "Replace 3 nlinarith calls in LogShortFamilyNumbersLe (−30% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 186,
+          "title": "Replace 5 nlinarith calls in TruncatedPerronPsi (−22% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 183,
+          "title": "Replace 7 nlinarith calls in IntegrableUnitIndicator (−28% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 176,
+          "title": "Replace 5 nlinarith calls in OneParam (−57% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 169,
+          "title": "grok: nlinarith → linarith in DixmierMalliavinLineKernel.lean (proof speedup) (WIP)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 166,
+          "title": "Replace 12 nlinarith calls in PosSemidefQuadraticAdjointPairBound (−15% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 164,
+          "title": "Replace 13 nlinarith calls in IdentityAsSumExpMinusOne (−23% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 161,
+          "title": "Replace 10 nlinarith calls with linarith in GaussAbs (−41% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 159,
+          "title": "Replace 9 nlinarith calls in AbsZeroTermSecondDifferenceLe (−41% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 157,
+          "title": "Replace 20 nlinarith calls in PNTExplMainA (−32% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 156,
+          "title": "Replace 11 nlinarith calls in PNTBAsmA (−59% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 153,
+          "title": "Replace 7 nlinarith calls in ColTorusB (−41% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 148,
+          "title": "Replace 9 nlinarith calls in MassPowLeExpRpow (−57% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 147,
+          "title": "Replace 6 nlinarith calls in LeOfSecondDifferenceBound (−28% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 142,
+          "title": "Replace 7 nlinarith calls with linarith in ExistsPosFiniteDensityOfAlmostTranslationInvaria (−29% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 136,
+          "title": "Reuse nilpotence and linearity in matrix geometric-sum proofs",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 245,
+          "title": "Replace 11 nlinarith calls with linarith in PlaneCountTheoremWithConstants",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 228,
+          "title": "Replace 8 nlinarith calls with linarith in ExistsBoundRight",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 211,
+          "title": "grok: shortcut IsScalarTower in log_abs_norm_sub_one_mul_totient_eq",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 195,
+          "title": "Replace 3 nlinarith calls in IteratedGainRapidDecay (−27% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 193,
+          "title": "Replace 3 nlinarith calls in ExistsIntegralPolyOfPrimitiveRootTotallyRamified (−29% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 190,
+          "title": "Replace 3 nlinarith calls in LogShortFamilyNumbersLe (−30% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 186,
+          "title": "Replace 5 nlinarith calls in TruncatedPerronPsi (−22% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 183,
+          "title": "Replace 7 nlinarith calls in IntegrableUnitIndicator (−28% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 176,
+          "title": "Replace 5 nlinarith calls in OneParam (−57% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 166,
+          "title": "Replace 12 nlinarith calls in PosSemidefQuadraticAdjointPairBound (−15% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 164,
+          "title": "Replace 13 nlinarith calls in IdentityAsSumExpMinusOne (−23% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 161,
+          "title": "Replace 10 nlinarith calls with linarith in GaussAbs (−41% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 159,
+          "title": "Replace 9 nlinarith calls in AbsZeroTermSecondDifferenceLe (−41% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 157,
+          "title": "Replace 20 nlinarith calls in PNTExplMainA (−32% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 156,
+          "title": "Replace 11 nlinarith calls in PNTBAsmA (−59% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 153,
+          "title": "Replace 7 nlinarith calls in ColTorusB (−41% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 148,
+          "title": "Replace 9 nlinarith calls in MassPowLeExpRpow (−57% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 147,
+          "title": "Replace 6 nlinarith calls in LeOfSecondDifferenceBound (−28% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 142,
+          "title": "Replace 7 nlinarith calls with linarith in ExistsPosFiniteDensityOfAlmostTranslationInvaria (−29% module build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 136,
+          "title": "Reuse nilpotence and linearity in matrix geometric-sum proofs",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "active_contributor"
+    },
+    "Sheape": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 246,
+          "title": "Speed up the entC_tr proof in InstBack",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 219,
+          "title": "Replace 22 nlinarith calls in RunSizesQuotientGapsLarge (−58% module build time)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 219,
+          "title": "Replace 22 nlinarith calls in RunSizesQuotientGapsLarge (−58% module build time)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "james-shore": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 243,
+          "title": "Remove proof syntax that was flagged unused by Lean's linters (Lean 4.37.0-rc1)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 67,
+          "title": "Remove proof syntax that was flagged unused by Lean's linters",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 55,
+          "title": "Remove declarations that are unused in the proof",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "maxilism": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 242,
+          "title": "Reuse the segment-representation proof and remove 35 unused modules",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 242,
+          "title": "Reuse the segment-representation proof and remove 35 unused modules",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "Robertboy18": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 241,
+          "title": "Speed up stale hash cleanup during cache restore",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 239,
+          "title": "Speed up the covolume numerical bounds",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 238,
+          "title": "Speed up the bar gap parameter inequality",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 214,
+          "title": "Document the Vandermonde determinant column order",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 141,
+          "title": "Document Hadamard’s determinant inequality",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 241,
+          "title": "Speed up stale hash cleanup during cache restore",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 1,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "Aurantium-47": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 235,
+          "title": "Keep the historic mirror check independent of live Lean pins",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "Visio-Vanitas": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 232,
+          "title": "Simplify explicit typeclass dumps in 4 large CapelliIdentities files (−10,402 lines)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 220,
+          "title": "Simplify explicit typeclass dumps in 5 CapelliIdentities files (−3,011 lines, quick-check ready)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 127,
+          "title": "Reuse 5 existing Main-cone proofs and prune 17 duplicate modules (−1,179 lines)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 119,
+          "title": "Reuse 3 existing Main-cone proofs and prune 80 duplicate modules (−3,777 lines)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 232,
+          "title": "Simplify explicit typeclass dumps in 4 large CapelliIdentities files (−10,402 lines)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 220,
+          "title": "Simplify explicit typeclass dumps in 5 CapelliIdentities files (−3,011 lines, quick-check ready)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 127,
+          "title": "Reuse 5 existing Main-cone proofs and prune 17 duplicate modules (−1,179 lines)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 119,
+          "title": "Reuse 3 existing Main-cone proofs and prune 80 duplicate modules (−3,777 lines)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "active_contributor"
+    },
+    "hipotures": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 230,
+          "title": "Drop with_unfolding_all on two fields of inGeo_tr in OmPinsTr (−23% module build time)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 230,
+          "title": "Drop with_unfolding_all on two fields of inGeo_tr in OmPinsTr (−23% module build time)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "Hope7Happiness": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 227,
+          "title": "Consolidate 9 duplicated public theorems with colliding binder plicities",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 227,
+          "title": "Consolidate 9 duplicated public theorems with colliding binder plicities",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "kim-em": {
+      "association": "COLLABORATOR",
+      "prs_opened": [
+        {
+          "number": 225,
+          "title": "Allow larger proof-donor seed manifests",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 205,
+          "title": "Record proof-job CPU, memory and task usage",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 203,
+          "title": "Enable fresh Lean 4.37 proof leases for PR 185",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 189,
+          "title": "Integrate the build-speedup changes with main (#134)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 187,
+          "title": "Set the systemd user bus for runner jobs",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 185,
+          "title": "Integrate proof cleanup and bump to Lean 4.37.0-rc1",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 182,
+          "title": "Use native proof donors for the current build-speedup candidate",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 172,
+          "title": "Fix the quick-check output context so workflow dispatches parse",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 163,
+          "title": "Run bounded changed-module checks on small runners",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 150,
+          "title": "Complete the remaining reviewed Lean 4.36 cleanup",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 122,
+          "title": "ci: enable donor shards for the updated cleanup snapshot",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 115,
+          "title": "Land the first reviewed Lean 4.36 cleanup batch",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 108,
+          "title": "Validate the proof worker task budget consistently",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 107,
+          "title": "Use James agreed first-build memory allocation",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 106,
+          "title": "Accept identical donor proof scopes in different module orders",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 105,
+          "title": "Raise donor proof task limit for stock Lean worker threads",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 103,
+          "title": "Isolate donor inputs and outputs between proof leases",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 102,
+          "title": "Reuse the expanded baseline across donor proof leases",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 101,
+          "title": "Let registered donors build bounded proof shards",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 89,
+          "title": "Port current main to Lean and Mathlib 4.36",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 52,
+          "title": "ci: prepare cache support for stock Lean 4.36",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 50,
+          "title": "Fix partial-cache publication for hosted resolver jobs with null group IDs",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 49,
+          "title": "Check that Elan is available before enrolling a runner",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 46,
+          "title": "Allow runner services to set build parallelism and memory",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 36,
+          "title": "ci: reuse S3 connections for faster cache publication",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 35,
+          "title": "Recover completed module caches with bounded parallel packing",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 32,
+          "title": "Recover completed outputs from quiesced CI work",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 31,
+          "title": "Prefer PR partial caches before newer main baselines",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 30,
+          "title": "Preserve interrupted CI work and recover completed modules",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 28,
+          "title": "Route small builds only by explicit manual selection",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 27,
+          "title": "Allow different PR heads to build on separate runners",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 26,
+          "title": "Make the runner invitation a short checklist",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 25,
+          "title": "Keep volunteer runner instructions to ten lines",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 24,
+          "title": "Preserve manual build caches when a PR advances during the build",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 23,
+          "title": "Keep automatic CI focused on builds",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 22,
+          "title": "Retry stale GitHub test merge results before scheduling builds",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 21,
+          "title": "Retain cached modules in portable Lake output maps",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 20,
+          "title": "Collect compressed cache outputs without duplicating expanded proof files",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 19,
+          "title": "Give volunteer hosts individual runner identities, not organization enrollment tokens",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 18,
+          "title": "Use private dependency checkouts for stock Lake cache metadata",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 17,
+          "title": "Load locked dependencies offline and retry cache publication without rebuilding",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 16,
+          "title": "Clean disposable outputs between persistent runner jobs",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 15,
+          "title": "Temporary acceptance test for PR olean publication",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 14,
+          "title": "Fix runner startup and use disk for large proof build scratch",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 13,
+          "title": "Build PRs on external runners and publish the resulting Lake cache",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 7,
+          "title": "Add public Cloudflare Lake cache and verified archive bootstrap",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 225,
+          "title": "Allow larger proof-donor seed manifests",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 205,
+          "title": "Record proof-job CPU, memory and task usage",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 203,
+          "title": "Enable fresh Lean 4.37 proof leases for PR 185",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 187,
+          "title": "Set the systemd user bus for runner jobs",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 182,
+          "title": "Use native proof donors for the current build-speedup candidate",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 172,
+          "title": "Fix the quick-check output context so workflow dispatches parse",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 163,
+          "title": "Run bounded changed-module checks on small runners",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 150,
+          "title": "Complete the remaining reviewed Lean 4.36 cleanup",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 122,
+          "title": "ci: enable donor shards for the updated cleanup snapshot",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 115,
+          "title": "Land the first reviewed Lean 4.36 cleanup batch",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 108,
+          "title": "Validate the proof worker task budget consistently",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 107,
+          "title": "Use James agreed first-build memory allocation",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 106,
+          "title": "Accept identical donor proof scopes in different module orders",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 105,
+          "title": "Raise donor proof task limit for stock Lean worker threads",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 103,
+          "title": "Isolate donor inputs and outputs between proof leases",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 102,
+          "title": "Reuse the expanded baseline across donor proof leases",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 101,
+          "title": "Let registered donors build bounded proof shards",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 52,
+          "title": "ci: prepare cache support for stock Lean 4.36",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 50,
+          "title": "Fix partial-cache publication for hosted resolver jobs with null group IDs",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 49,
+          "title": "Check that Elan is available before enrolling a runner",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 46,
+          "title": "Allow runner services to set build parallelism and memory",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 36,
+          "title": "ci: reuse S3 connections for faster cache publication",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 35,
+          "title": "Recover completed module caches with bounded parallel packing",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 32,
+          "title": "Recover completed outputs from quiesced CI work",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 31,
+          "title": "Prefer PR partial caches before newer main baselines",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 30,
+          "title": "Preserve interrupted CI work and recover completed modules",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 28,
+          "title": "Route small builds only by explicit manual selection",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 27,
+          "title": "Allow different PR heads to build on separate runners",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 26,
+          "title": "Make the runner invitation a short checklist",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 25,
+          "title": "Keep volunteer runner instructions to ten lines",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 24,
+          "title": "Preserve manual build caches when a PR advances during the build",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 23,
+          "title": "Keep automatic CI focused on builds",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 22,
+          "title": "Retry stale GitHub test merge results before scheduling builds",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 21,
+          "title": "Retain cached modules in portable Lake output maps",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 20,
+          "title": "Collect compressed cache outputs without duplicating expanded proof files",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 19,
+          "title": "Give volunteer hosts individual runner identities, not organization enrollment tokens",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 18,
+          "title": "Use private dependency checkouts for stock Lake cache metadata",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 17,
+          "title": "Load locked dependencies offline and retry cache publication without rebuilding",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 16,
+          "title": "Clean disposable outputs between persistent runner jobs",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 14,
+          "title": "Fix runner startup and use disk for large proof build scratch",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 13,
+          "title": "Build PRs on external runners and publish the resulting Lake cache",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 7,
+          "title": "Add public Cloudflare Lake cache and verified archive bootstrap",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 135,
+      "merge_commits_authored": 3,
+      "tier": "maintainer_or_collaborator"
+    },
+    "thekeunpie-hash": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 224,
+          "title": "Remove final 5 backward.defeqAttrib.useBackward directives repo-wide (33 -> 0)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 110,
+          "title": "Simplify explicit type dumps in cpR and std_cpR (NonzeroPlacesOverPrimesOfLifts.lean)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 109,
+          "title": "Restore #68 shared GL finiteness proof on Lean 4.36 (−180 files, −9,730 lines)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 71,
+          "title": "chore: remove 66 backward.* options across 4 kernel-used scheme files",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 65,
+          "title": "Simplify explicit typeclass dumps in 4 kernel-used CapelliIdentities files",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 60,
+          "title": "Simplify explicit typeclass dump in CapelliIdentities/FixPiIff.lean",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 65,
+          "title": "Simplify explicit typeclass dumps in 4 kernel-used CapelliIdentities files",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 60,
+          "title": "Simplify explicit typeclass dump in CapelliIdentities/FixPiIff.lean",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [
+        {
+          "number": 224,
+          "title": "Remove final 5 backward.defeqAttrib.useBackward directives repo-wide (33 -> 0)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 110,
+          "title": "Simplify explicit type dumps in cpR and std_cpR (NonzeroPlacesOverPrimesOfLifts.lean)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 109,
+          "title": "Restore #68 shared GL finiteness proof on Lean 4.36 (−180 files, −9,730 lines)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 2,
+      "merge_commits_authored": 0,
+      "tier": "active_contributor"
+    },
+    "gitRasheed": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 222,
+          "title": "Replace 221 nlinarith calls across 4 proof modules (-50.2% combined build time)",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "Serdnad": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 221,
+          "title": "Replace redundant proofs with Mathlib or internal reuse",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "jasonyandell": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 218,
+          "title": "Give `wd_congr` and `wdb_congr` one definition with one binder convention",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 117,
+          "title": "Simplify explicit typeclass dumps in 4 more CapelliIdentities files (Lean 4.36)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 70,
+          "title": "Simplify explicit typeclass dumps in 5 more CapelliIdentities files",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 218,
+          "title": "Give `wd_congr` and `wdb_congr` one definition with one binder convention",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 117,
+          "title": "Simplify explicit typeclass dumps in 4 more CapelliIdentities files (Lean 4.36)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "forsakendaemon": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 212,
+          "title": "Update Readme to list all theorems included in `src/Main.lean`",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 212,
+          "title": "Update Readme to list all theorems included in `src/Main.lean`",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 1,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "marwuint": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 208,
+          "title": "Reuse existing proofs in 41 modules and delete 147 modules only the old proofs used (−22,373 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 62,
+          "title": "Shorten machine-dumped terms and reuse repeated proofs in 76 modules",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "PHTPSN": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 206,
+          "title": "fix: use portable ASCII module paths",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "homeowmorphism": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 202,
+          "title": "cache get: remove Lake's saved hashes before unpacking",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 146,
+          "title": "README.md check for typos/inaccuracies/omissions",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 123,
+          "title": "README: clarify cache and CI verification scope",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 93,
+          "title": "README: drop counts that go stale; link the frozen copy of the published source",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 53,
+          "title": "cache get: say how to reuse the download when the source differs",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 51,
+          "title": "ci: find Lake's shared library on macOS in the cache publisher",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 48,
+          "title": "cache get: check for Python 3.11+ before downloading",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 202,
+          "title": "cache get: remove Lake's saved hashes before unpacking",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 146,
+          "title": "README.md check for typos/inaccuracies/omissions",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 123,
+          "title": "README: clarify cache and CI verification scope",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 93,
+          "title": "README: drop counts that go stale; link the frozen copy of the published source",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 53,
+          "title": "cache get: say how to reuse the download when the source differs",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 51,
+          "title": "ci: find Lake's shared library on macOS in the cache publisher",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 48,
+          "title": "cache get: check for Python 3.11+ before downloading",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 14,
+      "merge_commits_authored": 0,
+      "tier": "active_contributor"
+    },
+    "ashleyholman": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 200,
+          "title": "Remove duplicate private theorems from DenseThresholdCases (−4,504 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 116,
+          "title": "Remove duplicate declarations from ExceptionalGroupG2 (−2,638 lines)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 116,
+          "title": "Remove duplicate declarations from ExceptionalGroupG2 (−2,638 lines)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "maugomez77": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 198,
+          "title": "Replace 14 nlinarith calls in NumericalConditionsTheoremTLargePrime (−78% module build time)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 198,
+          "title": "Replace 14 nlinarith calls in NumericalConditionsTheoremTLargePrime (−78% module build time)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "sqrt-of-2": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 194,
+          "title": "fix: resolve ~10,000 linter and deprecation warnings",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "thorimur": {
+      "association": "COLLABORATOR",
+      "prs_opened": [
+        {
+          "number": 191,
+          "title": "Label PRs by size, from extra small to extra large",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 184,
+          "title": "docs: explain values in README",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 154,
+          "title": "Label PRs that touch build configuration, the challenge, CI or the README",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 4,
+          "title": "chore: minimize imports",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 191,
+          "title": "Label PRs by size, from extra small to extra large",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 184,
+          "title": "docs: explain values in README",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 154,
+          "title": "Label PRs that touch build configuration, the challenge, CI or the README",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 10,
+      "merge_commits_authored": 0,
+      "tier": "maintainer_or_collaborator"
+    },
+    "zediir": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 188,
+          "title": "Replace 29 local duplicates of Mathlib theorems with the Mathlib versions (−145 lines)",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "PastaPastaPasta": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 177,
+          "title": "Shorten the proofs in MatrixCoefficientBound and TracePairing (−544 lines)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 177,
+          "title": "Shorten the proofs in MatrixCoefficientBound and TracePairing (−544 lines)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "hughperkins": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 175,
+          "title": "refactor: shorten namespace qualifiers in intersection assembly",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 174,
+          "title": "refactor: reuse translation invariance in ColAbelD",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 170,
+          "title": "refactor: simplify proof scaffolding in eight modules",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 160,
+          "title": "refactor: simplify NonvanishingPoint with Mathlib",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 155,
+          "title": "refactor: simplify denominator clearing in LocalSituation",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 152,
+          "title": "refactor: reuse the stabilizer in CyclicSubtraction",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 149,
+          "title": "refactor: simplify the quadratic fixed-point proof",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 135,
+          "title": "refactor: reuse Complex.sq_nonpos_iff for conjugation lemma",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 114,
+          "title": "docs: add comments to HomAppHomOfRestrictImage.lean‎",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 160,
+          "title": "refactor: simplify NonvanishingPoint with Mathlib",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 155,
+          "title": "refactor: simplify denominator clearing in LocalSituation",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 152,
+          "title": "refactor: reuse the stabilizer in CyclicSubtraction",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 149,
+          "title": "refactor: simplify the quadratic fixed-point proof",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 135,
+          "title": "refactor: reuse Complex.sq_nonpos_iff for conjugation lemma",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 114,
+          "title": "docs: add comments to HomAppHomOfRestrictImage.lean‎",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "active_contributor"
+    },
+    "yourball": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 173,
+          "title": "Remove declarations unused by the five theorems (S1, Lean 4.36)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 126,
+          "title": "Remove no-op options (stacked on #120)",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "aliromman": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 168,
+          "title": "Use theorem aliases for 25,907 generated abelian-variety statements",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 162,
+          "title": "Give the chart equivalence lemmas one import-order-independent interface",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 139,
+          "title": "Share discrete-series proofs between classification and formal degree",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "mwiederrecht": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 167,
+          "title": "Give 68 more duplicated declarations a single home",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 165,
+          "title": "Give 26 duplicated declarations a single home",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "tudsytoo": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 144,
+          "title": "refactor: parametrize Bergman-Petersson-Tamagawa pipeline over volume/supremum constant",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 131,
+          "title": " refactor: simplify FrameLinearAlgebraFirst via coordinate-free centered     frame variance",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 144,
+          "title": "refactor: parametrize Bergman-Petersson-Tamagawa pipeline over volume/supremum constant",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "YinkaiYu": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 143,
+          "title": "Share the duplicated `summable_shift` lemma in ZeroFreeRegion",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 83,
+          "title": "Zero-free region: replace the 34-file assembly with a self-contained 2,447-token proof (Lean 4.36)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 82,
+          "title": "Share stabilizer filtration and Hensel counts (414 fewer Lean lines)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 75,
+          "title": "Share analytic proofs across zeta and Dirichlet L-functions (630 fewer Lean lines)",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 143,
+          "title": "Share the duplicated `summable_shift` lemma in ZeroFreeRegion",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "Vilin97": {
+      "association": "COLLABORATOR",
+      "prs_opened": [
+        {
+          "number": 134,
+          "title": "Speed up the build: remove heartbeat overrides, minimize imports, speed up slow proofs",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 104,
+          "title": "Speed up the slowest proofs (stacked on #79)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 98,
+          "title": "Minimize and privatize imports (stacked on #79)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 79,
+          "title": "Remove heartbeat overrides",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 66,
+          "title": "Bump to Lean and Mathlib v4.36.0",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 66,
+          "title": "Bump to Lean and Mathlib v4.36.0",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 4,
+      "merge_commits_authored": 0,
+      "tier": "maintainer_or_collaborator"
+    },
+    "surfyhou": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 130,
+          "title": "Prune 2 unused imports in 1 ReciprocityTheory modules",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 128,
+          "title": "Prune 14 unused imports in 3 Development modules",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 130,
+          "title": "Prune 2 unused imports in 1 ReciprocityTheory modules",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 128,
+          "title": "Prune 14 unused imports in 3 Development modules",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "vihdzp": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 129,
+          "title": "Update README.md",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 129,
+          "title": "Update README.md",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 1,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "kant2002": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 125,
+          "title": "Split Lemmata package into dependent and independent parts",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "rohanarun": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 120,
+          "title": "Collapse 28,169 thin wrappers and consolidate 93,601 modules into 20,258 bundles (−101,512 files, −67.9%)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 63,
+          "title": "Consolidate 133,202 small sibling modules into 22,831 antichain bundles (−110,371 files, −67.1%)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 61,
+          "title": "Collapse 5,544 more thin re-export wrappers — Wave 2 (stacked on #58)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 58,
+          "title": "Collapse 24,027 single-declaration thin re-export wrappers (stacked on #55)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 45,
+          "title": "Prune unused top-level imports and 11,163 unreachable dead modules",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 45,
+          "title": "Prune unused top-level imports and 11,163 unreachable dead modules",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 3,
+      "merge_commits_authored": 0,
+      "tier": "active_contributor"
+    },
+    "agulerman": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 100,
+          "title": "Reuse 12 existing kernel-cone proofs and remove 697 duplicate modules (−50,389 lines)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 57,
+          "title": "Simplify explicit typeclass dumps in 5 CapelliIdentities files",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 57,
+          "title": "Simplify explicit typeclass dumps in 5 CapelliIdentities files",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 1,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "Osgood001": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 95,
+          "title": "Simplify proofs in GammaFactorNonvanishing and ZeroFreeRegion (−824 lines)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 95,
+          "title": "Simplify proofs in GammaFactorNonvanishing and ZeroFreeRegion (−824 lines)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "hhh2210": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 94,
+          "title": "Reuse the quadratic Hasse norm theorem for the negative-one norm equation",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "graohene10-spec": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 92,
+          "title": "Reuse the existing CovNFormula proof",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 87,
+          "title": "Shorten checked proofs across 816 Lean modules",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 87,
+          "title": "Shorten checked proofs across 816 Lean modules",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "josephbebel": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 90,
+          "title": "Golf proofs in si  x ThetaBesselIsometries / BesselWaveGrids files (−344 lines)",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "xsoc1": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 76,
+          "title": "Share the threshold argument in combined_weight_of_nested_sets",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "deancureton": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 69,
+          "title": "cleanup/seed ancestor cache",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 33,
+          "title": "replace deprecated proof lemmas",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 10,
+          "title": "simplify generated proof fallbacks",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9,
+          "title": "remove redundant imports and heartbeat overrides",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8,
+          "title": "simplify Main imports and remove six unused modules",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 8,
+          "title": "simplify Main imports and remove six unused modules",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 2,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "antoshashakov": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 68,
+          "title": "Share the rank-induction proof of GL finiteness (9,010 fewer Lean lines)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 12,
+          "title": "A conductor-one RH reduction and a signal bound found through Principia's collaborative project",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 68,
+          "title": "Share the rank-induction proof of GL finiteness (9,010 fewer Lean lines)",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 1,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "Antimatter543": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 64,
+          "title": "Record the source changes since the original submission and fix the provenance check",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 64,
+          "title": "Record the source changes since the original submission and fix the provenance check",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 1,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "DebarghaG": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 54,
+          "title": "Golf the Riemann hypothesis proof one theorem at a time (3,220 fewer Lean lines)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 54,
+          "title": "Golf the Riemann hypothesis proof one theorem at a time (3,220 fewer Lean lines)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "mmmbeer": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 44,
+          "title": "Simplify the shared five-theorem proof and reduce its Lean source by 1.54 million lines",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "dbsanfte": {
+      "association": "NONE",
+      "prs_opened": [
+        {
+          "number": 38,
+          "title": "Specialize ordinary RH to the principal character",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "Ticobit": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 37,
+          "title": "ci-runner doctor: report vm.max_map_count and require a minimum",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 37,
+          "title": "ci-runner doctor: report vm.max_map_count and require a minimum",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 1,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "marcelolynch": {
+      "association": "CONTRIBUTOR",
+      "prs_opened": [
+        {
+          "number": 1,
+          "title": "Get the Mathlib cache from cache.mathlib.org",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 1,
+          "title": "Get the Mathlib cache from cache.mathlib.org",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 1,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    },
+    "codex": {
+      "association": "NONE",
+      "prs_opened": [],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 2,
+      "merge_commits_authored": 0,
+      "tier": "contributor"
+    }
+  },
+  "zulip_stats": {
+    "Thomas Murrills": {
+      "messages": 33,
+      "reactions_received": 31,
+      "topics": {
+        "RH: cleaning up the proof": 24,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
+        "RH: why can I trust Lean?": 5,
+        "RH: bumping the lean version": 2
+      }
+    },
+    "Michael Righi": {
+      "messages": 2,
+      "reactions_received": 2,
+      "topics": {
+        "RH: cleaning up the proof": 2
+      }
+    },
+    "Vasily Ilin": {
+      "messages": 21,
+      "reactions_received": 39,
+      "topics": {
+        "RH: cleaning up the proof": 16,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
+        "RH: bumping the lean version": 4
+      }
+    },
+    "Rohan Arun": {
+      "messages": 46,
+      "reactions_received": 15,
+      "topics": {
+        "RH: cleaning up the proof": 45,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Moritz Roos": {
+      "messages": 5,
+      "reactions_received": 7,
+      "topics": {
+        "RH: cleaning up the proof": 5
+      }
+    },
+    "Kim Morrison": {
+      "messages": 30,
+      "reactions_received": 16,
+      "topics": {
+        "RH: cleaning up the proof": 28,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
+        "RH: why can I trust Lean?": 1
+      }
+    },
+    "Hang Lu Su": {
+      "messages": 4,
+      "reactions_received": 3,
+      "topics": {
+        "RH: cleaning up the proof": 2,
+        "RH: conserving original proof": 2
+      }
+    },
+    "Snir Broshi": {
+      "messages": 14,
+      "reactions_received": 13,
+      "topics": {
+        "RH: cleaning up the proof": 14
+      }
+    },
+    "Andrii Kurdiumov": {
+      "messages": 14,
+      "reactions_received": 8,
+      "topics": {
+        "RH: cleaning up the proof": 12,
+        "RH: why can I trust Lean?": 1,
+        "RH: bumping the lean version": 1
+      }
+    },
+    "Violeta Hernández": {
+      "messages": 5,
+      "reactions_received": 19,
+      "topics": {
+        "RH: cleaning up the proof": 4,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Oscar Smith": {
+      "messages": 3,
+      "reactions_received": 2,
+      "topics": {
+        "RH: cleaning up the proof": 3
+      }
+    },
+    "James Shore": {
+      "messages": 10,
+      "reactions_received": 5,
+      "topics": {
+        "RH: cleaning up the proof": 9,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Martin Hanzlowsky": {
+      "messages": 3,
+      "reactions_received": 4,
+      "topics": {
+        "RH: cleaning up the proof": 3
+      }
+    },
+    "Andres Gutierrez": {
+      "messages": 5,
+      "reactions_received": 2,
+      "topics": {
+        "RH: cleaning up the proof": 5
+      }
+    },
+    "Eric Astor": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "Jinho Noh": {
+      "messages": 7,
+      "reactions_received": 6,
+      "topics": {
+        "RH: cleaning up the proof": 6,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Cat Bunny": {
+      "messages": 1,
+      "reactions_received": 1,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "Jack McCarthy": {
+      "messages": 39,
+      "reactions_received": 22,
+      "topics": {
+        "RH: cleaning up the proof": 27,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 3,
+        "RH: why can I trust Lean?": 7,
+        "RH: bumping the lean version": 2
+      }
+    },
+    "Kevin Gibbons": {
+      "messages": 3,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 3
+      }
+    },
+    "Mario Carneiro": {
+      "messages": 58,
+      "reactions_received": 54,
+      "topics": {
+        "RH: cleaning up the proof": 1,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 3,
+        "RH: why can I trust Lean?": 54
+      }
+    },
+    "Riccardo Brasca": {
+      "messages": 5,
+      "reactions_received": 9,
+      "topics": {
+        "RH: cleaning up the proof": 3,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2
+      }
+    },
+    "Joseph Myers": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "Sébastien Gouëzel": {
+      "messages": 1,
+      "reactions_received": 6,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "metakuntyyy": {
+      "messages": 14,
+      "reactions_received": 15,
+      "topics": {
+        "RH: cleaning up the proof": 5,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 3,
+        "RH: why can I trust Lean?": 6
+      }
+    },
+    "Trey Cherry": {
+      "messages": 4,
+      "reactions_received": 2,
+      "topics": {
+        "RH: cleaning up the proof": 3,
+        "RH: conserving original proof": 1
+      }
+    },
+    "Chase Norman": {
+      "messages": 3,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 3
+      }
+    },
+    "Yaroslav Kharkov": {
+      "messages": 2,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 2
+      }
+    },
+    "David Michael Roberts": {
+      "messages": 3,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 1,
+        "RH: why can I trust Lean?": 2
+      }
+    },
+    "David Loeffler": {
+      "messages": 16,
+      "reactions_received": 32,
+      "topics": {
+        "RH: cleaning up the proof": 4,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
+        "RH: why can I trust Lean?": 10
+      }
+    },
+    "Kunal Marwaha": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "Adam Koszek": {
+      "messages": 13,
+      "reactions_received": 1,
+      "topics": {
+        "RH: cleaning up the proof": 3,
+        "RH: why can I trust Lean?": 10
+      }
+    },
+    "suhr": {
+      "messages": 27,
+      "reactions_received": 29,
+      "topics": {
+        "RH: cleaning up the proof": 1,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
+        "RH: why can I trust Lean?": 24
+      }
+    },
+    "Filippo A. E. Nuccio": {
+      "messages": 2,
+      "reactions_received": 11,
+      "topics": {
+        "RH: cleaning up the proof": 1,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Tanner Clary": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "Tianyu Qi": {
+      "messages": 2,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 1,
+        "RH: why can I trust Lean?": 1
+      }
+    },
+    "Shigang Ou": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "Eric Wieser": {
+      "messages": 9,
+      "reactions_received": 13,
+      "topics": {
+        "RH: cleaning up the proof": 1,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
+        "RH: why can I trust Lean?": 7
+      }
+    },
+    "Timothy Chow": {
+      "messages": 6,
+      "reactions_received": 15,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 3,
+        "RH: why can I trust Lean?": 3
+      }
+    },
+    "Lectori Salutem": {
+      "messages": 14,
+      "reactions_received": 3,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 14
+      }
+    },
+    "Harry Tong": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "A. F. G.": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Jonathan Retting": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "twinheterodox": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Josiah Park": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Simon DeDeo": {
+      "messages": 1,
+      "reactions_received": 11,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Andrew Sutherland": {
+      "messages": 6,
+      "reactions_received": 4,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 6
+      }
+    },
+    "Richard Osborn": {
+      "messages": 3,
+      "reactions_received": 3,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
+        "RH: why can I trust Lean?": 1
+      }
+    },
+    "Aavishkar kanani": {
+      "messages": 2,
+      "reactions_received": 2,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
+        "RH: dependency map of the proof": 1
+      }
+    },
+    "Shirin Shafaie": {
+      "messages": 3,
+      "reactions_received": 4,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 3
+      }
+    },
+    "Michael Kiss": {
+      "messages": 2,
+      "reactions_received": 1,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2
+      }
+    },
+    "Artie Khovanov": {
+      "messages": 11,
+      "reactions_received": 14,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 5,
+        "RH: why can I trust Lean?": 6
+      }
+    },
+    "Mirek Olšák": {
+      "messages": 10,
+      "reactions_received": 5,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
+        "RH: why can I trust Lean?": 8
+      }
+    },
+    "Aarre Lisakki": {
+      "messages": 10,
+      "reactions_received": 13,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 6,
+        "RH: why can I trust Lean?": 4
+      }
+    },
+    "Szymon Teżewski": {
+      "messages": 4,
+      "reactions_received": 1,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 4
+      }
+    },
+    "Anton Mellit": {
+      "messages": 9,
+      "reactions_received": 14,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 5,
+        "RH: why can I trust Lean?": 4
+      }
+    },
+    "George Coote": {
+      "messages": 2,
+      "reactions_received": 1,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
+        "RH: why can I trust Lean?": 1
+      }
+    },
+    "pilgrim": {
+      "messages": 6,
+      "reactions_received": 0,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 3,
+        "RH: why can I trust Lean?": 3
+      }
+    },
+    "M. Henkin": {
+      "messages": 2,
+      "reactions_received": 7,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2
+      }
+    },
+    "Scott Cochran": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Bartosz Naskręcki": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Sil": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Linfeng Song": {
+      "messages": 3,
+      "reactions_received": 1,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
+        "RH: why can I trust Lean?": 1
+      }
+    },
+    "Harald Helfgott": {
+      "messages": 3,
+      "reactions_received": 1,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 3
+      }
+    },
+    "Julian Berman": {
+      "messages": 1,
+      "reactions_received": 2,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Chris Henson": {
+      "messages": 1,
+      "reactions_received": 1,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Gregory Wickham": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Debargha Ganguly": {
+      "messages": 2,
+      "reactions_received": 0,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2
+      }
+    },
+    "bob": {
+      "messages": 2,
+      "reactions_received": 1,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
+        "RH: why can I trust Lean?": 1
+      }
+    },
+    "Maxime Rinoldo": {
+      "messages": 13,
+      "reactions_received": 13,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
+        "RH: why can I trust Lean?": 12
+      }
+    },
+    "Jason Rute": {
+      "messages": 4,
+      "reactions_received": 10,
+      "topics": {
+        "RH: why can I trust Lean?": 4
+      }
+    },
+    "Jonas Whidden": {
+      "messages": 9,
+      "reactions_received": 5,
+      "topics": {
+        "RH: why can I trust Lean?": 9
+      }
+    },
+    "Chris Bailey": {
+      "messages": 11,
+      "reactions_received": 12,
+      "topics": {
+        "RH: why can I trust Lean?": 11
+      }
+    },
+    "Somo Sakala": {
+      "messages": 3,
+      "reactions_received": 1,
+      "topics": {
+        "RH: why can I trust Lean?": 3
+      }
+    },
+    "Lior Silberman": {
+      "messages": 7,
+      "reactions_received": 5,
+      "topics": {
+        "RH: why can I trust Lean?": 7
+      }
+    },
+    "Joachim Breitner": {
+      "messages": 5,
+      "reactions_received": 5,
+      "topics": {
+        "RH: why can I trust Lean?": 5
+      }
+    },
+    "Lorenz Leutgeb": {
+      "messages": 3,
+      "reactions_received": 0,
+      "topics": {
+        "RH: why can I trust Lean?": 3
+      }
+    },
+    "Henrik Böving": {
+      "messages": 1,
+      "reactions_received": 2,
+      "topics": {
+        "RH: why can I trust Lean?": 1
+      }
+    },
+    "Dobri Bozhilov": {
+      "messages": 2,
+      "reactions_received": 1,
+      "topics": {
+        "RH: why can I trust Lean?": 2
+      }
+    },
+    "Jelmer Firet": {
+      "messages": 4,
+      "reactions_received": 3,
+      "topics": {
+        "RH: why can I trust Lean?": 4
+      }
+    },
+    "Yakov Pechersky": {
+      "messages": 1,
+      "reactions_received": 5,
+      "topics": {
+        "RH: why can I trust Lean?": 1
+      }
+    },
+    "Justin Mazor": {
+      "messages": 1,
+      "reactions_received": 3,
+      "topics": {
+        "RH: why can I trust Lean?": 1
+      }
+    },
+    "Tom Gracey": {
+      "messages": 73,
+      "reactions_received": 27,
+      "topics": {
+        "RH: why can I trust Lean?": 73
+      }
+    },
+    "Alexis Olson": {
+      "messages": 4,
+      "reactions_received": 0,
+      "topics": {
+        "RH: why can I trust Lean?": 4
+      }
+    },
+    "Andrés Goens": {
+      "messages": 2,
+      "reactions_received": 0,
+      "topics": {
+        "RH: why can I trust Lean?": 2
+      }
+    },
+    "TrueBoxGuy": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: why can I trust Lean?": 1
+      }
+    },
+    "Brian Gomes Bascoy": {
+      "messages": 2,
+      "reactions_received": 0,
+      "topics": {
+        "RH: why can I trust Lean?": 2
+      }
+    },
+    "Jon Eugster": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: why can I trust Lean?": 1
+      }
+    },
+    "Jeremy Chen": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: why can I trust Lean?": 1
+      }
+    },
+    "Alex Korbonits": {
+      "messages": 4,
+      "reactions_received": 3,
+      "topics": {
+        "RH: why can I trust Lean?": 4
+      }
+    },
+    "Albert T": {
+      "messages": 3,
+      "reactions_received": 22,
+      "topics": {
+        "RH: why can I trust Lean?": 3
+      }
+    },
+    "Kevin Buzzard": {
+      "messages": 1,
+      "reactions_received": 10,
+      "topics": {
+        "RH: why can I trust Lean?": 1
+      }
+    },
+    "pCwOrM": {
+      "messages": 1,
+      "reactions_received": 1,
+      "topics": {
+        "RH: bumping the lean version": 1
+      }
+    },
+    "Fred Y. Ye": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "A readable proof based on Alpöge's sparse-window theorems": 1
+      }
+    }
+  },
+  "highlights": [
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "David Loeffler",
+      "reactions": 27,
+      "snippet": "@_**Shirin Shafaie|1220143** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642647909): ```quote I am relatively new to Lean and mathlib, s"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Tom Gracey",
+      "reactions": 21,
+      "snippet": "ok, I'm going to leave this discussion now - I feel I have learned a lot about it from the way you have responded"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Albert T",
+      "reactions": 18,
+      "snippet": "Ok, I'm just a casual observer from the general population, but even I'm getting annoyed by new people coming in and asking for a walk through of what's going on here from first principles. Tom, did you even try to start with the fundamenta"
+    },
+    {
+      "topic": "RH: cleaning up the proof",
+      "sender": "Vasily Ilin",
+      "reactions": 17,
+      "snippet": "I am actually happy that Levent put out such a messy formalization. Everyone involved in the cleanup now has firsthand experience of improving Lean code at scale, and all the problems that come up. For example, I have been talking about Lea"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "suhr",
+      "reactions": 17,
+      "snippet": "@_**Yakov Pechersky|308899** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F/near/642676373): ```quote If I have a C function that is typed that the return type is `int`, "
+    },
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "Violeta Hernández",
+      "reactions": 14,
+      "snippet": "We compiled the code, with the highest safeguards, and we verified the proof comes through. This is a higher level of verification than most mathematical papers even come with. I think the wording is fully warranted."
+    },
+    {
+      "topic": "RH: cleaning up the proof",
+      "sender": "Filippo A. E. Nuccio",
+      "reactions": 11,
+      "snippet": "@_**Kim Morrison|110087** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20cleaning.20up.20the.20proof/near/642641360): ```quote Ugh, I think I am realising that the AI is stupid, and we should just be ro"
+    },
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "Simon DeDeo",
+      "reactions": 11,
+      "snippet": "@_**Shirin Shafaie|1220143** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642647909): ```quote It just feels like the frontier AI compani"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Jason Rute",
+      "reactions": 10,
+      "snippet": "@_**pilgrim|1242244** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F/near/642660574): ```quote Are there any public efforts to port the Lean proof to other foundations/pr"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Kevin Buzzard",
+      "reactions": 10,
+      "snippet": "Can I propose that questions about how lean works be moved to another thread? They are on topic for this Zulip but not specific to the question of RH as they apply equally well to any formalisation."
+    },
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "Artie Khovanov",
+      "reactions": 9,
+      "snippet": "I'll ask again - what does it mean to \"establish a mathematical proof,\" as distinct from a formal proof?  As far as I can tell, the standard can't possibly be publication (which was neither necessary nor sufficient for mathematical proof be"
+    },
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "Anton Mellit",
+      "reactions": 9,
+      "snippet": "@_**Shirin Shafaie|1220143** to me it looked weird that the announcement was made on behalf of the community. I find it inappropriate for Lean FRO to make such a statement. An acceptable way to make such a statement is to write an open lett"
+    },
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "Riccardo Brasca",
+      "reactions": 9,
+      "snippet": "@_**Mario Carneiro|110049** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642641845): ````quote @_**Jack McCarthy|989743** [said](https://"
+    },
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "Aarre Lisakki",
+      "reactions": 8,
+      "snippet": "@_**Lectori Salutem|1242317** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642689906): ``````quote @_**Aarre Lisakki|1242118** [said](htt"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Chris Bailey",
+      "reactions": 8,
+      "snippet": "You don't understand how this software works and do not seem to be willing to read the materials that have been provided previously."
+    },
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "Thomas Murrills",
+      "reactions": 7,
+      "snippet": "@_**Eric Wieser|310045** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642622147): ```quote # Threads in Zulip  To anyone new to Zulip; I'"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Mario Carneiro",
+      "reactions": 7,
+      "snippet": "@_**Tom Gracey|1242108** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F/near/642621377): ````quote @_**Mario Carneiro|110049** [said](https://leanprover.zulipchat.com/#na"
+    },
+    {
+      "topic": "RH: cleaning up the proof",
+      "sender": "Moritz Roos",
+      "reactions": 6,
+      "snippet": "I told my ai to do a live plot of the linecounts etc. for the offical repo at https://rh-shrink.github.io/ I wish i could get the hearbeat numbers from somewhere to plot them as well"
+    },
+    {
+      "topic": "RH: cleaning up the proof",
+      "sender": "Sébastien Gouëzel",
+      "reactions": 6,
+      "snippet": "If you want a huge gain on build time you could even consider bumping to 4.37rc1: on Mathlib, it gave a 23% speedup!"
+    },
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "Timothy Chow",
+      "reactions": 6,
+      "snippet": "@_**Chris Henson|687698** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642654847): ```quote To clarify, the objection is that the blog sa"
+    },
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "Thomas Murrills",
+      "reactions": 6,
+      "snippet": "Well, it’s probably still true, given what the tokens must have cost 🙃"
+    },
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "Mario Carneiro",
+      "reactions": 6,
+      "snippet": "@_**Jack McCarthy|989743** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642635571): ```quote [docs#RiemannHypothesis](https://leanprover-"
+    },
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "metakuntyyy",
+      "reactions": 6,
+      "snippet": "Because this proof is one of the most rigorously checked ones in history. Human understanding is an orthogonal concept and will follow eventually. In fact I prefer this future, formal artefact before human exposition.  Why should I, an hypo"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Mario Carneiro",
+      "reactions": 6,
+      "snippet": "@_**Tom Gracey|1242108** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F/near/642625399): ```quote I see - do you have a link for that? ```  It's the proof of RH by Alpoge"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Jack McCarthy",
+      "reactions": 6,
+      "snippet": "@_**Tom Gracey|1242108** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642620238): ```quote Can you answer the question about the existenc"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Mario Carneiro",
+      "reactions": 6,
+      "snippet": "@_**Tom Gracey|1242108** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642620204): ````quote @_**Aarre Lisakki|1242118** [said](https://le"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Maxime Rinoldo",
+      "reactions": 6,
+      "snippet": "```quote I am trying to find out the truth ``` It seems you're having an issue with either understanding or accepting the truth. The way formalization works is such that, despite not understanding the mathematics behind the proof, we know t"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "suhr",
+      "reactions": 6,
+      "snippet": "Is mathematical induction scientific? You don't even check every possible number in there!"
+    },
+    {
+      "topic": "RH: cleaning up the proof",
+      "sender": "Vasily Ilin",
+      "reactions": 5,
+      "snippet": "From profiling a 1% sample, imports take 54% of compilation time, definitional equality takes 15%, and typeclass inference takes 11%. The rest is negligible. Report is in RH#250.  We should focus on imports first. @**Rohan Arun**'s idea of "
+    },
+    {
+      "topic": "RH: cleaning up the proof",
+      "sender": "Snir Broshi",
+      "reactions": 5,
+      "snippet": "\"Zero linter warnings outside of the critical line\""
+    },
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "M. Henkin",
+      "reactions": 5,
+      "snippet": "@_**Lectori Salutem|1242317** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642689263): ````quote plain old mathematical proof is a proof "
+    },
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "Vasily Ilin",
+      "reactions": 5,
+      "snippet": "May I ask the moderators to move the noisy discussion above to another thread? It would be nice to keep discussing the improvements to the repo that @**Kim Morrison** proposed. We got the bump and the module system. I'm privatizing and mini"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Yakov Pechersky",
+      "reactions": 5,
+      "snippet": "The simplest point to make to those claiming that we need tests or don't yet comprehend how Lean certs work... If I have a C function that is typed that the return type is `int`, I don't need to test that the function doesn't return the str"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Lior Silberman",
+      "reactions": 5,
+      "snippet": "If you don't understand what a formal proof is, why do you feel confident advising people who do understand about their appropriate level of confidence in a formal proof?"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Maxime Rinoldo",
+      "reactions": 5,
+      "snippet": "```quote but you don't have \"a complete understanding\" - right? ``` That's correct. Understanding is still a work in progress.  ```quote Note that it is distinctly unscientific, not to mention unethical, to say you are sure something has be"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Mario Carneiro",
+      "reactions": 5,
+      "snippet": "be nice, people"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Eric Wieser",
+      "reactions": 5,
+      "snippet": "@**Tom Gracey**, if you haven't alread you should read https://lean-lang.org/doc/reference/latest/ValidatingProofs in full"
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
+      "sender": "Mario Carneiro",
+      "reactions": 5,
+      "snippet": "Since I already know the proof is true, if the rebuttal is also correct then mathematics is inconsistent, which would indeed be a big result"
+    },
+    {
+      "topic": "RH: cleaning up the proof",
+      "sender": "Thomas Murrills",
+      "reactions": 4,
+      "snippet": "@_**Snir Broshi|933054** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20cleaning.20up.20the.20proof/near/642689814): ```quote \"Zero linter warnings outside of the critical line\" ```  Except for the triv"
+    },
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "Timothy Chow",
+      "reactions": 4,
+      "snippet": "@_**Lectori Salutem|1242317** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642690318): ```quote yes but everyone knows the connotations o"
+    }
+  ]
+}
