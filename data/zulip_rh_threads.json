@@ -1,0 +1,960 @@
+{
+  "format": 2,
+  "generated_at": "2026-11-23T08:47:48Z",
+  "source": "https://leanprover.zulipchat.com/#narrow/channel/113488-general",
+  "rule": "topics in #general that name RH as a word",
+  "threads": [
+    {
+      "topic": "RH: why can I trust Lean?",
+      "rh_prefix": true,
+      "url": "https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F",
+      "max_id": 642818519,
+      "messages": 322,
+      "messages_24h": 108,
+      "messages_7d": 322,
+      "first_at": "2026-11-22T05:00:41Z",
+      "last_at": "2026-11-23T08:47:41Z",
+      "participants": [
+        {
+          "name": "Tom Gracey",
+          "messages": 73
+        },
+        {
+          "name": "Mario Carneiro",
+          "messages": 56
+        },
+        {
+          "name": "suhr",
+          "messages": 24
+        },
+        {
+          "name": "Maxime Rinoldo",
+          "messages": 12
+        },
+        {
+          "name": "Chris Bailey",
+          "messages": 11
+        },
+        {
+          "name": "David Loeffler",
+          "messages": 11
+        },
+        {
+          "name": "Adam Koszek",
+          "messages": 10
+        },
+        {
+          "name": "Jonas Whidden",
+          "messages": 9
+        },
+        {
+          "name": "Mirek Olšák",
+          "messages": 8
+        },
+        {
+          "name": "Lior Silberman",
+          "messages": 7
+        },
+        {
+          "name": "Eric Wieser",
+          "messages": 7
+        },
+        {
+          "name": "Jack McCarthy",
+          "messages": 7
+        },
+        {
+          "name": "metakuntyyy",
+          "messages": 6
+        },
+        {
+          "name": "Artie Khovanov",
+          "messages": 6
+        },
+        {
+          "name": "Thomas Murrills",
+          "messages": 5
+        },
+        {
+          "name": "Joachim Breitner",
+          "messages": 5
+        },
+        {
+          "name": "Aarre Lisakki",
+          "messages": 4
+        },
+        {
+          "name": "Alexis Olson",
+          "messages": 4
+        },
+        {
+          "name": "Jelmer Firet",
+          "messages": 4
+        },
+        {
+          "name": "Anton Mellit",
+          "messages": 4
+        },
+        {
+          "name": "Jason Rute",
+          "messages": 4
+        },
+        {
+          "name": "Alex Korbonits",
+          "messages": 3
+        },
+        {
+          "name": "Albert T",
+          "messages": 3
+        },
+        {
+          "name": "Lorenz Leutgeb",
+          "messages": 3
+        },
+        {
+          "name": "pilgrim",
+          "messages": 3
+        },
+        {
+          "name": "Somo Sakala",
+          "messages": 3
+        },
+        {
+          "name": "Timothy Chow",
+          "messages": 3
+        },
+        {
+          "name": "Andrés Goens",
+          "messages": 2
+        },
+        {
+          "name": "Brian Gomes Bascoy",
+          "messages": 2
+        },
+        {
+          "name": "Dobri Bozhilov",
+          "messages": 2
+        },
+        {
+          "name": "David Michael Roberts",
+          "messages": 2
+        },
+        {
+          "name": "Johan Commelin",
+          "messages": 2
+        },
+        {
+          "name": "bob",
+          "messages": 1
+        },
+        {
+          "name": "Kevin Buzzard",
+          "messages": 1
+        },
+        {
+          "name": "TrueBoxGuy",
+          "messages": 1
+        },
+        {
+          "name": "Kim Morrison",
+          "messages": 1
+        },
+        {
+          "name": "Jon Eugster",
+          "messages": 1
+        },
+        {
+          "name": "Andrii Kurdiumov",
+          "messages": 1
+        },
+        {
+          "name": "Henrik Böving",
+          "messages": 1
+        },
+        {
+          "name": "Tianyu Qi",
+          "messages": 1
+        },
+        {
+          "name": "Yakov Pechersky",
+          "messages": 1
+        },
+        {
+          "name": "George Coote",
+          "messages": 1
+        },
+        {
+          "name": "Justin Mazor",
+          "messages": 1
+        },
+        {
+          "name": "Richard Osborn",
+          "messages": 1
+        },
+        {
+          "name": "Linfeng Song",
+          "messages": 1
+        },
+        {
+          "name": "Arthur Adjedj",
+          "messages": 1
+        }
+      ],
+      "daily_messages": {
+        "2026-11-22": 312,
+        "2026-11-23": 10
+      },
+      "latest": [
+        {
+          "id": 642806901,
+          "at": "2026-11-23T08:06:14Z",
+          "sender": "Johan Commelin",
+          "excerpt": "I think there will be a lot of value in a hand-optimized and human-understands-the-details verified kernel."
+        },
+        {
+          "id": 642818251,
+          "at": "2026-11-23T08:46:46Z",
+          "sender": "Arthur Adjedj",
+          "excerpt": "Even ignoring humans aspects of formalisation, lean4lean is the only verified kernel who has a chance to prove more interesting meta-theoretical properties than just soundness, such as subject reduction, (propositional) canonicity, decidability of type-checking and completeness…"
+        },
+        {
+          "id": 642818519,
+          "at": "2026-11-23T08:47:41Z",
+          "sender": "David Loeffler",
+          "excerpt": "Isn't subject reduction known to be false for Lean's type theory?"
+        }
+      ],
+      "most_reacted": [
+        {
+          "id": 642621994,
+          "at": "2026-11-22T06:20:59Z",
+          "sender": "Tom Gracey",
+          "reactions": 21,
+          "excerpt": "ok, I'm going to leave this discussion now - I feel I have learned a lot about it from the way you have responded"
+        },
+        {
+          "id": 642676560,
+          "at": "2026-11-22T16:10:33Z",
+          "sender": "suhr",
+          "reactions": 20,
+          "excerpt": "C might not be the best example here..."
+        },
+        {
+          "id": 642618436,
+          "at": "2026-11-22T05:51:16Z",
+          "sender": "Albert T",
+          "reactions": 18,
+          "excerpt": "Ok, I'm just a casual observer from the general population, but even I'm getting annoyed by new people coming in and asking for a walk through of what's going on here from first principles. Tom, did you even try to start with the fundamentals before coming in here? Did you read…"
+        }
+      ]
+    },
+    {
+      "topic": "RH: why clean up the proof",
+      "rh_prefix": true,
+      "url": "https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20clean.20up.20the.20proof",
+      "max_id": 642818437,
+      "messages": 27,
+      "messages_24h": 27,
+      "messages_7d": 27,
+      "first_at": "2026-11-23T07:16:20Z",
+      "last_at": "2026-11-23T08:47:24Z",
+      "participants": [
+        {
+          "name": "David Loeffler",
+          "messages": 4
+        },
+        {
+          "name": "Mario Carneiro",
+          "messages": 4
+        },
+        {
+          "name": "Snir Broshi",
+          "messages": 3
+        },
+        {
+          "name": "Andrii Kurdiumov",
+          "messages": 3
+        },
+        {
+          "name": "Vasily Ilin",
+          "messages": 2
+        },
+        {
+          "name": "Kevin Buzzard",
+          "messages": 1
+        },
+        {
+          "name": "Anton Mellit",
+          "messages": 1
+        },
+        {
+          "name": "Thomas Murrills",
+          "messages": 1
+        },
+        {
+          "name": "Yaroslav Kharkov",
+          "messages": 1
+        },
+        {
+          "name": "Johan Commelin",
+          "messages": 1
+        },
+        {
+          "name": "suhr",
+          "messages": 1
+        },
+        {
+          "name": "Jack McCarthy",
+          "messages": 1
+        },
+        {
+          "name": "Julian Berman",
+          "messages": 1
+        },
+        {
+          "name": "Linfeng Song",
+          "messages": 1
+        },
+        {
+          "name": "Eric Wieser",
+          "messages": 1
+        }
+      ],
+      "daily_messages": {
+        "2026-11-23": 27
+      },
+      "latest": [
+        {
+          "id": 642816665,
+          "at": "2026-11-23T08:41:04Z",
+          "sender": "Linfeng Song",
+          "excerpt": "@Mario Carneiro :AI-generated proofs are bloated because Lean does not extract the precise meaning of implicit statements; elaboration expands them into terms, and terms are what models learn from. A tool that converts implicit resolution into explicit, static records would prov…"
+        },
+        {
+          "id": 642818184,
+          "at": "2026-11-23T08:46:30Z",
+          "sender": "Eric Wieser",
+          "excerpt": "I think this one is bloated simply because the pipeline used to generate it didn't reward ongoing cleanup, and as soon as the result was proved there was a strong incentive to release rather than spend another week cleaning up after the fact."
+        },
+        {
+          "id": 642818437,
+          "at": "2026-11-23T08:47:24Z",
+          "sender": "Snir Broshi",
+          "excerpt": "Where is this number from? The effort in this Zulip currently stands on -20%, as in the proof is now 20% bigger than the original. (although it used to be ~15% smaller before the 4.37 bump) The Chinese effort seems to be around 8% reduction if I understand their website"
+        }
+      ],
+      "most_reacted": [
+        {
+          "id": 642804360,
+          "at": "2026-11-23T07:58:00Z",
+          "sender": "David Loeffler",
+          "reactions": 6,
+          "excerpt": "@Kevin Buzzard writes Interested bystander here. Is the main point of cleaning up the proof [...] Personally I'm hoping that once the \"engineering\" optimizations have stabilized a bit, it will be easier for people like me – a tyro at Lean software engineering compared with most…"
+        },
+        {
+          "id": 642796190,
+          "at": "2026-11-23T07:24:48Z",
+          "sender": "Snir Broshi",
+          "reactions": 5,
+          "excerpt": "I think if you'll make this a poll each person will answer something different, and possibly more than one of those :)"
+        },
+        {
+          "id": 642812642,
+          "at": "2026-11-23T08:26:30Z",
+          "sender": "Mario Carneiro",
+          "reactions": 4,
+          "excerpt": "I for one did not sign up to get shit on by AI companies and be the janitor for them if I'm not getting paid for it. I quite enjoy proof cleanup but only on my own time. We should not endorse this behavior where AI companies offload piles of shit code and leave the *monetarily e…"
+        }
+      ]
+    },
+    {
+      "topic": "RH: cleaning up the proof",
+      "rh_prefix": true,
+      "url": "https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20cleaning.20up.20the.20proof",
+      "max_id": 642818201,
+      "messages": 321,
+      "messages_24h": 245,
+      "messages_7d": 321,
+      "first_at": "2026-11-21T22:07:21Z",
+      "last_at": "2026-11-23T08:46:35Z",
+      "participants": [
+        {
+          "name": "Rohan Arun",
+          "messages": 61
+        },
+        {
+          "name": "Thomas Murrills",
+          "messages": 36
+        },
+        {
+          "name": "Kim Morrison",
+          "messages": 30
+        },
+        {
+          "name": "Jack McCarthy",
+          "messages": 27
+        },
+        {
+          "name": "Vasily Ilin",
+          "messages": 17
+        },
+        {
+          "name": "James Shore",
+          "messages": 16
+        },
+        {
+          "name": "Andrii Kurdiumov",
+          "messages": 16
+        },
+        {
+          "name": "Snir Broshi",
+          "messages": 15
+        },
+        {
+          "name": "Jinho Noh",
+          "messages": 11
+        },
+        {
+          "name": "David Loeffler",
+          "messages": 6
+        },
+        {
+          "name": "metakuntyyy",
+          "messages": 5
+        },
+        {
+          "name": "Moritz Roos",
+          "messages": 5
+        },
+        {
+          "name": "Andres Gutierrez",
+          "messages": 5
+        },
+        {
+          "name": "Hang Lu Su",
+          "messages": 4
+        },
+        {
+          "name": "Martin Hanzlowsky",
+          "messages": 4
+        },
+        {
+          "name": "Violeta Hernández",
+          "messages": 4
+        },
+        {
+          "name": "Matt Diamond",
+          "messages": 3
+        },
+        {
+          "name": "Chase Norman",
+          "messages": 3
+        },
+        {
+          "name": "Adam Koszek",
+          "messages": 3
+        },
+        {
+          "name": "Kevin Gibbons",
+          "messages": 3
+        },
+        {
+          "name": "Riccardo Brasca",
+          "messages": 3
+        },
+        {
+          "name": "Trey Cherry",
+          "messages": 3
+        },
+        {
+          "name": "Michael Righi",
+          "messages": 3
+        },
+        {
+          "name": "Oscar Smith",
+          "messages": 3
+        },
+        {
+          "name": "Nicolas Bourbaki",
+          "messages": 3
+        },
+        {
+          "name": "Chris Birkbeck",
+          "messages": 3
+        },
+        {
+          "name": "Yaroslav Kharkov",
+          "messages": 2
+        },
+        {
+          "name": "suhr",
+          "messages": 2
+        },
+        {
+          "name": "Colin Zwanziger",
+          "messages": 2
+        },
+        {
+          "name": "Sebastian Ullrich",
+          "messages": 2
+        },
+        {
+          "name": "Jasper Reichardt",
+          "messages": 1
+        },
+        {
+          "name": "Debargha Ganguly",
+          "messages": 1
+        },
+        {
+          "name": "Lior Silberman",
+          "messages": 1
+        },
+        {
+          "name": "Harald Helfgott",
+          "messages": 1
+        },
+        {
+          "name": "Shigang Ou",
+          "messages": 1
+        },
+        {
+          "name": "Jeremy Chen",
+          "messages": 1
+        },
+        {
+          "name": "Eric Wieser",
+          "messages": 1
+        },
+        {
+          "name": "David Michael Roberts",
+          "messages": 1
+        },
+        {
+          "name": "Kunal Marwaha",
+          "messages": 1
+        },
+        {
+          "name": "Filippo A. E. Nuccio",
+          "messages": 1
+        },
+        {
+          "name": "Tanner Clary",
+          "messages": 1
+        },
+        {
+          "name": "Tianyu Qi",
+          "messages": 1
+        },
+        {
+          "name": "Mario Carneiro",
+          "messages": 1
+        },
+        {
+          "name": "Joseph Myers",
+          "messages": 1
+        },
+        {
+          "name": "Sébastien Gouëzel",
+          "messages": 1
+        },
+        {
+          "name": "Eric Astor",
+          "messages": 1
+        },
+        {
+          "name": "Cat Bunny",
+          "messages": 1
+        },
+        {
+          "name": "Ryan Smith",
+          "messages": 1
+        },
+        {
+          "name": "Allegra",
+          "messages": 1
+        },
+        {
+          "name": "TrueBoxGuy",
+          "messages": 1
+        }
+      ],
+      "daily_messages": {
+        "2026-11-21": 31,
+        "2026-11-22": 222,
+        "2026-11-23": 68
+      },
+      "latest": [
+        {
+          "id": 642814058,
+          "at": "2026-11-23T08:31:35Z",
+          "sender": "Chris Birkbeck",
+          "excerpt": "So the roadmaps made here combine with the ones we already have on Tau Ceti, so what should happen is that we formalise in the library lots of the background theory you need and work up to the RH proof. The roadmaps point to the RH lean code, but in general they wont just take b…"
+        },
+        {
+          "id": 642814732,
+          "at": "2026-11-23T08:33:53Z",
+          "sender": "Chris Birkbeck",
+          "excerpt": "When it comes to the RH repo, I dont have any plans to make changes there. My guess is that the final lean code in Tau Ceti will be quite different from that in the RH repo. Indeed, from experience there is only so much you can clean up AI code before you really just need to sta…"
+        },
+        {
+          "id": 642818201,
+          "at": "2026-11-23T08:46:35Z",
+          "sender": "David Loeffler",
+          "excerpt": "To me it sounds like a bit of a lost opportunity if we end up with material duplicated between Tau Ceti and RH. I'd hope the goal would be to slim down the RH repo to be a formalization of the new mathematics developed specifically by Alpoge/Claude, and formalizations of pre-exi…"
+        }
+      ],
+      "most_reacted": [
+        {
+          "id": 642688602,
+          "at": "2026-11-22T18:10:07Z",
+          "sender": "Vasily Ilin",
+          "reactions": 17,
+          "excerpt": "I am actually happy that Levent put out such a messy formalization. Everyone involved in the cleanup now has firsthand experience of improving Lean code at scale, and all the problems that come up. For example, I have been talking about Lean being the primary bottleneck in AI fo…"
+        },
+        {
+          "id": 642644852,
+          "at": "2026-11-22T10:25:22Z",
+          "sender": "Filippo A. E. Nuccio",
+          "reactions": 11,
+          "excerpt": "Realising this the day it proved RH :grinning_face_with_smiling_eyes: :laughing:?"
+        },
+        {
+          "id": 642765796,
+          "at": "2026-11-23T04:40:09Z",
+          "sender": "Vasily Ilin",
+          "reactions": 7,
+          "excerpt": "From profiling a 1% sample, imports take 54% of compilation time, definitional equality takes 15%, and typeclass inference takes 11%. The rest is negligible. Report is in RH#250. We should focus on imports first. @Rohan Arun's idea of merging files is actually completely correct…"
+        }
+      ]
+    },
+    {
+      "topic": "RH: conserving original proof",
+      "rh_prefix": true,
+      "url": "https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20conserving.20original.20proof",
+      "max_id": 642793236,
+      "messages": 4,
+      "messages_24h": 4,
+      "messages_7d": 4,
+      "first_at": "2026-11-22T19:10:59Z",
+      "last_at": "2026-11-23T07:14:15Z",
+      "participants": [
+        {
+          "name": "Hang Lu Su",
+          "messages": 2
+        },
+        {
+          "name": "Trey Cherry",
+          "messages": 1
+        },
+        {
+          "name": "Junyan Xu",
+          "messages": 1
+        }
+      ],
+      "daily_messages": {
+        "2026-11-22": 3,
+        "2026-11-23": 1
+      },
+      "latest": [
+        {
+          "id": 642699550,
+          "at": "2026-11-22T19:49:49Z",
+          "sender": "Trey Cherry",
+          "excerpt": "This probably is important in case things outside of the core proof itself end up being valuable, like some of the dead ends and stuff, if they end up getting streamlined out."
+        },
+        {
+          "id": 642720188,
+          "at": "2026-11-22T22:37:38Z",
+          "sender": "Hang Lu Su",
+          "excerpt": "@Thomas Murrills is now a collaborator on the repo. Thank you for providing oversight :folded_hands:."
+        },
+        {
+          "id": 642793236,
+          "at": "2026-11-23T07:14:15Z",
+          "sender": "Junyan Xu",
+          "excerpt": "There's the branch https://github.com/leanprover-community/riemann-hypothesis/tree/original but without comparator setup added."
+        }
+      ],
+      "most_reacted": [
+        {
+          "id": 642695513,
+          "at": "2026-11-22T19:10:59Z",
+          "sender": "Hang Lu Su",
+          "reactions": 3,
+          "excerpt": "As discussed in #general>RH: cleaning up the proof and RH#56 I'm hosting a repo freezing the original proof while providing an easy way for people to compile the cache: https://github.com/homeowmorphism/riemann-hypothesis-original, with the idea that this could be transferred to…"
+        }
+      ]
+    },
+    {
+      "topic": "RH AI-proof: danger of reversing the human–tool relationship",
+      "rh_prefix": false,
+      "url": "https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.20AI-proof.3A.20danger.20of.20reversing.20the.20human.E2.80.93tool.20relationship",
+      "max_id": 642760790,
+      "messages": 34,
+      "messages_24h": 34,
+      "messages_7d": 34,
+      "first_at": "2026-11-22T19:18:04Z",
+      "last_at": "2026-11-23T04:10:06Z",
+      "participants": [
+        {
+          "name": "David Michael Roberts",
+          "messages": 6
+        },
+        {
+          "name": "Kim Morrison",
+          "messages": 5
+        },
+        {
+          "name": "George Coote",
+          "messages": 3
+        },
+        {
+          "name": "Timothy Chow",
+          "messages": 3
+        },
+        {
+          "name": "Artie Khovanov",
+          "messages": 3
+        },
+        {
+          "name": "Shirin Shafaie",
+          "messages": 2
+        },
+        {
+          "name": "Vasily Ilin",
+          "messages": 2
+        },
+        {
+          "name": "Manvir Jaswal",
+          "messages": 2
+        },
+        {
+          "name": "Thomas Murrills",
+          "messages": 1
+        },
+        {
+          "name": "David Loeffler",
+          "messages": 1
+        },
+        {
+          "name": "Richard Osborn",
+          "messages": 1
+        },
+        {
+          "name": "Anton Mellit",
+          "messages": 1
+        },
+        {
+          "name": "Kevin Gibbons",
+          "messages": 1
+        },
+        {
+          "name": "Somo Sakala",
+          "messages": 1
+        },
+        {
+          "name": "J. J. Issai (project started by GRP)",
+          "messages": 1
+        },
+        {
+          "name": "suhr",
+          "messages": 1
+        }
+      ],
+      "daily_messages": {
+        "2026-11-22": 20,
+        "2026-11-23": 14
+      },
+      "latest": [
+        {
+          "id": 642758618,
+          "at": "2026-11-23T03:54:30Z",
+          "sender": "Vasily Ilin",
+          "excerpt": "(deleted)"
+        },
+        {
+          "id": 642759761,
+          "at": "2026-11-23T04:03:31Z",
+          "sender": "J. J. Issai (project started by GRP)",
+          "excerpt": "Suppose the domain is shifted from mathematics to software, or systems controlled by software, or hardware/software combinations. In this domain the question becomes 'Do we have enough human capacity to understand/maintain/ improve the systems so that in the user-tool relationsh…"
+        },
+        {
+          "id": 642760790,
+          "at": "2026-11-23T04:10:06Z",
+          "sender": "suhr",
+          "excerpt": "That's a good question, and the answer we build *tools* that gives views to the system that are comprehensible by people. https://gtoolkit.com/ is a good explanation of the idea. So if the analogy works, then mathematicians need more tools to perceive modern mathematics. Actual…"
+        }
+      ],
+      "most_reacted": [
+        {
+          "id": 642701766,
+          "at": "2026-11-22T20:13:20Z",
+          "sender": "Timothy Chow",
+          "reactions": 16,
+          "excerpt": "I sympathize with the general point you're trying to make, but unfortunately, I think that the facts on the ground make it impossible for this idealistic vision to be realized. I expect that Levent would be quick to acknowledge that if he were forced to work in total isolation,…"
+        },
+        {
+          "id": 642704613,
+          "at": "2026-11-22T20:33:18Z",
+          "sender": "Timothy Chow",
+          "reactions": 8,
+          "excerpt": "Let me also say that I don't even think that Levent's actions endanger the human-tool relationship. If I may use a mining metaphor, Levent struck a mother lode and yelled out, \"Hey, everyone, look what I found!\" and invited everyone else to dig in immediately. As far as professi…"
+        },
+        {
+          "id": 642711182,
+          "at": "2026-11-22T21:21:28Z",
+          "sender": "Artie Khovanov",
+          "reactions": 7,
+          "excerpt": "I will say that I, for one, am much more concerned with human social issues (for instance, too much power in the hands of Big AI) than with issues of AI power (for instance, a superhuman machine turning us into gray goo). The proof of RH has shocked me but has not changed this a…"
+        }
+      ]
+    },
+    {
+      "topic": "Visualization for RH",
+      "rh_prefix": false,
+      "url": "https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Visualization.20for.20RH",
+      "max_id": 642711151,
+      "messages": 1,
+      "messages_24h": 1,
+      "messages_7d": 1,
+      "first_at": "2026-11-22T21:21:15Z",
+      "last_at": "2026-11-22T21:21:15Z",
+      "participants": [
+        {
+          "name": "Andrei Radulescu-Banu",
+          "messages": 1
+        }
+      ],
+      "daily_messages": {
+        "2026-11-22": 1
+      },
+      "latest": [
+        {
+          "id": 642711151,
+          "at": "2026-11-22T21:21:15Z",
+          "sender": "Andrei Radulescu-Banu",
+          "excerpt": "With Alexander Lopez at a Sundai Hack this afternoon at MIT - we built a visualizer for the Zeta function & the proof: http://analytiqhub.com/zeta-world/ Looking for comments & feedback!"
+        }
+      ],
+      "most_reacted": [
+        {
+          "id": 642711151,
+          "at": "2026-11-22T21:21:15Z",
+          "sender": "Andrei Radulescu-Banu",
+          "reactions": 3,
+          "excerpt": "With Alexander Lopez at a Sundai Hack this afternoon at MIT - we built a visualizer for the Zeta function & the proof: http://analytiqhub.com/zeta-world/ Looking for comments & feedback!"
+        }
+      ]
+    },
+    {
+      "topic": "RH: dependency map of the proof",
+      "rh_prefix": true,
+      "url": "https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20dependency.20map.20of.20the.20proof",
+      "max_id": 642678303,
+      "messages": 1,
+      "messages_24h": 1,
+      "messages_7d": 1,
+      "first_at": "2026-11-22T16:28:43Z",
+      "last_at": "2026-11-22T16:28:43Z",
+      "participants": [
+        {
+          "name": "Aavishkar kanani",
+          "messages": 1
+        }
+      ],
+      "daily_messages": {
+        "2026-11-22": 1
+      },
+      "latest": [
+        {
+          "id": 642678303,
+          "at": "2026-11-22T16:28:43Z",
+          "sender": "Aavishkar kanani",
+          "excerpt": "I built a browsable map of the proof from the published 40e56bab oleans: the exact dependency graph of the five main theorems (every constant in each proof term, ~12M edges; 795k of the 1.06M declarations are used). What it shows: * a dominator-tree outline: which results the re…"
+        }
+      ],
+      "most_reacted": [
+        {
+          "id": 642678303,
+          "at": "2026-11-22T16:28:43Z",
+          "sender": "Aavishkar kanani",
+          "reactions": 2,
+          "excerpt": "I built a browsable map of the proof from the published 40e56bab oleans: the exact dependency graph of the five main theorems (every constant in each proof term, ~12M edges; 795k of the 1.06M declarations are used). What it shows: * a dominator-tree outline: which results the re…"
+        }
+      ]
+    },
+    {
+      "topic": "RH: bumping the lean version",
+      "rh_prefix": true,
+      "url": "https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20bumping.20the.20lean.20version",
+      "max_id": 642669477,
+      "messages": 11,
+      "messages_24h": 2,
+      "messages_7d": 11,
+      "first_at": "2026-11-22T05:25:35Z",
+      "last_at": "2026-11-22T14:57:57Z",
+      "participants": [
+        {
+          "name": "Vasily Ilin",
+          "messages": 4
+        },
+        {
+          "name": "Jack McCarthy",
+          "messages": 2
+        },
+        {
+          "name": "Thomas Murrills",
+          "messages": 2
+        },
+        {
+          "name": "pCwOrM",
+          "messages": 1
+        },
+        {
+          "name": "Andrii Kurdiumov",
+          "messages": 1
+        }
+      ],
+      "daily_messages": {
+        "2026-11-22": 11
+      },
+      "latest": [
+        {
+          "id": 642627500,
+          "at": "2026-11-22T07:17:22Z",
+          "sender": "Vasily Ilin",
+          "excerpt": "I don't understand her comment. Shouldn't the CI compile it and merge once it passes? Anyway, I told my claude to give what she requests."
+        },
+        {
+          "id": 642663980,
+          "at": "2026-11-22T14:00:09Z",
+          "sender": "pCwOrM",
+          "excerpt": "Hi, for anyone helping with the 4.33.1 -> 4.36.0 port in rohanarun/alpoge-rh-replay, I wrote a small Python script for the repetitive Mathlib API changes (deprecated renames, MvPolynomial/Polynomial.coeff dot notation, prod_le_prod₀, dead zero cases in TensorProduct inductions,…"
+        },
+        {
+          "id": 642669477,
+          "at": "2026-11-22T14:57:57Z",
+          "sender": "Andrii Kurdiumov",
+          "excerpt": "Personally if anything can speedup build, make build more accessible I think it's worth the try. it make tinkering more accessile, so updating to rc2 or final version would be easier, since more hands on desk possible."
+        }
+      ],
+      "most_reacted": [
+        {
+          "id": 642615661,
+          "at": "2026-11-22T05:25:35Z",
+          "sender": "Vasily Ilin",
+          "reactions": 4,
+          "excerpt": "Bump to v4.36.0 is ready: https://github.com/leanprover-community/riemann-hypothesis/pull/66 Also deletes 15k dead files and moves RH to the module system."
+        },
+        {
+          "id": 642618593,
+          "at": "2026-11-22T05:52:54Z",
+          "sender": "Thomas Murrills",
+          "reactions": 3,
+          "excerpt": "This is great! I suspect we should perhaps not spend compute on other PRs until this is in, now that it exists. (I’ll redo rh#4, for example.) This will provide a massive perf boost to CI. (Still probably very long, but still…) Is there some way we can validate that this PR only…"
+        }
+      ]
+    }
+  ]
+}
