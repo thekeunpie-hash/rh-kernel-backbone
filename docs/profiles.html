@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profiles &amp; Lean Hall of Fame — RH Kernel Backbone Tracker</title>
+<style>
+  :root {
+    --bg: #fcfcfd;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --text: #0f172a;
+    --muted: #475569;
+    --accent: #0f766e;
+    --accent-soft: #f0fdfa;
+    --gold: #b45309;
+    --gold-bg: #fffdf7;
+    --exact-bg: #dcfce7; --exact-fg: #166534;
+    --ver-bg: #dbeafe; --ver-fg: #1e40af;
+    --open-bg: #ede9fe; --open-fg: #5b21b6;
+    --queue-bg: #ecfeff; --queue-fg: #155e75;
+    --hof-bg: #fef3c7; --hof-fg: #92400e;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.65; font-size: 15px;
+  }
+  a { color: var(--accent); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 28px 24px 80px; }
+  .topbar {
+    display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+    font-size: 13px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+  }
+  .topbar a { text-decoration: none; font-weight: 600; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-size: 1.85rem; line-height: 1.25; margin: 0 0 6px; }
+  .lead { margin: 0 0 22px; color: var(--muted); font-size: 14px; max-width: 820px; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 4px; vertical-align: middle; letter-spacing: .02em; }
+  .badge-exact { background: var(--exact-bg); color: var(--exact-fg); }
+  .badge-verified { background: var(--ver-bg); color: var(--ver-fg); }
+  .badge-open { background: var(--open-bg); color: var(--open-fg); }
+  .badge-queue { background: var(--queue-bg); color: var(--queue-fg); border: 1px solid #a5f3fc; }
+  .badge-hof { background: var(--hof-bg); color: var(--hof-fg); }
+
+  /* Active Spotlight Card */
+  .spotlight {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 22px 26px; margin-bottom: 24px; box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+  }
+  .spotlight.is-hof { background: var(--gold-bg); border-color: #fcd34d; border-left: 4px solid var(--gold); }
+  .spotlight.is-self { background: #f0fdfa; border-color: #5eead4; border-left: 4px solid var(--accent); }
+  .sp-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .sp-title { font-family: Georgia, "Times New Roman", serif; font-size: 1.55rem; margin: 0; color: var(--text); }
+  .sp-sub { font-size: 13.5px; color: var(--muted); margin-top: 2px; }
+  .sp-role { font-size: 13.5px; font-weight: 600; color: var(--accent); margin: 6px 0 10px; }
+  .spotlight.is-hof .sp-role { color: var(--gold); }
+  .sp-bio { font-size: 14.5px; color: #1e293b; line-height: 1.68; margin: 0 0 14px; }
+  .sp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0 16px; }
+  .sp-stat { background: rgba(255,255,255,0.88); border: 1px solid var(--border); border-radius: 8px; padding: 10px 13px; }
+  .sp-stat .k { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  .sp-stat .v { font-size: 13.5px; font-weight: 700; color: var(--text); margin-top: 3px; font-variant-numeric: tabular-nums; }
+  .link-strip { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .link-pill {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 12.5px; font-weight: 600; text-decoration: none; padding: 5px 11px;
+    border-radius: 6px; background: #ffffff; border: 1px solid var(--border); color: var(--accent);
+  }
+  .link-pill:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .spotlight.is-hof .link-pill { color: var(--gold); }
+  .spotlight.is-hof .link-pill:hover { border-color: var(--gold); background: #fef3c7; }
+  .pr-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .pr-chip {
+    font-family: "Cascadia Code", Consolas, monospace; font-size: 11.5px; padding: 2px 7px;
+    border-radius: 4px; background: #f1f5f9; border: 1px solid var(--border); text-decoration: none; color: #0f172a;
+  }
+  .pr-chip:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Directory Controls & Grid */
+  .controls { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: space-between; margin: 18px 0 14px; }
+  .seg-group { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+  .pill-btn {
+    padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px;
+    background: #f8fafc; color: var(--text); font-size: 12.5px; font-weight: 600; cursor: pointer;
+  }
+  .pill-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .pill-btn.active { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+  input.search-in {
+    padding: 7px 11px; border: 1px solid var(--border); border-radius: 6px;
+    font-size: 13px; min-width: 240px; background: var(--surface); color: var(--text);
+  }
+  .dir-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .dir-card {
+    border: 1px solid var(--border); border-radius: 9px; padding: 13px 15px; background: var(--surface);
+    cursor: pointer; display: flex; flex-direction: column; gap: 5px;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .dir-card:hover { border-color: var(--accent); box-shadow: 0 3px 12px rgba(15, 118, 110, 0.08); }
+  .dir-card.active { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.18); }
+  .dir-card.hof { background: var(--gold-bg); border-left: 3px solid var(--gold); }
+  .dir-card.hof.active { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(180, 83, 9, 0.20); }
+  .dir-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .dir-name { font-weight: 700; font-size: 14px; color: var(--text); }
+  .dir-sub { font-size: 12px; color: var(--muted); }
+  .dir-desc { font-size: 12.6px; color: #334155; line-height: 1.48; }
+  .status-msg { color: var(--muted); font-size: 13.5px; font-style: italic; }
+
+  @media (max-width: 820px) {
+    .sp-grid, .dir-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a href="index.html">← Back to RH Kernel Dashboard</a>
+    <a href="index.html#stewardship-hall">Stewardship &amp; Hall of Fame</a>
+    <a href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener">Official RH Repo</a>
+    <a href="https://github.com/leanprover-community/riemann-hypothesis/issues/229" target="_blank" rel="noopener">Tech Debt #229</a>
+    <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone" target="_blank" rel="noopener">Tracker Source</a>
+  </div>
+
+  <h1>Stewardship Profiles &amp; Lean Hall of Fame</h1>
+  <p class="lead">Objective, non-LoC profiles for the maintainers and contributors active on <code>leanprover-community/riemann-hypothesis</code>, alongside the Lean 4, Mathlib, and independent-verification stewards who sustain the broader Lean ecosystem. Every profile has a direct shareable URL (<code>#slug</code>) and links straight to primary GitHub and community evidence.</p>
+
+  <section id="spotlightRoot" class="spotlight">
+    <p class="status-msg">Loading live profile directory from <code>data/upstream_frontier.json</code>…</p>
+  </section>
+
+  <div class="controls">
+    <div class="seg-group" id="dirFilter">
+      <button type="button" class="pill-btn active" data-cat="all">All Profiles</button>
+      <button type="button" class="pill-btn" data-cat="maintainer">RH Maintainers</button>
+      <button type="button" class="pill-btn" data-cat="contributor">RH Contributors</button>
+      <button type="button" class="pill-btn" data-cat="hof">Lean Hall of Fame</button>
+    </div>
+    <input type="search" id="dirSearch" class="search-in" placeholder="Filter by name, handle, role, or PR…">
+  </div>
+
+  <div class="dir-grid" id="dirGrid"></div>
+</div>
+
+<script>
+const RAW_BASE = "https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/";
+
+async function fetchWithFallback(relPath) {
+  for (const url of [RAW_BASE + relPath, "../" + relPath]) {
+    try {
+      const r = await fetch(url);
+      if (r.ok) return await r.text();
+    } catch (_) {}
+  }
+  throw new Error("Could not fetch " + relPath);
+}
+
+function escHtml(s) {
+  return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function slugify(text) {
+  return String(text || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+let ALL_PROFILES = [];
+let ACTIVE_SLUG = "";
+let CURRENT_CAT = "all";
+
+function renderSpotlight(profile, meta) {
+  const root = document.getElementById("spotlightRoot");
+  if (!profile) {
+    root.className = "spotlight";
+    root.innerHTML = `<p class="status-msg">Select any profile below to view their full biography, non-LoC impact metrics, and verified links.</p>`;
+    return;
+  }
+  const isHof = profile.kind === "hof";
+  const isSelf = profile.login === "thekeunpie-hash";
+  root.className = "spotlight" + (isHof ? " is-hof" : isSelf ? " is-self" : "");
+
+  const badges = [];
+  if (isHof) {
+    badges.push(`<span class="badge badge-hof">${escHtml(profile.pillar)}</span>`);
+    badges.push(`<span class="badge badge-verified">Lean Hall of Fame</span>`);
+  } else {
+    badges.push(profile.group === "maintainer"
+      ? `<span class="badge badge-verified">RH Maintainer</span>`
+      : `<span class="badge badge-open">RH Contributor</span>`);
+    if (profile.merged_total > 0) {
+      badges.push(`<span class="badge badge-exact">${profile.merged_total} landed${profile.merged_batch_extra ? " (incl. batch)" : ""}</span>`);
+    }
+    if (profile.batch_queue_count > 0) {
+      badges.push(`<span class="badge badge-queue">${profile.batch_queue_count} in batch queue</span>`);
+    }
+  }
+
+  let statsHtml = "";
+  if (!isHof) {
+    const mergedList = [...(profile.merged_prs || []), ...(profile.batch_landed_prs || [])];
+    const queueList = profile.batch_queue_prs || [];
+    const prChips = [
+      ...mergedList.map((n) => `<a class="pr-chip" href="https://github.com/leanprover-community/riemann-hypothesis/pull/${n}" target="_blank" rel="noopener">Merged #${n}</a>`),
+      ...queueList.map((n) => `<a class="pr-chip" href="https://github.com/leanprover-community/riemann-hypothesis/pull/${n}" target="_blank" rel="noopener">Queue #${n}</a>`)
+    ].join("");
+    statsHtml = `
+      <div class="sp-grid">
+        <div class="sp-stat">
+          <div class="k">Pipeline Adoption (Live)</div>
+          <div class="v">${profile.merged_total} landed · ${profile.batch_queue_count} batch queue</div>
+        </div>
+        <div class="sp-stat">
+          <div class="k">Governance &amp; Peer Signal</div>
+          <div class="v" style="font-size:12.4px;font-weight:600;">${escHtml(profile.governance_signal)}</div>
+        </div>
+        <div class="sp-stat">
+          <div class="k">Snapshot Measured</div>
+          <div class="v" style="font-size:12.4px;">${escHtml((meta.measured_at || "").replace("T", " ").replace("Z", " UTC"))}</div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:#334155;margin-bottom:8px;"><strong>Non-LoC Impact:</strong> ${escHtml(profile.non_loc_impact)}</div>
+      ${prChips ? `<div class="pr-chips">${prChips}</div>` : ""}
+    `;
+  } else {
+    statsHtml = `
+      <div class="sp-grid">
+        <div class="sp-stat">
+          <div class="k">Ecosystem Pillar</div>
+          <div class="v">${escHtml(profile.pillar)}</div>
+        </div>
+        <div class="sp-stat">
+          <div class="k">Affiliation / Scope</div>
+          <div class="v" style="font-size:12.6px;">${escHtml(profile.org)}</div>
+        </div>
+        <div class="sp-stat">
+          <div class="k">Role in RH Ecosystem</div>
+          <div class="v" style="font-size:12.4px;font-weight:600;">Foundational Lean &amp; Community Steward</div>
+        </div>
+      </div>
+    `;
+  }
+
+  const allLinks = profile.links && profile.links.length
+    ? profile.links
+    : (profile.evidence && profile.evidence.length ? profile.evidence : (profile.url ? [{ label: profile.link_label || "Reference", url: profile.url }] : []));
+
+  const linksHtml = allLinks.map((lk) =>
+    `<a class="link-pill" href="${escHtml(lk.url)}" target="_blank" rel="noopener">${escHtml(lk.label)} →</a>`
+  ).join("");
+
+  root.innerHTML = `
+    <div class="sp-head">
+      <div>
+        <h2 class="sp-title">${escHtml(profile.name)}</h2>
+        <div class="sp-sub">${isHof ? escHtml(profile.org) : "@" + escHtml(profile.login) + " · leanprover-community/riemann-hypothesis"}</div>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">${badges.join("")}</div>
+    </div>
+    <div class="sp-role">${escHtml(isHof ? profile.contribution : profile.role)}</div>
+    <p class="sp-bio">${escHtml(profile.bio || profile.contribution || profile.non_loc_impact)}</p>
+    ${statsHtml}
+    <div style="margin-top:14px;">
+      <div style="font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;">Verified Links &amp; Primary Sources</div>
+      <div class="link-strip">${linksHtml}</div>
+    </div>
+  `;
+}
+
+function renderDirectory(meta) {
+  const grid = document.getElementById("dirGrid");
+  const q = (document.getElementById("dirSearch").value || "").trim().toLowerCase();
+  const rows = ALL_PROFILES.filter((p) => {
+    if (CURRENT_CAT !== "all") {
+      if (CURRENT_CAT === "hof" && p.kind !== "hof") return false;
+      if (CURRENT_CAT !== "hof" && (p.kind !== "steward" || p.group !== CURRENT_CAT)) return false;
+    }
+    if (!q) return true;
+    const hay = [p.name, p.login, p.org, p.role, p.pillar, p.bio, p.non_loc_impact, p.contribution].join(" ").toLowerCase();
+    return hay.includes(q);
+  });
+
+  grid.innerHTML = rows.map((p) => {
+    const isHof = p.kind === "hof";
+    const isAct = p.slug === ACTIVE_SLUG;
+    const tag = isHof
+      ? `<span class="badge badge-hof">${escHtml(p.pillar)}</span>`
+      : (p.group === "maintainer"
+          ? `<span class="badge badge-verified">Maintainer</span>`
+          : `<span class="badge badge-open">Contributor</span>`);
+    const extra = !isHof
+      ? `${p.merged_total ? `<span class="badge badge-exact">${p.merged_total} landed</span>` : ""}${p.batch_queue_count ? ` <span class="badge badge-queue">${p.batch_queue_count} queue</span>` : ""}`
+      : "";
+    return `
+      <div class="dir-card ${isHof ? "hof" : ""} ${isAct ? "active" : ""}" data-slug="${escHtml(p.slug)}">
+        <div class="dir-top">
+          <div class="dir-name">${escHtml(p.name)}</div>
+          <div style="display:flex;gap:5px;flex-wrap:wrap;">${tag}${extra}</div>
+        </div>
+        <div class="dir-sub">${isHof ? escHtml(p.org) : "@" + escHtml(p.login) + " · " + escHtml(p.role)}</div>
+        <div class="dir-desc">${escHtml(isHof ? p.contribution : p.non_loc_impact)}</div>
+      </div>`;
+  }).join("") || `<p class="status-msg">No matching profiles.</p>`;
+
+  grid.querySelectorAll(".dir-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const slug = card.getAttribute("data-slug");
+      selectProfile(slug, meta, true);
+    });
+  });
+}
+
+function selectProfile(slug, meta, scrollTop) {
+  const target = ALL_PROFILES.find((p) => p.slug === slug) || ALL_PROFILES[0];
+  if (!target) return;
+  ACTIVE_SLUG = target.slug;
+  if (window.location.hash !== "#" + target.slug) {
+    history.replaceState(null, "", "#" + target.slug);
+  }
+  document.title = `${target.name} — RH Stewardship & Lean Hall of Fame`;
+  renderSpotlight(target, meta);
+  renderDirectory(meta);
+  if (scrollTop) {
+    document.getElementById("spotlightRoot").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+async function init() {
+  try {
+    const raw = await fetchWithFallback("data/upstream_frontier.json");
+    const data = JSON.parse(raw);
+    const st = data.stewardship_standing || {};
+    const stewards = (st.entries || []).map((e) => ({
+      ...e,
+      kind: "steward",
+      slug: e.slug || e.login.toLowerCase(),
+    }));
+    const hof = (data.ecosystem_hall_of_fame || []).map((h) => ({
+      ...h,
+      kind: "hof",
+      slug: h.slug || slugify(h.name),
+    }));
+    ALL_PROFILES = [...stewards, ...hof];
+    const meta = { measured_at: st.measured_at || data.generated_at || "" };
+
+    document.querySelectorAll("#dirFilter button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#dirFilter button").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        CURRENT_CAT = btn.getAttribute("data-cat");
+        renderDirectory(meta);
+      });
+    });
+    document.getElementById("dirSearch").addEventListener("input", () => renderDirectory(meta));
+    window.addEventListener("hashchange", () => {
+      const h = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+      if (h) selectProfile(h, meta, false);
+    });
+
+    const initialHash = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+    selectProfile(initialHash || (ALL_PROFILES[0] && ALL_PROFILES[0].slug), meta, false);
+  } catch (err) {
+    document.getElementById("spotlightRoot").innerHTML = `<p class="status-msg">Failed to load profile data (${escHtml(err.message)}).</p>`;
+  }
+}
+
+init();
+</script>
+</body>
+</html>

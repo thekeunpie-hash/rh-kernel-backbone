@@ -64,6 +64,53 @@
   .badge-reading { background: var(--read-bg); color: var(--read-fg); }
   .badge-dead { background: var(--dead-bg); color: var(--dead-fg); }
   .badge-open { background: var(--open-bg); color: var(--open-fg); }
+  .badge-queue { background: #ecfeff; color: #155e75; border: 1px solid #a5f3fc; }
+
+  /* Dual Stewardship & Lean Hall of Fame Board */
+  .dual-board {
+    display: grid; grid-template-columns: 1.32fr 1fr; gap: 16px; align-items: start; margin: 20px 0;
+  }
+  .dual-board .panel { margin: 0; }
+  .steward-list, .hof-list { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .steward-card {
+    border: 1px solid var(--border); border-radius: 8px; padding: 11px 13px; background: #fcfcfd;
+    display: flex; flex-direction: column; gap: 5px; cursor: pointer;
+    transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .steward-card:hover { border-color: var(--accent); box-shadow: 0 3px 10px rgba(15, 118, 110, 0.08); background: #ffffff; }
+  .steward-card.is-self { border-color: #5eead4; background: #f0fdfa; }
+  .steward-card.is-self:hover { border-color: var(--accent); background: #ecfdf5; }
+  .steward-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .steward-who { font-weight: 700; font-size: 13.5px; color: var(--text); }
+  .steward-who a { color: inherit; text-decoration: none; }
+  .steward-who a:hover { color: var(--accent); text-decoration: underline; }
+  .steward-who span { font-weight: 500; color: var(--muted); font-size: 12px; margin-left: 4px; }
+  .steward-role { font-size: 11.8px; color: var(--accent); font-weight: 600; }
+  .steward-impact { font-size: 12.5px; color: #334155; line-height: 1.48; }
+  .steward-signal { font-size: 11.8px; color: var(--muted); }
+  .evidence-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; align-items: center; }
+  .evidence-links a {
+    font-size: 11.2px; font-weight: 600; text-decoration: none; padding: 1px 7px;
+    border-radius: 4px; background: #ffffff; border: 1px solid var(--border); color: var(--accent);
+  }
+  .evidence-links a:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .profile-cta { font-size: 11.3px; font-weight: 600; color: var(--accent); margin-left: auto; text-decoration: none; }
+  .hof-card {
+    border: 1px solid var(--border); border-radius: 8px; padding: 11px 13px; background: #fffdf7;
+    border-left: 3px solid #b45309; display: flex; flex-direction: column; gap: 4px; cursor: pointer;
+    transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .hof-card:hover { border-color: #b45309; box-shadow: 0 3px 10px rgba(180, 83, 9, 0.10); background: #fffbeb; }
+  .hof-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .hof-name { font-weight: 700; font-size: 13.3px; color: var(--text); }
+  .hof-name a { color: inherit; text-decoration: none; }
+  .hof-name a:hover { color: #b45309; text-decoration: underline; }
+  .hof-org { font-size: 11.5px; color: var(--muted); }
+  .hof-desc { font-size: 12.3px; color: #334155; line-height: 1.46; }
+  .hof-pillar { background: #fef3c7; color: #92400e; }
+  @media (max-width: 1080px) {
+    .dual-board { grid-template-columns: 1fr; }
+  }
   .live-banner {
     background: linear-gradient(135deg, #f0fdfa 0%, #eff6ff 100%);
     border: 1px solid #99f6e4; border-radius: 10px; padding: 18px 22px; margin: 16px 0 22px;
@@ -197,6 +244,7 @@
     <h4>Contents</h4>
     <a href="#interactive-dashboard">Kernel Dashboard</a>
     <a href="#live-upstream-tracker" class="toc-l3">Live Upstream Tracker (4.36)</a>
+    <a href="#stewardship-hall" class="toc-l3">Stewardship &amp; Hall of Fame</a>
     <a href="#upstream-frontier" class="toc-l3">Upstream main Frontier</a>
     <a href="#verified-patterns" class="toc-l3">Verified De-bloating Patterns</a>
     <a href="#actionable-targets" class="toc-l3">Actionable Cleanup Targets</a>
@@ -206,6 +254,7 @@
     <div id="interactive-dashboard">
       <div class="topbar">
         <a class="primary" href="https://github.com/thekeunpie-hash/rh-kernel-backbone" target="_blank" rel="noopener">GitHub Repository</a>
+        <a href="profiles.html" class="primary">Profiles &amp; Hall of Fame</a>
         <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/SPEC.md" target="_blank" rel="noopener">SPEC.md</a>
         <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/data/upstream_frontier.json" target="_blank" rel="noopener">Live Tracker JSON</a>
         <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/actions/workflows/update-tracker.yml" target="_blank" rel="noopener">Hourly Auto-Update</a>
@@ -248,6 +297,34 @@
             </table>
           </div>
         </details>
+      </section>
+
+      <section class="dual-board" id="stewardship-hall">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>RH Repo Stewardship &amp; Non-LoC Impact <span class="badge badge-exact">Exact</span></h3>
+              <p class="panel-sub" style="margin:0;">Raw commits and line deltas distort AI-scale Lean refactors (e.g., <code>#134</code> adds lines while cutting CPU by 21.9%). Instead, maintainers and contributors are measured side-by-side on live <strong>pipeline adoption</strong> (merged + <code>batch queue</code>), <strong>category-level debt impact</strong>, and <strong>governance/verification signals</strong>.</p>
+            </div>
+            <div class="seg-group" id="stewardFilter">
+              <button type="button" class="pill-btn active" data-group="all">All</button>
+              <button type="button" class="pill-btn" data-group="maintainer">Maintainers</button>
+              <button type="button" class="pill-btn" data-group="contributor">Contributors</button>
+            </div>
+          </div>
+          <div class="frontier-stats" id="stewardStats">Loading live pipeline adoption metrics…</div>
+          <div class="steward-list" id="stewardList"><span class="status-msg">Loading stewardship matrix…</span></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>Lean &amp; Community Hall of Fame <span class="badge badge-verified">Foundations</span></h3>
+              <p class="panel-sub" style="margin:0;">Honoring the creators, Mathlib stewards, and independent verifiers who built and sustain Lean 4 and its community — the trusted foundation that made verifying and cleaning up RH possible.</p>
+            </div>
+          </div>
+          <div class="hof-list" id="hofList"><span class="status-msg">Loading Hall of Fame…</span></div>
+        </div>
       </section>
 
       <div class="kpi-grid">
@@ -568,9 +645,10 @@ function renderLiveTracker(fdata) {
       const netStr = (!q.changed_files && q.net_lines === 0) || q.net_lines === null || q.net_lines === undefined
         ? "—"
         : (q.net_lines > 0 ? "+" : "") + q.net_lines.toLocaleString() + " L";
+      const bqBadge = q.batch_queue && q.state === "open" ? ` <span class="badge badge-queue">Batch Queue</span>` : "";
       return `<tr>
         <td><a href="${escHtml(q.url)}" target="_blank" rel="noopener"><strong>#${q.pr}</strong></a></td>
-        <td><span class="badge ${stCls}">${stLbl}</span></td>
+        <td><span class="badge ${stCls}">${stLbl}</span>${bqBadge}</td>
         <td>@${escHtml(q.author)}</td>
         <td>${escHtml(q.title)}</td>
         <td class="num">${filesStr}</td>
@@ -814,6 +892,93 @@ function renderSummary(data) {
   renderDoms("");
 }
 
+function renderStewardshipAndHallOfFame(fdata) {
+  const st = fdata.stewardship_standing;
+  const listEl = document.getElementById("stewardList");
+  const statsEl = document.getElementById("stewardStats");
+  if (st && listEl) {
+    if (statsEl) {
+      statsEl.innerHTML = `
+        <span>Official merged PRs: <strong>${(st.total_merged_prs || 0).toLocaleString()}</strong></span>
+        <span>Open <code>batch queue</code> PRs: <strong>${(st.total_batch_queue_prs || 0).toLocaleString()}</strong></span>
+        <span>Updated: <strong>${escHtml((st.measured_at || "").replace("T", " ").replace("Z", " UTC"))}</strong></span>
+      `;
+    }
+    const entries = st.entries || [];
+    function drawStewards(group) {
+      const rows = entries.filter((e) => group === "all" || e.group === group);
+      listEl.innerHTML = rows.map((e) => {
+        const isSelf = e.login === "thekeunpie-hash";
+        const grpBadge = e.group === "maintainer"
+          ? `<span class="badge badge-verified">Maintainer</span>`
+          : `<span class="badge badge-open">Contributor</span>`;
+        const mergedBadge = e.merged_total > 0
+          ? `<span class="badge badge-exact">${e.merged_total} landed${e.merged_batch_extra ? " (incl. batch)" : ""}</span>`
+          : "";
+        const queueBadge = e.batch_queue_count > 0
+          ? `<span class="badge badge-queue">${e.batch_queue_count} batch queue</span>`
+          : "";
+        const profUrl = `profiles.html#${encodeURIComponent(e.slug || e.login.toLowerCase())}`;
+        const links = (e.evidence || []).map((ev) =>
+          `<a href="${escHtml(ev.url)}" target="_blank" rel="noopener">${escHtml(ev.label)} →</a>`
+        ).join("");
+        return `
+          <div class="steward-card ${isSelf ? "is-self" : ""}" data-profile="${escHtml(profUrl)}">
+            <div class="steward-top">
+              <div class="steward-who"><a href="${escHtml(profUrl)}">${escHtml(e.name)}</a><span>@${escHtml(e.login)}</span></div>
+              <div style="display:flex;gap:5px;flex-wrap:wrap;">${grpBadge}${mergedBadge}${queueBadge}</div>
+            </div>
+            <div class="steward-role">${escHtml(e.role)}</div>
+            <div class="steward-impact">${escHtml(e.non_loc_impact)}</div>
+            <div class="steward-signal"><strong>Signal:</strong> ${escHtml(e.governance_signal)}</div>
+            <div class="evidence-links">${links}<a class="profile-cta" href="${escHtml(profUrl)}" style="background:transparent;border:none;padding:1px 2px;">Profile &amp; links →</a></div>
+          </div>`;
+      }).join("") || `<span class="status-msg">No matching entries.</span>`;
+      listEl.querySelectorAll(".steward-card[data-profile]").forEach((card) => {
+        card.addEventListener("click", (ev) => {
+          if (ev.target.closest("a")) return;
+          window.location.href = card.getAttribute("data-profile");
+        });
+      });
+    }
+    document.querySelectorAll("#stewardFilter button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#stewardFilter button").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        drawStewards(btn.getAttribute("data-group"));
+      });
+    });
+    drawStewards("all");
+  }
+
+  const hof = fdata.ecosystem_hall_of_fame || [];
+  const hofEl = document.getElementById("hofList");
+  if (hofEl) {
+    hofEl.innerHTML = hof.map((h) => {
+      const profUrl = `profiles.html#${encodeURIComponent(h.slug || slugify(h.name))}`;
+      return `
+      <div class="hof-card" data-profile="${escHtml(profUrl)}">
+        <div class="hof-top">
+          <div class="hof-name"><a href="${escHtml(profUrl)}">${escHtml(h.name)}</a></div>
+          <span class="badge hof-pillar">${escHtml(h.pillar)}</span>
+        </div>
+        <div class="hof-org">${escHtml(h.org)}</div>
+        <div class="hof-desc">${escHtml(h.contribution)}</div>
+        <div class="evidence-links">
+          ${h.url ? `<a href="${escHtml(h.url)}" target="_blank" rel="noopener">${escHtml(h.link_label || "Reference")} →</a>` : ""}
+          <a class="profile-cta" href="${escHtml(profUrl)}" style="background:transparent;border:none;padding:1px 2px;color:#b45309;">Profile &amp; links →</a>
+        </div>
+      </div>`;
+    }).join("") || `<span class="status-msg">No Hall of Fame entries loaded.</span>`;
+    hofEl.querySelectorAll(".hof-card[data-profile]").forEach((card) => {
+      card.addEventListener("click", (ev) => {
+        if (ev.target.closest("a")) return;
+        window.location.href = card.getAttribute("data-profile");
+      });
+    });
+  }
+}
+
 async function init() {
   try {
     const [summaryText, frontierText, specMd] = await Promise.all([
@@ -823,6 +988,7 @@ async function init() {
     ]);
     const frontierData = JSON.parse(frontierText);
     renderLiveTracker(frontierData);
+    renderStewardshipAndHallOfFame(frontierData);
     renderPatternsAndTargets(frontierData);
     renderFrontier(frontierData);
     renderSummary(JSON.parse(summaryText));
