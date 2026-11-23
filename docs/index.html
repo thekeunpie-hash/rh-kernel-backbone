@@ -276,7 +276,7 @@
             <p class="panel-sub">Real merged proof-cleanup PRs on <code>leanprover-community/riemann-hypothesis</code> (not an isolated sub-problem benchmark). Click any highlighted PR to inspect its diff &amp; verification receipt.</p>
           </div>
           <div class="seg-group" id="frontierToggle">
-            <button type="button" class="pill-btn active" data-mode="active">Active-Cone Refactors (#57–#68+)</button>
+            <button type="button" class="pill-btn active" data-mode="active">Merged Active-Cone Refactors (#57–#150+)</button>
             <button type="button" class="pill-btn" data-mode="all">Full Repo incl. Dead Prune &amp; #66</button>
           </div>
         </div>
@@ -582,25 +582,31 @@ function renderLiveTracker(fdata) {
 
 function renderFrontier(fdata) {
   const allEvents = fdata.upstream_frontier || [];
-  const merged = allEvents.filter((e) => e.status === "merged");
+  // Exclude #71 from standalone merged-curve steps because it landed inside #115 (da6765973f).
+  const merged = allEvents.filter((e) => e.status === "merged" && e.pr !== 71);
   const totalNet = merged.reduce((acc, e) => acc + (e.net_lines || 0), 0);
   const activeOnly = merged.filter((e) => e.category === "active-refactor");
   const activeNet = activeOnly.reduce((acc, e) => acc + (e.net_lines || 0), 0);
+  const openTracked = allEvents.filter((e) => e.status === "open");
   const deadPrunedFiles = merged.reduce((acc, e) => acc + (e.files_deleted || 0), 0);
   const lm = fdata.live_main;
   const liveNetStr = lm ? `${lm.lines_delta_vs_v021.toLocaleString()} L (${Math.abs(lm.files_delta_vs_v021).toLocaleString()} fewer files)` : `${totalNet.toLocaleString()} L (${deadPrunedFiles.toLocaleString()} dead files deleted)`;
+  const activeListStr = activeOnly.map((e) => `#${e.pr}${e.pr === 68 ? "*" : ""}`).join(", ");
+  const openNoteStr = openTracked.length
+    ? ` Open PRs (${openTracked.map((e) => `#${e.pr}`).join(", ")}) are listed below and excluded from the merged curve.`
+    : "";
 
   document.getElementById("frontierStats").innerHTML = `
-    <span>Merged landmark PRs: <strong>${merged.length - 1}</strong> (incl. #66 Lean 4.36.0)</span>
+    <span>Merged landmark PRs: <strong>${merged.length - 1}</strong> (incl. #66 Lean 4.36.0; #71 landed in #115)</span>
     <span>Net delta on live <code>main</code> vs. v0.2.1: <strong>${liveNetStr}</strong></span>
-    <span>Kernel-active refactorings: <strong>${activeNet.toLocaleString()} L</strong> across #57, #60, #65, #68, #115, #150</span>
+    <span>Merged active-cone refactors: <strong>${activeNet.toLocaleString()} L</strong> across ${activeListStr} (*#68 rolled back in #66).${openNoteStr}</span>
   `;
 
   function drawChart(mode) {
     const events = mode === "active"
       ? [{ pr: 0, title: "Active-Cone Baseline", net_lines: 0, status: "merged", category: "baseline", author: "v0.2.1", date: "2026-11-21" },
-         ...allEvents.filter((e) => e.category === "active-refactor")]
-      : allEvents.filter((e) => e.status === "merged");
+         ...activeOnly]
+      : merged;
 
     let cum = 0;
     const pts = events.map((e, i) => {
@@ -633,8 +639,8 @@ function renderFrontier(fdata) {
       const x = xOf(i), y = yOf(p.cumSaved);
       const isOurs = p.author === "thekeunpie-hash";
       const fill = p.pr === 0 ? "#64748b" : isOurs ? "#0f766e" : (p.category === "dead-prune" ? "#dc2626" : "#2563eb");
-      const lbl = p.pr === 0 ? "v0.2.1" : `#${p.pr}`;
-      const deltaLbl = p.pr === 0 ? "" : `${p.net_lines.toLocaleString()} L`;
+      const lbl = p.pr === 0 ? "v0.2.1" : (p.pr === 68 ? "#68*" : `#${p.pr}`);
+      const deltaLbl = p.pr === 0 ? "" : `${p.net_lines > 0 ? "+" : ""}${p.net_lines.toLocaleString()} L`;
       return `
         <g class="frontier-dot" data-pr="${p.pr}" data-pattern="${p.pattern_id || ""}" data-url="${escHtml(p.url || "")}">
           <circle cx="${x}" cy="${y}" r="${isOurs ? 6.5 : 5}" fill="${fill}" stroke="#ffffff" stroke-width="2">
