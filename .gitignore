@@ -5,3 +5,4 @@ __pycache__/
 # Local-only: Zulip RH insights and the Lean automation plugin modules (never published)
 /local/
 /data/zulip-rh/
+/data/zulip_rh_threads.json
