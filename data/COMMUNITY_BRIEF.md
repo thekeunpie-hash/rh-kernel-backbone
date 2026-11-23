@@ -1,9 +1,9 @@
-# Community Context Brief (Auto-generated 2026-11-23T06:14:27Z)
+# Community Context Brief (Auto-generated 2026-11-23T06:52:01Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
 - **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[merged:58], merged PRs=42 (#225, #205, #203, #187, #182, #172, #163, #150), main commits=135
 - **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:142, unlabeled:23, merged:17], merged PRs=10 (#226, #124, #121, #118, #111, #88, #72, #43), main commits=106
-- **thorimur** / Thomas Murrills (`COLLABORATOR`): privileged=[labeled:15], merged PRs=3 (#191, #184, #154), main commits=10
+- **thorimur** / Thomas Murrills (`COLLABORATOR`): privileged=[labeled:16], merged PRs=3 (#191, #184, #154), main commits=10
 - **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=1 (#66), main commits=4
 
 ## 2. Active Contributors (GitHub)
@@ -22,15 +22,15 @@
 - **alectionary** (`NONE`): merged=0 [], batch_queue=23 [#245, #240, #236, #231, #228], opened=31
 - **CubeJerry** (`NONE`): merged=0 [], batch_queue=7 [#261, #260, #216, #215, #210], opened=8
 - **hughperkins** (`NONE`): merged=0 [], batch_queue=6 [#160, #155, #152, #149, #135], opened=9
-- **Visio-Vanitas** (`NONE`): merged=0 [], batch_queue=4 [#232, #220, #127, #119], opened=8
+- **Visio-Vanitas** (`NONE`): merged=0 [], batch_queue=4 [#232, #220, #127, #119], opened=10
 - **jasonyandell** (`CONTRIBUTOR`): merged=0 [], batch_queue=2 [#218, #117], opened=3
 - **surfyhou** (`NONE`): merged=0 [], batch_queue=2 [#130, #128], opened=2
 - **JamCh01** (`NONE`): merged=0 [], batch_queue=1 [#181], opened=17
+- **Sheape** (`NONE`): merged=0 [], batch_queue=1 [#219], opened=4
 - **YinkaiYu** (`CONTRIBUTOR`): merged=0 [], batch_queue=1 [#143], opened=4
+- **graohene10-spec** (`NONE`): merged=0 [], batch_queue=1 [#87], opened=3
 - **ashleyholman** (`NONE`): merged=0 [], batch_queue=1 [#116], opened=2
-- **graohene10-spec** (`NONE`): merged=0 [], batch_queue=1 [#87], opened=2
 - **Hope7Happiness** (`NONE`): merged=0 [], batch_queue=1 [#227], opened=2
-- **Sheape** (`NONE`): merged=0 [], batch_queue=1 [#219], opened=2
 - **tudsytoo** (`NONE`): merged=0 [], batch_queue=1 [#144], opened=2
 - **DebarghaG** (`CONTRIBUTOR`): merged=0 [], batch_queue=1 [#54], opened=1
 - **hipotures** (`NONE`): merged=0 [], batch_queue=1 [#230], opened=1
@@ -42,12 +42,12 @@
 ## 3. Most Active Zulip Participants (RH Threads)
 - **Mario Carneiro**: 58 msgs, 54 reactions
 - **Vasily Ilin**: 21 msgs, 41 reactions
-- **Thomas Murrills**: 33 msgs, 32 reactions
+- **Thomas Murrills**: 32 msgs, 32 reactions
 - **David Loeffler**: 16 msgs, 32 reactions
-- **suhr**: 28 msgs, 29 reactions
-- **Tom Gracey**: 73 msgs, 27 reactions
-- **Jack McCarthy**: 39 msgs, 22 reactions
+- **suhr**: 28 msgs, 30 reactions
+- **Tom Gracey**: 72 msgs, 27 reactions
 - **Albert T**: 3 msgs, 22 reactions
+- **Jack McCarthy**: 38 msgs, 21 reactions
 - **Violeta Hernández**: 5 msgs, 19 reactions
 - **Rohan Arun**: 45 msgs, 17 reactions
 - **Kim Morrison**: 30 msgs, 16 reactions
@@ -69,12 +69,12 @@
 ## 4. High-Signal Zulip Messages (Community Vibe & Key Milestones)
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **David Loeffler** (rx:27): @_**Shirin Shafaie|1220143** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642647909): ```quote I am relatively new to Lean and mathlib, s
 - [RH: why can I trust Lean?] **Tom Gracey** (rx:21): ok, I'm going to leave this discussion now - I feel I have learned a lot about it from the way you have responded
+- [RH: why can I trust Lean?] **suhr** (rx:18): @_**Yakov Pechersky|308899** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F/near/642676373): ```quote If I have a C function that is typed that the return type is `int`, 
 - [RH: why can I trust Lean?] **Albert T** (rx:18): Ok, I'm just a casual observer from the general population, but even I'm getting annoyed by new people coming in and asking for a walk through of what's going on here from first principles. Tom, did you even try to start with the fundamenta
 - [RH: cleaning up the proof] **Vasily Ilin** (rx:17): I am actually happy that Levent put out such a messy formalization. Everyone involved in the cleanup now has firsthand experience of improving Lean code at scale, and all the problems that come up. For example, I have been talking about Lea
-- [RH: why can I trust Lean?] **suhr** (rx:17): @_**Yakov Pechersky|308899** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F/near/642676373): ```quote If I have a C function that is typed that the return type is `int`, 
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **Violeta Hernández** (rx:14): We compiled the code, with the highest safeguards, and we verified the proof comes through. This is a higher level of verification than most mathematical papers even come with. I think the wording is fully warranted.
-- [RH: cleaning up the proof] **Filippo A. E. Nuccio** (rx:11): @_**Kim Morrison|110087** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20cleaning.20up.20the.20proof/near/642641360): ```quote Ugh, I think I am realising that the AI is stupid, and we should just be ro
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **Simon DeDeo** (rx:11): @_**Shirin Shafaie|1220143** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642647909): ```quote It just feels like the frontier AI compani
+- [RH: cleaning up the proof] **Filippo A. E. Nuccio** (rx:11): @_**Kim Morrison|110087** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20cleaning.20up.20the.20proof/near/642641360): ```quote Ugh, I think I am realising that the AI is stupid, and we should just be ro
 - [RH: why can I trust Lean?] **Jason Rute** (rx:10): @_**pilgrim|1242244** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F/near/642660574): ```quote Are there any public efforts to port the Lean proof to other foundations/pr
 - [RH: why can I trust Lean?] **Kevin Buzzard** (rx:10): Can I propose that questions about how lean works be moved to another thread? They are on topic for this Zulip but not specific to the question of RH as they apply equally well to any formalisation.
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **Artie Khovanov** (rx:9): I'll ask again - what does it mean to "establish a mathematical proof," as distinct from a formal proof?  As far as I can tell, the standard can't possibly be publication (which was neither necessary nor sufficient for mathematical proof be
@@ -82,13 +82,13 @@
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **Riccardo Brasca** (rx:9): @_**Mario Carneiro|110049** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642641845): ````quote @_**Jack McCarthy|989743** [said](https://
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **Aarre Lisakki** (rx:8): @_**Lectori Salutem|1242317** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642689906): ``````quote @_**Aarre Lisakki|1242118** [said](htt
 - [RH: why can I trust Lean?] **Chris Bailey** (rx:8): You don't understand how this software works and do not seem to be willing to read the materials that have been provided previously.
+- [Discussion: Alpöge Proves the Riemann Hypothesis] **Thomas Murrills** (rx:7): @_**Eric Wieser|310045** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642622147): ```quote # Threads in Zulip  To anyone new to Zulip; I'
 - [RH: cleaning up the proof] **Vasily Ilin** (rx:7): From profiling a 1% sample, imports take 54% of compilation time, definitional equality takes 15%, and typeclass inference takes 11%. The rest is negligible. Report is in RH#250.  We should focus on imports first. @**Rohan Arun**'s idea of 
 - [RH: cleaning up the proof] **Sébastien Gouëzel** (rx:7): If you want a huge gain on build time you could even consider bumping to 4.37rc1: on Mathlib, it gave a 23% speedup!
-- [Discussion: Alpöge Proves the Riemann Hypothesis] **Thomas Murrills** (rx:7): @_**Eric Wieser|310045** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642622147): ```quote # Threads in Zulip  To anyone new to Zulip; I'
 - [RH: why can I trust Lean?] **Mario Carneiro** (rx:7): @_**Tom Gracey|1242108** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F/near/642621377): ````quote @_**Mario Carneiro|110049** [said](https://leanprover.zulipchat.com/#na
-- [RH: cleaning up the proof] **Moritz Roos** (rx:6): I told my ai to do a live plot of the linecounts etc. for the offical repo at https://rh-shrink.github.io/ I wish i could get the hearbeat numbers from somewhere to plot them as well
-- [RH: cleaning up the proof] **Snir Broshi** (rx:6): "Zero linter warnings outside of the critical line"
-- [Discussion: Alpöge Proves the Riemann Hypothesis] **Timothy Chow** (rx:6): @_**Chris Henson|687698** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642654847): ```quote To clarify, the objection is that the blog sa
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **Thomas Murrills** (rx:6): Well, it’s probably still true, given what the tokens must have cost 🙃
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **Mario Carneiro** (rx:6): @_**Jack McCarthy|989743** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642635571): ```quote [docs#RiemannHypothesis](https://leanprover-
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **metakuntyyy** (rx:6): Because this proof is one of the most rigorously checked ones in history. Human understanding is an orthogonal concept and will follow eventually. In fact I prefer this future, formal artefact before human exposition.  Why should I, an hypo
+- [Discussion: Alpöge Proves the Riemann Hypothesis] **Timothy Chow** (rx:6): @_**Chris Henson|687698** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642654847): ```quote To clarify, the objection is that the blog sa
+- [RH: cleaning up the proof] **Moritz Roos** (rx:6): I told my ai to do a live plot of the linecounts etc. for the offical repo at https://rh-shrink.github.io/ I wish i could get the hearbeat numbers from somewhere to plot them as well
+- [RH: cleaning up the proof] **Snir Broshi** (rx:6): "Zero linter warnings outside of the critical line"

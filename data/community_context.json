@@ -1,10 +1,140 @@
 {
-  "generated_at": "2026-11-23T06:14:27Z",
+  "generated_at": "2026-11-23T06:52:01Z",
   "github": {
+    "Sheape": {
+      "association": "NONE",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 284,
+          "title": "Speed up the label_scalar_split proof in AdjointApplyOfEigen",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 283,
+          "title": "Speed up the tiesAt_true proof in PeriodRelationsTrueColumnsAtTuple",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 246,
+          "title": "Speed up the entC_tr proof in InstBack (−72% module build time)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 219,
+          "title": "Replace 22 nlinarith calls in RunSizesQuotientGapsLarge (−58% module build time)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 219,
+          "title": "Replace 22 nlinarith calls in RunSizesQuotientGapsLarge (−58% module build time)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "jnmarti": {
+      "association": "NONE",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 282,
+          "title": "perf: validate CI cache manifests in one pass",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "graohene10-spec": {
+      "association": "NONE",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 281,
+          "title": "Share the coefficient Fock pairing and row adjoint",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 92,
+          "title": "Reuse the existing CovNFormula proof",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 87,
+          "title": "Shorten checked proofs across 816 Lean modules",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 87,
+          "title": "Shorten checked proofs across 816 Lean modules",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "edmoreno": {
+      "association": "NONE",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 280,
+          "title": "Replace all 20 nlinarith calls in LatticeSumBounds (-33.6% build time)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 277,
+          "title": "Replace all 21 nlinarith calls in CriticalThresholdLowerBound (-42.7% build time)",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
     "Visio-Vanitas": {
       "association": "NONE",
       "tier": "active_contributor",
       "prs_opened": [
+        {
+          "number": 279,
+          "title": "Replace 4 local matrix and scheme proofs with Mathlib v4.36.0 lemmas",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 276,
+          "title": "Replace 6 more local proofs with Mathlib v4.36.0 lemmas",
+          "state": "open",
+          "batch_queue": false
+        },
         {
           "number": 275,
           "title": "Replace 5 more local proofs with Mathlib v4.36.0 lemmas",
@@ -81,6 +211,29 @@
           "batch_queue": true
         }
       ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "xsoc1": {
+      "association": "CONTRIBUTOR",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 278,
+          "title": "Prove generated submodule stability on generators",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 76,
+          "title": "Share the threshold argument in combined_weight_of_nested_sets",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
       "privileged_events": {}
@@ -1000,36 +1153,6 @@
         {
           "number": 136,
           "title": "Reuse nilpotence and linearity in matrix geometric-sum proofs",
-          "state": "open",
-          "batch_queue": true
-        }
-      ],
-      "main_commits": 0,
-      "merge_commits_authored": 0,
-      "privileged_events": {}
-    },
-    "Sheape": {
-      "association": "NONE",
-      "tier": "contributor",
-      "prs_opened": [
-        {
-          "number": 246,
-          "title": "Speed up the entC_tr proof in InstBack",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 219,
-          "title": "Replace 22 nlinarith calls in RunSizesQuotientGapsLarge (−58% module build time)",
-          "state": "open",
-          "batch_queue": true
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [
-        {
-          "number": 219,
-          "title": "Replace 22 nlinarith calls in RunSizesQuotientGapsLarge (−58% module build time)",
           "state": "open",
           "batch_queue": true
         }
@@ -2161,7 +2284,7 @@
       "main_commits": 10,
       "merge_commits_authored": 0,
       "privileged_events": {
-        "labeled": 15
+        "labeled": 16
       }
     },
     "zediir": {
@@ -2698,36 +2821,6 @@
       "merge_commits_authored": 0,
       "privileged_events": {}
     },
-    "graohene10-spec": {
-      "association": "NONE",
-      "tier": "contributor",
-      "prs_opened": [
-        {
-          "number": 92,
-          "title": "Reuse the existing CovNFormula proof",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 87,
-          "title": "Shorten checked proofs across 816 Lean modules",
-          "state": "open",
-          "batch_queue": true
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [
-        {
-          "number": 87,
-          "title": "Shorten checked proofs across 816 Lean modules",
-          "state": "open",
-          "batch_queue": true
-        }
-      ],
-      "main_commits": 0,
-      "merge_commits_authored": 0,
-      "privileged_events": {}
-    },
     "josephbebel": {
       "association": "NONE",
       "tier": "contributor",
@@ -2735,23 +2828,6 @@
         {
           "number": 90,
           "title": "Golf proofs in si  x ThetaBesselIsometries / BesselWaveGrids files (−344 lines)",
-          "state": "closed",
-          "batch_queue": false
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [],
-      "main_commits": 0,
-      "merge_commits_authored": 0,
-      "privileged_events": {}
-    },
-    "xsoc1": {
-      "association": "CONTRIBUTOR",
-      "tier": "contributor",
-      "prs_opened": [
-        {
-          "number": 76,
-          "title": "Share the threshold argument in combined_weight_of_nested_sets",
           "state": "closed",
           "batch_queue": false
         }
@@ -2982,317 +3058,6 @@
     }
   },
   "zulip_stats": {
-    "Rohan Arun": {
-      "messages": 45,
-      "reactions_received": 17,
-      "topics": {
-        "RH: cleaning up the proof": 45
-      }
-    },
-    "Moritz Roos": {
-      "messages": 5,
-      "reactions_received": 7,
-      "topics": {
-        "RH: cleaning up the proof": 5
-      }
-    },
-    "Kim Morrison": {
-      "messages": 30,
-      "reactions_received": 16,
-      "topics": {
-        "RH: cleaning up the proof": 28,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
-        "RH: why can I trust Lean?": 1
-      }
-    },
-    "Thomas Murrills": {
-      "messages": 33,
-      "reactions_received": 32,
-      "topics": {
-        "RH: cleaning up the proof": 24,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
-        "RH: why can I trust Lean?": 5,
-        "RH: bumping the lean version": 2
-      }
-    },
-    "Hang Lu Su": {
-      "messages": 4,
-      "reactions_received": 3,
-      "topics": {
-        "RH: cleaning up the proof": 2,
-        "RH: conserving original proof": 2
-      }
-    },
-    "Snir Broshi": {
-      "messages": 14,
-      "reactions_received": 14,
-      "topics": {
-        "RH: cleaning up the proof": 14
-      }
-    },
-    "Andrii Kurdiumov": {
-      "messages": 14,
-      "reactions_received": 8,
-      "topics": {
-        "RH: cleaning up the proof": 12,
-        "RH: why can I trust Lean?": 1,
-        "RH: bumping the lean version": 1
-      }
-    },
-    "Violeta Hernández": {
-      "messages": 5,
-      "reactions_received": 19,
-      "topics": {
-        "RH: cleaning up the proof": 4,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
-      }
-    },
-    "Oscar Smith": {
-      "messages": 3,
-      "reactions_received": 2,
-      "topics": {
-        "RH: cleaning up the proof": 3
-      }
-    },
-    "James Shore": {
-      "messages": 8,
-      "reactions_received": 3,
-      "topics": {
-        "RH: cleaning up the proof": 8
-      }
-    },
-    "Martin Hanzlowsky": {
-      "messages": 3,
-      "reactions_received": 4,
-      "topics": {
-        "RH: cleaning up the proof": 3
-      }
-    },
-    "Andres Gutierrez": {
-      "messages": 5,
-      "reactions_received": 2,
-      "topics": {
-        "RH: cleaning up the proof": 5
-      }
-    },
-    "Eric Astor": {
-      "messages": 1,
-      "reactions_received": 0,
-      "topics": {
-        "RH: cleaning up the proof": 1
-      }
-    },
-    "Vasily Ilin": {
-      "messages": 21,
-      "reactions_received": 41,
-      "topics": {
-        "RH: cleaning up the proof": 16,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
-        "RH: bumping the lean version": 4
-      }
-    },
-    "Jinho Noh": {
-      "messages": 7,
-      "reactions_received": 8,
-      "topics": {
-        "RH: cleaning up the proof": 6,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
-      }
-    },
-    "Cat Bunny": {
-      "messages": 1,
-      "reactions_received": 1,
-      "topics": {
-        "RH: cleaning up the proof": 1
-      }
-    },
-    "Michael Righi": {
-      "messages": 3,
-      "reactions_received": 5,
-      "topics": {
-        "RH: cleaning up the proof": 3
-      }
-    },
-    "Jack McCarthy": {
-      "messages": 39,
-      "reactions_received": 22,
-      "topics": {
-        "RH: cleaning up the proof": 27,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 3,
-        "RH: why can I trust Lean?": 7,
-        "RH: bumping the lean version": 2
-      }
-    },
-    "Kevin Gibbons": {
-      "messages": 3,
-      "reactions_received": 0,
-      "topics": {
-        "RH: cleaning up the proof": 3
-      }
-    },
-    "Colin Zwanziger": {
-      "messages": 2,
-      "reactions_received": 1,
-      "topics": {
-        "RH: cleaning up the proof": 2
-      }
-    },
-    "Nicolas Bourbaki": {
-      "messages": 3,
-      "reactions_received": 1,
-      "topics": {
-        "RH: cleaning up the proof": 3
-      }
-    },
-    "Ryan Smith": {
-      "messages": 1,
-      "reactions_received": 0,
-      "topics": {
-        "RH: cleaning up the proof": 1
-      }
-    },
-    "suhr": {
-      "messages": 28,
-      "reactions_received": 29,
-      "topics": {
-        "RH: cleaning up the proof": 2,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
-        "RH: why can I trust Lean?": 24
-      }
-    },
-    "Mario Carneiro": {
-      "messages": 58,
-      "reactions_received": 54,
-      "topics": {
-        "RH: cleaning up the proof": 1,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 3,
-        "RH: why can I trust Lean?": 54
-      }
-    },
-    "Riccardo Brasca": {
-      "messages": 5,
-      "reactions_received": 9,
-      "topics": {
-        "RH: cleaning up the proof": 3,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 2
-      }
-    },
-    "Joseph Myers": {
-      "messages": 1,
-      "reactions_received": 0,
-      "topics": {
-        "RH: cleaning up the proof": 1
-      }
-    },
-    "Sébastien Gouëzel": {
-      "messages": 1,
-      "reactions_received": 7,
-      "topics": {
-        "RH: cleaning up the proof": 1
-      }
-    },
-    "metakuntyyy": {
-      "messages": 14,
-      "reactions_received": 15,
-      "topics": {
-        "RH: cleaning up the proof": 5,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 3,
-        "RH: why can I trust Lean?": 6
-      }
-    },
-    "Trey Cherry": {
-      "messages": 4,
-      "reactions_received": 2,
-      "topics": {
-        "RH: cleaning up the proof": 3,
-        "RH: conserving original proof": 1
-      }
-    },
-    "Chase Norman": {
-      "messages": 3,
-      "reactions_received": 0,
-      "topics": {
-        "RH: cleaning up the proof": 3
-      }
-    },
-    "Yaroslav Kharkov": {
-      "messages": 2,
-      "reactions_received": 0,
-      "topics": {
-        "RH: cleaning up the proof": 2
-      }
-    },
-    "David Michael Roberts": {
-      "messages": 3,
-      "reactions_received": 0,
-      "topics": {
-        "RH: cleaning up the proof": 1,
-        "RH: why can I trust Lean?": 2
-      }
-    },
-    "David Loeffler": {
-      "messages": 16,
-      "reactions_received": 32,
-      "topics": {
-        "RH: cleaning up the proof": 4,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
-        "RH: why can I trust Lean?": 10
-      }
-    },
-    "Kunal Marwaha": {
-      "messages": 1,
-      "reactions_received": 0,
-      "topics": {
-        "RH: cleaning up the proof": 1
-      }
-    },
-    "Adam Koszek": {
-      "messages": 13,
-      "reactions_received": 1,
-      "topics": {
-        "RH: cleaning up the proof": 3,
-        "RH: why can I trust Lean?": 10
-      }
-    },
-    "Filippo A. E. Nuccio": {
-      "messages": 2,
-      "reactions_received": 11,
-      "topics": {
-        "RH: cleaning up the proof": 1,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
-      }
-    },
-    "Tanner Clary": {
-      "messages": 1,
-      "reactions_received": 0,
-      "topics": {
-        "RH: cleaning up the proof": 1
-      }
-    },
-    "Tianyu Qi": {
-      "messages": 2,
-      "reactions_received": 0,
-      "topics": {
-        "RH: cleaning up the proof": 1,
-        "RH: why can I trust Lean?": 1
-      }
-    },
-    "Shigang Ou": {
-      "messages": 1,
-      "reactions_received": 0,
-      "topics": {
-        "RH: cleaning up the proof": 1
-      }
-    },
-    "Eric Wieser": {
-      "messages": 9,
-      "reactions_received": 13,
-      "topics": {
-        "RH: cleaning up the proof": 1,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
-        "RH: why can I trust Lean?": 7
-      }
-    },
     "Lectori Salutem": {
       "messages": 14,
       "reactions_received": 3,
@@ -3419,6 +3184,14 @@
         "RH: why can I trust Lean?": 4
       }
     },
+    "Violeta Hernández": {
+      "messages": 5,
+      "reactions_received": 19,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
+        "RH: cleaning up the proof": 4
+      }
+    },
     "George Coote": {
       "messages": 2,
       "reactions_received": 1,
@@ -3449,6 +3222,43 @@
         "Discussion: Alpöge Proves the Riemann Hypothesis": 1
       }
     },
+    "Jack McCarthy": {
+      "messages": 38,
+      "reactions_received": 21,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 3,
+        "RH: cleaning up the proof": 26,
+        "RH: why can I trust Lean?": 7,
+        "RH: bumping the lean version": 2
+      }
+    },
+    "Thomas Murrills": {
+      "messages": 32,
+      "reactions_received": 32,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
+        "RH: cleaning up the proof": 23,
+        "RH: why can I trust Lean?": 5,
+        "RH: bumping the lean version": 2
+      }
+    },
+    "Mario Carneiro": {
+      "messages": 58,
+      "reactions_received": 54,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 3,
+        "RH: cleaning up the proof": 1,
+        "RH: why can I trust Lean?": 54
+      }
+    },
+    "Riccardo Brasca": {
+      "messages": 5,
+      "reactions_received": 9,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
+        "RH: cleaning up the proof": 3
+      }
+    },
     "Bartosz Naskręcki": {
       "messages": 1,
       "reactions_received": 0,
@@ -3461,6 +3271,42 @@
       "reactions_received": 0,
       "topics": {
         "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "suhr": {
+      "messages": 28,
+      "reactions_received": 30,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
+        "RH: cleaning up the proof": 2,
+        "RH: why can I trust Lean?": 24
+      }
+    },
+    "metakuntyyy": {
+      "messages": 14,
+      "reactions_received": 15,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 3,
+        "RH: cleaning up the proof": 5,
+        "RH: why can I trust Lean?": 6
+      }
+    },
+    "David Loeffler": {
+      "messages": 16,
+      "reactions_received": 32,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
+        "RH: cleaning up the proof": 4,
+        "RH: why can I trust Lean?": 10
+      }
+    },
+    "Kim Morrison": {
+      "messages": 30,
+      "reactions_received": 16,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
+        "RH: cleaning up the proof": 28,
+        "RH: why can I trust Lean?": 1
       }
     },
     "Linfeng Song": {
@@ -3485,6 +3331,14 @@
         "Discussion: Alpöge Proves the Riemann Hypothesis": 1
       }
     },
+    "Filippo A. E. Nuccio": {
+      "messages": 2,
+      "reactions_received": 11,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
+        "RH: cleaning up the proof": 1
+      }
+    },
     "Chris Henson": {
       "messages": 1,
       "reactions_received": 1,
@@ -3506,12 +3360,30 @@
         "Discussion: Alpöge Proves the Riemann Hypothesis": 1
       }
     },
-    "bob": {
-      "messages": 2,
-      "reactions_received": 1,
+    "Vasily Ilin": {
+      "messages": 21,
+      "reactions_received": 41,
       "topics": {
         "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
-        "RH: why can I trust Lean?": 1
+        "RH: cleaning up the proof": 16,
+        "RH: bumping the lean version": 4
+      }
+    },
+    "Jinho Noh": {
+      "messages": 8,
+      "reactions_received": 8,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
+        "RH: cleaning up the proof": 7
+      }
+    },
+    "Eric Wieser": {
+      "messages": 9,
+      "reactions_received": 13,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
+        "RH: cleaning up the proof": 1,
+        "RH: why can I trust Lean?": 7
       }
     },
     "Maxime Rinoldo": {
@@ -3520,6 +3392,209 @@
       "topics": {
         "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
         "RH: why can I trust Lean?": 12
+      }
+    },
+    "Moritz Roos": {
+      "messages": 5,
+      "reactions_received": 7,
+      "topics": {
+        "RH: cleaning up the proof": 5
+      }
+    },
+    "Rohan Arun": {
+      "messages": 45,
+      "reactions_received": 17,
+      "topics": {
+        "RH: cleaning up the proof": 45
+      }
+    },
+    "Hang Lu Su": {
+      "messages": 4,
+      "reactions_received": 3,
+      "topics": {
+        "RH: cleaning up the proof": 2,
+        "RH: conserving original proof": 2
+      }
+    },
+    "Snir Broshi": {
+      "messages": 14,
+      "reactions_received": 14,
+      "topics": {
+        "RH: cleaning up the proof": 14
+      }
+    },
+    "Andrii Kurdiumov": {
+      "messages": 14,
+      "reactions_received": 8,
+      "topics": {
+        "RH: cleaning up the proof": 12,
+        "RH: why can I trust Lean?": 1,
+        "RH: bumping the lean version": 1
+      }
+    },
+    "Oscar Smith": {
+      "messages": 3,
+      "reactions_received": 2,
+      "topics": {
+        "RH: cleaning up the proof": 3
+      }
+    },
+    "James Shore": {
+      "messages": 8,
+      "reactions_received": 3,
+      "topics": {
+        "RH: cleaning up the proof": 8
+      }
+    },
+    "Martin Hanzlowsky": {
+      "messages": 3,
+      "reactions_received": 4,
+      "topics": {
+        "RH: cleaning up the proof": 3
+      }
+    },
+    "Andres Gutierrez": {
+      "messages": 5,
+      "reactions_received": 2,
+      "topics": {
+        "RH: cleaning up the proof": 5
+      }
+    },
+    "Eric Astor": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "Cat Bunny": {
+      "messages": 1,
+      "reactions_received": 1,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "Michael Righi": {
+      "messages": 3,
+      "reactions_received": 6,
+      "topics": {
+        "RH: cleaning up the proof": 3
+      }
+    },
+    "Kevin Gibbons": {
+      "messages": 3,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 3
+      }
+    },
+    "Colin Zwanziger": {
+      "messages": 2,
+      "reactions_received": 1,
+      "topics": {
+        "RH: cleaning up the proof": 2
+      }
+    },
+    "Nicolas Bourbaki": {
+      "messages": 3,
+      "reactions_received": 1,
+      "topics": {
+        "RH: cleaning up the proof": 3
+      }
+    },
+    "Ryan Smith": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "Allegra": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "Sebastian Ullrich": {
+      "messages": 1,
+      "reactions_received": 1,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "Joseph Myers": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "Sébastien Gouëzel": {
+      "messages": 1,
+      "reactions_received": 7,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "Trey Cherry": {
+      "messages": 4,
+      "reactions_received": 2,
+      "topics": {
+        "RH: cleaning up the proof": 3,
+        "RH: conserving original proof": 1
+      }
+    },
+    "Chase Norman": {
+      "messages": 3,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 3
+      }
+    },
+    "Yaroslav Kharkov": {
+      "messages": 2,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 2
+      }
+    },
+    "David Michael Roberts": {
+      "messages": 3,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 1,
+        "RH: why can I trust Lean?": 2
+      }
+    },
+    "Kunal Marwaha": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "Adam Koszek": {
+      "messages": 13,
+      "reactions_received": 1,
+      "topics": {
+        "RH: cleaning up the proof": 3,
+        "RH: why can I trust Lean?": 10
+      }
+    },
+    "Tanner Clary": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "Tianyu Qi": {
+      "messages": 2,
+      "reactions_received": 1,
+      "topics": {
+        "RH: cleaning up the proof": 1,
+        "RH: why can I trust Lean?": 1
       }
     },
     "Jason Rute": {
@@ -3557,16 +3632,9 @@
         "RH: why can I trust Lean?": 7
       }
     },
-    "Lorenz Leutgeb": {
-      "messages": 3,
-      "reactions_received": 0,
-      "topics": {
-        "RH: why can I trust Lean?": 3
-      }
-    },
     "Joachim Breitner": {
       "messages": 5,
-      "reactions_received": 5,
+      "reactions_received": 6,
       "topics": {
         "RH: why can I trust Lean?": 5
       }
@@ -3601,23 +3669,16 @@
     },
     "Justin Mazor": {
       "messages": 1,
-      "reactions_received": 3,
+      "reactions_received": 4,
       "topics": {
         "RH: why can I trust Lean?": 1
       }
     },
-    "Alexis Olson": {
-      "messages": 4,
-      "reactions_received": 0,
-      "topics": {
-        "RH: why can I trust Lean?": 4
-      }
-    },
     "Tom Gracey": {
-      "messages": 73,
+      "messages": 72,
       "reactions_received": 27,
       "topics": {
-        "RH: why can I trust Lean?": 73
+        "RH: why can I trust Lean?": 72
       }
     },
     "Andrés Goens": {
@@ -3641,6 +3702,13 @@
         "RH: why can I trust Lean?": 2
       }
     },
+    "Lorenz Leutgeb": {
+      "messages": 3,
+      "reactions_received": 0,
+      "topics": {
+        "RH: why can I trust Lean?": 3
+      }
+    },
     "Jon Eugster": {
       "messages": 1,
       "reactions_received": 0,
@@ -3649,6 +3717,13 @@
       }
     },
     "Jeremy Chen": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: why can I trust Lean?": 1
+      }
+    },
+    "bob": {
       "messages": 1,
       "reactions_received": 0,
       "topics": {
@@ -3674,6 +3749,13 @@
       "reactions_received": 10,
       "topics": {
         "RH: why can I trust Lean?": 1
+      }
+    },
+    "Alexis Olson": {
+      "messages": 4,
+      "reactions_received": 0,
+      "topics": {
+        "RH: why can I trust Lean?": 4
       }
     },
     "pCwOrM": {
@@ -3706,6 +3788,12 @@
     },
     {
       "topic": "RH: why can I trust Lean?",
+      "sender": "suhr",
+      "reactions": 18,
+      "snippet": "@_**Yakov Pechersky|308899** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F/near/642676373): ```quote If I have a C function that is typed that the return type is `int`, "
+    },
+    {
+      "topic": "RH: why can I trust Lean?",
       "sender": "Albert T",
       "reactions": 18,
       "snippet": "Ok, I'm just a casual observer from the general population, but even I'm getting annoyed by new people coming in and asking for a walk through of what's going on here from first principles. Tom, did you even try to start with the fundamenta"
@@ -3717,28 +3805,22 @@
       "snippet": "I am actually happy that Levent put out such a messy formalization. Everyone involved in the cleanup now has firsthand experience of improving Lean code at scale, and all the problems that come up. For example, I have been talking about Lea"
     },
     {
-      "topic": "RH: why can I trust Lean?",
-      "sender": "suhr",
-      "reactions": 17,
-      "snippet": "@_**Yakov Pechersky|308899** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F/near/642676373): ```quote If I have a C function that is typed that the return type is `int`, "
-    },
-    {
       "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
       "sender": "Violeta Hernández",
       "reactions": 14,
       "snippet": "We compiled the code, with the highest safeguards, and we verified the proof comes through. This is a higher level of verification than most mathematical papers even come with. I think the wording is fully warranted."
     },
     {
-      "topic": "RH: cleaning up the proof",
-      "sender": "Filippo A. E. Nuccio",
-      "reactions": 11,
-      "snippet": "@_**Kim Morrison|110087** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20cleaning.20up.20the.20proof/near/642641360): ```quote Ugh, I think I am realising that the AI is stupid, and we should just be ro"
-    },
-    {
       "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
       "sender": "Simon DeDeo",
       "reactions": 11,
       "snippet": "@_**Shirin Shafaie|1220143** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642647909): ```quote It just feels like the frontier AI compani"
+    },
+    {
+      "topic": "RH: cleaning up the proof",
+      "sender": "Filippo A. E. Nuccio",
+      "reactions": 11,
+      "snippet": "@_**Kim Morrison|110087** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20cleaning.20up.20the.20proof/near/642641360): ```quote Ugh, I think I am realising that the AI is stupid, and we should just be ro"
     },
     {
       "topic": "RH: why can I trust Lean?",
@@ -3783,6 +3865,12 @@
       "snippet": "You don't understand how this software works and do not seem to be willing to read the materials that have been provided previously."
     },
     {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "Thomas Murrills",
+      "reactions": 7,
+      "snippet": "@_**Eric Wieser|310045** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642622147): ```quote # Threads in Zulip  To anyone new to Zulip; I'"
+    },
+    {
       "topic": "RH: cleaning up the proof",
       "sender": "Vasily Ilin",
       "reactions": 7,
@@ -3795,34 +3883,10 @@
       "snippet": "If you want a huge gain on build time you could even consider bumping to 4.37rc1: on Mathlib, it gave a 23% speedup!"
     },
     {
-      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
-      "sender": "Thomas Murrills",
-      "reactions": 7,
-      "snippet": "@_**Eric Wieser|310045** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642622147): ```quote # Threads in Zulip  To anyone new to Zulip; I'"
-    },
-    {
       "topic": "RH: why can I trust Lean?",
       "sender": "Mario Carneiro",
       "reactions": 7,
       "snippet": "@_**Tom Gracey|1242108** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F/near/642621377): ````quote @_**Mario Carneiro|110049** [said](https://leanprover.zulipchat.com/#na"
-    },
-    {
-      "topic": "RH: cleaning up the proof",
-      "sender": "Moritz Roos",
-      "reactions": 6,
-      "snippet": "I told my ai to do a live plot of the linecounts etc. for the offical repo at https://rh-shrink.github.io/ I wish i could get the hearbeat numbers from somewhere to plot them as well"
-    },
-    {
-      "topic": "RH: cleaning up the proof",
-      "sender": "Snir Broshi",
-      "reactions": 6,
-      "snippet": "\"Zero linter warnings outside of the critical line\""
-    },
-    {
-      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
-      "sender": "Timothy Chow",
-      "reactions": 6,
-      "snippet": "@_**Chris Henson|687698** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642654847): ```quote To clarify, the objection is that the blog sa"
     },
     {
       "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
@@ -3841,6 +3905,24 @@
       "sender": "metakuntyyy",
       "reactions": 6,
       "snippet": "Because this proof is one of the most rigorously checked ones in history. Human understanding is an orthogonal concept and will follow eventually. In fact I prefer this future, formal artefact before human exposition.  Why should I, an hypo"
+    },
+    {
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "Timothy Chow",
+      "reactions": 6,
+      "snippet": "@_**Chris Henson|687698** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642654847): ```quote To clarify, the objection is that the blog sa"
+    },
+    {
+      "topic": "RH: cleaning up the proof",
+      "sender": "Moritz Roos",
+      "reactions": 6,
+      "snippet": "I told my ai to do a live plot of the linecounts etc. for the offical repo at https://rh-shrink.github.io/ I wish i could get the hearbeat numbers from somewhere to plot them as well"
+    },
+    {
+      "topic": "RH: cleaning up the proof",
+      "sender": "Snir Broshi",
+      "reactions": 6,
+      "snippet": "\"Zero linter warnings outside of the critical line\""
     },
     {
       "topic": "RH: why can I trust Lean?",
@@ -3873,12 +3955,6 @@
       "snippet": "Is mathematical induction scientific? You don't even check every possible number in there!"
     },
     {
-      "topic": "RH: cleaning up the proof",
-      "sender": "Thomas Murrills",
-      "reactions": 5,
-      "snippet": "@_**Snir Broshi|933054** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20cleaning.20up.20the.20proof/near/642689814): ```quote \"Zero linter warnings outside of the critical line\" ```  Except for the triv"
-    },
-    {
       "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
       "sender": "M. Henkin",
       "reactions": 5,
@@ -3889,6 +3965,12 @@
       "sender": "Vasily Ilin",
       "reactions": 5,
       "snippet": "May I ask the moderators to move the noisy discussion above to another thread? It would be nice to keep discussing the improvements to the repo that @**Kim Morrison** proposed. We got the bump and the module system. I'm privatizing and mini"
+    },
+    {
+      "topic": "RH: cleaning up the proof",
+      "sender": "Thomas Murrills",
+      "reactions": 5,
+      "snippet": "@_**Snir Broshi|933054** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20cleaning.20up.20the.20proof/near/642689814): ```quote \"Zero linter warnings outside of the critical line\" ```  Except for the triv"
     },
     {
       "topic": "RH: why can I trust Lean?",
@@ -3927,10 +4009,10 @@
       "snippet": "Since I already know the proof is true, if the rebuttal is also correct then mathematics is inconsistent, which would indeed be a big result"
     },
     {
-      "topic": "RH: cleaning up the proof",
-      "sender": "Rohan Arun",
+      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
+      "sender": "Anton Mellit",
       "reactions": 4,
-      "snippet": "Our new PR might help smaller contributors :)   It is done: 47,884 files  −67.9%, rebased on Lean 4.36 main and took  ~50 minutes to build.   RH#120  Closed previous PRs and upload olean, ilean, and ir files now."
+      "snippet": "@_**Artie Khovanov|400289** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642682378): ```quote RE the distinction between \"formal\" and \"ma"
     }
   ]
 }
