@@ -38,24 +38,26 @@ PR_META = {
     60: ("active-refactor", "active", 0, "De-explicitize FixPiIff.lean (8,029 -> 45 L, -99.5% norm tokens)"),
     65: ("active-refactor", "active", 0, "De-explicitize 4 kernel-used CapelliIdentities files (105 -> 0 warnings)"),
     68: ("active-refactor", "active", 0, "Share rank-induction proof of GL finiteness across 182 files (-9,010 L)"),
-    71: ("portability", "active", 0, "Remove 66 backward.* options across 4 kernel-used scheme files (ported in #91)"),
+    71: ("portability", "active", 0, "Remove 66 backward.* options across 4 kernel-used scheme files (landed in #115 as da6765973f)"),
     66: ("toolchain-prune", "mixed", 15068, "Bump to Lean & Mathlib v4.36.0, module system, prune 15,068 dead files"),
-    91: ("active-refactor", "active", 0, "Combine 10+ reviewed cleanups on Lean 4.36 (incl. #70, #71, #74-#76, #80-#82, #90)"),
-    62: ("active-refactor", "active", 0, "Shorten machine-dumped terms & reuse repeated proofs in 76 modules (v4.36)"),
-    79: ("portability", "active", 0, "Remove heartbeat overrides across v4.36 tree"),
-    98: ("portability", "active", 0, "Minimize and privatize imports on Lean 4.36"),
+    115: ("active-refactor", "active", 0, "Merge 53-file reviewed Lean 4.36 cleanup batch (incl. #70, #71, #74-#76, #80-#82, #90, #92)"),
+    150: ("active-refactor", "active", 0, "Merge remaining 79-file reviewed Lean 4.36 cleanup batch (incl. #54, #62, #94)"),
+    185: ("toolchain-upgrade", "full", 180, "Integrate #134 build speedup + bump to Lean 4.37.0-rc1 & Mathlib 31ce06ea"),
+    134: ("performance", "full", 180, "Speed up build (-21.9% CPU): heartbeats 78.8k->2.9k, shake imports, 166 slow proofs, #68"),
+    120: ("architecture", "full", 101512, "Collapse 28,169 thin wrappers & consolidate 93,601 modules into 20,258 bundles (-101,512 files)"),
+    208: ("active-refactor", "active", 147, "Reuse existing proofs in 41 modules and delete 147 duplicate modules (-22,373 L)"),
+    194: ("portability", "full", 0, "Resolve ~10,000 linter and deprecation warnings across 1,864 files"),
     88: ("verification", "statement", 0, "DeepMind formal-conjectures Comparator setup (con-leche --compare ACCEPTED)"),
     97: ("formatting", "full", 0, "Run Lean auto-formatter over 147,418 files in src/ (v4.36)"),
-    63: ("architecture", "full", 110371, "Consolidate 133,202 small sibling modules into 22,831 antichain bundles"),
-    83: ("active-refactor", "active", 0, "Zero-free region: replace 34-file assembly with 2,368-token proof (-89.1%)"),
+    83: ("active-refactor", "active", 0, "Zero-free region: replace 34-file assembly with 2,447-token proof (Lean 4.36)"),
     87: ("active-refactor", "active", 0, "Shorten checked proofs across 816 Lean modules"),
     101: ("infra", "full", 0, "Let registered donors build bounded proof shards"),
-    104: ("performance", "active", 0, "Speed up the slowest proofs (stacked on #79)"),
-    109: ("active-refactor", "active", 180, "Restore #68 shared GL finiteness proof on Lean 4.36 (-180 files, -9,730 L)"),
+    109: ("active-refactor", "active", 180, "Restore #68 shared GL finiteness proof on Lean 4.36 (-180 files, -9,730 L; 85/85 verified by @marwuint)"),
     110: ("active-refactor", "active", 0, "Simplify explicit type dumps in cpR and std_cpR (NonzeroPlacesOverPrimesOfLifts.lean, -71.2% norm tokens)"),
+    224: ("portability", "active", 0, "Remove final 5 backward.defeqAttrib.useBackward + 6 respectTransparency directives repo-wide (33 -> 0)"),
 }
 
-TRACKED_OPEN_PRS = [109, 110, 91, 62, 79, 98, 104, 88, 97, 63, 83, 87, 101, 71]
+TRACKED_OPEN_PRS = [224, 185, 134, 109, 110, 120, 208, 194, 88, 97, 83, 87, 150, 115, 71, 101]
 
 
 def gh_api(path: str, token: str = ""):
@@ -178,16 +180,21 @@ def scan_lean_tree(repo_dir: Path, ref: str = "") -> dict:
 
 def fetch_pr_queue(token: str, extra_nums: list[int] | None = None) -> tuple[list, int]:
     """Fetch open PR count and detailed status of tracked/landmark PRs."""
-    open_list = gh_api(f"repos/{UPSTREAM_REPO}/pulls?state=open&per_page=100", token)
-    open_count = len(open_list)
+    search_all = gh_api(f"search/issues?q=repo:{UPSTREAM_REPO}+is:pr+is:open&per_page=1", token)
+    open_count = int(search_all.get("total_count", 0))
     nums = list(TRACKED_OPEN_PRS)
     for n in extra_nums or []:
         if n not in nums:
             nums.append(n)
-    # Also surface any open PR authored by thekeunpie-hash automatically
-    for p in open_list:
-        if p.get("user", {}).get("login") == "thekeunpie-hash" and p["number"] not in nums:
-            nums.insert(0, p["number"])
+    # Also surface any open PR authored by thekeunpie-hash automatically via lightweight search
+    try:
+        mine = gh_api(f"search/issues?q=repo:{UPSTREAM_REPO}+is:pr+is:open+author:thekeunpie-hash&per_page=30", token)
+        for item in mine.get("items", []):
+            num = item.get("number")
+            if isinstance(num, int) and num not in nums:
+                nums.insert(0, num)
+    except Exception:
+        pass
 
     queue = []
     for num in nums:
@@ -197,8 +204,8 @@ def fetch_pr_queue(token: str, extra_nums: list[int] | None = None) -> tuple[lis
             continue
         cat, scope, _, default_title = PR_META.get(num, ("active-refactor", "active", 0, ""))
         state = "merged" if pr.get("merged_at") else pr.get("state", "open")
-        if num == 71 and state == "open":
-            state = "batched"
+        if num == 71 and state == "closed":
+            state = "merged"
         add = pr.get("additions", 0)
         dels = pr.get("deletions", 0)
         queue.append(
@@ -308,7 +315,7 @@ def main():
     if new_queue:
         existing["stacked_pr_queue"] = new_queue
 
-    args.data.write_text(json.dumps(existing, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    args.data.write_text(json.dumps(existing, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(
         f"Updated {args.data}: main@{live_main['sha']} ({live_main['toolchain']}) | "
         f"{live_main['lean_files']:,} files | {live_main['total_lines']:,} lines | "

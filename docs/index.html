@@ -213,9 +213,10 @@
         <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/scripts/audit_ndjson_statement.py" target="_blank" rel="noopener">NDJSON Auditor</a>
         <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/60" target="_blank" rel="noopener">PR #60 (Merged)</a>
         <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/65" target="_blank" rel="noopener">PR #65 (Merged)</a>
-        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/71" target="_blank" rel="noopener">PR #71 (In #91)</a>
+        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/71" target="_blank" rel="noopener">PR #71 (Merged via #115)</a>
         <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/109" target="_blank" rel="noopener">PR #109 (4.36 Open)</a>
         <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/110" target="_blank" rel="noopener">PR #110 (4.36 Open)</a>
+        <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/224" target="_blank" rel="noopener">PR #224 (useBackward → 0)</a>
         <a href="https://github.com/thekeunpie-hash/rh-lean-dissection" target="_blank" rel="noopener" style="color:var(--muted);">Archive: rh-lean-dissection</a>
       </div>
 
@@ -531,15 +532,15 @@ function renderLiveTracker(fdata) {
     </div>
     <div class="live-kpi">
       <div><span class="lk-val">${lm.import_lines.toLocaleString()}</span></div>
-      <div class="lk-lbl">Live <code>import</code> / <code>public import</code> lines (target of PR #98)</div>
+      <div class="lk-lbl">Live <code>import</code> / <code>public import</code> lines (target of PR #134 / #185)</div>
     </div>
     <div class="live-kpi">
       <div><span class="lk-val">${lm.backward_options.toLocaleString()}</span></div>
-      <div class="lk-lbl">Remaining <code>set_option backward.*</code> directives</div>
+      <div class="lk-lbl">Remaining <code>set_option backward.*</code> directives (−66 in #115/#71)</div>
     </div>
     <div class="live-kpi">
       <div><span class="lk-val">${lm.heartbeat_options.toLocaleString()}</span></div>
-      <div class="lk-lbl">Remaining <code>maxHeartbeats</code> overrides (target of PR #79)</div>
+      <div class="lk-lbl">Remaining <code>maxHeartbeats</code> overrides (target of PR #134 / #185)</div>
     </div>
   `;
 
@@ -592,7 +593,7 @@ function renderFrontier(fdata) {
   document.getElementById("frontierStats").innerHTML = `
     <span>Merged landmark PRs: <strong>${merged.length - 1}</strong> (incl. #66 Lean 4.36.0)</span>
     <span>Net delta on live <code>main</code> vs. v0.2.1: <strong>${liveNetStr}</strong></span>
-    <span>Kernel-active refactorings: <strong>${activeNet.toLocaleString()} L</strong> across #57, #60, #65, #68</span>
+    <span>Kernel-active refactorings: <strong>${activeNet.toLocaleString()} L</strong> across #57, #60, #65, #68, #115, #150</span>
   `;
 
   function drawChart(mode) {
