@@ -50,6 +50,10 @@
   }
   .spotlight.is-hof { background: var(--gold-bg); border-color: #fcd34d; border-left: 4px solid var(--gold); }
   .sp-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .sp-id { display: flex; align-items: center; gap: 14px; }
+  .sp-avatar { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); flex-shrink: 0; background: #334155; }
+  .dir-id { display: flex; align-items: center; gap: 9px; }
+  .dir-avatar { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); flex-shrink: 0; background: #334155; }
   .sp-title { font-family: Georgia, "Times New Roman", serif; font-size: 1.55rem; margin: 0; color: var(--text); }
   .sp-sub { font-size: 13.5px; color: var(--muted); margin-top: 2px; }
   .sp-role { font-size: 13.5px; font-weight: 600; color: var(--accent); margin: 6px 0 10px; }
@@ -259,12 +263,15 @@ function renderSpotlight(profile, meta) {
     `<a class="link-pill" href="${escHtml(lk.url)}" target="_blank" rel="noopener">${escHtml(lk.label)} →</a>`
   ).join("");
 
+  const HOF_GITHUB = { "lean-fro-core": "leodemoura", "mathlib-initiative": "kim-em", "mario-carneiro": "digama0", "kevin-buzzard": "kbuzzard", "sebastien-gouezel": "sgouezel", "david-loeffler": "loefflerd", "alpoge-merten-su": "homeowmorphism" };
+  const ghUser = isHof ? (HOF_GITHUB[profile.slug] || "") : profile.login;
+  const spAvHtml = ghUser ? `<img class="sp-avatar" src="https://github.com/${encodeURIComponent(ghUser)}.png?size=128" alt="${escHtml(profile.name)}" onerror="this.style.display='none'">` : "";
   root.innerHTML = `
     <div class="sp-head">
-      <div>
+      <div class="sp-id">${spAvHtml}<div>
         <h2 class="sp-title">${escHtml(profile.name)}</h2>
         <div class="sp-sub">${isHof ? escHtml(profile.org) : "@" + escHtml(profile.login) + " · leanprover-community/riemann-hypothesis"}</div>
-      </div>
+      </div></div>
       <div style="display:flex;gap:6px;flex-wrap:wrap;">${badges.join("")}</div>
     </div>
     <div class="sp-role">${fmtInline(isHof ? profile.contribution : profile.role)}</div>
@@ -305,7 +312,7 @@ function renderDirectory(meta) {
     return `
       <div class="dir-card ${isHof ? "hof" : ""} ${isAct ? "active" : ""}" data-slug="${escHtml(p.slug)}">
         <div class="dir-top">
-          <div class="dir-name">${escHtml(p.name)}</div>
+          <div class="dir-id">${!isHof && p.login ? `<img class="dir-avatar" src="https://github.com/${encodeURIComponent(p.login)}.png?size=64" alt="${escHtml(p.name)}" loading="lazy" onerror="this.style.display='none'">` : ""}<div class="dir-name">${escHtml(p.name)}</div></div>
           <div style="display:flex;gap:5px;flex-wrap:wrap;">${tag}${extra}</div>
         </div>
         <div class="dir-sub">${isHof ? escHtml(p.org) : "@" + escHtml(p.login) + " · " + escHtml(p.role)}</div>

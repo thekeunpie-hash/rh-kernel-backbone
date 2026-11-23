@@ -69,56 +69,60 @@
   .badge-contrib { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
   .badge-milestone { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
 
-  /* Dual Stewardship & Lean Foundations Board — Clean Visual Roster */
-  .dual-board {
-    display: grid; grid-template-columns: 1.42fr 1fr; gap: 16px; align-items: start; margin: 20px 0;
+  /* Compact Avatar Strip with Hover Popover Overlay */
+  .people-strip { display: flex; flex-direction: column; gap: 11px; margin-top: 10px; }
+  .people-group { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .people-label {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    color: var(--muted); min-width: 146px; flex-shrink: 0;
   }
-  .dual-board .panel { margin: 0; padding: 16px 18px; }
-  .tier-head {
-    display: flex; align-items: center; justify-content: space-between; gap: 8px;
-    font-size: 10.8px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
-    color: var(--muted); padding: 10px 2px 5px; margin-top: 4px; border-bottom: 1px solid var(--border);
+  .avatar-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .av-item {
+    position: relative; display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; border-radius: 50%; text-decoration: none;
+    border: 2px solid #ffffff; box-shadow: 0 0 0 1px #cbd5e1;
+    background: #334155; color: #ffffff; font-size: 11.5px; font-weight: 700;
+    transition: transform .14s ease, box-shadow .14s ease;
   }
-  .tier-head.collab { color: #1e3a8a; border-bottom-color: #bfdbfe; }
-  .tier-head.porting { color: #4338ca; border-bottom-color: #c7d2fe; }
-  .tier-head.contrib { color: #334155; border-bottom-color: #cbd5e1; }
-  .steward-list, .hof-list { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
-  .steward-row {
-    display: grid; grid-template-columns: 32px 1fr 14px; gap: 10px; align-items: center;
-    border: 1px solid var(--border); border-left: 3px solid #cbd5e1; border-radius: 7px;
-    padding: 8px 11px; background: #ffffff; cursor: pointer; text-decoration: none; color: inherit;
-    transition: border-color .14s ease, box-shadow .14s ease;
+  .av-item.is-maintainer { box-shadow: 0 0 0 2px #1e3a8a; background: #1e3a8a; }
+  .av-item.is-porting { box-shadow: 0 0 0 2px #4338ca; background: #4338ca; }
+  .av-item.is-contrib { box-shadow: 0 0 0 1.5px #94a3b8; background: #475569; }
+  .av-item.is-hof { box-shadow: 0 0 0 2px #b45309; background: #92400e; }
+  .av-item:hover, .av-item:focus-visible {
+    transform: translateY(-2px) scale(1.06); z-index: 40; outline: none;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.22), 0 0 0 2px var(--accent);
   }
-  .steward-row:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05); }
-  .steward-row.is-maintainer { border-left-color: #1e3a8a; }
-  .steward-row.is-porting { border-left-color: #4338ca; }
-  .steward-row.is-contrib { border-left-color: #94a3b8; }
-  .avatar-dot {
-    width: 32px; height: 32px; border-radius: 7px; display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 700; letter-spacing: .03em; color: #ffffff; flex-shrink: 0;
+  .av-item img {
+    position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block;
   }
-  .avatar-maintainer { background: #1e3a8a; }
-  .avatar-porting { background: #4338ca; }
-  .avatar-contrib { background: #475569; }
-  .avatar-hof { background: #92400e; }
-  .sr-main { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
-  .sr-top { display: flex; align-items: center; justify-content: space-between; gap: 6px; flex-wrap: wrap; }
-  .sr-name { font-weight: 700; font-size: 13.3px; color: var(--text); }
-  .sr-handle { font-weight: 500; font-size: 11.5px; color: var(--muted); margin-left: 4px; }
-  .sr-pills { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
-  .sr-line { font-size: 12px; color: #475569; line-height: 1.4; }
-  .sr-arrow { font-size: 13px; color: #94a3b8; font-weight: 700; text-align: right; }
-  .steward-row:hover .sr-arrow, .hof-row:hover .sr-arrow { color: var(--accent); }
-  .hof-row {
-    display: grid; grid-template-columns: 32px 1fr 14px; gap: 10px; align-items: center;
-    border: 1px solid #fde68a; border-left: 3px solid #b45309; border-radius: 8px;
-    padding: 9px 11px; background: #fffdf7; cursor: pointer; text-decoration: none; color: inherit;
-    transition: border-color .14s ease, box-shadow .14s ease, transform .12s ease;
+  .av-fallback {
+    display: flex; align-items: center; justify-content: center;
+    width: 100%; height: 100%; border-radius: 50%;
   }
-  .hof-row:hover { border-color: #b45309; box-shadow: 0 3px 10px rgba(180, 83, 9, 0.10); background: #fffbeb; transform: translateY(-1px); }
-  .hof-pillar { background: #fef3c7; color: #92400e; }
-  @media (max-width: 1080px) {
-    .dual-board { grid-template-columns: 1fr; }
+  .av-pop {
+    position: absolute; bottom: calc(100% + 10px); left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    width: 252px; padding: 10px 12px; border-radius: 8px;
+    background: #0f172a; color: #f8fafc; font-weight: 400; text-align: left;
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.28);
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity .14s ease, transform .14s ease, visibility .14s ease;
+    z-index: 60;
+  }
+  .av-pop::after {
+    content: ""; position: absolute; top: 100%; left: 50%; margin-left: -6px;
+    border: 6px solid transparent; border-top-color: #0f172a;
+  }
+  .av-item:hover .av-pop, .av-item:focus-visible .av-pop {
+    opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+  }
+  .av-pop-name { font-size: 13px; font-weight: 700; color: #ffffff; line-height: 1.3; }
+  .av-pop-handle { font-size: 11px; color: #94a3b8; font-weight: 500; margin-left: 4px; }
+  .av-pop-role { font-size: 11.5px; color: #cbd5e1; line-height: 1.4; margin-top: 4px; }
+  .av-pop-meta { font-size: 10.8px; color: #5eead4; margin-top: 6px; font-weight: 600; }
+  @media (max-width: 720px) {
+    .people-group { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .people-label { min-width: 0; }
   }
   .live-banner {
     background: linear-gradient(135deg, #f0fdfa 0%, #eff6ff 100%);
@@ -303,33 +307,15 @@
         </details>
       </section>
 
-      <section class="dual-board" id="stewardship-hall">
-        <div class="panel">
-          <div class="panel-head">
-            <div>
-              <h3>Repo Maintainers, Porting &amp; Contributors</h3>
-              <p class="panel-sub" style="margin:0;">Grouped by factual GitHub role and repository milestones (CI/triage, toolchain porting/verification, and PR contributors sorted mechanically by merged and <code>batch queue</code> counts). Click any entry for PR links.</p>
-            </div>
-            <div class="seg-group" id="stewardFilter">
-              <button type="button" class="pill-btn active" data-group="all">All</button>
-              <button type="button" class="pill-btn" data-group="maintainer">Maintainers</button>
-              <button type="button" class="pill-btn" data-group="major_porting">Porting &amp; Infra</button>
-              <button type="button" class="pill-btn" data-group="contributor">Contributors</button>
-            </div>
+      <section class="panel" id="stewardship-hall" style="padding:14px 20px;">
+        <div class="panel-head" style="margin-bottom:4px;">
+          <div>
+            <h3 style="margin:0 0 2px;">Contributors &amp; Lean Foundations</h3>
+            <p class="panel-sub" style="margin:0;font-size:12.5px;">Hover any avatar for role and live PR counts, or click to open their profile page.</p>
           </div>
-          <div class="frontier-stats" id="stewardStats">Loading live GitHub metrics…</div>
-          <div class="steward-list" id="stewardList"><span class="status-msg">Loading directory…</span></div>
+          <a href="profiles.html" class="pill-btn" style="text-decoration:none;">Full Directory →</a>
         </div>
-
-        <div class="panel">
-          <div class="panel-head">
-            <div>
-              <h3>Lean 4 &amp; Verification Foundations</h3>
-              <p class="panel-sub" style="margin:0;">Creators, Mathlib stewards, and independent verifiers behind Lean 4, Mathlib, and proof verification. Click any entry for links.</p>
-            </div>
-          </div>
-          <div class="hof-list" id="hofList"><span class="status-msg">Loading foundations…</span></div>
-        </div>
+        <div class="people-strip" id="peopleStrip"><span class="status-msg">Loading directory…</span></div>
       </section>
 
       <div class="kpi-grid">
@@ -904,97 +890,88 @@ function fmtInline(s) {
 }
 
 function renderStewardshipAndHallOfFame(fdata) {
-  const st = fdata.stewardship_standing;
-  const listEl = document.getElementById("stewardList");
-  const statsEl = document.getElementById("stewardStats");
-
-  function renderRow(e) {
-    const tier = e.tier || (e.group === "collaborator" ? "maintainer" : "contributor");
-    const rowCls = tier === "maintainer" ? "is-maintainer" : tier === "major_porting" ? "is-porting" : "is-contrib";
-    const avCls = tier === "maintainer" ? "avatar-maintainer" : tier === "major_porting" ? "avatar-porting" : "avatar-contrib";
-    const initials = escHtml(e.initials || (e.name || e.login).split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase());
-    const profUrl = `profiles.html#${encodeURIComponent(e.slug || e.login.toLowerCase())}`;
-    const badges = [];
-    if (e.milestone_tag) {
-      badges.push(`<span class="badge badge-milestone">${escHtml(e.milestone_tag)}</span>`);
-    }
-    if (e.merged_direct > 0) {
-      badges.push(`<span class="badge badge-exact">${e.merged_direct} merged</span>`);
-    }
-    if (e.batch_queue_count > 0) {
-      badges.push(`<span class="badge badge-queue">${e.batch_queue_count} queue</span>`);
-    }
-    return `
-      <a class="steward-row ${rowCls}" href="${escHtml(profUrl)}">
-        <div class="avatar-dot ${avCls}">${initials}</div>
-        <div class="sr-main">
-          <div class="sr-top">
-            <div><span class="sr-name">${escHtml(e.name)}</span><span class="sr-handle">@${escHtml(e.login)}</span></div>
-            <div class="sr-pills">${badges.join("")}</div>
-          </div>
-          <div class="sr-line">${fmtInline(e.headline || e.role)}</div>
-        </div>
-        <div class="sr-arrow">→</div>
-      </a>`;
-  }
-
-  if (st && listEl) {
-    const entries = st.entries || [];
-    const maint = entries.filter((e) => (e.tier || (e.group === "collaborator" ? "maintainer" : "contributor")) === "maintainer");
-    const porting = entries.filter((e) => e.tier === "major_porting");
-    const contribs = entries.filter((e) => (e.tier || (e.group === "collaborator" ? "maintainer" : "contributor")) === "contributor");
-    if (statsEl) {
-      statsEl.innerHTML = `
-        <span>Merged PRs (repo): <strong>${(st.total_merged_prs || 0).toLocaleString()}</strong></span>
-        <span>Open <code>batch queue</code>: <strong>${(st.total_batch_queue_prs || 0).toLocaleString()}</strong></span>
-      `;
-    }
-    function drawStewards(group) {
-      let html = "";
-      if (group === "all" || group === "maintainer") {
-        html += `<div class="tier-head collab"><span>Core Maintainers &amp; Repo Operations</span><span>${maint.length}</span></div>`;
-        html += maint.map(renderRow).join("");
-      }
-      if (group === "all" || group === "major_porting") {
-        html += `<div class="tier-head porting"><span>Major Porting, Performance &amp; Verification</span><span>${porting.length}</span></div>`;
-        html += porting.map(renderRow).join("");
-      }
-      if (group === "all" || group === "contributor") {
-        html += `<div class="tier-head contrib"><span>Active PR Contributors (by GitHub PR / Queue Activity)</span><span>${contribs.length}</span></div>`;
-        html += contribs.map(renderRow).join("");
-      }
-      listEl.innerHTML = html || `<span class="status-msg">No matching entries.</span>`;
-    }
-    document.querySelectorAll("#stewardFilter button").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll("#stewardFilter button").forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        drawStewards(btn.getAttribute("data-group"));
-      });
-    });
-    drawStewards("all");
-  }
-
+  const root = document.getElementById("peopleStrip");
+  if (!root) return;
+  const entries = (fdata.stewardship_standing && fdata.stewardship_standing.entries) || [];
   const hof = fdata.ecosystem_hall_of_fame || [];
-  const hofEl = document.getElementById("hofList");
-  if (hofEl) {
-    hofEl.innerHTML = hof.map((h) => {
-      const profUrl = `profiles.html#${encodeURIComponent(h.slug || slugify(h.name))}`;
-      const initials = escHtml((h.name || "LH").split(/[\s&]+/).filter(Boolean).map((w) => w[0]).join("").slice(0, 2).toUpperCase());
-      return `
-      <a class="hof-row" href="${escHtml(profUrl)}">
-        <div class="avatar-dot avatar-hof" style="width:32px;height:32px;font-size:11px;">${initials}</div>
-        <div class="sr-main">
-          <div class="sr-top">
-            <span class="sr-name">${escHtml(h.name)}</span>
-            <span class="badge hof-pillar">${escHtml(h.pillar)}</span>
-          </div>
-          <div class="sr-line">${fmtInline(h.contribution)}</div>
-        </div>
-        <div class="sr-arrow">→</div>
+
+  const HOF_GITHUB = {
+    "lean-fro-core": "leodemoura",
+    "mathlib-initiative": "kim-em",
+    "mario-carneiro": "digama0",
+    "kevin-buzzard": "kbuzzard",
+    "sebastien-gouezel": "sgouezel",
+    "david-loeffler": "loefflerd",
+    "alpoge-merten-su": "homeowmorphism"
+  };
+
+  function avatarNode({ name, handle, ghUser, initials, cls, roleLine, metaLine, href }) {
+    const imgHtml = ghUser
+      ? `<img src="https://github.com/${encodeURIComponent(ghUser)}.png?size=96" alt="${escHtml(name)}" loading="lazy" onerror="this.remove()">`
+      : "";
+    return `
+      <a class="av-item ${cls}" href="${escHtml(href)}" aria-label="${escHtml(name)}">
+        <span class="av-fallback" aria-hidden="true">${escHtml(initials)}</span>
+        ${imgHtml}
+        <span class="av-pop" role="tooltip">
+          <span class="av-pop-name">${escHtml(name)}${handle ? `<span class="av-pop-handle">${escHtml(handle)}</span>` : ""}</span>
+          <div class="av-pop-role">${escHtml(roleLine)}</div>
+          <div class="av-pop-meta">${escHtml(metaLine)} · Click for profile →</div>
+        </span>
       </a>`;
-    }).join("") || `<span class="status-msg">No foundations loaded.</span>`;
   }
+
+  function mapEntry(e, cls) {
+    const initials = e.initials || (e.name || e.login).split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+    const parts = [];
+    if (e.milestone_tag) parts.push(e.milestone_tag);
+    if (e.merged_direct > 0) parts.push(`${e.merged_direct} merged`);
+    if (e.batch_queue_count > 0) parts.push(`${e.batch_queue_count} queue`);
+    return avatarNode({
+      name: e.name,
+      handle: "@" + e.login,
+      ghUser: e.login,
+      initials,
+      cls,
+      roleLine: e.headline || e.role,
+      metaLine: parts.join(" · ") || e.github_role || "Contributor",
+      href: `profiles.html#${encodeURIComponent(e.slug || e.login.toLowerCase())}`
+    });
+  }
+
+  const maint = entries.filter((e) => (e.tier || (e.group === "collaborator" ? "maintainer" : "contributor")) === "maintainer");
+  const porting = entries.filter((e) => e.tier === "major_porting");
+  const contribs = entries.filter((e) => (e.tier || (e.group === "collaborator" ? "maintainer" : "contributor")) === "contributor");
+
+  const rows = [];
+  if (maint.length) {
+    rows.push(`<div class="people-group"><div class="people-label">Maintainers &amp; Ops</div><div class="avatar-row">${maint.map((e) => mapEntry(e, "is-maintainer")).join("")}</div></div>`);
+  }
+  if (porting.length) {
+    rows.push(`<div class="people-group"><div class="people-label">Porting &amp; Infra</div><div class="avatar-row">${porting.map((e) => mapEntry(e, "is-porting")).join("")}</div></div>`);
+  }
+  if (contribs.length) {
+    rows.push(`<div class="people-group"><div class="people-label">PR Contributors</div><div class="avatar-row">${contribs.map((e) => mapEntry(e, "is-contrib")).join("")}</div></div>`);
+  }
+  if (hof.length) {
+    const hofHtml = hof.map((h) => {
+      const slug = h.slug || slugify(h.name);
+      const initials = (h.name || "LF").split(/[\s&]+/).filter(Boolean).map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+      return avatarNode({
+        name: h.name,
+        handle: "",
+        ghUser: HOF_GITHUB[slug] || "",
+        initials,
+        cls: "is-hof",
+        roleLine: h.contribution,
+        metaLine: h.pillar,
+        href: `profiles.html#${encodeURIComponent(slug)}`
+      });
+    }).join("");
+    rows.push(`<div class="people-group"><div class="people-label">Lean Foundations</div><div class="avatar-row">${hofHtml}</div></div>`);
+  }
+
+  root.innerHTML = rows.join("") || `<span class="status-msg">No directory entries loaded.</span>`;
 }
 
 async function init() {
