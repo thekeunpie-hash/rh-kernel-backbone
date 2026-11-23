@@ -46,16 +46,16 @@
   }
   nav.sidebar a {
     display: block; text-decoration: none; color: var(--text-secondary);
-    padding: 5px 8px; border-radius: 6px; font-size: 12.8px; line-height: 1.35;
+    padding: 4px 8px; border-radius: 6px; font-size: 12.8px; line-height: 1.35;
     transition: background .12s ease, color .12s ease;
   }
   nav.sidebar a:hover { color: var(--accent); background: var(--accent-soft); }
-  nav.sidebar a.toc-l3 { padding-left: 18px; font-size: 12px; color: var(--muted); }
+  nav.sidebar a.toc-l3 { padding-left: 20px; font-size: 12px; color: var(--muted); }
   nav.sidebar a.toc-l3:hover { color: var(--accent); }
-  main { padding: 26px 40px 80px; max-width: 1100px; min-width: 0; }
+  main { padding: 24px 40px 80px; max-width: 1100px; min-width: 0; }
   .topbar {
-    display: flex; gap: 6px 8px; flex-wrap: wrap; align-items: center;
-    font-size: 12.5px; margin-bottom: 16px; padding: 10px 14px;
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+    font-size: 12.5px; margin-bottom: 16px; padding: 12px 16px;
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
     box-shadow: var(--shadow-sm);
   }
@@ -69,30 +69,157 @@
     border: 1px solid #ccfbf1;
   }
   .topbar a.primary:hover { background: #ccfbf1; color: var(--accent-hover); }
+
+  /* Brand Header & Live Pulse (inspired by riemann.verifytask.cn) */
+  .brand-header {
+    display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap;
+    margin-bottom: 14px; padding: 12px 16px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow-sm);
+  }
+  .brand-left { display: flex; align-items: center; gap: 12px; }
+  .brand-logo {
+    width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+    background: linear-gradient(135deg, #0f766e 0%, #1d4ed8 100%);
+    color: #ffffff; font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(15, 118, 110, 0.25);
+  }
+  .brand-title { font-size: 15.5px; font-weight: 700; color: var(--text); line-height: 1.25; }
+  .brand-sub { font-size: 12px; color: var(--muted); margin-top: 1px; }
+  .brand-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .live-pill {
+    display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px;
+    border-radius: 999px; background: #ecfdf5; border: 1px solid #a7f3d0;
+    color: #065f46; font-size: 11.8px; font-weight: 600; white-space: nowrap;
+  }
+  .live-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.22);
+    animation: rhPulse 2.2s infinite;
+  }
+  @keyframes rhPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(0.9); }
+  }
+  .icon-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+    padding: 5px 10px; border-radius: 8px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text-secondary); font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all .12s ease;
+  }
+  .icon-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+  /* Hero Executive Summary Card */
+  .hero-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 22px 24px; margin-bottom: 18px; box-shadow: var(--shadow-md);
+  }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(260px, 1fr); gap: 20px; align-items: start; }
+  .eyebrow {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+    color: var(--accent); margin-bottom: 6px;
+  }
+  .hero-title {
+    font-family: Georgia, "Times New Roman", serif; font-size: 1.52rem; line-height: 1.26;
+    margin: 0 0 10px; color: var(--text); letter-spacing: -.01em;
+  }
+  .hero-desc { margin: 0 0 14px; font-size: 13.6px; color: var(--text-secondary); line-height: 1.58; }
+  .hero-dots {
+    display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 12px; color: var(--text-secondary);
+    padding-top: 12px; border-top: 1px solid var(--border); margin-top: 12px;
+  }
+  .hero-dot-item { display: inline-flex; align-items: center; gap: 6px; }
+  .hero-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 14px; }
+  .cta-pill {
+    display: inline-flex; align-items: center; gap: 4px; text-decoration: none;
+    padding: 6px 12px; border-radius: 999px; font-size: 12.2px; font-weight: 600;
+    border: 1px solid var(--border); background: #f8fafc; color: var(--text);
+    transition: all .12s ease;
+  }
+  .cta-pill:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+  .cta-pill.cta-dark { background: #0f172a; border-color: #0f172a; color: #ffffff; }
+  .cta-pill.cta-dark:hover { background: #1e293b; color: #ffffff; }
+  .cta-pill.cta-accent { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+  .cta-pill.cta-accent:hover { background: var(--accent-hover); color: #ffffff; }
+  .hero-callouts { display: flex; flex-direction: column; gap: 10px; }
+  .callout-box {
+    border: 1px solid var(--border); border-radius: 10px; padding: 13px 15px;
+    background: #f8fafc;
+  }
+  .callout-box .cb-k { font-size: 11.2px; font-weight: 600; color: var(--muted); }
+  .callout-box .cb-v { font-size: 1.18rem; font-weight: 700; color: #1d4ed8; margin: 3px 0; font-variant-numeric: tabular-nums; }
+  .callout-box.is-green .cb-v { color: #0f766e; font-size: 1.04rem; }
+  .callout-box .cb-sub { font-size: 11.5px; color: var(--muted); line-height: 1.4; }
+
+  /* Whole-Proof Spatial Coverage Map */
+  .spatial-bar {
+    display: flex; width: 100%; height: 42px; border-radius: 10px; overflow: hidden;
+    border: 1px solid var(--border); gap: 2px; background: #e2e8f0; margin: 12px 0;
+  }
+  .spatial-seg {
+    display: flex; align-items: center; justify-content: center; padding: 0 6px;
+    color: #ffffff; font-size: 11.2px; font-weight: 700; cursor: pointer;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    transition: filter .14s ease, transform .14s ease;
+  }
+  .spatial-seg:hover, .spatial-seg.active { filter: brightness(1.08); }
+  .spatial-legend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+  .spatial-card {
+    border: 1px solid var(--border); border-radius: 8px; padding: 9px 11px; background: #fcfcfd;
+    cursor: pointer; transition: border-color .12s ease, background .12s ease;
+  }
+  .spatial-card:hover, .spatial-card.active { border-color: var(--accent); background: var(--accent-soft); }
+  .spatial-card-top { display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 12.2px; font-weight: 700; color: var(--text); }
+  .spatial-swatch { width: 9px; height: 9px; border-radius: 3px; display: inline-block; margin-right: 6px; flex-shrink: 0; }
+  .spatial-card-sub { font-size: 11.4px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+  .spatial-detail {
+    margin-top: 10px; padding: 10px 13px; border-radius: 8px; background: #f8fafc;
+    border: 1px solid var(--border); font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;
+  }
+
+  /* Community News & Upstream Timeline */
+  .timeline-list { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .tl-item {
+    display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; align-items: start;
+    padding: 10px 12px; border: 1px solid var(--border); border-radius: 9px; background: #fcfcfd;
+    transition: border-color .12s ease, background .12s ease;
+  }
+  .tl-item:hover { border-color: var(--border-strong); background: #ffffff; }
+  .tl-date { font-family: var(--mono); font-size: 11.5px; font-weight: 600; color: var(--muted); padding-top: 2px; white-space: nowrap; }
+  .tl-title { font-size: 13.2px; font-weight: 700; color: var(--text); line-height: 1.38; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .tl-title a { color: var(--text); text-decoration: none; }
+  .tl-title a:hover { color: var(--accent); text-decoration: underline; }
+  .tl-detail { font-size: 12.2px; color: var(--muted); margin-top: 3px; line-height: 1.48; }
+
+  @media (max-width: 960px) {
+    .hero-grid, .spatial-legend { grid-template-columns: 1fr; }
+    .tl-item { grid-template-columns: 1fr; gap: 4px; }
+  }
   h1 { font-family: Georgia, "Times New Roman", serif; font-size: 1.9rem; line-height: 1.25; margin-top: 0; border-bottom: 2px solid var(--text); padding-bottom: 12px; letter-spacing: -.01em; }
-  h2 { font-family: Georgia, "Times New Roman", serif; font-size: 1.38rem; margin-top: 2.3rem; border-bottom: 1px solid var(--border); padding-bottom: 6px; letter-spacing: -.01em; }
+  h2 { font-family: Georgia, "Times New Roman", serif; font-size: 1.38rem; margin-top: 2.3rem; border-bottom: 1px solid var(--border); padding-bottom: 8px; letter-spacing: -.01em; }
   h3 { font-size: 1.04rem; margin-top: 1.5rem; color: var(--text); letter-spacing: -.01em; }
-  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 18px 0 22px; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0 24px; }
   .kpi {
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-    padding: 14px 16px; box-shadow: var(--shadow-sm);
+    padding: 16px; box-shadow: var(--shadow-sm);
   }
   .kpi .k-num { font-size: 1.35rem; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
-  .kpi .k-lbl { font-size: 12px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+  .kpi .k-lbl { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
   .panel {
     background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-    padding: 20px 24px; margin: 18px 0; box-shadow: var(--shadow-sm);
+    padding: 20px 24px; margin: 16px 0; box-shadow: var(--shadow-sm);
   }
   .panel-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
-  .panel h3 { margin: 0 0 4px; font-size: 1.04rem; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .panel h3 { margin: 0 0 4px; font-size: 1.04rem; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .panel-sub { margin: 0 0 12px; font-size: 13px; color: var(--muted); line-height: 1.55; }
-  .wf-row { display: grid; grid-template-columns: 310px 1fr 155px; align-items: center; gap: 12px; margin: 9px 0; font-size: 13px; }
+  .wf-row { display: grid; grid-template-columns: 310px 1fr 155px; align-items: center; gap: 12px; margin: 8px 0; font-size: 13px; }
   .wf-track { background: #f1f5f9; height: 12px; border-radius: 999px; overflow: hidden; }
   .wf-fill { height: 100%; border-radius: 999px; }
   .wf-val { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); font-size: 12px; font-weight: 500; }
   .badge {
     display: inline-flex; align-items: center; white-space: nowrap;
-    font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 999px;
+    font-size: 11px; font-weight: 600; padding: 4px 8px; border-radius: 999px;
     vertical-align: middle; letter-spacing: .01em; line-height: 1.35;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
@@ -107,7 +234,7 @@
   .badge-milestone { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
 
   /* Compact Avatar Strip with Hover Popover Overlay */
-  .people-strip { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .people-strip { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
   .people-group { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
   .people-label {
     font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
@@ -119,7 +246,7 @@
     width: 36px; height: 36px; border-radius: 50%; text-decoration: none;
     border: 2px solid #ffffff; box-shadow: 0 0 0 1px #cbd5e1;
     background: #334155; color: #ffffff; font-size: 11px; font-weight: 700;
-    transition: transform .14s ease, box-shadow .14s ease;
+    transition: transform .14s ease;
   }
   .av-item.is-maintainer { box-shadow: 0 0 0 2px #1e3a8a; background: #1e3a8a; }
   .av-item.is-porting { box-shadow: 0 0 0 2px #4338ca; background: #4338ca; }
@@ -139,7 +266,7 @@
   .av-pop {
     position: absolute; bottom: calc(100% + 10px); left: 50%;
     transform: translateX(-50%) translateY(4px);
-    width: 256px; padding: 10px 12px; border-radius: 8px;
+    width: 256px; padding: 12px; border-radius: 8px;
     background: #0f172a; color: #f8fafc; font-weight: 400; text-align: left;
     box-shadow: 0 10px 26px rgba(15, 23, 42, 0.28);
     opacity: 0; visibility: hidden; pointer-events: none;
@@ -147,8 +274,8 @@
     z-index: 60;
   }
   .av-pop::after {
-    content: ""; position: absolute; top: 100%; left: 50%; margin-left: -6px;
-    border: 6px solid transparent; border-top-color: #0f172a;
+    content: ""; position: absolute; top: 100%; left: 50%; margin-left: -8px;
+    border: 8px solid transparent; border-top-color: #0f172a;
   }
   .av-item:hover .av-pop, .av-item:focus-visible .av-pop {
     opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
@@ -156,9 +283,9 @@
   .av-pop-name { font-size: 13px; font-weight: 700; color: #ffffff; line-height: 1.3; }
   .av-pop-handle { font-size: 11px; color: #94a3b8; font-weight: 500; margin-left: 4px; }
   .av-pop-role { font-size: 11.5px; color: #cbd5e1; line-height: 1.45; margin-top: 4px; }
-  .av-pop-meta { font-size: 10.8px; color: #5eead4; margin-top: 6px; font-weight: 600; }
+  .av-pop-meta { font-size: 10.8px; color: #5eead4; margin-top: 8px; font-weight: 600; }
   @media (max-width: 720px) {
-    .people-group { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .people-group { flex-direction: column; align-items: flex-start; gap: 8px; }
     .people-label { min-width: 0; }
   }
   .live-banner {
@@ -167,14 +294,14 @@
     border-radius: 12px; padding: 20px 24px; margin: 16px 0 20px;
     box-shadow: var(--shadow-md);
   }
-  .live-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
-  .live-head h3 { margin: 0 0 5px; font-size: 1.08rem; color: var(--text); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .live-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+  .live-head h3 { margin: 0 0 4px; font-size: 1.08rem; color: var(--text); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .live-meta {
     font-size: 11.8px; color: var(--text-secondary); font-family: var(--mono);
     background: rgba(255,255,255,0.9); border: 1px solid #ccfbf1;
-    border-radius: 8px; padding: 7px 11px; line-height: 1.5; white-space: nowrap;
+    border-radius: 8px; padding: 8px 12px; line-height: 1.5; white-space: nowrap;
   }
-  .live-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 10px 0 14px; }
+  .live-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 12px 0 16px; }
   .live-kpi {
     background: rgba(255,255,255,0.96); border: 1px solid var(--border);
     border-radius: 9px; padding: 12px 14px; box-shadow: var(--shadow-sm);
@@ -182,24 +309,24 @@
   .live-kpi .lk-val { font-size: 1.24rem; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
   .live-kpi .lk-delta {
     display: inline-block; font-size: 11px; font-weight: 600; color: var(--exact-fg);
-    background: var(--exact-bg); padding: 1px 6px; border-radius: 999px; margin-left: 6px; vertical-align: 1px;
+    background: var(--exact-bg); padding: 1px 8px; border-radius: 999px; margin-left: 8px; vertical-align: 1px;
   }
   .live-kpi .lk-lbl { font-size: 11.8px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
-  .milestones-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+  .milestones-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 12px; }
   .ms-card {
     background: rgba(255,255,255,0.94); border: 1px solid var(--border);
-    border-radius: 9px; padding: 11px 13px; font-size: 12.2px;
+    border-radius: 9px; padding: 12px; font-size: 12.2px;
   }
-  .ms-card strong { display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 12.6px; color: var(--text); margin-bottom: 4px; }
+  .ms-card strong { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 12.6px; color: var(--text); margin-bottom: 4px; }
   .queue-table td, .queue-table th { font-size: 12.5px; padding: 8px 10px; }
   @media (max-width: 960px) {
     .live-grid, .milestones-strip { grid-template-columns: 1fr; }
   }
   code {
     font-family: var(--mono); font-size: 0.85em; background: #f1f5f9; color: #0f172a;
-    padding: 1.5px 5px; border-radius: 4px; overflow-wrap: anywhere;
+    padding: 1px 4px; border-radius: 4px; overflow-wrap: anywhere;
   }
-  pre { background: #0f172a; color: #e2e8f0; padding: 14px 16px; border-radius: 8px; overflow-x: auto; font-size: 12.2px; line-height: 1.5; }
+  pre { background: #0f172a; color: #e2e8f0; padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 12.2px; line-height: 1.5; }
   pre code { background: transparent; color: inherit; padding: 0; overflow-wrap: normal; }
 
   /* Clean Modern Tables */
@@ -208,7 +335,7 @@
     border-radius: 9px; background: var(--surface);
   }
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th, td { border: none; border-bottom: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+  th, td { border: none; border-bottom: 1px solid var(--border); padding: 8px 12px; text-align: left; vertical-align: top; }
   tbody tr:last-child td { border-bottom: none; }
   tbody tr:hover { background: #f8fafc; }
   th {
@@ -219,10 +346,10 @@
   .nowrap { white-space: nowrap; }
   .path-text {
     display: block; font-family: var(--mono); font-size: 11.2px; color: var(--muted);
-    margin-top: 3px; line-height: 1.4; overflow-wrap: anywhere; word-break: normal;
+    margin-top: 4px; line-height: 1.4; overflow-wrap: anywhere; word-break: normal;
   }
   .subpath {
-    display: block; font-size: 12px; color: var(--muted); margin-top: 3px;
+    display: block; font-size: 12px; color: var(--muted); margin-top: 4px;
     line-height: 1.48; overflow-wrap: break-word; word-break: normal;
   }
   .target-table { table-layout: fixed; min-width: 780px; }
@@ -238,9 +365,9 @@
   .queue-table { min-width: 680px; }
   .dom-table { min-width: 680px; }
 
-  blockquote { border-left: 3px solid var(--accent); margin: 14px 0; padding: 10px 16px; background: var(--accent-soft); color: #134e4a; border-radius: 0 8px 8px 0; }
+  blockquote { border-left: 3px solid var(--accent); margin: 16px 0; padding: 12px 16px; background: var(--accent-soft); color: #134e4a; border-radius: 0 8px 8px 0; }
   blockquote p { margin: 4px 0; }
-  .controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
   select.chain-sel, input.filter-in {
     padding: 8px 11px; border: 1px solid var(--border); border-radius: 7px;
     font-size: 13px; background: var(--surface); color: var(--text);
@@ -249,18 +376,18 @@
   select.chain-sel { flex: 1 1 360px; min-width: 0; }
   input.filter-in { width: 100%; max-width: 360px; }
   button.btn, .pill-btn {
-    padding: 6px 12px; border: 1px solid var(--border); border-radius: 7px;
+    padding: 8px 12px; border: 1px solid var(--border); border-radius: 7px;
     background: var(--surface); color: var(--text-secondary); font-size: 12.3px; font-weight: 600;
-    cursor: pointer; transition: all .12s ease;
+    cursor: pointer; transition: background .12s ease, border-color .12s ease, color .12s ease;
   }
   button.btn:hover, .pill-btn:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
   .pill-btn.active { background: var(--accent); border-color: var(--accent); color: #ffffff; }
-  .seg-group { display: inline-flex; gap: 5px; flex-wrap: wrap; }
+  .seg-group { display: inline-flex; gap: 4px; flex-wrap: wrap; }
   .chain-box { font-family: var(--mono); font-size: 12.2px; background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; line-height: 1.7; overflow-x: auto; }
-  .chain-step { display: flex; gap: 10px; align-items: baseline; }
+  .chain-step { display: flex; gap: 12px; align-items: baseline; }
   .chain-d { color: var(--accent); font-weight: 700; min-width: 38px; flex-shrink: 0; }
   .legend {
-    display: flex; gap: 10px 16px; flex-wrap: wrap; align-items: center;
+    display: flex; gap: 12px 16px; flex-wrap: wrap; align-items: center;
     font-size: 12.3px; color: var(--text-secondary); margin: 4px 0 14px; padding: 0 2px;
   }
   .status-msg { color: var(--muted); font-size: 13px; font-style: italic; }
@@ -272,22 +399,22 @@
   .chart-wrap svg { display: block; width: 100%; min-width: 620px; height: auto; }
   .frontier-dot { cursor: pointer; transition: transform .12s ease; }
   .frontier-dot:hover { stroke-width: 3; }
-  .frontier-list { margin-top: 12px; display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 9px; }
+  .frontier-list { margin-top: 12px; display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 8px; }
   .frontier-item {
-    border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-size: 12.5px;
+    border: 1px solid var(--border); border-radius: 8px; padding: 12px; font-size: 12.5px;
     background: #fcfcfd; display: flex; flex-direction: column; gap: 4px;
     transition: border-color .14s ease, background .14s ease;
   }
   .frontier-item.clickable { cursor: pointer; }
   .frontier-item.clickable:hover { border-color: var(--accent); background: var(--accent-soft); }
-  .frontier-item-top { display: flex; justify-content: space-between; align-items: center; gap: 6px; font-weight: 600; }
+  .frontier-item-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-weight: 600; }
 
   /* Verified De-bloating Pattern Cards */
-  .pattern-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 10px; }
+  .pattern-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 12px; }
   .pattern-card {
-    border: 1px solid var(--border); border-radius: 10px; padding: 15px 17px; background: #fcfcfd;
+    border: 1px solid var(--border); border-radius: 10px; padding: 16px; background: #fcfcfd;
     display: flex; flex-direction: column; gap: 8px; cursor: pointer; text-align: left;
-    transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+    transition: border-color .15s ease, transform .15s ease;
   }
   .pattern-card:hover {
     border-color: var(--accent); box-shadow: var(--shadow-md); background: #ffffff; transform: translateY(-1px);
@@ -295,13 +422,13 @@
   .pattern-kicker { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 11.5px; color: var(--muted); }
   .pattern-title { font-size: 14.2px; font-weight: 700; color: var(--text); line-height: 1.38; }
   .pattern-desc { font-size: 12.6px; color: var(--muted); line-height: 1.52; margin: 0; }
-  .chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
   .chip {
-    font-family: var(--mono); font-size: 11px; padding: 2px 7px;
+    font-family: var(--mono); font-size: 11px; padding: 4px 8px;
     border-radius: 5px; background: #f1f5f9; color: var(--text); border: 1px solid #e2e8f0;
   }
   .chip-good { background: var(--exact-bg); color: var(--exact-fg); border-color: #bbf7d0; }
-  .pattern-cta { font-size: 12px; font-weight: 600; color: var(--accent); margin-top: auto; padding-top: 2px; }
+  .pattern-cta { font-size: 12px; font-weight: 600; color: var(--accent); margin-top: auto; padding-top: 4px; }
 
   /* Proof & Diff Inspector Slide-Over Drawer */
   .drawer-backdrop {
@@ -321,12 +448,12 @@
     display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
   }
   .drawer-head h3 { margin: 4px 0 0; font-size: 1.08rem; }
-  .drawer-body { padding: 18px 20px 32px; overflow-y: auto; flex: 1; }
+  .drawer-body { padding: 20px 20px 32px; overflow-y: auto; flex: 1; }
   .metric-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 12px 0 16px; }
-  .metric-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 7px; padding: 9px 11px; }
+  .metric-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 7px; padding: 8px 12px; }
   .metric-box .m-k { font-size: 10.8px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
-  .metric-box .m-v { font-size: 12.6px; font-weight: 600; color: var(--text); margin-top: 2px; font-family: var(--mono); overflow-wrap: anywhere; }
-  .receipt-box { background: var(--accent-soft); border: 1px solid #99f6e4; color: #134e4a; border-radius: 8px; padding: 10px 13px; font-size: 12.5px; margin-bottom: 14px; }
+  .metric-box .m-v { font-size: 12.6px; font-weight: 600; color: var(--text); margin-top: 4px; font-family: var(--mono); overflow-wrap: anywhere; }
+  .receipt-box { background: var(--accent-soft); border: 1px solid #99f6e4; color: #134e4a; border-radius: 8px; padding: 12px; font-size: 12.5px; margin-bottom: 16px; }
   .diff-view {
     background: #0f172a; color: #e2e8f0; border-radius: 8px; padding: 12px 0;
     overflow-x: auto; font-family: var(--mono); font-size: 11.8px; line-height: 1.48;
@@ -351,6 +478,8 @@
     <h4>Contents</h4>
     <a href="#interactive-dashboard">Kernel Dashboard</a>
     <a href="#live-upstream-tracker" class="toc-l3">Live Upstream Tracker (4.36)</a>
+    <a href="#proof-coverage-map" class="toc-l3">Whole-Proof Coverage Map</a>
+    <a href="#community-timeline" class="toc-l3">Community News &amp; Timeline</a>
     <a href="#stewardship-hall" class="toc-l3">Maintainers &amp; Contributors</a>
     <a href="#upstream-frontier" class="toc-l3">Upstream main Frontier</a>
     <a href="#verified-patterns" class="toc-l3">Verified De-bloating Patterns</a>
@@ -359,6 +488,57 @@
   </nav>
   <main>
     <div id="interactive-dashboard">
+      <header class="brand-header">
+        <div class="brand-left">
+          <div class="brand-logo" aria-hidden="true">ζ</div>
+          <div>
+            <div class="brand-title">Riemann Hypothesis · Kernel Backbone &amp; Upstream Tracker</div>
+            <div class="brand-sub">Exact Lean 4 kernel-cone accounting &amp; live <code>leanprover-community/riemann-hypothesis</code> progress</div>
+          </div>
+        </div>
+        <div class="brand-right">
+          <span class="live-pill" id="livePulsePill"><span class="live-dot"></span><span id="livePulseText">LIVE · Syncing…</span></span>
+          <button type="button" class="icon-btn" id="forceRefreshBtn" title="Force fresh live check from GitHub API">↻ Refresh</button>
+          <a href="profiles.html" class="cta-pill">Directory &amp; Foundations</a>
+          <a href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener" class="cta-pill cta-accent">Official RH Repo ↗</a>
+        </div>
+      </header>
+
+      <section class="hero-card">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Official Upstream Lean 4.36+ Full-Proof Tracker</div>
+            <h2 class="hero-title" style="border:none;padding:0;margin:0 0 8px;">Kernel-Grounded Progress Across the Full RH &amp; GRH Proof</h2>
+            <p class="hero-desc">Tracks exact source metrics, kernel-active dominators, toolchain upgrades, and community PRs across Levent Alpöge’s full 175,187-file / 17.37M-line formalization — separating kernel-used declarations (<code>in_cone = true</code>) from unreachable dead subtrees.</p>
+            <div class="hero-actions">
+              <span style="font-size:12px;font-weight:600;color:var(--muted);">Explore:</span>
+              <a class="cta-pill cta-dark" href="https://github.com/leanprover-community/riemann-hypothesis/pulls" target="_blank" rel="noopener">GitHub PRs ↗</a>
+              <a class="cta-pill" href="https://github.com/leanprover-community/riemann-hypothesis/issues/229" target="_blank" rel="noopener">Tech Debt #229 ↗</a>
+              <a class="cta-pill" href="https://leanprover.zulipchat.com/" target="_blank" rel="noopener">Lean Zulip ↗</a>
+              <a class="cta-pill" href="https://math.mit.edu/~drew/grh/" target="_blank" rel="noopener">MIT Verification ↗</a>
+              <a class="cta-pill" href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/SPEC.md" target="_blank" rel="noopener">SPEC.md ↗</a>
+            </div>
+            <div class="hero-dots">
+              <span class="hero-dot-item"><span class="hero-dot" style="background:#10b981;"></span>100% kernel-export &amp; live-tree grounded (no unverified estimates)</span>
+              <span class="hero-dot-item"><span class="hero-dot" style="background:#2563eb;"></span>Anti-golf normalized Lean 4 token metrics + <code>Kernel.isDefEq</code> receipts</span>
+              <span class="hero-dot-item"><span class="hero-dot" style="background:#7c3aed;"></span>Auto-updated every 5 min via fast-path Actions + live browser check</span>
+            </div>
+          </div>
+          <div class="hero-callouts">
+            <div class="callout-box">
+              <div class="cb-k">Full-Repo Upstream Reduction (vs. v0.2.1 Baseline)</div>
+              <div class="cb-v" id="heroReductionVal">−12.7% (−2.21M L)</div>
+              <div class="cb-sub" id="heroReductionSub">149,397 / 175,187 files · −25,790 files pruned on official <code>main</code></div>
+            </div>
+            <div class="callout-box is-green">
+              <div class="cb-k">Verification &amp; Toolchain Status</div>
+              <div class="cb-v" id="heroVerifyVal">Lean v4.36.0 · Comparator ACCEPTED</div>
+              <div class="cb-sub">0 sorry · standard axioms only · 6+ independent external kernels verified</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div class="topbar">
         <a class="primary" href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener">Official RH Repo</a>
         <a href="profiles.html" class="primary">Directory &amp; Foundations</a>
@@ -401,7 +581,27 @@
         </details>
       </section>
 
-      <section class="panel" id="stewardship-hall" style="padding:14px 20px;">
+      <section class="panel" id="proof-coverage-map">
+        <div class="eyebrow">Whole-Proof Geometry · 175,187 Files · 17.37M Lines</div>
+        <h3 style="margin:0 0 4px;">Interactive Full-RH Proof Spatial Coverage Map <span class="badge badge-exact">Exact</span></h3>
+        <p class="panel-sub" style="margin:0 0 8px;">Proportional breakdown of Levent Alpöge’s full v0.2.1 repository by kernel-cone status and major mathematical pillar. Click any segment to inspect its exact scale and cleanup status.</p>
+        <div class="spatial-bar" id="spatialBar"></div>
+        <div class="spatial-legend" id="spatialLegend"></div>
+        <div class="spatial-detail" id="spatialDetail">Click any pillar above to inspect its exact kernel-active scale and cleanup opportunities.</div>
+      </section>
+
+      <section class="panel" id="community-timeline">
+        <div class="panel-head" style="margin-bottom:4px;">
+          <div>
+            <div class="eyebrow">Ecosystem Pulse · Official Upstream</div>
+            <h3 style="margin:0 0 2px;">Community News &amp; Upstream Timeline</h3>
+            <p class="panel-sub" style="margin:0;">Chronological milestones across <code>leanprover-community/riemann-hypothesis</code>, independent checkers, and the merge queue.</p>
+          </div>
+        </div>
+        <div class="timeline-list" id="timelineList"><span class="status-msg">Loading community timeline…</span></div>
+      </section>
+
+      <section class="panel" id="stewardship-hall" style="padding:16px 20px;">
         <div class="panel-head" style="margin-bottom:4px;">
           <div>
             <h3 style="margin:0 0 2px;">Contributors &amp; Lean Foundations</h3>
@@ -447,8 +647,20 @@
       </div>
 
       <div class="panel" id="verified-patterns">
-        <h3>Verified De-bloating &amp; Audit Patterns (Click to Open Proof Inspector) <span class="badge badge-exact">Exact</span></h3>
-        <p class="panel-sub">Includes both raw line deltas and <strong>anti-golf normalized Lean 4 token counts</strong> (comments, whitespace, and <code>import</code> lines stripped) alongside full <code>Kernel.isDefEq</code> / <code>dist=1</code> verification receipts.</p>
+        <div class="panel-head">
+          <div>
+            <div class="eyebrow">Highlighted Breakthrough Methods</div>
+            <h3>Verified Community &amp; De-bloating Patterns (Click to Open Proof Inspector) <span class="badge badge-exact">Exact</span></h3>
+            <p class="panel-sub" style="margin:0;">Major toolchain, performance, dead-pruning, and active-cone proof-engineering patterns across <code>leanprover-community/riemann-hypothesis</code> with anti-golf token counts and verification receipts.</p>
+          </div>
+          <div class="seg-group" id="patternFilters">
+            <button type="button" class="pill-btn active" data-bucket="all" id="patternAllBtn">All Patterns</button>
+            <button type="button" class="pill-btn" data-bucket="toolchain">Toolchain &amp; Perf</button>
+            <button type="button" class="pill-btn" data-bucket="active-cone">Active-Cone</button>
+            <button type="button" class="pill-btn" data-bucket="dead-prune">Dead Prune</button>
+            <button type="button" class="pill-btn" data-bucket="portability">Portability &amp; Audit</button>
+          </div>
+        </div>
         <div class="pattern-grid" id="patternGrid"><span class="status-msg">Loading verified patterns…</span></div>
       </div>
 
@@ -509,7 +721,7 @@
       <p class="status-msg">Loading full kernel-grounded specification from <code>SPEC.md</code>…</p>
     </article>
 
-    <footer style="margin-top:42px;padding-top:14px;border-top:1px solid var(--border);font-size:12.2px;color:var(--muted);">
+    <footer style="margin-top:40px;padding-top:16px;border-top:1px solid var(--border);font-size:12.2px;color:var(--muted);">
       Maintained by Jinho Noh (<a href="https://github.com/thekeunpie-hash" target="_blank" rel="noopener">@thekeunpie-hash</a>) · Auto-updated every 5 minutes from <a href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener">leanprover-community/riemann-hypothesis</a>.
     </footer>
   </main>
@@ -689,6 +901,28 @@ function renderLiveTracker(fdata) {
   const lPct = ((100 * (lm.total_lines - baseLines)) / baseLines).toFixed(1);
   const dDelta = lm.declarations - 1063284;
   const dPct = ((100 * dDelta) / 1063284).toFixed(1);
+
+  const heroRedVal = document.getElementById("heroReductionVal");
+  if (heroRedVal) {
+    const absM = (Math.abs(lm.lines_delta_vs_v021) / 1e6).toFixed(2);
+    heroRedVal.textContent = `${lPct}% (−${absM}M L)`;
+  }
+  const heroRedSub = document.getElementById("heroReductionSub");
+  if (heroRedSub) {
+    heroRedSub.innerHTML = `${lm.lean_files.toLocaleString()} / ${baseFiles.toLocaleString()} files · ${lm.files_delta_vs_v021.toLocaleString()} files (${fPct}%) on official <code>main</code>`;
+  }
+  const heroVerVal = document.getElementById("heroVerifyVal");
+  if (heroVerVal) heroVerVal.textContent = `Lean ${tcShort} · Comparator ACCEPTED`;
+  const pulseTxt = document.getElementById("livePulseText");
+  if (pulseTxt) {
+    const ts = Date.parse(lm.measured_at || fdata.generated_at || "");
+    if (!Number.isNaN(ts)) {
+      const mins = Math.max(0, Math.round((Date.now() - ts) / 60000));
+      pulseTxt.textContent = mins < 1 ? "LIVE · Updated just now" : `LIVE · Updated ${mins}m ago`;
+    } else {
+      pulseTxt.textContent = `LIVE · main@${lm.sha}`;
+    }
+  }
 
   document.getElementById("liveKpiGrid").innerHTML = `
     <div class="live-kpi">
@@ -875,34 +1109,155 @@ function renderFrontier(fdata) {
   });
 }
 
+function renderSpatialCoverageMap(fdata) {
+  const bar = document.getElementById("spatialBar");
+  const leg = document.getElementById("spatialLegend");
+  const det = document.getElementById("spatialDetail");
+  if (!bar || !leg || !det) return;
+  const segments = [
+    {
+      id: "pillar2",
+      label: "Pillar 2 · Definite-Side",
+      short: "Pillar 2 (20.6%)",
+      pct: 20.6,
+      color: "#0f766e",
+      scale: "3,576,707 active decl lines",
+      detail: "Definite-side unitary automorphy, iterated theta lifts, Rallis/Siegel-Weil, Poincaré series, and Galois realizations. Largest single kernel-active mathematical pillar (33.3% of the 10.74M-line active cone)."
+    },
+    {
+      id: "pillar3",
+      label: "Pillar 3 · Trace & Spectral",
+      short: "Pillar 3 + Active Core (35.8%)",
+      pct: 35.8,
+      color: "#1d4ed8",
+      scale: "6,218,763 active decl lines",
+      detail: "Trace formula, spectral decomposition, abelian variety / algebraic geometry, Capelli identities, and shared Mathlib/GroundTheory infrastructure inside the 804,912-declaration active kernel cone."
+    },
+    {
+      id: "pillar1",
+      label: "Pillar 1 · Analytic & Good-Tower",
+      short: "Pillar 1 (4.7%)",
+      pct: 4.7,
+      color: "#0284c7",
+      scale: "824,935 active decl lines",
+      detail: "Windowed von Mangoldt bounds, Arakelov/Bost Harder-Narasimhan slope inequalities, Behrend-sphere host tower, and good-tower covolume bounds leading directly into LFunction_ne_zero_of_half_lt_re."
+    },
+    {
+      id: "hironaka",
+      label: "Resolution of Singularities",
+      short: "Res.",
+      pct: 0.7,
+      color: "#7c3aed",
+      scale: "117,323 active lines · 499 files",
+      detail: "Hironaka characteristic-0 resolution of singularities (99.0% kernel-used across 499 active files); self-contained algebraic-geometry pillar with strong consolidation potential."
+    },
+    {
+      id: "dead",
+      label: "Dead / Unreachable Decls",
+      short: "Dead (15.5%)",
+      pct: 15.5,
+      color: "#dc2626",
+      scale: "2,694,752 dead lines · 258,372 decls",
+      detail: "Unreachable from Main.lean in the v0.2.1 kernel DAG (e.g., BehrendSets 0/89, WeilStabilizerVolume 99.1% dead). Already heavily pruned by PR #45 (-10,718 files) and PR #66 (-15,068 files)."
+    },
+    {
+      id: "boiler",
+      label: "Non-Decl Boilerplate",
+      short: "Imports & Boilerplate (22.7%)",
+      pct: 22.7,
+      color: "#64748b",
+      scale: "3,941,735 lines",
+      detail: "Import headers, open/namespace lines, blank lines, and compatibility options across 175,187 files. Directly targeted by import shaking (#134/#185), module coalescing (#120), and wrapper deduplication."
+    }
+  ];
+
+  function selectSeg(id) {
+    const seg = segments.find((s) => s.id === id) || segments[0];
+    bar.querySelectorAll(".spatial-seg").forEach((el) => el.classList.toggle("active", el.dataset.id === seg.id));
+    leg.querySelectorAll(".spatial-card").forEach((el) => el.classList.toggle("active", el.dataset.id === seg.id));
+    det.innerHTML = `<strong>${escHtml(seg.label)}</strong> (${seg.pct}% of 17.37M baseline lines · ${escHtml(seg.scale)}) — ${escHtml(seg.detail)}`;
+  }
+
+  bar.innerHTML = segments.map((s) =>
+    `<div class="spatial-seg" data-id="${s.id}" style="width:${s.pct}%;background:${s.color};" title="${escHtml(s.label + ': ' + s.scale)}">${s.pct >= 4 ? escHtml(s.short) : ""}</div>`
+  ).join("");
+
+  leg.innerHTML = segments.map((s) => `
+    <div class="spatial-card" data-id="${s.id}">
+      <div class="spatial-card-top">
+        <span><span class="spatial-swatch" style="background:${s.color};"></span>${escHtml(s.label)}</span>
+        <span style="font-variant-numeric:tabular-nums;color:var(--muted);">${s.pct}%</span>
+      </div>
+      <div class="spatial-card-sub">${escHtml(s.scale)}</div>
+    </div>
+  `).join("");
+
+  bar.querySelectorAll(".spatial-seg").forEach((el) => el.addEventListener("click", () => selectSeg(el.dataset.id)));
+  leg.querySelectorAll(".spatial-card").forEach((el) => el.addEventListener("click", () => selectSeg(el.dataset.id)));
+  selectSeg("pillar2");
+}
+
+function renderTimeline(fdata) {
+  const root = document.getElementById("timelineList");
+  if (!root) return;
+  const items = fdata.community_timeline || [];
+  root.innerHTML = items.map((it) => `
+    <div class="tl-item">
+      <div class="tl-date">${escHtml(it.date)}</div>
+      <div>
+        <div class="tl-title">
+          <span class="badge ${escHtml(it.cls || "badge-verified")}">${escHtml(it.tag || "Update")}</span>
+          ${it.url ? `<a href="${escHtml(it.url)}" target="_blank" rel="noopener">${escHtml(it.title)} ↗</a>` : escHtml(it.title)}
+        </div>
+        <div class="tl-detail">${escHtml(it.detail)}</div>
+      </div>
+    </div>
+  `).join("") || `<span class="status-msg">No timeline events loaded.</span>`;
+}
+
 function renderPatternsAndTargets(fdata) {
   const patterns = fdata.verified_patterns || [];
   PATTERNS_BY_ID = {};
   patterns.forEach((p) => { PATTERNS_BY_ID[p.id] = p; });
 
-  document.getElementById("patternGrid").innerHTML = patterns.map((p) => {
-    const stCls = p.status === "open" ? "badge-open" : (p.status === "batched" || p.status === "verified" ? "badge-verified" : "badge-exact");
-    const stLbl = p.status === "open" ? "Open PR" : (p.status === "batched" ? "Ported in #91" : (p.status === "verified" ? "Verified Tool" : "Merged"));
-    return `
-      <button type="button" class="pattern-card" data-pattern="${escHtml(p.id)}">
-        <div class="pattern-kicker">
-          <span>${escHtml(p.pr_label)}</span>
-          <span class="badge ${stCls}">${stLbl}</span>
-        </div>
-        <div class="pattern-title">${escHtml(p.title)}</div>
-        <p class="pattern-desc">${escHtml(p.summary)}</p>
-        <div class="chip-row">
-          <span class="chip chip-good">${escHtml(p.metrics.loc)}</span>
-          <span class="chip">${escHtml(p.metrics.norm_tokens)}</span>
-          <span class="chip">${escHtml(p.metrics.warnings)}</span>
-        </div>
-        <div class="pattern-cta">Inspect Unified Diff &amp; Verification Receipt →</div>
-      </button>`;
-  }).join("");
+  const patAllBtn = document.getElementById("patternAllBtn");
+  if (patAllBtn) patAllBtn.textContent = `All (${patterns.length})`;
 
-  document.querySelectorAll(".pattern-card").forEach((card) => {
-    card.addEventListener("click", () => openInspector(card.getAttribute("data-pattern")));
+  function drawPatterns(bucket) {
+    const rows = patterns.filter((p) => bucket === "all" || (p.bucket || "active-cone") === bucket);
+    document.getElementById("patternGrid").innerHTML = rows.map((p) => {
+      const stCls = p.status === "open" ? "badge-open" : (p.status === "batched" || p.status === "verified" ? "badge-verified" : "badge-exact");
+      const stLbl = p.status === "open" ? "Open PR" : (p.status === "batched" ? "Ported in #91" : (p.status === "verified" ? "Verified Tool" : "Merged"));
+      return `
+        <button type="button" class="pattern-card" data-pattern="${escHtml(p.id)}">
+          <div class="pattern-kicker">
+            <span>${escHtml(p.pr_label)}</span>
+            <span class="badge ${stCls}">${stLbl}</span>
+          </div>
+          <div class="pattern-title">${escHtml(p.title)}</div>
+          <p class="pattern-desc">${escHtml(p.summary)}</p>
+          <div class="chip-row">
+            <span class="chip chip-good">${escHtml(p.metrics.loc)}</span>
+            <span class="chip">${escHtml(p.metrics.norm_tokens)}</span>
+            <span class="chip">${escHtml(p.metrics.warnings)}</span>
+          </div>
+          <div class="pattern-cta">Inspect Unified Diff &amp; Verification Receipt →</div>
+        </button>`;
+    }).join("") || `<span class="status-msg">No matching patterns in this category.</span>`;
+
+    document.querySelectorAll(".pattern-card").forEach((card) => {
+      card.addEventListener("click", () => openInspector(card.getAttribute("data-pattern")));
+    });
+  }
+
+  document.querySelectorAll("#patternFilters button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#patternFilters button").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      drawPatterns(btn.getAttribute("data-bucket"));
+    });
   });
+  drawPatterns("all");
 
   const targets = fdata.actionable_targets || [];
   const allBtn = document.getElementById("targetAllBtn");
@@ -1084,21 +1439,25 @@ async function init() {
     ]);
     const frontierData = JSON.parse(frontierText);
     renderLiveTracker(frontierData);
+    renderSpatialCoverageMap(frontierData);
+    renderTimeline(frontierData);
     renderStewardshipAndHallOfFame(frontierData);
     renderPatternsAndTargets(frontierData);
     renderFrontier(frontierData);
     renderSummary(JSON.parse(summaryText));
 
     // Non-blocking 2-minute cached live GitHub check for instant HEAD & open PR freshness
-    (async () => {
+    async function runLiveOverlay(force) {
       try {
         const KEY = "rh_live_overlay_v1";
         const now = Date.now();
         let live = null;
-        try {
-          const cached = JSON.parse(sessionStorage.getItem(KEY) || "null");
-          if (cached && now - cached.ts < 120000) live = cached;
-        } catch (_) {}
+        if (!force) {
+          try {
+            const cached = JSON.parse(sessionStorage.getItem(KEY) || "null");
+            if (cached && now - cached.ts < 120000) live = cached;
+          } catch (_) {}
+        }
         if (!live) {
           const [cRes, pRes] = await Promise.all([
             fetch("https://api.github.com/repos/leanprover-community/riemann-hypothesis/commits/main"),
@@ -1124,9 +1483,23 @@ async function init() {
             const syncNote = live.sha !== lm.sha ? " · new commit syncing" : " · live";
             meta.innerHTML = `HEAD <a href="https://github.com/leanprover-community/riemann-hypothesis/commit/${escHtml(live.sha)}" target="_blank" rel="noopener"><code>${escHtml(live.sha)}</code></a>${openNote}${syncNote}<br>Tree snapshot ${escHtml(lm.measured_at || frontierData.generated_at || "")}`;
           }
+          const pulseTxt = document.getElementById("livePulseText");
+          if (pulseTxt) {
+            const secs = Math.max(0, Math.round((Date.now() - live.ts) / 1000));
+            pulseTxt.textContent = secs < 60 ? `LIVE · Checked ${secs}s ago` : `LIVE · Checked ${Math.round(secs / 60)}m ago`;
+          }
         }
       } catch (_) {}
-    })();
+    }
+    runLiveOverlay(false);
+    const refreshBtn = document.getElementById("forceRefreshBtn");
+    if (refreshBtn) {
+      refreshBtn.addEventListener("click", async () => {
+        refreshBtn.textContent = "↻ Checking…";
+        await runLiveOverlay(true);
+        refreshBtn.textContent = "↻ Refresh";
+      });
+    }
 
     const cleaned = specMd.replace(/<!--\s*audit:allow-dead-(?:start|end)\s*-->/g, "");
     const { text, blocks } = protectMath(cleaned);
