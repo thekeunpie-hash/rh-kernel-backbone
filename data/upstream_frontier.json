@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T08:47:39Z",
+  "generated_at": "2026-11-23T18:07:10Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -530,20 +530,20 @@
     }
   ],
   "live_main": {
-    "sha": "9c9f665ed",
-    "commit_date": "2026-11-23T18:20:10+11:00",
+    "sha": "ef349ac02",
+    "commit_date": "2026-11-24T04:18:15+11:00",
     "toolchain": "leanprover/lean4:v4.37.0-rc1",
-    "lean_files": 149217,
-    "total_lines": 20788900,
-    "total_bytes": 1123524557,
-    "import_lines": 6468960,
-    "declarations": 836072,
-    "backward_options": 2982,
-    "heartbeat_options": 2934,
-    "files_delta_vs_v021": -25970,
-    "lines_delta_vs_v021": 3414685,
-    "open_pr_count": 166,
-    "measured_at": "2026-11-23T08:47:39Z"
+    "lean_files": 148230,
+    "total_lines": 20567742,
+    "total_bytes": 1110823285,
+    "import_lines": 6428110,
+    "declarations": 831884,
+    "backward_options": 2942,
+    "heartbeat_options": 2919,
+    "files_delta_vs_v021": -26957,
+    "lines_delta_vs_v021": 3193527,
+    "open_pr_count": 275,
+    "measured_at": "2026-11-23T18:07:10Z"
   },
   "live_history": [
     {
@@ -663,27 +663,21 @@
       "import_lines": 6468960,
       "backward_options": 2982,
       "heartbeat_options": 2934
+    },
+    {
+      "date": "2026-11-24T04:18:15+11:00",
+      "sha": "ef349ac02",
+      "label": "main@ef349ac02",
+      "toolchain": "leanprover/lean4:v4.37.0-rc1",
+      "lean_files": 148230,
+      "total_lines": 20567742,
+      "declarations": 831884,
+      "import_lines": 6428110,
+      "backward_options": 2942,
+      "heartbeat_options": 2919
     }
   ],
   "stacked_pr_queue": [
-    {
-      "pr": 120,
-      "state": "open",
-      "draft": false,
-      "batch_queue": false,
-      "author": "rohanarun",
-      "category": "architecture",
-      "scope": "full",
-      "title": "Collapse 28,169 thin wrappers & consolidate 93,601 modules into 20,258 bundles (-101,512 files)",
-      "raw_title": "Collapse 28,169 thin wrappers and consolidate 93,601 modules into 20,258 bundles (−101,512 files, −67.9%)",
-      "changed_files": 161716,
-      "additions": 8035190,
-      "deletions": 8647373,
-      "net_lines": -612183,
-      "updated_at": "2026-11-23T08:40:47Z",
-      "merged_at": null,
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/120"
-    },
     {
       "pr": 97,
       "state": "open",
@@ -712,31 +706,13 @@
       "scope": "full",
       "title": "Port unused-syntax linter cleanup to Lean 4.37 (-42% warnings)",
       "raw_title": "Remove proof syntax that was flagged unused by Lean's linters (Lean 4.37.0-rc1)",
-      "changed_files": 50868,
-      "additions": 56756,
-      "deletions": 72728,
-      "net_lines": -15972,
-      "updated_at": "2026-11-23T08:32:15Z",
+      "changed_files": 50195,
+      "additions": 55916,
+      "deletions": 68054,
+      "net_lines": -12138,
+      "updated_at": "2026-11-23T15:48:21Z",
       "merged_at": null,
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/243"
-    },
-    {
-      "pr": 221,
-      "state": "open",
-      "draft": false,
-      "batch_queue": false,
-      "author": "Serdnad",
-      "category": "active-refactor",
-      "scope": "full",
-      "title": "Consolidate 10+ redundant-proof cleanup PRs on top of #185 (3,076 files, #2 in merge queue)",
-      "raw_title": "Replace redundant proofs with Mathlib or internal reuse",
-      "changed_files": 3369,
-      "additions": 8063,
-      "deletions": 229221,
-      "net_lines": -221158,
-      "updated_at": "2026-11-23T07:20:45Z",
-      "merged_at": null,
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/221"
     },
     {
       "pr": 194,
@@ -749,10 +725,10 @@
       "title": "Resolve ~10,000 linter and deprecation warnings across 1,864 files",
       "raw_title": "fix: resolve ~10,000 linter and deprecation warnings",
       "changed_files": 1864,
-      "additions": 5781,
-      "deletions": 5917,
+      "additions": 5780,
+      "deletions": 5916,
       "net_lines": -136,
-      "updated_at": "2026-11-23T04:12:10Z",
+      "updated_at": "2026-11-23T08:53:37Z",
       "merged_at": null,
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/194"
     },
@@ -775,24 +751,6 @@
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/87"
     },
     {
-      "pr": 208,
-      "state": "open",
-      "draft": true,
-      "batch_queue": false,
-      "author": "marwuint",
-      "category": "active-refactor",
-      "scope": "active",
-      "title": "Reuse existing proofs in 41 modules and delete 147 duplicate modules (-22,373 L)",
-      "raw_title": "Reuse existing proofs in 41 modules and delete 147 modules only the old proofs used (−22,373 lines)",
-      "changed_files": 188,
-      "additions": 197,
-      "deletions": 22570,
-      "net_lines": -22373,
-      "updated_at": "2026-11-23T04:12:02Z",
-      "merged_at": null,
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/208"
-    },
-    {
       "pr": 233,
       "state": "open",
       "draft": false,
@@ -806,9 +764,63 @@
       "additions": 2113,
       "deletions": 13,
       "net_lines": 2100,
-      "updated_at": "2026-11-23T07:42:43Z",
+      "updated_at": "2026-11-23T17:34:17Z",
       "merged_at": null,
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/233"
+    },
+    {
+      "pr": 120,
+      "state": "open",
+      "draft": false,
+      "batch_queue": false,
+      "author": "rohanarun",
+      "category": "architecture",
+      "scope": "full",
+      "title": "Collapse 28,169 thin wrappers & consolidate 93,601 modules into 20,258 bundles (-101,512 files)",
+      "raw_title": "Collapse 28,169 thin wrappers and consolidate 93,601 modules into 20,258 bundles (−101,512 files, −67.9%)",
+      "changed_files": 0,
+      "additions": 0,
+      "deletions": 0,
+      "net_lines": 0,
+      "updated_at": "2026-11-23T17:57:09Z",
+      "merged_at": null,
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/120"
+    },
+    {
+      "pr": 221,
+      "state": "merged",
+      "draft": false,
+      "batch_queue": false,
+      "author": "Serdnad",
+      "category": "active-refactor",
+      "scope": "full",
+      "title": "Consolidate 10+ redundant-proof cleanup PRs on top of #185 (3,076 files, #2 in merge queue)",
+      "raw_title": "Replace redundant proofs with Mathlib or internal reuse",
+      "changed_files": 3369,
+      "additions": 8063,
+      "deletions": 229221,
+      "net_lines": -221158,
+      "updated_at": "2026-11-23T15:24:10Z",
+      "merged_at": "2026-11-23T15:24:10Z",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/221"
+    },
+    {
+      "pr": 208,
+      "state": "closed",
+      "draft": true,
+      "batch_queue": false,
+      "author": "marwuint",
+      "category": "active-refactor",
+      "scope": "active",
+      "title": "Reuse existing proofs in 41 modules and delete 147 duplicate modules (-22,373 L)",
+      "raw_title": "Reuse existing proofs in 41 modules and delete 147 modules only the old proofs used (−22,373 lines)",
+      "changed_files": 188,
+      "additions": 197,
+      "deletions": 22570,
+      "net_lines": -22373,
+      "updated_at": "2026-11-23T15:32:01Z",
+      "merged_at": null,
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/208"
     },
     {
       "pr": 185,
@@ -982,9 +994,9 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-23T08:47:39Z",
-    "total_merged_prs": 77,
-    "total_batch_queue_prs": 60,
+    "measured_at": "2026-11-23T18:07:10Z",
+    "total_merged_prs": 86,
+    "total_batch_queue_prs": 120,
     "entries": [
       {
         "slug": "kim-em",
@@ -1003,18 +1015,18 @@
           "ops_review": "Primary merge-queue operator (live merge count from GitHub events)"
         },
         "bio": "Research software engineer at the Lean FRO and Mathlib maintainer. On leanprover-community/riemann-hypothesis, he runs the sharded AWS and donor-runner CI builds (#101), lands reviewed cleanup batches (#115, #150), and coordinates the merge queue through the Lean 4.37.0-rc1 upgrade (#185).",
-        "merged_direct": 43,
+        "merged_direct": 50,
         "merged_batch_extra": 0,
-        "merged_total": 43,
+        "merged_total": 50,
         "merged_prs": [
-          225,
-          205,
-          203,
-          187,
-          185,
-          182,
-          172,
-          163
+          426,
+          425,
+          420,
+          406,
+          404,
+          401,
+          387,
+          225
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -1055,22 +1067,24 @@
           "ops_review": "High-volume PR triage, labeling & merges (live counts from GitHub events)"
         },
         "bio": "Repository collaborator handling PR review, triage, and verification tooling. Authored the DeepMind formal-conjectures Comparator setup (#88) and the `batch queue` label and batch-assembly workflows (#226, #233).",
-        "merged_direct": 10,
+        "merged_direct": 11,
         "merged_batch_extra": 0,
-        "merged_total": 10,
+        "merged_total": 11,
         "merged_prs": [
+          353,
           226,
           124,
           121,
           118,
           111,
           88,
-          72,
-          43
+          72
         ],
         "batch_landed_prs": [],
-        "batch_queue_count": 0,
-        "batch_queue_prs": [],
+        "batch_queue_count": 1,
+        "batch_queue_prs": [
+          318
+        ],
         "links": [
           {
             "label": "GitHub @Deicyde",
@@ -1286,10 +1300,12 @@
           "ops_review": "Cross-PR consolidation & rebase coordination"
         },
         "bio": "Consolidated ten overlapping redundant-proof and Mathlib-reuse PRs proposed by Martin Hanzlowsky into a single 3,076-file PR (#221) targeting #185, queued next after #185.",
-        "merged_direct": 0,
+        "merged_direct": 1,
         "merged_batch_extra": 0,
-        "merged_total": 0,
-        "merged_prs": [],
+        "merged_total": 1,
+        "merged_prs": [
+          221
+        ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
         "batch_queue_prs": [],
@@ -1406,16 +1422,16 @@
         "merged_total": 0,
         "merged_prs": [],
         "batch_landed_prs": [],
-        "batch_queue_count": 23,
+        "batch_queue_count": 21,
         "batch_queue_prs": [
+          248,
           245,
           240,
           236,
           231,
           228,
           211,
-          195,
-          193
+          201
         ],
         "links": [
           {
@@ -1450,15 +1466,16 @@
         "merged_total": 0,
         "merged_prs": [],
         "batch_landed_prs": [],
-        "batch_queue_count": 7,
+        "batch_queue_count": 11,
         "batch_queue_prs": [
+          322,
+          310,
+          301,
+          266,
           261,
           260,
           216,
-          215,
-          210,
-          197,
-          192
+          215
         ],
         "links": [
           {
@@ -1493,14 +1510,12 @@
         "merged_total": 0,
         "merged_prs": [],
         "batch_landed_prs": [],
-        "batch_queue_count": 6,
+        "batch_queue_count": 4,
         "batch_queue_prs": [
+          174,
           160,
           155,
-          152,
-          149,
-          135,
-          114
+          152
         ],
         "links": [
           {
@@ -1540,11 +1555,9 @@
         "batch_landed_prs": [
           71
         ],
-        "batch_queue_count": 3,
+        "batch_queue_count": 1,
         "batch_queue_prs": [
-          224,
-          110,
-          109
+          224
         ],
         "links": [
           {
@@ -1583,12 +1596,10 @@
         "merged_total": 0,
         "merged_prs": [],
         "batch_landed_prs": [],
-        "batch_queue_count": 4,
+        "batch_queue_count": 2,
         "batch_queue_prs": [
           232,
-          220,
-          127,
-          119
+          220
         ],
         "links": [
           {
