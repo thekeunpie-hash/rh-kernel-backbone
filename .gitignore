@@ -1,3 +1,7 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Local-only: Zulip RH insights and the Lean automation plugin modules (never published)
+/local/
+/data/zulip-rh/
