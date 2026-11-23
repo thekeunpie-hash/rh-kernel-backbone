@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T02:28:28Z",
+  "generated_at": "2026-11-23T02:46:25Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -530,8 +530,8 @@
     }
   ],
   "live_main": {
-    "sha": "51d9b1a28",
-    "commit_date": "2026-11-23T11:35:37+11:00",
+    "sha": "7b0d21eda",
+    "commit_date": "2026-11-22T21:34:56-05:00",
     "toolchain": "leanprover/lean4:v4.36.0",
     "lean_files": 149397,
     "total_lines": 15168601,
@@ -542,8 +542,8 @@
     "heartbeat_options": 78826,
     "files_delta_vs_v021": -25790,
     "lines_delta_vs_v021": -2205614,
-    "open_pr_count": 105,
-    "measured_at": "2026-11-23T02:28:28Z"
+    "open_pr_count": 107,
+    "measured_at": "2026-11-23T02:46:25Z"
   },
   "live_history": [
     {
@@ -615,6 +615,18 @@
       "import_lines": 841855,
       "backward_options": 2934,
       "heartbeat_options": 78826
+    },
+    {
+      "date": "2026-11-22T21:34:56-05:00",
+      "sha": "7b0d21eda",
+      "label": "main@7b0d21eda",
+      "toolchain": "leanprover/lean4:v4.36.0",
+      "lean_files": 149397,
+      "total_lines": 15168601,
+      "declarations": 836386,
+      "import_lines": 841855,
+      "backward_options": 2934,
+      "heartbeat_options": 78826
     }
   ],
   "stacked_pr_queue": [
@@ -631,7 +643,7 @@
       "additions": 44,
       "deletions": 44,
       "net_lines": 0,
-      "updated_at": "2026-11-23T02:25:00Z",
+      "updated_at": "2026-11-23T02:46:04Z",
       "merged_at": null,
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/224"
     },
@@ -648,7 +660,7 @@
       "additions": 0,
       "deletions": 0,
       "net_lines": 0,
-      "updated_at": "2026-11-23T02:23:10Z",
+      "updated_at": "2026-11-23T02:33:42Z",
       "merged_at": null,
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/185"
     },
@@ -699,7 +711,7 @@
       "additions": 2,
       "deletions": 12,
       "net_lines": -10,
-      "updated_at": "2026-11-22T15:43:11Z",
+      "updated_at": "2026-11-23T02:36:52Z",
       "merged_at": null,
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/110"
     },
@@ -712,11 +724,11 @@
       "scope": "full",
       "title": "Collapse 28,169 thin wrappers & consolidate 93,601 modules into 20,258 bundles (-101,512 files)",
       "raw_title": "Collapse 28,169 thin wrappers and consolidate 93,601 modules into 20,258 bundles (−101,512 files, −67.9%)",
-      "changed_files": 161689,
-      "additions": 8034198,
-      "deletions": 8646462,
-      "net_lines": -612264,
-      "updated_at": "2026-11-23T02:28:05Z",
+      "changed_files": 161693,
+      "additions": 8034233,
+      "deletions": 8646498,
+      "net_lines": -612265,
+      "updated_at": "2026-11-23T02:43:57Z",
       "merged_at": null,
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/120"
     },
@@ -756,7 +768,7 @@
     },
     {
       "pr": 88,
-      "state": "open",
+      "state": "merged",
       "draft": false,
       "author": "Deicyde",
       "category": "verification",
@@ -767,8 +779,8 @@
       "additions": 946,
       "deletions": 9,
       "net_lines": 937,
-      "updated_at": "2026-11-23T02:01:04Z",
-      "merged_at": null,
+      "updated_at": "2026-11-23T02:30:05Z",
+      "merged_at": "2026-11-23T02:29:37Z",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/88"
     },
     {
