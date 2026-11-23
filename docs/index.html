@@ -65,48 +65,61 @@
   .badge-dead { background: var(--dead-bg); color: var(--dead-fg); }
   .badge-open { background: var(--open-bg); color: var(--open-fg); }
   .badge-queue { background: #ecfeff; color: #155e75; border: 1px solid #a5f3fc; }
+  .badge-collab { background: #1e3a8a; color: #ffffff; }
+  .badge-contrib { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
+  .badge-milestone { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
 
-  /* Dual Stewardship & Lean Hall of Fame Board */
+  /* Dual Stewardship & Lean Hall of Fame Board — Clean Visual Roster */
   .dual-board {
-    display: grid; grid-template-columns: 1.32fr 1fr; gap: 16px; align-items: start; margin: 20px 0;
+    display: grid; grid-template-columns: 1.42fr 1fr; gap: 16px; align-items: start; margin: 20px 0;
   }
-  .dual-board .panel { margin: 0; }
-  .steward-list, .hof-list { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
-  .steward-card {
-    border: 1px solid var(--border); border-radius: 8px; padding: 11px 13px; background: #fcfcfd;
-    display: flex; flex-direction: column; gap: 5px; cursor: pointer;
-    transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+  .dual-board .panel { margin: 0; padding: 16px 18px; }
+  .tier-head {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    font-size: 10.8px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+    color: var(--muted); padding: 10px 2px 5px; margin-top: 4px; border-bottom: 1px solid var(--border);
   }
-  .steward-card:hover { border-color: var(--accent); box-shadow: 0 3px 10px rgba(15, 118, 110, 0.08); background: #ffffff; }
-  .steward-card.is-self { border-color: #5eead4; background: #f0fdfa; }
-  .steward-card.is-self:hover { border-color: var(--accent); background: #ecfdf5; }
-  .steward-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-  .steward-who { font-weight: 700; font-size: 13.5px; color: var(--text); }
-  .steward-who a { color: inherit; text-decoration: none; }
-  .steward-who a:hover { color: var(--accent); text-decoration: underline; }
-  .steward-who span { font-weight: 500; color: var(--muted); font-size: 12px; margin-left: 4px; }
-  .steward-role { font-size: 11.8px; color: var(--accent); font-weight: 600; }
-  .steward-impact { font-size: 12.5px; color: #334155; line-height: 1.48; }
-  .steward-signal { font-size: 11.8px; color: var(--muted); }
-  .evidence-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; align-items: center; }
-  .evidence-links a {
-    font-size: 11.2px; font-weight: 600; text-decoration: none; padding: 1px 7px;
-    border-radius: 4px; background: #ffffff; border: 1px solid var(--border); color: var(--accent);
+  .tier-head.collab { color: #1e3a8a; border-bottom-color: #bfdbfe; }
+  .tier-head.porting { color: #4338ca; border-bottom-color: #c7d2fe; }
+  .tier-head.contrib { color: #334155; border-bottom-color: #cbd5e1; }
+  .steward-list, .hof-list { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+  .steward-row {
+    display: grid; grid-template-columns: 32px 1fr 14px; gap: 10px; align-items: center;
+    border: 1px solid var(--border); border-left: 3px solid #cbd5e1; border-radius: 7px;
+    padding: 8px 11px; background: #ffffff; cursor: pointer; text-decoration: none; color: inherit;
+    transition: border-color .14s ease, box-shadow .14s ease;
   }
-  .evidence-links a:hover { border-color: var(--accent); background: var(--accent-soft); }
-  .profile-cta { font-size: 11.3px; font-weight: 600; color: var(--accent); margin-left: auto; text-decoration: none; }
-  .hof-card {
-    border: 1px solid var(--border); border-radius: 8px; padding: 11px 13px; background: #fffdf7;
-    border-left: 3px solid #b45309; display: flex; flex-direction: column; gap: 4px; cursor: pointer;
-    transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+  .steward-row:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05); }
+  .steward-row.is-collab { border-left-color: #1e3a8a; }
+  .steward-row.is-contrib { border-left-color: #0f766e; }
+  .avatar-dot {
+    width: 32px; height: 32px; border-radius: 7px; display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; letter-spacing: .03em; color: #ffffff; flex-shrink: 0;
   }
-  .hof-card:hover { border-color: #b45309; box-shadow: 0 3px 10px rgba(180, 83, 9, 0.10); background: #fffbeb; }
-  .hof-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
-  .hof-name { font-weight: 700; font-size: 13.3px; color: var(--text); }
-  .hof-name a { color: inherit; text-decoration: none; }
-  .hof-name a:hover { color: #b45309; text-decoration: underline; }
-  .hof-org { font-size: 11.5px; color: var(--muted); }
-  .hof-desc { font-size: 12.3px; color: #334155; line-height: 1.46; }
+  .avatar-collab { background: #1e3a8a; }
+  .avatar-contrib { background: #0f766e; }
+  .avatar-hof { background: #92400e; }
+  .sr-main { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+  .sr-top { display: flex; align-items: center; justify-content: space-between; gap: 6px; flex-wrap: wrap; }
+  .sr-name { font-weight: 700; font-size: 13.3px; color: var(--text); }
+  .sr-handle { font-weight: 500; font-size: 11.5px; color: var(--muted); margin-left: 4px; }
+  .sr-pills { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+  .sr-line { font-size: 12px; color: #475569; line-height: 1.4; }
+  .pillar-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 2px; align-items: center; }
+  .p-axis { display: inline-flex; align-items: center; gap: 3px; font-size: 10.5px; color: #64748b; }
+  .p-pips { display: inline-flex; gap: 2px; }
+  .p-pip { width: 6px; height: 6px; border-radius: 2px; background: #e2e8f0; }
+  .p-pip.on-collab { background: #2563eb; }
+  .p-pip.on-contrib { background: #0f766e; }
+  .sr-arrow { font-size: 13px; color: #94a3b8; font-weight: 700; text-align: right; }
+  .steward-row:hover .sr-arrow, .hof-row:hover .sr-arrow { color: var(--accent); }
+  .hof-row {
+    display: grid; grid-template-columns: 32px 1fr 14px; gap: 10px; align-items: center;
+    border: 1px solid #fde68a; border-left: 3px solid #b45309; border-radius: 8px;
+    padding: 9px 11px; background: #fffdf7; cursor: pointer; text-decoration: none; color: inherit;
+    transition: border-color .14s ease, box-shadow .14s ease, transform .12s ease;
+  }
+  .hof-row:hover { border-color: #b45309; box-shadow: 0 3px 10px rgba(180, 83, 9, 0.10); background: #fffbeb; transform: translateY(-1px); }
   .hof-pillar { background: #fef3c7; color: #92400e; }
   @media (max-width: 1080px) {
     .dual-board { grid-template-columns: 1fr; }
@@ -303,16 +316,16 @@
         <div class="panel">
           <div class="panel-head">
             <div>
-              <h3>RH Repo Stewardship &amp; Non-LoC Impact <span class="badge badge-exact">Exact</span></h3>
-              <p class="panel-sub" style="margin:0;">Raw commits and line deltas distort AI-scale Lean refactors (e.g., <code>#134</code> adds lines while cutting CPU by 21.9%). Instead, maintainers and contributors are measured side-by-side on live <strong>pipeline adoption</strong> (merged + <code>batch queue</code>), <strong>category-level debt impact</strong>, and <strong>governance/verification signals</strong>.</p>
+              <h3>RH Repo Collaborators &amp; Contributors <span class="badge badge-exact">Non-LoC</span></h3>
+              <p class="panel-sub" style="margin:0;">Separated by exact GitHub repo role (<code>COLLABORATOR</code> vs. <code>CONTRIBUTOR</code>) and scored visually across four impact axes rather than raw LoC. Click any row for full bio &amp; verified links.</p>
             </div>
             <div class="seg-group" id="stewardFilter">
               <button type="button" class="pill-btn active" data-group="all">All</button>
-              <button type="button" class="pill-btn" data-group="maintainer">Maintainers</button>
+              <button type="button" class="pill-btn" data-group="collaborator">Collaborators</button>
               <button type="button" class="pill-btn" data-group="contributor">Contributors</button>
             </div>
           </div>
-          <div class="frontier-stats" id="stewardStats">Loading live pipeline adoption metrics…</div>
+          <div class="frontier-stats" id="stewardStats">Loading live pipeline metrics…</div>
           <div class="steward-list" id="stewardList"><span class="status-msg">Loading stewardship matrix…</span></div>
         </div>
 
@@ -320,7 +333,7 @@
           <div class="panel-head">
             <div>
               <h3>Lean &amp; Community Hall of Fame <span class="badge badge-verified">Foundations</span></h3>
-              <p class="panel-sub" style="margin:0;">Honoring the creators, Mathlib stewards, and independent verifiers who built and sustain Lean 4 and its community — the trusted foundation that made verifying and cleaning up RH possible.</p>
+              <p class="panel-sub" style="margin:0;">Creators, Mathlib stewards, and independent verifiers sustaining Lean 4 and its ecosystem. Click any honoree for full profile &amp; links.</p>
             </div>
           </div>
           <div class="hof-list" id="hofList"><span class="status-msg">Loading Hall of Fame…</span></div>
@@ -417,6 +430,10 @@
     <article id="spec-root">
       <p class="status-msg">Loading full kernel-grounded specification from <code>SPEC.md</code>…</p>
     </article>
+
+    <footer style="margin-top:42px;padding-top:14px;border-top:1px solid var(--border);font-size:12.2px;color:var(--muted);">
+      Maintained by Jinho Noh (<a href="https://github.com/thekeunpie-hash" target="_blank" rel="noopener">@thekeunpie-hash</a>) · Auto-updated hourly from <a href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener">leanprover-community/riemann-hypothesis</a>.
+    </footer>
   </main>
 </div>
 
@@ -451,7 +468,7 @@ async function fetchWithFallback(relPath) {
 }
 
 function escHtml(s) {
-  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
 function slugify(text) {
@@ -716,16 +733,15 @@ function renderFrontier(fdata) {
 
     const dotsSvg = pts.map((p, i) => {
       const x = xOf(i), y = yOf(p.cumSaved);
-      const isOurs = p.author === "thekeunpie-hash";
-      const fill = p.pr === 0 ? "#64748b" : isOurs ? "#0f766e" : (p.category === "dead-prune" ? "#dc2626" : "#2563eb");
+      const fill = p.pr === 0 ? "#64748b" : (p.category === "dead-prune" ? "#dc2626" : "#2563eb");
       const lbl = p.pr === 0 ? "v0.2.1" : (p.pr === 68 ? "#68*" : `#${p.pr}`);
       const deltaLbl = p.pr === 0 ? "" : `${p.net_lines > 0 ? "+" : ""}${p.net_lines.toLocaleString()} L`;
       return `
         <g class="frontier-dot" data-pr="${p.pr}" data-pattern="${p.pattern_id || ""}" data-url="${escHtml(p.url || "")}">
-          <circle cx="${x}" cy="${y}" r="${isOurs ? 6.5 : 5}" fill="${fill}" stroke="#ffffff" stroke-width="2">
+          <circle cx="${x}" cy="${y}" r="5" fill="${fill}" stroke="#ffffff" stroke-width="2">
             <title>${escHtml(lbl + " (" + p.author + "): " + p.title + " | Cumulative saved: " + p.cumSaved.toLocaleString() + " L")}</title>
           </circle>
-          <text x="${x}" y="${H - 18}" text-anchor="middle" font-size="11" font-weight="${isOurs ? 700 : 500}" fill="${isOurs ? "#0f766e" : "#334155"}">${lbl}</text>
+          <text x="${x}" y="${H - 18}" text-anchor="middle" font-size="11" font-weight="500" fill="#334155">${lbl}</text>
           ${deltaLbl ? `<text x="${x}" y="${Math.max(14, y - 10)}" text-anchor="middle" font-size="10.5" font-weight="600" fill="${fill}">${deltaLbl}</text>` : ""}
         </g>`;
     }).join("");
@@ -893,54 +909,81 @@ function renderSummary(data) {
   renderDoms("");
 }
 
+function fmtInline(s) {
+  return escHtml(s).replace(/`([^`]+)`/g, "<code>$1</code>");
+}
+
 function renderStewardshipAndHallOfFame(fdata) {
   const st = fdata.stewardship_standing;
   const listEl = document.getElementById("stewardList");
   const statsEl = document.getElementById("stewardStats");
+  const AXES = ["CI/Toolchain", "Proof", "Debt/Infra", "Audit/Triage"];
+
+  function renderPillarBar(pillars, isCollab) {
+    const vals = Array.isArray(pillars) ? pillars : [0, 0, 0, 0];
+    const cls = isCollab ? "on-collab" : "on-contrib";
+    return `<div class="pillar-bar">${AXES.map((lbl, i) => {
+      const v = vals[i] || 0;
+      const pips = [1, 2, 3].map((k) => `<span class="p-pip ${k <= v ? cls : ""}"></span>`).join("");
+      return `<span class="p-axis">${lbl}<span class="p-pips">${pips}</span></span>`;
+    }).join("")}</div>`;
+  }
+
+  function renderRow(e) {
+    const isCollab = e.group === "collaborator" || e.github_role === "COLLABORATOR" || e.github_role === "MEMBER";
+    const initials = escHtml(e.initials || (e.name || e.login).split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase());
+    const profUrl = `profiles.html#${encodeURIComponent(e.slug || e.login.toLowerCase())}`;
+    const badges = [];
+    // Show architectural milestone badges first (so Vasily Ilin's v4.36 + -21.9% CPU stands out accurately)
+    (e.impact_badges || []).slice(0, 2).forEach((b) => {
+      badges.push(`<span class="badge ${isCollab ? "badge-milestone" : "badge-exact"}">${escHtml(b)}</span>`);
+    });
+    if (e.merged_total > 1) {
+      badges.push(`<span class="badge badge-exact">${e.merged_total} merged</span>`);
+    }
+    if (e.batch_queue_count > 0) {
+      badges.push(`<span class="badge badge-queue">${e.batch_queue_count} queue</span>`);
+    }
+    return `
+      <a class="steward-row ${isCollab ? "is-collab" : "is-contrib"}" href="${escHtml(profUrl)}">
+        <div class="avatar-dot ${isCollab ? "avatar-collab" : "avatar-contrib"}">${initials}</div>
+        <div class="sr-main">
+          <div class="sr-top">
+            <div><span class="sr-name">${escHtml(e.name)}</span><span class="sr-handle">@${escHtml(e.login)}</span></div>
+            <div class="sr-pills">${badges.join("")}</div>
+          </div>
+          <div class="sr-line">${fmtInline(e.headline || e.non_loc_impact)}</div>
+          ${renderPillarBar(e.pillars, isCollab)}
+        </div>
+        <div class="sr-arrow">→</div>
+      </a>`;
+  }
+
   if (st && listEl) {
+    const entries = st.entries || [];
+    const collabCount = entries.filter((e) => e.group === "collaborator" || e.github_role === "COLLABORATOR" || e.github_role === "MEMBER").length;
+    const contribCount = entries.length - collabCount;
     if (statsEl) {
       statsEl.innerHTML = `
-        <span>Official merged PRs: <strong>${(st.total_merged_prs || 0).toLocaleString()}</strong></span>
-        <span>Open <code>batch queue</code> PRs: <strong>${(st.total_batch_queue_prs || 0).toLocaleString()}</strong></span>
-        <span>Updated: <strong>${escHtml((st.measured_at || "").replace("T", " ").replace("Z", " UTC"))}</strong></span>
+        <span><span class="badge badge-collab">COLLABORATOR</span> <strong>${collabCount}</strong></span>
+        <span><span class="badge badge-contrib">CONTRIBUTOR</span> <strong>${contribCount}</strong></span>
+        <span>Merged PRs: <strong>${(st.total_merged_prs || 0).toLocaleString()}</strong></span>
+        <span>Open <code>batch queue</code>: <strong>${(st.total_batch_queue_prs || 0).toLocaleString()}</strong></span>
       `;
     }
-    const entries = st.entries || [];
     function drawStewards(group) {
-      const rows = entries.filter((e) => group === "all" || e.group === group);
-      listEl.innerHTML = rows.map((e) => {
-        const isSelf = e.login === "thekeunpie-hash";
-        const grpBadge = e.group === "maintainer"
-          ? `<span class="badge badge-verified">Maintainer</span>`
-          : `<span class="badge badge-open">Contributor</span>`;
-        const mergedBadge = e.merged_total > 0
-          ? `<span class="badge badge-exact">${e.merged_total} landed${e.merged_batch_extra ? " (incl. batch)" : ""}</span>`
-          : "";
-        const queueBadge = e.batch_queue_count > 0
-          ? `<span class="badge badge-queue">${e.batch_queue_count} batch queue</span>`
-          : "";
-        const profUrl = `profiles.html#${encodeURIComponent(e.slug || e.login.toLowerCase())}`;
-        const links = (e.evidence || []).map((ev) =>
-          `<a href="${escHtml(ev.url)}" target="_blank" rel="noopener">${escHtml(ev.label)} →</a>`
-        ).join("");
-        return `
-          <div class="steward-card ${isSelf ? "is-self" : ""}" data-profile="${escHtml(profUrl)}">
-            <div class="steward-top">
-              <div class="steward-who"><a href="${escHtml(profUrl)}">${escHtml(e.name)}</a><span>@${escHtml(e.login)}</span></div>
-              <div style="display:flex;gap:5px;flex-wrap:wrap;">${grpBadge}${mergedBadge}${queueBadge}</div>
-            </div>
-            <div class="steward-role">${escHtml(e.role)}</div>
-            <div class="steward-impact">${escHtml(e.non_loc_impact)}</div>
-            <div class="steward-signal"><strong>Signal:</strong> ${escHtml(e.governance_signal)}</div>
-            <div class="evidence-links">${links}<a class="profile-cta" href="${escHtml(profUrl)}" style="background:transparent;border:none;padding:1px 2px;">Profile &amp; links →</a></div>
-          </div>`;
-      }).join("") || `<span class="status-msg">No matching entries.</span>`;
-      listEl.querySelectorAll(".steward-card[data-profile]").forEach((card) => {
-        card.addEventListener("click", (ev) => {
-          if (ev.target.closest("a")) return;
-          window.location.href = card.getAttribute("data-profile");
-        });
-      });
+      const collabs = entries.filter((e) => e.group === "collaborator" || e.github_role === "COLLABORATOR" || e.github_role === "MEMBER");
+      const contribs = entries.filter((e) => !(e.group === "collaborator" || e.github_role === "COLLABORATOR" || e.github_role === "MEMBER"));
+      let html = "";
+      if (group === "all" || group === "collaborator") {
+        html += `<div class="tier-head collab"><span>Repo Collaborators (GitHub Write / Triage Access)</span><span>${collabs.length}</span></div>`;
+        html += collabs.map(renderRow).join("");
+      }
+      if (group === "all" || group === "contributor") {
+        html += `<div class="tier-head contrib"><span>Active Contributors (Verified PRs, Infra &amp; Audits)</span><span>${contribs.length}</span></div>`;
+        html += contribs.map(renderRow).join("");
+      }
+      listEl.innerHTML = html || `<span class="status-msg">No matching entries.</span>`;
     }
     document.querySelectorAll("#stewardFilter button").forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -957,26 +1000,20 @@ function renderStewardshipAndHallOfFame(fdata) {
   if (hofEl) {
     hofEl.innerHTML = hof.map((h) => {
       const profUrl = `profiles.html#${encodeURIComponent(h.slug || slugify(h.name))}`;
+      const initials = escHtml((h.name || "LH").split(/[\s&]+/).filter(Boolean).map((w) => w[0]).join("").slice(0, 2).toUpperCase());
       return `
-      <div class="hof-card" data-profile="${escHtml(profUrl)}">
-        <div class="hof-top">
-          <div class="hof-name"><a href="${escHtml(profUrl)}">${escHtml(h.name)}</a></div>
-          <span class="badge hof-pillar">${escHtml(h.pillar)}</span>
+      <a class="hof-row" href="${escHtml(profUrl)}">
+        <div class="avatar-dot avatar-hof" style="width:32px;height:32px;font-size:11px;">${initials}</div>
+        <div class="sr-main">
+          <div class="sr-top">
+            <span class="sr-name">${escHtml(h.name)}</span>
+            <span class="badge hof-pillar">${escHtml(h.pillar)}</span>
+          </div>
+          <div class="sr-line">${fmtInline(h.contribution)}</div>
         </div>
-        <div class="hof-org">${escHtml(h.org)}</div>
-        <div class="hof-desc">${escHtml(h.contribution)}</div>
-        <div class="evidence-links">
-          ${h.url ? `<a href="${escHtml(h.url)}" target="_blank" rel="noopener">${escHtml(h.link_label || "Reference")} →</a>` : ""}
-          <a class="profile-cta" href="${escHtml(profUrl)}" style="background:transparent;border:none;padding:1px 2px;color:#b45309;">Profile &amp; links →</a>
-        </div>
-      </div>`;
+        <div class="sr-arrow">→</div>
+      </a>`;
     }).join("") || `<span class="status-msg">No Hall of Fame entries loaded.</span>`;
-    hofEl.querySelectorAll(".hof-card[data-profile]").forEach((card) => {
-      card.addEventListener("click", (ev) => {
-        if (ev.target.closest("a")) return;
-        window.location.href = card.getAttribute("data-profile");
-      });
-    });
   }
 }
 

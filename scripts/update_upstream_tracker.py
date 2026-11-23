@@ -61,15 +61,22 @@ PR_META = {
 TRACKED_OPEN_PRS = [224, 185, 221, 134, 109, 110, 120, 208, 194, 88, 97, 83, 87, 150, 115, 71, 101]
 
 # Objective, non-LoC stewardship profiles paired with live GitHub API merged & batch-queue counts.
+# `group` strictly reflects GitHub repository access: "collaborator" (COLLABORATOR/MEMBER) vs "contributor".
+# `pillars` encodes the 4 non-LoC contribution axes [ci_toolchain, proof_cleanup, debt_infra, audit_triage] (0..3).
 STEWARDSHIP_PROFILES = [
     {
         "slug": "kim-em",
         "login": "kim-em",
         "name": "Kim Morrison",
-        "group": "maintainer",
+        "initials": "KM",
+        "group": "collaborator",
+        "github_role": "COLLABORATOR",
         "role": "Lean FRO · Merge Queue & Distributed CI Lead",
+        "headline": "Runs distributed AWS + donor-shard CI and lands the linear merge queue (#115, #150 -> #185 -> #221).",
+        "impact_badges": ["CI & Merge Queue Lead", "v4.36 / v4.37-rc1"],
+        "pillars": [3, 1, 2, 3],
         "non_loc_impact": "Operates multi-machine AWS + donor-shard CI, coordinates linear merge queue (#115, #150 -> #185 -> #221).",
-        "governance_signal": "Maintainer · Merge queue coordinator",
+        "governance_signal": "Repo Collaborator · Lean FRO · Merge queue coordinator",
         "bio": "Research software engineer at the Lean Focused Research Organization (Lean FRO) and long-time Mathlib maintainer. On leanprover-community/riemann-hypothesis, he runs the distributed AWS and donor-shard CI fleet, lands reviewed cleanup batches (#115, #150), and coordinates the linear merge queue through the Lean 4.37.0-rc1 upgrade (#185) and stacked consolidations (#221).",
         "batch_landed_extra": [],
         "evidence": [
@@ -85,13 +92,46 @@ STEWARDSHIP_PROFILES = [
         ],
     },
     {
+        "slug": "vilin97",
+        "login": "Vilin97",
+        "name": "Vasily Ilin",
+        "initials": "VI",
+        "group": "collaborator",
+        "github_role": "COLLABORATOR",
+        "role": "Toolchain Modernization & Build Performance Lead",
+        "headline": "Ported all 175k files to Lean v4.36.0 (#66) and authored the -21.9% CPU speedup (#79/#98/#104 -> #134 -> #185).",
+        "impact_badges": ["v4.36.0 Port (#66)", "-21.9% CPU · Queue #1 (#185)"],
+        "pillars": [3, 3, 2, 2],
+        "non_loc_impact": "Landed Lean v4.36.0 + module system (#66, -15,068 dead files); authored stacked speedup PRs #79/#98/#104 -> #134 (-21.9% CPU, heartbeats 78.8k->2.9k) folded into v4.37-rc1 (#185).",
+        "governance_signal": "Repo Collaborator · #1 in merge queue (#185) · v4.36 foundation",
+        "bio": "Repo collaborator and large-scale Lean formalization engineer (also active on CFSG) driving toolchain modernization and build performance. He executed the landmark Lean & Mathlib v4.36.0 port with module-system support (#66, pruning 15,068 dead files) and authored the stacked performance series (#79 heartbeat removal, #98 import minimization, #104 slow-proof optimization -> #134, cutting CPU time by 21.9%), now integrated into #185 (Lean 4.37.0-rc1) at #1 in the merge queue.",
+        "batch_landed_extra": [],
+        "evidence": [
+            {"label": "#66 v4.36", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/66"},
+            {"label": "#134 -21.9% CPU", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/134"},
+            {"label": "#185 v4.37-rc1", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/185"},
+        ],
+        "links": [
+            {"label": "GitHub @Vilin97", "url": "https://github.com/Vilin97"},
+            {"label": "Lean v4.36.0 Port #66", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/66"},
+            {"label": "Build Speedup #134", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/134"},
+            {"label": "Lean 4.37-rc1 Integration #185", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/185"},
+            {"label": "Heartbeat Cleanup #79", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/79"},
+        ],
+    },
+    {
         "slug": "deicyde",
         "login": "Deicyde",
         "name": "Jack McCarthy",
-        "group": "maintainer",
-        "role": "Collaborator · Batch Queue & Verification Triage",
-        "non_loc_impact": "Built `batch queue` triage automation (#226), DeepMind formal-conjectures Comparator setup (#88), and README specs.",
-        "governance_signal": "Collaborator · Curates `batch queue`",
+        "initials": "JM",
+        "group": "collaborator",
+        "github_role": "COLLABORATOR",
+        "role": "Batch Queue Triage & Verification Spec Lead",
+        "headline": "Built batch-queue triage automation (#226), DeepMind formal-conjectures Comparator (#88), and README specs.",
+        "impact_badges": ["Batch Queue Bot (#226)", "Comparator (#88)"],
+        "pillars": [2, 1, 2, 3],
+        "non_loc_impact": "Built batch queue triage automation (#226), DeepMind formal-conjectures Comparator setup (#88), and README specs.",
+        "governance_signal": "Repo Collaborator · Curates batch queue",
         "bio": "Repository collaborator managing PR triage, documentation clarity, and verification infrastructure for leanprover-community/riemann-hypothesis. He authored the DeepMind formal-conjectures Comparator harness (#88), introduced the maintainer `batch` comment workflow (#226) that routes verified small PRs into the official `batch queue`, and maintains the repository README and verification guide.",
         "batch_landed_extra": [],
         "evidence": [
@@ -109,10 +149,15 @@ STEWARDSHIP_PROFILES = [
         "slug": "thorimur",
         "login": "thorimur",
         "name": "Thomas Murrills",
-        "group": "maintainer",
-        "role": "Collaborator · Roadmap, Labels & Tech Debt",
+        "initials": "TM",
+        "group": "collaborator",
+        "github_role": "COLLABORATOR",
+        "role": "Roadmap, PR Taxonomy & Tech-Debt Governance",
+        "headline": "Owns PR size/roadmap governance (#191), technical-debt tracker issue (#229), and original-archive oversight.",
+        "impact_badges": ["Tech Debt #229", "PR Labels #191"],
+        "pillars": [1, 1, 3, 3],
         "non_loc_impact": "Owns PR size/roadmap governance (#191), technical-debt tracking issue (#229), and original-archive oversight.",
-        "governance_signal": "Collaborator · Opened #229 tech-debt tracker",
+        "governance_signal": "Repo Collaborator · Opened #229 tech-debt tracker",
         "bio": "Lean community collaborator focused on project governance, reviewability, and long-term maintainability. He leads PR size and roadmap taxonomy (#191), authored the repository values documentation (#184), opened the central technical-debt tracking issue (#229), and provides oversight on the frozen original-proof archive (`riemann-hypothesis-original`).",
         "batch_landed_extra": [],
         "evidence": [
@@ -130,11 +175,16 @@ STEWARDSHIP_PROFILES = [
         "slug": "homeowmorphism",
         "login": "homeowmorphism",
         "name": "Hang Lu Su",
-        "group": "maintainer",
-        "role": "Cache Infrastructure & Original Proof Steward",
-        "non_loc_impact": "Maintains cache client tooling and hosts frozen `riemann-hypothesis-original` mirror with community cache.",
-        "governance_signal": "6 merged infra PRs · Archive maintainer",
-        "bio": "Contributor and infrastructure steward behind the repository's cache client reliability and historical preservation. She has landed six infrastructure and documentation PRs covering macOS cache publishing, Python compatibility, and Lake hash handling (#202), and hosts the frozen `riemann-hypothesis-original` mirror so anyone can reproduce and verify Alpoge's original Lean 4.33.1 release.",
+        "initials": "HS",
+        "group": "contributor",
+        "github_role": "CONTRIBUTOR",
+        "role": "Cache Tooling & Original Proof Archive",
+        "headline": "Landed 6 cache-client & README PRs (#93, #202) and hosts the frozen riemann-hypothesis-original mirror.",
+        "impact_badges": ["Cache Client", "Original Archive"],
+        "pillars": [3, 0, 2, 1],
+        "non_loc_impact": "Maintains cache client tooling (#202) and hosts the frozen `riemann-hypothesis-original` mirror with community cache (#93).",
+        "governance_signal": "6 merged infra PRs · Frozen archive host",
+        "bio": "Contributor behind the repository's cache client reliability and historical preservation. Landed six infrastructure and documentation PRs covering macOS cache publishing, Python compatibility, and Lake hash handling (#93, #202), and hosts the frozen `riemann-hypothesis-original` mirror for reproducing Alpoge's original Lean 4.33.1 release.",
         "batch_landed_extra": [],
         "evidence": [
             {"label": "#202 cache", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/202"},
@@ -147,63 +197,19 @@ STEWARDSHIP_PROFILES = [
         ],
     },
     {
-        "slug": "vilin97",
-        "login": "Vilin97",
-        "name": "Vasily Ilin",
-        "group": "contributor",
-        "role": "Toolchain & Build Performance Lead",
-        "non_loc_impact": "Landed Lean v4.36.0 + module system (#66), authored -21.9% CPU speedup (#134) folded into v4.37-rc1 (#185).",
-        "governance_signal": "#1 in merge queue (#185)",
-        "bio": "Large-scale Lean formalization engineer (also active on CFSG) driving build performance and toolchain modernization on the RH repository. He executed the landmark Lean & Mathlib v4.36.0 port with module-system support (#66) and authored the -21.9% CPU speedup PR (#134, cutting `maxHeartbeats` overrides from 78.8k to 2.9k) now integrated into the #1 merge-queue PR #185 for Lean 4.37.0-rc1.",
-        "batch_landed_extra": [],
-        "evidence": [
-            {"label": "#66 v4.36", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/66"},
-            {"label": "#134 -21.9% CPU", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/134"},
-            {"label": "#185 v4.37-rc1", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/185"},
-        ],
-        "links": [
-            {"label": "GitHub @Vilin97", "url": "https://github.com/Vilin97"},
-            {"label": "Lean v4.36.0 Port #66", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/66"},
-            {"label": "Build Speedup #134", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/134"},
-            {"label": "Lean 4.37-rc1 Integration #185", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/185"},
-        ],
-    },
-    {
-        "slug": "thekeunpie-hash",
-        "login": "thekeunpie-hash",
-        "name": "Jinho Noh",
-        "group": "contributor",
-        "role": "Kernel-Cone Debt Infra & Verified Active Refactors",
-        "non_loc_impact": "Cleared global `useBackward` (33 -> 0 across #71/#115 + #224), de-explicitized kernel-active Capelli/lifts (#60, #65, #110), built hourly tracker.",
-        "governance_signal": "Tracker sparked #229 (@thorimur) · 2 in `batch queue` · 85/85 peer audit (@marwuint)",
-        "bio": "Independent contributor focused on kernel-grounded active-cone cleanup and automated technical-debt instrumentation. Landed three proof-cleanup PRs (#60, #65, and #71 via #115) with zero axiom drift and verified `.olean` equivalence, cleared the final 5 repository-wide `backward.defeqAttrib.useBackward` options in batch-queued PR #224 (33 -> 0) alongside #110, and built this hourly upstream tracker (`rh-kernel-backbone`), which prompted @thorimur to open issue #229.",
-        "batch_landed_extra": [71],
-        "evidence": [
-            {"label": "#60/#65 merged", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/65"},
-            {"label": "#71 in #115", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/71"},
-            {"label": "#224 batch", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/224"},
-            {"label": "#229 ref", "url": "https://github.com/leanprover-community/riemann-hypothesis/issues/229#issuecomment-7090437186"},
-        ],
-        "links": [
-            {"label": "GitHub @thekeunpie-hash", "url": "https://github.com/thekeunpie-hash"},
-            {"label": "rh-kernel-backbone Repo", "url": "https://github.com/thekeunpie-hash/rh-kernel-backbone"},
-            {"label": "PR #60 (Merged)", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/60"},
-            {"label": "PR #65 (Merged)", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/65"},
-            {"label": "PR #71 (Landed in #115)", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/71"},
-            {"label": "PR #110 (Batch Queue)", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/110"},
-            {"label": "PR #224 (Batch Queue)", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/224"},
-            {"label": "Issue #229 Comment", "url": "https://github.com/leanprover-community/riemann-hypothesis/issues/229#issuecomment-7090437186"},
-        ],
-    },
-    {
         "slug": "serdnad",
         "login": "Serdnad",
         "name": "Andres Gutierrez",
+        "initials": "AG",
         "group": "contributor",
-        "role": "Stacked Consolidation PR Lead",
-        "non_loc_impact": "Consolidated 10+ redundant-proof PRs (3,076 files) into #221 stacked cleanly on #185.",
-        "governance_signal": "#2 in merge queue (enqueued by @kim-em)",
-        "bio": "Contributor leading large-scale consolidation of overlapping community cleanup PRs to minimize CI churn. Following Martin Hanzlowsky's proposal on Zulip, he merged ten independent redundant-proof and Mathlib-reuse PRs into a single 3,076-file PR (#221) stacked directly on top of #185, which @kim-em enqueued as #2 in the official merge queue.",
+        "github_role": "CONTRIBUTOR",
+        "role": "Stacked Consolidation PR",
+        "headline": "Consolidated 10+ redundant-proof PRs (3,076 files) into #221 — #2 in the merge queue behind #185.",
+        "impact_badges": ["Merge Queue #2 (#221)", "3,076 files"],
+        "pillars": [1, 3, 2, 1],
+        "non_loc_impact": "Consolidated 10+ redundant-proof PRs (3,076 files) into #221 stacked on #185.",
+        "governance_signal": "#2 in merge queue (#221)",
+        "bio": "Contributor consolidating overlapping cleanup PRs to reduce CI churn. Merged ten independent redundant-proof and Mathlib-reuse PRs into a single 3,076-file PR (#221) stacked directly on #185, enqueued at #2 in the official merge queue.",
         "batch_landed_extra": [],
         "evidence": [
             {"label": "#221 stack", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/221"},
@@ -214,14 +220,44 @@ STEWARDSHIP_PROFILES = [
         ],
     },
     {
+        "slug": "james-shore",
+        "login": "james-shore",
+        "name": "James Shore",
+        "initials": "JS",
+        "group": "contributor",
+        "github_role": "CONTRIBUTOR",
+        "role": "Kernel-Cone Export, Compute & Large-Scale Cleanup",
+        "headline": "Published v0.2.1 kernel-cone dependency data, donated 5,000-core CI compute, and authored #55 & #67.",
+        "impact_badges": ["Kernel Export v0.2.1", "PR #55 & #67"],
+        "pillars": [3, 2, 3, 2],
+        "non_loc_impact": "Published `rh-proof-dependencies` v0.2.1 kernel cone/dominator datasets, ran large-scale community builds, and authored #55 (-12.8% lines) and #67 (~92k linter warnings).",
+        "governance_signal": "Kernel dependency dataset author · Large-scale runner donor",
+        "bio": "Contributor who published the `v0.2.1` kernel dependency datasets (`cone-constants.txt.gz`, `dominators.tsv.gz`, `why-parents.csv.gz`) from Andrew Sutherland's export, contributed high-core-count community build runners, and authored large-scale cleanup PRs #55 (dead declaration trimming) and #67 (linter warning cleanup).",
+        "batch_landed_extra": [],
+        "evidence": [
+            {"label": "#55 dead trim", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/55"},
+            {"label": "#67 warnings", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/67"},
+        ],
+        "links": [
+            {"label": "GitHub @james-shore", "url": "https://github.com/james-shore"},
+            {"label": "PR #55 (Unused Declarations)", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/55"},
+            {"label": "PR #67 (Linter Cleanup)", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/67"},
+        ],
+    },
+    {
         "slug": "alectionary",
         "login": "alectionary",
         "name": "alectionary",
+        "initials": "AL",
         "group": "contributor",
-        "role": "Tactic & Elaboration Speedup Specialist",
-        "non_loc_impact": "High-throughput `nlinarith -> linarith` & `IsScalarTower` speedups cutting per-module build times 15-59%.",
-        "governance_signal": "Top `batch queue` volume (20+ queued)",
-        "bio": "Performance-focused contributor systematically replacing expensive `nlinarith` calls and slow typeclass elaborations (`IsScalarTower`, `HasBasisAway.map`) with bounded, faster alternatives. Over 20 of their targeted, single-module speedup PRs have been accepted into the official `batch queue`, cutting per-module build times by 15% to 59%.",
+        "github_role": "CONTRIBUTOR",
+        "role": "Tactic & Elaboration Speedups",
+        "headline": "Targeted nlinarith -> linarith & typeclass speedups cutting per-module build times 15-59%.",
+        "impact_badges": ["15-59% Module Speedup"],
+        "pillars": [2, 3, 1, 0],
+        "non_loc_impact": "Targeted `nlinarith -> linarith` & `IsScalarTower` speedups cutting per-module build times 15-59%.",
+        "governance_signal": "20+ PRs in batch queue",
+        "bio": "Contributor systematically replacing expensive `nlinarith` calls and slow typeclass elaborations (`IsScalarTower`, `HasBasisAway.map`) with bounded alternatives. Over 20 targeted single-module speedup PRs have been accepted into `batch queue`, reducing per-module build times by 15% to 59%.",
         "batch_landed_extra": [],
         "evidence": [
             {"label": "batch PRs", "url": "https://github.com/leanprover-community/riemann-hypothesis/pulls?q=is%3Apr+author%3Aalectionary+label%3A%22batch+queue%22"},
@@ -232,14 +268,73 @@ STEWARDSHIP_PROFILES = [
         ],
     },
     {
+        "slug": "marwuint",
+        "login": "marwuint",
+        "name": "Martin Hanzlowsky",
+        "initials": "MH",
+        "group": "contributor",
+        "github_role": "CONTRIBUTOR",
+        "role": "Explicit-Term Cleanup & Local .olean Verification",
+        "headline": "Authored #62 (96 explicit-term files, landed in #150) and runs independent local v4.36 .olean audits (#109).",
+        "impact_badges": ["#62 in #150", "85/85 Audit (#109)"],
+        "pillars": [1, 2, 1, 3],
+        "non_loc_impact": "Authored #62 (96 explicit-term cleanup files landed in #150) and runs independent local v4.36 builds and `.olean` identity checks on contributor PRs (85/85 modules on #109).",
+        "governance_signal": "#62 landed in #150 · Independent local verifier",
+        "bio": "Contributor who authored PR #62 (cleaning up 96 explicit-term files, landed via #150) and performs independent local Lean v4.36 builds and `.olean` declaration-identity audits against published caches (including verifying 85/85 modules on #109).",
+        "batch_landed_extra": [62],
+        "evidence": [
+            {"label": "#62 in #150", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/62"},
+            {"label": "#109 85/85 audit", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/109#issuecomment-7082502838"},
+        ],
+        "links": [
+            {"label": "GitHub @marwuint", "url": "https://github.com/marwuint"},
+            {"label": "PR #62 (Landed in #150)", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/62"},
+            {"label": "PR #109 Independent Audit", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/109#issuecomment-7082502838"},
+        ],
+    },
+    {
+        "slug": "thekeunpie-hash",
+        "login": "thekeunpie-hash",
+        "name": "Jinho Noh",
+        "initials": "JN",
+        "group": "contributor",
+        "github_role": "CONTRIBUTOR",
+        "role": "Active-Cone Cleanup & Compatibility Flag Removal",
+        "headline": "Landed #60, #65, and #71 (in #115); #110 and #224 (final 5 useBackward flags) in batch queue.",
+        "impact_badges": ["useBackward #71/#224"],
+        "pillars": [1, 2, 2, 2],
+        "non_loc_impact": "Landed CapelliIdentities cleanups (#60, #65) and 66 `backward.*` removals (#71 in #115); queued #110 and #224 (final 5 `useBackward` flags) in `batch queue`.",
+        "governance_signal": "3 landed (#60, #65, #71 in #115) · 2 in batch queue (#110, #224)",
+        "bio": "Contributor working on kernel-active explicit-term cleanup and `backward.*` compatibility option removal. Landed #60 (`FixPiIff.lean`), #65 (4 `CapelliIdentities` files), and #71 (66 `backward.*` options, merged via #115), with #110 and #224 (final 5 `useBackward` directives) accepted into `batch queue`. Also maintains this hourly tracking dashboard.",
+        "batch_landed_extra": [71],
+        "evidence": [
+            {"label": "#60/#65 merged", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/65"},
+            {"label": "#71 in #115", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/71"},
+            {"label": "#224 batch", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/224"},
+        ],
+        "links": [
+            {"label": "GitHub @thekeunpie-hash", "url": "https://github.com/thekeunpie-hash"},
+            {"label": "PR #60 (Merged)", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/60"},
+            {"label": "PR #65 (Merged)", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/65"},
+            {"label": "PR #71 (Landed in #115)", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/71"},
+            {"label": "PR #110 (Batch Queue)", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/110"},
+            {"label": "PR #224 (Batch Queue)", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/224"},
+        ],
+    },
+    {
         "slug": "hughperkins",
         "login": "hughperkins",
         "name": "Hugh Perkins",
+        "initials": "HP",
         "group": "contributor",
-        "role": "Mathlib-Aligned Proof Simplifier",
-        "non_loc_impact": "Replaces bespoke AI proof boilerplate with standard Mathlib lemmas across focused kernel modules.",
-        "governance_signal": "5 PRs accepted into `batch queue`",
-        "bio": "Contributor focused on idiomatic Mathlib alignment and proof readability. Across focused, reviewable PRs (#135, #149, #152, #155, #160 — all accepted into `batch queue`), he replaces verbose generated proofs with existing Mathlib lemmas such as `Complex.sq_nonpos_iff` and standard stabilizer/denominator-clearing arguments.",
+        "github_role": "CONTRIBUTOR",
+        "role": "Mathlib-Aligned Proof Simplification",
+        "headline": "Replaces generated boilerplate with standard Mathlib lemmas across focused kernel modules (#135-#160).",
+        "impact_badges": ["Mathlib Alignment"],
+        "pillars": [0, 3, 1, 0],
+        "non_loc_impact": "Replaces generated proof boilerplate with standard Mathlib lemmas across focused kernel modules.",
+        "governance_signal": "5 PRs in batch queue",
+        "bio": "Contributor focused on Mathlib alignment and proof readability. Across focused PRs (#135, #149, #152, #155, #160 — accepted into `batch queue`), replaces verbose generated proofs with existing Mathlib lemmas such as `Complex.sq_nonpos_iff`.",
         "batch_landed_extra": [],
         "evidence": [
             {"label": "batch PRs", "url": "https://github.com/leanprover-community/riemann-hypothesis/pulls?q=is%3Apr+author%3Ahughperkins+label%3A%22batch+queue%22"},
@@ -250,32 +345,19 @@ STEWARDSHIP_PROFILES = [
         ],
     },
     {
-        "slug": "marwuint",
-        "login": "marwuint",
-        "name": "marwuint",
-        "group": "contributor",
-        "role": "Independent Local Verification & .olean Auditor",
-        "non_loc_impact": "Runs independent local v4.36 builds and `.olean` declaration-identity checks on contributor PRs (e.g., 85/85 modules on #109).",
-        "governance_signal": "Trusted 3rd-party verifier",
-        "bio": "Independent reviewer performing local Lean v4.36 compilation and `.olean` declaration-identity audits against published caches. By checking downstream importers and exported declarations on contributor PRs (such as verifying 85/85 modules and 83/85 exact `.olean` matches on #109), their audits give maintainers high-confidence evidence without burning central CI shards.",
-        "batch_landed_extra": [],
-        "evidence": [
-            {"label": "#109 85/85 audit", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/109#issuecomment-7082502838"},
-        ],
-        "links": [
-            {"label": "GitHub @marwuint", "url": "https://github.com/marwuint"},
-            {"label": "PR #109 Independent Audit", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/109#issuecomment-7082502838"},
-        ],
-    },
-    {
         "slug": "rohanarun",
         "login": "rohanarun",
         "name": "Rohan Arun",
+        "initials": "RA",
         "group": "contributor",
-        "role": "Dead-Tree Pruning & Module Coalescing",
-        "non_loc_impact": "Merged #45 (-10,718 dead files) and explores aggressive wrapper/module consolidation (#120).",
-        "governance_signal": "Merged #45 · #120 in `batch queue`",
-        "bio": "Contributor focused on repository-scale file-count reduction and build-graph experiments. He authored the merged dead-module pruning PR #45 (removing over 10,700 unreachable files) and leads the experimental wrapper-collapsing and module-coalescing branch (#120) aimed at reducing process-spawn overhead.",
+        "github_role": "CONTRIBUTOR",
+        "role": "Dead-Tree Pruning, CI Runners & Module Coalescing",
+        "headline": "Merged dead-module prune #45 (-10,718 files), donated CI runners, and explores module coalescing (#120).",
+        "impact_badges": ["-10.7k Dead Files (#45)"],
+        "pillars": [2, 2, 2, 0],
+        "non_loc_impact": "Merged #45 (-10,718 dead files), donated CI runners, and explores wrapper/module consolidation (#120).",
+        "governance_signal": "Merged #45 · CI runner donor · #120 open",
+        "bio": "Contributor focused on repository-scale file-count reduction and build-graph experiments. Authored merged dead-module pruning PR #45 (removing over 10,700 unreachable files), donated CI runner capacity, and leads the experimental wrapper-collapsing and module-coalescing branch (#120).",
         "batch_landed_extra": [],
         "evidence": [
             {"label": "#45 merged", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/45"},
@@ -366,16 +448,30 @@ ECOSYSTEM_HALL_OF_FAME = [
     },
     {
         "slug": "andrew-sutherland",
-        "name": "Andrew Sutherland & External Checker Authors",
-        "org": "MIT · con-leche / nanoda / Comparator",
+        "name": "Andrew Sutherland, Szymon Teżewski & External Checkers",
+        "org": "MIT · con-leche / con-agua / nanoda / Gruszka / Pestka",
         "pillar": "Independent Check",
-        "contribution": "Independently compiled and replayed the 61 GB export across independent kernels (`con-leche`, `con-run`) and diagnosed the `mimalloc` replay bottleneck.",
-        "bio": "Principal Research Scientist at MIT who led independent end-to-end verification of Alpoge's RH/GRH proof alongside authors of external checkers (`con-leche`, `con-run`, `nanoda`, `Comparator`). He published reproducible verification logs and `pp.all` statement dumps at `math.mit.edu/~drew/grh/` and diagnosed the quadratic `mimalloc` heap-walk bottleneck during 61 GB export replay.",
+        "contribution": "Independently compiled and replayed the 61 GB export across 6+ independent kernels (`con-leche`, `con-ron`, `con-agua`, `nanoda`, `Gruszka`, `Pestka`) and published `pp.all` Lagarias/Robin statements.",
+        "bio": "Andrew Sutherland (MIT) led independent end-to-end compilation and 61.57 GB export verification (including Robin/Lagarias inequality equivalence and `pp.all` statement dumps at `math.mit.edu/~drew/grh/`), while Szymon Teżewski and external-checker authors verified the proof across independent languages and runtimes (`con-leche`, `con-ron`, `con-agua`, `nanoda`, `Gruszka`, `Pestka`, including exporter-free `.olean` checks).",
         "url": "https://math.mit.edu/~drew/grh/",
         "link_label": "MIT GRH Verification",
         "links": [
             {"label": "MIT GRH Verification Page", "url": "https://math.mit.edu/~drew/grh/"},
             {"label": "Validating Proofs in Lean", "url": "https://lean-lang.org/doc/reference/latest/ValidatingProofs/"},
+        ],
+    },
+    {
+        "slug": "community-moderators",
+        "name": "Johan Commelin, Eric Wieser & Lean Zulip Stewards",
+        "org": "Lean Community · Zulip & Mathlib Maintainers",
+        "pillar": "Community Ops",
+        "contribution": "Published the official Lean community verification statement and moderated/organized high-traffic Zulip `RH:` channels so technical cleanup stayed legible.",
+        "bio": "Long-standing Mathlib maintainers and Lean Zulip stewards including Johan Commelin (who published the official Lean community verification statement) and Eric Wieser (who organized and moderated the `#general` and `RH:` cleanup/toolchain/trust discussion streams under peak global traffic).",
+        "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+        "link_label": "Community Statement",
+        "links": [
+            {"label": "Official Community Statement", "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/"},
+            {"label": "Lean Zulip", "url": "https://leanprover.zulipchat.com/"},
         ],
     },
     {
@@ -410,14 +506,14 @@ ECOSYSTEM_HALL_OF_FAME = [
 ]
 
 
-def gh_api(path: str, token: str = ""):
+def gh_api(path: str, token: str = "") -> dict | list:
     headers = {
-        "User-Agent": "rh-kernel-backbone-tracker/2.0",
         "Accept": "application/vnd.github+json",
+        "User-Agent": "rh-kernel-backbone-tracker",
     }
     if token:
         headers["Authorization"] = f"Bearer {token}"
-    req = urllib.request.Request(f"https://api.github.com/{path}", headers=headers)
+    req = urllib.request.Request(f"https://api.github.com/{path.lstrip('/')}", headers=headers)
     with urllib.request.urlopen(req, timeout=30) as resp:
         return json.loads(resp.read().decode("utf-8"))
 
@@ -590,14 +686,19 @@ def fetch_stewardship_standing(token: str, now_iso: str) -> dict:
         token,
     )
     merged_by_user: dict[str, list[int]] = {}
+    assoc_by_user: dict[str, str] = {}
     for it in merged_res.get("items", []):
         u = it["user"]["login"]
         merged_by_user.setdefault(u, []).append(it["number"])
+        if it.get("author_association"):
+            assoc_by_user[u] = it["author_association"]
 
     batch_by_user: dict[str, list[int]] = {}
     for it in batch_res.get("items", []):
         u = it["user"]["login"]
         batch_by_user.setdefault(u, []).append(it["number"])
+        if u not in assoc_by_user and it.get("author_association"):
+            assoc_by_user[u] = it["author_association"]
 
     entries = []
     for prof in STEWARDSHIP_PROFILES:
@@ -605,13 +706,24 @@ def fetch_stewardship_standing(token: str, now_iso: str) -> dict:
         direct_merged = sorted(merged_by_user.get(login, []), reverse=True)
         extra_landed = [n for n in prof.get("batch_landed_extra", []) if n not in direct_merged]
         queued = sorted(batch_by_user.get(login, []), reverse=True)
+        gh_role = assoc_by_user.get(login) or prof.get("github_role", "CONTRIBUTOR")
+        if gh_role in ("NONE", "FIRST_TIME_CONTRIBUTOR", "FIRST_TIMER"):
+            gh_role = prof.get("github_role", "CONTRIBUTOR")
+        group = "collaborator" if gh_role in ("OWNER", "MEMBER", "COLLABORATOR") else prof.get("group", "contributor")
         entries.append(
             {
                 "slug": prof["slug"],
                 "login": login,
                 "name": prof["name"],
-                "group": prof["group"],
+                "initials": prof.get("initials", login[:2].upper()),
+                "group": group,
+                "github_role": gh_role,
                 "role": prof["role"],
+                "headline": prof.get("headline", ""),
+                "impact_badges": prof.get("impact_badges", []),
+                "pillars": prof.get("pillars", [0, 0, 0, 0]),
+                "non_loc_impact": prof.get("non_loc_impact", ""),
+                "governance_signal": prof.get("governance_signal", ""),
                 "bio": prof.get("bio", ""),
                 "merged_direct": len(direct_merged),
                 "merged_batch_extra": len(extra_landed),
@@ -620,9 +732,7 @@ def fetch_stewardship_standing(token: str, now_iso: str) -> dict:
                 "batch_landed_prs": extra_landed,
                 "batch_queue_count": len(queued),
                 "batch_queue_prs": queued[:8],
-                "non_loc_impact": prof["non_loc_impact"],
-                "governance_signal": prof["governance_signal"],
-                "evidence": prof["evidence"],
+                "evidence": prof.get("evidence", []),
                 "links": prof.get("links", []),
             }
         )
