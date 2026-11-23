@@ -3,10 +3,11 @@
 from leanprover-community/riemann-hypothesis GitHub API + Lean Zulip RH threads.
 
 Uses pure Python stdlib so it runs cleanly in GitHub Actions without extra pip packages.
-Zulip collection tries, in order:
-  1. ZULIP_EMAIL + ZULIP_API_KEY env vars (authenticated REST API),
-  2. Web-public spectator endpoint on leanprover.zulipchat.com (#general),
-  3. Local rh_zulip_*.json cache file if present.
+Combines:
+  1. Privileged GitHub actions (/issues/events: merged, labeled, unlabeled, locked, etc.)
+  2. author_association across all issues, PRs, issue comments, and review comments
+  3. Merged/opened/batch-queue PR counts and main commits
+  4. Lean Zulip #general RH thread activity (web-public spectator or local cache)
 """
 
 import glob
@@ -38,12 +39,32 @@ ASSOC_RANK = {
     "FIRST_TIME_CONTRIBUTOR": 0,
     "NONE": 0,
 }
+PRIVILEGED_EVENTS = {
+    "merged",
+    "labeled",
+    "unlabeled",
+    "milestoned",
+    "locked",
+    "unlocked",
+    "assigned",
+    "unassigned",
+    "pinned",
+    "unpinned",
+}
+PRIVILEGED_ASSOC = {"OWNER", "MEMBER", "COLLABORATOR"}
+
+
+def is_bot(user: dict | None) -> bool:
+    if not user:
+        return True
+    login = user.get("login", "")
+    return user.get("type") == "Bot" or login.endswith("[bot]")
 
 
 def gh_get_json(url: str):
     headers = {
         "Accept": "application/vnd.github+json",
-        "User-Agent": "rh-kernel-backbone-context/1.0",
+        "User-Agent": "rh-kernel-backbone-context/1.1",
     }
     token = os.environ.get("GITHUB_TOKEN", "")
     if token:
@@ -53,7 +74,7 @@ def gh_get_json(url: str):
         return json.loads(r.read().decode("utf-8"))
 
 
-def gh_get_paginated(url: str, max_pages: int = 10):
+def gh_get_paginated(url: str, max_pages: int = 30):
     items = []
     for page in range(1, max_pages + 1):
         sep = "&" if "?" in url else "?"
@@ -67,8 +88,12 @@ def gh_get_paginated(url: str, max_pages: int = 10):
 
 
 def collect_github():
-    prs = gh_get_paginated(f"{GH_API}/pulls?state=all", max_pages=6)
-    commits = gh_get_paginated(f"{GH_API}/commits", max_pages=3)
+    prs = gh_get_paginated(f"{GH_API}/pulls?state=all", max_pages=10)
+    commits = gh_get_paginated(f"{GH_API}/commits", max_pages=5)
+    events = gh_get_paginated(f"{GH_API}/issues/events", max_pages=30)
+    issues = gh_get_paginated(f"{GH_API}/issues?state=all", max_pages=10)
+    issue_comments = gh_get_paginated(f"{GH_API}/issues/comments", max_pages=15)
+    pull_comments = gh_get_paginated(f"{GH_API}/pulls/comments", max_pages=10)
 
     people = defaultdict(lambda: {
         "association": "NONE",
@@ -77,16 +102,19 @@ def collect_github():
         "prs_batch_queue": [],
         "main_commits": 0,
         "merge_commits_authored": 0,
+        "privileged_events": Counter(),
     })
 
+    def bump_assoc(login: str, assoc: str):
+        if ASSOC_RANK.get(assoc, 0) > ASSOC_RANK.get(people[login]["association"], 0):
+            people[login]["association"] = assoc
+
     for pr in prs:
-        user = (pr.get("user") or {}).get("login")
-        if not user or user.endswith("[bot]"):
+        user = pr.get("user")
+        if is_bot(user):
             continue
-        p = people[user]
-        assoc = pr.get("author_association", "NONE")
-        if ASSOC_RANK.get(assoc, 0) > ASSOC_RANK.get(p["association"], 0):
-            p["association"] = assoc
+        login = user["login"]
+        bump_assoc(login, pr.get("author_association", "NONE"))
         labels = [lb.get("name", "") for lb in pr.get("labels", [])]
         entry = {
             "number": pr["number"],
@@ -94,39 +122,66 @@ def collect_github():
             "state": pr["state"],
             "batch_queue": "batch queue" in labels,
         }
-        p["prs_opened"].append(entry)
+        people[login]["prs_opened"].append(entry)
         if pr.get("merged_at"):
-            p["prs_merged"].append(entry)
+            people[login]["prs_merged"].append(entry)
         elif pr["state"] == "open" and "batch queue" in labels:
-            p["prs_batch_queue"].append(entry)
+            people[login]["prs_batch_queue"].append(entry)
 
     for c in commits:
-        author = (c.get("author") or {}).get("login")
-        committer = (c.get("committer") or {}).get("login")
+        author = c.get("author")
+        committer = c.get("committer")
         msg = (c.get("commit") or {}).get("message", "")
-        if author and not author.endswith("[bot]"):
-            people[author]["main_commits"] += 1
-        if committer and committer != "web-flow" and not committer.endswith("[bot]"):
+        if not is_bot(author):
+            people[author["login"]]["main_commits"] += 1
+        if not is_bot(committer) and committer["login"] != "web-flow":
             first_line = msg.splitlines()[0] if msg else ""
             if first_line.startswith("Merge pull request") or "Merge" in first_line:
-                people[committer]["merge_commits_authored"] += 1
+                people[committer["login"]]["merge_commits_authored"] += 1
 
+    # 1) Privileged actions from /issues/events (merged, labeled, unlabeled, locked, etc.)
+    for ev in events:
+        etype = ev.get("event")
+        actor = ev.get("actor")
+        if etype in PRIVILEGED_EVENTS and not is_bot(actor):
+            people[actor["login"]]["privileged_events"][etype] += 1
+
+    # 2) author_association across all issues, PRs, issue comments, and review comments
+    for item in (*issues, *issue_comments, *pull_comments):
+        user = item.get("user")
+        assoc = item.get("author_association", "NONE")
+        if assoc in PRIVILEGED_ASSOC and not is_bot(user):
+            bump_assoc(user["login"], assoc)
+
+    result = {}
     for login, p in people.items():
-        if p["association"] in ("OWNER", "MEMBER", "COLLABORATOR") or p["merge_commits_authored"] >= 2:
-            p["tier"] = "maintainer_or_collaborator"
+        priv = dict(p["privileged_events"])
+        has_priv = bool(priv)
+        if p["association"] in PRIVILEGED_ASSOC or has_priv or p["merge_commits_authored"] >= 2:
+            tier = "maintainer_or_collaborator"
         elif len(p["prs_merged"]) >= 2 or p["main_commits"] >= 3 or len(p["prs_batch_queue"]) >= 3:
-            p["tier"] = "active_contributor"
+            tier = "active_contributor"
         else:
-            p["tier"] = "contributor"
+            tier = "contributor"
+        result[login] = {
+            "association": p["association"],
+            "tier": tier,
+            "prs_opened": p["prs_opened"],
+            "prs_merged": p["prs_merged"],
+            "prs_batch_queue": p["prs_batch_queue"],
+            "main_commits": p["main_commits"],
+            "merge_commits_authored": p["merge_commits_authored"],
+            "privileged_events": priv,
+        }
 
-    return dict(people)
+    return result
 
 
 def fetch_zulip_spectator(max_pages: int = 4):
     """Fetch recent #general RH messages via Zulip web-public spectator mode (no API key needed)."""
     cj = http.cookiejar.CookieJar()
     op = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
-    op.addheaders = [("User-Agent", "rh-kernel-backbone-context/1.0")]
+    op.addheaders = [("User-Agent", "rh-kernel-backbone-context/1.1")]
     op.open(f"{ZULIP_SITE}/", timeout=20).read()
     csrf = next((c.value for c in cj if "csrf" in c.name), "")
 
@@ -169,7 +224,6 @@ def fetch_zulip_spectator(max_pages: int = 4):
 
 
 def load_or_fetch_zulip():
-    # 1) Local cache if present in repo or parent downloads dir
     for pattern in [str(ROOT / "rh_zulip_*.json"), str(ROOT.parent / "rh_zulip_*.json")]:
         candidates = sorted(glob.glob(pattern))
         if candidates:
@@ -177,7 +231,6 @@ def load_or_fetch_zulip():
                 return json.loads(Path(candidates[-1]).read_text(encoding="utf-8"))
             except Exception:
                 pass
-    # 2) Web-public spectator fetch (works in CI without secrets)
     try:
         return fetch_zulip_spectator(max_pages=4)
     except Exception as exc:
@@ -224,20 +277,30 @@ def write_brief(gh_people, zulip_stats, highlights, id_map):
     now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     lines = [f"# Community Context Brief (Auto-generated {now_iso})\n"]
 
-    lines.append("## 1. Maintainers & Collaborators (GitHub Ground Truth)")
-    for login, p in sorted(gh_people.items(), key=lambda kv: (-kv[1]["main_commits"], -len(kv[1]["prs_merged"]), kv[0])):
+    lines.append("## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)")
+    for login, p in sorted(
+        gh_people.items(),
+        key=lambda kv: (
+            -kv[1]["privileged_events"].get("merged", 0),
+            -sum(kv[1]["privileged_events"].values()),
+            -kv[1]["main_commits"],
+            kv[0].lower(),
+        ),
+    ):
         if p["tier"] == "maintainer_or_collaborator":
             pr_nums = ", ".join(f"#{x['number']}" for x in p["prs_merged"][:8]) or "none"
+            priv = p["privileged_events"]
+            priv_str = ", ".join(f"{k}:{v}" for k, v in sorted(priv.items(), key=lambda x: -x[1])) or "none"
             zname = id_map.get(login, "")
             zstr = f" / {zname}" if zname else ""
             lines.append(
-                f"- **{login}**{zstr} (`{p['association']}`): merged PRs={len(p['prs_merged'])} ({pr_nums}), main commits={p['main_commits']}"
+                f"- **{login}**{zstr} (`{p['association']}`): privileged=[{priv_str}], merged PRs={len(p['prs_merged'])} ({pr_nums}), main commits={p['main_commits']}"
             )
 
     lines.append("\n## 2. Active Contributors (GitHub)")
     for login, p in sorted(
         gh_people.items(),
-        key=lambda kv: (-len(kv[1]["prs_merged"]), -len(kv[1]["prs_batch_queue"]), -len(kv[1]["prs_opened"]), kv[0]),
+        key=lambda kv: (-len(kv[1]["prs_merged"]), -len(kv[1]["prs_batch_queue"]), -len(kv[1]["prs_opened"]), kv[0].lower()),
     ):
         if p["tier"] != "maintainer_or_collaborator" and (p["prs_merged"] or p["prs_batch_queue"]):
             merged = ", ".join(f"#{x['number']}" for x in p["prs_merged"][:5])
@@ -282,7 +345,8 @@ def main():
         encoding="utf-8",
     )
     write_brief(gh_people, zulip_stats, highlights, id_map)
-    print(f"Generated {OUT_DIR / 'community_context.json'} and {OUT_DIR / 'COMMUNITY_BRIEF.md'} ({len(gh_people)} GH users, {len(zulip_stats)} Zulip users)")
+    collabs = [k for k, v in gh_people.items() if v["tier"] == "maintainer_or_collaborator"]
+    print(f"Generated community_context.json & COMMUNITY_BRIEF.md ({len(collabs)} collaborators/maintainers, {len(gh_people)} GH users, {len(zulip_stats)} Zulip users)")
 
 
 if __name__ == "__main__":
