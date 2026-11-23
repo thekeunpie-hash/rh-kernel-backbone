@@ -79,6 +79,12 @@ STEWARDSHIP_PROFILES = [
         "role": "Lean FRO · Distributed CI & Merge Queue",
         "headline": "Coordinates AWS and donated-runner sharded CI and lands the linear merge queue (#115, #150, #185).",
         "milestone_tag": "CI & Merge Queue",
+        "impact": {
+            "build_perf": "Sharded CI & Lean 4.37.0-rc1 merge queue (#185, #115, #150)",
+            "compute_infra": "Lean FRO AWS build cluster & donor-runner shard coordination (#101)",
+            "footprint_debt": "Landed 53-file (#115) & 79-file (#150) reviewed cleanup batches",
+            "ops_review": "Primary merge-queue operator (live merge count from GitHub events)",
+        },
         "bio": "Research software engineer at the Lean FRO and Mathlib maintainer. On leanprover-community/riemann-hypothesis, he runs the sharded AWS and donor-runner CI builds (#101), lands reviewed cleanup batches (#115, #150), and coordinates the merge queue through the Lean 4.37.0-rc1 upgrade (#185).",
         "batch_landed_extra": [],
         "links": [
@@ -98,6 +104,12 @@ STEWARDSHIP_PROFILES = [
         "role": "Repo Triage, Batch Queue Automation & Comparator",
         "headline": "Built batch-queue triage automation (#226, #233), formal-conjectures Comparator setup (#88), and README specs.",
         "milestone_tag": "Batch Queue & Triage",
+        "impact": {
+            "build_perf": "Automated batch-queue assembly (#226, #233) to cut redundant CI runs",
+            "compute_infra": "DeepMind formal-conjectures Comparator verification setup (#88)",
+            "footprint_debt": "",
+            "ops_review": "High-volume PR triage, labeling & merges (live counts from GitHub events)",
+        },
         "bio": "Repository collaborator handling PR review, triage, and verification tooling. Authored the DeepMind formal-conjectures Comparator setup (#88) and the `batch queue` label and batch-assembly workflows (#226, #233).",
         "batch_landed_extra": [],
         "links": [
@@ -117,6 +129,12 @@ STEWARDSHIP_PROFILES = [
         "role": "PR Labeling, Repo Values & Tech-Debt Tracking",
         "headline": "Added PR area/size auto-labeling (#154, #191), repo values (#184), and technical-debt tracking issue (#229).",
         "milestone_tag": "Labels & #229",
+        "impact": {
+            "build_perf": "",
+            "compute_infra": "Collaborator oversight on frozen original archive mirror",
+            "footprint_debt": "Authored repo-wide technical-debt tracking specification (#229)",
+            "ops_review": "PR area/size auto-labeling (#154, #191), repo values (#184) & triage",
+        },
         "bio": "Repository collaborator working on PR labeling automation (#154, #191), repository values documentation (#184), technical-debt tracking (#229), and collaborator oversight on the frozen original archive (`riemann-hypothesis-original`).",
         "batch_landed_extra": [],
         "links": [
@@ -136,6 +154,12 @@ STEWARDSHIP_PROFILES = [
         "role": "Cache Client Tooling & Original Proof Mirror",
         "headline": "Landed cache-client and documentation PRs (#202, #146) and maintains the frozen riemann-hypothesis-original mirror.",
         "milestone_tag": "Cache & Archive",
+        "impact": {
+            "build_perf": "Prebuilt .olean cache & cache-client fixes (#202) cut contributor setup time",
+            "compute_infra": "Hosts frozen riemann-hypothesis-original mirror with prebuilt Lean 4.33.1 cache",
+            "footprint_debt": "",
+            "ops_review": "Documentation & onboarding cache maintenance (#146, #202)",
+        },
         "bio": "Maintains cache-client fixes (macOS/Python compatibility, Lake hash handling in #202 and README cleanup in #146) and hosts the frozen `riemann-hypothesis-original` mirror with prebuilt Lean 4.33.1 cache.",
         "batch_landed_extra": [],
         "links": [
@@ -155,6 +179,12 @@ STEWARDSHIP_PROFILES = [
         "role": "Lean v4.36.0 Baseline Port & Build Performance",
         "headline": "Executed the v4.36.0 + module-system port (#66, -15,068 files) and -21.9% CPU speedup (#79/#98/#104 -> #134 -> #185).",
         "milestone_tag": "v4.36 #66 · -21.9% CPU",
+        "impact": {
+            "build_perf": "239.7 -> 187.2 core-h (-21.9% CPU); critical path 51.2 -> 26.1 min (-49%); 96-core build 2.67 -> 1.99 h (#134/#185)",
+            "compute_infra": "Migrated 175k-file repo to Lean v4.36.0 + module system (#66) & custom build driver",
+            "footprint_debt": "Full-Mathlib imports 115,573 -> 155 (-99.9%) & public imports 840.9k -> 536.1k (#98); maxHeartbeats 78.8k -> 2.9k (#79); -15,068 dead files (#66)",
+            "ops_review": "Repository collaborator on toolchain & build-performance roadmap",
+        },
         "bio": "Repository collaborator who ported the 175k-file repository to Lean & Mathlib v4.36.0 with module-system support (#66, pruning 15,068 dead files) and authored the stacked build-performance PRs (#79 heartbeat removal, #98 import reduction, #104 slow proofs -> #134, -21.9% CPU), now folded into Lean 4.37.0-rc1 PR #185.",
         "batch_landed_extra": [],
         "links": [
@@ -174,6 +204,12 @@ STEWARDSHIP_PROFILES = [
         "role": "Linter Cleanup, Theorem Deduplication & CI Runner",
         "headline": "Ported unused-syntax linter cleanup (#67 -> #243, -42% warnings on 4.37), ~17k deduplication, and lent a multi-core CI runner.",
         "milestone_tag": "#243 Linter · CI Runner",
+        "impact": {
+            "build_perf": "-42% unused-syntax warnings on Lean 4.37 (#67 -> #243)",
+            "compute_infra": "Donated dedicated multi-core CI build server (384 GiB+ RAM) for CI sharding",
+            "footprint_debt": "Mechanical ~17,000 theorem/definition deduplication in progress",
+            "ops_review": "",
+        },
         "bio": "Contributor donating a large multi-core build machine (384 GiB+ RAM) for CI sharding, porting unused-syntax linter cleanup (#67 -> #243, removing 42% of unused-syntax warnings on Lean 4.37), and preparing a mechanical ~17,000 theorem/definition deduplication PR.",
         "batch_landed_extra": [],
         "links": [
@@ -192,6 +228,12 @@ STEWARDSHIP_PROFILES = [
         "role": "Stacked Cleanup Consolidation (#221)",
         "headline": "Consolidated 10+ redundant-proof PRs (3,076 files) into #221, queued behind #185.",
         "milestone_tag": "Queue #2 (#221)",
+        "impact": {
+            "build_perf": "Batched 10+ overlapping cleanup PRs into 1 merge-queue run (#221)",
+            "compute_infra": "",
+            "footprint_debt": "3,076 files consolidated & deduplicated on top of #185",
+            "ops_review": "Cross-PR consolidation & rebase coordination",
+        },
         "bio": "Consolidated ten overlapping redundant-proof and Mathlib-reuse PRs proposed by Martin Hanzlowsky into a single 3,076-file PR (#221) targeting #185, queued next after #185.",
         "batch_landed_extra": [],
         "links": [
@@ -209,6 +251,12 @@ STEWARDSHIP_PROFILES = [
         "role": "Independent Local Build & .olean Verification",
         "headline": "Runs independent local v4.36 builds and .olean declaration-identity checks on contributor PRs (85/85 on #109).",
         "milestone_tag": "Local .olean Audits",
+        "impact": {
+            "build_perf": "",
+            "compute_infra": "Independent local v4.36 build hardware & .olean cache verification",
+            "footprint_debt": "",
+            "ops_review": "Declaration-identity audits on open PRs (85/85 downstream modules on #109)",
+        },
         "bio": "Runs local Lean v4.36 builds and `.olean` declaration-identity comparisons against published caches for open contributor PRs (such as checking 85/85 downstream modules on #109).",
         "batch_landed_extra": [],
         "links": [
@@ -226,10 +274,17 @@ STEWARDSHIP_PROFILES = [
         "role": "Dead-Tree Pruning & Module Coalescing",
         "headline": "Merged dead-module prune #45 (-10,718 files) and explored module coalescing in #120.",
         "milestone_tag": "#45 (-10.7k files)",
-        "bio": "Authored merged dead-module pruning PR #45 (removing 10,718 unreachable files) and explored wrapper collapsing and module coalescing in #120.",
+        "impact": {
+            "build_perf": "Module bundling & wrapper collapse targeting Lake graph overhead (#120: 47,881 modules, -67.9% files)",
+            "compute_infra": "Organized 104-volunteer independent replay of all 175,187 modules (rohanarun/alpoge-rh-replay)",
+            "footprint_debt": "-10,718 unreachable dead files deleted in merged PR #45; -67.9% file count in #120",
+            "ops_review": "Maintains crowd-replay tracker & PR120-BUGS.md bug-claim workflow",
+        },
+        "bio": "Authored merged dead-module pruning PR #45 (-10,718 unreachable files), organized the 104-volunteer independent replay of Alpoge's 175,187-module release (`rohanarun/alpoge-rh-replay`), and leads the #120 module-consolidation effort (47,881 modules, -67.9% files vs. `main`).",
         "batch_landed_extra": [],
         "links": [
             {"label": "GitHub @rohanarun", "url": "https://github.com/rohanarun"},
+            {"label": "alpoge-rh-replay (104 volunteers)", "url": "https://github.com/rohanarun/alpoge-rh-replay"},
             {"label": "Dead Prune PR #45", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/45"},
             {"label": "Module Coalescing PR #120", "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/120"},
         ],
@@ -245,6 +300,12 @@ STEWARDSHIP_PROFILES = [
         "role": "Tactic & Elaboration Speedups",
         "headline": "Targeted nlinarith -> linarith and typeclass speedup PRs in batch queue.",
         "milestone_tag": "",
+        "impact": {
+            "build_perf": "Replaces slow nlinarith & typeclass elaborations (IsScalarTower, HasBasisAway.map)",
+            "compute_infra": "",
+            "footprint_debt": "Focused single-module elaboration speedups accepted into batch queue",
+            "ops_review": "",
+        },
         "bio": "Replaces slow `nlinarith` calls and typeclass elaborations (`IsScalarTower`, `HasBasisAway.map`) with bounded alternatives across single-module PRs accepted into `batch queue`.",
         "batch_landed_extra": [],
         "links": [
@@ -262,6 +323,12 @@ STEWARDSHIP_PROFILES = [
         "role": "Mathlib Lemma Alignment",
         "headline": "Replaces verbose generated proofs with standard Mathlib lemmas (#114, #135, #149, #152, #155, #160).",
         "milestone_tag": "",
+        "impact": {
+            "build_perf": "",
+            "compute_infra": "",
+            "footprint_debt": "Replaces verbose generated proofs with Mathlib lemmas (#114, #135, #149, #152, #155, #160)",
+            "ops_review": "",
+        },
         "bio": "Replaces generated proof boilerplate with existing Mathlib lemmas across focused single-module PRs accepted into `batch queue`.",
         "batch_landed_extra": [],
         "links": [
@@ -279,6 +346,12 @@ STEWARDSHIP_PROFILES = [
         "role": "Algebra & Representation Proof Deduplication",
         "headline": "Deduplicates Schur/Jacobson density and module proofs (#192, #197, #210, #215, #216).",
         "milestone_tag": "",
+        "impact": {
+            "build_perf": "",
+            "compute_infra": "",
+            "footprint_debt": "Deduplicates Schur/Jacobson density & module proofs (#192, #197, #210, #215, #216)",
+            "ops_review": "",
+        },
         "bio": "Consolidates duplicated algebra and representation-theory proofs across focused PRs queued in `batch queue`.",
         "batch_landed_extra": [],
         "links": [
@@ -296,6 +369,12 @@ STEWARDSHIP_PROFILES = [
         "role": "Proof Simplification & Cleanup",
         "headline": "Proof cleanup PRs in batch queue (#119, #127, #220, #232).",
         "milestone_tag": "",
+        "impact": {
+            "build_perf": "",
+            "compute_infra": "",
+            "footprint_debt": "Proof cleanup PRs in batch queue (#119, #127, #220, #232), consolidated in #221",
+            "ops_review": "",
+        },
         "bio": "Submitted proof-simplification PRs accepted into `batch queue` and consolidated in #221.",
         "batch_landed_extra": [],
         "links": [
@@ -313,6 +392,12 @@ STEWARDSHIP_PROFILES = [
         "role": "Active-Cone Proof & backward.* Option Cleanup",
         "headline": "Explicit-dump and backward.* option cleanup (#60, #65, #71 in #115; #109, #110, #224 in batch queue).",
         "milestone_tag": "",
+        "impact": {
+            "build_perf": "105 -> 0 warnings (#65); removes legacy backward.* compat flags (#71 in #115, #224)",
+            "compute_infra": "",
+            "footprint_debt": "-99.5% norm tokens in FixPiIff (#60); -180 files / -9,730 L (#109); 33 -> 0 backward.* (#224)",
+            "ops_review": "",
+        },
         "bio": "Submitted explicit-dump and `backward.*` option cleanup PRs (#60, #65, #71 landed in #115; #109, #110, #224 in `batch queue`).",
         "batch_landed_extra": [71],
         "links": [
@@ -666,6 +751,7 @@ def fetch_stewardship_standing(token: str, now_iso: str) -> dict:
                 "role": prof["role"],
                 "headline": prof.get("headline", ""),
                 "milestone_tag": prof.get("milestone_tag", ""),
+                "impact": prof.get("impact", {}),
                 "bio": prof.get("bio", ""),
                 "merged_direct": len(direct_merged),
                 "merged_batch_extra": len(extra_landed),

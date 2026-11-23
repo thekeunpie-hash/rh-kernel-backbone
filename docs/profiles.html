@@ -63,10 +63,13 @@
   .sp-role { font-size: 13.5px; font-weight: 600; color: var(--accent); margin: 6px 0 10px; }
   .spotlight.is-hof .sp-role { color: var(--gold); }
   .sp-bio { font-size: 14.5px; color: #1e293b; line-height: 1.68; margin: 0 0 14px; }
-  .sp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0 16px; }
+  .sp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 14px 0 16px; }
   .sp-stat { background: rgba(255,255,255,0.88); border: 1px solid var(--border); border-radius: 8px; padding: 10px 13px; }
-  .sp-stat .k { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
-  .sp-stat .v { font-size: 13.5px; font-weight: 700; color: var(--text); margin-top: 3px; font-variant-numeric: tabular-nums; }
+  .sp-stat .k { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 700; }
+  .sp-stat .v { font-size: 13px; font-weight: 600; color: var(--text); margin-top: 4px; line-height: 1.45; }
+  .dir-impacts { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; padding-top: 6px; border-top: 1px dashed var(--border); font-size: 12px; color: #334155; }
+  .dir-imp-row { display: flex; gap: 6px; align-items: baseline; line-height: 1.4; }
+  .dir-imp-k { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--accent); min-width: 92px; flex-shrink: 0; }
   .link-strip { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
   .link-pill {
     display: inline-flex; align-items: center; gap: 4px;
@@ -128,7 +131,7 @@
   </div>
 
   <h1>Maintainers, Contributors &amp; Lean Foundations</h1>
-  <p class="lead">Factual directory of maintainers, porting/infrastructure leads, and PR contributors on <code>leanprover-community/riemann-hypothesis</code>, alongside foundational Lean 4, Mathlib, and verification maintainers. Each entry links directly to GitHub PRs and primary references.</p>
+  <p class="lead">Factual directory organized by verifiable engineering impact — <strong>build-time speedups</strong>, <strong>donated compute &amp; cache infrastructure</strong>, <strong>codebase/technical-debt reduction</strong>, and <strong>live merge/triage operations</strong> — rather than raw commit counts or arbitrary scores.</p>
 
   <section id="spotlightRoot" class="spotlight">
     <p class="status-msg">Loading live directory from <code>data/upstream_frontier.json</code>…</p>
@@ -137,12 +140,13 @@
   <div class="controls">
     <div class="seg-group" id="dirFilter">
       <button type="button" class="pill-btn active" data-cat="all">All</button>
-      <button type="button" class="pill-btn" data-cat="maintainer">Maintainers &amp; Ops</button>
-      <button type="button" class="pill-btn" data-cat="major_porting">Porting &amp; Infra</button>
-      <button type="button" class="pill-btn" data-cat="contributor">Contributors</button>
+      <button type="button" class="pill-btn" data-cat="build_perf">Build &amp; Speed</button>
+      <button type="button" class="pill-btn" data-cat="compute_infra">Compute &amp; Infra</button>
+      <button type="button" class="pill-btn" data-cat="footprint_debt">Footprint &amp; Debt</button>
+      <button type="button" class="pill-btn" data-cat="ops_review">Ops &amp; Triage</button>
       <button type="button" class="pill-btn" data-cat="hof">Lean Foundations</button>
     </div>
-    <input type="search" id="dirSearch" class="search-in" placeholder="Filter by name, handle, role, or PR…">
+    <input type="search" id="dirSearch" class="search-in" placeholder="Filter by name, handle, runner, speedup, or PR…">
   </div>
 
   <div class="dir-grid" id="dirGrid"></div>
@@ -179,21 +183,106 @@ let ALL_PROFILES = [];
 let ACTIVE_SLUG = "";
 let CURRENT_CAT = "all";
 
+const IMPACT_LABELS = {
+  build_perf: "Build & Speed",
+  compute_infra: "Compute & Infra",
+  footprint_debt: "Footprint & Debt",
+  ops_review: "Ops & Triage"
+};
+
+const IMPACT_FALLBACK = {
+  "kim-em": {
+    build_perf: "Sharded CI & Lean 4.37.0-rc1 merge queue (#185, #115, #150)",
+    compute_infra: "Lean FRO AWS build cluster & donor-runner shard coordination (#101)",
+    footprint_debt: "Landed 53-file (#115) & 79-file (#150) reviewed cleanup batches",
+    ops_review: "Primary merge-queue operator"
+  },
+  "deicyde": {
+    build_perf: "Automated batch-queue assembly (#226, #233) to cut redundant CI runs",
+    compute_infra: "DeepMind formal-conjectures Comparator verification setup (#88)",
+    ops_review: "High-volume PR triage, labeling & merges"
+  },
+  "thorimur": {
+    compute_infra: "Collaborator oversight on frozen original archive mirror",
+    footprint_debt: "Authored repo-wide technical-debt tracking specification (#229)",
+    ops_review: "PR area/size auto-labeling (#154, #191), repo values (#184) & triage"
+  },
+  "homeowmorphism": {
+    build_perf: "Prebuilt .olean cache & cache-client fixes (#202) cut setup time",
+    compute_infra: "Hosts frozen riemann-hypothesis-original mirror with prebuilt Lean 4.33.1 cache",
+    ops_review: "Documentation & onboarding cache maintenance (#146, #202)"
+  },
+  "vilin97": {
+    build_perf: "239.7 -> 187.2 core-h (-21.9% CPU); critical path 51.2 -> 26.1 min (-49%); 96-core build 2.67 -> 1.99 h (#134/#185)",
+    compute_infra: "Migrated 175k-file repo to Lean v4.36.0 + module system (#66) & custom build driver",
+    footprint_debt: "Full-Mathlib imports 115,573 -> 155 (-99.9%) & public imports 840.9k -> 536.1k (#98); maxHeartbeats 78.8k -> 2.9k (#79); -15,068 dead files (#66)",
+    ops_review: "Repository collaborator on toolchain & build-performance roadmap"
+  },
+  "james-shore": {
+    build_perf: "-42% unused-syntax warnings on Lean 4.37 (#67 -> #243)",
+    compute_infra: "Donated dedicated multi-core CI build server (384 GiB+ RAM) for CI sharding",
+    footprint_debt: "Mechanical ~17,000 theorem/definition deduplication in progress"
+  },
+  "serdnad": {
+    build_perf: "Batched 10+ overlapping cleanup PRs into 1 merge-queue run (#221)",
+    footprint_debt: "3,076 files consolidated & deduplicated on top of #185",
+    ops_review: "Cross-PR consolidation & rebase coordination"
+  },
+  "marwuint": {
+    compute_infra: "Independent local v4.36 build hardware & .olean cache verification",
+    ops_review: "Declaration-identity audits on open PRs (85/85 downstream modules on #109)"
+  },
+  "rohanarun": {
+    build_perf: "Module bundling & wrapper collapse targeting Lake graph overhead (#120: 47,881 modules, -67.9% files)",
+    compute_infra: "Organized 104-volunteer independent replay of all 175,187 modules (rohanarun/alpoge-rh-replay)",
+    footprint_debt: "-10,718 unreachable dead files deleted in merged PR #45; -67.9% file count in #120",
+    ops_review: "Maintains crowd-replay tracker & PR120-BUGS.md bug-claim workflow"
+  },
+  "alectionary": {
+    build_perf: "Replaces slow nlinarith & typeclass elaborations (IsScalarTower, HasBasisAway.map)",
+    footprint_debt: "Focused single-module elaboration speedups accepted into batch queue"
+  },
+  "hughperkins": {
+    footprint_debt: "Replaces verbose generated proofs with Mathlib lemmas (#114, #135, #149, #152, #155, #160)"
+  },
+  "cubejerry": {
+    footprint_debt: "Deduplicates Schur/Jacobson density & module proofs (#192, #197, #210, #215, #216)"
+  },
+  "visio-vanitas": {
+    footprint_debt: "Proof cleanup PRs in batch queue (#119, #127, #220, #232), consolidated in #221"
+  },
+  "thekeunpie-hash": {
+    build_perf: "105 -> 0 warnings (#65); removes legacy backward.* compat flags (#71 in #115, #224)",
+    footprint_debt: "-99.5% norm tokens in FixPiIff (#60); -180 files / -9,730 L (#109); 33 -> 0 backward.* (#224)"
+  },
+  "sebastien-gouezel": {
+    build_perf: "Lean 4.37.0-rc1 23% Mathlib compilation speedup benchmark catalyzing RH #185"
+  },
+  "andrew-sutherland": {
+    compute_infra: "MIT compute replay of 61 GB export across independent kernels (con-leche, con-run) & mimalloc diagnosis"
+  }
+};
+
+function getImpactMap(p) {
+  const base = { ...(IMPACT_FALLBACK[p.slug] || {}), ...(p.impact || {}) };
+  if (p.ops_merges > 0 || p.ops_triage > 0) {
+    const liveParts = [];
+    if (p.ops_merges > 0) liveParts.push(`${p.ops_merges} PRs merged`);
+    if (p.ops_triage > 0) liveParts.push(`${p.ops_triage} triage/label actions`);
+    base.ops_review = `${liveParts.join(" · ")}${base.ops_review ? " — " + base.ops_review : ""}`;
+  }
+  return base;
+}
+
 function renderSpotlight(profile, meta) {
   const root = document.getElementById("spotlightRoot");
   if (!profile) {
     root.className = "spotlight";
-    root.innerHTML = `<p class="status-msg">Select any profile below to view their factual summary and GitHub links.</p>`;
+    root.innerHTML = `<p class="status-msg">Select any profile below to view their verified impact and primary GitHub links.</p>`;
     return;
   }
   const isHof = profile.kind === "hof";
   root.className = "spotlight" + (isHof ? " is-hof" : "");
-
-  const tierLabel = profile.tier === "maintainer"
-    ? "Core Maintainer / Ops"
-    : profile.tier === "major_porting"
-      ? "Porting, Perf & Verification"
-      : "PR Contributor";
 
   const badges = [];
   if (isHof) {
@@ -207,13 +296,26 @@ function renderSpotlight(profile, meta) {
     if (profile.milestone_tag) {
       badges.push(`<span class="badge badge-hof">${escHtml(profile.milestone_tag)}</span>`);
     }
-    if (profile.merged_direct > 0) {
-      badges.push(`<span class="badge badge-exact">${profile.merged_direct} merged</span>`);
+    if (profile.ops_merges > 0) {
+      badges.push(`<span class="badge badge-exact">${profile.ops_merges} merges run</span>`);
+    }
+    if (profile.ops_triage > 0) {
+      badges.push(`<span class="badge badge-queue">${profile.ops_triage} triage actions</span>`);
     }
     if (profile.batch_queue_count > 0) {
-      badges.push(`<span class="badge badge-queue">${profile.batch_queue_count} queue</span>`);
+      badges.push(`<span class="badge badge-queue">${profile.batch_queue_count} in batch queue</span>`);
     }
   }
+
+  const imp = getImpactMap(profile);
+  const impCells = Object.entries(IMPACT_LABELS)
+    .filter(([k]) => imp[k])
+    .map(([k, lbl]) => `
+      <div class="sp-stat">
+        <div class="k">${escHtml(lbl)}</div>
+        <div class="v">${fmtInline(imp[k])}</div>
+      </div>
+    `).join("");
 
   let statsHtml = "";
   if (!isHof) {
@@ -224,20 +326,7 @@ function renderSpotlight(profile, meta) {
       ...queueList.map((n) => `<a class="pr-chip" href="https://github.com/leanprover-community/riemann-hypothesis/pull/${n}" target="_blank" rel="noopener">Queue #${n}</a>`)
     ].join("");
     statsHtml = `
-      <div class="sp-grid">
-        <div class="sp-stat">
-          <div class="k">GitHub Activity (Live)</div>
-          <div class="v">${profile.merged_direct} merged · ${profile.batch_queue_count} batch queue</div>
-        </div>
-        <div class="sp-stat">
-          <div class="k">Repository Section</div>
-          <div class="v" style="font-size:12.4px;font-weight:600;">${escHtml(tierLabel)} (${escHtml(profile.github_role || "CONTRIBUTOR")})</div>
-        </div>
-        <div class="sp-stat">
-          <div class="k">Snapshot Measured</div>
-          <div class="v" style="font-size:12.4px;">${escHtml((meta.measured_at || "").replace("T", " ").replace("Z", " UTC"))}</div>
-        </div>
-      </div>
+      ${impCells ? `<div class="sp-grid">${impCells}</div>` : ""}
       ${prChips ? `<div class="pr-chips">${prChips}</div>` : ""}
     `;
   } else {
@@ -249,12 +338,9 @@ function renderSpotlight(profile, meta) {
         </div>
         <div class="sp-stat">
           <div class="k">Affiliation / Scope</div>
-          <div class="v" style="font-size:12.6px;">${escHtml(profile.org)}</div>
+          <div class="v">${escHtml(profile.org)}</div>
         </div>
-        <div class="sp-stat">
-          <div class="k">Role in RH Ecosystem</div>
-          <div class="v" style="font-size:12.4px;font-weight:600;">Lean &amp; Verification Foundations</div>
-        </div>
+        ${impCells}
       </div>
     `;
   }
@@ -292,12 +378,13 @@ function renderDirectory(meta) {
   const grid = document.getElementById("dirGrid");
   const q = (document.getElementById("dirSearch").value || "").trim().toLowerCase();
   const rows = ALL_PROFILES.filter((p) => {
+    const imp = getImpactMap(p);
     if (CURRENT_CAT !== "all") {
       if (CURRENT_CAT === "hof" && p.kind !== "hof") return false;
-      if (CURRENT_CAT !== "hof" && (p.kind !== "steward" || (p.tier || "contributor") !== CURRENT_CAT)) return false;
+      if (CURRENT_CAT !== "hof" && !imp[CURRENT_CAT]) return false;
     }
     if (!q) return true;
-    const hay = [p.name, p.login, p.org, p.role, p.pillar, p.bio, p.headline, p.contribution].join(" ").toLowerCase();
+    const hay = [p.name, p.login, p.org, p.role, p.pillar, p.bio, p.headline, p.contribution, ...Object.values(imp)].join(" ").toLowerCase();
     return hay.includes(q);
   });
 
@@ -305,14 +392,20 @@ function renderDirectory(meta) {
     const isHof = p.kind === "hof";
     const isAct = p.slug === ACTIVE_SLUG;
     const isCollab = !isHof && (p.github_role === "COLLABORATOR" || p.github_role === "MEMBER");
+    const imp = getImpactMap(p);
     const tag = isHof
       ? `<span class="badge badge-hof">${escHtml(p.pillar)}</span>`
       : (isCollab
           ? `<span class="badge" style="background:#1e3a8a;color:#fff;">COLLABORATOR</span>`
           : `<span class="badge badge-open">CONTRIBUTOR</span>`);
     const extra = !isHof
-      ? `${p.milestone_tag ? `<span class="badge badge-hof">${escHtml(p.milestone_tag)}</span>` : ""}${p.merged_direct > 0 ? ` <span class="badge badge-exact">${p.merged_direct} merged</span>` : ""}${p.batch_queue_count ? ` <span class="badge badge-queue">${p.batch_queue_count} queue</span>` : ""}`
+      ? `${p.milestone_tag ? `<span class="badge badge-hof">${escHtml(p.milestone_tag)}</span>` : ""}${p.ops_merges > 0 ? ` <span class="badge badge-exact">${p.ops_merges} merges</span>` : ""}${p.ops_triage > 0 ? ` <span class="badge badge-queue">${p.ops_triage} triage</span>` : ""}`
       : "";
+    const impRows = Object.entries(IMPACT_LABELS)
+      .filter(([k]) => imp[k])
+      .slice(0, 2)
+      .map(([k, lbl]) => `<div class="dir-imp-row"><span class="dir-imp-k">${escHtml(lbl)}</span><span>${fmtInline(imp[k])}</span></div>`)
+      .join("");
     return `
       <div class="dir-card ${isHof ? "hof" : ""} ${isAct ? "active" : ""}" data-slug="${escHtml(p.slug)}">
         <div class="dir-top">
@@ -320,7 +413,7 @@ function renderDirectory(meta) {
           <div style="display:flex;gap:5px;flex-wrap:wrap;">${tag}${extra}</div>
         </div>
         <div class="dir-sub">${isHof ? escHtml(p.org) : "@" + escHtml(p.login) + " · " + escHtml(p.role)}</div>
-        <div class="dir-desc">${fmtInline(isHof ? p.contribution : (p.headline || p.role))}</div>
+        ${impRows ? `<div class="dir-impacts">${impRows}</div>` : `<div class="dir-desc">${fmtInline(isHof ? p.contribution : (p.headline || p.role))}</div>`}
       </div>`;
   }).join("") || `<p class="status-msg">No matching profiles.</p>`;
 
@@ -349,14 +442,25 @@ function selectProfile(slug, meta, scrollTop) {
 
 async function init() {
   try {
-    const raw = await fetchWithFallback("data/upstream_frontier.json");
-    const data = JSON.parse(raw);
+    const [frontierRes, ctxRes] = await Promise.allSettled([
+      fetchWithFallback("data/upstream_frontier.json"),
+      fetchWithFallback("data/community_context.json")
+    ]);
+    if (frontierRes.status !== "fulfilled") throw frontierRes.reason;
+    const data = JSON.parse(frontierRes.value);
+    const ctxGh = ctxRes.status === "fulfilled" ? (JSON.parse(ctxRes.value).github || {}) : {};
     const st = data.stewardship_standing || {};
-    const stewards = (st.entries || []).map((e) => ({
-      ...e,
-      kind: "steward",
-      slug: e.slug || e.login.toLowerCase(),
-    }));
+    const stewards = (st.entries || []).map((e) => {
+      const gh = ctxGh[e.login] || {};
+      const pe = gh.privileged_events || {};
+      return {
+        ...e,
+        kind: "steward",
+        slug: e.slug || e.login.toLowerCase(),
+        ops_merges: pe.merged || 0,
+        ops_triage: (pe.labeled || 0) + (pe.unlabeled || 0)
+      };
+    });
     const hof = (data.ecosystem_hall_of_fame || []).map((h) => ({
       ...h,
       kind: "hof",
