@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T04:58:54Z",
+  "generated_at": "2026-11-23T06:14:28Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -542,8 +542,8 @@
     "heartbeat_options": 78826,
     "files_delta_vs_v021": -25790,
     "lines_delta_vs_v021": -2205614,
-    "open_pr_count": 128,
-    "measured_at": "2026-11-23T04:58:54Z"
+    "open_pr_count": 137,
+    "measured_at": "2026-11-23T06:14:28Z"
   },
   "live_history": [
     {
@@ -682,11 +682,11 @@
       "scope": "full",
       "title": "Integrate #134 build speedup + bump to Lean 4.37.0-rc1 & Mathlib 31ce06ea",
       "raw_title": "Integrate proof cleanup and bump to Lean 4.37.0-rc1",
-      "changed_files": 0,
-      "additions": 0,
-      "deletions": 0,
-      "net_lines": 0,
-      "updated_at": "2026-11-23T04:52:47Z",
+      "changed_files": 149359,
+      "additions": 6337406,
+      "deletions": 717081,
+      "net_lines": 5620325,
+      "updated_at": "2026-11-23T06:03:21Z",
       "merged_at": null,
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/185"
     },
@@ -704,7 +704,7 @@
       "additions": 8063,
       "deletions": 229221,
       "net_lines": -221158,
-      "updated_at": "2026-11-23T04:55:27Z",
+      "updated_at": "2026-11-23T06:04:44Z",
       "merged_at": null,
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/221"
     },
@@ -772,11 +772,11 @@
       "scope": "full",
       "title": "Collapse 28,169 thin wrappers & consolidate 93,601 modules into 20,258 bundles (-101,512 files)",
       "raw_title": "Collapse 28,169 thin wrappers and consolidate 93,601 modules into 20,258 bundles (−101,512 files, −67.9%)",
-      "changed_files": 161701,
-      "additions": 8034531,
-      "deletions": 8646786,
-      "net_lines": -612255,
-      "updated_at": "2026-11-23T04:53:21Z",
+      "changed_files": 161712,
+      "additions": 8034675,
+      "deletions": 8646903,
+      "net_lines": -612228,
+      "updated_at": "2026-11-23T06:05:11Z",
       "merged_at": null,
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/120"
     },
@@ -988,9 +988,9 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-23T04:58:54Z",
+    "measured_at": "2026-11-23T06:14:28Z",
     "total_merged_prs": 75,
-    "total_batch_queue_prs": 56,
+    "total_batch_queue_prs": 60,
     "entries": [
       {
         "slug": "kim-em",
@@ -1347,16 +1347,16 @@
         "merged_total": 0,
         "merged_prs": [],
         "batch_landed_prs": [],
-        "batch_queue_count": 20,
+        "batch_queue_count": 23,
         "batch_queue_prs": [
           245,
+          240,
+          236,
+          231,
           228,
           211,
           195,
-          193,
-          190,
-          186,
-          183
+          193
         ],
         "links": [
           {

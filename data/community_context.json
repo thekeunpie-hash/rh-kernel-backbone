@@ -1,8 +1,402 @@
 {
-  "generated_at": "2026-11-23T04:57:40Z",
+  "generated_at": "2026-11-23T06:14:27Z",
   "github": {
+    "Visio-Vanitas": {
+      "association": "NONE",
+      "tier": "active_contributor",
+      "prs_opened": [
+        {
+          "number": 275,
+          "title": "Replace 5 more local proofs with Mathlib v4.36.0 lemmas",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 274,
+          "title": "Replace 6 more local proofs with Mathlib v4.36.0 lemmas",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 273,
+          "title": "Replace 4 low-dependency proofs with Mathlib v4.36.0 lemmas",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 270,
+          "title": "Simplify explicit typeclass dumps in 8 CapelliIdentities files (−11,262 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 232,
+          "title": "Simplify explicit typeclass dumps in 4 large CapelliIdentities files (−10,402 lines)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 220,
+          "title": "Simplify explicit typeclass dumps in 5 CapelliIdentities files (−3,011 lines, quick-check ready)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 127,
+          "title": "Reuse 5 existing Main-cone proofs and prune 17 duplicate modules (−1,179 lines)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 119,
+          "title": "Reuse 3 existing Main-cone proofs and prune 80 duplicate modules (−3,777 lines)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 232,
+          "title": "Simplify explicit typeclass dumps in 4 large CapelliIdentities files (−10,402 lines)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 220,
+          "title": "Simplify explicit typeclass dumps in 5 CapelliIdentities files (−3,011 lines, quick-check ready)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 127,
+          "title": "Reuse 5 existing Main-cone proofs and prune 17 duplicate modules (−1,179 lines)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 119,
+          "title": "Reuse 3 existing Main-cone proofs and prune 80 duplicate modules (−3,777 lines)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "ishaan2006": {
+      "association": "CONTRIBUTOR",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 272,
+          "title": "Cite Milne for PoitouTateDuality and Ferrero–Washington for FerreroWashington",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "fenghourun": {
+      "association": "NONE",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 271,
+          "title": "Simplify completed L-function nonvanishing in the GRH bridge",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 269,
+          "title": "Avoid repeated mkdir calls during pinned cache restore",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "JamCh01": {
+      "association": "NONE",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 268,
+          "title": "Port 3 CohomologicalPurity cokernel.map proofs to Lean 4.37.0-rc1",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 265,
+          "title": "Replace all 68 nlinarith calls in CarrierGrids, PolynomialGrowthUpperHalfLog, FamilyPartFiveOfExplicitConstants, and GoodHeight (-31.9% build time)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 259,
+          "title": "Port 1 Matrix mulVecLin-range rank proofs to Lean 4.37.0-rc1",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 258,
+          "title": "Repair 2 additional Lean 4.37.0-rc1 proof breakages on bump/lean-4.37.0-rc1 (batch 3)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 257,
+          "title": "Port LevelOne holomorphic irreducibility proof to Lean 4.37.0-rc1",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 254,
+          "title": "Port 1 Matrix rank and spectral-radius proofs to Lean 4.37.0-rc1",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 253,
+          "title": "Replace all 40 nlinarith calls in FormalGroupPointsNoPrimeToPTorsion and ContinuousInvSqrt (-49.8% build time)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 223,
+          "title": "Replace all 92 nlinarith calls across 5 proof modules (-63.6% combined build time)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 217,
+          "title": "Replace all 91 nlinarith calls across 4 proof modules (-35.1% combined build time)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 199,
+          "title": "Reuse 17 existing Main-cone proofs and prune 13 duplicate modules (−2,893 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 196,
+          "title": "Reuse 20 existing TwistedOperators proofs and prune 20 duplicate modules (−3,909 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 181,
+          "title": "Replace all 142 nlinarith calls across 4 proof modules (-56.8% combined build time)",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 171,
+          "title": "Reuse 18 existing Main-cone proofs and prune 55 duplicate modules (−3,096 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 158,
+          "title": "Reuse 10 existing Main-cone proofs and prune 51 duplicate modules (−6,033 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 145,
+          "title": "Reuse existing AbelianDeRham proof and prune 204 duplicate modules (−17,488 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 140,
+          "title": "Reuse 5 existing Main-cone proofs and prune 88 duplicate modules (−6,385 lines)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 132,
+          "title": "Reuse 4 existing Main-cone published proofs and prune 345 duplicate modules (−24,046 lines)",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 181,
+          "title": "Replace all 142 nlinarith calls across 4 proof modules (-56.8% combined build time)",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "d3lefts": {
+      "association": "NONE",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 267,
+          "title": "perf: stop scanning Lean modules after import headers",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "CubeJerry": {
+      "association": "NONE",
+      "tier": "active_contributor",
+      "prs_opened": [
+        {
+          "number": 266,
+          "title": "Prune the polynomial chart normalization imports",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 261,
+          "title": "Simplify Whittaker relevance proofs and narrow their Mathlib imports",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 260,
+          "title": "Simplify kernel and cokernel length proofs",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 216,
+          "title": "Reuse Schur and finite Jacobson density in ScalarExtension",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 215,
+          "title": "Simplify the complement proof for saturated submodules",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 210,
+          "title": "Reuse Mathlib's polynomial eigenvector lemma",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 197,
+          "title": "Evaluate the Fubini–Study radial integral with the beta function",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 192,
+          "title": "Use block-diagonal identities for the Yangian matrix embeddings",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 261,
+          "title": "Simplify Whittaker relevance proofs and narrow their Mathlib imports",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 260,
+          "title": "Simplify kernel and cokernel length proofs",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 216,
+          "title": "Reuse Schur and finite Jacobson density in ScalarExtension",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 215,
+          "title": "Simplify the complement proof for saturated submodules",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 210,
+          "title": "Reuse Mathlib's polynomial eigenvector lemma",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 197,
+          "title": "Evaluate the Fubini–Study radial integral with the beta function",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 192,
+          "title": "Use block-diagonal identities for the Yangian matrix embeddings",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "Hope7Happiness": {
+      "association": "NONE",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 264,
+          "title": "Simplify explicit typeclass dumps in 5 CapelliIdentities files (−8,505 lines, quick-check ready)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 227,
+          "title": "Consolidate 9 duplicated public theorems with colliding binder plicities",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [
+        {
+          "number": 227,
+          "title": "Consolidate 9 duplicated public theorems with colliding binder plicities",
+          "state": "open",
+          "batch_queue": true
+        }
+      ],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
     "zarnab222-dev": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 263,
@@ -15,10 +409,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "Deicyde": {
       "association": "COLLABORATOR",
+      "tier": "maintainer_or_collaborator",
       "prs_opened": [
         {
           "number": 262,
@@ -218,205 +613,15 @@
       "prs_batch_queue": [],
       "main_commits": 106,
       "merge_commits_authored": 7,
-      "tier": "maintainer_or_collaborator"
-    },
-    "CubeJerry": {
-      "association": "NONE",
-      "prs_opened": [
-        {
-          "number": 261,
-          "title": "Simplify Whittaker relevance proofs and narrow their Mathlib imports",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 260,
-          "title": "Simplify kernel and cokernel length proofs",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 216,
-          "title": "Reuse Schur and finite Jacobson density in ScalarExtension",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 215,
-          "title": "Simplify the complement proof for saturated submodules",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 210,
-          "title": "Reuse Mathlib's polynomial eigenvector lemma",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 197,
-          "title": "Evaluate the Fubini–Study radial integral with the beta function",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 192,
-          "title": "Use block-diagonal identities for the Yangian matrix embeddings",
-          "state": "open",
-          "batch_queue": true
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [
-        {
-          "number": 261,
-          "title": "Simplify Whittaker relevance proofs and narrow their Mathlib imports",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 260,
-          "title": "Simplify kernel and cokernel length proofs",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 216,
-          "title": "Reuse Schur and finite Jacobson density in ScalarExtension",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 215,
-          "title": "Simplify the complement proof for saturated submodules",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 210,
-          "title": "Reuse Mathlib's polynomial eigenvector lemma",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 197,
-          "title": "Evaluate the Fubini–Study radial integral with the beta function",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 192,
-          "title": "Use block-diagonal identities for the Yangian matrix embeddings",
-          "state": "open",
-          "batch_queue": true
-        }
-      ],
-      "main_commits": 0,
-      "merge_commits_authored": 0,
-      "tier": "active_contributor"
-    },
-    "JamCh01": {
-      "association": "NONE",
-      "prs_opened": [
-        {
-          "number": 259,
-          "title": "Port 1 Matrix mulVecLin-range rank proofs to Lean 4.37.0-rc1",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 258,
-          "title": "Repair 2 additional Lean 4.37.0-rc1 proof breakages on bump/lean-4.37.0-rc1 (batch 3)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 257,
-          "title": "Port LevelOne holomorphic irreducibility proof to Lean 4.37.0-rc1",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 254,
-          "title": "Port 10 Matrix rank and spectral-radius proofs to Lean 4.37.0-rc1",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 253,
-          "title": "Replace all 40 nlinarith calls in FormalGroupPointsNoPrimeToPTorsion and ContinuousInvSqrt (-49.8% build time)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 223,
-          "title": "Replace all 92 nlinarith calls across 5 proof modules (-63.6% combined build time)",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 217,
-          "title": "Replace all 91 nlinarith calls across 4 proof modules (-35.1% combined build time)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 199,
-          "title": "Reuse 17 existing Main-cone proofs and prune 13 duplicate modules (−2,893 lines)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 196,
-          "title": "Reuse 20 existing TwistedOperators proofs and prune 20 duplicate modules (−3,909 lines)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 181,
-          "title": "Replace all 142 nlinarith calls across 4 proof modules (-56.8% combined build time)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 171,
-          "title": "Reuse 18 existing Main-cone proofs and prune 55 duplicate modules (−3,096 lines)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 158,
-          "title": "Reuse 10 existing Main-cone proofs and prune 51 duplicate modules (−6,033 lines)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 145,
-          "title": "Reuse existing AbelianDeRham proof and prune 204 duplicate modules (−17,488 lines)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 140,
-          "title": "Reuse 5 existing Main-cone proofs and prune 88 duplicate modules (−6,385 lines)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 132,
-          "title": "Reuse 4 existing Main-cone published proofs and prune 345 duplicate modules (−24,046 lines)",
-          "state": "open",
-          "batch_queue": false
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [],
-      "main_commits": 0,
-      "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {
+        "labeled": 142,
+        "unlabeled": 23,
+        "merged": 17
+      }
     },
     "joshuanianji": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 256,
@@ -465,10 +670,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "alectionary": {
       "association": "NONE",
+      "tier": "active_contributor",
       "prs_opened": [
         {
           "number": 248,
@@ -492,19 +698,19 @@
           "number": 240,
           "title": "Replace 12 nlinarith calls with linarith in MSqCount",
           "state": "open",
-          "batch_queue": false
+          "batch_queue": true
         },
         {
           "number": 236,
           "title": "Replace 19 nlinarith calls with linarith in SevenLogLeLOfPowerBound",
           "state": "open",
-          "batch_queue": false
+          "batch_queue": true
         },
         {
           "number": 231,
           "title": "Replace 9 nlinarith calls with linarith in GeometricStatement",
           "state": "open",
-          "batch_queue": false
+          "batch_queue": true
         },
         {
           "number": 228,
@@ -666,6 +872,24 @@
           "batch_queue": true
         },
         {
+          "number": 240,
+          "title": "Replace 12 nlinarith calls with linarith in MSqCount",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 236,
+          "title": "Replace 19 nlinarith calls with linarith in SevenLogLeLOfPowerBound",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
+          "number": 231,
+          "title": "Replace 9 nlinarith calls with linarith in GeometricStatement",
+          "state": "open",
+          "batch_queue": true
+        },
+        {
           "number": 228,
           "title": "Replace 8 nlinarith calls with linarith in ExistsBoundRight",
           "state": "open",
@@ -782,10 +1006,11 @@
       ],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "active_contributor"
+      "privileged_events": {}
     },
     "Sheape": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 246,
@@ -811,10 +1036,11 @@
       ],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "james-shore": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 243,
@@ -839,10 +1065,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "maxilism": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 242,
@@ -862,10 +1089,11 @@
       ],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "Robertboy18": {
       "association": "CONTRIBUTOR",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 241,
@@ -909,10 +1137,11 @@
       "prs_batch_queue": [],
       "main_commits": 1,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "Aurantium-47": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 235,
@@ -925,69 +1154,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
-    },
-    "Visio-Vanitas": {
-      "association": "NONE",
-      "prs_opened": [
-        {
-          "number": 232,
-          "title": "Simplify explicit typeclass dumps in 4 large CapelliIdentities files (−10,402 lines)",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 220,
-          "title": "Simplify explicit typeclass dumps in 5 CapelliIdentities files (−3,011 lines, quick-check ready)",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 127,
-          "title": "Reuse 5 existing Main-cone proofs and prune 17 duplicate modules (−1,179 lines)",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 119,
-          "title": "Reuse 3 existing Main-cone proofs and prune 80 duplicate modules (−3,777 lines)",
-          "state": "open",
-          "batch_queue": true
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [
-        {
-          "number": 232,
-          "title": "Simplify explicit typeclass dumps in 4 large CapelliIdentities files (−10,402 lines)",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 220,
-          "title": "Simplify explicit typeclass dumps in 5 CapelliIdentities files (−3,011 lines, quick-check ready)",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 127,
-          "title": "Reuse 5 existing Main-cone proofs and prune 17 duplicate modules (−1,179 lines)",
-          "state": "open",
-          "batch_queue": true
-        },
-        {
-          "number": 119,
-          "title": "Reuse 3 existing Main-cone proofs and prune 80 duplicate modules (−3,777 lines)",
-          "state": "open",
-          "batch_queue": true
-        }
-      ],
-      "main_commits": 0,
-      "merge_commits_authored": 0,
-      "tier": "active_contributor"
+      "privileged_events": {}
     },
     "hipotures": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 230,
@@ -1007,33 +1178,11 @@
       ],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
-    },
-    "Hope7Happiness": {
-      "association": "NONE",
-      "prs_opened": [
-        {
-          "number": 227,
-          "title": "Consolidate 9 duplicated public theorems with colliding binder plicities",
-          "state": "open",
-          "batch_queue": true
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [
-        {
-          "number": 227,
-          "title": "Consolidate 9 duplicated public theorems with colliding binder plicities",
-          "state": "open",
-          "batch_queue": true
-        }
-      ],
-      "main_commits": 0,
-      "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "kim-em": {
       "association": "COLLABORATOR",
+      "tier": "maintainer_or_collaborator",
       "prs_opened": [
         {
           "number": 225,
@@ -1569,10 +1718,13 @@
       "prs_batch_queue": [],
       "main_commits": 135,
       "merge_commits_authored": 3,
-      "tier": "maintainer_or_collaborator"
+      "privileged_events": {
+        "merged": 58
+      }
     },
     "thekeunpie-hash": {
       "association": "CONTRIBUTOR",
+      "tier": "active_contributor",
       "prs_opened": [
         {
           "number": 224,
@@ -1647,10 +1799,11 @@
       ],
       "main_commits": 2,
       "merge_commits_authored": 0,
-      "tier": "active_contributor"
+      "privileged_events": {}
     },
     "gitRasheed": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 222,
@@ -1663,10 +1816,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "Serdnad": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 221,
@@ -1679,10 +1833,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "jasonyandell": {
       "association": "CONTRIBUTOR",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 218,
@@ -1720,10 +1875,11 @@
       ],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "forsakendaemon": {
       "association": "CONTRIBUTOR",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 212,
@@ -1743,10 +1899,11 @@
       "prs_batch_queue": [],
       "main_commits": 1,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "marwuint": {
       "association": "CONTRIBUTOR",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 208,
@@ -1765,10 +1922,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "PHTPSN": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 206,
@@ -1781,10 +1939,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "homeowmorphism": {
       "association": "CONTRIBUTOR",
+      "tier": "active_contributor",
       "prs_opened": [
         {
           "number": 202,
@@ -1876,10 +2035,11 @@
       "prs_batch_queue": [],
       "main_commits": 14,
       "merge_commits_authored": 0,
-      "tier": "active_contributor"
+      "privileged_events": {}
     },
     "ashleyholman": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 200,
@@ -1905,10 +2065,11 @@
       ],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "maugomez77": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 198,
@@ -1928,10 +2089,11 @@
       ],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "sqrt-of-2": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 194,
@@ -1944,10 +2106,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "thorimur": {
       "association": "COLLABORATOR",
+      "tier": "maintainer_or_collaborator",
       "prs_opened": [
         {
           "number": 191,
@@ -1997,10 +2160,13 @@
       "prs_batch_queue": [],
       "main_commits": 10,
       "merge_commits_authored": 0,
-      "tier": "maintainer_or_collaborator"
+      "privileged_events": {
+        "labeled": 15
+      }
     },
     "zediir": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 188,
@@ -2013,10 +2179,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "PastaPastaPasta": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 177,
@@ -2036,10 +2203,11 @@
       ],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "hughperkins": {
       "association": "NONE",
+      "tier": "active_contributor",
       "prs_opened": [
         {
           "number": 175,
@@ -2137,10 +2305,11 @@
       ],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "active_contributor"
+      "privileged_events": {}
     },
     "yourball": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 173,
@@ -2159,10 +2328,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "aliromman": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 168,
@@ -2187,10 +2357,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "mwiederrecht": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 167,
@@ -2209,10 +2380,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "tudsytoo": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 144,
@@ -2238,10 +2410,11 @@
       ],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "YinkaiYu": {
       "association": "CONTRIBUTOR",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 143,
@@ -2279,10 +2452,11 @@
       ],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "Vilin97": {
       "association": "COLLABORATOR",
+      "tier": "maintainer_or_collaborator",
       "prs_opened": [
         {
           "number": 134,
@@ -2326,10 +2500,11 @@
       "prs_batch_queue": [],
       "main_commits": 4,
       "merge_commits_authored": 0,
-      "tier": "maintainer_or_collaborator"
+      "privileged_events": {}
     },
     "surfyhou": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 130,
@@ -2361,10 +2536,11 @@
       ],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "vihdzp": {
       "association": "CONTRIBUTOR",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 129,
@@ -2384,10 +2560,11 @@
       "prs_batch_queue": [],
       "main_commits": 1,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "kant2002": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 125,
@@ -2400,10 +2577,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "rohanarun": {
       "association": "CONTRIBUTOR",
+      "tier": "active_contributor",
       "prs_opened": [
         {
           "number": 120,
@@ -2447,10 +2625,11 @@
       "prs_batch_queue": [],
       "main_commits": 3,
       "merge_commits_authored": 0,
-      "tier": "active_contributor"
+      "privileged_events": {}
     },
     "agulerman": {
       "association": "CONTRIBUTOR",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 100,
@@ -2476,10 +2655,11 @@
       "prs_batch_queue": [],
       "main_commits": 1,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "Osgood001": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 95,
@@ -2499,10 +2679,11 @@
       ],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "hhh2210": {
       "association": "CONTRIBUTOR",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 94,
@@ -2515,10 +2696,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "graohene10-spec": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 92,
@@ -2544,10 +2726,11 @@
       ],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "josephbebel": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 90,
@@ -2560,10 +2743,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "xsoc1": {
       "association": "CONTRIBUTOR",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 76,
@@ -2576,10 +2760,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "deancureton": {
       "association": "CONTRIBUTOR",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 69,
@@ -2623,10 +2808,11 @@
       "prs_batch_queue": [],
       "main_commits": 2,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "antoshashakov": {
       "association": "CONTRIBUTOR",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 68,
@@ -2652,10 +2838,11 @@
       "prs_batch_queue": [],
       "main_commits": 1,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "Antimatter543": {
       "association": "CONTRIBUTOR",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 64,
@@ -2675,10 +2862,11 @@
       "prs_batch_queue": [],
       "main_commits": 1,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "DebarghaG": {
       "association": "CONTRIBUTOR",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 54,
@@ -2698,10 +2886,11 @@
       ],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "mmmbeer": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 44,
@@ -2714,10 +2903,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "dbsanfte": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 38,
@@ -2730,10 +2920,11 @@
       "prs_batch_queue": [],
       "main_commits": 0,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "Ticobit": {
       "association": "CONTRIBUTOR",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 37,
@@ -2753,10 +2944,11 @@
       "prs_batch_queue": [],
       "main_commits": 1,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "marcelolynch": {
       "association": "CONTRIBUTOR",
+      "tier": "contributor",
       "prs_opened": [
         {
           "number": 1,
@@ -2776,51 +2968,25 @@
       "prs_batch_queue": [],
       "main_commits": 1,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     },
     "codex": {
       "association": "NONE",
+      "tier": "contributor",
       "prs_opened": [],
       "prs_merged": [],
       "prs_batch_queue": [],
       "main_commits": 2,
       "merge_commits_authored": 0,
-      "tier": "contributor"
+      "privileged_events": {}
     }
   },
   "zulip_stats": {
-    "Thomas Murrills": {
-      "messages": 33,
-      "reactions_received": 31,
-      "topics": {
-        "RH: cleaning up the proof": 24,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
-        "RH: why can I trust Lean?": 5,
-        "RH: bumping the lean version": 2
-      }
-    },
-    "Michael Righi": {
-      "messages": 2,
-      "reactions_received": 2,
-      "topics": {
-        "RH: cleaning up the proof": 2
-      }
-    },
-    "Vasily Ilin": {
-      "messages": 21,
-      "reactions_received": 39,
-      "topics": {
-        "RH: cleaning up the proof": 16,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
-        "RH: bumping the lean version": 4
-      }
-    },
     "Rohan Arun": {
-      "messages": 46,
-      "reactions_received": 15,
+      "messages": 45,
+      "reactions_received": 17,
       "topics": {
-        "RH: cleaning up the proof": 45,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+        "RH: cleaning up the proof": 45
       }
     },
     "Moritz Roos": {
@@ -2839,6 +3005,16 @@
         "RH: why can I trust Lean?": 1
       }
     },
+    "Thomas Murrills": {
+      "messages": 33,
+      "reactions_received": 32,
+      "topics": {
+        "RH: cleaning up the proof": 24,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
+        "RH: why can I trust Lean?": 5,
+        "RH: bumping the lean version": 2
+      }
+    },
     "Hang Lu Su": {
       "messages": 4,
       "reactions_received": 3,
@@ -2849,7 +3025,7 @@
     },
     "Snir Broshi": {
       "messages": 14,
-      "reactions_received": 13,
+      "reactions_received": 14,
       "topics": {
         "RH: cleaning up the proof": 14
       }
@@ -2879,11 +3055,10 @@
       }
     },
     "James Shore": {
-      "messages": 10,
-      "reactions_received": 5,
+      "messages": 8,
+      "reactions_received": 3,
       "topics": {
-        "RH: cleaning up the proof": 9,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+        "RH: cleaning up the proof": 8
       }
     },
     "Martin Hanzlowsky": {
@@ -2907,9 +3082,18 @@
         "RH: cleaning up the proof": 1
       }
     },
+    "Vasily Ilin": {
+      "messages": 21,
+      "reactions_received": 41,
+      "topics": {
+        "RH: cleaning up the proof": 16,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
+        "RH: bumping the lean version": 4
+      }
+    },
     "Jinho Noh": {
       "messages": 7,
-      "reactions_received": 6,
+      "reactions_received": 8,
       "topics": {
         "RH: cleaning up the proof": 6,
         "Discussion: Alpöge Proves the Riemann Hypothesis": 1
@@ -2920,6 +3104,13 @@
       "reactions_received": 1,
       "topics": {
         "RH: cleaning up the proof": 1
+      }
+    },
+    "Michael Righi": {
+      "messages": 3,
+      "reactions_received": 5,
+      "topics": {
+        "RH: cleaning up the proof": 3
       }
     },
     "Jack McCarthy": {
@@ -2937,6 +3128,36 @@
       "reactions_received": 0,
       "topics": {
         "RH: cleaning up the proof": 3
+      }
+    },
+    "Colin Zwanziger": {
+      "messages": 2,
+      "reactions_received": 1,
+      "topics": {
+        "RH: cleaning up the proof": 2
+      }
+    },
+    "Nicolas Bourbaki": {
+      "messages": 3,
+      "reactions_received": 1,
+      "topics": {
+        "RH: cleaning up the proof": 3
+      }
+    },
+    "Ryan Smith": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "RH: cleaning up the proof": 1
+      }
+    },
+    "suhr": {
+      "messages": 28,
+      "reactions_received": 29,
+      "topics": {
+        "RH: cleaning up the proof": 2,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
+        "RH: why can I trust Lean?": 24
       }
     },
     "Mario Carneiro": {
@@ -2965,7 +3186,7 @@
     },
     "Sébastien Gouëzel": {
       "messages": 1,
-      "reactions_received": 6,
+      "reactions_received": 7,
       "topics": {
         "RH: cleaning up the proof": 1
       }
@@ -3033,15 +3254,6 @@
         "RH: why can I trust Lean?": 10
       }
     },
-    "suhr": {
-      "messages": 27,
-      "reactions_received": 29,
-      "topics": {
-        "RH: cleaning up the proof": 1,
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 2,
-        "RH: why can I trust Lean?": 24
-      }
-    },
     "Filippo A. E. Nuccio": {
       "messages": 2,
       "reactions_received": 11,
@@ -3081,14 +3293,6 @@
         "RH: why can I trust Lean?": 7
       }
     },
-    "Timothy Chow": {
-      "messages": 6,
-      "reactions_received": 15,
-      "topics": {
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 3,
-        "RH: why can I trust Lean?": 3
-      }
-    },
     "Lectori Salutem": {
       "messages": 14,
       "reactions_received": 3,
@@ -3101,6 +3305,14 @@
       "reactions_received": 0,
       "topics": {
         "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
+    "Timothy Chow": {
+      "messages": 6,
+      "reactions_received": 15,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 3,
+        "RH: why can I trust Lean?": 3
       }
     },
     "A. F. G.": {
@@ -3131,18 +3343,11 @@
         "Discussion: Alpöge Proves the Riemann Hypothesis": 1
       }
     },
-    "Simon DeDeo": {
-      "messages": 1,
-      "reactions_received": 11,
-      "topics": {
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
-      }
-    },
     "Andrew Sutherland": {
-      "messages": 6,
-      "reactions_received": 4,
+      "messages": 4,
+      "reactions_received": 1,
       "topics": {
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 6
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 4
       }
     },
     "Richard Osborn": {
@@ -3176,10 +3381,10 @@
       }
     },
     "Artie Khovanov": {
-      "messages": 11,
+      "messages": 10,
       "reactions_received": 14,
       "topics": {
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 5,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 4,
         "RH: why can I trust Lean?": 6
       }
     },
@@ -3207,10 +3412,10 @@
       }
     },
     "Anton Mellit": {
-      "messages": 9,
+      "messages": 8,
       "reactions_received": 14,
       "topics": {
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 5,
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 4,
         "RH: why can I trust Lean?": 4
       }
     },
@@ -3294,11 +3499,11 @@
         "Discussion: Alpöge Proves the Riemann Hypothesis": 1
       }
     },
-    "Debargha Ganguly": {
-      "messages": 2,
-      "reactions_received": 0,
+    "Simon DeDeo": {
+      "messages": 1,
+      "reactions_received": 11,
       "topics": {
-        "Discussion: Alpöge Proves the Riemann Hypothesis": 2
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
       }
     },
     "bob": {
@@ -3352,18 +3557,18 @@
         "RH: why can I trust Lean?": 7
       }
     },
-    "Joachim Breitner": {
-      "messages": 5,
-      "reactions_received": 5,
-      "topics": {
-        "RH: why can I trust Lean?": 5
-      }
-    },
     "Lorenz Leutgeb": {
       "messages": 3,
       "reactions_received": 0,
       "topics": {
         "RH: why can I trust Lean?": 3
+      }
+    },
+    "Joachim Breitner": {
+      "messages": 5,
+      "reactions_received": 5,
+      "topics": {
+        "RH: why can I trust Lean?": 5
       }
     },
     "Henrik Böving": {
@@ -3401,18 +3606,18 @@
         "RH: why can I trust Lean?": 1
       }
     },
-    "Tom Gracey": {
-      "messages": 73,
-      "reactions_received": 27,
-      "topics": {
-        "RH: why can I trust Lean?": 73
-      }
-    },
     "Alexis Olson": {
       "messages": 4,
       "reactions_received": 0,
       "topics": {
         "RH: why can I trust Lean?": 4
+      }
+    },
+    "Tom Gracey": {
+      "messages": 73,
+      "reactions_received": 27,
+      "topics": {
+        "RH: why can I trust Lean?": 73
       }
     },
     "Andrés Goens": {
@@ -3578,6 +3783,18 @@
       "snippet": "You don't understand how this software works and do not seem to be willing to read the materials that have been provided previously."
     },
     {
+      "topic": "RH: cleaning up the proof",
+      "sender": "Vasily Ilin",
+      "reactions": 7,
+      "snippet": "From profiling a 1% sample, imports take 54% of compilation time, definitional equality takes 15%, and typeclass inference takes 11%. The rest is negligible. Report is in RH#250.  We should focus on imports first. @**Rohan Arun**'s idea of "
+    },
+    {
+      "topic": "RH: cleaning up the proof",
+      "sender": "Sébastien Gouëzel",
+      "reactions": 7,
+      "snippet": "If you want a huge gain on build time you could even consider bumping to 4.37rc1: on Mathlib, it gave a 23% speedup!"
+    },
+    {
       "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
       "sender": "Thomas Murrills",
       "reactions": 7,
@@ -3597,9 +3814,9 @@
     },
     {
       "topic": "RH: cleaning up the proof",
-      "sender": "Sébastien Gouëzel",
+      "sender": "Snir Broshi",
       "reactions": 6,
-      "snippet": "If you want a huge gain on build time you could even consider bumping to 4.37rc1: on Mathlib, it gave a 23% speedup!"
+      "snippet": "\"Zero linter warnings outside of the critical line\""
     },
     {
       "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
@@ -3657,15 +3874,9 @@
     },
     {
       "topic": "RH: cleaning up the proof",
-      "sender": "Vasily Ilin",
+      "sender": "Thomas Murrills",
       "reactions": 5,
-      "snippet": "From profiling a 1% sample, imports take 54% of compilation time, definitional equality takes 15%, and typeclass inference takes 11%. The rest is negligible. Report is in RH#250.  We should focus on imports first. @**Rohan Arun**'s idea of "
-    },
-    {
-      "topic": "RH: cleaning up the proof",
-      "sender": "Snir Broshi",
-      "reactions": 5,
-      "snippet": "\"Zero linter warnings outside of the critical line\""
+      "snippet": "@_**Snir Broshi|933054** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20cleaning.20up.20the.20proof/near/642689814): ```quote \"Zero linter warnings outside of the critical line\" ```  Except for the triv"
     },
     {
       "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
@@ -3717,15 +3928,9 @@
     },
     {
       "topic": "RH: cleaning up the proof",
-      "sender": "Thomas Murrills",
+      "sender": "Rohan Arun",
       "reactions": 4,
-      "snippet": "@_**Snir Broshi|933054** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20cleaning.20up.20the.20proof/near/642689814): ```quote \"Zero linter warnings outside of the critical line\" ```  Except for the triv"
-    },
-    {
-      "topic": "Discussion: Alpöge Proves the Riemann Hypothesis",
-      "sender": "Timothy Chow",
-      "reactions": 4,
-      "snippet": "@_**Lectori Salutem|1242317** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642690318): ```quote yes but everyone knows the connotations o"
+      "snippet": "Our new PR might help smaller contributors :)   It is done: 47,884 files  −67.9%, rebased on Lean 4.36 main and took  ~50 minutes to build.   RH#120  Closed previous PRs and upload olean, ilean, and ir files now."
     }
   ]
 }

@@ -1,60 +1,61 @@
-# Community Context Brief (Auto-generated 2026-11-23T04:57:40Z)
+# Community Context Brief (Auto-generated 2026-11-23T06:14:27Z)
 
-## 1. Maintainers & Collaborators (GitHub Ground Truth)
-- **kim-em** / Kim Morrison (`COLLABORATOR`): merged PRs=42 (#225, #205, #203, #187, #182, #172, #163, #150), main commits=135
-- **Deicyde** / Jack McCarthy (`COLLABORATOR`): merged PRs=10 (#226, #124, #121, #118, #111, #88, #72, #43), main commits=106
-- **thorimur** / Thomas Murrills (`COLLABORATOR`): merged PRs=3 (#191, #184, #154), main commits=10
-- **Vilin97** / Vasily Ilin (`COLLABORATOR`): merged PRs=1 (#66), main commits=4
+## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[merged:58], merged PRs=42 (#225, #205, #203, #187, #182, #172, #163, #150), main commits=135
+- **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:142, unlabeled:23, merged:17], merged PRs=10 (#226, #124, #121, #118, #111, #88, #72, #43), main commits=106
+- **thorimur** / Thomas Murrills (`COLLABORATOR`): privileged=[labeled:15], merged PRs=3 (#191, #184, #154), main commits=10
+- **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=1 (#66), main commits=4
 
 ## 2. Active Contributors (GitHub)
 - **homeowmorphism** (`CONTRIBUTOR`): merged=7 [#202, #146, #123, #93, #53], batch_queue=0 [], opened=7
 - **thekeunpie-hash** (`CONTRIBUTOR`): merged=2 [#65, #60], batch_queue=3 [#224, #110, #109], opened=6
-- **Robertboy18** (`CONTRIBUTOR`): merged=1 [#241], batch_queue=0 [], opened=5
 - **deancureton** (`CONTRIBUTOR`): merged=1 [#8], batch_queue=0 [], opened=5
+- **Robertboy18** (`CONTRIBUTOR`): merged=1 [#241], batch_queue=0 [], opened=5
 - **rohanarun** (`CONTRIBUTOR`): merged=1 [#45], batch_queue=0 [], opened=5
 - **agulerman** (`CONTRIBUTOR`): merged=1 [#57], batch_queue=0 [], opened=2
 - **antoshashakov** (`CONTRIBUTOR`): merged=1 [#68], batch_queue=0 [], opened=2
 - **Antimatter543** (`CONTRIBUTOR`): merged=1 [#64], batch_queue=0 [], opened=1
-- **Ticobit** (`CONTRIBUTOR`): merged=1 [#37], batch_queue=0 [], opened=1
 - **forsakendaemon** (`CONTRIBUTOR`): merged=1 [#212], batch_queue=0 [], opened=1
 - **marcelolynch** (`CONTRIBUTOR`): merged=1 [#1], batch_queue=0 [], opened=1
+- **Ticobit** (`CONTRIBUTOR`): merged=1 [#37], batch_queue=0 [], opened=1
 - **vihdzp** (`CONTRIBUTOR`): merged=1 [#129], batch_queue=0 [], opened=1
-- **alectionary** (`NONE`): merged=0 [], batch_queue=20 [#245, #228, #211, #195, #193], opened=31
-- **CubeJerry** (`NONE`): merged=0 [], batch_queue=7 [#261, #260, #216, #215, #210], opened=7
+- **alectionary** (`NONE`): merged=0 [], batch_queue=23 [#245, #240, #236, #231, #228], opened=31
+- **CubeJerry** (`NONE`): merged=0 [], batch_queue=7 [#261, #260, #216, #215, #210], opened=8
 - **hughperkins** (`NONE`): merged=0 [], batch_queue=6 [#160, #155, #152, #149, #135], opened=9
-- **Visio-Vanitas** (`NONE`): merged=0 [], batch_queue=4 [#232, #220, #127, #119], opened=4
+- **Visio-Vanitas** (`NONE`): merged=0 [], batch_queue=4 [#232, #220, #127, #119], opened=8
 - **jasonyandell** (`CONTRIBUTOR`): merged=0 [], batch_queue=2 [#218, #117], opened=3
 - **surfyhou** (`NONE`): merged=0 [], batch_queue=2 [#130, #128], opened=2
+- **JamCh01** (`NONE`): merged=0 [], batch_queue=1 [#181], opened=17
 - **YinkaiYu** (`CONTRIBUTOR`): merged=0 [], batch_queue=1 [#143], opened=4
-- **Sheape** (`NONE`): merged=0 [], batch_queue=1 [#219], opened=2
 - **ashleyholman** (`NONE`): merged=0 [], batch_queue=1 [#116], opened=2
 - **graohene10-spec** (`NONE`): merged=0 [], batch_queue=1 [#87], opened=2
+- **Hope7Happiness** (`NONE`): merged=0 [], batch_queue=1 [#227], opened=2
+- **Sheape** (`NONE`): merged=0 [], batch_queue=1 [#219], opened=2
 - **tudsytoo** (`NONE`): merged=0 [], batch_queue=1 [#144], opened=2
 - **DebarghaG** (`CONTRIBUTOR`): merged=0 [], batch_queue=1 [#54], opened=1
-- **Hope7Happiness** (`NONE`): merged=0 [], batch_queue=1 [#227], opened=1
-- **Osgood001** (`NONE`): merged=0 [], batch_queue=1 [#95], opened=1
-- **PastaPastaPasta** (`NONE`): merged=0 [], batch_queue=1 [#177], opened=1
 - **hipotures** (`NONE`): merged=0 [], batch_queue=1 [#230], opened=1
 - **maugomez77** (`NONE`): merged=0 [], batch_queue=1 [#198], opened=1
 - **maxilism** (`NONE`): merged=0 [], batch_queue=1 [#242], opened=1
+- **Osgood001** (`NONE`): merged=0 [], batch_queue=1 [#95], opened=1
+- **PastaPastaPasta** (`NONE`): merged=0 [], batch_queue=1 [#177], opened=1
 
 ## 3. Most Active Zulip Participants (RH Threads)
 - **Mario Carneiro**: 58 msgs, 54 reactions
-- **Vasily Ilin**: 21 msgs, 39 reactions
+- **Vasily Ilin**: 21 msgs, 41 reactions
+- **Thomas Murrills**: 33 msgs, 32 reactions
 - **David Loeffler**: 16 msgs, 32 reactions
-- **Thomas Murrills**: 33 msgs, 31 reactions
-- **suhr**: 27 msgs, 29 reactions
+- **suhr**: 28 msgs, 29 reactions
 - **Tom Gracey**: 73 msgs, 27 reactions
 - **Jack McCarthy**: 39 msgs, 22 reactions
 - **Albert T**: 3 msgs, 22 reactions
 - **Violeta Hernández**: 5 msgs, 19 reactions
+- **Rohan Arun**: 45 msgs, 17 reactions
 - **Kim Morrison**: 30 msgs, 16 reactions
-- **Rohan Arun**: 46 msgs, 15 reactions
 - **metakuntyyy**: 14 msgs, 15 reactions
 - **Timothy Chow**: 6 msgs, 15 reactions
-- **Artie Khovanov**: 11 msgs, 14 reactions
-- **Anton Mellit**: 9 msgs, 14 reactions
-- **Snir Broshi**: 14 msgs, 13 reactions
+- **Snir Broshi**: 14 msgs, 14 reactions
+- **Artie Khovanov**: 10 msgs, 14 reactions
+- **Anton Mellit**: 8 msgs, 14 reactions
 - **Maxime Rinoldo**: 13 msgs, 13 reactions
 - **Aarre Lisakki**: 10 msgs, 13 reactions
 - **Eric Wieser**: 9 msgs, 13 reactions
@@ -81,13 +82,13 @@
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **Riccardo Brasca** (rx:9): @_**Mario Carneiro|110049** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642641845): ````quote @_**Jack McCarthy|989743** [said](https://
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **Aarre Lisakki** (rx:8): @_**Lectori Salutem|1242317** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642689906): ``````quote @_**Aarre Lisakki|1242118** [said](htt
 - [RH: why can I trust Lean?] **Chris Bailey** (rx:8): You don't understand how this software works and do not seem to be willing to read the materials that have been provided previously.
+- [RH: cleaning up the proof] **Vasily Ilin** (rx:7): From profiling a 1% sample, imports take 54% of compilation time, definitional equality takes 15%, and typeclass inference takes 11%. The rest is negligible. Report is in RH#250.  We should focus on imports first. @**Rohan Arun**'s idea of 
+- [RH: cleaning up the proof] **Sébastien Gouëzel** (rx:7): If you want a huge gain on build time you could even consider bumping to 4.37rc1: on Mathlib, it gave a 23% speedup!
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **Thomas Murrills** (rx:7): @_**Eric Wieser|310045** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642622147): ```quote # Threads in Zulip  To anyone new to Zulip; I'
 - [RH: why can I trust Lean?] **Mario Carneiro** (rx:7): @_**Tom Gracey|1242108** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F/near/642621377): ````quote @_**Mario Carneiro|110049** [said](https://leanprover.zulipchat.com/#na
 - [RH: cleaning up the proof] **Moritz Roos** (rx:6): I told my ai to do a live plot of the linecounts etc. for the offical repo at https://rh-shrink.github.io/ I wish i could get the hearbeat numbers from somewhere to plot them as well
-- [RH: cleaning up the proof] **Sébastien Gouëzel** (rx:6): If you want a huge gain on build time you could even consider bumping to 4.37rc1: on Mathlib, it gave a 23% speedup!
+- [RH: cleaning up the proof] **Snir Broshi** (rx:6): "Zero linter warnings outside of the critical line"
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **Timothy Chow** (rx:6): @_**Chris Henson|687698** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642654847): ```quote To clarify, the objection is that the blog sa
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **Thomas Murrills** (rx:6): Well, it’s probably still true, given what the tokens must have cost 🙃
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **Mario Carneiro** (rx:6): @_**Jack McCarthy|989743** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642635571): ```quote [docs#RiemannHypothesis](https://leanprover-
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **metakuntyyy** (rx:6): Because this proof is one of the most rigorously checked ones in history. Human understanding is an orthogonal concept and will follow eventually. In fact I prefer this future, formal artefact before human exposition.  Why should I, an hypo
-- [RH: why can I trust Lean?] **Mario Carneiro** (rx:6): @_**Tom Gracey|1242108** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F/near/642625399): ```quote I see - do you have a link for that? ```  It's the proof of RH by Alpoge
-- [RH: why can I trust Lean?] **Jack McCarthy** (rx:6): @_**Tom Gracey|1242108** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642620238): ```quote Can you answer the question about the existenc
