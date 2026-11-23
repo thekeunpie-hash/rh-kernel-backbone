@@ -55,10 +55,12 @@ PR_META = {
     109: ("active-refactor", "active", 180, "Restore #68 shared GL finiteness proof on Lean 4.36 (-180 files, -9,730 L; 85/85 verified by @marwuint)"),
     110: ("active-refactor", "active", 0, "Simplify explicit type dumps in cpR and std_cpR (NonzeroPlacesOverPrimesOfLifts.lean, -71.2% norm tokens)"),
     221: ("active-refactor", "full", 0, "Consolidate 10+ redundant-proof cleanup PRs on top of #185 (3,076 files, #2 in merge queue)"),
-    224: ("portability", "active", 0, "Remove final 5 backward.defeqAttrib.useBackward + 6 respectTransparency directives repo-wide (33 -> 0)"),
+    233: ("infra", "full", 0, "Batch-assembly automation workflow for queued cleanup PRs"),
+    243: ("portability", "full", 0, "Port unused-syntax linter cleanup to Lean 4.37 (-42% warnings)"),
 }
 
-TRACKED_OPEN_PRS = [224, 185, 221, 134, 109, 110, 120, 208, 194, 88, 97, 83, 87, 150, 115, 71, 101]
+# Repo-wide landmark toolchain, infra, verification, and large-scale cleanup PRs (objective, no author pinning).
+TRACKED_OPEN_PRS = [185, 221, 243, 134, 120, 208, 194, 97, 83, 87, 233, 150, 115, 101, 88, 66]
 
 # Objective, fact-only maintainer, porting & contributor profiles paired with live GitHub API counts.
 # `tier` separates:
@@ -398,16 +400,30 @@ ECOSYSTEM_HALL_OF_FAME = [
     },
     {
         "slug": "andrew-sutherland",
-        "name": "Andrew Sutherland & External Checker Authors",
-        "org": "MIT · con-leche / nanoda / Comparator",
+        "name": "Andrew Sutherland, Szymon Teżewski & External Checkers",
+        "org": "MIT · con-leche / con-agua / nanoda / Gruszka / Pestka",
         "pillar": "Independent Check",
-        "contribution": "Independently compiled and replayed the 61 GB export across independent kernels (`con-leche`, `con-run`) and diagnosed the `mimalloc` replay bottleneck.",
-        "bio": "Principal Research Scientist at MIT who led independent end-to-end verification of Alpoge's RH/GRH proof alongside authors of external checkers (`con-leche`, `con-run`, `nanoda`, `Comparator`). He published reproducible verification logs and `pp.all` statement dumps at `math.mit.edu/~drew/grh/` and diagnosed the quadratic `mimalloc` heap-walk bottleneck during 61 GB export replay.",
+        "contribution": "Independently compiled and replayed the 61 GB export across 6+ independent kernels (`con-leche`, `con-ron`, `con-agua`, `nanoda`, `Gruszka`, `Pestka`) and published `pp.all` Lagarias/Robin statements.",
+        "bio": "Andrew Sutherland (MIT) led independent end-to-end compilation and 61.57 GB export verification (including Robin/Lagarias inequality equivalence and `pp.all` statement dumps at `math.mit.edu/~drew/grh/`), while Szymon Teżewski and external-checker authors verified the proof across independent languages and runtimes (`con-leche`, `con-ron`, `con-agua`, `nanoda`, `Gruszka`, `Pestka`, including exporter-free `.olean` checks).",
         "url": "https://math.mit.edu/~drew/grh/",
         "link_label": "MIT GRH Verification",
         "links": [
             {"label": "MIT GRH Verification Page", "url": "https://math.mit.edu/~drew/grh/"},
             {"label": "Validating Proofs in Lean", "url": "https://lean-lang.org/doc/reference/latest/ValidatingProofs/"},
+        ],
+    },
+    {
+        "slug": "community-moderators",
+        "name": "Johan Commelin, Eric Wieser & Lean Zulip Stewards",
+        "org": "Lean Community · Zulip & Mathlib Maintainers",
+        "pillar": "Community Ops",
+        "contribution": "Published the official Lean community verification statement and moderated/organized high-traffic Zulip `RH:` channels so technical cleanup stayed legible.",
+        "bio": "Long-standing Mathlib maintainers and Lean Zulip stewards including Johan Commelin (who published the official Lean community verification statement) and Eric Wieser (who organized and moderated the `#general` and `RH:` cleanup/toolchain/trust discussion streams under peak global traffic).",
+        "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+        "link_label": "Community Statement",
+        "links": [
+            {"label": "Official Community Statement", "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/"},
+            {"label": "Lean Zulip", "url": "https://leanprover.zulipchat.com/"},
         ],
     },
     {
@@ -568,15 +584,6 @@ def fetch_pr_queue(token: str, extra_nums: list[int] | None = None) -> tuple[lis
     for n in extra_nums or []:
         if n not in nums:
             nums.append(n)
-    # Also surface any open PR authored by thekeunpie-hash automatically via lightweight search
-    try:
-        mine = gh_api(f"search/issues?q=repo:{UPSTREAM_REPO}+is:pr+is:open+author:thekeunpie-hash&per_page=30", token)
-        for item in mine.get("items", []):
-            num = item.get("number")
-            if isinstance(num, int) and num not in nums:
-                nums.insert(0, num)
-    except Exception:
-        pass
 
     queue = []
     for num in nums:
@@ -611,6 +618,8 @@ def fetch_pr_queue(token: str, extra_nums: list[int] | None = None) -> tuple[lis
                 "url": pr["html_url"],
             }
         )
+    # Sort mechanically: open PRs first (largest scope first), then merged/closed milestones (newest first)
+    queue.sort(key=lambda q: (0 if q["state"] == "open" else 1, -(q["changed_files"] or 0) if q["state"] == "open" else 0, -q["pr"]))
     return queue, open_count
 
 
@@ -669,7 +678,6 @@ def fetch_stewardship_standing(token: str, now_iso: str) -> dict:
             }
         )
 
-    # Sort Tier 3 ("contributor") strictly mechanically by (merged_direct + batch_queue_count desc, merged_direct desc, login asc)
     tier_1_2 = [e for e in entries if e["tier"] != "contributor"]
     tier_3 = [e for e in entries if e["tier"] == "contributor"]
     tier_3.sort(key=lambda e: (-(e["merged_direct"] + e["batch_queue_count"]), -e["merged_direct"], e["login"].lower()))

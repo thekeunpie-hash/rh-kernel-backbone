@@ -225,12 +225,14 @@
     display: block; font-size: 12px; color: var(--muted); margin-top: 3px;
     line-height: 1.48; overflow-wrap: break-word; word-break: normal;
   }
-  .target-table { table-layout: fixed; min-width: 760px; }
-  .target-table col.col-bucket { width: 116px; }
-  .target-table col.col-target { width: 31%; }
-  .target-table col.col-cone { width: 116px; }
-  .target-table col.col-scale { width: 152px; }
+  .target-table { table-layout: fixed; min-width: 780px; }
+  .target-table col.col-bucket { width: 108px; }
+  .target-table col.col-target { width: 30%; }
+  .target-table col.col-cone { width: 132px; }
+  .target-table col.col-scale { width: 170px; }
   .target-table col.col-impact { width: auto; }
+  .target-table td { overflow-wrap: break-word; }
+  .target-scale { font-size: 12.2px; color: var(--text-secondary); line-height: 1.45; }
   .target-title { font-family: var(--mono); font-size: 12.2px; font-weight: 600; color: var(--text); overflow-wrap: anywhere; }
   .target-impact-head { font-size: 12.8px; font-weight: 600; color: var(--text); }
   .queue-table { min-width: 680px; }
@@ -915,7 +917,7 @@ function renderPatternsAndTargets(fdata) {
         <td class="nowrap"><span class="badge ${bCls}">${bLbl}</span></td>
         <td><div class="target-title">${escHtml(t.target)}</div><span class="path-text">${escHtml(t.path)}</span></td>
         <td class="num">${escHtml(t.in_cone)}</td>
-        <td class="nowrap">${escHtml(t.scale)}</td>
+        <td class="target-scale">${escHtml(t.scale)}</td>
         <td><div class="target-impact-head">${escHtml(t.est_saving)}</div><span class="subpath">${escHtml(t.why)}</span></td>
       </tr>`;
     }).join("");
