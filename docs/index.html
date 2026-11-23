@@ -571,7 +571,8 @@
         </div>
         <div class="milestones-strip" id="liveMilestones"></div>
         <details style="margin-top:12px;" open>
-          <summary style="cursor:pointer;font-weight:600;font-size:13.2px;">Active Stacked Lean 4.36 PR Queue &amp; Verification Milestones <span class="badge badge-open" id="queueCountBadge">Queue</span></summary>
+          <summary style="cursor:pointer;font-weight:600;font-size:13.2px;">Active Stacked Lean 4.37 PR Queue &amp; Metadata Insights <span class="badge badge-open" id="queueCountBadge">Queue</span></summary>
+          <div id="prInsightsBar" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;font-size:12px;color:var(--muted);"></div>
           <div class="table-wrap" style="margin-top:8px;">
             <table class="queue-table">
               <thead><tr><th>PR</th><th>Status</th><th>Author</th><th>Scope &amp; Summary</th><th style="text-align:right;">Files</th><th style="text-align:right;">Net Lines</th></tr></thead>
@@ -939,7 +940,7 @@ function renderLiveTracker(fdata) {
     </div>
     <div class="live-kpi">
       <div><span class="lk-val">${lm.import_lines.toLocaleString()}</span></div>
-      <div class="lk-lbl">Live <code>import</code> / <code>public import</code> lines (target of PR #134 / #185)</div>
+      <div class="lk-lbl">Live <code>import</code> / <code>public import</code> lines (post-#185 v4.37.0-rc1)</div>
     </div>
     <div class="live-kpi">
       <div><span class="lk-val">${lm.backward_options.toLocaleString()}</span></div>
@@ -947,7 +948,7 @@ function renderLiveTracker(fdata) {
     </div>
     <div class="live-kpi">
       <div><span class="lk-val">${lm.heartbeat_options.toLocaleString()}</span></div>
-      <div class="lk-lbl">Remaining <code>maxHeartbeats</code> overrides (target of PR #134 / #185)</div>
+      <div class="lk-lbl">Remaining <code>maxHeartbeats</code> overrides (down from 78.8k pre-#185)</div>
     </div>
   `;
 
@@ -966,6 +967,20 @@ function renderLiveTracker(fdata) {
   const queue = fdata.stacked_pr_queue || [];
   const qBadge = document.getElementById("queueCountBadge");
   if (qBadge) qBadge.textContent = `${queue.length} tracked PRs`;
+  const insBar = document.getElementById("prInsightsBar");
+  if (insBar) {
+    const openQs = queue.filter((q) => q.state === "open");
+    const wholeTree = openQs.filter((q) => (q.changed_files || 0) >= 50000);
+    const major = openQs.filter((q) => (q.changed_files || 0) >= 2000 && (q.changed_files || 0) < 50000);
+    const cleanReady = openQs.filter((q) => q.mergeable_state === "clean");
+    const offBase = openQs.filter((q) => q.base_ref && q.base_ref !== "main");
+    const pills = [];
+    if (wholeTree.length) pills.push(`<span><span class="badge badge-dead">Whole-Tree ≥50k files</span> ${wholeTree.map((q) => "#" + q.pr).join(", ")}</span>`);
+    if (major.length) pills.push(`<span><span class="badge badge-open">Major ≥2k files</span> ${major.map((q) => "#" + q.pr).join(", ")}</span>`);
+    if (cleanReady.length) pills.push(`<span><span class="badge badge-exact">Mergeable Clean</span> ${cleanReady.map((q) => "#" + q.pr).join(", ")}</span>`);
+    if (offBase.length) pills.push(`<span><span class="badge badge-reading">Needs Base Retarget</span> ${offBase.map((q) => "#" + q.pr + " (" + escHtml(q.base_ref) + ")").join(", ")}</span>`);
+    insBar.innerHTML = pills.join(" · ");
+  }
   const qBody = document.getElementById("queueBody");
   if (qBody) {
     qBody.innerHTML = queue.map((q) => {
@@ -976,11 +991,16 @@ function renderLiveTracker(fdata) {
         ? "—"
         : (q.net_lines > 0 ? "+" : "") + q.net_lines.toLocaleString() + " L";
       const bqBadge = q.batch_queue && q.state === "open" ? ` <span class="badge badge-queue">Batch Queue</span>` : "";
+      const cleanBadge = q.state === "open" && q.mergeable_state === "clean" ? ` <span class="badge badge-exact">Clean</span>` : "";
+      const baseBadge = q.state === "open" && q.base_ref && q.base_ref !== "main" ? ` <span class="badge badge-reading">base: ${escHtml(q.base_ref)}</span>` : "";
+      const radiusBadge = q.state === "open" && (q.changed_files || 0) >= 50000
+        ? ` <span class="badge badge-dead">Whole-Tree</span>`
+        : (q.state === "open" && (q.changed_files || 0) >= 2000 ? ` <span class="badge badge-verified">Major</span>` : "");
       return `<tr>
         <td class="nowrap"><a href="${escHtml(q.url)}" target="_blank" rel="noopener"><strong>#${q.pr}</strong></a></td>
-        <td class="nowrap"><span class="badge ${stCls}">${stLbl}</span>${bqBadge}</td>
+        <td class="nowrap"><span class="badge ${stCls}">${stLbl}</span>${bqBadge}${cleanBadge}${radiusBadge}</td>
         <td class="nowrap">@${escHtml(q.author)}</td>
-        <td>${escHtml(q.title)}</td>
+        <td>${escHtml(q.title)}${baseBadge}</td>
         <td class="num">${filesStr}</td>
         <td class="num">${netStr}</td>
       </tr>`;
