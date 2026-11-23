@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Profiles &amp; Lean Hall of Fame — RH Kernel Backbone Tracker</title>
+<title>Maintainers, Contributors &amp; Lean Foundations — RH Kernel Backbone Tracker</title>
 <style>
   :root {
     --bg: #fcfcfd;
@@ -113,14 +113,14 @@
 <div class="wrap">
   <div class="topbar">
     <a href="index.html">← Back to RH Kernel Dashboard</a>
-    <a href="index.html#stewardship-hall">Stewardship &amp; Hall of Fame</a>
+    <a href="index.html#stewardship-hall">Maintainers &amp; Contributors</a>
     <a href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener">Official RH Repo</a>
     <a href="https://github.com/leanprover-community/riemann-hypothesis/issues/229" target="_blank" rel="noopener">Tech Debt #229</a>
     <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone" target="_blank" rel="noopener">Tracker Source</a>
   </div>
 
-  <h1>Stewardship Profiles &amp; Lean Hall of Fame</h1>
-  <p class="lead">Objective, non-LoC profiles for the maintainers and contributors active on <code>leanprover-community/riemann-hypothesis</code>, alongside the Lean 4, Mathlib, and independent-verification stewards who sustain the broader Lean ecosystem. Every profile has a direct shareable URL (<code>#slug</code>) and links straight to primary GitHub and community evidence.</p>
+  <h1>Maintainers, Contributors &amp; Lean Foundations</h1>
+  <p class="lead">Factual directory of maintainers, porting/infrastructure leads, and PR contributors on <code>leanprover-community/riemann-hypothesis</code>, alongside foundational Lean 4, Mathlib, and verification maintainers. Each entry links directly to GitHub PRs and primary references.</p>
 
   <section id="spotlightRoot" class="spotlight">
     <p class="status-msg">Loading live directory from <code>data/upstream_frontier.json</code>…</p>
@@ -128,10 +128,11 @@
 
   <div class="controls">
     <div class="seg-group" id="dirFilter">
-      <button type="button" class="pill-btn active" data-cat="all">All Profiles</button>
-      <button type="button" class="pill-btn" data-cat="collaborator">Repo Collaborators</button>
+      <button type="button" class="pill-btn active" data-cat="all">All</button>
+      <button type="button" class="pill-btn" data-cat="maintainer">Maintainers &amp; Ops</button>
+      <button type="button" class="pill-btn" data-cat="major_porting">Porting &amp; Infra</button>
       <button type="button" class="pill-btn" data-cat="contributor">Contributors</button>
-      <button type="button" class="pill-btn" data-cat="hof">Lean Hall of Fame</button>
+      <button type="button" class="pill-btn" data-cat="hof">Lean Foundations</button>
     </div>
     <input type="search" id="dirSearch" class="search-in" placeholder="Filter by name, handle, role, or PR…">
   </div>
@@ -174,29 +175,35 @@ function renderSpotlight(profile, meta) {
   const root = document.getElementById("spotlightRoot");
   if (!profile) {
     root.className = "spotlight";
-    root.innerHTML = `<p class="status-msg">Select any profile below to view their full biography, non-LoC impact metrics, and verified links.</p>`;
+    root.innerHTML = `<p class="status-msg">Select any profile below to view their factual summary and GitHub links.</p>`;
     return;
   }
   const isHof = profile.kind === "hof";
   root.className = "spotlight" + (isHof ? " is-hof" : "");
 
+  const tierLabel = profile.tier === "maintainer"
+    ? "Core Maintainer / Ops"
+    : profile.tier === "major_porting"
+      ? "Porting, Perf & Verification"
+      : "PR Contributor";
+
   const badges = [];
   if (isHof) {
     badges.push(`<span class="badge badge-hof">${escHtml(profile.pillar)}</span>`);
-    badges.push(`<span class="badge badge-verified">Lean Hall of Fame</span>`);
+    badges.push(`<span class="badge badge-verified">Lean Foundations</span>`);
   } else {
-    const isCollab = profile.group === "collaborator" || profile.github_role === "COLLABORATOR" || profile.github_role === "MEMBER";
+    const isCollab = profile.github_role === "COLLABORATOR" || profile.github_role === "MEMBER";
     badges.push(isCollab
       ? `<span class="badge badge-verified" style="background:#1e3a8a;color:#fff;">COLLABORATOR</span>`
       : `<span class="badge badge-open">CONTRIBUTOR</span>`);
-    (profile.impact_badges || []).forEach((b) => {
-      badges.push(`<span class="badge badge-hof">${escHtml(b)}</span>`);
-    });
-    if (profile.merged_total > 0) {
-      badges.push(`<span class="badge badge-exact">${profile.merged_total} landed${profile.merged_batch_extra ? " (incl. batch)" : ""}</span>`);
+    if (profile.milestone_tag) {
+      badges.push(`<span class="badge badge-hof">${escHtml(profile.milestone_tag)}</span>`);
+    }
+    if (profile.merged_direct > 0) {
+      badges.push(`<span class="badge badge-exact">${profile.merged_direct} merged</span>`);
     }
     if (profile.batch_queue_count > 0) {
-      badges.push(`<span class="badge badge-queue">${profile.batch_queue_count} in batch queue</span>`);
+      badges.push(`<span class="badge badge-queue">${profile.batch_queue_count} queue</span>`);
     }
   }
 
@@ -211,19 +218,18 @@ function renderSpotlight(profile, meta) {
     statsHtml = `
       <div class="sp-grid">
         <div class="sp-stat">
-          <div class="k">Pipeline Adoption (Live)</div>
-          <div class="v">${profile.merged_total} landed · ${profile.batch_queue_count} batch queue</div>
+          <div class="k">GitHub Activity (Live)</div>
+          <div class="v">${profile.merged_direct} merged · ${profile.batch_queue_count} batch queue</div>
         </div>
         <div class="sp-stat">
-          <div class="k">Governance &amp; Peer Signal</div>
-          <div class="v" style="font-size:12.4px;font-weight:600;">${escHtml(profile.governance_signal)}</div>
+          <div class="k">Repository Section</div>
+          <div class="v" style="font-size:12.4px;font-weight:600;">${escHtml(tierLabel)} (${escHtml(profile.github_role || "CONTRIBUTOR")})</div>
         </div>
         <div class="sp-stat">
           <div class="k">Snapshot Measured</div>
           <div class="v" style="font-size:12.4px;">${escHtml((meta.measured_at || "").replace("T", " ").replace("Z", " UTC"))}</div>
         </div>
       </div>
-      <div style="font-size:13px;color:#334155;margin-bottom:8px;"><strong>Non-LoC Impact:</strong> ${fmtInline(profile.non_loc_impact)}</div>
       ${prChips ? `<div class="pr-chips">${prChips}</div>` : ""}
     `;
   } else {
@@ -239,7 +245,7 @@ function renderSpotlight(profile, meta) {
         </div>
         <div class="sp-stat">
           <div class="k">Role in RH Ecosystem</div>
-          <div class="v" style="font-size:12.4px;font-weight:600;">Foundational Lean &amp; Community Steward</div>
+          <div class="v" style="font-size:12.4px;font-weight:600;">Lean &amp; Verification Foundations</div>
         </div>
       </div>
     `;
@@ -247,7 +253,7 @@ function renderSpotlight(profile, meta) {
 
   const allLinks = profile.links && profile.links.length
     ? profile.links
-    : (profile.evidence && profile.evidence.length ? profile.evidence : (profile.url ? [{ label: profile.link_label || "Reference", url: profile.url }] : []));
+    : (profile.url ? [{ label: profile.link_label || "Reference", url: profile.url }] : []);
 
   const linksHtml = allLinks.map((lk) =>
     `<a class="link-pill" href="${escHtml(lk.url)}" target="_blank" rel="noopener">${escHtml(lk.label)} →</a>`
@@ -262,7 +268,7 @@ function renderSpotlight(profile, meta) {
       <div style="display:flex;gap:6px;flex-wrap:wrap;">${badges.join("")}</div>
     </div>
     <div class="sp-role">${fmtInline(isHof ? profile.contribution : profile.role)}</div>
-    <p class="sp-bio">${fmtInline(profile.bio || profile.contribution || profile.non_loc_impact)}</p>
+    <p class="sp-bio">${fmtInline(profile.bio || profile.contribution || profile.headline)}</p>
     ${statsHtml}
     <div style="margin-top:14px;">
       <div style="font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;">Verified Links &amp; Primary Sources</div>
@@ -277,24 +283,24 @@ function renderDirectory(meta) {
   const rows = ALL_PROFILES.filter((p) => {
     if (CURRENT_CAT !== "all") {
       if (CURRENT_CAT === "hof" && p.kind !== "hof") return false;
-      if (CURRENT_CAT !== "hof" && (p.kind !== "steward" || p.group !== CURRENT_CAT)) return false;
+      if (CURRENT_CAT !== "hof" && (p.kind !== "steward" || (p.tier || "contributor") !== CURRENT_CAT)) return false;
     }
     if (!q) return true;
-    const hay = [p.name, p.login, p.org, p.role, p.pillar, p.bio, p.non_loc_impact, p.contribution].join(" ").toLowerCase();
+    const hay = [p.name, p.login, p.org, p.role, p.pillar, p.bio, p.headline, p.contribution].join(" ").toLowerCase();
     return hay.includes(q);
   });
 
   grid.innerHTML = rows.map((p) => {
     const isHof = p.kind === "hof";
     const isAct = p.slug === ACTIVE_SLUG;
-    const isCollab = !isHof && (p.group === "collaborator" || p.github_role === "COLLABORATOR" || p.github_role === "MEMBER");
+    const isCollab = !isHof && (p.github_role === "COLLABORATOR" || p.github_role === "MEMBER");
     const tag = isHof
       ? `<span class="badge badge-hof">${escHtml(p.pillar)}</span>`
       : (isCollab
           ? `<span class="badge" style="background:#1e3a8a;color:#fff;">COLLABORATOR</span>`
           : `<span class="badge badge-open">CONTRIBUTOR</span>`);
     const extra = !isHof
-      ? `${(p.impact_badges || []).slice(0, 1).map((b) => `<span class="badge badge-hof">${escHtml(b)}</span>`).join("")}${p.merged_total > 1 ? ` <span class="badge badge-exact">${p.merged_total} merged</span>` : ""}${p.batch_queue_count ? ` <span class="badge badge-queue">${p.batch_queue_count} queue</span>` : ""}`
+      ? `${p.milestone_tag ? `<span class="badge badge-hof">${escHtml(p.milestone_tag)}</span>` : ""}${p.merged_direct > 0 ? ` <span class="badge badge-exact">${p.merged_direct} merged</span>` : ""}${p.batch_queue_count ? ` <span class="badge badge-queue">${p.batch_queue_count} queue</span>` : ""}`
       : "";
     return `
       <div class="dir-card ${isHof ? "hof" : ""} ${isAct ? "active" : ""}" data-slug="${escHtml(p.slug)}">
@@ -303,7 +309,7 @@ function renderDirectory(meta) {
           <div style="display:flex;gap:5px;flex-wrap:wrap;">${tag}${extra}</div>
         </div>
         <div class="dir-sub">${isHof ? escHtml(p.org) : "@" + escHtml(p.login) + " · " + escHtml(p.role)}</div>
-        <div class="dir-desc">${fmtInline(isHof ? p.contribution : (p.headline || p.non_loc_impact))}</div>
+        <div class="dir-desc">${fmtInline(isHof ? p.contribution : (p.headline || p.role))}</div>
       </div>`;
   }).join("") || `<p class="status-msg">No matching profiles.</p>`;
 
@@ -322,7 +328,7 @@ function selectProfile(slug, meta, scrollTop) {
   if (window.location.hash !== "#" + target.slug) {
     history.replaceState(null, "", "#" + target.slug);
   }
-  document.title = `${target.name} — RH Stewardship & Lean Hall of Fame`;
+  document.title = `${target.name} — RH Maintainers & Contributors`;
   renderSpotlight(target, meta);
   renderDirectory(meta);
   if (scrollTop) {

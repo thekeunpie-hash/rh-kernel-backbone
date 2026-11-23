@@ -28,14 +28,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          python3 scripts/build_community_context.py || true
           python3 scripts/update_upstream_tracker.py --data data/upstream_frontier.json
 
       - name: Commit updated metrics if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet data/upstream_frontier.json; then
-            git add data/upstream_frontier.json
+          if ! git diff --quiet data/upstream_frontier.json data/community_context.json data/COMMUNITY_BRIEF.md; then
+            git add data/upstream_frontier.json data/community_context.json data/COMMUNITY_BRIEF.md
             git commit -m "chore(tracker): auto-update upstream main metrics ($(date -u +%Y-%m-%dT%H:%MZ))"
             git push
           else
