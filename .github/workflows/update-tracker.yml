@@ -2,7 +2,8 @@ name: Update Upstream RH Cleanup Tracker
 
 on:
   schedule:
-    - cron: "15 * * * *"
+    # 7-day intensive fast-path polling (every 5 min; full 150k-file scan only runs when upstream main HEAD changes)
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -28,7 +29,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          python3 scripts/build_community_context.py || true
+          MIN=$((10#$(date -u +%M)))
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$MIN" -lt 5 ]; then
+            python3 scripts/build_community_context.py || true
+          fi
           python3 scripts/update_upstream_tracker.py --data data/upstream_frontier.json
 
       - name: Commit updated metrics if changed

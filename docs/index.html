@@ -272,7 +272,7 @@
         <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone" target="_blank" rel="noopener">Tracker Source</a>
         <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/SPEC.md" target="_blank" rel="noopener">SPEC.md</a>
         <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/data/upstream_frontier.json" target="_blank" rel="noopener">Live Tracker JSON</a>
-        <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/actions/workflows/update-tracker.yml" target="_blank" rel="noopener">Hourly Auto-Update</a>
+        <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/actions/workflows/update-tracker.yml" target="_blank" rel="noopener">5-Min Auto-Update</a>
         <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/scripts/audit_spec_citations.py" target="_blank" rel="noopener">Citation Auditor</a>
         <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/scripts/audit_ndjson_statement.py" target="_blank" rel="noopener">NDJSON Auditor</a>
       </div>
@@ -288,7 +288,7 @@
         <div class="live-head">
           <div>
             <h3>Live Official <code>leanprover-community/riemann-hypothesis</code> Progress Tracker <span class="badge badge-exact">Exact</span> <span class="badge badge-verified" id="liveToolchainBadge">v4.36.0</span></h3>
-            <p class="panel-sub" style="margin:0;">Auto-updated hourly via GitHub Actions directly from official upstream <code>main</code> (not a synthetic sub-problem benchmark). Tracks exact <code>.lean</code> files, lines, imports, declarations, compatibility options, and the stacked Lean 4.36 PR queue.</p>
+            <p class="panel-sub" style="margin:0;">Auto-updated every 5 minutes via fast-path GitHub Actions (plus 2-min cached live browser check) directly from official upstream <code>main</code>. Tracks exact <code>.lean</code> files, lines, imports, declarations, compatibility options, and the stacked PR queue.</p>
           </div>
           <div class="live-meta" id="liveMeta">Loading live upstream snapshot…</div>
         </div>
@@ -409,7 +409,7 @@
     </article>
 
     <footer style="margin-top:42px;padding-top:14px;border-top:1px solid var(--border);font-size:12.2px;color:var(--muted);">
-      Maintained by Jinho Noh (<a href="https://github.com/thekeunpie-hash" target="_blank" rel="noopener">@thekeunpie-hash</a>) · Auto-updated hourly from <a href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener">leanprover-community/riemann-hypothesis</a>.
+      Maintained by Jinho Noh (<a href="https://github.com/thekeunpie-hash" target="_blank" rel="noopener">@thekeunpie-hash</a>) · Auto-updated every 5 minutes from <a href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener">leanprover-community/riemann-hypothesis</a>.
     </footer>
   </main>
 </div>
@@ -987,6 +987,45 @@ async function init() {
     renderPatternsAndTargets(frontierData);
     renderFrontier(frontierData);
     renderSummary(JSON.parse(summaryText));
+
+    // Non-blocking 2-minute cached live GitHub check for instant HEAD & open PR freshness
+    (async () => {
+      try {
+        const KEY = "rh_live_overlay_v1";
+        const now = Date.now();
+        let live = null;
+        try {
+          const cached = JSON.parse(sessionStorage.getItem(KEY) || "null");
+          if (cached && now - cached.ts < 120000) live = cached;
+        } catch (_) {}
+        if (!live) {
+          const [cRes, pRes] = await Promise.all([
+            fetch("https://api.github.com/repos/leanprover-community/riemann-hypothesis/commits/main"),
+            fetch("https://api.github.com/search/issues?q=repo:leanprover-community/riemann-hypothesis+is:pr+is:open&per_page=1")
+          ]);
+          if (cRes.ok && pRes.ok) {
+            const cData = await cRes.json();
+            const pData = await pRes.json();
+            live = {
+              ts: now,
+              sha: (cData.sha || "").slice(0, 9),
+              openPrs: typeof pData.total_count === "number" ? pData.total_count : null
+            };
+            try { sessionStorage.setItem(KEY, JSON.stringify(live)); } catch (_) {}
+          }
+        }
+        if (live && live.sha) {
+          const meta = document.getElementById("liveMeta");
+          const lm = frontierData.live_main || {};
+          if (meta) {
+            const openCnt = live.openPrs !== null ? live.openPrs : lm.open_pr_count;
+            const openNote = typeof openCnt === "number" ? ` · ${openCnt} open PRs` : "";
+            const syncNote = live.sha !== lm.sha ? " · new commit syncing" : " · live";
+            meta.innerHTML = `HEAD <a href="https://github.com/leanprover-community/riemann-hypothesis/commit/${escHtml(live.sha)}" target="_blank" rel="noopener"><code>${escHtml(live.sha)}</code></a>${openNote}${syncNote}<br>Tree snapshot ${escHtml(lm.measured_at || frontierData.generated_at || "")}`;
+          }
+        }
+      } catch (_) {}
+    })();
 
     const cleaned = specMd.replace(/<!--\s*audit:allow-dead-(?:start|end)\s*-->/g, "");
     const { text, blocks } = protectMath(cleaned);

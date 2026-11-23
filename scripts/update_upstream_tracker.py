@@ -693,15 +693,44 @@ def main():
 
     token = os.environ.get("GITHUB_TOKEN", "")
     existing = json.loads(args.data.read_text(encoding="utf-8")) if args.data.exists() else {}
+    prev_live_raw = dict(existing.get("live_main") or {})
 
+    live_main = None
     if args.upstream_repo is not None:
         live_main = scan_lean_tree(args.upstream_repo, ref=args.upstream_ref)
     else:
-        with tempfile.TemporaryDirectory(prefix="rh-upstream-shallow-") as td:
-            subprocess.check_call(
-                ["git", "clone", "--depth", "1", "--no-checkout", f"https://github.com/{UPSTREAM_REPO}.git", td]
-            )
-            live_main = scan_lean_tree(Path(td), ref="HEAD")
+        # Fast-path: check upstream main HEAD sha via GitHub API before cloning 150k files.
+        remote_sha = ""
+        if not args.skip_api:
+            try:
+                head_commit = gh_api(f"repos/{UPSTREAM_REPO}/commits/main", token)
+                remote_sha = (head_commit.get("sha") or "")[:9]
+            except Exception as exc:
+                print(f"Warning: Fast-path HEAD check failed ({exc}); falling back to shallow clone.")
+        if remote_sha and prev_live_raw.get("sha") == remote_sha and prev_live_raw.get("lean_files"):
+            print(f"Fast-path hit: upstream main@{remote_sha} unchanged; skipping shallow clone & tree scan.")
+            live_main = {
+                k: prev_live_raw[k]
+                for k in (
+                    "sha",
+                    "commit_date",
+                    "toolchain",
+                    "lean_files",
+                    "total_lines",
+                    "total_bytes",
+                    "import_lines",
+                    "declarations",
+                    "backward_options",
+                    "heartbeat_options",
+                )
+                if k in prev_live_raw
+            }
+        else:
+            with tempfile.TemporaryDirectory(prefix="rh-upstream-shallow-") as td:
+                subprocess.check_call(
+                    ["git", "clone", "--depth", "1", "--no-checkout", f"https://github.com/{UPSTREAM_REPO}.git", td]
+                )
+                live_main = scan_lean_tree(Path(td), ref="HEAD")
 
     now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     prev_live = dict(existing.get("live_main") or {})
