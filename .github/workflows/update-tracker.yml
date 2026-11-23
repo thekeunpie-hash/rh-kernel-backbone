@@ -2,8 +2,13 @@ name: Update Upstream RH Cleanup Tracker
 
 on:
   schedule:
-    # 7-day intensive fast-path polling (every 5 min; full 150k-file scan only runs when upstream main HEAD changes)
-    - cron: "*/5 * * * *"
+    # Fast-path 10-min schedule (more reliable than */5 on GitHub scheduler; skips shallow clone when main HEAD is unchanged)
+    - cron: "*/10 * * * *"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/update_upstream_tracker.py"
+      - ".github/workflows/update-tracker.yml"
   workflow_dispatch:
 
 permissions:

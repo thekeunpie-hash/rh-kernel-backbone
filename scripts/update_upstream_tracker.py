@@ -54,13 +54,20 @@ PR_META = {
     101: ("infra", "full", 0, "Let registered donors build bounded proof shards"),
     109: ("active-refactor", "active", 180, "Restore #68 shared GL finiteness proof on Lean 4.36 (-180 files, -9,730 L; 85/85 verified by @marwuint)"),
     110: ("active-refactor", "active", 0, "Simplify explicit type dumps in cpR and std_cpR (NonzeroPlacesOverPrimesOfLifts.lean, -71.2% norm tokens)"),
-    221: ("active-refactor", "full", 0, "Consolidate 10+ redundant-proof cleanup PRs on top of #185 (3,076 files, #2 in merge queue)"),
+    221: ("active-refactor", "full", 0, "Consolidate redundant-proof & Mathlib-reuse PRs (3,369 files, -221k L)"),
     233: ("infra", "full", 0, "Batch-assembly automation workflow for queued cleanup PRs"),
-    243: ("portability", "full", 0, "Port unused-syntax linter cleanup to Lean 4.37 (-42% warnings)"),
+    243: ("portability", "full", 0, "Remove unused proof syntax flagged by Lean linters on 4.37 (-94% unused warnings)"),
+    206: ("portability", "full", 0, "Use portable ASCII module paths across repository"),
+    262: ("active-refactor", "full", 0, "Batch/2026-11-22: 55 small reviewed PRs rebased on #185 (1,265 files, -40.6k L)"),
+    270: ("active-refactor", "active", 0, "Simplify explicit typeclass dumps in 8 CapelliIdentities files (-11,262 L)"),
+    324: ("architecture", "full", 86071, "Delete 22,054 thin wrappers & clump modules along import graph (148,230 -> 62,159 files)"),
+    353: ("verification", "statement", 0, "Update challenge export checksums for Lean v4.37.0-rc1 pins"),
+    372: ("dead-prune", "dead", 2333, "Prune 2,333 Lean modules unused by main proofs (-259,543 L)"),
+    378: ("performance", "full", 0, "Cut compile time 11% by narrowing Mathlib imports & pruning unreachable modules (stacked on #221)"),
 }
 
 # Repo-wide landmark toolchain, infra, verification, and large-scale cleanup PRs (objective, no author pinning).
-TRACKED_OPEN_PRS = [185, 221, 243, 134, 120, 208, 194, 97, 83, 87, 233, 150, 115, 101, 88, 66]
+TRACKED_OPEN_PRS = [353, 262, 324, 378, 372, 221, 243, 120, 206, 270, 185, 134, 208, 194, 97, 83, 87, 233, 150, 115, 101, 88, 66]
 
 # Objective, fact-only maintainer, porting & contributor profiles paired with live GitHub API counts.
 # `tier` separates:
@@ -542,6 +549,144 @@ ECOSYSTEM_HALL_OF_FAME = [
     },
 ]
 
+COMMUNITY_LANDMARK_PATTERNS = [
+    {
+        "id": "pr66",
+        "pr_label": "Upstream PR #66 · @Vilin97 · Merged (14f383e5e)",
+        "status": "merged",
+        "bucket": "toolchain",
+        "category": "Toolchain Port · Lean v4.36.0 + Module System",
+        "title": "Port 175k-File Proof to Lean & Mathlib v4.36.0 and Module System (-15,068 Files)",
+        "summary": "Migrated the entire repository from v4.33.1 to Lean & Mathlib v4.36.0 with explicit module headers, pruning 15,068 unreachable dead files and establishing the live baseline for all subsequent community cleanup.",
+        "metrics": {
+            "loc": "17.37M -> 15.17M L (-1,384,013 L in #66)",
+            "norm_tokens": "15,068 dead modules pruned",
+            "chars": "164,464 files migrated to module system",
+            "warnings": "Full 149k-module CI build green",
+            "cone": "Full repo + 100% active cone preserved",
+            "equivalence": "Main.lean RH & GRH verified on v4.36.0",
+            "axioms": "{propext, Classical.choice, Quot.sound}",
+        },
+        "receipt": "Merged to leanprover-community/riemann-hypothesis main (14f383e5e) by @Vilin97 with full sharded AWS CI & public .olean cache.",
+        "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/66",
+        "diff": "# Summary of PR #66 (@Vilin97)\n- Toolchain: leanprover/lean4:v4.33.1 -> leanprover/lean4:v4.36.0\n- Module system: migrated 149,397 active .lean files to `module` + `public import` / `@[expose] public section`\n- Dead-tree pruning: removed 15,068 unreachable modules (-1,384,013 lines)\n- Established the shared v4.36.0 cache baseline used by all downstream cleanup PRs.",
+    },
+    {
+        "id": "pr134",
+        "pr_label": "Upstream PR #134 / #185 · @Vilin97 & @kim-em · Open",
+        "status": "open",
+        "bucket": "toolchain",
+        "category": "Build Performance · Lean 4.37.0-rc1 (-21.9% CPU)",
+        "title": "Cut Build CPU by 21.9% & Upgrade to Lean 4.37.0-rc1 (Heartbeats 78.8k -> 2.9k)",
+        "summary": "Combines @Vilin97 stacked performance PRs (#79 heartbeat removal, #98 import shaking, #104 slow proofs -> #134) with @kim-em Lean 4.37.0-rc1 & Mathlib upgrade (#185), slashing maxHeartbeats overrides by 96% and cutting total build CPU by 21.9%.",
+        "metrics": {
+            "loc": "149,359 files · heartbeats 78,826 -> 2,934",
+            "norm_tokens": "Import shaking + 166 slow proofs optimized",
+            "chars": "-21.9% total build CPU time",
+            "warnings": "Lean 4.37.0-rc1 + Mathlib 31ce06ea",
+            "cone": "Full repository build pipeline",
+            "equivalence": "Sharded AWS + donor-runner CI verification",
+            "axioms": "{propext, Classical.choice, Quot.sound}",
+        },
+        "receipt": "Stacked performance series (#79/#98/#104 -> #134) integrated into #185 (#1 in linear merge queue), catalyzed by @sgouezel v4.37-rc1 23% Mathlib speedup.",
+        "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/185",
+        "diff": "# Summary of PR #134 -> #185 (@Vilin97, @kim-em)\n- maxHeartbeats overrides: 78,826 -> 2,934 (-96.3%)\n- Unused imports shaken across src/\n- 166 slowest proofs refactored for faster elaboration\n- Toolchain bumped to leanprover/lean4:v4.37.0-rc1\n- Measured build CPU reduction: -21.9% before 4.37 compiler gains.",
+    },
+    {
+        "id": "pr45",
+        "pr_label": "Upstream PR #45 · @rohanarun · Merged (7da4577eb)",
+        "status": "merged",
+        "bucket": "dead-prune",
+        "category": "Dead-Tree Pruning · First Major Repo Slimming",
+        "title": "Prune Unused Top-Level Imports & 10,718 Unreachable Dead Modules (-785K Lines)",
+        "summary": "Removed 10,718 unreachable dead Lean modules and unused top-level imports in the first large-scale structural cleanup after v0.2.1, cutting 785,258 dead lines with zero impact on the kernel cone.",
+        "metrics": {
+            "loc": "-785,258 L (10,718 dead files deleted)",
+            "norm_tokens": "10,729 files touched (+5 / -785,263)",
+            "chars": "Zero active-cone declarations modified",
+            "warnings": "Clean CI build on main",
+            "cone": "0% active cone touched (100% dead prune)",
+            "equivalence": "Main.lean kernel DAG identical",
+            "axioms": "{propext, Classical.choice, Quot.sound}",
+        },
+        "receipt": "Merged to main as commit 7da4577eb; validated that top-level import reachability safely eliminates >10k unused generated modules.",
+        "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/45",
+        "diff": "# Summary of PR #45 (@rohanarun)\n- Files changed: 10,729 (10,718 unreachable .lean files deleted)\n- Net line delta: -785,258 lines (+5 / -785,263)\n- Active kernel cone impact: 0 declarations altered.",
+    },
+    {
+        "id": "pr243",
+        "pr_label": "Upstream PR #243 · @james-shore · Open",
+        "status": "open",
+        "bucket": "portability",
+        "category": "Linter Modernization · Lean 4.37 (-42% Warnings)",
+        "title": "Port Unused-Syntax Linter Cleanup to Lean 4.37 (-42% Warnings)",
+        "summary": "Ports mechanical unused-syntax linter cleanup (#67 -> #243) onto the Lean 4.37 branch, eliminating 42% of unused-syntax compiler warnings across the repository while @james-shore also lends a 384 GiB+ multi-core CI runner.",
+        "metrics": {
+            "loc": "Repo-wide mechanical linter cleanup",
+            "norm_tokens": "-42% unused-syntax warnings on Lean 4.37",
+            "chars": "Ported from #67 onto #185 (v4.37-rc1)",
+            "warnings": "Major warning-noise reduction",
+            "cone": "Full repository",
+            "equivalence": "Statement-preserving syntax cleanup",
+            "axioms": "{propext, Classical.choice, Quot.sound}",
+        },
+        "receipt": "Open PR #243 targeting Lean 4.37 branch (#185); pairs with #194 (~10,000 linter/deprecation warnings) to drive repo warnings toward zero.",
+        "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/243",
+        "diff": "# Summary of PR #243 (@james-shore)\n- Ported unused-syntax linter fixes from #67 onto Lean 4.37 (#185)\n- Removes 42% of remaining unused-syntax compiler warnings\n- Prepares clean baseline for follow-up ~17,000 theorem deduplication.",
+    },
+]
+
+COMMUNITY_TIMELINE = [
+    {
+        "date": "2026-11-23",
+        "tag": "Merge Queue",
+        "cls": "badge-open",
+        "title": "PR #185 (Lean 4.37.0-rc1 + #134 -21.9% CPU), #221 (3,076 files), and #243 (-42% linter warnings) queued",
+        "detail": "Kim Morrison (#185), Andres Gutierrez (#221), and James Shore (#243) lead the next wave of stacked builds on donated multi-core CI shards while @Deicyde batch-assembly (#233) automates smaller PRs.",
+        "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/185",
+    },
+    {
+        "date": "2026-11-22",
+        "tag": "Cleanup Batches",
+        "cls": "badge-exact",
+        "title": "PR #115 & #150 land 132 reviewed Lean 4.36 cleanup files",
+        "detail": "First two reviewed community batches merged cleanly onto v4.36.0 main (including #54, #62, #70, #71, #74-#76, #80-#82, #90, #92, #94), reducing backward.* directives and redundant proofs.",
+        "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/150",
+    },
+    {
+        "date": "2026-11-22",
+        "tag": "Verification",
+        "cls": "badge-verified",
+        "title": "DeepMind formal-conjectures Comparator (#88) & 6+ independent checkers accept RH & GRH",
+        "detail": "Full 61.57 GB export verified across con-leche, con-ron, con-agua, nanoda, Gruszka, and Pestka with zero sorry and standard axioms only.",
+        "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/88",
+    },
+    {
+        "date": "2026-11-22",
+        "tag": "Toolchain Port",
+        "cls": "badge-verified",
+        "title": "PR #66 (@Vilin97) ports repository to Lean & Mathlib v4.36.0 + module system",
+        "detail": "Migrated 164k files to Lean 4.36 module headers and pruned 15,068 unreachable dead files (-1.38M lines), establishing the live community cache baseline.",
+        "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/66",
+    },
+    {
+        "date": "2026-11-21",
+        "tag": "Dead Prune",
+        "cls": "badge-dead",
+        "title": "PR #45 (@rohanarun) removes 10,718 unreachable dead modules (-785K lines)",
+        "detail": "First major structural slimming after v0.2.1, followed by active-cone explicit-dump cleanups (#57, #60, #65, #68).",
+        "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/45",
+    },
+    {
+        "date": "2026-11-21",
+        "tag": "Release",
+        "cls": "badge-exact",
+        "title": "v0.2.1 Verified RH/GRH Baseline Released (175,187 files · 17.37M lines)",
+        "detail": "Public release of Levent Alpoge formal Lean 4 proof of the Riemann Hypothesis and Dirichlet GRH into leanprover-community/riemann-hypothesis.",
+        "url": "https://github.com/leanprover-community/riemann-hypothesis/commit/06c2690c1",
+    },
+]
+
 
 def gh_api(path: str, token: str = ""):
     headers = {
@@ -683,6 +828,15 @@ def fetch_pr_queue(token: str, extra_nums: list[int] | None = None) -> tuple[lis
         add = pr.get("additions", 0)
         dels = pr.get("deletions", 0)
         labels = [lb.get("name", "") for lb in pr.get("labels", [])]
+        changed_files = pr.get("changed_files", 0)
+        blast_radius = (
+            "whole-tree" if changed_files >= 50000
+            else "major" if changed_files >= 2000
+            else "batch" if changed_files >= 200
+            else "focused"
+        )
+        base_ref = (pr.get("base") or {}).get("ref", "main")
+        mergeable_state = pr.get("mergeable_state") or ""
         queue.append(
             {
                 "pr": num,
@@ -692,9 +846,12 @@ def fetch_pr_queue(token: str, extra_nums: list[int] | None = None) -> tuple[lis
                 "author": pr["user"]["login"],
                 "category": cat,
                 "scope": scope,
+                "base_ref": base_ref,
+                "mergeable_state": mergeable_state,
+                "blast_radius": blast_radius,
                 "title": default_title or pr["title"],
                 "raw_title": pr["title"],
-                "changed_files": pr.get("changed_files", 0),
+                "changed_files": changed_files,
                 "additions": add,
                 "deletions": dels,
                 "net_lines": add - dels,
@@ -894,12 +1051,21 @@ def main():
     if new_standing_cmp:
         new_standing_cmp.pop("measured_at", None)
 
+    landmark_ids = {p["id"] for p in COMMUNITY_LANDMARK_PATTERNS}
+    other_pats = [x for x in (existing.get("verified_patterns") or []) if x.get("id") not in landmark_ids]
+    for x in other_pats:
+        pid = x.get("id", "")
+        x["bucket"] = "portability" if pid in ("pr71", "pr224", "ndjson") else "active-cone"
+    merged_patterns = COMMUNITY_LANDMARK_PATTERNS + other_pats
+
     if (
         new_live_no_ts == prev_live
         and history == prev_history
         and new_queue == prev_queue
         and new_standing_cmp == prev_standing_cmp
         and existing.get("ecosystem_hall_of_fame") == ECOSYSTEM_HALL_OF_FAME
+        and existing.get("verified_patterns") == merged_patterns
+        and existing.get("community_timeline") == COMMUNITY_TIMELINE
     ):
         print(f"No upstream metric or PR queue changes at main@{live_main['sha']}; skipping write.")
         return
@@ -912,6 +1078,8 @@ def main():
     if new_standing:
         existing["stewardship_standing"] = new_standing
     existing["ecosystem_hall_of_fame"] = ECOSYSTEM_HALL_OF_FAME
+    existing["verified_patterns"] = merged_patterns
+    existing["community_timeline"] = COMMUNITY_TIMELINE
 
     args.data.write_text(json.dumps(existing, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(
