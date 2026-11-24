@@ -6,7 +6,7 @@
     "method": "text search over .lean files under src/, one point per main commit (rh-shrink collect.py)",
     "schema_version": 6
   },
-  "commits_measured": 134,
+  "commits_measured": 150,
   "original": {
     "sha": "40e56bab026552e089d7afcfeff08d2defb9c005",
     "date": "2026-11-20T09:36:09-05:00",
@@ -23,23 +23,32 @@
     "statements": 777704
   },
   "latest": {
-    "sha": "0e40c084e27c44a3584e271cb14e7dd3bce9aa63",
-    "date": "2026-11-24T03:19:26-05:00",
-    "subject": "Merge pull request #86 from leanprover-community/ci/job-start-map-count-preflight",
-    "pr": 86,
-    "files": 60929,
-    "lines": 16895009,
-    "code": 11917541,
-    "theorems": 616279,
-    "defs": 167144,
-    "imports": 376424,
-    "heartbeats": 512,
-    "repeats": 38328,
-    "statements": 586405
+    "sha": "c9883164b0b3d762cee21f889d03d59a53b3ba3b",
+    "date": "2026-11-24T20:08:06+11:00",
+    "subject": "Merge pull request #896 from leanprover-community/batch/b3-on-644",
+    "pr": 896,
+    "files": 60630,
+    "lines": 16766491,
+    "code": 11826779,
+    "theorems": 612100,
+    "defs": 166670,
+    "imports": 374596,
+    "heartbeats": 498,
+    "repeats": 37538,
+    "statements": 582525
   },
-  "code_left_pct": 81.5,
-  "code_removed": 2704396,
+  "code_left_pct": 80.88,
+  "code_removed": 2795158,
   "recent_changes": [
+    {
+      "sha": "c9883164b0b3d762cee21f889d03d59a53b3ba3b",
+      "date": "2026-11-24T20:08:06+11:00",
+      "subject": "Merge pull request #896 from leanprover-community/batch/b3-on-644",
+      "pr": 896,
+      "code": 11826779,
+      "code_delta": -90762,
+      "theorems_delta": -4179
+    },
     {
       "sha": "343b1de38bbe4c5c66f1c1c0afd7c34e8645acdf",
       "date": "2026-11-24T17:57:31+11:00",
@@ -138,15 +147,6 @@
       "code": 12305800,
       "code_delta": -1640232,
       "theorems_delta": -118791
-    },
-    {
-      "sha": "09201d6a839516534e62aa598ff5ed82724105ac",
-      "date": "2026-11-22T18:25:46+11:00",
-      "subject": "Merge pull request #68 from antoshashakov/principia/share-gl-finiteness",
-      "pr": 68,
-      "code": 13946032,
-      "code_delta": -7237,
-      "theorems_delta": -442
     }
   ],
   "series": [
@@ -685,6 +685,70 @@
     [
       "2026-11-24T03:19:26-05:00",
       11917541
+    ],
+    [
+      "2026-11-24T03:32:00-05:00",
+      11917541
+    ],
+    [
+      "2026-11-24T03:42:20-05:00",
+      11917541
+    ],
+    [
+      "2026-11-24T03:43:35-05:00",
+      11917541
+    ],
+    [
+      "2026-11-24T03:44:09-05:00",
+      11917541
+    ],
+    [
+      "2026-11-24T03:44:46-05:00",
+      11917541
+    ],
+    [
+      "2026-11-24T03:45:10-05:00",
+      11917541
+    ],
+    [
+      "2026-11-24T03:45:46-05:00",
+      11917541
+    ],
+    [
+      "2026-11-24T03:46:15-05:00",
+      11917541
+    ],
+    [
+      "2026-11-24T03:48:01-05:00",
+      11917541
+    ],
+    [
+      "2026-11-24T03:51:27-05:00",
+      11917541
+    ],
+    [
+      "2026-11-24T03:52:02-05:00",
+      11917541
+    ],
+    [
+      "2026-11-24T03:54:17-05:00",
+      11917541
+    ],
+    [
+      "2026-11-24T03:55:17-05:00",
+      11917541
+    ],
+    [
+      "2026-11-24T03:57:22-05:00",
+      11917541
+    ],
+    [
+      "2026-11-24T03:59:58-05:00",
+      11917541
+    ],
+    [
+      "2026-11-24T20:08:06+11:00",
+      11826779
     ]
   ]
 }
