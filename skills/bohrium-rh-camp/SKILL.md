@@ -106,14 +106,30 @@ so confirm the target first.
 
 ## 4. Submit to the Playground
 
+**Gate first, every time.** Never submit a proof that cannot beat the current best.
+Run the pre-submit gate and submit only when it exits `0`:
+
+```bash
+python -I scripts/playground_submit_gate.py --challenge-id <slug>   --tokens <our token count> --local-baseline <our count of the original closure>   --t0 <statement's 50-point baseline> [--predicted <other estimate>]...
+```
+
+The gate takes the lowest of the formula prediction and every `--predicted` value
+and compares it with the best final `displayScore` across all attempt pages of the
+public attempts API. Exit `0` = predicted score is strictly above the best, submit.
+Exit `3` = HOLD: go back to step 2 with `improve.target_official_tokens_below` as the
+token target. Exit `2` = the board could not be read: HOLD, never submit blind.
+Every decision is appended to `data/playground_submissions.jsonl`; commit it.
+The owner's submit command must be chained after the gate (`gate && playground submit`)
+so a HOLD stops it.
+
 The Playground challenge page (`https://play.bohrium.com/challenges/<slug>`) owns the
 submission flow and its CLI. Follow that page's current instructions for the target
 pillar. The submission credential comes from the owner's Playground dashboard; keep
 it in the CLI's store, never in this repository. When the credential is absent, leave
 the submission pending and report the exact command the owner has to run.
 
-Record only what the board returns after submission: attempt id, score, kept/not
-kept, and the board's verified status. Then refresh `data/verifytask_board.json`
+Record only what the board returns after submission (also as a ledger line with
+`attempt_id`): attempt id, score, kept/not kept, and the board's verified status. Then refresh `data/verifytask_board.json`
 with step 1 so the dashboard reflects the new attempt.
 
 ## What to report back
