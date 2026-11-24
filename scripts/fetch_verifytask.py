@@ -8,9 +8,12 @@ Public read-only JSON endpoints behind https://riemann.verifytask.cn/:
 
 The board is normalized into data/verifytask_board.json: one row per core pillar
 (baseline -> best tokens, reduction factor, score, attempt count, last kept
-breakthrough + technique), the aggregate frontier run curve, and the timeline.
-The raw ~700 KB board response is not stored. If a fetch fails, the previous
-file is kept so the Pages table never blanks.
+breakthrough + technique), the aggregate frontier run curve, the timeline, the
+`main`-tier Grand Challenge (full formalization of the RH repository), the
+board-reported model x harness ranking (`model_benchmark.by_pair`), and how much
+of the full repository the 39 core pillars cover. The raw ~700 KB board response
+is not stored. If a fetch fails, the previous file is kept so the Pages table
+never blanks.
 
 Pure Python 3.11+ stdlib only. Run:
   python scripts/fetch_verifytask.py [--data data/verifytask_board.json]
@@ -101,6 +104,54 @@ def _compact_run(run):
         "model": run.get("model_display"),
         "harness": run.get("harness_display"),
         "method": run.get("chart_method_en"),
+    }
+
+
+def _compact_pair(pair):
+    if not isinstance(pair, dict):
+        return None
+    return {
+        "rank": pair.get("rank"),
+        "label": pair.get("label"),
+        "model": pair.get("model"),
+        "harness": pair.get("harness"),
+        "provider": pair.get("provider"),
+        "index_score": _num(pair.get("index_score")),
+        "tasks_solved": pair.get("tasks_solved"),
+        "tasks_total": pair.get("tasks_total"),
+        "mean_score": _num(pair.get("mean_score")),
+        "mean_compression_pct": _num(pair.get("mean_compression_pct")),
+        "pass_rate_pct": _num(pair.get("pass_rate_pct")),
+        "distinct_authors": pair.get("distinct_authors"),
+    }
+
+
+def _compact_grand(challenge):
+    """The `main` tier challenge: the end-to-end full RH repository target."""
+    if not isinstance(challenge, dict):
+        return None
+    leader = challenge.get("leader")
+    return {
+        "key": challenge.get("key"),
+        "code": challenge.get("code"),
+        "title": challenge.get("title_en"),
+        "short": challenge.get("short_en"),
+        "description": challenge.get("desc_en"),
+        "overview": challenge.get("overview_en"),
+        "target": challenge.get("statement_math"),
+        "url": challenge.get("url"),
+        "metric": challenge.get("metric"),
+        "baseline_chars": _num(challenge.get("l0")),
+        "best_chars": _num(challenge.get("best_chars")),
+        "char_saved_pct": _num(challenge.get("char_saved_pct")),
+        "baseline_tokens": _num(challenge.get("t0")),
+        "best_tokens": _num(challenge.get("best_tokens")),
+        "token_saved_pct": _num(challenge.get("token_saved_pct")),
+        "submissions": challenge.get("subs"),
+        "scored_submissions": challenge.get("scored_subs"),
+        "participants": challenge.get("participants_count"),
+        "score": _num(challenge.get("top_score")),
+        "leader": _compact_leader(leader),
     }
 
 
@@ -197,6 +248,32 @@ def normalize(board, timeline):
         if challenge.get("tier") == "core"
     ]
 
+    grand = _compact_grand(
+        next((c for c in challenges if c.get("is_main") or c.get("tier") == "main"), None)
+    )
+
+    benchmark_raw = board.get("model_benchmark") or {}
+    pairs = [p for p in (benchmark_raw.get("by_pair") or []) if isinstance(p, dict)]
+    pairs.sort(key=lambda p: p.get("rank") if isinstance(p.get("rank"), int) else 9999)
+    benchmark = {
+        "tasks_total": benchmark_raw.get("tasks_total"),
+        "labeled_scored_runs": benchmark_raw.get("labeled_scored_runs"),
+        "unlabeled_scored_runs": benchmark_raw.get("unlabeled_scored_runs"),
+        "total_scored_runs": benchmark_raw.get("total_scored_runs"),
+        "pairs_total": len(pairs),
+        "top_pairs": [_compact_pair(p) for p in pairs[:5]],
+    }
+
+    coverage_raw = core_progress.get("full_rh_coverage") or {}
+    coverage = {
+        "dedup_files": coverage_raw.get("dedup_files"),
+        "full_files": coverage_raw.get("full_files"),
+        "dedup_files_pct": _num(coverage_raw.get("dedup_files_pct")),
+        "dedup_chars": coverage_raw.get("dedup_chars"),
+        "full_chars": coverage_raw.get("full_chars"),
+        "dedup_chars_pct": _num(coverage_raw.get("dedup_chars_pct")),
+    }
+
     def _core_number(row):
         match = re.match(r"core(\d+)", row.get("key") or "")
         return int(match.group(1)) if match else 9999
@@ -234,6 +311,8 @@ def normalize(board, timeline):
             "submissions": summary.get("total_submissions"),
             "scored_submissions": summary.get("scored_submissions"),
             "evaluating": summary.get("evaluating_count"),
+            "core_evaluating": summary.get("core_evaluating_count"),
+            "challenges_total": summary.get("challenges_total"),
             "core_solved": summary.get("core_solved"),
             "core_total": summary.get("core_total"),
             "verified_leaders_clean": summary.get("verified_leaders_clean"),
@@ -264,6 +343,10 @@ def normalize(board, timeline):
             "points": [_compact_run(run) for run in (overall.get("runs") or []) if isinstance(run, dict)],
         },
         "cores": cores,
+        "grand": grand,
+        "benchmark": benchmark,
+        "coverage": coverage,
+        "links": board.get("links") if isinstance(board.get("links"), dict) else {},
         "techniques": [_compact_technique(t) for t in techniques],
         "timeline": timeline_items,
     }
@@ -301,7 +384,9 @@ def main():
     with_tokens = sum(1 for core in cores if core.get("best_tokens") is not None)
     print(
         f"Wrote {out_path} ({len(cores)} core pillars, {with_tokens} with measured tokens, "
-        f"{len(payload['frontier']['points'])} frontier points, {len(payload['timeline'])} timeline items)."
+        f"{len(payload['frontier']['points'])} frontier points, {len(payload['timeline'])} timeline items, "
+        f"grand challenge={bool(payload['grand'])}, "
+        f"{len(payload['benchmark']['top_pairs'])}/{payload['benchmark']['pairs_total']} model x harness pairs)."
     )
 
 

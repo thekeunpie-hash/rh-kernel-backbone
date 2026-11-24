@@ -1801,8 +1801,19 @@
     .vt-frontier .note { fill: var(--text-secondary); font-size: 11px; }
     .vt-src { margin-top: 10px; font-size: 11.5px; color: var(--muted); }
     .vt-empty { color: var(--muted); font-size: 12.5px; }
+    .vt-grand { margin: 12px 0 0; padding: 8px 10px; border: 1px solid var(--border); border-left: 2px solid var(--accent); border-radius: 3px; }
+    .vt-grand-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; }
+    .vt-grand-code { font-size: 10.5px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+    .vt-grand-title { font-size: 13.5px; font-weight: 600; color: var(--text); text-decoration: none; }
+    a.vt-grand-title { color: var(--accent); }
+    a.vt-grand-title:hover { text-decoration: underline; }
+    .vt-grand-desc { margin: 4px 0 0; color: var(--text-secondary); font-size: 12.2px; line-height: 1.45; }
+    .vt-grand-facts { display: flex; flex-wrap: wrap; gap: 3px 18px; margin: 6px 0 0; font-size: 12px; color: var(--muted); }
+    .vt-grand-facts b { color: var(--text); font-weight: 500; font-variant-numeric: tabular-nums; }
+    .vt-bench { margin-top: 14px; }
+    .vt-bench-title { margin: 0 0 2px; font-size: 12.5px; font-weight: 600; color: var(--text-secondary); }
     @media (max-width: 700px) {
-      .vt-col-target { display: none; }
+      .vt-col-target, .vt-col-mean, .vt-col-pass { display: none; }
       .vt-table th, .vt-table td { padding: 6px 5px; }
     }
     @media (max-width: 760px) {
@@ -1916,6 +1927,7 @@
           <h3 id="vtTitle" style="margin:0 0 4px;">Compressed RH Core Pillars on Playground</h3>
           <p class="vt-lead">The Bohrium Playground board at <a href="https://riemann.verifytask.cn/" target="_blank" rel="noopener">riemann.verifytask.cn</a> runs each kernel-grounded RH core pillar as a compression challenge: agents and humans submit shorter Lean proofs for the same theorem, and the board keeps the best verified token count per pillar. These are external submissions, not merged into the official upstream tree.</p>
           <div class="vt-summary" id="vtSummary">Loading Playground results…</div>
+          <div class="vt-grand" id="vtGrand" hidden></div>
           <div class="vt-wrap">
             <table class="vt-table" aria-describedby="vtTitle">
               <thead>
@@ -1938,6 +1950,25 @@
             <svg id="vtFrontier" viewBox="0 0 960 220" role="img" aria-label="Running best compression score across all Playground core runs"></svg>
             <figcaption class="vt-src" id="vtFrontierNote">Aggregate frontier: running best score across all core runs.</figcaption>
           </figure>
+          <div class="vt-bench" id="vtBench" hidden>
+            <h4 class="vt-bench-title">Board-reported leaders by model × harness</h4>
+            <div class="vt-wrap">
+              <table class="vt-table" aria-describedby="vtBenchNote">
+                <thead>
+                  <tr>
+                    <th class="num">#</th>
+                    <th>Model × harness</th>
+                    <th class="num">Index</th>
+                    <th class="num">Cores solved</th>
+                    <th class="num vt-col-mean">Mean score</th>
+                    <th class="num vt-col-pass">Pass rate</th>
+                  </tr>
+                </thead>
+                <tbody id="vtBenchRows"></tbody>
+              </table>
+            </div>
+            <div class="vt-src" id="vtBenchNote"></div>
+          </div>
           <div class="vt-src">Source: <a href="https://riemann.verifytask.cn/" target="_blank" rel="noopener">riemann.verifytask.cn</a> live board, stored in <code>data/verifytask_board.json</code> and refreshed with the upstream tracker. Values are the board's own verified per-core bests; nothing here is a merged upstream commit.</div>
         </section>
 
@@ -2802,6 +2833,69 @@
       if (note) note.textContent = `${pts.length} run points · running best score ${Number(last.best).toFixed(1)} (higher is better).`;
     }
 
+    function renderVtGrand(grand, coverage) {
+      const el = document.getElementById("vtGrand");
+      if (!el) return;
+      if (!grand) {
+        el.hidden = true;
+        el.innerHTML = "";
+        return;
+      }
+      const hasTokens = grand.best_tokens != null;
+      const base = hasTokens ? grand.baseline_tokens : grand.baseline_chars;
+      const best = hasTokens ? grand.best_tokens : grand.best_chars;
+      const unit = hasTokens ? "tokens" : "chars";
+      const saved = grand.char_saved_pct != null ? `${Number(grand.char_saved_pct).toFixed(1)}%` : "—";
+      const cov = coverage && coverage.dedup_files_pct != null
+        ? `<span><b>${Number(coverage.dedup_files_pct).toFixed(2)}%</b> of the ${fmtInt(coverage.full_files)}-file repository sits under the core pillars</span>`
+        : "";
+      const title = escHtml(grand.title || grand.short || "Grand challenge");
+      el.innerHTML = `
+        <div class="vt-grand-head">
+          <span class="vt-grand-code">${escHtml(grand.code || "Grand challenge")}</span>
+          ${grand.url
+            ? `<a class="vt-grand-title" href="${escHtml(grand.url)}" target="_blank" rel="noopener">${title} ↗</a>`
+            : `<span class="vt-grand-title">${title}</span>`}
+        </div>
+        ${grand.description ? `<p class="vt-grand-desc">${escHtml(grand.description)}</p>` : ""}
+        <div class="vt-grand-facts">
+          <span>Baseline <b>${fmtInt(base)}</b> ${unit}</span>
+          <span>Best kept <b>${fmtInt(best)}</b> ${unit}</span>
+          <span><b>${saved}</b> compressed</span>
+          <span><b>${fmtInt(grand.submissions)}</b> submissions</span>
+          <span><b>${fmtInt(grand.scored_submissions)}</b> scored</span>
+          <span><b>${fmtInt(grand.participants)}</b> participants</span>
+          <span>Top score <b>${grand.score != null ? Number(grand.score).toFixed(1) : "—"}</b></span>
+          ${cov}
+        </div>`;
+      el.hidden = false;
+    }
+
+    function renderVtBench(bench) {
+      const wrap = document.getElementById("vtBench");
+      const rowsEl = document.getElementById("vtBenchRows");
+      if (!wrap || !rowsEl) return;
+      const pairs = (bench && bench.top_pairs) || [];
+      if (!pairs.length) {
+        wrap.hidden = true;
+        rowsEl.innerHTML = "";
+        return;
+      }
+      rowsEl.innerHTML = pairs.map((p) => `<tr>
+        <td class="num">${p.rank != null ? escHtml(String(p.rank)) : "—"}</td>
+        <td>${escHtml(p.label || [p.model, p.harness].filter(Boolean).join(" × ") || "—")}<div class="vt-target">${escHtml(p.provider || "")}</div></td>
+        <td class="num">${p.index_score != null ? Number(p.index_score).toFixed(2) : "—"}</td>
+        <td class="num">${fmtInt(p.tasks_solved)} / ${fmtInt(p.tasks_total)}</td>
+        <td class="num vt-col-mean">${p.mean_score != null ? Number(p.mean_score).toFixed(1) : "—"}</td>
+        <td class="num vt-col-pass">${p.pass_rate_pct != null ? Number(p.pass_rate_pct).toFixed(1) + "%" : "—"}</td>
+      </tr>`).join("");
+      const note = document.getElementById("vtBenchNote");
+      if (note) {
+        note.textContent = `Board-computed over ${fmtInt(bench.tasks_total)} core tasks and ${fmtInt(bench.total_scored_runs)} scored runs (${fmtInt(bench.labeled_scored_runs)} labeled, ${fmtInt(bench.unlabeled_scored_runs)} unlabeled); top ${pairs.length} of ${fmtInt(bench.pairs_total)} model × harness pairs by the board's index score.`;
+      }
+      wrap.hidden = false;
+    }
+
     function renderVerifytask(data) {
       const rows = document.getElementById("vtRows");
       if (!rows) return;
@@ -2819,6 +2913,8 @@
           data && data.updated_at ? `<span>Board updated ${escHtml(String(data.updated_at).slice(0, 10))}</span>` : ""
         ].filter(Boolean).join("");
       }
+      renderVtGrand(data && data.grand, data && data.coverage);
+      renderVtBench(data && data.benchmark);
       if (!cores.length) {
         rows.innerHTML = `<tr><td colspan="7" class="vt-empty">Playground results are not available right now.</td></tr>`;
         return;
