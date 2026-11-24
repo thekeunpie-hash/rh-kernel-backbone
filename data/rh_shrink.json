@@ -6,7 +6,7 @@
     "method": "text search over .lean files under src/, one point per main commit (rh-shrink collect.py)",
     "schema_version": 6
   },
-  "commits_measured": 150,
+  "commits_measured": 180,
   "original": {
     "sha": "40e56bab026552e089d7afcfeff08d2defb9c005",
     "date": "2026-11-20T09:36:09-05:00",
@@ -23,23 +23,68 @@
     "statements": 777704
   },
   "latest": {
-    "sha": "c9883164b0b3d762cee21f889d03d59a53b3ba3b",
-    "date": "2026-11-24T20:08:06+11:00",
-    "subject": "Merge pull request #896 from leanprover-community/batch/b3-on-644",
-    "pr": 896,
-    "files": 60630,
-    "lines": 16766491,
-    "code": 11826779,
-    "theorems": 612100,
-    "defs": 166670,
-    "imports": 374596,
-    "heartbeats": 498,
-    "repeats": 37538,
-    "statements": 582525
+    "sha": "9282d3a102c4aff0e6026746db2a8990f5d9cddd",
+    "date": "2026-11-25T05:24:32+11:00",
+    "subject": "Merge pull request #1313 from leanprover-community/batch/b8-on-1266",
+    "pr": 1313,
+    "files": 59869,
+    "lines": 16000373,
+    "code": 11572818,
+    "theorems": 599654,
+    "defs": 164155,
+    "imports": 367792,
+    "heartbeats": 492,
+    "repeats": 35093,
+    "statements": 570572
   },
-  "code_left_pct": 80.88,
-  "code_removed": 2795158,
+  "code_left_pct": 79.15,
+  "code_removed": 3049119,
   "recent_changes": [
+    {
+      "sha": "9282d3a102c4aff0e6026746db2a8990f5d9cddd",
+      "date": "2026-11-25T05:24:32+11:00",
+      "subject": "Merge pull request #1313 from leanprover-community/batch/b8-on-1266",
+      "pr": 1313,
+      "code": 11572818,
+      "code_delta": -16393,
+      "theorems_delta": -699
+    },
+    {
+      "sha": "307cef33f046955ee79dba47e0d828d06496d75f",
+      "date": "2026-11-25T04:03:26+11:00",
+      "subject": "Merge pull request #1266 from leanprover-community/batch/b7-on-1198",
+      "pr": 1266,
+      "code": 11589211,
+      "code_delta": -9869,
+      "theorems_delta": -470
+    },
+    {
+      "sha": "1da818b50f1e18808db2792b9dc735bda8cb84d8",
+      "date": "2026-11-25T02:42:48+11:00",
+      "subject": "Merge pull request #1198 from leanprover-community/batch/b6-on-1119",
+      "pr": 1198,
+      "code": 11599080,
+      "code_delta": -47679,
+      "theorems_delta": -2979
+    },
+    {
+      "sha": "1cd97d8aa4a16681b109389ab18eefa4b2ba36d8",
+      "date": "2026-11-25T00:35:23+11:00",
+      "subject": "Merge pull request #1119 from leanprover-community/batch/b5-on-1018",
+      "pr": 1119,
+      "code": 11646759,
+      "code_delta": -123464,
+      "theorems_delta": -5837
+    },
+    {
+      "sha": "bb9476b875a219608a9068f8f18d8c56b4e7f1ca",
+      "date": "2026-11-24T22:34:38+11:00",
+      "subject": "Merge pull request #1018 from leanprover-community/batch/b4-on-896",
+      "pr": 1018,
+      "code": 11770223,
+      "code_delta": -56556,
+      "theorems_delta": -2461
+    },
     {
       "sha": "c9883164b0b3d762cee21f889d03d59a53b3ba3b",
       "date": "2026-11-24T20:08:06+11:00",
@@ -102,51 +147,6 @@
       "code": 12174136,
       "code_delta": 127871,
       "theorems_delta": -22036
-    },
-    {
-      "sha": "98cc3736f046abae883d8cda839c84f3004257a7",
-      "date": "2026-11-24T02:24:09+11:00",
-      "subject": "Merge pull request #221 from Serdnad/rh-proof-compression",
-      "pr": 221,
-      "code": 12046265,
-      "code_delta": -168649,
-      "theorems_delta": -3583
-    },
-    {
-      "sha": "9c9f665ed79ce0fa8da61bd803b7a4bf1ad62ed0",
-      "date": "2026-11-23T18:20:10+11:00",
-      "subject": "Merge pull request #185 from leanprover-community/bump/lean-4.37.0-rc1",
-      "pr": 185,
-      "code": 12214914,
-      "code_delta": -81333,
-      "theorems_delta": -269
-    },
-    {
-      "sha": "b0ab0ada2632235c2bba9f40853531bbbf3a28d8",
-      "date": "2026-11-23T08:50:14+11:00",
-      "subject": "Merge pull request #150 from leanprover-community/cleanup/pr91-remaining-4.36",
-      "pr": 150,
-      "code": 12296247,
-      "code_delta": -6851,
-      "theorems_delta": -90
-    },
-    {
-      "sha": "c7791603122c0328f79e49f6be5d7d4402effc53",
-      "date": "2026-11-23T04:50:19+11:00",
-      "subject": "Merge pull request #115 from leanprover-community/cleanup/reviewed-4.36-frozen-build",
-      "pr": 115,
-      "code": 12303098,
-      "code_delta": -2702,
-      "theorems_delta": -1
-    },
-    {
-      "sha": "14f383e5edeae10b9991d9b8aec26b58aabc57eb",
-      "date": "2026-11-23T01:09:32+11:00",
-      "subject": "Merge pull request #66 from Vilin97/port-lean-4.36",
-      "pr": 66,
-      "code": 12305800,
-      "code_delta": -1640232,
-      "theorems_delta": -118791
     }
   ],
   "series": [
@@ -749,6 +749,126 @@
     [
       "2026-11-24T20:08:06+11:00",
       11826779
+    ],
+    [
+      "2026-11-24T04:40:42-05:00",
+      11826779
+    ],
+    [
+      "2026-11-24T04:49:10-05:00",
+      11826779
+    ],
+    [
+      "2026-11-24T04:50:10-05:00",
+      11826779
+    ],
+    [
+      "2026-11-24T05:21:15-05:00",
+      11826779
+    ],
+    [
+      "2026-11-24T05:32:46-05:00",
+      11826779
+    ],
+    [
+      "2026-11-24T05:44:04-05:00",
+      11826779
+    ],
+    [
+      "2026-11-24T05:44:28-05:00",
+      11826779
+    ],
+    [
+      "2026-11-24T06:18:50-05:00",
+      11826779
+    ],
+    [
+      "2026-11-24T22:34:38+11:00",
+      11770223
+    ],
+    [
+      "2026-11-24T06:41:38-05:00",
+      11770223
+    ],
+    [
+      "2026-11-24T06:41:50-05:00",
+      11770223
+    ],
+    [
+      "2026-11-24T07:13:00-05:00",
+      11770223
+    ],
+    [
+      "2026-11-24T07:14:27-05:00",
+      11770223
+    ],
+    [
+      "2026-11-24T07:17:35-05:00",
+      11770223
+    ],
+    [
+      "2026-11-24T07:31:21-05:00",
+      11770223
+    ],
+    [
+      "2026-11-24T07:39:27-05:00",
+      11770223
+    ],
+    [
+      "2026-11-24T07:49:24-05:00",
+      11770223
+    ],
+    [
+      "2026-11-24T08:33:49-05:00",
+      11770223
+    ],
+    [
+      "2026-11-25T00:35:23+11:00",
+      11646759
+    ],
+    [
+      "2026-11-24T08:39:40-05:00",
+      11646759
+    ],
+    [
+      "2026-11-24T08:50:38-05:00",
+      11646759
+    ],
+    [
+      "2026-11-24T09:03:08-05:00",
+      11646759
+    ],
+    [
+      "2026-11-24T09:05:39-05:00",
+      11646759
+    ],
+    [
+      "2026-11-24T09:06:03-05:00",
+      11646759
+    ],
+    [
+      "2026-11-24T09:18:56-05:00",
+      11646759
+    ],
+    [
+      "2026-11-24T10:10:31-05:00",
+      11646759
+    ],
+    [
+      "2026-11-24T10:13:54-05:00",
+      11646759
+    ],
+    [
+      "2026-11-25T02:42:48+11:00",
+      11599080
+    ],
+    [
+      "2026-11-25T04:03:26+11:00",
+      11589211
+    ],
+    [
+      "2026-11-25T05:24:32+11:00",
+      11572818
     ]
   ]
 }
