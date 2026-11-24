@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T18:07:10Z",
+  "generated_at": "2026-11-24T00:07:43Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -267,6 +267,90 @@
   ],
   "verified_patterns": [
     {
+      "id": "pr66",
+      "pr_label": "Upstream PR #66 · @Vilin97 · Merged (14f383e5e)",
+      "status": "merged",
+      "bucket": "toolchain",
+      "category": "Toolchain Port · Lean v4.36.0 + Module System",
+      "title": "Port 175k-File Proof to Lean & Mathlib v4.36.0 and Module System (-15,068 Files)",
+      "summary": "Migrated the entire repository from v4.33.1 to Lean & Mathlib v4.36.0 with explicit module headers, pruning 15,068 unreachable dead files and establishing the live baseline for all subsequent community cleanup.",
+      "metrics": {
+        "loc": "17.37M -> 15.17M L (-1,384,013 L in #66)",
+        "norm_tokens": "15,068 dead modules pruned",
+        "chars": "164,464 files migrated to module system",
+        "warnings": "Full 149k-module CI build green",
+        "cone": "Full repo + 100% active cone preserved",
+        "equivalence": "Main.lean RH & GRH verified on v4.36.0",
+        "axioms": "{propext, Classical.choice, Quot.sound}"
+      },
+      "receipt": "Merged to leanprover-community/riemann-hypothesis main (14f383e5e) by @Vilin97 with full sharded AWS CI & public .olean cache.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/66",
+      "diff": "# Summary of PR #66 (@Vilin97)\n- Toolchain: leanprover/lean4:v4.33.1 -> leanprover/lean4:v4.36.0\n- Module system: migrated 149,397 active .lean files to `module` + `public import` / `@[expose] public section`\n- Dead-tree pruning: removed 15,068 unreachable modules (-1,384,013 lines)\n- Established the shared v4.36.0 cache baseline used by all downstream cleanup PRs."
+    },
+    {
+      "id": "pr134",
+      "pr_label": "Upstream PR #134 / #185 · @Vilin97 & @kim-em · Open",
+      "status": "open",
+      "bucket": "toolchain",
+      "category": "Build Performance · Lean 4.37.0-rc1 (-21.9% CPU)",
+      "title": "Cut Build CPU by 21.9% & Upgrade to Lean 4.37.0-rc1 (Heartbeats 78.8k -> 2.9k)",
+      "summary": "Combines @Vilin97 stacked performance PRs (#79 heartbeat removal, #98 import shaking, #104 slow proofs -> #134) with @kim-em Lean 4.37.0-rc1 & Mathlib upgrade (#185), slashing maxHeartbeats overrides by 96% and cutting total build CPU by 21.9%.",
+      "metrics": {
+        "loc": "149,359 files · heartbeats 78,826 -> 2,934",
+        "norm_tokens": "Import shaking + 166 slow proofs optimized",
+        "chars": "-21.9% total build CPU time",
+        "warnings": "Lean 4.37.0-rc1 + Mathlib 31ce06ea",
+        "cone": "Full repository build pipeline",
+        "equivalence": "Sharded AWS + donor-runner CI verification",
+        "axioms": "{propext, Classical.choice, Quot.sound}"
+      },
+      "receipt": "Stacked performance series (#79/#98/#104 -> #134) integrated into #185 (#1 in linear merge queue), catalyzed by @sgouezel v4.37-rc1 23% Mathlib speedup.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/185",
+      "diff": "# Summary of PR #134 -> #185 (@Vilin97, @kim-em)\n- maxHeartbeats overrides: 78,826 -> 2,934 (-96.3%)\n- Unused imports shaken across src/\n- 166 slowest proofs refactored for faster elaboration\n- Toolchain bumped to leanprover/lean4:v4.37.0-rc1\n- Measured build CPU reduction: -21.9% before 4.37 compiler gains."
+    },
+    {
+      "id": "pr45",
+      "pr_label": "Upstream PR #45 · @rohanarun · Merged (7da4577eb)",
+      "status": "merged",
+      "bucket": "dead-prune",
+      "category": "Dead-Tree Pruning · First Major Repo Slimming",
+      "title": "Prune Unused Top-Level Imports & 10,718 Unreachable Dead Modules (-785K Lines)",
+      "summary": "Removed 10,718 unreachable dead Lean modules and unused top-level imports in the first large-scale structural cleanup after v0.2.1, cutting 785,258 dead lines with zero impact on the kernel cone.",
+      "metrics": {
+        "loc": "-785,258 L (10,718 dead files deleted)",
+        "norm_tokens": "10,729 files touched (+5 / -785,263)",
+        "chars": "Zero active-cone declarations modified",
+        "warnings": "Clean CI build on main",
+        "cone": "0% active cone touched (100% dead prune)",
+        "equivalence": "Main.lean kernel DAG identical",
+        "axioms": "{propext, Classical.choice, Quot.sound}"
+      },
+      "receipt": "Merged to main as commit 7da4577eb; validated that top-level import reachability safely eliminates >10k unused generated modules.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/45",
+      "diff": "# Summary of PR #45 (@rohanarun)\n- Files changed: 10,729 (10,718 unreachable .lean files deleted)\n- Net line delta: -785,258 lines (+5 / -785,263)\n- Active kernel cone impact: 0 declarations altered."
+    },
+    {
+      "id": "pr243",
+      "pr_label": "Upstream PR #243 · @james-shore · Open",
+      "status": "open",
+      "bucket": "portability",
+      "category": "Linter Modernization · Lean 4.37 (-42% Warnings)",
+      "title": "Port Unused-Syntax Linter Cleanup to Lean 4.37 (-42% Warnings)",
+      "summary": "Ports mechanical unused-syntax linter cleanup (#67 -> #243) onto the Lean 4.37 branch, eliminating 42% of unused-syntax compiler warnings across the repository while @james-shore also lends a 384 GiB+ multi-core CI runner.",
+      "metrics": {
+        "loc": "Repo-wide mechanical linter cleanup",
+        "norm_tokens": "-42% unused-syntax warnings on Lean 4.37",
+        "chars": "Ported from #67 onto #185 (v4.37-rc1)",
+        "warnings": "Major warning-noise reduction",
+        "cone": "Full repository",
+        "equivalence": "Statement-preserving syntax cleanup",
+        "axioms": "{propext, Classical.choice, Quot.sound}"
+      },
+      "receipt": "Open PR #243 targeting Lean 4.37 branch (#185); pairs with #194 (~10,000 linter/deprecation warnings) to drive repo warnings toward zero.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/243",
+      "diff": "# Summary of PR #243 (@james-shore)\n- Ported unused-syntax linter fixes from #67 onto Lean 4.37 (#185)\n- Removes 42% of remaining unused-syntax compiler warnings\n- Prepares clean baseline for follow-up ~17,000 theorem deduplication."
+    },
+    {
       "id": "pr60",
       "pr_label": "Upstream PR #60 · Merged (173225e84)",
       "status": "merged",
@@ -284,7 +368,8 @@
       },
       "receipt": "Lean v4.33.1 · -DwarningAsError=true · Exact import-list & exported-decl parity against upstream prebuilt .olean · Direct importers compiled exit 0.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/60",
-      "diff": "diff --git a/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FixPiIff.lean b/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FixPiIff.lean\nindex d145cb504..c7ecd802a 100644\n--- a/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FixPiIff.lean\n+++ b/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FixPiIff.lean\n@@ -10,10 +10,18 @@ import Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwThe\n import Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwHkApply\n import Development.AutomorphicArithmetic.IntegralCasts.CapelliIdentities.FixedSubgroup\n \n-private theorem UpperTheory.Reformulated.B.Gr34.fix_pi_iff {ι : Type} [Finite ι] [DecidableEq ι] {G : ι → Type} [∀ i, Group (G i)]\n+namespace UpperTheory.Reformulated.B.Gr34\n+\n+open ValuativeRel IsLocalRing UpperTheory.V.W UpperTheory.V.Hi UpperTheory.V.AlgebraTools\n+  UpperTheory.V.Pa UpperTheory.V.Pa.Lev\n+\n+attribute [local instance] GlobalTheory.LocalData.complRel GlobalTheory.LocalData.isLocalField\n+\n+private theorem fix_pi_iff {ι : Type} [Finite ι] [DecidableEq ι] {G : ι → Type} [∀ i, Group (G i)]\n     {A M : Type} [CommRing A] [AddCommGroup M] [Module A M] (ρ : Representation A (∀ i, G i) M)\n     (K : ∀ i, Subgroup (G i)) (m : M) :\n-    (∀ k ∈ Subgroup.pi Set.univ K, ρ k m = m) ↔ ∀ j, ∀ k ∈ K j, ρ (Pi.mulSingle j k) m = m := by\n+    (∀ k ∈ Subgroup.pi Set.univ K, ρ k m = m) ↔\n+      ∀ j, ∀ k ∈ K j, ρ (Pi.mulSingle j k) m = m := by\n   refine ⟨fun h j k hk => h _ fun i _ => ?_, fun h k hk => ?_⟩\n   · rcases eq_or_ne i j with rfl | hij\n     · simpa using hk\n@@ -21,8009 +29,17 @@ private theorem UpperTheory.Reformulated.B.Gr34.fix_pi_iff {ι : Type} [Finite \n   · let H : Subgroup (∀ i, G i) :=\n       { carrier := {g | ρ g m = m}\n         one_mem' := by simp\n-        mul_mem' := fun {a b} (ha : ρ a m = m) (hb : ρ b m = m) => show ρ (a * b) m = m by simp [ha, hb]\n+        mul_mem' := fun {a b} (ha : ρ a m = m) (hb : ρ b m = m) =>\n+          show ρ (a * b) m = m by simp [ha, hb]\n         inv_mem' := fun {a} (ha : ρ a m = m) => show ρ a⁻¹ m = m by\n           conv_lhs => rw [← ha, Representation.inv_self_apply] }\n     exact Subgroup.pi_mem_of_mulSingle_mem (H := H) k fun i => h i _ (hk i trivial)\n \n-theorem UpperTheory.Reformulated.B.Gr34.mem_UC :\n-    ∀ {L : Type} [inst : Field L] [inst_1 : @NumberField L inst] {n q : Nat} {w : Fin q → @UpperTheory.V.W.Plc L inst}\n-      {A M : Type} [inst_2 : CommRing A] [inst_3 : AddCommGroup M]\n-      [inst_4 :\n-        @_root_.Module A M (@CommSemiring.toSemiring A (@CommRing.toCommSemiring A inst_2))\n-          (@AddCommGroup.toAddCommMonoid M inst_3)]\n-      (ρ :\n-        @Representation A (@UpperTheory.V.Hi.GV L inst inst_1 n (Fin q) w) M\n-          (@CommSemiring.toSemiring A (@CommRing.toCommSemiring A inst_2))\n-          (@Pi.monoid (Fin q) (fun (v : Fin q) ↦ @UpperTheory.V.Hi.GLw L inst inst_1 n (w v)) fun (i : Fin q) ↦\n-            @Units.instMonoid\n-              (Matrix (Fin n) (Fin n)\n-                (@IsDedekindDomain.HeightOneSpectrum.adicCompletion (@NumberField.RingOfIntegers L inst)\n-                  (@NumberField.instCommRingRingOfIntegers L inst)\n-                  (@NumberField.RingOfIntegers.instIsDedekindDomain L inst inst_1) L inst\n-  ... [7,981 lines of @NumberField.RingOfIntegers.* pp.explicit typeclass dump omitted] ...\n-                (@GlobalTheory.LocalData.isLocalField L inst inst_1 (w j)) n (C j)))\n-            m) := by\n-  intro L _ _ n q w A M _ _ _ ρ C m\n-  show m ∈ UpperTheory.Reformulated.B.SubgroupFixedSubmodule.fixd _ _ ↔ ∀ j, m ∈ UpperTheory.Reformulated.B.SubgroupFixedSubmodule.fixd _ _\n-  exact UpperTheory.Reformulated.B.Gr34.fix_pi_iff (G := fun j => UpperTheory.V.Hi.GLw n (w j)) ρ _ m\n+theorem mem_UC {L : Type} [Field L] [NumberField L] {n q : ℕ} {w : Fin q → Plc L}\n+    {A M : Type} [CommRing A] [AddCommGroup M] [Module A M]\n+    (ρ : Representation A (GV n w) M)\n+    (C : ∀ j : Fin q, Subgroup 𝓀[(w j).adicCompletion L]ˣ) (m : M) :\n+    m ∈ fixd ρ (UC n w C) ↔ ∀ j, m ∈ fixd (ρ.comp (atJ n w j)) (iwC _ n (C j)) :=\n+  fix_pi_iff (G := fun j => GLw n (w j)) ρ _ m\n+\n+end UpperTheory.Reformulated.B.Gr34"
+      "diff": "diff --git a/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FixPiIff.lean b/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FixPiIff.lean\nindex d145cb504..c7ecd802a 100644\n--- a/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FixPiIff.lean\n+++ b/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FixPiIff.lean\n@@ -10,10 +10,18 @@ import Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwThe\n import Development.AutomorphicArithmetic.AutomorphicVarieties.AlgebraTools.IwHkApply\n import Development.AutomorphicArithmetic.IntegralCasts.CapelliIdentities.FixedSubgroup\n \n-private theorem UpperTheory.Reformulated.B.Gr34.fix_pi_iff {ι : Type} [Finite ι] [DecidableEq ι] {G : ι → Type} [∀ i, Group (G i)]\n+namespace UpperTheory.Reformulated.B.Gr34\n+\n+open ValuativeRel IsLocalRing UpperTheory.V.W UpperTheory.V.Hi UpperTheory.V.AlgebraTools\n+  UpperTheory.V.Pa UpperTheory.V.Pa.Lev\n+\n+attribute [local instance] GlobalTheory.LocalData.complRel GlobalTheory.LocalData.isLocalField\n+\n+private theorem fix_pi_iff {ι : Type} [Finite ι] [DecidableEq ι] {G : ι → Type} [∀ i, Group (G i)]\n     {A M : Type} [CommRing A] [AddCommGroup M] [Module A M] (ρ : Representation A (∀ i, G i) M)\n     (K : ∀ i, Subgroup (G i)) (m : M) :\n-    (∀ k ∈ Subgroup.pi Set.univ K, ρ k m = m) ↔ ∀ j, ∀ k ∈ K j, ρ (Pi.mulSingle j k) m = m := by\n+    (∀ k ∈ Subgroup.pi Set.univ K, ρ k m = m) ↔\n+      ∀ j, ∀ k ∈ K j, ρ (Pi.mulSingle j k) m = m := by\n   refine ⟨fun h j k hk => h _ fun i _ => ?_, fun h k hk => ?_⟩\n   · rcases eq_or_ne i j with rfl | hij\n     · simpa using hk\n@@ -21,8009 +29,17 @@ private theorem UpperTheory.Reformulated.B.Gr34.fix_pi_iff {ι : Type} [Finite \n   · let H : Subgroup (∀ i, G i) :=\n       { carrier := {g | ρ g m = m}\n         one_mem' := by simp\n-        mul_mem' := fun {a b} (ha : ρ a m = m) (hb : ρ b m = m) => show ρ (a * b) m = m by simp [ha, hb]\n+        mul_mem' := fun {a b} (ha : ρ a m = m) (hb : ρ b m = m) =>\n+          show ρ (a * b) m = m by simp [ha, hb]\n         inv_mem' := fun {a} (ha : ρ a m = m) => show ρ a⁻¹ m = m by\n           conv_lhs => rw [← ha, Representation.inv_self_apply] }\n     exact Subgroup.pi_mem_of_mulSingle_mem (H := H) k fun i => h i _ (hk i trivial)\n \n-theorem UpperTheory.Reformulated.B.Gr34.mem_UC :\n-    ∀ {L : Type} [inst : Field L] [inst_1 : @NumberField L inst] {n q : Nat} {w : Fin q → @UpperTheory.V.W.Plc L inst}\n-      {A M : Type} [inst_2 : CommRing A] [inst_3 : AddCommGroup M]\n-      [inst_4 :\n-        @_root_.Module A M (@CommSemiring.toSemiring A (@CommRing.toCommSemiring A inst_2))\n-          (@AddCommGroup.toAddCommMonoid M inst_3)]\n-      (ρ :\n-        @Representation A (@UpperTheory.V.Hi.GV L inst inst_1 n (Fin q) w) M\n-          (@CommSemiring.toSemiring A (@CommRing.toCommSemiring A inst_2))\n-          (@Pi.monoid (Fin q) (fun (v : Fin q) ↦ @UpperTheory.V.Hi.GLw L inst inst_1 n (w v)) fun (i : Fin q) ↦\n-            @Units.instMonoid\n-              (Matrix (Fin n) (Fin n)\n-                (@IsDedekindDomain.HeightOneSpectrum.adicCompletion (@NumberField.RingOfIntegers L inst)\n-                  (@NumberField.instCommRingRingOfIntegers L inst)\n-                  (@NumberField.RingOfIntegers.instIsDedekindDomain L inst inst_1) L inst\n-  ... [7,981 lines of @NumberField.RingOfIntegers.* pp.explicit typeclass dump omitted] ...\n-                (@GlobalTheory.LocalData.isLocalField L inst inst_1 (w j)) n (C j)))\n-            m) := by\n-  intro L _ _ n q w A M _ _ _ ρ C m\n-  show m ∈ UpperTheory.Reformulated.B.SubgroupFixedSubmodule.fixd _ _ ↔ ∀ j, m ∈ UpperTheory.Reformulated.B.SubgroupFixedSubmodule.fixd _ _\n-  exact UpperTheory.Reformulated.B.Gr34.fix_pi_iff (G := fun j => UpperTheory.V.Hi.GLw n (w j)) ρ _ m\n+theorem mem_UC {L : Type} [Field L] [NumberField L] {n q : ℕ} {w : Fin q → Plc L}\n+    {A M : Type} [CommRing A] [AddCommGroup M] [Module A M]\n+    (ρ : Representation A (GV n w) M)\n+    (C : ∀ j : Fin q, Subgroup 𝓀[(w j).adicCompletion L]ˣ) (m : M) :\n+    m ∈ fixd ρ (UC n w C) ↔ ∀ j, m ∈ fixd (ρ.comp (atJ n w j)) (iwC _ n (C j)) :=\n+  fix_pi_iff (G := fun j => GLw n (w j)) ρ _ m\n+\n+end UpperTheory.Reformulated.B.Gr34",
+      "bucket": "active-cone"
     },
     {
       "id": "pr65",
@@ -304,7 +389,8 @@
       },
       "receipt": "Lean v4.33.1 · All 4 files verified against prebuilt .oleans for import/decl/type/def-value Kernel.isDefEq + Meta.isDefEq parity · 0 warnings.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/65",
-      "diff": "diff --git a/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FreeModuleQuotient.lean b/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FreeModuleQuotient.lean\nindex 5605016da..c378652a2 100644\n--- a/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FreeModuleQuotient.lean\n+++ b/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FreeModuleQuotient.lean\n@@ -1,7 +1,8 @@\n import Mathlib\n \n-private theorem UpperTheory.Reformulated.B.FreeModuleQuotient.aux {R S M : Type} [CommRing R] [CommRing S] [AddCommGroup M]\n-    [Module R M] (s : S →+* R) (I K : Ideal S) (hIK : I ≤ K) (c : ℕ)\n+theorem UpperTheory.Reformulated.B.FreeModuleQuotient.freeN_quot\n+    {R S M : Type} [CommRing R] [CommRing S] [AddCommGroup M] [Module R M]\n+    (s : S →+* R) (I K : Ideal S) (hIK : I ≤ K) (c : ℕ)\n     (e : M ≃+ (Fin c → S ⧸ I)) (he : ∀ (z : S) (x : M), e (s z • x) = z • e x) :\n     ∃ e' : (M ⧸ (Ideal.map s K • ⊤ : Submodule R M)) ≃+ (Fin c → S ⧸ K),\n       ∀ (a : S) (x : M ⧸ (Ideal.map s K • ⊤ : Submodule R M)), e' (s a • x) = a • e' x := by\n@@ -81,2436 +82,3 @@ private theorem UpperTheory.Reformulated.B.FreeModuleQuotient.aux {R S M : Type}\n   obtain ⟨y, rfl⟩ := Submodule.Quotient.mk_surjective _ x\n   rw [← Submodule.Quotient.mk_smul]\n   exact hsm a y\n-\n-theorem UpperTheory.Reformulated.B.FreeModuleQuotient.freeN_quot :\n-    ∀ {R S M : Type} [inst : CommRing R] [inst_1 : CommRing S] [inst_2 : AddCommGroup M]\n-      [inst_3 :\n-        @_root_.Module R M (@CommSemiring.toSemiring R (@CommRing.toCommSemiring R inst))\n-          (@AddCommGroup.toAddCommMonoid M inst_2)]\n-      (s :\n-        @RingHom S R (@Semiring.toNonAssocSemiring S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1)))\n-          (@Semiring.toNonAssocSemiring R (@CommSemiring.toSemiring R (@CommRing.toCommSemiring R inst))))\n-      (I K : @Ideal S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1))),\n-      @LE.le (@Ideal S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1)))\n-          (@Preorder.toLE (@Ideal S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1)))\n-            (@PartialOrder.toPreorder (@Ideal S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1)))\n-              (@Submodule.instPartialOrder S S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1))\n-                (@Semiring.toAddCommMonoid S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1)))\n-                (@Semiring.toModule S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1))))))\n-  ... [2,415 lines of duplicated pp.explicit wrapper around private aux omitted] ..."
+      "diff": "diff --git a/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FreeModuleQuotient.lean b/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FreeModuleQuotient.lean\nindex 5605016da..c378652a2 100644\n--- a/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FreeModuleQuotient.lean\n+++ b/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FreeModuleQuotient.lean\n@@ -1,7 +1,8 @@\n import Mathlib\n \n-private theorem UpperTheory.Reformulated.B.FreeModuleQuotient.aux {R S M : Type} [CommRing R] [CommRing S] [AddCommGroup M]\n-    [Module R M] (s : S →+* R) (I K : Ideal S) (hIK : I ≤ K) (c : ℕ)\n+theorem UpperTheory.Reformulated.B.FreeModuleQuotient.freeN_quot\n+    {R S M : Type} [CommRing R] [CommRing S] [AddCommGroup M] [Module R M]\n+    (s : S →+* R) (I K : Ideal S) (hIK : I ≤ K) (c : ℕ)\n     (e : M ≃+ (Fin c → S ⧸ I)) (he : ∀ (z : S) (x : M), e (s z • x) = z • e x) :\n     ∃ e' : (M ⧸ (Ideal.map s K • ⊤ : Submodule R M)) ≃+ (Fin c → S ⧸ K),\n       ∀ (a : S) (x : M ⧸ (Ideal.map s K • ⊤ : Submodule R M)), e' (s a • x) = a • e' x := by\n@@ -81,2436 +82,3 @@ private theorem UpperTheory.Reformulated.B.FreeModuleQuotient.aux {R S M : Type}\n   obtain ⟨y, rfl⟩ := Submodule.Quotient.mk_surjective _ x\n   rw [← Submodule.Quotient.mk_smul]\n   exact hsm a y\n-\n-theorem UpperTheory.Reformulated.B.FreeModuleQuotient.freeN_quot :\n-    ∀ {R S M : Type} [inst : CommRing R] [inst_1 : CommRing S] [inst_2 : AddCommGroup M]\n-      [inst_3 :\n-        @_root_.Module R M (@CommSemiring.toSemiring R (@CommRing.toCommSemiring R inst))\n-          (@AddCommGroup.toAddCommMonoid M inst_2)]\n-      (s :\n-        @RingHom S R (@Semiring.toNonAssocSemiring S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1)))\n-          (@Semiring.toNonAssocSemiring R (@CommSemiring.toSemiring R (@CommRing.toCommSemiring R inst))))\n-      (I K : @Ideal S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1))),\n-      @LE.le (@Ideal S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1)))\n-          (@Preorder.toLE (@Ideal S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1)))\n-            (@PartialOrder.toPreorder (@Ideal S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1)))\n-              (@Submodule.instPartialOrder S S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1))\n-                (@Semiring.toAddCommMonoid S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1)))\n-                (@Semiring.toModule S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1))))))\n-  ... [2,415 lines of duplicated pp.explicit wrapper around private aux omitted] ...",
+      "bucket": "active-cone"
     },
     {
       "id": "pr71",
@@ -324,7 +410,8 @@
       },
       "receipt": "Merged to main via PR #115 (da6765973f, co-authored, 149,396-module full build & 4.35 GB public cache verified; backward.* 3,000 -> 2,934).",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/71",
-      "diff": "diff --git a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelObjIsoHomSubtype.lean b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelObjIsoHomSubtype.lean\nindex 1bf094875..57b119e78 100644\n--- a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelObjIsoHomSubtype.lean\n+++ b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelObjIsoHomSubtype.lean\n@@ -19,6 +19,4 @@ structure QCohSub {X Y : Scheme.{0}} (f : X ⟶ Y) (F : ∀ V : Y.Opens, Subring\n variable {X Y : Scheme.{0}} {f : X ⟶ Y} {F : ∀ V : Y.Opens, Subring Γ(X, f ⁻¹ᵁ V)}\n \n-set_option backward.isDefEq.respectTransparency false in\n-\n def diagram (H : QCohSub f F) : Y.AffineZariskiSiteᵒᵖ ⥤ CommRingCat where\n   obj U := .of (F U.unop.1)\n@@ -45,5 +43,4 @@ def diagramMap (H : QCohSub f F) : (toOpensFunctor Y).op ⋙ Y.presheaf ⟶ diag\n variable [QuasiCompact f] [QuasiSeparated f]\n \n-set_option backward.isDefEq.respectTransparency false in\n lemma coequifibered (H : QCohSub f F) : (diagramMap H).Coequifibered := by\n   refine coequifibered_iff_forall_isLocalizationAway.mpr fun U r ↦ ?_\n@@ -57,5 +54,5 @@ lemma coequifibered (H : QCohSub f F) : (diagramMap H).Coequifibered := by\n     exact isLocalization_basicOpen_of_qcqs (f.isCompact_preimage U.2.isCompact)\n         (f.isQuasiSeparated_preimage U.2.isQuasiSeparated) (f.app _ r)\n-  letI := ((diagram H).map (homOfLE (U.basicOpen_le r)).op).hom.toAlgebra\n+  let := ((diagram H).map (homOfLE (U.basicOpen_le r)).op).hom.toAlgebra\n   refine IsLocalization.Away.mk _ ?_ ?_ ?_\n   · have h1 : IsUnit ((Y.presheaf.map (homOfLE (Y.basicOpen_le r)).op).hom r) :=\n@@ -67,6 +64,5 @@ lemma coequifibered (H : QCohSub f F) : (diagramMap H).Coequifibered := by\n     obtain ⟨k, y, hy, e⟩ := H.loc U.1 U.2 r s.1 s.2\n     refine ⟨k, ⟨y, hy⟩, Subtype.ext ?_⟩\n-    rw [mul_comm] at e\n-    exact e.symm\n+    exact (mul_comm _ _).trans e.symm\n   · intro a b hab\n     have hab' : algebraMap Γ(X, f ⁻¹ᵁ U.1) Γ(X, f ⁻¹ᵁ Y.basicOpen r) a.1 =\n@@ -84,6 +80,9 @@ def relSpec (H : QCohSub f F) : Scheme := (glueData H).glued\n def relCover (H : QCohSub f F) : (relSpec H).OpenCover := (glueData H).cover\n \n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n+private lemma isOpenImmersion_relCover (H : QCohSub f F) (U : Y.affineOpens) :\n+    IsOpenImmersion ((relCover H).f U) :=\n+  (relCover H).map_prop U\n+\n+attribute [local instance] isOpenImmersion_relCover\n \n def toRel (H : QCohSub f F) : X ⟶ relSpec H :=\n@@ -99,15 +98,46 @@ def toRel (H : QCohSub f F) : X ⟶ relSpec H :=\n         (f.preimage_mono (toOpens_mono i.1.1)) := by\n     rw [← cancel_mono (Scheme.Opens.ι _)]\n-    simp +instances [Cover.trans, Cover.locallyDirectedPullbackCover]\n-  rw [← Iso.inv_comp_eq, reassoc_of% this, ← Scheme.Opens.toSpecΓ_SpecMap_presheaf_map_assoc,\n-    ← Spec.map_comp_assoc]\n-  dsimp [relCover]\n-  rw [← colimit.w (glueData H).functor i]\n-  dsimp [glueData, relativeGluingData]\n-  rw [← Spec.map_comp_assoc]\n-  rfl\n+    have h2 : (Cover.trans ((directedCover Y).pullback₁ f) i ≫\n+        (pullbackRestrictIsoRestrict f V.1).hom) ≫ (f ⁻¹ᵁ V.1).ι = pullback.fst f U.1.ι :=\n+      (Category.assoc _ _ _).trans\n+        ((congrArg (Cover.trans ((directedCover Y).pullback₁ f) i ≫ ·)\n+          (pullbackRestrictIsoRestrict_hom_ι f V.1)).trans\n+          ((pullback.lift_fst _ _ _).trans (Category.comp_id _)))\n+    exact (Category.assoc _ _ _).trans\n+      ((congrArg ((pullbackRestrictIsoRestrict f U.1).inv ≫ ·) h2).trans\n+        ((pullbackRestrictIsoRestrict_inv_fst f U.1).trans (Scheme.homOfLE_ι _ _).symm))\n+  refine (Iso.inv_comp_eq _).mp ?_\n+  have h1 : (pullbackRestrictIsoRestrict f U.1).inv ≫\n+      Cover.trans ((directedCover Y).pullback₁ f) i ≫\n+      (pullbackRestrictIsoRestrict f V.1).hom ≫\n+        (f ⁻¹ᵁ V.1).toSpecΓ ≫ Spec.map (CommRingCat.ofHom (F V.1).subtype) ≫ (relCover H).f V =\n+      X.homOfLE (f.preimage_mono (toOpens_mono i.1.1)) ≫\n+        (f ⁻¹ᵁ V.1).toSpecΓ ≫ Spec.map (CommRingCat.ofHom (F V.1).subtype) ≫ (relCover H).f V :=\n+    (Category.assoc _ _ _).symm.trans ((Category.assoc _ _ _).symm.trans\n+      (congrArg (· ≫ (f ⁻¹ᵁ V.1).toSpecΓ ≫\n+        Spec.map (CommRingCat.ofHom (F V.1).subtype) ≫ (relCover H).f V) this))\n+  refine h1.trans ?_\n... [remaining 3 files: CofilteredSchemeLimitExistsLocally, CoequifiberedDiagramMap, ExistsEtaleNeighbourhoodFinitePieceIsolatedPoint — 66 backward.* directives total removed]"
+      "diff": "diff --git a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelObjIsoHomSubtype.lean b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelObjIsoHomSubtype.lean\nindex 1bf094875..57b119e78 100644\n--- a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelObjIsoHomSubtype.lean\n+++ b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelObjIsoHomSubtype.lean\n@@ -19,6 +19,4 @@ structure QCohSub {X Y : Scheme.{0}} (f : X ⟶ Y) (F : ∀ V : Y.Opens, Subring\n variable {X Y : Scheme.{0}} {f : X ⟶ Y} {F : ∀ V : Y.Opens, Subring Γ(X, f ⁻¹ᵁ V)}\n \n-set_option backward.isDefEq.respectTransparency false in\n-\n def diagram (H : QCohSub f F) : Y.AffineZariskiSiteᵒᵖ ⥤ CommRingCat where\n   obj U := .of (F U.unop.1)\n@@ -45,5 +43,4 @@ def diagramMap (H : QCohSub f F) : (toOpensFunctor Y).op ⋙ Y.presheaf ⟶ diag\n variable [QuasiCompact f] [QuasiSeparated f]\n \n-set_option backward.isDefEq.respectTransparency false in\n lemma coequifibered (H : QCohSub f F) : (diagramMap H).Coequifibered := by\n   refine coequifibered_iff_forall_isLocalizationAway.mpr fun U r ↦ ?_\n@@ -57,5 +54,5 @@ lemma coequifibered (H : QCohSub f F) : (diagramMap H).Coequifibered := by\n     exact isLocalization_basicOpen_of_qcqs (f.isCompact_preimage U.2.isCompact)\n         (f.isQuasiSeparated_preimage U.2.isQuasiSeparated) (f.app _ r)\n-  letI := ((diagram H).map (homOfLE (U.basicOpen_le r)).op).hom.toAlgebra\n+  let := ((diagram H).map (homOfLE (U.basicOpen_le r)).op).hom.toAlgebra\n   refine IsLocalization.Away.mk _ ?_ ?_ ?_\n   · have h1 : IsUnit ((Y.presheaf.map (homOfLE (Y.basicOpen_le r)).op).hom r) :=\n@@ -67,6 +64,5 @@ lemma coequifibered (H : QCohSub f F) : (diagramMap H).Coequifibered := by\n     obtain ⟨k, y, hy, e⟩ := H.loc U.1 U.2 r s.1 s.2\n     refine ⟨k, ⟨y, hy⟩, Subtype.ext ?_⟩\n-    rw [mul_comm] at e\n-    exact e.symm\n+    exact (mul_comm _ _).trans e.symm\n   · intro a b hab\n     have hab' : algebraMap Γ(X, f ⁻¹ᵁ U.1) Γ(X, f ⁻¹ᵁ Y.basicOpen r) a.1 =\n@@ -84,6 +80,9 @@ def relSpec (H : QCohSub f F) : Scheme := (glueData H).glued\n def relCover (H : QCohSub f F) : (relSpec H).OpenCover := (glueData H).cover\n \n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n+private lemma isOpenImmersion_relCover (H : QCohSub f F) (U : Y.affineOpens) :\n+    IsOpenImmersion ((relCover H).f U) :=\n+  (relCover H).map_prop U\n+\n+attribute [local instance] isOpenImmersion_relCover\n \n def toRel (H : QCohSub f F) : X ⟶ relSpec H :=\n@@ -99,15 +98,46 @@ def toRel (H : QCohSub f F) : X ⟶ relSpec H :=\n         (f.preimage_mono (toOpens_mono i.1.1)) := by\n     rw [← cancel_mono (Scheme.Opens.ι _)]\n-    simp +instances [Cover.trans, Cover.locallyDirectedPullbackCover]\n-  rw [← Iso.inv_comp_eq, reassoc_of% this, ← Scheme.Opens.toSpecΓ_SpecMap_presheaf_map_assoc,\n-    ← Spec.map_comp_assoc]\n-  dsimp [relCover]\n-  rw [← colimit.w (glueData H).functor i]\n-  dsimp [glueData, relativeGluingData]\n-  rw [← Spec.map_comp_assoc]\n-  rfl\n+    have h2 : (Cover.trans ((directedCover Y).pullback₁ f) i ≫\n+        (pullbackRestrictIsoRestrict f V.1).hom) ≫ (f ⁻¹ᵁ V.1).ι = pullback.fst f U.1.ι :=\n+      (Category.assoc _ _ _).trans\n+        ((congrArg (Cover.trans ((directedCover Y).pullback₁ f) i ≫ ·)\n+          (pullbackRestrictIsoRestrict_hom_ι f V.1)).trans\n+          ((pullback.lift_fst _ _ _).trans (Category.comp_id _)))\n+    exact (Category.assoc _ _ _).trans\n+      ((congrArg ((pullbackRestrictIsoRestrict f U.1).inv ≫ ·) h2).trans\n+        ((pullbackRestrictIsoRestrict_inv_fst f U.1).trans (Scheme.homOfLE_ι _ _).symm))\n+  refine (Iso.inv_comp_eq _).mp ?_\n+  have h1 : (pullbackRestrictIsoRestrict f U.1).inv ≫\n+      Cover.trans ((directedCover Y).pullback₁ f) i ≫\n+      (pullbackRestrictIsoRestrict f V.1).hom ≫\n+        (f ⁻¹ᵁ V.1).toSpecΓ ≫ Spec.map (CommRingCat.ofHom (F V.1).subtype) ≫ (relCover H).f V =\n+      X.homOfLE (f.preimage_mono (toOpens_mono i.1.1)) ≫\n+        (f ⁻¹ᵁ V.1).toSpecΓ ≫ Spec.map (CommRingCat.ofHom (F V.1).subtype) ≫ (relCover H).f V :=\n+    (Category.assoc _ _ _).symm.trans ((Category.assoc _ _ _).symm.trans\n+      (congrArg (· ≫ (f ⁻¹ᵁ V.1).toSpecΓ ≫\n+        Spec.map (CommRingCat.ofHom (F V.1).subtype) ≫ (relCover H).f V) this))\n+  refine h1.trans ?_\n... [remaining 3 files: CofilteredSchemeLimitExistsLocally, CoequifiberedDiagramMap, ExistsEtaleNeighbourhoodFinitePieceIsolatedPoint — 66 backward.* directives total removed]",
+      "bucket": "portability"
     },
     {
       "id": "pr109",
@@ -344,7 +431,8 @@
       },
       "receipt": "Lean v4.36.0 · --setup module mode + -DwarningAsError=true (0 warnings) · Exact .olean equivalence vs pinned v4.36.0 cache · 9/9 critical dist=1 importers locally + 85/85 downstream modules independently confirmed by @marwuint.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/109",
-      "diff": "diff --git a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AutomorphicFormsFiniteGL.lean b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AutomorphicFormsFiniteGL.lean\n--- a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AutomorphicFormsFiniteGL.lean\n+++ b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AutomorphicFormsFiniteGL.lean\n@@ -2,14 +2,13 @@ module\n \n public import Mathlib\n public import Development.AbelianVarietyTheory.PublishedTheorems.AutomorphicForms₂.ExistsSpanFormsNeBot\n-public import Development.AbelianVarietyTheory.Proofs.DivisorProofs.HarishChandraFinitenessAutomorphicGLOfEigenStatement\n-public import Development.AbelianVarietyTheory.Proofs.DivisorProofs.HarishChandraFinitenessTotallyComplexGLProofStatement\n+import Development.AutomorphicArithmetic.AutomorphicVarieties.AutomorphicForms.TemperedLocalComponents.FormsFiniteGL\n \n @[expose] public section\n \n namespace GlobalTheory\n \n theorem automorphicFormsFiniteGL : GlobalTheory.Published.AutomorphicFormsFiniteGL :=\n-  GlobalTheory.T.harishChandra_finiteness_automorphic_GL_of_eigen GlobalTheory.T.harishChandraFinitenessTotallyComplexGL_proof\n+  UpperTheory.V.Af.formsFiniteGL\n \n end GlobalTheory\n# + 180 deleted unreferenced duplicate Harish-Chandra finiteness files (179 in Proofs/DivisorProofs/, 1 Definitions/Divisors/ZeroMemSolSet.lean)"
+      "diff": "diff --git a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AutomorphicFormsFiniteGL.lean b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AutomorphicFormsFiniteGL.lean\n--- a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AutomorphicFormsFiniteGL.lean\n+++ b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AutomorphicFormsFiniteGL.lean\n@@ -2,14 +2,13 @@ module\n \n public import Mathlib\n public import Development.AbelianVarietyTheory.PublishedTheorems.AutomorphicForms₂.ExistsSpanFormsNeBot\n-public import Development.AbelianVarietyTheory.Proofs.DivisorProofs.HarishChandraFinitenessAutomorphicGLOfEigenStatement\n-public import Development.AbelianVarietyTheory.Proofs.DivisorProofs.HarishChandraFinitenessTotallyComplexGLProofStatement\n+import Development.AutomorphicArithmetic.AutomorphicVarieties.AutomorphicForms.TemperedLocalComponents.FormsFiniteGL\n \n @[expose] public section\n \n namespace GlobalTheory\n \n theorem automorphicFormsFiniteGL : GlobalTheory.Published.AutomorphicFormsFiniteGL :=\n-  GlobalTheory.T.harishChandra_finiteness_automorphic_GL_of_eigen GlobalTheory.T.harishChandraFinitenessTotallyComplexGL_proof\n+  UpperTheory.V.Af.formsFiniteGL\n \n end GlobalTheory\n# + 180 deleted unreferenced duplicate Harish-Chandra finiteness files (179 in Proofs/DivisorProofs/, 1 Definitions/Divisors/ZeroMemSolSet.lean)",
+      "bucket": "active-cone"
     },
     {
       "id": "pr110",
@@ -364,7 +452,8 @@
       },
       "receipt": "Lean v4.36.0 · --setup module mode + -DwarningAsError=true (0 warnings) · Exact 10/10 imports & 4/4 exported decls (incl. cpR def value) Kernel/Meta isDefEq PASS · Both dist=1 importers (ExistsGeoExtN, LinkedStatesFockPolynomialsAgree) compiled exit 0 with 0 warnings.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/110",
-      "diff": "diff --git a/src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/NonzeroPlacesOverPrimesOfLifts.lean b/src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/NonzeroPlacesOverPrimesOfLifts.lean\n@@ -24,26 +24,17 @@\n-section Types\n-  ... [unused empty variable section] ...\n-end Types\n-\n section Std\n \n def cpR (z : Dat a.st I hX T Wt) :\n-    @RealDat3 b.st.toD7 _ _ _ _ _ _ (famR b.st I hX (usedOf I T Wt) z.Xg z.tr) (coreJ b z.core).Q.c.F _ _ ((by exact @alg B C a b ... [2,796 chars] ...)) :=\n+    @RealDat3 b.st.toD7 _ _ _ _ _ _ (famR b.st I hX (usedOf I T Wt) z.Xg z.tr) (coreJ b z.core).Q.c.F _ _ (alg (a := a) b z.alg) :=\n   (by with_unfolding_all exact ((real3 b (iK := z.alg) z.R) :))\n \n-set_option maxHeartbeats 2000000 in\n theorem std_cpR (z : Dat a.st I hX T Wt) (h : z.Std) :\n-    @BrgStd b.st px I hX (usedOf I T Wt) z.Xg z.tr (coreJ b z.core).Q.c.F _ _ ((by exact @alg B C a b ... [2,796 chars] ...))\n+    @BrgStd b.st px I hX (usedOf I T Wt) z.Xg z.tr (coreJ b z.core).Q.c.F _ _ (alg (a := a) b z.alg)\n       (by with_unfolding_all exact (@RealDat3.toRealDat ... (alg (a := a) b z.alg) (cpR b z) :)) := by\n   with_unfolding_all exact (h :)\n \n-set_option maxHeartbeats 2000000 in\n theorem std_of_copy ..."
+      "diff": "diff --git a/src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/NonzeroPlacesOverPrimesOfLifts.lean b/src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/NonzeroPlacesOverPrimesOfLifts.lean\n@@ -24,26 +24,17 @@\n-section Types\n-  ... [unused empty variable section] ...\n-end Types\n-\n section Std\n \n def cpR (z : Dat a.st I hX T Wt) :\n-    @RealDat3 b.st.toD7 _ _ _ _ _ _ (famR b.st I hX (usedOf I T Wt) z.Xg z.tr) (coreJ b z.core).Q.c.F _ _ ((by exact @alg B C a b ... [2,796 chars] ...)) :=\n+    @RealDat3 b.st.toD7 _ _ _ _ _ _ (famR b.st I hX (usedOf I T Wt) z.Xg z.tr) (coreJ b z.core).Q.c.F _ _ (alg (a := a) b z.alg) :=\n   (by with_unfolding_all exact ((real3 b (iK := z.alg) z.R) :))\n \n-set_option maxHeartbeats 2000000 in\n theorem std_cpR (z : Dat a.st I hX T Wt) (h : z.Std) :\n-    @BrgStd b.st px I hX (usedOf I T Wt) z.Xg z.tr (coreJ b z.core).Q.c.F _ _ ((by exact @alg B C a b ... [2,796 chars] ...))\n+    @BrgStd b.st px I hX (usedOf I T Wt) z.Xg z.tr (coreJ b z.core).Q.c.F _ _ (alg (a := a) b z.alg)\n       (by with_unfolding_all exact (@RealDat3.toRealDat ... (alg (a := a) b z.alg) (cpR b z) :)) := by\n   with_unfolding_all exact (h :)\n \n-set_option maxHeartbeats 2000000 in\n theorem std_of_copy ...",
+      "bucket": "active-cone"
     },
     {
       "id": "pr224",
@@ -384,7 +473,8 @@
       },
       "receipt": "Lean v4.36.0 · --setup module mode · 5/5 .olean Kernel.isDefEq & Meta.isDefEq + exact BinderInfo/levelParams/import parity vs pinned v4.36.0 cache · 9/9 direct dist=1 importers (all 7 importers of the 4 smaller modules + 2 normalization importers) exit 0 · Independent read-only subagent review APPROVE.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/224",
-      "diff": "diff --git a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsFilteredColimitEtaleOfIndEt.lean b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsFilteredColimitEtaleOfIndEt.lean\nindex 80346339d0..ad7337234e 100644\n--- a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsFilteredColimitEtaleOfIndEt.lean\n+++ b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsFilteredColimitEtaleOfIndEt.lean\n@@ -10,14 +10,13 @@ open CategoryTheory Limits AlgebraicGeometry Opposite CochainComplex CochainComp\n namespace GlobalTheory.EtC\n \n \n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n theorem exists_filtered_colimit_etale_of_indEt : ∀ (A O : Type) [CommRing A] [CommRing O] [Algebra A O], IndEt A O → ∃ (J : Type) (_ : SmallCategory J) (_ : IsFiltered J) (D : J ⥤ Under (CommRingCat.of A)) (ι : D ⟶ (Functor.const J).obj (Under.mk (CommRingCat.ofHom (algebraMap A O)))), Nonempty (IsColimit (Cocone.mk _ ι)) ∧ ∀ j, (D.obj j).hom.hom.Etale := by\n   intro A O _ _ _ h\n   obtain ⟨J, _, _, D, t, s, hs, hst⟩ := h\n   have : Nonempty J := IsFiltered.nonempty\n   refine ⟨J, inferInstance, inferInstance, Under.lift D t,\n-    { app j := Under.homMk (s.app j) (by simp [hst]) },\n-    ⟨Under.isColimitLiftCocone _ _ _ _ (by simp [hst]) hs⟩, fun j => (hst j).1⟩\n+    { app j := Under.homMk (s.app j) (hst j).2\n+      naturality _ _ f := by ext1; exact s.naturality f },\n+    ⟨Under.isColimitLiftCocone _ _ _ _ (fun j => (hst j).2) hs⟩, fun j => (hst j).1⟩\n \n end GlobalTheory.EtC\ndiff --git a/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsIsoNormalizationPullbackOfToIntegralClosure.lean b/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsIsoNormalizationPullbackOfToIntegralClosure.lean\nindex 57ffa5cd8a..085aafc09e 100644\n--- a/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsIsoNormalizationPullbackOfToIntegralClosure.lean\n+++ b/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsIsoNormalizationPullbackOfToIntegralClosure.lean\n@@ -180,8 +180,6 @@ instance isIso_toNormalization_fromNormalization {X Y : Scheme.{u}} (f : X ⟶ Y\n   infer_instance\n \n \n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n open TensorProduct in\n theorem isIso_normalizationPullback_of_toIntegralClosure {X S Y : Scheme.{u}} (f : X ⟶ S)\n     (g : Y ⟶ S) [QuasiCompact f] [QuasiSeparated f] [Flat g]\n@@ -194,19 +192,23 @@ theorem isIso_normalizationPullback_of_toIntegralClosure {X S Y : Scheme.{u}} (f\n   obtain ⟨U, hU, V, hV, hVU, hxV, hB⟩ := hg (pullback.snd f.fromNormalization g x)\n   let W := pullback.snd (Scheme.Hom.fromNormalization f) g ⁻¹ᵁ V\n   refine ⟨W, hxV, (isIso_morphismRestrict_iff_isIso_app _ (U := W) (hV.preimage _)).mpr ?_⟩\n+  have hW_eq : W = pullback.fst f.fromNormalization g ⁻¹ᵁ f.fromNormalization ⁻¹ᵁ U ⊓\n+      pullback.snd f.fromNormalization g ⁻¹ᵁ V := by\n+    simp_rw [W, ← Scheme.Hom.comp_preimage, pullback.condition, Scheme.Hom.comp_preimage,\n+      ← Scheme.Hom.preimage_inf, inf_eq_right.mpr hVU]\n   have := isIso_pushoutSection_of_isQuasiSeparated_of_flat_right\n-    (.of_hasPullback f.fromNormalization g) hVU le_rfl (UY := W)\n-    (by simp_rw [W, ← Scheme.Hom.comp_preimage, pullback.condition, Scheme.Hom.comp_preimage,\n-      ← Scheme.Hom.preimage_inf, inf_eq_right.mpr hVU]) hU hV\n+    (.of_hasPullback f.fromNormalization g) hVU le_rfl (UY := W) hW_eq hU hV\n     (hU.preimage f.fromNormalization).isCompact (hU.preimage f.fromNormalization).isQuasiSeparated\n   rw [← @isIso_comp_left_iff _ _ _ _ _ _ _ this,\n     ← isIso_comp_left_iff (pushout.congrHom f.fromNormalization.app_eq_appLE rfl).hom]\n   algebraize [(f.app U).hom, (g.appLE U V hVU).hom, ((pullback.snd f g).app V).hom]\n+  have hV_eq : pullback.snd f g ⁻¹ᵁ V =\n+      pullback.fst f g ⁻¹ᵁ f ⁻¹ᵁ U ⊓ pullback.snd f g ⁻¹ᵁ V := by\n+    simp_rw [← Scheme.Hom.comp_preimage, pullback.condition, Scheme.Hom.comp_preimage,\n+      ← Scheme.Hom.preimage_inf, inf_eq_right.mpr hVU]\n   have := isIso_pushoutSection_of_isQuasiSeparated_of_flat_right\n-    (.of_hasPullback f g) hVU le_rfl (UY := pullback.snd f g ⁻¹ᵁ V)\n-    (by simp_rw [← Scheme.Hom.comp_preimage, pullback.condition, Scheme.Hom.comp_preimage,\n-      ← Scheme.Hom.preimage_inf, inf_eq_right.mpr hVU]) hU hV (f.isCompact_preimage hU.isCompact)\n-    (f.isQuasiSeparated_preimage hU.isQuasiSeparated)\n+    (.of_hasPullback f g) hVU le_rfl (UY := pullback.snd f g ⁻¹ᵁ V) hV_eq hU hV\n+    (f.isCompact_preimage hU.isCompact) (f.isQuasiSeparated_preimage hU.isQuasiSeparated)\n   let e₀ := (CommRingCat.isPushout_tensorProduct ..).flip.isoPushout ≪≫\n     (pushout.congrHom f.app_eq_appLE rfl ≪≫ @asIso _ _ _ _ _ this :)\n   let e : Γ(Y, V) ⊗[Γ(S, U)] Γ(X, f ⁻¹ᵁ U) ≃ₐ[Γ(Y, V)] Γ(pullback f g, pullback.snd f g ⁻¹ᵁ V) :=\n@@ -233,11 +235,14 @@ theorem isIso_normalizationPullback_of_toIntegralClosure {X S Y : Scheme.{u}} (f\n       (by simp only [W, ← Scheme.Hom.comp_preimage, Scheme.Hom.normalizationPullback_snd])).op\n   convert! show IsIso φ by dsimp only [φ]; infer_instance using 1\n   ext1\n-  · dsimp [φ]\n-    simp only [Scheme.Hom.app_eq_appLE, colimit.ι_desc_assoc, span_left, PushoutCocone.mk_pt,\n-      PushoutCocone.mk_ι_app, Category.id_comp, Scheme.Hom.appLE_comp_appLE, eqToHom_op,\n-      Category.assoc, IsPushout.inl_isoPushout_inv_assoc]\n-    simp_rw [← Category.assoc, ← IsIso.comp_inv_eq]\n+  · dsimp only [φ]\n+    simp only [pushout.congrHom_hom]\n+    dsimp only [pushout.map, pushoutSection]\n+    simp only [Category.assoc, pushout.inl_desc_assoc, Category.id_comp,\n+      IsPushout.inl_isoPushout_inv_assoc, Scheme.Hom.app_eq_appLE, Scheme.Hom.appLE_comp_appLE,\n+      eqToHom_op]\n+    simp only [← Category.assoc]\n+    rw [← IsIso.comp_inv_eq, ← IsIso.comp_inv_eq]\n     simp only [← Functor.map_inv, inv_eqToHom, Scheme.Hom.appLE_map, IsIso.Iso.inv_inv,\n       Category.assoc]\n     have : Mono (CommRingCat.ofHom (integralClosure Γ(Y, V)\n@@ -245,7 +250,7 @@ theorem isIso_normalizationPullback_of_toIntegralClosure {X S Y : Scheme.{u}} (f\n       ConcreteCategory.mono_of_injective _ Subtype.val_injective\n     rw [← cancel_mono (CommRingCat.ofHom (Subalgebra.val _).toRingHom)]\n     simp only [Category.assoc, Scheme.Hom.normalizationObjIso_hom_val, Scheme.Hom.appLE_comp_appLE,\n-      Scheme.Hom.toNormalization_normalizationPullback_fst, ← CommRingCat.ofHom_comp]\n+      Scheme.Hom.toNormalization_normalizationPullback_fst]\n     have H : pullback.snd f g ⁻¹ᵁ V ≤ pullback.fst f g ⁻¹ᵁ f ⁻¹ᵁ U := by\n       rw [← Scheme.Hom.comp_preimage, pullback.condition, Scheme.Hom.comp_preimage]\n       exact Scheme.Hom.preimage_mono _ hVU\n@@ -258,11 +263,14 @@ theorem isIso_normalizationPullback_of_toIntegralClosure {X S Y : Scheme.{u}} (f\n       trans (CommRingCat.ofHom Algebra.TensorProduct.includeRight.toRingHom ≫ e₀.hom) x\n       · congr 2; simp [e₀, pushout.inl_desc_assoc]\n       · simp [ψ, toIntegralClosure, e]; rfl\n-  · dsimp [φ]\n-    simp only [Scheme.Hom.app_eq_appLE, colimit.ι_desc_assoc, span_right, PushoutCocone.mk_pt,\n-      PushoutCocone.mk_ι_app, Category.id_comp, Scheme.Hom.appLE_comp_appLE,\n-      Scheme.Hom.normalizationPullback_snd, eqToHom_op, IsPushout.inr_isoPushout_inv_assoc]\n-    simp_rw [← Category.assoc, ← IsIso.comp_inv_eq]\n+  · dsimp only [φ]\n+    simp only [pushout.congrHom_hom]\n+    dsimp only [pushout.map, pushoutSection]\n+    simp only [pushout.inr_desc_assoc, Category.id_comp,\n+      IsPushout.inr_isoPushout_inv_assoc, Scheme.Hom.app_eq_appLE, Scheme.Hom.appLE_comp_appLE,\n+      Scheme.Hom.normalizationPullback_snd, eqToHom_op]\n+    simp only [← Category.assoc]\n+    rw [← IsIso.comp_inv_eq, ← IsIso.comp_inv_eq]\n     simp only [← Functor.map_inv, inv_eqToHom, Scheme.Hom.appLE_map, ← Scheme.Hom.app_eq_appLE,\n       Scheme.Hom.fromNormalization_app _ hV, IsIso.Iso.inv_inv, Category.assoc, Iso.inv_hom_id,\n       Category.comp_id]\n@@ -492,7 +500,6 @@ theorem isIso_toNormalization_morphismRestrict {X Y : Scheme.{u}} (f : X ⟶ Y)\n   infer_instance\n \n \n-set_option backward.isDefEq.respectTransparency false in\n theorem flat_of_isSchemeTheoreticallyDominant {R : Type u} [CommRing R] [IsDomain R]\n     (hR : ∀ (A : Type u) [CommRing A] [Algebra R A], Submodule.torsion R A = ⊥ → Module.Flat R A)\n     {X N : Scheme.{u}} (j : X ⟶ N) [QuasiCompact j] [IsSchemeTheoreticallyDominant j]\n@@ -510,15 +517,18 @@ theorem flat_of_isSchemeTheoreticallyDominant {R : Type u} [CommRing R] [IsDomai\n       RingHom.Flat.holdsForLocalizationAway).left |>.mpr fun y ↦ ?_\n   obtain ⟨_, ⟨(W : N.Opens), hW, rfl⟩, hy, -⟩ := N.isBasis_affineOpens.exists_subset_of_mem_open\n     (Set.mem_univ y) isOpen_univ\n-  refine ⟨⟨⊤, isAffineOpen_top _⟩, ⟨W, hW⟩, hy, le_top, ?_⟩\n-  let φ := (Scheme.ΓSpecIso (.of R)).inv ≫ p.appLE ⊤ W le_top\n+  have hpW : W ≤ p ⁻¹ᵁ ⊤ := fun _ _ ↦ trivial\n+  refine ⟨⟨⊤, isAffineOpen_top _⟩, ⟨W, hW⟩, hy, hpW, ?_⟩\n+  let φ := (Scheme.ΓSpecIso (.of R)).inv ≫ p.appLE ⊤ W hpW\n   suffices φ.hom.Flat by\n     rwa [CommRingCat.hom_comp, RingHom.Flat.respectsIso.cancel_left_isIso] at this\n   let := φ.hom.toAlgebra\n   refine hR _ (eq_bot_iff.mpr fun x ⟨⟨r, hr⟩, hx⟩ ↦ ?_)\n+  have hcW : j' ⁻¹ᵁ W ≤ c ⁻¹ᵁ ⊤ := fun _ _ ↦ trivial\n+  have hciW : j' ⁻¹ᵁ W ≤ (c ≫ ι) ⁻¹ᵁ ⊤ := fun _ _ ↦ trivial\n   have hφ : φ ≫ j'.app W = CommRingCat.ofHom (algebraMap R K) ≫\n-      (Scheme.ΓSpecIso (.of K)).inv ≫ c.appLE ⊤ _ le_top := by\n-    have h1 : p.appLE ⊤ W le_top ≫ j'.app W = (c ≫ ι).appLE ⊤ _ le_top := by\n+      (Scheme.ΓSpecIso (.of K)).inv ≫ c.appLE ⊤ _ hcW := by\n+    have h1 : p.appLE ⊤ W hpW ≫ j'.app W = (c ≫ ι).appLE ⊤ _ hciW := by\n       rw [Scheme.Hom.app_eq_appLE, Scheme.Hom.appLE_comp_appLE]\n       simp only [hc]\n     rw [Scheme.ΓSpecIso_inv_naturality_assoc, Category.assoc, h1, Scheme.Hom.comp_appLE]\ndiff --git a/src/Development/WeilBound/CoreStatements/PadicHodgeComparison/EtaleCohomologyComparison/PerfectoidPullbacks/ConeSectionRestriction/ExistsIntegralNbhd.lean b/src/Development/WeilBound/CoreStatements/PadicHodgeComparison/EtaleCohomologyComparison/PerfectoidPullbacks/ConeSectionRestriction/ExistsIntegralNbhd.lean\nindex c09fbc4f59..84e50ab579 100644\n--- a/src/Development/WeilBound/CoreStatements/PadicHodgeComparison/EtaleCohomologyComparison/PerfectoidPullbacks/ConeSectionRestriction/ExistsIntegralNbhd.lean\n+++ b/src/Development/WeilBound/CoreStatements/PadicHodgeComparison/EtaleCohomologyComparison/PerfectoidPullbacks/ConeSectionRestriction/ExistsIntegralNbhd.lean\n@@ -13,8 +13,6 @@ open CategoryTheory AlgebraicGeometry\n namespace CrystallineSemistableComparison.Pb.EtaleIntegralityFacts\n \n \n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n theorem exists_integral_nbhd {K : Type} [Field K] {X : Scheme.{0}} (q : X ⟶ Spec (CommRingCat.of K))\n     [Smooth q]\n     (hE : ∀ (A : Type) [CommRing A] [Algebra K A] [Algebra.Smooth K A] (p : Ideal A) [p.IsPrime],\n@@ -33,9 +31,11 @@ theorem exists_integral_nbhd {K : Type} [Field K] {X : Scheme.{0}} (q : X ⟶ Sp\n   have : Algebra.Smooth K Γ(X, V) := hφ\n   obtain ⟨r, hr, hdom⟩ := hE Γ(X, V) (hV.primeIdealOf ⟨x, hxV⟩).asIdeal\n   have hxW : x ∈ X.basicOpen r := by\n-    rwa [← PrimeSpectrum.mem_basicOpen, IsAffineOpen.primeIdealOf,\n-      ← hV.fromSpec_preimage_basicOpen, Scheme.Hom.mem_preimage, ← Scheme.Hom.comp_apply,\n-      IsAffineOpen.isoSpec_hom, IsAffineOpen.toSpecΓ_fromSpec] at hr\n+    have hr' : hV.primeIdealOf ⟨x, hxV⟩ ∈ hV.fromSpec ⁻¹ᵁ X.basicOpen r := by\n+      rw [hV.fromSpec_preimage_basicOpen]\n+      exact hr\n+    have hfx : hV.fromSpec (hV.primeIdealOf ⟨x, hxV⟩) = x := hV.fromSpec_primeIdealOf ⟨x, hxV⟩\n+    exact hfx ▸ (hr' : hV.fromSpec (hV.primeIdealOf ⟨x, hxV⟩) ∈ X.basicOpen r)\n   refine ⟨X.basicOpen r, hxW, ?_⟩\n   have hW : IsAffineOpen (X.basicOpen r) := hV.basicOpen r\n   have : IsAffine (X.basicOpen r) := hW\ndiff --git a/src/GroundTheory/TateCohomology/CupConnecting.lean b/src/GroundTheory/TateCohomology/CupConnecting.lean\nindex 0353d7eb3d..28479d93b5 100644\n--- a/src/GroundTheory/TateCohomology/CupConnecting.lean\n+++ b/src/GroundTheory/TateCohomology/CupConnecting.lean\n@@ -68,8 +68,6 @@ theorem δ_π_eq {p : ℕ} (z : cocycles X.X₃ p) (y : (Fin p → G) → X.X₂\n \n \n include hX in\n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n theorem exists_f_eq_of_g_eq_zero (e : X.X₂) (he : X.g.hom e = 0) : ∃ a : X.X₁, X.f.hom a = e := by\n   have : LinearMap.range X.f.hom.toLinearMap = LinearMap.ker X.g.hom.toLinearMap :=\n     (hX.exact.map (forget₂ (Rep k G) (ModuleCat k))).moduleCat_range_eq_ker\ndiff --git a/src/GroundTheory/TateCohomology/DiagonalSuccIsoFreeInvSingle.lean b/src/GroundTheory/TateCohomology/DiagonalSuccIsoFreeInvSingle.lean\nindex 4c296231f0..75dc0646a2 100644\n--- a/src/GroundTheory/TateCohomology/DiagonalSuccIsoFreeInvSingle.lean\n+++ b/src/GroundTheory/TateCohomology/DiagonalSuccIsoFreeInvSingle.lean\n@@ -58,8 +58,6 @@ section Bar\n variable {k G : Type u} [CommRing k] [Group G]\n \n \n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n lemma diagonalSuccIsoFree_inv_single (m : ℕ) (f : Fin m → G) (g : G) (r : k) :\n     (diagonalSuccIsoFree k G m).inv.hom (Finsupp.single f (MonoidAlgebra.single g r)) =\n       MonoidAlgebra.single (g • Fin.partialProd f) r := by\n@@ -69,12 +67,7 @@ lemma diagonalSuccIsoFree_inv_single (m : ℕ) (f : Fin m → G) (g : G) (r : k)\n       (Finsupp.single f (.single g r)) = .single g 1 ⊗ₜ[k] .single f r :=\n     Representation.leftRegularTensorTrivialIsoFree_symm_apply_single_single f g r\n   rw [step1]\n-  simp only [mkIso_inv, Representation.linearizeOfMulActionIso, Representation.Equiv.mk_symm,\n-    LinearEquiv.refl_symm, ConcreteCategory.hom_ofHom, Action.tensorObj_V, Action.trivial_V,\n-    Functor.mapIso_inv, tensor_V, tensor_ρ, Iso.symm_inv, Functor.Monoidal.μIso_hom, μ_hom,\n-    MonoidalCategory.tensorIso_inv, Representation.linearizeTrivialIso, hom_tensorHom,\n-    Representation.IntertwiningMap.tensor_apply, Representation.Equiv.coe_toIntertwiningMap,\n-    Representation.Equiv.mk_apply, LinearEquiv.refl_apply]\n+  simp only [Action.tensorObj_V, tensor_V, tensor_ρ]\n   have key₁ := Representation.linearizeMap_single (k := k)\n     (Action.diagonalSuccIsoTensorTrivial G m).inv (g, f) ((1 : k) * r)\n   have key₂ := Representation.LinearizeMonoidal.μ_apply_single_single (k := k)"
+      "diff": "diff --git a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsFilteredColimitEtaleOfIndEt.lean b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsFilteredColimitEtaleOfIndEt.lean\nindex 80346339d0..ad7337234e 100644\n--- a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsFilteredColimitEtaleOfIndEt.lean\n+++ b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsFilteredColimitEtaleOfIndEt.lean\n@@ -10,14 +10,13 @@ open CategoryTheory Limits AlgebraicGeometry Opposite CochainComplex CochainComp\n namespace GlobalTheory.EtC\n \n \n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n theorem exists_filtered_colimit_etale_of_indEt : ∀ (A O : Type) [CommRing A] [CommRing O] [Algebra A O], IndEt A O → ∃ (J : Type) (_ : SmallCategory J) (_ : IsFiltered J) (D : J ⥤ Under (CommRingCat.of A)) (ι : D ⟶ (Functor.const J).obj (Under.mk (CommRingCat.ofHom (algebraMap A O)))), Nonempty (IsColimit (Cocone.mk _ ι)) ∧ ∀ j, (D.obj j).hom.hom.Etale := by\n   intro A O _ _ _ h\n   obtain ⟨J, _, _, D, t, s, hs, hst⟩ := h\n   have : Nonempty J := IsFiltered.nonempty\n   refine ⟨J, inferInstance, inferInstance, Under.lift D t,\n-    { app j := Under.homMk (s.app j) (by simp [hst]) },\n-    ⟨Under.isColimitLiftCocone _ _ _ _ (by simp [hst]) hs⟩, fun j => (hst j).1⟩\n+    { app j := Under.homMk (s.app j) (hst j).2\n+      naturality _ _ f := by ext1; exact s.naturality f },\n+    ⟨Under.isColimitLiftCocone _ _ _ _ (fun j => (hst j).2) hs⟩, fun j => (hst j).1⟩\n \n end GlobalTheory.EtC\ndiff --git a/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsIsoNormalizationPullbackOfToIntegralClosure.lean b/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsIsoNormalizationPullbackOfToIntegralClosure.lean\nindex 57ffa5cd8a..085aafc09e 100644\n--- a/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsIsoNormalizationPullbackOfToIntegralClosure.lean\n+++ b/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsIsoNormalizationPullbackOfToIntegralClosure.lean\n@@ -180,8 +180,6 @@ instance isIso_toNormalization_fromNormalization {X Y : Scheme.{u}} (f : X ⟶ Y\n   infer_instance\n \n \n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n open TensorProduct in\n theorem isIso_normalizationPullback_of_toIntegralClosure {X S Y : Scheme.{u}} (f : X ⟶ S)\n     (g : Y ⟶ S) [QuasiCompact f] [QuasiSeparated f] [Flat g]\n@@ -194,19 +192,23 @@ theorem isIso_normalizationPullback_of_toIntegralClosure {X S Y : Scheme.{u}} (f\n   obtain ⟨U, hU, V, hV, hVU, hxV, hB⟩ := hg (pullback.snd f.fromNormalization g x)\n   let W := pullback.snd (Scheme.Hom.fromNormalization f) g ⁻¹ᵁ V\n   refine ⟨W, hxV, (isIso_morphismRestrict_iff_isIso_app _ (U := W) (hV.preimage _)).mpr ?_⟩\n+  have hW_eq : W = pullback.fst f.fromNormalization g ⁻¹ᵁ f.fromNormalization ⁻¹ᵁ U ⊓\n+      pullback.snd f.fromNormalization g ⁻¹ᵁ V := by\n+    simp_rw [W, ← Scheme.Hom.comp_preimage, pullback.condition, Scheme.Hom.comp_preimage,\n+      ← Scheme.Hom.preimage_inf, inf_eq_right.mpr hVU]\n   have := isIso_pushoutSection_of_isQuasiSeparated_of_flat_right\n-    (.of_hasPullback f.fromNormalization g) hVU le_rfl (UY := W)\n-    (by simp_rw [W, ← Scheme.Hom.comp_preimage, pullback.condition, Scheme.Hom.comp_preimage,\n-      ← Scheme.Hom.preimage_inf, inf_eq_right.mpr hVU]) hU hV\n+    (.of_hasPullback f.fromNormalization g) hVU le_rfl (UY := W) hW_eq hU hV\n     (hU.preimage f.fromNormalization).isCompact (hU.preimage f.fromNormalization).isQuasiSeparated\n   rw [← @isIso_comp_left_iff _ _ _ _ _ _ _ this,\n     ← isIso_comp_left_iff (pushout.congrHom f.fromNormalization.app_eq_appLE rfl).hom]\n   algebraize [(f.app U).hom, (g.appLE U V hVU).hom, ((pullback.snd f g).app V).hom]\n+  have hV_eq : pullback.snd f g ⁻¹ᵁ V =\n+      pullback.fst f g ⁻¹ᵁ f ⁻¹ᵁ U ⊓ pullback.snd f g ⁻¹ᵁ V := by\n+    simp_rw [← Scheme.Hom.comp_preimage, pullback.condition, Scheme.Hom.comp_preimage,\n+      ← Scheme.Hom.preimage_inf, inf_eq_right.mpr hVU]\n   have := isIso_pushoutSection_of_isQuasiSeparated_of_flat_right\n-    (.of_hasPullback f g) hVU le_rfl (UY := pullback.snd f g ⁻¹ᵁ V)\n-    (by simp_rw [← Scheme.Hom.comp_preimage, pullback.condition, Scheme.Hom.comp_preimage,\n-      ← Scheme.Hom.preimage_inf, inf_eq_right.mpr hVU]) hU hV (f.isCompact_preimage hU.isCompact)\n-    (f.isQuasiSeparated_preimage hU.isQuasiSeparated)\n+    (.of_hasPullback f g) hVU le_rfl (UY := pullback.snd f g ⁻¹ᵁ V) hV_eq hU hV\n+    (f.isCompact_preimage hU.isCompact) (f.isQuasiSeparated_preimage hU.isQuasiSeparated)\n   let e₀ := (CommRingCat.isPushout_tensorProduct ..).flip.isoPushout ≪≫\n     (pushout.congrHom f.app_eq_appLE rfl ≪≫ @asIso _ _ _ _ _ this :)\n   let e : Γ(Y, V) ⊗[Γ(S, U)] Γ(X, f ⁻¹ᵁ U) ≃ₐ[Γ(Y, V)] Γ(pullback f g, pullback.snd f g ⁻¹ᵁ V) :=\n@@ -233,11 +235,14 @@ theorem isIso_normalizationPullback_of_toIntegralClosure {X S Y : Scheme.{u}} (f\n       (by simp only [W, ← Scheme.Hom.comp_preimage, Scheme.Hom.normalizationPullback_snd])).op\n   convert! show IsIso φ by dsimp only [φ]; infer_instance using 1\n   ext1\n-  · dsimp [φ]\n-    simp only [Scheme.Hom.app_eq_appLE, colimit.ι_desc_assoc, span_left, PushoutCocone.mk_pt,\n-      PushoutCocone.mk_ι_app, Category.id_comp, Scheme.Hom.appLE_comp_appLE, eqToHom_op,\n-      Category.assoc, IsPushout.inl_isoPushout_inv_assoc]\n-    simp_rw [← Category.assoc, ← IsIso.comp_inv_eq]\n+  · dsimp only [φ]\n+    simp only [pushout.congrHom_hom]\n+    dsimp only [pushout.map, pushoutSection]\n+    simp only [Category.assoc, pushout.inl_desc_assoc, Category.id_comp,\n+      IsPushout.inl_isoPushout_inv_assoc, Scheme.Hom.app_eq_appLE, Scheme.Hom.appLE_comp_appLE,\n+      eqToHom_op]\n+    simp only [← Category.assoc]\n+    rw [← IsIso.comp_inv_eq, ← IsIso.comp_inv_eq]\n     simp only [← Functor.map_inv, inv_eqToHom, Scheme.Hom.appLE_map, IsIso.Iso.inv_inv,\n       Category.assoc]\n     have : Mono (CommRingCat.ofHom (integralClosure Γ(Y, V)\n@@ -245,7 +250,7 @@ theorem isIso_normalizationPullback_of_toIntegralClosure {X S Y : Scheme.{u}} (f\n       ConcreteCategory.mono_of_injective _ Subtype.val_injective\n     rw [← cancel_mono (CommRingCat.ofHom (Subalgebra.val _).toRingHom)]\n     simp only [Category.assoc, Scheme.Hom.normalizationObjIso_hom_val, Scheme.Hom.appLE_comp_appLE,\n-      Scheme.Hom.toNormalization_normalizationPullback_fst, ← CommRingCat.ofHom_comp]\n+      Scheme.Hom.toNormalization_normalizationPullback_fst]\n     have H : pullback.snd f g ⁻¹ᵁ V ≤ pullback.fst f g ⁻¹ᵁ f ⁻¹ᵁ U := by\n       rw [← Scheme.Hom.comp_preimage, pullback.condition, Scheme.Hom.comp_preimage]\n       exact Scheme.Hom.preimage_mono _ hVU\n@@ -258,11 +263,14 @@ theorem isIso_normalizationPullback_of_toIntegralClosure {X S Y : Scheme.{u}} (f\n       trans (CommRingCat.ofHom Algebra.TensorProduct.includeRight.toRingHom ≫ e₀.hom) x\n       · congr 2; simp [e₀, pushout.inl_desc_assoc]\n       · simp [ψ, toIntegralClosure, e]; rfl\n-  · dsimp [φ]\n-    simp only [Scheme.Hom.app_eq_appLE, colimit.ι_desc_assoc, span_right, PushoutCocone.mk_pt,\n-      PushoutCocone.mk_ι_app, Category.id_comp, Scheme.Hom.appLE_comp_appLE,\n-      Scheme.Hom.normalizationPullback_snd, eqToHom_op, IsPushout.inr_isoPushout_inv_assoc]\n-    simp_rw [← Category.assoc, ← IsIso.comp_inv_eq]\n+  · dsimp only [φ]\n+    simp only [pushout.congrHom_hom]\n+    dsimp only [pushout.map, pushoutSection]\n+    simp only [pushout.inr_desc_assoc, Category.id_comp,\n+      IsPushout.inr_isoPushout_inv_assoc, Scheme.Hom.app_eq_appLE, Scheme.Hom.appLE_comp_appLE,\n+      Scheme.Hom.normalizationPullback_snd, eqToHom_op]\n+    simp only [← Category.assoc]\n+    rw [← IsIso.comp_inv_eq, ← IsIso.comp_inv_eq]\n     simp only [← Functor.map_inv, inv_eqToHom, Scheme.Hom.appLE_map, ← Scheme.Hom.app_eq_appLE,\n       Scheme.Hom.fromNormalization_app _ hV, IsIso.Iso.inv_inv, Category.assoc, Iso.inv_hom_id,\n       Category.comp_id]\n@@ -492,7 +500,6 @@ theorem isIso_toNormalization_morphismRestrict {X Y : Scheme.{u}} (f : X ⟶ Y)\n   infer_instance\n \n \n-set_option backward.isDefEq.respectTransparency false in\n theorem flat_of_isSchemeTheoreticallyDominant {R : Type u} [CommRing R] [IsDomain R]\n     (hR : ∀ (A : Type u) [CommRing A] [Algebra R A], Submodule.torsion R A = ⊥ → Module.Flat R A)\n     {X N : Scheme.{u}} (j : X ⟶ N) [QuasiCompact j] [IsSchemeTheoreticallyDominant j]\n@@ -510,15 +517,18 @@ theorem flat_of_isSchemeTheoreticallyDominant {R : Type u} [CommRing R] [IsDomai\n       RingHom.Flat.holdsForLocalizationAway).left |>.mpr fun y ↦ ?_\n   obtain ⟨_, ⟨(W : N.Opens), hW, rfl⟩, hy, -⟩ := N.isBasis_affineOpens.exists_subset_of_mem_open\n     (Set.mem_univ y) isOpen_univ\n-  refine ⟨⟨⊤, isAffineOpen_top _⟩, ⟨W, hW⟩, hy, le_top, ?_⟩\n-  let φ := (Scheme.ΓSpecIso (.of R)).inv ≫ p.appLE ⊤ W le_top\n+  have hpW : W ≤ p ⁻¹ᵁ ⊤ := fun _ _ ↦ trivial\n+  refine ⟨⟨⊤, isAffineOpen_top _⟩, ⟨W, hW⟩, hy, hpW, ?_⟩\n+  let φ := (Scheme.ΓSpecIso (.of R)).inv ≫ p.appLE ⊤ W hpW\n   suffices φ.hom.Flat by\n     rwa [CommRingCat.hom_comp, RingHom.Flat.respectsIso.cancel_left_isIso] at this\n   let := φ.hom.toAlgebra\n   refine hR _ (eq_bot_iff.mpr fun x ⟨⟨r, hr⟩, hx⟩ ↦ ?_)\n+  have hcW : j' ⁻¹ᵁ W ≤ c ⁻¹ᵁ ⊤ := fun _ _ ↦ trivial\n+  have hciW : j' ⁻¹ᵁ W ≤ (c ≫ ι) ⁻¹ᵁ ⊤ := fun _ _ ↦ trivial\n   have hφ : φ ≫ j'.app W = CommRingCat.ofHom (algebraMap R K) ≫\n-      (Scheme.ΓSpecIso (.of K)).inv ≫ c.appLE ⊤ _ le_top := by\n-    have h1 : p.appLE ⊤ W le_top ≫ j'.app W = (c ≫ ι).appLE ⊤ _ le_top := by\n+      (Scheme.ΓSpecIso (.of K)).inv ≫ c.appLE ⊤ _ hcW := by\n+    have h1 : p.appLE ⊤ W hpW ≫ j'.app W = (c ≫ ι).appLE ⊤ _ hciW := by\n       rw [Scheme.Hom.app_eq_appLE, Scheme.Hom.appLE_comp_appLE]\n       simp only [hc]\n     rw [Scheme.ΓSpecIso_inv_naturality_assoc, Category.assoc, h1, Scheme.Hom.comp_appLE]\ndiff --git a/src/Development/WeilBound/CoreStatements/PadicHodgeComparison/EtaleCohomologyComparison/PerfectoidPullbacks/ConeSectionRestriction/ExistsIntegralNbhd.lean b/src/Development/WeilBound/CoreStatements/PadicHodgeComparison/EtaleCohomologyComparison/PerfectoidPullbacks/ConeSectionRestriction/ExistsIntegralNbhd.lean\nindex c09fbc4f59..84e50ab579 100644\n--- a/src/Development/WeilBound/CoreStatements/PadicHodgeComparison/EtaleCohomologyComparison/PerfectoidPullbacks/ConeSectionRestriction/ExistsIntegralNbhd.lean\n+++ b/src/Development/WeilBound/CoreStatements/PadicHodgeComparison/EtaleCohomologyComparison/PerfectoidPullbacks/ConeSectionRestriction/ExistsIntegralNbhd.lean\n@@ -13,8 +13,6 @@ open CategoryTheory AlgebraicGeometry\n namespace CrystallineSemistableComparison.Pb.EtaleIntegralityFacts\n \n \n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n theorem exists_integral_nbhd {K : Type} [Field K] {X : Scheme.{0}} (q : X ⟶ Spec (CommRingCat.of K))\n     [Smooth q]\n     (hE : ∀ (A : Type) [CommRing A] [Algebra K A] [Algebra.Smooth K A] (p : Ideal A) [p.IsPrime],\n@@ -33,9 +31,11 @@ theorem exists_integral_nbhd {K : Type} [Field K] {X : Scheme.{0}} (q : X ⟶ Sp\n   have : Algebra.Smooth K Γ(X, V) := hφ\n   obtain ⟨r, hr, hdom⟩ := hE Γ(X, V) (hV.primeIdealOf ⟨x, hxV⟩).asIdeal\n   have hxW : x ∈ X.basicOpen r := by\n-    rwa [← PrimeSpectrum.mem_basicOpen, IsAffineOpen.primeIdealOf,\n-      ← hV.fromSpec_preimage_basicOpen, Scheme.Hom.mem_preimage, ← Scheme.Hom.comp_apply,\n-      IsAffineOpen.isoSpec_hom, IsAffineOpen.toSpecΓ_fromSpec] at hr\n+    have hr' : hV.primeIdealOf ⟨x, hxV⟩ ∈ hV.fromSpec ⁻¹ᵁ X.basicOpen r := by\n+      rw [hV.fromSpec_preimage_basicOpen]\n+      exact hr\n+    have hfx : hV.fromSpec (hV.primeIdealOf ⟨x, hxV⟩) = x := hV.fromSpec_primeIdealOf ⟨x, hxV⟩\n+    exact hfx ▸ (hr' : hV.fromSpec (hV.primeIdealOf ⟨x, hxV⟩) ∈ X.basicOpen r)\n   refine ⟨X.basicOpen r, hxW, ?_⟩\n   have hW : IsAffineOpen (X.basicOpen r) := hV.basicOpen r\n   have : IsAffine (X.basicOpen r) := hW\ndiff --git a/src/GroundTheory/TateCohomology/CupConnecting.lean b/src/GroundTheory/TateCohomology/CupConnecting.lean\nindex 0353d7eb3d..28479d93b5 100644\n--- a/src/GroundTheory/TateCohomology/CupConnecting.lean\n+++ b/src/GroundTheory/TateCohomology/CupConnecting.lean\n@@ -68,8 +68,6 @@ theorem δ_π_eq {p : ℕ} (z : cocycles X.X₃ p) (y : (Fin p → G) → X.X₂\n \n \n include hX in\n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n theorem exists_f_eq_of_g_eq_zero (e : X.X₂) (he : X.g.hom e = 0) : ∃ a : X.X₁, X.f.hom a = e := by\n   have : LinearMap.range X.f.hom.toLinearMap = LinearMap.ker X.g.hom.toLinearMap :=\n     (hX.exact.map (forget₂ (Rep k G) (ModuleCat k))).moduleCat_range_eq_ker\ndiff --git a/src/GroundTheory/TateCohomology/DiagonalSuccIsoFreeInvSingle.lean b/src/GroundTheory/TateCohomology/DiagonalSuccIsoFreeInvSingle.lean\nindex 4c296231f0..75dc0646a2 100644\n--- a/src/GroundTheory/TateCohomology/DiagonalSuccIsoFreeInvSingle.lean\n+++ b/src/GroundTheory/TateCohomology/DiagonalSuccIsoFreeInvSingle.lean\n@@ -58,8 +58,6 @@ section Bar\n variable {k G : Type u} [CommRing k] [Group G]\n \n \n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n lemma diagonalSuccIsoFree_inv_single (m : ℕ) (f : Fin m → G) (g : G) (r : k) :\n     (diagonalSuccIsoFree k G m).inv.hom (Finsupp.single f (MonoidAlgebra.single g r)) =\n       MonoidAlgebra.single (g • Fin.partialProd f) r := by\n@@ -69,12 +67,7 @@ lemma diagonalSuccIsoFree_inv_single (m : ℕ) (f : Fin m → G) (g : G) (r : k)\n       (Finsupp.single f (.single g r)) = .single g 1 ⊗ₜ[k] .single f r :=\n     Representation.leftRegularTensorTrivialIsoFree_symm_apply_single_single f g r\n   rw [step1]\n-  simp only [mkIso_inv, Representation.linearizeOfMulActionIso, Representation.Equiv.mk_symm,\n-    LinearEquiv.refl_symm, ConcreteCategory.hom_ofHom, Action.tensorObj_V, Action.trivial_V,\n-    Functor.mapIso_inv, tensor_V, tensor_ρ, Iso.symm_inv, Functor.Monoidal.μIso_hom, μ_hom,\n-    MonoidalCategory.tensorIso_inv, Representation.linearizeTrivialIso, hom_tensorHom,\n-    Representation.IntertwiningMap.tensor_apply, Representation.Equiv.coe_toIntertwiningMap,\n-    Representation.Equiv.mk_apply, LinearEquiv.refl_apply]\n+  simp only [Action.tensorObj_V, tensor_V, tensor_ρ]\n   have key₁ := Representation.linearizeMap_single (k := k)\n     (Action.diagonalSuccIsoTensorTrivial G m).inv (g, f) ((1 : k) * r)\n   have key₂ := Representation.LinearizeMonoidal.μ_apply_single_single (k := k)",
+      "bucket": "portability"
     },
     {
       "id": "ndjson",
@@ -404,7 +494,8 @@
       },
       "receipt": "Verified live on MIT challenge.ndjson.zst (6,495,712 NDJSON lines): riemannHypothesis & riemannZeta_eq_zero_re (32 direct / 4,889 def / 52,527 full), LFunction_ne_zero_of_half_lt_re (34 / 5,126 / 52,889), LFunction_eq_zero_re (29 / 5,119 / 52,869), LFunction_eq_zero_re_of_isPrimitive (30 / 5,236 / 52,992).",
       "url": "https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/scripts/audit_ndjson_statement.py",
-      "diff": "# Run without Lean or third-party packages:\n$ python scripts/audit_ndjson_statement.py \\\n    --expected-sha256 bd484ac9886a96f26b1d9a7a59ebd45b7a70d102c015d4f31f9302bbdd6ab2b9 \\\n    challenge.ndjson.zst\n\nFile:    challenge.ndjson.zst (350,862,311 unpacked bytes, 6,495,712 lines)\nSHA-256: bd484ac9886a96f26b1d9a7a59ebd45b7a70d102c015d4f31f9302bbdd6ab2b9\nDecls:   51,692 top-level records {'axiom': 4, 'def': 10238, 'opaque': 46, 'thm': 40431, 'inductive': 969, 'quot': 4} | unsafe=0\nAxioms:  ['Classical.choice', 'Quot.sound', 'propext', 'sorryAx']\n\n=== riemannHypothesis (thm) ===\n  Raw kernel type: RiemannHypothesis\n  Direct constants (32): ... riemannZeta, Complex.re, ...\n  Statement def-closure:  4,889 decls | axioms=['Classical.choice', 'Quot.sound', 'propext']\n  Statement full-closure: 52,527 decls | axioms=['Classical.choice', 'Quot.sound', 'propext'] | missing=0\n[PASS] Audited 5 target(s) in challenge mode (unsafe=0)."
+      "diff": "# Run without Lean or third-party packages:\n$ python scripts/audit_ndjson_statement.py \\\n    --expected-sha256 bd484ac9886a96f26b1d9a7a59ebd45b7a70d102c015d4f31f9302bbdd6ab2b9 \\\n    challenge.ndjson.zst\n\nFile:    challenge.ndjson.zst (350,862,311 unpacked bytes, 6,495,712 lines)\nSHA-256: bd484ac9886a96f26b1d9a7a59ebd45b7a70d102c015d4f31f9302bbdd6ab2b9\nDecls:   51,692 top-level records {'axiom': 4, 'def': 10238, 'opaque': 46, 'thm': 40431, 'inductive': 969, 'quot': 4} | unsafe=0\nAxioms:  ['Classical.choice', 'Quot.sound', 'propext', 'sorryAx']\n\n=== riemannHypothesis (thm) ===\n  Raw kernel type: RiemannHypothesis\n  Direct constants (32): ... riemannZeta, Complex.re, ...\n  Statement def-closure:  4,889 decls | axioms=['Classical.choice', 'Quot.sound', 'propext']\n  Statement full-closure: 52,527 decls | axioms=['Classical.choice', 'Quot.sound', 'propext'] | missing=0\n[PASS] Audited 5 target(s) in challenge mode (unsafe=0).",
+      "bucket": "portability"
     }
   ],
   "actionable_targets": [
@@ -530,20 +621,20 @@
     }
   ],
   "live_main": {
-    "sha": "ef349ac02",
-    "commit_date": "2026-11-24T04:18:15+11:00",
+    "sha": "f75ed73e8",
+    "commit_date": "2026-11-23T19:01:17-05:00",
     "toolchain": "leanprover/lean4:v4.37.0-rc1",
-    "lean_files": 148230,
-    "total_lines": 20567742,
-    "total_bytes": 1110823285,
-    "import_lines": 6428110,
-    "declarations": 831884,
-    "backward_options": 2942,
-    "heartbeat_options": 2919,
-    "files_delta_vs_v021": -26957,
-    "lines_delta_vs_v021": 3193527,
-    "open_pr_count": 275,
-    "measured_at": "2026-11-23T18:07:10Z"
+    "lean_files": 62074,
+    "total_lines": 17168436,
+    "total_bytes": 1131526828,
+    "import_lines": 2944237,
+    "declarations": 806906,
+    "backward_options": 2705,
+    "heartbeat_options": 2824,
+    "files_delta_vs_v021": -113113,
+    "lines_delta_vs_v021": -205779,
+    "open_pr_count": 320,
+    "measured_at": "2026-11-24T00:07:43Z"
   },
   "live_history": [
     {
@@ -675,26 +766,41 @@
       "import_lines": 6428110,
       "backward_options": 2942,
       "heartbeat_options": 2919
+    },
+    {
+      "date": "2026-11-23T19:01:17-05:00",
+      "sha": "f75ed73e8",
+      "label": "main@f75ed73e8",
+      "toolchain": "leanprover/lean4:v4.37.0-rc1",
+      "lean_files": 62074,
+      "total_lines": 17168436,
+      "declarations": 806906,
+      "import_lines": 2944237,
+      "backward_options": 2705,
+      "heartbeat_options": 2824
     }
   ],
   "stacked_pr_queue": [
     {
-      "pr": 97,
+      "pr": 120,
       "state": "open",
-      "draft": true,
+      "draft": false,
       "batch_queue": false,
-      "author": "Deicyde",
-      "category": "formatting",
+      "author": "rohanarun",
+      "category": "architecture",
       "scope": "full",
-      "title": "Run Lean auto-formatter over 147,418 files in src/ (v4.36)",
-      "raw_title": "Run the Lean auto-formatter over `src/` (stacked on #66)",
-      "changed_files": 147369,
-      "additions": 7886813,
-      "deletions": 4124033,
-      "net_lines": 3762780,
-      "updated_at": "2026-11-23T04:13:10Z",
+      "base_ref": "main",
+      "mergeable_state": "dirty",
+      "blast_radius": "whole-tree",
+      "title": "Collapse 28,169 thin wrappers & consolidate 93,601 modules into 20,258 bundles (-101,512 files)",
+      "raw_title": "Collapse 28,169 thin wrappers and consolidate 93,601 modules into 20,258 bundles (−101,512 files, −67.9%)",
+      "changed_files": 161743,
+      "additions": 8037178,
+      "deletions": 8649199,
+      "net_lines": -612021,
+      "updated_at": "2026-11-23T23:59:29Z",
       "merged_at": null,
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/97"
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/120"
     },
     {
       "pr": 243,
@@ -704,15 +810,81 @@
       "author": "james-shore",
       "category": "portability",
       "scope": "full",
-      "title": "Port unused-syntax linter cleanup to Lean 4.37 (-42% warnings)",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "whole-tree",
+      "title": "Remove unused proof syntax flagged by Lean linters on 4.37 (-94% unused warnings)",
       "raw_title": "Remove proof syntax that was flagged unused by Lean's linters (Lean 4.37.0-rc1)",
       "changed_files": 50195,
       "additions": 55916,
       "deletions": 68054,
       "net_lines": -12138,
-      "updated_at": "2026-11-23T15:48:21Z",
+      "updated_at": "2026-11-23T21:24:46Z",
       "merged_at": null,
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/243"
+    },
+    {
+      "pr": 206,
+      "state": "open",
+      "draft": false,
+      "batch_queue": false,
+      "author": "PHTPSN",
+      "category": "portability",
+      "scope": "full",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "major",
+      "title": "Use portable ASCII module paths across repository",
+      "raw_title": "fix: use portable ASCII module paths",
+      "changed_files": 16219,
+      "additions": 30916,
+      "deletions": 30916,
+      "net_lines": 0,
+      "updated_at": "2026-11-23T07:26:27Z",
+      "merged_at": null,
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/206"
+    },
+    {
+      "pr": 378,
+      "state": "open",
+      "draft": false,
+      "batch_queue": false,
+      "author": "Vilin97",
+      "category": "performance",
+      "scope": "full",
+      "base_ref": "main",
+      "mergeable_state": "dirty",
+      "blast_radius": "major",
+      "title": "Cut compile time 11% by narrowing Mathlib imports & pruning unreachable modules (stacked on #221)",
+      "raw_title": "Cut compile time 11% by narrowing Mathlib imports and deleting unreachable modules (stacked on #221)",
+      "changed_files": 9406,
+      "additions": 7325,
+      "deletions": 259645,
+      "net_lines": -252320,
+      "updated_at": "2026-11-23T18:02:38Z",
+      "merged_at": null,
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/378"
+    },
+    {
+      "pr": 372,
+      "state": "open",
+      "draft": false,
+      "batch_queue": false,
+      "author": "sqrt-of-2",
+      "category": "dead-prune",
+      "scope": "dead",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "major",
+      "title": "Prune 2,333 Lean modules unused by main proofs (-259,543 L)",
+      "raw_title": "perf: prune 2,333 Lean modules unused by the main proofs (259,543 lines)",
+      "changed_files": 2298,
+      "additions": 1,
+      "deletions": 255692,
+      "net_lines": -255691,
+      "updated_at": "2026-11-23T19:01:41Z",
+      "merged_at": null,
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/372"
     },
     {
       "pr": 194,
@@ -722,69 +894,144 @@
       "author": "sqrt-of-2",
       "category": "portability",
       "scope": "full",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "batch",
       "title": "Resolve ~10,000 linter and deprecation warnings across 1,864 files",
       "raw_title": "fix: resolve ~10,000 linter and deprecation warnings",
-      "changed_files": 1864,
-      "additions": 5780,
-      "deletions": 5916,
-      "net_lines": -136,
-      "updated_at": "2026-11-23T08:53:37Z",
+      "changed_files": 1824,
+      "additions": 5285,
+      "deletions": 5368,
+      "net_lines": -83,
+      "updated_at": "2026-11-23T19:01:32Z",
       "merged_at": null,
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/194"
     },
     {
-      "pr": 87,
+      "pr": 97,
       "state": "open",
       "draft": false,
-      "batch_queue": true,
-      "author": "graohene10-spec",
+      "batch_queue": false,
+      "author": "Deicyde",
+      "category": "formatting",
+      "scope": "full",
+      "base_ref": "main",
+      "mergeable_state": "dirty",
+      "blast_radius": "focused",
+      "title": "Run Lean auto-formatter over 147,418 files in src/ (v4.36)",
+      "raw_title": "Run the Lean auto-formatter over `src/`",
+      "changed_files": 0,
+      "additions": 0,
+      "deletions": 0,
+      "net_lines": 0,
+      "updated_at": "2026-11-23T21:45:21Z",
+      "merged_at": null,
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/97"
+    },
+    {
+      "pr": 353,
+      "state": "merged",
+      "draft": false,
+      "batch_queue": false,
+      "author": "Deicyde",
+      "category": "verification",
+      "scope": "statement",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "focused",
+      "title": "Update challenge export checksums for Lean v4.37.0-rc1 pins",
+      "raw_title": "Check the challenge exports' checksums for the v4.37.0-rc1 pins",
+      "changed_files": 2,
+      "additions": 13,
+      "deletions": 4,
+      "net_lines": 9,
+      "updated_at": "2026-11-23T11:53:28Z",
+      "merged_at": "2026-11-23T11:53:25Z",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/353"
+    },
+    {
+      "pr": 324,
+      "state": "merged",
+      "draft": false,
+      "batch_queue": false,
+      "author": "kim-em",
+      "category": "architecture",
+      "scope": "full",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "whole-tree",
+      "title": "Delete 22,054 thin wrappers & clump modules along import graph (148,230 -> 62,159 files)",
+      "raw_title": "perf: delete thin wrappers and combine modules into import-graph clumps",
+      "changed_files": 103585,
+      "additions": 6455881,
+      "deletions": 9996025,
+      "net_lines": -3540144,
+      "updated_at": "2026-11-23T22:59:49Z",
+      "merged_at": "2026-11-23T22:59:49Z",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/324"
+    },
+    {
+      "pr": 270,
+      "state": "closed",
+      "draft": true,
+      "batch_queue": false,
+      "author": "Visio-Vanitas",
       "category": "active-refactor",
       "scope": "active",
-      "title": "Shorten checked proofs across 816 Lean modules",
-      "raw_title": "Shorten checked proofs across 816 Lean modules",
-      "changed_files": 811,
-      "additions": 4474,
-      "deletions": 9485,
-      "net_lines": -5011,
-      "updated_at": "2026-11-23T04:18:58Z",
+      "base_ref": "main",
+      "mergeable_state": "dirty",
+      "blast_radius": "focused",
+      "title": "Simplify explicit typeclass dumps in 8 CapelliIdentities files (-11,262 L)",
+      "raw_title": "Simplify explicit typeclass dumps in 8 CapelliIdentities files (−11,262 lines)",
+      "changed_files": 8,
+      "additions": 495,
+      "deletions": 11758,
+      "net_lines": -11263,
+      "updated_at": "2026-11-23T16:55:10Z",
       "merged_at": null,
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/87"
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/270"
+    },
+    {
+      "pr": 262,
+      "state": "closed",
+      "draft": false,
+      "batch_queue": false,
+      "author": "Deicyde",
+      "category": "active-refactor",
+      "scope": "full",
+      "base_ref": "main",
+      "mergeable_state": "dirty",
+      "blast_radius": "batch",
+      "title": "Batch/2026-11-22: 55 small reviewed PRs rebased on #185 (1,265 files, -40.6k L)",
+      "raw_title": "Batch/2026 11 22",
+      "changed_files": 1031,
+      "additions": 9852,
+      "deletions": 20078,
+      "net_lines": -10226,
+      "updated_at": "2026-11-23T23:43:54Z",
+      "merged_at": null,
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/262"
     },
     {
       "pr": 233,
-      "state": "open",
+      "state": "merged",
       "draft": false,
       "batch_queue": false,
       "author": "Deicyde",
       "category": "infra",
       "scope": "full",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "focused",
       "title": "Batch-assembly automation workflow for queued cleanup PRs",
       "raw_title": "Batch queue: compare queued pull requests, assemble them into a batch, freeze it when it is built",
       "changed_files": 5,
       "additions": 2113,
       "deletions": 13,
       "net_lines": 2100,
-      "updated_at": "2026-11-23T17:34:17Z",
-      "merged_at": null,
+      "updated_at": "2026-11-23T18:35:53Z",
+      "merged_at": "2026-11-23T18:27:52Z",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/233"
-    },
-    {
-      "pr": 120,
-      "state": "open",
-      "draft": false,
-      "batch_queue": false,
-      "author": "rohanarun",
-      "category": "architecture",
-      "scope": "full",
-      "title": "Collapse 28,169 thin wrappers & consolidate 93,601 modules into 20,258 bundles (-101,512 files)",
-      "raw_title": "Collapse 28,169 thin wrappers and consolidate 93,601 modules into 20,258 bundles (−101,512 files, −67.9%)",
-      "changed_files": 0,
-      "additions": 0,
-      "deletions": 0,
-      "net_lines": 0,
-      "updated_at": "2026-11-23T17:57:09Z",
-      "merged_at": null,
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/120"
     },
     {
       "pr": 221,
@@ -794,7 +1041,10 @@
       "author": "Serdnad",
       "category": "active-refactor",
       "scope": "full",
-      "title": "Consolidate 10+ redundant-proof cleanup PRs on top of #185 (3,076 files, #2 in merge queue)",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "major",
+      "title": "Consolidate redundant-proof & Mathlib-reuse PRs (3,369 files, -221k L)",
       "raw_title": "Replace redundant proofs with Mathlib or internal reuse",
       "changed_files": 3369,
       "additions": 8063,
@@ -812,6 +1062,9 @@
       "author": "marwuint",
       "category": "active-refactor",
       "scope": "active",
+      "base_ref": "main",
+      "mergeable_state": "dirty",
+      "blast_radius": "focused",
       "title": "Reuse existing proofs in 41 modules and delete 147 duplicate modules (-22,373 L)",
       "raw_title": "Reuse existing proofs in 41 modules and delete 147 modules only the old proofs used (−22,373 lines)",
       "changed_files": 188,
@@ -830,6 +1083,9 @@
       "author": "kim-em",
       "category": "toolchain-upgrade",
       "scope": "full",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "focused",
       "title": "Integrate #134 build speedup + bump to Lean 4.37.0-rc1 & Mathlib 31ce06ea",
       "raw_title": "Integrate proof cleanup and bump to Lean 4.37.0-rc1",
       "changed_files": 0,
@@ -848,6 +1104,9 @@
       "author": "kim-em",
       "category": "active-refactor",
       "scope": "active",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "focused",
       "title": "Merge remaining 79-file reviewed Lean 4.36 cleanup batch (incl. #54, #62, #94)",
       "raw_title": "Complete the remaining reviewed Lean 4.36 cleanup",
       "changed_files": 80,
@@ -866,6 +1125,9 @@
       "author": "Vilin97",
       "category": "performance",
       "scope": "full",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "focused",
       "title": "Speed up build (-21.9% CPU): heartbeats 78.8k->2.9k, shake imports, 166 slow proofs, #68",
       "raw_title": "Speed up the build: remove heartbeat overrides, minimize imports, speed up slow proofs",
       "changed_files": 0,
@@ -884,6 +1146,9 @@
       "author": "kim-em",
       "category": "active-refactor",
       "scope": "active",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "focused",
       "title": "Merge 53-file reviewed Lean 4.36 cleanup batch (incl. #70, #71, #74-#76, #80-#82, #90, #92)",
       "raw_title": "Land the first reviewed Lean 4.36 cleanup batch",
       "changed_files": 54,
@@ -902,6 +1167,9 @@
       "author": "kim-em",
       "category": "infra",
       "scope": "full",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "focused",
       "title": "Let registered donors build bounded proof shards",
       "raw_title": "Let registered donors build bounded proof shards",
       "changed_files": 32,
@@ -920,6 +1188,9 @@
       "author": "Deicyde",
       "category": "verification",
       "scope": "statement",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "focused",
       "title": "DeepMind formal-conjectures Comparator setup (con-leche --compare ACCEPTED)",
       "raw_title": "Add a second Comparator setup, with formal-conjectures' RH and GRH as the challenge",
       "changed_files": 10,
@@ -931,6 +1202,27 @@
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/88"
     },
     {
+      "pr": 87,
+      "state": "closed",
+      "draft": false,
+      "batch_queue": false,
+      "author": "graohene10-spec",
+      "category": "active-refactor",
+      "scope": "active",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "batch",
+      "title": "Shorten checked proofs across 816 Lean modules",
+      "raw_title": "Shorten checked proofs across 816 Lean modules",
+      "changed_files": 811,
+      "additions": 4474,
+      "deletions": 9485,
+      "net_lines": -5011,
+      "updated_at": "2026-11-24T00:05:08Z",
+      "merged_at": null,
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/87"
+    },
+    {
       "pr": 83,
       "state": "closed",
       "draft": false,
@@ -938,6 +1230,9 @@
       "author": "YinkaiYu",
       "category": "active-refactor",
       "scope": "active",
+      "base_ref": "main",
+      "mergeable_state": "clean",
+      "blast_radius": "focused",
       "title": "Zero-free region: replace 34-file assembly with 2,447-token proof (Lean 4.36)",
       "raw_title": "Zero-free region: replace the 34-file assembly with a self-contained 2,447-token proof (Lean 4.36)",
       "changed_files": 2,
@@ -956,6 +1251,9 @@
       "author": "Vilin97",
       "category": "toolchain-prune",
       "scope": "mixed",
+      "base_ref": "main",
+      "mergeable_state": "unknown",
+      "blast_radius": "focused",
       "title": "Bump to Lean & Mathlib v4.36.0, module system, prune 15,068 dead files",
       "raw_title": "Bump to Lean and Mathlib v4.36.0",
       "changed_files": 0,
@@ -994,9 +1292,9 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-23T18:07:10Z",
-    "total_merged_prs": 86,
-    "total_batch_queue_prs": 120,
+    "measured_at": "2026-11-24T00:07:43Z",
+    "total_merged_prs": 97,
+    "total_batch_queue_prs": 50,
     "entries": [
       {
         "slug": "kim-em",
@@ -1015,18 +1313,18 @@
           "ops_review": "Primary merge-queue operator (live merge count from GitHub events)"
         },
         "bio": "Research software engineer at the Lean FRO and Mathlib maintainer. On leanprover-community/riemann-hypothesis, he runs the sharded AWS and donor-runner CI builds (#101), lands reviewed cleanup batches (#115, #150), and coordinates the merge queue through the Lean 4.37.0-rc1 upgrade (#185).",
-        "merged_direct": 50,
+        "merged_direct": 55,
         "merged_batch_extra": 0,
-        "merged_total": 50,
+        "merged_total": 55,
         "merged_prs": [
+          579,
+          539,
+          527,
+          487,
           426,
           425,
           420,
-          406,
-          404,
-          401,
-          387,
-          225
+          406
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -1067,24 +1365,22 @@
           "ops_review": "High-volume PR triage, labeling & merges (live counts from GitHub events)"
         },
         "bio": "Repository collaborator handling PR review, triage, and verification tooling. Authored the DeepMind formal-conjectures Comparator setup (#88) and the `batch queue` label and batch-assembly workflows (#226, #233).",
-        "merged_direct": 11,
+        "merged_direct": 15,
         "merged_batch_extra": 0,
-        "merged_total": 11,
+        "merged_total": 15,
         "merged_prs": [
+          545,
+          502,
+          461,
           353,
+          233,
           226,
           124,
-          121,
-          118,
-          111,
-          88,
-          72
+          121
         ],
         "batch_landed_prs": [],
-        "batch_queue_count": 1,
-        "batch_queue_prs": [
-          318
-        ],
+        "batch_queue_count": 0,
+        "batch_queue_prs": [],
         "links": [
           {
             "label": "GitHub @Deicyde",
@@ -1121,10 +1417,11 @@
           "ops_review": "PR area/size auto-labeling (#154, #191), repo values (#184) & triage"
         },
         "bio": "Repository collaborator working on PR labeling automation (#154, #191), repository values documentation (#184), technical-debt tracking (#229), and collaborator oversight on the frozen original archive (`riemann-hypothesis-original`).",
-        "merged_direct": 3,
+        "merged_direct": 4,
         "merged_batch_extra": 0,
-        "merged_total": 3,
+        "merged_total": 4,
         "merged_prs": [
+          436,
           191,
           184,
           154
@@ -1168,10 +1465,11 @@
           "ops_review": "Documentation & onboarding cache maintenance (#146, #202)"
         },
         "bio": "Maintains cache-client fixes (macOS/Python compatibility, Lake hash handling in #202 and README cleanup in #146) and hosts the frozen `riemann-hypothesis-original` mirror with prebuilt Lean 4.33.1 cache.",
-        "merged_direct": 7,
+        "merged_direct": 8,
         "merged_batch_extra": 0,
-        "merged_total": 7,
+        "merged_total": 8,
         "merged_prs": [
+          434,
           202,
           146,
           123,
@@ -1422,7 +1720,7 @@
         "merged_total": 0,
         "merged_prs": [],
         "batch_landed_prs": [],
-        "batch_queue_count": 21,
+        "batch_queue_count": 22,
         "batch_queue_prs": [
           248,
           245,
@@ -1430,8 +1728,8 @@
           236,
           231,
           228,
-          211,
-          201
+          195,
+          193
         ],
         "links": [
           {
@@ -1441,6 +1739,50 @@
           {
             "label": "Batch-Queued PRs",
             "url": "https://github.com/leanprover-community/riemann-hypothesis/pulls?q=is%3Apr+author%3Aalectionary+label%3A%22batch+queue%22"
+          }
+        ]
+      },
+      {
+        "slug": "thekeunpie-hash",
+        "login": "thekeunpie-hash",
+        "name": "Jinho Noh",
+        "initials": "JN",
+        "tier": "contributor",
+        "github_role": "CONTRIBUTOR",
+        "role": "Active-Cone Proof & backward.* Option Cleanup",
+        "headline": "Explicit-dump and backward.* option cleanup (#60, #65, #71 in #115; #109, #110, #224 in batch queue).",
+        "milestone_tag": "",
+        "impact": {
+          "build_perf": "105 -> 0 warnings (#65); removes legacy backward.* compat flags (#71 in #115, #224)",
+          "compute_infra": "",
+          "footprint_debt": "-99.5% norm tokens in FixPiIff (#60); -180 files / -9,730 L (#109); 33 -> 0 backward.* (#224)",
+          "ops_review": ""
+        },
+        "bio": "Submitted explicit-dump and `backward.*` option cleanup PRs (#60, #65, #71 landed in #115; #109, #110, #224 in `batch queue`).",
+        "merged_direct": 2,
+        "merged_batch_extra": 1,
+        "merged_total": 3,
+        "merged_prs": [
+          65,
+          60
+        ],
+        "batch_landed_prs": [
+          71
+        ],
+        "batch_queue_count": 0,
+        "batch_queue_prs": [],
+        "links": [
+          {
+            "label": "GitHub @thekeunpie-hash",
+            "url": "https://github.com/thekeunpie-hash"
+          },
+          {
+            "label": "PR #60 / #65 / #71",
+            "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/65"
+          },
+          {
+            "label": "PR #110 / #224",
+            "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/224"
           }
         ]
       },
@@ -1466,16 +1808,9 @@
         "merged_total": 0,
         "merged_prs": [],
         "batch_landed_prs": [],
-        "batch_queue_count": 11,
+        "batch_queue_count": 1,
         "batch_queue_prs": [
-          322,
-          310,
-          301,
-          266,
-          261,
-          260,
-          216,
-          215
+          322
         ],
         "links": [
           {
@@ -1510,13 +1845,8 @@
         "merged_total": 0,
         "merged_prs": [],
         "batch_landed_prs": [],
-        "batch_queue_count": 4,
-        "batch_queue_prs": [
-          174,
-          160,
-          155,
-          152
-        ],
+        "batch_queue_count": 0,
+        "batch_queue_prs": [],
         "links": [
           {
             "label": "GitHub @hughperkins",
@@ -1525,52 +1855,6 @@
           {
             "label": "Batch-Queued PRs",
             "url": "https://github.com/leanprover-community/riemann-hypothesis/pulls?q=is%3Apr+author%3Ahughperkins+label%3A%22batch+queue%22"
-          }
-        ]
-      },
-      {
-        "slug": "thekeunpie-hash",
-        "login": "thekeunpie-hash",
-        "name": "Jinho Noh",
-        "initials": "JN",
-        "tier": "contributor",
-        "github_role": "CONTRIBUTOR",
-        "role": "Active-Cone Proof & backward.* Option Cleanup",
-        "headline": "Explicit-dump and backward.* option cleanup (#60, #65, #71 in #115; #109, #110, #224 in batch queue).",
-        "milestone_tag": "",
-        "impact": {
-          "build_perf": "105 -> 0 warnings (#65); removes legacy backward.* compat flags (#71 in #115, #224)",
-          "compute_infra": "",
-          "footprint_debt": "-99.5% norm tokens in FixPiIff (#60); -180 files / -9,730 L (#109); 33 -> 0 backward.* (#224)",
-          "ops_review": ""
-        },
-        "bio": "Submitted explicit-dump and `backward.*` option cleanup PRs (#60, #65, #71 landed in #115; #109, #110, #224 in `batch queue`).",
-        "merged_direct": 2,
-        "merged_batch_extra": 1,
-        "merged_total": 3,
-        "merged_prs": [
-          65,
-          60
-        ],
-        "batch_landed_prs": [
-          71
-        ],
-        "batch_queue_count": 1,
-        "batch_queue_prs": [
-          224
-        ],
-        "links": [
-          {
-            "label": "GitHub @thekeunpie-hash",
-            "url": "https://github.com/thekeunpie-hash"
-          },
-          {
-            "label": "PR #60 / #65 / #71",
-            "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/65"
-          },
-          {
-            "label": "PR #110 / #224",
-            "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/224"
           }
         ]
       },
@@ -1596,11 +1880,8 @@
         "merged_total": 0,
         "merged_prs": [],
         "batch_landed_prs": [],
-        "batch_queue_count": 2,
-        "batch_queue_prs": [
-          232,
-          220
-        ],
+        "batch_queue_count": 0,
+        "batch_queue_prs": [],
         "links": [
           {
             "label": "GitHub @Visio-Vanitas",
@@ -1814,6 +2095,56 @@
           "url": "https://scottcochran.github.io/riemann-diagrams/"
         }
       ]
+    }
+  ],
+  "community_timeline": [
+    {
+      "date": "2026-11-23",
+      "tag": "Merge Queue",
+      "cls": "badge-open",
+      "title": "PR #185 (Lean 4.37.0-rc1 + #134 -21.9% CPU), #221 (3,076 files), and #243 (-42% linter warnings) queued",
+      "detail": "Kim Morrison (#185), Andres Gutierrez (#221), and James Shore (#243) lead the next wave of stacked builds on donated multi-core CI shards while @Deicyde batch-assembly (#233) automates smaller PRs.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/185"
+    },
+    {
+      "date": "2026-11-22",
+      "tag": "Cleanup Batches",
+      "cls": "badge-exact",
+      "title": "PR #115 & #150 land 132 reviewed Lean 4.36 cleanup files",
+      "detail": "First two reviewed community batches merged cleanly onto v4.36.0 main (including #54, #62, #70, #71, #74-#76, #80-#82, #90, #92, #94), reducing backward.* directives and redundant proofs.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/150"
+    },
+    {
+      "date": "2026-11-22",
+      "tag": "Verification",
+      "cls": "badge-verified",
+      "title": "DeepMind formal-conjectures Comparator (#88) & 6+ independent checkers accept RH & GRH",
+      "detail": "Full 61.57 GB export verified across con-leche, con-ron, con-agua, nanoda, Gruszka, and Pestka with zero sorry and standard axioms only.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/88"
+    },
+    {
+      "date": "2026-11-22",
+      "tag": "Toolchain Port",
+      "cls": "badge-verified",
+      "title": "PR #66 (@Vilin97) ports repository to Lean & Mathlib v4.36.0 + module system",
+      "detail": "Migrated 164k files to Lean 4.36 module headers and pruned 15,068 unreachable dead files (-1.38M lines), establishing the live community cache baseline.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/66"
+    },
+    {
+      "date": "2026-11-21",
+      "tag": "Dead Prune",
+      "cls": "badge-dead",
+      "title": "PR #45 (@rohanarun) removes 10,718 unreachable dead modules (-785K lines)",
+      "detail": "First major structural slimming after v0.2.1, followed by active-cone explicit-dump cleanups (#57, #60, #65, #68).",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/45"
+    },
+    {
+      "date": "2026-11-21",
+      "tag": "Release",
+      "cls": "badge-exact",
+      "title": "v0.2.1 Verified RH/GRH Baseline Released (175,187 files · 17.37M lines)",
+      "detail": "Public release of Levent Alpoge formal Lean 4 proof of the Riemann Hypothesis and Dirichlet GRH into leanprover-community/riemann-hypothesis.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/commit/06c2690c1"
     }
   ]
 }
