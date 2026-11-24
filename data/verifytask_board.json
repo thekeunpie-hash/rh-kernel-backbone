@@ -3,9 +3,9 @@
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
   "revision": "8743350f5f442e1c",
-  "updated_at": "2026-11-24T11:28:40.739683+08:00",
+  "updated_at": "2026-11-24T11:30:09.388323+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-24T03:30:07Z",
+  "generated_at": "2026-11-24T03:31:54Z",
   "summary": {
     "participants": 66,
     "scored_participants": 54,
@@ -8985,7 +8985,7 @@
   "timeline": [
     {
       "id": "pg-phase2-launch-34",
-      "ts": "2026-11-24T02:59:17Z",
+      "ts": "2026-11-24T03:29:23Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 34 new Lean 4 pillar(s) on Playground",
@@ -9024,12 +9024,12 @@
       "highlight": true
     },
     {
-      "id": "pg-frontier-core28-102915",
-      "ts": "2026-11-24T01:25:32Z",
+      "id": "pg-frontier-core28-102935",
+      "ts": "2026-11-24T01:41:59Z",
       "source": "playground",
       "tag": "Frontier · Core 28 · Fast",
-      "title": "Unitary Fundamental Domain Bound compressed to −69.2% tokens by Vladyslav Larin (score 60.18)",
-      "summary": "Verified attempt #102915 sets a new Core 28 · Fast frontier record (0 sorry, Lean 4.34.1 + Comparator) using Inline 24 helpers + simp_all fold (−69%).",
+      "title": "Unitary Fundamental Domain Bound compressed to −69.4% tokens by Vladyslav Larin (score 60.22)",
+      "summary": "Verified attempt #102935 sets a new Core 28 · Fast frontier record (0 sorry, Lean 4.34.1 + Comparator) using Inline 7 helpers + simp_all fold (−69%).",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-fast-sub-pillar-28-fundamen-7b3737ce",
       "highlight": true
     },
@@ -9098,7 +9098,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (886★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (888★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true
