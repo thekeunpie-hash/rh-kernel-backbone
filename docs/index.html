@@ -1831,6 +1831,7 @@
       <a href="#live-upstream-tracker" class="toc-l3">Live Upstream Tracker (4.36)</a>
       <a href="#proof-coverage-map" class="toc-l3">Whole-Proof Coverage Map</a>
       <a href="#verifytask-core" class="toc-l3">Playground Core Pillars</a>
+      <a href="#rh-shrink-size" class="toc-l3">Proof Size per Commit</a>
       <a href="#community-timeline" class="toc-l3">Community News &amp; Timeline</a>
       <a href="#stewardship-hall" class="toc-l3">Maintainers &amp; Contributors</a>
       <a href="#upstream-frontier" class="toc-l3">Upstream main Frontier</a>
@@ -1970,6 +1971,34 @@
             <div class="vt-src" id="vtBenchNote"></div>
           </div>
           <div class="vt-src">Source: <a href="https://riemann.verifytask.cn/" target="_blank" rel="noopener">riemann.verifytask.cn</a> live board, stored in <code>data/verifytask_board.json</code> and refreshed with the upstream tracker. Values are the board's own verified per-core bests; nothing here is a merged upstream commit.</div>
+        </section>
+
+        <section class="panel" id="rh-shrink-size" aria-labelledby="rsTitle">
+          <div class="eyebrow">rh-shrink — third-party proof-size counter</div>
+          <h3 id="rsTitle" style="margin:0 0 4px;">RH Proof Size per main Commit</h3>
+          <p class="vt-lead"><a href="https://rh-shrink.github.io/" target="_blank" rel="noopener">rh-shrink.github.io</a> (unofficial) counts the <code>.lean</code> files of every <code>main</code> commit with plain text search: code lines without blanks, comments and imports, plus theorems and other declarations. Lean is not run, so these are size counts, not checked proofs.</p>
+          <div class="vt-summary" id="rsSummary">Loading rh-shrink series…</div>
+          <figure class="vt-frontier">
+            <svg id="rsSpark" viewBox="0 0 960 120" role="img" aria-label="Code lines per main commit as measured by rh-shrink"></svg>
+          </figure>
+          <div class="vt-wrap">
+            <table class="vt-table" aria-describedby="rsTitle">
+              <thead>
+                <tr>
+                  <th>Commit</th>
+                  <th class="vt-col-target">Subject</th>
+                  <th class="num">Code lines</th>
+                  <th class="num">Change</th>
+                  <th class="num">Theorems</th>
+                  <th class="num">Date (UTC)</th>
+                </tr>
+              </thead>
+              <tbody id="rsRows">
+                <tr><td colspan="6" class="vt-empty">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="vt-src">Source: <a href="https://rh-shrink.github.io/data.json" target="_blank" rel="noopener">rh-shrink.github.io/data.json</a>, copied into <code>data/rh_shrink.json</code> by the upstream tracker only when rh-shrink publishes a new measurement.</div>
         </section>
 
         <div class="topbar">
@@ -2896,6 +2925,54 @@
       wrap.hidden = false;
     }
 
+    function renderRhShrink(data) {
+      const rows = document.getElementById("rsRows");
+      const summaryEl = document.getElementById("rsSummary");
+      const spark = document.getElementById("rsSpark");
+      if (!rows) return;
+      const latest = data && data.latest;
+      const original = data && data.original;
+      if (!latest || !original) {
+        if (summaryEl) summaryEl.textContent = "rh-shrink data is not available right now.";
+        rows.innerHTML = `<tr><td colspan="6" class="vt-empty">rh-shrink data is not available right now.</td></tr>`;
+        return;
+      }
+      const utc = (d) => { const t = new Date(d); return isNaN(t) ? "—" : t.toISOString().slice(0, 16).replace("T", " "); };
+      const signed = (n) => n == null ? "—" : (n > 0 ? "+" : n < 0 ? "−" : "") + fmtInt(Math.abs(n));
+      if (summaryEl) {
+        summaryEl.innerHTML = [
+          data.code_left_pct != null ? `<span><b>${Number(data.code_left_pct).toFixed(1)}%</b> of the original code lines left</span>` : "",
+          `<span><b>${fmtInt(latest.code)}</b> code lines now (from ${fmtInt(original.code)})</span>`,
+          latest.theorems != null ? `<span><b>${fmtInt(latest.theorems)}</b> theorems (from ${fmtInt(original.theorems)})</span>` : "",
+          latest.heartbeats != null ? `<span><b>${fmtInt(latest.heartbeats)}</b> maxHeartbeats overrides</span>` : "",
+          `<span><b>${fmtInt(data.commits_measured)}</b> main commits measured, latest ${escHtml(utc(latest.date))} UTC</span>`
+        ].filter(Boolean).join("");
+      }
+      const series = Array.isArray(data.series) ? data.series.filter((p) => Array.isArray(p) && typeof p[1] === "number") : [];
+      if (spark && series.length > 1) {
+        const vals = series.map((p) => p[1]);
+        const lo = Math.min(...vals), hi = Math.max(...vals), span = Math.max(hi - lo, 1);
+        const W = 960, H = 120, pad = 8;
+        const pts = vals.map((v, i) => `${(pad + i * (W - 2 * pad) / (vals.length - 1)).toFixed(1)},${(pad + (hi - v) * (H - 2 * pad) / span).toFixed(1)}`).join(" ");
+        spark.innerHTML = `<polyline fill="none" stroke="var(--accent)" stroke-width="1.6" points="${pts}"/>` +
+          `<text x="${pad}" y="${H - 2}" font-size="11" fill="var(--muted)">${escHtml(fmtInt(lo))} – ${escHtml(fmtInt(hi))} code lines</text>`;
+      }
+      const changes = Array.isArray(data.recent_changes) ? data.recent_changes : [];
+      if (!changes.length) {
+        rows.innerHTML = `<tr><td colspan="6" class="vt-empty">No code-changing commits measured yet.</td></tr>`;
+        return;
+      }
+      const repo = "https://github.com/leanprover-community/riemann-hypothesis";
+      rows.innerHTML = changes.map((c) => {
+        const sha = String(c.sha || "");
+        const link = /^[0-9a-f]{7,40}$/.test(sha) ? `<a href="${repo}/commit/${sha}" target="_blank" rel="noopener">${escHtml(sha.slice(0, 9))}</a>` : "—";
+        const pr = Number.isInteger(c.pr) ? ` <a href="${repo}/pull/${c.pr}" target="_blank" rel="noopener">#${c.pr}</a>` : "";
+        return `<tr><td class="vt-core">${link}${pr}</td><td class="vt-target">${escHtml(c.subject || "")}</td>` +
+          `<td class="num">${fmtInt(c.code)}</td><td class="num">${signed(c.code_delta)}</td>` +
+          `<td class="num">${signed(c.theorems_delta)}</td><td class="num">${escHtml(utc(c.date))}</td></tr>`;
+      }).join("");
+    }
+
     function renderVerifytask(data) {
       const rows = document.getElementById("vtRows");
       if (!rows) return;
@@ -3178,6 +3255,13 @@
           renderVerifytask(JSON.parse(vtText));
         } catch (_) {
           renderVerifytask(null);
+        }
+
+        try {
+          const rsText = await fetchWithFallback("data/rh_shrink.json");
+          renderRhShrink(JSON.parse(rsText));
+        } catch (_) {
+          renderRhShrink(null);
         }
 
         // Non-blocking 2-minute cached live GitHub check for instant HEAD & open PR freshness

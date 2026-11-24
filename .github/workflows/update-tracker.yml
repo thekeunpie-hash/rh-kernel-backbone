@@ -9,6 +9,7 @@ on:
     paths:
       - "scripts/update_upstream_tracker.py"
       - "scripts/fetch_verifytask.py"
+      - "scripts/fetch_rh_shrink.py"
       - "scripts/fetch_upstream_pr_insights.py"
       - ".github/workflows/update-tracker.yml"
   workflow_dispatch:
@@ -47,6 +48,11 @@ jobs:
         run: |
           python3 scripts/fetch_verifytask.py --data data/verifytask_board.json
 
+      - name: Fetch rh-shrink proof-size series (rh-shrink.github.io)
+        continue-on-error: true
+        run: |
+          python3 scripts/fetch_rh_shrink.py --data data/rh_shrink.json
+
       - name: Fetch upstream PR metadata insights (hourly / manual / push)
         continue-on-error: true
         env:
@@ -62,7 +68,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          CHANGED="$(git status --porcelain -- data/upstream_frontier.json data/community_context.json data/COMMUNITY_BRIEF.md data/verifytask_board.json data/upstream_pr_insights.json | cut -c4-)"
+          CHANGED="$(git status --porcelain -- data/upstream_frontier.json data/community_context.json data/COMMUNITY_BRIEF.md data/verifytask_board.json data/rh_shrink.json data/upstream_pr_insights.json | cut -c4-)"
           if [ -n "$CHANGED" ]; then
             git add -- $CHANGED
             git commit -m "chore(tracker): auto-update upstream main metrics ($(date -u +%Y-%m-%dT%H:%MZ))"
