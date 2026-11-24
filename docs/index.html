@@ -1778,6 +1778,33 @@
     .multiple svg { display: block; width: 100%; height: 34px; margin-top: 6px; }
     .multiple .spark { fill: none; stroke: var(--text-secondary); stroke-width: 1.2; }
     .record-src { margin-top: 10px; font-size: 11.5px; color: var(--muted); }
+
+    /* Bohrium Playground RH core pillars (riemann.verifytask.cn) */
+    .vt-lead { margin: 6px 0 0; color: var(--text-secondary); font-size: 13px; }
+    .vt-summary { display: flex; flex-wrap: wrap; gap: 4px 22px; margin: 12px 0 0; padding: 8px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); font-size: 12.5px; color: var(--muted); }
+    .vt-summary b { color: var(--text); font-weight: 500; font-variant-numeric: tabular-nums; }
+    .vt-wrap { overflow-x: auto; margin-top: 4px; }
+    .vt-table { width: 100%; border-collapse: collapse; font-size: 12.6px; }
+    .vt-table th { text-align: left; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; font-size: 10.5px; color: var(--muted); border-bottom: 1px solid var(--text); padding: 6px 8px; white-space: nowrap; }
+    .vt-table td { border-bottom: 1px solid var(--border); padding: 6px 8px; vertical-align: top; }
+    .vt-table td.num, .vt-table th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .vt-table .vt-core { font-weight: 600; white-space: nowrap; }
+    .vt-table .vt-target { color: var(--muted); font-size: 12px; }
+    .vt-table a { color: var(--accent); text-decoration: none; }
+    .vt-table a:hover { text-decoration: underline; }
+    .vt-frontier { margin: 16px 0 0; }
+    .vt-frontier svg { display: block; width: 100%; height: auto; overflow: visible; }
+    .vt-frontier .ax { stroke: var(--border-strong); stroke-width: 1; shape-rendering: crispEdges; }
+    .vt-frontier .line { fill: none; stroke: var(--accent); stroke-width: 1.6; }
+    .vt-frontier .area { fill: var(--accent); opacity: .05; }
+    .vt-frontier .tick { fill: var(--muted); font-size: 10px; }
+    .vt-frontier .note { fill: var(--text-secondary); font-size: 11px; }
+    .vt-src { margin-top: 10px; font-size: 11.5px; color: var(--muted); }
+    .vt-empty { color: var(--muted); font-size: 12.5px; }
+    @media (max-width: 700px) {
+      .vt-col-target { display: none; }
+      .vt-table th, .vt-table td { padding: 6px 5px; }
+    }
     @media (max-width: 760px) {
       .multiples { grid-template-columns: 1fr; }
       .multiple + .multiple { padding-left: 0; border-left: 0; border-top: 1px solid var(--border); }
@@ -1792,6 +1819,7 @@
       <a href="#interactive-dashboard">Kernel Dashboard</a>
       <a href="#live-upstream-tracker" class="toc-l3">Live Upstream Tracker (4.36)</a>
       <a href="#proof-coverage-map" class="toc-l3">Whole-Proof Coverage Map</a>
+      <a href="#verifytask-core" class="toc-l3">Playground Core Pillars</a>
       <a href="#community-timeline" class="toc-l3">Community News &amp; Timeline</a>
       <a href="#stewardship-hall" class="toc-l3">Maintainers &amp; Contributors</a>
       <a href="#upstream-frontier" class="toc-l3">Upstream main Frontier</a>
@@ -1881,6 +1909,36 @@
           <div class="multiples" id="recordMultiples"></div>
           <div class="record-src">Every point is one measured snapshot of <code>leanprover-community/riemann-hypothesis</code> (<code>live_history</code> in
             <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/data/upstream_frontier.json" target="_blank" rel="noopener">upstream_frontier.json</a>). Repeated snapshots with identical counts are drawn once.</div>
+        </section>
+
+        <section class="panel" id="verifytask-core" aria-labelledby="vtTitle">
+          <div class="eyebrow">Bohrium Playground — external RH proof-compression benchmark</div>
+          <h3 id="vtTitle" style="margin:0 0 4px;">Compressed RH Core Pillars on Playground</h3>
+          <p class="vt-lead">The Bohrium Playground board at <a href="https://riemann.verifytask.cn/" target="_blank" rel="noopener">riemann.verifytask.cn</a> runs each kernel-grounded RH core pillar as a compression challenge: agents and humans submit shorter Lean proofs for the same theorem, and the board keeps the best verified token count per pillar. These are external submissions, not merged into the official upstream tree.</p>
+          <div class="vt-summary" id="vtSummary">Loading Playground results…</div>
+          <div class="vt-wrap">
+            <table class="vt-table" aria-describedby="vtTitle">
+              <thead>
+                <tr>
+                  <th>Core</th>
+                  <th class="vt-col-target">Target theorem</th>
+                  <th class="num">Baseline → best tokens</th>
+                  <th class="num">Reduction</th>
+                  <th class="num">Best score</th>
+                  <th class="num">Last kept</th>
+                  <th>Challenge</th>
+                </tr>
+              </thead>
+              <tbody id="vtRows">
+                <tr><td colspan="7" class="vt-empty">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figure class="vt-frontier">
+            <svg id="vtFrontier" viewBox="0 0 960 220" role="img" aria-label="Running best compression score across all Playground core runs"></svg>
+            <figcaption class="vt-src" id="vtFrontierNote">Aggregate frontier: running best score across all core runs.</figcaption>
+          </figure>
+          <div class="vt-src">Source: <a href="https://riemann.verifytask.cn/" target="_blank" rel="noopener">riemann.verifytask.cn</a> live board, stored in <code>data/verifytask_board.json</code> and refreshed with the upstream tracker. Values are the board's own verified per-core bests; nothing here is a merged upstream commit.</div>
         </section>
 
         <div class="topbar">
@@ -2705,6 +2763,89 @@
   `).join("") || `<span class="status-msg">No timeline events loaded.</span>`;
     }
 
+    function fmtInt(n) {
+      if (n === null || n === undefined || Number.isNaN(Number(n))) return "—";
+      return Number(n).toLocaleString("en-US");
+    }
+
+    function drawVerifytaskFrontier(data) {
+      const svg = document.getElementById("vtFrontier");
+      if (!svg) return;
+      const pts = ((data && data.frontier && data.frontier.points) || []).filter((p) => p && p.best != null);
+      const note = document.getElementById("vtFrontierNote");
+      if (pts.length < 2) {
+        svg.innerHTML = "";
+        if (note) note.textContent = "Aggregate frontier: not enough points yet.";
+        return;
+      }
+      const W = 960, H = 220, padL = 46, padR = 18, padT = 18, padB = 28;
+      const ys = pts.map((p) => Number(p.best));
+      const yMin = Math.min(...ys), yMax = Math.max(...ys);
+      const xMax = pts.length - 1;
+      const sx = (i) => padL + (i / xMax) * (W - padL - padR);
+      const sy = (v) => padT + (1 - (v - yMin) / ((yMax - yMin) || 1)) * (H - padT - padB);
+      let d = "";
+      pts.forEach((p, i) => { d += (i === 0 ? "M" : "L") + sx(i).toFixed(1) + " " + sy(Number(p.best)).toFixed(1) + " "; });
+      const area = d + `L${sx(xMax).toFixed(1)} ${(H - padB).toFixed(1)} L${sx(0).toFixed(1)} ${(H - padB).toFixed(1)} Z`;
+      const first = pts[0], last = pts[pts.length - 1];
+      svg.innerHTML = `
+        <line class="ax" x1="${padL}" y1="${H - padB}" x2="${W - padR}" y2="${H - padB}"></line>
+        <line class="ax" x1="${padL}" y1="${padT}" x2="${padL}" y2="${H - padB}"></line>
+        <path class="area" d="${area}"></path>
+        <path class="line" d="${d}"></path>
+        <text class="tick" x="${padL - 6}" y="${padT + 4}" text-anchor="end">${Number(yMax).toFixed(0)}</text>
+        <text class="tick" x="${padL - 6}" y="${H - padB}" text-anchor="end">${Number(yMin).toFixed(0)}</text>
+        <text class="tick" x="${padL}" y="${H - 8}">${escHtml(String(first.ts || "").slice(0, 10))}</text>
+        <text class="tick" x="${W - padR}" y="${H - 8}" text-anchor="end">${escHtml(String(last.ts || "").slice(0, 10))}</text>
+        <text class="note" x="${padL}" y="${padT - 4}">Running best score ${Number(last.best).toFixed(1)}</text>
+      `;
+      if (note) note.textContent = `${pts.length} run points · running best score ${Number(last.best).toFixed(1)} (higher is better).`;
+    }
+
+    function renderVerifytask(data) {
+      const rows = document.getElementById("vtRows");
+      if (!rows) return;
+      const cores = (data && data.cores) || [];
+      const summary = (data && data.summary) || {};
+      const progress = (data && data.progress) || {};
+      const summaryEl = document.getElementById("vtSummary");
+      if (summaryEl) {
+        const saved = progress.saved_tokens_pct;
+        summaryEl.innerHTML = [
+          `<span><b>${fmtInt(summary.core_solved)}</b> / ${fmtInt(summary.core_total)} core pillars solved</span>`,
+          `<span><b>${fmtInt(summary.participants)}</b> participants</span>`,
+          `<span><b>${fmtInt(summary.submissions)}</b> submissions</span>`,
+          saved != null ? `<span><b>${Number(saved).toFixed(1)}%</b> tokens saved across solved cores</span>` : "",
+          data && data.updated_at ? `<span>Board updated ${escHtml(String(data.updated_at).slice(0, 10))}</span>` : ""
+        ].filter(Boolean).join("");
+      }
+      if (!cores.length) {
+        rows.innerHTML = `<tr><td colspan="7" class="vt-empty">Playground results are not available right now.</td></tr>`;
+        return;
+      }
+      rows.innerHTML = cores.map((c) => {
+        const hasTokens = c.best_tokens != null;
+        const base = hasTokens ? c.baseline_tokens : c.baseline_chars;
+        const best = hasTokens ? c.best_tokens : c.best_chars;
+        const unit = hasTokens ? "tokens" : "chars";
+        const tok = base != null && best != null ? `${fmtInt(base)} → ${fmtInt(best)}` : (base != null ? `${fmtInt(base)} → —` : "—");
+        const red = c.reduction_factor != null ? "×" + Number(c.reduction_factor).toFixed(1) : "—";
+        const score = c.score ? Number(c.score).toFixed(1) : "—";
+        const last = c.last_update ? String(c.last_update).slice(0, 10) : "—";
+        const tech = c.last_kept && c.last_kept.technique ? `<div class="vt-target">${escHtml(c.last_kept.technique)}</div>` : "";
+        return `<tr>
+          <td><span class="vt-core">${escHtml(c.code || c.key)}</span><div class="vt-target">${escHtml(c.short || "")}</div></td>
+          <td class="vt-col-target"><div class="vt-target" title="${escHtml(c.target || "")}">${escHtml(c.target || "")}</div>${tech}</td>
+          <td class="num">${tok}<div class="vt-target">${unit}</div></td>
+          <td class="num">${red}</td>
+          <td class="num">${score}</td>
+          <td class="num">${last}</td>
+          <td><a href="${escHtml(c.url)}" target="_blank" rel="noopener">Open ↗</a></td>
+        </tr>`;
+      }).join("");
+      drawVerifytaskFrontier(data);
+    }
+
     function renderPatternsAndTargets(fdata) {
       const patterns = fdata.verified_patterns || [];
       PATTERNS_BY_ID = {};
@@ -2935,6 +3076,13 @@
         renderPatternsAndTargets(frontierData);
         renderFrontier(frontierData);
         renderSummary(JSON.parse(summaryText));
+
+        try {
+          const vtText = await fetchWithFallback("data/verifytask_board.json");
+          renderVerifytask(JSON.parse(vtText));
+        } catch (_) {
+          renderVerifytask(null);
+        }
 
         // Non-blocking 2-minute cached live GitHub check for instant HEAD & open PR freshness
         async function runLiveOverlay(force) {

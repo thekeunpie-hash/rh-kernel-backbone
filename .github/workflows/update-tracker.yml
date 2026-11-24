@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - "scripts/update_upstream_tracker.py"
+      - "scripts/fetch_verifytask.py"
       - ".github/workflows/update-tracker.yml"
   workflow_dispatch:
 
@@ -40,11 +41,16 @@ jobs:
           fi
           python3 scripts/update_upstream_tracker.py --data data/upstream_frontier.json
 
+      - name: Fetch Bohrium Playground RH core results (riemann.verifytask.cn)
+        continue-on-error: true
+        run: |
+          python3 scripts/fetch_verifytask.py --data data/verifytask_board.json
+
       - name: Commit updated metrics if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          CHANGED="$(git status --porcelain -- data/upstream_frontier.json data/community_context.json data/COMMUNITY_BRIEF.md | cut -c4-)"
+          CHANGED="$(git status --porcelain -- data/upstream_frontier.json data/community_context.json data/COMMUNITY_BRIEF.md data/verifytask_board.json | cut -c4-)"
           if [ -n "$CHANGED" ]; then
             git add -- $CHANGED
             git commit -m "chore(tracker): auto-update upstream main metrics ($(date -u +%Y-%m-%dT%H:%MZ))"
