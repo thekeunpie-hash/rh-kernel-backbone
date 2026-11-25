@@ -1,6 +1,6 @@
 # Kernel-Grounded Minimal Backbone Specification (`leanprover-community/riemann-hypothesis`)
 
-> **Interactive Web Edition & Live Upstream Tracker**: [riemannstheorem.com](https://riemannstheorem.com/) (GitHub Pages: `thekeunpie-hash/rh-kernel-backbone`)  
+> **Interactive Web Edition & Live Upstream Tracker**: [riemannhypothesis.dev](https://riemannhypothesis.dev/) (GitHub Pages: `thekeunpie-hash/rh-kernel-backbone`)  
 > **Full Specification**: [SPEC.md](SPEC.md) · **Live Tracker JSON (Hourly CI)**: [data/upstream_frontier.json](data/upstream_frontier.json) · **Machine-Readable Kernel Summary**: [data/kernel_backbone_summary.json](data/kernel_backbone_summary.json) · **Citation Auditor**: [scripts/audit_spec_citations.py](scripts/audit_spec_citations.py) · **NDJSON Statement Auditor**: [scripts/audit_ndjson_statement.py](scripts/audit_ndjson_statement.py)
 
 A compact, kernel-audited technical map **and auto-updating hourly upstream progress tracker** for Levent Alpöge's formalization of the Riemann Hypothesis and Dirichlet $L$-function GRH ([`leanprover-community/riemann-hypothesis`](https://github.com/leanprover-community/riemann-hypothesis), baseline `v0.2.1` on Lean `v4.33.1`, live `main` now on Lean `v4.36.0` after [PR #66](https://github.com/leanprover-community/riemann-hypothesis/pull/66)), grounded directly in Andrew Sutherland and James Shore's `v0.2.1` Lean kernel export (`cone-constants.txt.gz`, `decls.csv.gz`, `dominators.tsv.gz`, `why-parents.csv.gz`, `directories.csv.gz`).
