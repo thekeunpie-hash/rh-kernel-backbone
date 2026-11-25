@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T22:39:55Z",
+  "generated_at": "2026-11-25T23:03:51Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -621,20 +621,20 @@
     }
   ],
   "live_main": {
-    "sha": "756a70250",
-    "commit_date": "2026-11-26T08:25:34+11:00",
-    "toolchain": "leanprover/lean4:v4.37.0-rc1",
-    "lean_files": 58947,
-    "total_lines": 13710054,
-    "total_bytes": 920532030,
-    "import_lines": 817939,
-    "declarations": 728272,
-    "backward_options": 992,
-    "heartbeat_options": 1514,
-    "files_delta_vs_v021": -116240,
-    "lines_delta_vs_v021": -3664161,
-    "open_pr_count": 1246,
-    "measured_at": "2026-11-25T22:39:55Z"
+    "sha": "686902ae1",
+    "commit_date": "2026-11-25T22:28:51Z",
+    "toolchain": "leanprover/lean4:v4.35.0",
+    "lean_files": 803,
+    "total_lines": 477124,
+    "total_bytes": 30050271,
+    "import_lines": 1742,
+    "declarations": 23968,
+    "backward_options": 33,
+    "heartbeat_options": 5,
+    "files_delta_vs_v021": -174384,
+    "lines_delta_vs_v021": -16897091,
+    "open_pr_count": 1253,
+    "measured_at": "2026-11-25T23:03:51Z"
   },
   "live_history": [
     {
@@ -850,6 +850,18 @@
       "import_lines": 817939,
       "backward_options": 992,
       "heartbeat_options": 1514
+    },
+    {
+      "date": "2026-11-25T22:28:51Z",
+      "sha": "686902ae1",
+      "label": "main@686902ae1",
+      "toolchain": "leanprover/lean4:v4.35.0",
+      "lean_files": 803,
+      "total_lines": 477124,
+      "declarations": 23968,
+      "import_lines": 1742,
+      "backward_options": 33,
+      "heartbeat_options": 5
     }
   ],
   "stacked_pr_queue": [
@@ -1364,7 +1376,7 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-25T22:39:55Z",
+    "measured_at": "2026-11-25T23:03:51Z",
     "total_merged_prs": 3821,
     "total_batch_queue_prs": 1,
     "entries": [

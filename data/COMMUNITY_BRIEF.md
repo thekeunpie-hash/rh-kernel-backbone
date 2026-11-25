@@ -1,106 +1,27 @@
-# Community Context Brief (Auto-generated 2026-11-24T03:02:09Z)
+# Community Context Brief (Auto-generated 2026-11-25T23:03:50Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[merged:63], merged PRs=57 (#637, #591, #579, #539, #527, #487, #426, #425), main commits=304
-- **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[unlabeled:74, labeled:69, merged:12, assigned:1], merged PRs=17 (#597, #595, #545, #502, #461, #353, #233, #226), main commits=20
-- **thorimur** / Thomas Murrills (`COLLABORATOR`): privileged=[labeled:3], merged PRs=4 (#436, #191, #184, #154), main commits=1
-- **grootstebozewolf** (`CONTRIBUTOR`): privileged=[none], merged PRs=6 (#377, #376, #375, #374, #373, #363), main commits=18
-- **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=2 (#134, #66), main commits=0
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[merged:115], merged PRs=1 (#4761), main commits=3
+- **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[none], merged PRs=16 (#4640, #4639, #4637, #4636, #4635, #4633, #4630, #4625), main commits=0
+- **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
+- **thorimur** / Thomas Murrills (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
+- **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 
 ## 2. Active Contributors (GitHub)
-- **homeowmorphism** (`CONTRIBUTOR`): merged=8 [#434, #202, #146, #123, #93], batch_queue=0 [], opened=10
-- **RudiksChess** (`CONTRIBUTOR`): merged=6 [#572, #570, #568, #513, #501], batch_queue=0 [], opened=33
-- **Jitheswar** (`CONTRIBUTOR`): merged=3 [#396, #391, #388], batch_queue=0 [], opened=23
-- **lukeholladay** (`CONTRIBUTOR`): merged=3 [#549, #506, #462], batch_queue=0 [], opened=10
-- **EricHe98** (`NONE`): merged=2 [#573, #571], batch_queue=1 [#592], opened=9
-- **ishaan2006** (`CONTRIBUTOR`): merged=2 [#417, #384], batch_queue=0 [], opened=11
-- **mikederismith-wq** (`CONTRIBUTOR`): merged=2 [#520, #518], batch_queue=0 [], opened=9
-- **sethersons** (`CONTRIBUTOR`): merged=2 [#578, #559], batch_queue=0 [], opened=7
-- **colinjoc** (`CONTRIBUTOR`): merged=2 [#537, #536], batch_queue=0 [], opened=6
-- **thekeunpie-hash** (`CONTRIBUTOR`): merged=2 [#65, #60], batch_queue=0 [], opened=6
-- **Mfweb** (`CONTRIBUTOR`): merged=2 [#543, #465], batch_queue=0 [], opened=3
-- **Serdnad** (`CONTRIBUTOR`): merged=2 [#438, #221], batch_queue=0 [], opened=3
-- **JosephDemarest** (`CONTRIBUTOR`): merged=2 [#422, #410], batch_queue=0 [], opened=2
-- **alectionary** (`CONTRIBUTOR`): merged=1 [#213], batch_queue=0 [], opened=31
-- **hughperkins** (`CONTRIBUTOR`): merged=1 [#175], batch_queue=0 [], opened=9
-- **Haor** (`CONTRIBUTOR`): merged=1 [#437], batch_queue=0 [], opened=8
-- **brianlzhou** (`CONTRIBUTOR`): merged=1 [#574], batch_queue=0 [], opened=6
-- **Sheape** (`CONTRIBUTOR`): merged=1 [#246], batch_queue=0 [], opened=6
-- **tudsytoo** (`CONTRIBUTOR`): merged=1 [#348], batch_queue=0 [], opened=6
-- **deancureton** (`CONTRIBUTOR`): merged=1 [#8], batch_queue=0 [], opened=5
-- **Robertboy18** (`CONTRIBUTOR`): merged=1 [#241], batch_queue=0 [], opened=5
-- **rohanarun** (`CONTRIBUTOR`): merged=1 [#45], batch_queue=0 [], opened=5
-- **seanyang0813** (`CONTRIBUTOR`): merged=1 [#593], batch_queue=0 [], opened=5
-- **MEspeace** (`CONTRIBUTOR`): merged=1 [#557], batch_queue=0 [], opened=4
-- **roy7** (`CONTRIBUTOR`): merged=1 [#497], batch_queue=0 [], opened=4
-- **antoshashakov** (`CONTRIBUTOR`): merged=1 [#68], batch_queue=0 [], opened=3
-- **CheyLoveday** (`CONTRIBUTOR`): merged=1 [#369], batch_queue=0 [], opened=3
-- **agulerman** (`CONTRIBUTOR`): merged=1 [#57], batch_queue=0 [], opened=2
-- **fenghourun** (`CONTRIBUTOR`): merged=1 [#269], batch_queue=0 [], opened=2
-- **JoeAzar** (`CONTRIBUTOR`): merged=1 [#480], batch_queue=0 [], opened=2
-- **orzthe-wq** (`CONTRIBUTOR`): merged=1 [#419], batch_queue=0 [], opened=2
-- **tayyare79** (`CONTRIBUTOR`): merged=1 [#429], batch_queue=0 [], opened=2
-- **Antimatter543** (`CONTRIBUTOR`): merged=1 [#64], batch_queue=0 [], opened=1
-- **forsakendaemon** (`CONTRIBUTOR`): merged=1 [#212], batch_queue=0 [], opened=1
-- **jboverio** (`CONTRIBUTOR`): merged=1 [#432], batch_queue=0 [], opened=1
-- **lovon-spec** (`CONTRIBUTOR`): merged=1 [#360], batch_queue=0 [], opened=1
-- **marcelolynch** (`CONTRIBUTOR`): merged=1 [#1], batch_queue=0 [], opened=1
-- **Ticobit** (`CONTRIBUTOR`): merged=1 [#37], batch_queue=0 [], opened=1
-- **vihdzp** (`CONTRIBUTOR`): merged=1 [#129], batch_queue=0 [], opened=1
-- **ebyrwa** (`NONE`): merged=0 [], batch_queue=1 [#588], opened=13
-- **justinye23** (`NONE`): merged=0 [], batch_queue=1 [#586], opened=2
-- **maxilism** (`CONTRIBUTOR`): merged=0 [], batch_queue=1 [#242], opened=1
+- **dga471** (`NONE`): merged=29 [#4703, #4701, #4700, #4700, #4699], batch_queue=0 [], opened=79
+- **Benfinkels** (`NONE`): merged=11 [#4708, #4707, #4706, #4705, #4704], batch_queue=0 [], opened=25
+- **sqrt-of-2** (`NONE`): merged=5 [#4663, #4661, #4659, #4658, #4645], batch_queue=0 [], opened=40
+- **nielswiegerss-code** (`NONE`): merged=4 [#4628, #4618, #4610, #4600], batch_queue=0 [], opened=9
+- **Hope7Happiness** (`NONE`): merged=3 [#4691, #4677, #4644], batch_queue=0 [], opened=7
+- **tristan-hull** (`NONE`): merged=2 [#4676, #4669], batch_queue=0 [], opened=2
+- **dilarasoylu** (`NONE`): merged=1 [#4670], batch_queue=0 [], opened=6
+- **CollinYuanjieRen** (`NONE`): merged=1 [#4697], batch_queue=0 [], opened=3
+- **imvladikon** (`NONE`): merged=1 [#4664], batch_queue=0 [], opened=3
+- **LewisCrabtree** (`NONE`): merged=1 [#4643], batch_queue=0 [], opened=3
+- **righi** (`NONE`): merged=1 [#4675], batch_queue=0 [], opened=3
+- **dominikschnitzer** (`NONE`): merged=1 [#4685], batch_queue=0 [], opened=2
 
 ## 3. Most Active Zulip Participants (RH Threads)
-- **Mario Carneiro**: 27 msgs, 73 reactions
-- **David Loeffler**: 40 msgs, 66 reactions
-- **Vasily Ilin**: 19 msgs, 46 reactions
-- **suhr**: 12 msgs, 32 reactions
-- **Snir Broshi**: 18 msgs, 24 reactions
-- **Anton Mellit**: 15 msgs, 23 reactions
-- **Thomas Murrills**: 22 msgs, 21 reactions
-- **Violeta Hernández**: 5 msgs, 21 reactions
-- **Kim Morrison**: 32 msgs, 19 reactions
-- **Timothy Chow**: 10 msgs, 18 reactions
-- **Rohan Arun**: 57 msgs, 16 reactions
-- **Artie Khovanov**: 10 msgs, 14 reactions
-- **Aarre Lisakki**: 6 msgs, 14 reactions
-- **Eric Wieser**: 1 msgs, 14 reactions
-- **Simon DeDeo**: 1 msgs, 14 reactions
-- **Andrii Kurdiumov**: 32 msgs, 13 reactions
-- **Julian Berman**: 2 msgs, 13 reactions
-- **M. Henkin**: 4 msgs, 12 reactions
-- **Johan Commelin**: 3 msgs, 12 reactions
-- **Michael Righi**: 7 msgs, 11 reactions
-- **Jason Rute**: 5 msgs, 10 reactions
-- **Jack McCarthy**: 23 msgs, 9 reactions
-- **Riccardo Brasca**: 4 msgs, 9 reactions
-- **Moritz Roos**: 7 msgs, 8 reactions
-- **metakuntyyy**: 5 msgs, 7 reactions
+- **Kim Morrison**: 8 msgs, 0 reactions
 
 ## 4. High-Signal Zulip Messages (Community Vibe & Key Milestones)
-- [RH: why clean up the proof] **Mario Carneiro** (rx:26): @_**Vasily Ilin|414458** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20clean.20up.20the.20proof/near/642808748): ```quote 1. for the first time the community is being proactive in making code qua
-- [RH: why can I trust Lean?] **suhr** (rx:21): @_**Yakov Pechersky|308899** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F/near/642676373): ```quote If I have a C function that is typed that the return type is `int`, 
-- [RH: cleaning up the proof] **Vasily Ilin** (rx:17): I am actually happy that Levent put out such a messy formalization. Everyone involved in the cleanup now has firsthand experience of improving Lean code at scale, and all the problems that come up. For example, I have been talking about Lea
-- [Discussion: Alpöge Proves the Riemann Hypothesis] **Violeta Hernández** (rx:16): We compiled the code, with the highest safeguards, and we verified the proof comes through. This is a higher level of verification than most mathematical papers even come with. I think the wording is fully warranted.
-- [RH: why clean up the proof] **Eric Wieser** (rx:14): I think this one is bloated simply because the pipeline used to generate it didn't reward ongoing cleanup, and as soon as the result was proved there was a strong incentive to release rather than spend another week cleaning up after the fac
-- [Discussion: Alpöge Proves the Riemann Hypothesis] **Simon DeDeo** (rx:14): @_**Shirin Shafaie|1220143** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642647909): ```quote It just feels like the frontier AI compani
-- [RH: why can I trust Lean?] **Mario Carneiro** (rx:14): I've received like 4 or 5 AI generated proofs of variations on this claim, which I haven't merged into lean4lean because I'm stubborn and want to understand and optimize the proof by hand. Suffice it to say, I think the theorem is establish
-- [RH: why clean up the proof] **David Loeffler** (rx:12): @**Kevin Buzzard** writes > Interested bystander here. Is the main point of cleaning up the proof [...]  Personally I'm hoping that once the "engineering" optimizations have stabilized a bit, it will be easier for people like me – a tyro at
-- [RH: why clean up the proof] **Julian Berman** (rx:11): I am also just an interested bystander, and an even less informed one, but watching a bit of what's happening does remind me of what happens when you get a gigantic sloppy piece of software (AI-written or otherwise) which you need to someho
-- [RH: why clean up the proof] **Mario Carneiro** (rx:11): this "get to the goal at all costs" mentality is typical of new lean users, and I think that this is just the extrapolated results of taking that mentality from the prompters to the million dollar AI systems. It's not actually the strategic
-- [Discussion: Alpöge Proves the Riemann Hypothesis] **Anton Mellit** (rx:10): @_**Shirin Shafaie|1220143** to me it looked weird that the announcement was made on behalf of the community. I find it inappropriate for Lean FRO to make such a statement. An acceptable way to make such a statement is to write an open lett
-- [RH: why can I trust Lean?] **Johan Commelin** (rx:10): I think there will be a lot of value in a hand-optimized and human-understands-the-details verified kernel.
-- [RH: why can I trust Lean?] **Jason Rute** (rx:10): @_**pilgrim|1242244** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/RH.3A.20why.20can.20I.20trust.20Lean.3F/near/642660574): ```quote Are there any public efforts to port the Lean proof to other foundations/pr
-- [RH: cleaning up the proof] **Snir Broshi** (rx:9): "Zero linter warnings outside of the critical line"
-- [Discussion: Alpöge Proves the Riemann Hypothesis] **Riccardo Brasca** (rx:9): @_**Mario Carneiro|110049** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642641845): ````quote @_**Jack McCarthy|989743** [said](https://
-- [Discussion: Alpöge Proves the Riemann Hypothesis] **Artie Khovanov** (rx:9): I'll ask again - what does it mean to "establish a mathematical proof," as distinct from a formal proof?  As far as I can tell, the standard can't possibly be publication (which was neither necessary nor sufficient for mathematical proof be
-- [Discussion: Alpöge Proves the Riemann Hypothesis] **Aarre Lisakki** (rx:9): @_**Lectori Salutem|1242317** [said](https://leanprover.zulipchat.com/#narrow/channel/113488-general/topic/Discussion.3A.20Alp.C3.B6ge.20Proves.20the.20Riemann.20Hypothesis/near/642689906): ``````quote @_**Aarre Lisakki|1242118** [said](htt
-- [RH: cleaning up the proof] **Vasily Ilin** (rx:8): From profiling a 1% sample, imports take 54% of compilation time, definitional equality takes 15%, and typeclass inference takes 11%. The rest is negligible. Report is in RH#250.  We should focus on imports first. @**Rohan Arun**'s idea of 
-- [RH: why clean up the proof] **Vasily Ilin** (rx:8): @**Kevin Buzzard** ,  1. it's fun 2. it builds momentum in the community 3. it helps the community build better tools (e.g. understand that Lean is horribly slow and needs a 100x speedup) 4. it models what all new math will look like in 6 m
-- [RH: cleaning up the proof] **David Loeffler** (rx:7): Optimizing for number-of-instructions alone seems a dangerous metric. E.g. if we replaced every single typeclass-instance lookup with an explicitly named instance then it would probably save a considerable amount of compilation time, but at
-- [RH: cleaning up the proof] **Sébastien Gouëzel** (rx:7): If you want a huge gain on build time you could even consider bumping to 4.37rc1: on Mathlib, it gave a 23% speedup!
-- [RH: why clean up the proof] **Snir Broshi** (rx:7): I think if you'll make this a poll each person will answer something different, and possibly more than one of those :)
-- [RH: why clean up the proof] **Anton Mellit** (rx:7): @**Kevin Buzzard** I can offer my personal reason for following this thread. Basic curiosity. I want to get a feeling of what this beast is.
-- [RH: why clean up the proof] **Mario Carneiro** (rx:7): For me, the main reason to clean up the proof is to find the proof of RH that is 200 pages of text. As I said elsewhere, I think it will be possible to reduce the proof by 98%, and given that apparently it's already been reduced by 65% I th
-- [RH: cleaning up the proof] **David Loeffler** (rx:6): I think these suggestions for automated merge-queue solutions etc are missing Kim's point: lots of automation is being used already, but still expert human guidance is needed too, and that's the scarce resource here. Moreover, inexpert huma
