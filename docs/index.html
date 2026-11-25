@@ -2299,8 +2299,8 @@
                   &amp; live-tree grounded (no unverified estimates)</span>
                 <span class="hero-dot-item"><span class="hero-dot" style="background:#2563eb;"></span>Anti-golf
                   normalized Lean 4 token metrics + <code>Kernel.isDefEq</code> receipts</span>
-                <span class="hero-dot-item"><span class="hero-dot" style="background:#7c3aed;"></span>Auto-updated every
-                  5 min via fast-path Actions + live browser check</span>
+                <span class="hero-dot-item"><span class="hero-dot" style="background:#7c3aed;"></span>Real-time browser
+                  fetch from GitHub API &amp; rh-shrink (60s auto-refresh) + Actions snapshot fallback</span>
               </div>
             </div>
             <div class="hero-callouts">
@@ -2309,10 +2309,10 @@
                 <div class="cb-v" id="heroReductionVal">Syncing…</div>
                 <div class="cb-sub" id="heroReductionSub">Loading live snapshot from <code>upstream_frontier.json</code></div>
               </div>
-              <div class="callout-box is-green">
+              <div class="callout-box is-green" id="heroVerifyBox">
                 <div class="cb-k">Verification &amp; Toolchain Status</div>
-                <div class="cb-v" id="heroVerifyVal">Lean v4.37.0-rc1 · Comparator ACCEPTED</div>
-                <div class="cb-sub">0 sorry · standard axioms only · 4 independent kernels verified</div>
+                <div class="cb-v" id="heroVerifyVal">Syncing…</div>
+                <div class="cb-sub" id="heroVerifySub">Checking live <code>lean-toolchain</code> and verification status…</div>
               </div>
             </div>
           </div>
@@ -3858,85 +3858,201 @@
         }
 
         let displayedSha = (frontierData.live_main && frontierData.live_main.sha) ? frontierData.live_main.sha : "";
-        try {
-          const rsText = await fetchWithFallback("data/rh_shrink.json");
-          const rsData = JSON.parse(rsText);
-          renderRhShrink(rsData);
-          if (rsData && rsData.latest && typeof rsData.latest.lines === "number" && typeof rsData.latest.files === "number") {
-            const lm = frontierData.live_main || {};
-            const rsTs = Date.parse(rsData.latest.date || "");
-            const lmTs = Date.parse(lm.commit_date || lm.measured_at || "");
-            if ((!Number.isNaN(rsTs) && (Number.isNaN(lmTs) || rsTs > lmTs)) || (lm.total_lines && rsData.latest.lines < lm.total_lines)) {
-              const baseFiles = frontierData.baseline_files || 175187;
-              const baseLines = frontierData.baseline_raw_lines || 17374215;
-              const lDelta = rsData.latest.lines - baseLines;
-              const fDelta = rsData.latest.files - baseFiles;
-              const lPct = ((100 * lDelta) / baseLines).toFixed(1);
-              const fPct = ((100 * fDelta) / baseFiles).toFixed(1);
-              const absM = (Math.abs(lDelta) / 1e6).toFixed(2);
-              const rsSha = (rsData.latest.sha || "").slice(0, 9);
-              displayedSha = rsSha || displayedSha;
-              const heroRedVal = document.getElementById("heroReductionVal");
-              if (heroRedVal) heroRedVal.textContent = `${lPct}% (−${absM}M L)`;
-              const heroRedSub = document.getElementById("heroReductionSub");
-              if (heroRedSub) {
-                heroRedSub.innerHTML = `${rsData.latest.files.toLocaleString()} / ${baseFiles.toLocaleString()} files · ${fDelta.toLocaleString()} files (${fPct}%) on <code>main@${escHtml(rsSha)}</code>`;
-              }
-            }
+        let latestToolchain = (frontierData.live_main && frontierData.live_main.toolchain) ? frontierData.live_main.toolchain : "leanprover/lean4:v4.37.0-rc1";
+
+        function normalizeRhShrinkRaw(raw) {
+          const commits = raw && Array.isArray(raw.commits) ? raw.commits : [];
+          const pts = commits.filter((c) => c && typeof c.sha === "string" && typeof c.date === "string" && typeof c.code === "number");
+          if (!pts.length) return null;
+          const orig = pts[0], lat = pts[pts.length - 1];
+          const changes = [];
+          for (let i = 1; i < pts.length; i++) {
+            const prev = pts[i - 1], cur = pts[i];
+            const delta = cur.code - prev.code;
+            if (!delta) continue;
+            changes.push({
+              sha: cur.sha,
+              date: cur.date,
+              subject: cur.subject || "",
+              pr: Number.isInteger(cur.pr) ? cur.pr : null,
+              code: cur.code,
+              code_delta: delta,
+              theorems_delta: (typeof cur.theorems === "number" && typeof prev.theorems === "number") ? (cur.theorems - prev.theorems) : null
+            });
           }
-        } catch (_) {
-          renderRhShrink(null);
+          return {
+            source: { site: "https://rh-shrink.github.io/", data: "https://rh-shrink.github.io/data.json" },
+            commits_measured: pts.length,
+            original: orig,
+            latest: lat,
+            code_left_pct: orig.code ? Math.round((lat.code / orig.code) * 10000) / 100 : null,
+            code_removed: orig.code - lat.code,
+            recent_changes: changes.slice(-12).reverse(),
+            series: pts.map((p) => [p.date, p.code])
+          };
         }
 
-        // Non-blocking 2-minute cached live GitHub check for instant HEAD & open PR freshness
+        function updateHeroVerifyStatus(tcStr, filesCount) {
+          const tcShort = String(tcStr || "leanprover/lean4:v4.37.0-rc1").trim().replace(/^leanprover\/lean4:/, "");
+          const badge = document.getElementById("liveToolchainBadge");
+          if (badge) badge.textContent = tcShort;
+          const heroVerVal = document.getElementById("heroVerifyVal");
+          const heroVerSub = document.getElementById("heroVerifySub");
+          const heroVerBox = document.getElementById("heroVerifyBox");
+          const isThirdPartyRewrite = (typeof filesCount === "number" && filesCount > 0 && filesCount <= 2000) || tcShort === "v4.35.0";
+          if (isThirdPartyRewrite) {
+            if (heroVerBox) heroVerBox.classList.remove("is-green");
+            if (heroVerVal) heroVerVal.textContent = `Lean ${tcShort} · Third-party rewrite (unverified)`;
+            if (heroVerSub) heroVerSub.innerHTML = `<code>lsernau/grh-lean</code> on <code>main</code> (${typeof filesCount === "number" ? filesCount.toLocaleString() : "803"} files) · independent verification pending · Alpöge lineage on branch <code>alpoge</code>`;
+          } else {
+            if (heroVerBox) heroVerBox.classList.add("is-green");
+            if (heroVerVal) heroVerVal.textContent = `Lean ${tcShort} · Comparator ACCEPTED`;
+            if (heroVerSub) heroVerSub.textContent = "0 sorry · standard axioms only · 4 independent kernels verified";
+          }
+        }
+
+        function applyFreshRhShrink(rsData, liveTc) {
+          if (!rsData || !rsData.latest) return;
+          renderRhShrink(rsData);
+          const lat = rsData.latest;
+          const lm = frontierData.live_main || {};
+          const rsTs = Date.parse(lat.date || "");
+          const lmTs = Date.parse(lm.commit_date || lm.measured_at || "");
+          const isFresher = (!Number.isNaN(rsTs) && (Number.isNaN(lmTs) || rsTs > lmTs)) || (lm.total_lines && typeof lat.lines === "number" && lat.lines !== lm.total_lines && rsTs >= lmTs);
+          if (typeof lat.lines === "number" && typeof lat.files === "number" && isFresher) {
+            const baseFiles = frontierData.baseline_files || 175187;
+            const baseLines = frontierData.baseline_raw_lines || 17374215;
+            const lDelta = lat.lines - baseLines;
+            const fDelta = lat.files - baseFiles;
+            const lPct = ((100 * lDelta) / baseLines).toFixed(1);
+            const fPct = ((100 * fDelta) / baseFiles).toFixed(1);
+            const absM = (Math.abs(lDelta) / 1e6).toFixed(2);
+            const rsSha = (lat.sha || "").slice(0, 9);
+            displayedSha = rsSha || displayedSha;
+            const heroRedVal = document.getElementById("heroReductionVal");
+            if (heroRedVal) heroRedVal.textContent = `${lPct}% (−${absM}M L)`;
+            const heroRedSub = document.getElementById("heroReductionSub");
+            if (heroRedSub) {
+              const codeNote = typeof lat.code === "number" ? ` · ${lat.code.toLocaleString()} code L` : "";
+              heroRedSub.innerHTML = `${lat.files.toLocaleString()} / ${baseFiles.toLocaleString()} files (${fPct}%)${codeNote} on <code>main@${escHtml(rsSha)}</code>`;
+            }
+            const kpiEl = document.getElementById("liveKpiGrid");
+            if (kpiEl) {
+              const declsEst = (typeof lat.theorems === "number" ? lat.theorems : 0) + (typeof lat.defs === "number" ? lat.defs : 0);
+              const dDelta = declsEst ? declsEst - 1063284 : null;
+              const dPct = dDelta !== null ? ((100 * dDelta) / 1063284).toFixed(1) : "";
+              const mbNote = typeof lat.bytes === "number" ? ` (${(lat.bytes / 1e6).toFixed(1)} MB)` : "";
+              const tcShort = String(liveTc || latestToolchain || "").replace(/^leanprover\/lean4:/, "");
+              kpiEl.innerHTML = `
+                <div class="live-kpi">
+                  <div><span class="lk-val">${lat.files.toLocaleString()}</span><span class="lk-delta">${fDelta.toLocaleString()} (${fPct}%)</span></div>
+                  <div class="lk-lbl">Live <code>src/**/*.lean</code> files on <code>main@${escHtml(rsSha)}</code></div>
+                </div>
+                <div class="live-kpi">
+                  <div><span class="lk-val">${lat.lines.toLocaleString()}</span><span class="lk-delta">${lDelta.toLocaleString()} (${lPct}%)</span></div>
+                  <div class="lk-lbl">Live source lines (${typeof lat.code === "number" ? lat.code.toLocaleString() + " code L" : "vs. v0.2.1 17.37M"})</div>
+                </div>
+                <div class="live-kpi">
+                  <div><span class="lk-val">${declsEst ? declsEst.toLocaleString() : "—"}</span>${dDelta !== null ? `<span class="lk-delta">${dDelta.toLocaleString()} (${dPct}%)</span>` : ""}</div>
+                  <div class="lk-lbl">Live theorems + defs${mbNote}</div>
+                </div>
+                <div class="live-kpi">
+                  <div><span class="lk-val">${typeof lat.imports === "number" ? lat.imports.toLocaleString() : "—"}</span></div>
+                  <div class="lk-lbl">Live <code>import</code> lines (${escHtml(tcShort || "live")})</div>
+                </div>
+                <div class="live-kpi">
+                  <div><span class="lk-val">${typeof lat.repeats === "number" ? lat.repeats.toLocaleString() : "—"}</span></div>
+                  <div class="lk-lbl">Repeated statements (<code>rh-shrink</code> live)</div>
+                </div>
+                <div class="live-kpi">
+                  <div><span class="lk-val">${typeof lat.heartbeats === "number" ? lat.heartbeats.toLocaleString() : "—"}</span></div>
+                  <div class="lk-lbl">Remaining <code>maxHeartbeats</code> overrides (down from 57.6k)</div>
+                </div>
+              `;
+            }
+            updateHeroVerifyStatus(liveTc || latestToolchain, lat.files);
+          } else {
+            updateHeroVerifyStatus(liveTc || latestToolchain, lm.lean_files);
+          }
+        }
+
+        try {
+          const rsText = await fetchWithFallback("data/rh_shrink.json");
+          applyFreshRhShrink(JSON.parse(rsText), latestToolchain);
+        } catch (_) {
+          renderRhShrink(null);
+          updateHeroVerifyStatus(latestToolchain, (frontierData.live_main || {}).lean_files);
+        }
+
+        // True real-time browser fetch: GitHub commits/main + lean-toolchain + rh-shrink.github.io/data.json (all CORS *)
         async function runLiveOverlay(force) {
           try {
-            const KEY = "rh_live_overlay_v1";
+            const KEY = "rh_live_overlay_v2";
             const now = Date.now();
             let live = null;
             if (!force) {
               try {
                 const cached = JSON.parse(sessionStorage.getItem(KEY) || "null");
-                if (cached && now - cached.ts < 120000) live = cached;
+                if (cached && now - cached.ts < 30000) live = cached;
               } catch (_) { }
             }
-            if (!live) {
-              const [cRes, pRes] = await Promise.all([
-                fetch("https://api.github.com/repos/leanprover-community/riemann-hypothesis/commits/main"),
-                fetch("https://api.github.com/search/issues?q=repo:leanprover-community/riemann-hypothesis+is:pr+is:open&per_page=1")
-              ]);
-              if (cRes.ok && pRes.ok) {
+            const fetchOpts = force ? { cache: "no-store" } : {};
+            const [ghLive, rsRaw] = await Promise.all([
+              (async () => {
+                if (live) return live;
+                const [cRes, pRes, tcRes] = await Promise.all([
+                  fetch("https://api.github.com/repos/leanprover-community/riemann-hypothesis/commits/main", fetchOpts),
+                  fetch("https://api.github.com/search/issues?q=repo:leanprover-community/riemann-hypothesis+is:pr+is:open&per_page=1", fetchOpts),
+                  fetch("https://raw.githubusercontent.com/leanprover-community/riemann-hypothesis/main/lean-toolchain", fetchOpts).catch(() => null)
+                ]);
+                if (!cRes.ok) return null;
                 const cData = await cRes.json();
-                const pData = await pRes.json();
-                live = {
+                const pData = pRes && pRes.ok ? await pRes.json() : {};
+                const tcTxt = tcRes && tcRes.ok ? (await tcRes.text()).trim() : "";
+                const res = {
                   ts: now,
                   sha: (cData.sha || "").slice(0, 9),
-                  openPrs: typeof pData.total_count === "number" ? pData.total_count : null
+                  openPrs: typeof pData.total_count === "number" ? pData.total_count : null,
+                  toolchain: tcTxt || latestToolchain
                 };
-                try { sessionStorage.setItem(KEY, JSON.stringify(live)); } catch (_) { }
-              }
+                try { sessionStorage.setItem(KEY, JSON.stringify(res)); } catch (_) { }
+                return res;
+              })(),
+              fetch("https://rh-shrink.github.io/data.json" + (force ? ("?t=" + now) : ""), fetchOpts)
+                .then((r) => (r.ok ? r.json() : null))
+                .catch(() => null)
+            ]);
+
+            if (ghLive && ghLive.toolchain) latestToolchain = ghLive.toolchain;
+            if (rsRaw) {
+              const norm = normalizeRhShrinkRaw(rsRaw);
+              if (norm) applyFreshRhShrink(norm, latestToolchain);
+            } else if (ghLive && ghLive.toolchain) {
+              updateHeroVerifyStatus(ghLive.toolchain, undefined);
             }
-            if (live && live.sha) {
+
+            if (ghLive && ghLive.sha) {
               const meta = document.getElementById("liveMeta");
               const lm = frontierData.live_main || {};
               if (meta) {
-                const openCnt = live.openPrs !== null ? live.openPrs : lm.open_pr_count;
+                const openCnt = ghLive.openPrs !== null ? ghLive.openPrs : lm.open_pr_count;
                 const openNote = typeof openCnt === "number" ? ` · ${openCnt} open PRs` : "";
-                const syncNote = live.sha !== lm.sha ? " · new commit syncing" : " · live";
-                meta.innerHTML = `HEAD <a href="https://github.com/leanprover-community/riemann-hypothesis/commit/${escHtml(live.sha)}" target="_blank" rel="noopener"><code>${escHtml(live.sha)}</code></a>${openNote}${syncNote}<br>Tree snapshot ${escHtml(lm.measured_at || frontierData.generated_at || "")}`;
+                const syncNote = displayedSha && ghLive.sha !== displayedSha ? ` · metrics @ ${displayedSha}` : " · real-time";
+                meta.innerHTML = `HEAD <a href="https://github.com/leanprover-community/riemann-hypothesis/commit/${escHtml(ghLive.sha)}" target="_blank" rel="noopener"><code>${escHtml(ghLive.sha)}</code></a>${openNote}${syncNote}<br>Live browser sync ${new Date(ghLive.ts).toISOString().slice(11, 19)} UTC`;
               }
               const pulseTxt = document.getElementById("livePulseText");
               if (pulseTxt) {
-                const secs = Math.max(0, Math.round((Date.now() - live.ts) / 1000));
-                const checkedStr = secs < 60 ? `Checked ${secs}s ago` : `Checked ${Math.round(secs / 60)}m ago`;
-                pulseTxt.textContent = displayedSha && live.sha !== displayedSha
-                  ? `LIVE · HEAD ${live.sha} (snapshot ${displayedSha})`
-                  : `LIVE · main@${live.sha} · ${checkedStr}`;
+                const secs = Math.max(0, Math.round((Date.now() - ghLive.ts) / 1000));
+                const checkedStr = secs < 60 ? `Live ${secs}s ago` : `Live ${Math.round(secs / 60)}m ago`;
+                pulseTxt.textContent = displayedSha && ghLive.sha !== displayedSha
+                  ? `LIVE · HEAD ${ghLive.sha} (metrics ${displayedSha})`
+                  : `LIVE · main@${ghLive.sha} · ${checkedStr}`;
               }
             }
           } catch (_) { }
         }
-        runLiveOverlay(false);
+        runLiveOverlay(true);
+        setInterval(() => { if (!document.hidden) runLiveOverlay(true); }, 60000);
         const refreshBtn = document.getElementById("forceRefreshBtn");
         if (refreshBtn) {
           refreshBtn.addEventListener("click", async () => {

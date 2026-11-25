@@ -6,7 +6,7 @@
     "method": "text search over .lean files under src/, one point per main commit (rh-shrink collect.py)",
     "schema_version": 6
   },
-  "commits_measured": 206,
+  "commits_measured": 210,
   "original": {
     "sha": "40e56bab026552e089d7afcfeff08d2defb9c005",
     "date": "2026-11-20T09:36:09-05:00",
@@ -23,23 +23,41 @@
     "statements": 777704
   },
   "latest": {
-    "sha": "756a70250dcba9162b99d4ea35c186558434c17e",
-    "date": "2026-11-26T08:25:34+11:00",
-    "subject": "Merge pull request #4761 from leanprover-community/batch/b23-on-main",
-    "pr": 4761,
-    "files": 58947,
-    "lines": 13710054,
-    "code": 11000328,
-    "theorems": 569590,
-    "defs": 158682,
-    "imports": 364904,
-    "heartbeats": 240,
-    "repeats": 21460,
-    "statements": 541483
+    "sha": "686902ae1da717a63faf52d2dc6a50e5722942cd",
+    "date": "2026-11-25T22:28:51Z",
+    "subject": "Use the same lakefile.toml bytes as grh/ on branch grh-lean-cache",
+    "pr": null,
+    "files": 803,
+    "lines": 477124,
+    "code": 298160,
+    "theorems": 18227,
+    "defs": 5612,
+    "imports": 1733,
+    "heartbeats": 0,
+    "repeats": 47,
+    "statements": 17676
   },
-  "code_left_pct": 75.23,
-  "code_removed": 3621609,
+  "code_left_pct": 2.04,
+  "code_removed": 14323777,
   "recent_changes": [
+    {
+      "sha": "47fcde57c49eedd5a6352f4c8745d30bebbe4b0b",
+      "date": "2026-11-25T22:24:29Z",
+      "subject": "Move the readable edition to the repository root",
+      "pr": null,
+      "code": 298160,
+      "code_delta": 298160,
+      "theorems_delta": 18227
+    },
+    {
+      "sha": "72fead102f663d5c7a407964a13dc0cf9d977207",
+      "date": "2026-11-25T12:38:07-08:00",
+      "subject": "Lean proof of GRH",
+      "pr": null,
+      "code": 0,
+      "code_delta": -11000328,
+      "theorems_delta": -569590
+    },
     {
       "sha": "756a70250dcba9162b99d4ea35c186558434c17e",
       "date": "2026-11-26T08:25:34+11:00",
@@ -129,24 +147,6 @@
       "code": 11379548,
       "code_delta": -23234,
       "theorems_delta": -1441
-    },
-    {
-      "sha": "27b55787485ac2a5b5b3ed2dffc697e0ae6a2f59",
-      "date": "2026-11-25T15:16:12+11:00",
-      "subject": "Merge pull request #2057 from leanprover-community/batch/b13-on-main",
-      "pr": 2057,
-      "code": 11402782,
-      "code_delta": -46316,
-      "theorems_delta": -1724
-    },
-    {
-      "sha": "fcb6eac7534875d32d68030967e2deae6d686151",
-      "date": "2026-11-25T13:41:16+11:00",
-      "subject": "Merge pull request #1853 from leanprover-community/batch/b12-on-1801",
-      "pr": 1853,
-      "code": 11449098,
-      "code_delta": -27569,
-      "theorems_delta": -2174
     }
   ],
   "series": [
@@ -973,6 +973,22 @@
     [
       "2026-11-26T08:25:34+11:00",
       11000328
+    ],
+    [
+      "2026-11-25T12:38:07-08:00",
+      0
+    ],
+    [
+      "2026-11-25T22:24:29Z",
+      298160
+    ],
+    [
+      "2026-11-25T22:24:52Z",
+      298160
+    ],
+    [
+      "2026-11-25T22:28:51Z",
+      298160
     ]
   ]
 }

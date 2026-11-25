@@ -72,6 +72,7 @@ jobs:
           if [ -n "$CHANGED" ]; then
             git add -- $CHANGED
             git commit -m "chore(tracker): auto-update upstream main metrics ($(date -u +%Y-%m-%dT%H:%MZ))"
+            git pull --rebase --autostash origin main
             git push
           else
             echo "No upstream metric changes."
