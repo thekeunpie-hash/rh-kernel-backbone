@@ -924,7 +924,7 @@
       "title": "refactor(CompanionTheory): simplify the Cholesky triangular proofs",
       "author": "CubeJerry",
       "state": "open",
-      "draft": false,
+      "draft": true,
       "base_ref": "main",
       "head_ref": "refactor/cholesky-triangular-proofs",
       "labels": [

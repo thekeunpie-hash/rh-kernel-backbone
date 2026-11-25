@@ -7723,6 +7723,21 @@
         "method": null
       },
       {
+        "i": 512,
+        "id": 99672,
+        "ts": "2026-11-23T03:15:40+00:00",
+        "key": "core8",
+        "score": 55.98,
+        "compression_pct": 46.51,
+        "best": 820.0,
+        "best_pct": 0.46,
+        "kept": false,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": null
+      },
+      {
         "i": 513,
         "id": 99672,
         "ts": "2026-11-23T03:15:40+00:00",
@@ -7751,6 +7766,21 @@
         "model": "GPT-6.2 Astra",
         "harness": "Codex CLI",
         "method": "Core 13: norm_num compress (−81%)"
+      },
+      {
+        "i": 514,
+        "id": 99674,
+        "ts": "2026-11-23T03:16:04+00:00",
+        "key": "core10",
+        "score": 53.58,
+        "compression_pct": 29.86,
+        "best": 820.32,
+        "best_pct": 0.46,
+        "kept": false,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": null
       },
       {
         "i": 515,
@@ -7963,6 +7993,21 @@
         "method": "Core 12: omega compress + trim imports (−74%)"
       },
       {
+        "i": 528,
+        "id": 99810,
+        "ts": "2026-11-23T03:51:13+00:00",
+        "key": "core11",
+        "score": 62.34,
+        "compression_pct": 77.87,
+        "best": 821.53,
+        "best_pct": 0.47,
+        "kept": false,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": null
+      },
+      {
         "i": 529,
         "id": 99810,
         "ts": "2026-11-23T03:51:13+00:00",
@@ -8006,6 +8051,21 @@
         "model": "The Council",
         "harness": "pi",
         "method": "Core 8: Page/Siegel bound trim + simp_all fold"
+      },
+      {
+        "i": 531,
+        "id": 99817,
+        "ts": "2026-11-23T03:51:56+00:00",
+        "key": "core6",
+        "score": 58.56,
+        "compression_pct": 61.36,
+        "best": 821.96,
+        "best_pct": 0.47,
+        "kept": false,
+        "author": "LewyM",
+        "model": "GPT-6",
+        "harness": "Codex CLI",
+        "method": null
       },
       {
         "i": 532,
@@ -8248,6 +8308,21 @@
         "method": "Core 23: Baseline verified (L₀)"
       },
       {
+        "i": 547,
+        "id": 99888,
+        "ts": "2026-11-23T04:24:41+00:00",
+        "key": "core2",
+        "score": 60.23,
+        "compression_pct": 69.4,
+        "best": 874.31,
+        "best_pct": 0.47,
+        "kept": false,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": null
+      },
+      {
         "i": 548,
         "id": 99888,
         "ts": "2026-11-23T04:24:41+00:00",
@@ -8323,6 +8398,21 @@
         "method": "Core 11: omega compress (−81%)"
       },
       {
+        "i": 552,
+        "id": 99911,
+        "ts": "2026-11-23T04:34:15+00:00",
+        "key": "core12",
+        "score": 60.29,
+        "compression_pct": 69.69,
+        "best": 926.72,
+        "best_pct": 0.47,
+        "kept": false,
+        "author": "Kexiang Mao",
+        "model": "GPT-6.2 Astra",
+        "harness": "Codex CLI",
+        "method": null
+      },
+      {
         "i": 553,
         "id": 99911,
         "ts": "2026-11-23T04:34:15+00:00",
@@ -8351,6 +8441,21 @@
         "model": "Fable 5.2 + GPT Astra + Gemini Neon",
         "harness": "Claude Code + Codex + Antigravity",
         "method": "Core 1: Borel–Carathéodory + DSlope + grind automation"
+      },
+      {
+        "i": 554,
+        "id": 99947,
+        "ts": "2026-11-23T04:48:44+00:00",
+        "key": "core2",
+        "score": 60.76,
+        "compression_pct": 71.72,
+        "best": 926.84,
+        "best_pct": 0.47,
+        "kept": false,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": null
       },
       {
         "i": 555,
@@ -8398,6 +8503,21 @@
         "method": "Core 18: Baseline verified (L₀)"
       },
       {
+        "i": 557,
+        "id": 99956,
+        "ts": "2026-11-23T04:57:11+00:00",
+        "key": "core5",
+        "score": 53.55,
+        "compression_pct": 29.67,
+        "best": 976.85,
+        "best_pct": 0.47,
+        "kept": false,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": null
+      },
+      {
         "i": 558,
         "id": 99956,
         "ts": "2026-11-23T04:57:11+00:00",
@@ -8426,6 +8546,21 @@
         "model": "Fable 5.2 + GPT Astra + Gemini Neon",
         "harness": "Claude Code + Codex + Antigravity",
         "method": "Core 1: Borel–Carathéodory + DSlope + grind automation"
+      },
+      {
+        "i": 559,
+        "id": 99969,
+        "ts": "2026-11-23T05:05:34+00:00",
+        "key": "core4",
+        "score": 63.26,
+        "compression_pct": 81.03,
+        "best": 976.94,
+        "best_pct": 0.47,
+        "kept": false,
+        "author": "LewyM",
+        "model": "GPT-6",
+        "harness": "Codex CLI",
+        "method": null
       },
       {
         "i": 560,
@@ -8500,6 +8635,21 @@
         "author": "LewyM",
         "model": "GPT-6",
         "harness": "Codex CLI",
+        "method": null
+      },
+      {
+        "i": 564,
+        "id": 99987,
+        "ts": "2026-11-23T05:10:40+00:00",
+        "key": "core9",
+        "score": 69.66,
+        "compression_pct": 94.94,
+        "best": 980.36,
+        "best_pct": 0.47,
+        "kept": false,
+        "author": "Rasheed Khoshnaw",
+        "model": null,
+        "harness": null,
         "method": null
       },
       {
@@ -8983,6 +9133,21 @@
         "method": "Core 10: Inline 21 helpers + grind automation"
       },
       {
+        "i": 596,
+        "id": 100077,
+        "ts": "2026-11-23T05:34:51+00:00",
+        "key": "core10",
+        "score": 55.99,
+        "compression_pct": 46.59,
+        "best": 985.95,
+        "best_pct": 0.48,
+        "kept": false,
+        "author": "Renxiu Song",
+        "model": "Gemini 4 Neon",
+        "harness": "Antigravity",
+        "method": null
+      },
+      {
         "i": 597,
         "id": 100077,
         "ts": "2026-11-23T05:34:51+00:00",
@@ -9146,6 +9311,21 @@
         "model": "The Council",
         "harness": "pi",
         "method": "Core 6: Frobenius lift & orthogonality + grind automation"
+      },
+      {
+        "i": 607,
+        "id": 100105,
+        "ts": "2026-11-23T05:44:14+00:00",
+        "key": "core3",
+        "score": 54.69,
+        "compression_pct": 37.93,
+        "best": 986.51,
+        "best_pct": 0.48,
+        "kept": false,
+        "author": "殷子祺",
+        "model": null,
+        "harness": "Codex CLI",
+        "method": null
       },
       {
         "i": 608,
@@ -9341,6 +9521,21 @@
         "model": "GPT-6.2 Astra",
         "harness": "Codex CLI",
         "method": "Core 3: Borel–Carathéodory + DSlope + grind automation"
+      },
+      {
+        "i": 620,
+        "id": 100152,
+        "ts": "2026-11-23T05:58:48+00:00",
+        "key": "core11",
+        "score": 60.5,
+        "compression_pct": 70.62,
+        "best": 986.69,
+        "best_pct": 0.48,
+        "kept": false,
+        "author": "LewyM",
+        "model": "GPT-6",
+        "harness": "Codex CLI",
+        "method": null
       },
       {
         "i": 621,
@@ -9550,6 +9745,21 @@
         "author": "Andrew Pullin",
         "model": "The Council",
         "harness": "pi",
+        "method": null
+      },
+      {
+        "i": 634,
+        "id": 100188,
+        "ts": "2026-11-23T06:12:23+00:00",
+        "key": "core11",
+        "score": 50.24,
+        "compression_pct": 2.19,
+        "best": 1037.47,
+        "best_pct": 0.48,
+        "kept": false,
+        "author": "殷子祺",
+        "model": null,
+        "harness": null,
         "method": null
       },
       {
@@ -9853,6 +10063,21 @@
         "method": "Core 7: gcongr compress (−99%)"
       },
       {
+        "i": 654,
+        "id": 100251,
+        "ts": "2026-11-23T06:30:15+00:00",
+        "key": "core8",
+        "score": 58.77,
+        "compression_pct": 62.47,
+        "best": 1039.2,
+        "best_pct": 0.48,
+        "kept": false,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": null
+      },
+      {
         "i": 655,
         "id": 100251,
         "ts": "2026-11-23T06:30:15+00:00",
@@ -10048,6 +10273,21 @@
         "method": null
       },
       {
+        "i": 667,
+        "id": 100308,
+        "ts": "2026-11-23T06:49:04+00:00",
+        "key": "core8",
+        "score": 57.4,
+        "compression_pct": 55.05,
+        "best": 1040.21,
+        "best_pct": 0.48,
+        "kept": false,
+        "author": "LewyM",
+        "model": "GPT-6",
+        "harness": "Codex CLI",
+        "method": null
+      },
+      {
         "i": 668,
         "id": 100308,
         "ts": "2026-11-23T06:49:04+00:00",
@@ -10198,6 +10438,21 @@
         "method": null
       },
       {
+        "i": 677,
+        "id": 100338,
+        "ts": "2026-11-23T06:55:08+00:00",
+        "key": "core10",
+        "score": 55.67,
+        "compression_pct": 44.52,
+        "best": 1040.52,
+        "best_pct": 0.48,
+        "kept": false,
+        "author": "LewyM",
+        "model": "GPT-6",
+        "harness": "Codex CLI",
+        "method": null
+      },
+      {
         "i": 678,
         "id": 100338,
         "ts": "2026-11-23T06:55:08+00:00",
@@ -10256,6 +10511,36 @@
         "model": "The Council",
         "harness": "pi",
         "method": "Core 8: Frobenius lift & orthogonality + grind automation"
+      },
+      {
+        "i": 680,
+        "id": 100362,
+        "ts": "2026-11-23T07:00:23+00:00",
+        "key": "core12",
+        "score": 50.66,
+        "compression_pct": 6.01,
+        "best": 1040.8,
+        "best_pct": 0.48,
+        "kept": false,
+        "author": "殷子祺",
+        "model": null,
+        "harness": null,
+        "method": null
+      },
+      {
+        "i": 681,
+        "id": 100386,
+        "ts": "2026-11-23T07:02:45+00:00",
+        "key": "core3",
+        "score": 65.16,
+        "compression_pct": 86.52,
+        "best": 1040.8,
+        "best_pct": 0.48,
+        "kept": false,
+        "author": "Jihao Liu",
+        "model": "GPT-6.2 Astra",
+        "harness": "Codex CLI",
+        "method": null
       },
       {
         "i": 682,
@@ -10331,6 +10616,36 @@
         "model": "gemini-4-neon",
         "harness": "Antigravity",
         "method": "Core 13: Inline 10 helpers + grind automation"
+      },
+      {
+        "i": 685,
+        "id": 100396,
+        "ts": "2026-11-23T07:05:41+00:00",
+        "key": "core12",
+        "score": 63.39,
+        "compression_pct": 81.45,
+        "best": 1041.34,
+        "best_pct": 0.48,
+        "kept": false,
+        "author": "dugbt607",
+        "model": "gemini-4-neon",
+        "harness": "Antigravity",
+        "method": null
+      },
+      {
+        "i": 686,
+        "id": 100398,
+        "ts": "2026-11-23T07:07:54+00:00",
+        "key": "core3",
+        "score": 65.06,
+        "compression_pct": 86.26,
+        "best": 1041.34,
+        "best_pct": 0.48,
+        "kept": false,
+        "author": "Vladyslav Larin",
+        "model": "Fortytwo Engine:Deepseek Flash V4.1 1017",
+        "harness": null,
+        "method": null
       },
       {
         "i": 687,
@@ -10708,6 +11023,21 @@
         "method": "Core 7: gcongr compress (−99%)"
       },
       {
+        "i": 711,
+        "id": 100598,
+        "ts": "2026-11-23T08:44:14+00:00",
+        "key": "core1",
+        "score": 66.09,
+        "compression_pct": 88.75,
+        "best": 1047.02,
+        "best_pct": 0.49,
+        "kept": false,
+        "author": "Yanbo Han",
+        "model": "deepseek-v4.1-flash-1017",
+        "harness": "DeepSeek Harness",
+        "method": null
+      },
+      {
         "i": 712,
         "id": 100588,
         "ts": "2026-11-23T08:39:06+00:00",
@@ -10840,6 +11170,51 @@
         "author": "殷子祺",
         "model": null,
         "harness": null,
+        "method": null
+      },
+      {
+        "i": 718,
+        "id": 100650,
+        "ts": "2026-11-23T09:08:39+00:00",
+        "key": "core2",
+        "score": 62.12,
+        "compression_pct": 77.08,
+        "best": 1049.25,
+        "best_pct": 0.49,
+        "kept": false,
+        "author": "Renxiu Song",
+        "model": "Gemini 4 Neon",
+        "harness": "Antigravity",
+        "method": null
+      },
+      {
+        "i": 719,
+        "id": 100664,
+        "ts": "2026-11-23T09:12:17+00:00",
+        "key": "core1",
+        "score": 55.92,
+        "compression_pct": 46.15,
+        "best": 1049.25,
+        "best_pct": 0.49,
+        "kept": false,
+        "author": "kissa",
+        "model": "Gemini 4 Neon",
+        "harness": "Antigravity",
+        "method": null
+      },
+      {
+        "i": 720,
+        "id": 100675,
+        "ts": "2026-11-23T09:16:09+00:00",
+        "key": "core3",
+        "score": 65.2,
+        "compression_pct": 86.61,
+        "best": 1049.25,
+        "best_pct": 0.49,
+        "kept": false,
+        "author": "Jihao Liu",
+        "model": "GPT-6.2 Astra",
+        "harness": "Codex CLI",
         "method": null
       },
       {
@@ -11038,6 +11413,111 @@
         "method": null
       },
       {
+        "i": 727,
+        "id": 100734,
+        "ts": "2026-11-23T09:39:56+00:00",
+        "key": "core7",
+        "score": 73.68,
+        "compression_pct": 98.41,
+        "best": 1049.53,
+        "best_pct": 0.49,
+        "kept": false,
+        "author": "justwingdong",
+        "model": "DeepSeek Flash",
+        "harness": "DeepSeek Harness",
+        "method": null
+      },
+      {
+        "i": 728,
+        "id": 100738,
+        "ts": "2026-11-23T09:42:08+00:00",
+        "key": "core11",
+        "score": 60.92,
+        "compression_pct": 72.37,
+        "best": 1049.53,
+        "best_pct": 0.49,
+        "kept": false,
+        "author": "justwingdong",
+        "model": "DeepSeek Flash",
+        "harness": "DeepSeek Harness",
+        "method": null
+      },
+      {
+        "i": 729,
+        "id": 100739,
+        "ts": "2026-11-23T09:42:11+00:00",
+        "key": "core13",
+        "score": 60.55,
+        "compression_pct": 70.81,
+        "best": 1049.53,
+        "best_pct": 0.49,
+        "kept": false,
+        "author": "justwingdong",
+        "model": "DeepSeek Flash",
+        "harness": "DeepSeek Harness",
+        "method": null
+      },
+      {
+        "i": 730,
+        "id": 100742,
+        "ts": "2026-11-23T09:42:32+00:00",
+        "key": "core8",
+        "score": 55.51,
+        "compression_pct": 43.48,
+        "best": 1049.53,
+        "best_pct": 0.49,
+        "kept": false,
+        "author": "justwingdong",
+        "model": "DeepSeek Flash",
+        "harness": "DeepSeek Harness",
+        "method": null
+      },
+      {
+        "i": 731,
+        "id": 100746,
+        "ts": "2026-11-23T09:44:10+00:00",
+        "key": "core12",
+        "score": 63.82,
+        "compression_pct": 82.78,
+        "best": 1049.53,
+        "best_pct": 0.49,
+        "kept": false,
+        "author": "Renxiu Song",
+        "model": "Gemini 4 Neon",
+        "harness": "Antigravity",
+        "method": null
+      },
+      {
+        "i": 732,
+        "id": 100749,
+        "ts": "2026-11-23T09:45:16+00:00",
+        "key": "core9",
+        "score": 69.36,
+        "compression_pct": 94.55,
+        "best": 1049.53,
+        "best_pct": 0.49,
+        "kept": false,
+        "author": "justwingdong",
+        "model": "DeepSeek Flash",
+        "harness": "DeepSeek Harness",
+        "method": null
+      },
+      {
+        "i": 733,
+        "id": 100759,
+        "ts": "2026-11-23T09:46:31+00:00",
+        "key": "core1",
+        "score": 61.42,
+        "compression_pct": 74.43,
+        "best": 1049.53,
+        "best_pct": 0.49,
+        "kept": false,
+        "author": "kissa",
+        "model": "GPT 6.2 Astra + Gemini 4 Neon",
+        "harness": "Codex + Antigravity",
+        "method": null
+      },
+      {
         "i": 734,
         "id": 100746,
         "ts": "2026-11-23T09:44:10+00:00",
@@ -11110,6 +11590,66 @@
         "author": "justwingdong",
         "model": "DeepSeek Flash",
         "harness": "DeepSeek Harness",
+        "method": null
+      },
+      {
+        "i": 735,
+        "id": 100784,
+        "ts": "2026-11-23T09:51:49+00:00",
+        "key": "core10",
+        "score": 55.09,
+        "compression_pct": 40.64,
+        "best": 1049.53,
+        "best_pct": 0.49,
+        "kept": false,
+        "author": "justwingdong",
+        "model": "DeepSeek Flash",
+        "harness": "DeepSeek Harness",
+        "method": null
+      },
+      {
+        "i": 736,
+        "id": 100785,
+        "ts": "2026-11-23T09:51:59+00:00",
+        "key": "core10",
+        "score": 55.13,
+        "compression_pct": 40.92,
+        "best": 1049.53,
+        "best_pct": 0.49,
+        "kept": false,
+        "author": "justwingdong",
+        "model": "DeepSeek Flash",
+        "harness": "DeepSeek Harness",
+        "method": null
+      },
+      {
+        "i": 737,
+        "id": 100786,
+        "ts": "2026-11-23T09:53:15+00:00",
+        "key": "core1",
+        "score": 65.62,
+        "compression_pct": 87.67,
+        "best": 1049.53,
+        "best_pct": 0.49,
+        "kept": false,
+        "author": "jzs's agent1",
+        "model": "GPT-6.2 Astra",
+        "harness": "Codex CLI",
+        "method": null
+      },
+      {
+        "i": 738,
+        "id": 100796,
+        "ts": "2026-11-23T09:56:22+00:00",
+        "key": "core13",
+        "score": 53.35,
+        "compression_pct": 28.15,
+        "best": 1049.53,
+        "best_pct": 0.49,
+        "kept": false,
+        "author": "殷子祺",
+        "model": null,
+        "harness": null,
         "method": null
       },
       {
@@ -11426,6 +11966,51 @@
         "model": "Neon + GPT-6.2 Astra + Opus 5.5",
         "harness": "Antigravity + Codex + Claude",
         "method": "Core 8: Mod-1 character → ζ(s) + grind automation"
+      },
+      {
+        "i": 757,
+        "id": 100910,
+        "ts": "2026-11-23T11:25:50+00:00",
+        "key": "core5",
+        "score": 50.62,
+        "compression_pct": 5.6,
+        "best": 1050.61,
+        "best_pct": 0.5,
+        "kept": false,
+        "author": "Yanbo Han",
+        "model": "deepseek-v4.1-flash-1017",
+        "harness": "DeepSeek Harness",
+        "method": null
+      },
+      {
+        "i": 758,
+        "id": 100911,
+        "ts": "2026-11-23T11:28:41+00:00",
+        "key": "core8",
+        "score": 50.0,
+        "compression_pct": 5.26,
+        "best": 1050.61,
+        "best_pct": 0.5,
+        "kept": false,
+        "author": "zcw",
+        "model": "Claude-Opus-5.5",
+        "harness": "Claude Code",
+        "method": null
+      },
+      {
+        "i": 759,
+        "id": 101041,
+        "ts": "2026-11-23T12:05:05+00:00",
+        "key": "core1",
+        "score": 66.13,
+        "compression_pct": 88.84,
+        "best": 1050.61,
+        "best_pct": 0.5,
+        "kept": false,
+        "author": "jzs's agent1",
+        "model": "GPT-6",
+        "harness": "Codex CLI",
+        "method": null
       },
       {
         "i": 760,
