@@ -6,7 +6,7 @@
     "method": "text search over .lean files under src/, one point per main commit (rh-shrink collect.py)",
     "schema_version": 6
   },
-  "commits_measured": 183,
+  "commits_measured": 186,
   "original": {
     "sha": "40e56bab026552e089d7afcfeff08d2defb9c005",
     "date": "2026-11-20T09:36:09-05:00",
@@ -23,23 +23,50 @@
     "statements": 777704
   },
   "latest": {
-    "sha": "b2f365a68500e2bde98cd60a2324263fc62fba10",
-    "date": "2026-11-24T19:06:45-05:00",
-    "subject": "Merge pull request #1787 from Deicyde/doc/agents-deferred-label",
-    "pr": 1787,
-    "files": 59823,
-    "lines": 15952569,
-    "code": 11536202,
-    "theorems": 597770,
-    "defs": 163915,
-    "imports": 367517,
+    "sha": "fcb6eac7534875d32d68030967e2deae6d686151",
+    "date": "2026-11-25T13:41:16+11:00",
+    "subject": "Merge pull request #1853 from leanprover-community/batch/b12-on-1801",
+    "pr": 1853,
+    "files": 59764,
+    "lines": 15656672,
+    "code": 11449098,
+    "theorems": 592823,
+    "defs": 162861,
+    "imports": 367149,
     "heartbeats": 489,
-    "repeats": 34162,
-    "statements": 568777
+    "repeats": 33254,
+    "statements": 564085
   },
-  "code_left_pct": 78.9,
-  "code_removed": 3085735,
+  "code_left_pct": 78.3,
+  "code_removed": 3172839,
   "recent_changes": [
+    {
+      "sha": "fcb6eac7534875d32d68030967e2deae6d686151",
+      "date": "2026-11-25T13:41:16+11:00",
+      "subject": "Merge pull request #1853 from leanprover-community/batch/b12-on-1801",
+      "pr": 1853,
+      "code": 11449098,
+      "code_delta": -27569,
+      "theorems_delta": -2174
+    },
+    {
+      "sha": "c40250a50104b7e02e7d74f658d00fa7b1f4827c",
+      "date": "2026-11-25T13:09:34+11:00",
+      "subject": "Merge pull request #1801 from leanprover-community/batch/b11-on-1739",
+      "pr": 1801,
+      "code": 11476667,
+      "code_delta": -18201,
+      "theorems_delta": -1179
+    },
+    {
+      "sha": "4a5b4a2d2a5177a2b6cb876425f0cb4cb6b85061",
+      "date": "2026-11-25T12:15:19+11:00",
+      "subject": "Merge pull request #1739 from leanprover-community/batch/b10b-on-1410",
+      "pr": 1739,
+      "code": 11494868,
+      "code_delta": -41334,
+      "theorems_delta": -1594
+    },
     {
       "sha": "67c00ce1025a73f81a39533ac42deb47f15c4a15",
       "date": "2026-11-25T10:45:51+11:00",
@@ -120,33 +147,6 @@
       "code": 11919379,
       "code_delta": -81863,
       "theorems_delta": -16805
-    },
-    {
-      "sha": "c827d9fe3249dbd50b6bb82c948fcae88cfff583",
-      "date": "2026-11-24T13:19:20+11:00",
-      "subject": "Merge pull request #591 from leanprover-community/batch/b1-on-438",
-      "pr": 591,
-      "code": 12001242,
-      "code_delta": -392,
-      "theorems_delta": -12
-    },
-    {
-      "sha": "dc76b2788ef7ad0a6d2d4575ca3320a677c72cd9",
-      "date": "2026-11-24T12:43:31+11:00",
-      "subject": "Merge pull request #438 from Serdnad/codex/cleanup-after-324",
-      "pr": 438,
-      "code": 12001634,
-      "code_delta": -106876,
-      "theorems_delta": -4810
-    },
-    {
-      "sha": "c82871e6002287776ae8a7c9a1a79926f15c3c8e",
-      "date": "2026-11-24T10:24:49+11:00",
-      "subject": "Merge pull request #539 from leanprover-community/batch/combined-on-324",
-      "pr": 539,
-      "code": 12108510,
-      "code_delta": -65626,
-      "theorems_delta": -2626
     }
   ],
   "series": [
@@ -881,6 +881,18 @@
     [
       "2026-11-24T19:06:45-05:00",
       11536202
+    ],
+    [
+      "2026-11-25T12:15:19+11:00",
+      11494868
+    ],
+    [
+      "2026-11-25T13:09:34+11:00",
+      11476667
+    ],
+    [
+      "2026-11-25T13:41:16+11:00",
+      11449098
     ]
   ]
 }

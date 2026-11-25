@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T00:28:38Z",
+  "generated_at": "2026-11-25T03:39:35Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -621,20 +621,20 @@
     }
   ],
   "live_main": {
-    "sha": "b2f365a68",
-    "commit_date": "2026-11-24T19:06:45-05:00",
+    "sha": "fcb6eac75",
+    "commit_date": "2026-11-25T13:41:16+11:00",
     "toolchain": "leanprover/lean4:v4.37.0-rc1",
-    "lean_files": 59823,
-    "total_lines": 15952569,
-    "total_bytes": 1055553676,
-    "import_lines": 2399304,
-    "declarations": 761685,
-    "backward_options": 2622,
-    "heartbeat_options": 2649,
-    "files_delta_vs_v021": -115364,
-    "lines_delta_vs_v021": -1421646,
-    "open_pr_count": 482,
-    "measured_at": "2026-11-25T00:28:38Z"
+    "lean_files": 59764,
+    "total_lines": 15656672,
+    "total_bytes": 1040474062,
+    "import_lines": 2201293,
+    "declarations": 755684,
+    "backward_options": 2365,
+    "heartbeat_options": 2621,
+    "files_delta_vs_v021": -115423,
+    "lines_delta_vs_v021": -1717543,
+    "open_pr_count": 383,
+    "measured_at": "2026-11-25T03:39:35Z"
   },
   "live_history": [
     {
@@ -814,6 +814,18 @@
       "import_lines": 2399304,
       "backward_options": 2622,
       "heartbeat_options": 2649
+    },
+    {
+      "date": "2026-11-25T13:41:16+11:00",
+      "sha": "fcb6eac75",
+      "label": "main@fcb6eac75",
+      "toolchain": "leanprover/lean4:v4.37.0-rc1",
+      "lean_files": 59764,
+      "total_lines": 15656672,
+      "declarations": 755684,
+      "import_lines": 2201293,
+      "backward_options": 2365,
+      "heartbeat_options": 2621
     }
   ],
   "stacked_pr_queue": [
@@ -1170,7 +1182,7 @@
       "additions": 0,
       "deletions": 0,
       "net_lines": 0,
-      "updated_at": "2026-11-24T16:56:18Z",
+      "updated_at": "2026-11-24T21:31:15Z",
       "merged_at": null,
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/120"
     },
@@ -1328,9 +1340,9 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-25T00:28:38Z",
-    "total_merged_prs": 925,
-    "total_batch_queue_prs": 5,
+    "measured_at": "2026-11-25T03:39:35Z",
+    "total_merged_prs": 1299,
+    "total_batch_queue_prs": 3,
     "entries": [
       {
         "slug": "kim-em",
@@ -1349,12 +1361,13 @@
           "ops_review": "Primary merge-queue operator (live merge count from GitHub events)"
         },
         "bio": "Research software engineer at the Lean FRO and Mathlib maintainer. On leanprover-community/riemann-hypothesis, he runs the sharded AWS and donor-runner CI builds (#101), lands reviewed cleanup batches (#115, #150), and coordinates the merge queue through the Lean 4.37.0-rc1 upgrade (#185).",
-        "merged_direct": 2,
+        "merged_direct": 3,
         "merged_batch_extra": 0,
-        "merged_total": 2,
+        "merged_total": 3,
         "merged_prs": [
-          1410,
-          1313
+          1853,
+          1801,
+          1739
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -1399,9 +1412,9 @@
         "merged_batch_extra": 0,
         "merged_total": 3,
         "merged_prs": [
+          1796,
           1787,
-          1782,
-          1291
+          1782
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 1,
@@ -1643,12 +1656,10 @@
           "ops_review": "Declaration-identity audits on open PRs (85/85 downstream modules on #109)"
         },
         "bio": "Runs local Lean v4.36 builds and `.olean` declaration-identity comparisons against published caches for open contributor PRs (such as checking 85/85 downstream modules on #109).",
-        "merged_direct": 1,
+        "merged_direct": 0,
         "merged_batch_extra": 0,
-        "merged_total": 1,
-        "merged_prs": [
-          1260
-        ],
+        "merged_total": 0,
+        "merged_prs": [],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
         "batch_queue_prs": [],
@@ -1707,6 +1718,50 @@
         ]
       },
       {
+        "slug": "cubejerry",
+        "login": "CubeJerry",
+        "name": "CubeJerry",
+        "initials": "CJ",
+        "tier": "contributor",
+        "github_role": "CONTRIBUTOR",
+        "role": "Algebra & Representation Proof Deduplication",
+        "headline": "Deduplicates Schur/Jacobson density and module proofs (#192, #197, #210, #215, #216).",
+        "milestone_tag": "",
+        "impact": {
+          "build_perf": "",
+          "compute_infra": "",
+          "footprint_debt": "Deduplicates Schur/Jacobson density & module proofs (#192, #197, #210, #215, #216)",
+          "ops_review": ""
+        },
+        "bio": "Consolidates duplicated algebra and representation-theory proofs across focused PRs queued in `batch queue`.",
+        "merged_direct": 33,
+        "merged_batch_extra": 0,
+        "merged_total": 33,
+        "merged_prs": [
+          1841,
+          1840,
+          1835,
+          1831,
+          1830,
+          1829,
+          1827,
+          1825
+        ],
+        "batch_landed_prs": [],
+        "batch_queue_count": 0,
+        "batch_queue_prs": [],
+        "links": [
+          {
+            "label": "GitHub @CubeJerry",
+            "url": "https://github.com/CubeJerry"
+          },
+          {
+            "label": "Batch-Queued PRs",
+            "url": "https://github.com/leanprover-community/riemann-hypothesis/pulls?q=is%3Apr+author%3ACubeJerry+label%3A%22batch+queue%22"
+          }
+        ]
+      },
+      {
         "slug": "alectionary",
         "login": "alectionary",
         "name": "alectionary",
@@ -1738,41 +1793,6 @@
           {
             "label": "Batch-Queued PRs",
             "url": "https://github.com/leanprover-community/riemann-hypothesis/pulls?q=is%3Apr+author%3Aalectionary+label%3A%22batch+queue%22"
-          }
-        ]
-      },
-      {
-        "slug": "cubejerry",
-        "login": "CubeJerry",
-        "name": "CubeJerry",
-        "initials": "CJ",
-        "tier": "contributor",
-        "github_role": "CONTRIBUTOR",
-        "role": "Algebra & Representation Proof Deduplication",
-        "headline": "Deduplicates Schur/Jacobson density and module proofs (#192, #197, #210, #215, #216).",
-        "milestone_tag": "",
-        "impact": {
-          "build_perf": "",
-          "compute_infra": "",
-          "footprint_debt": "Deduplicates Schur/Jacobson density & module proofs (#192, #197, #210, #215, #216)",
-          "ops_review": ""
-        },
-        "bio": "Consolidates duplicated algebra and representation-theory proofs across focused PRs queued in `batch queue`.",
-        "merged_direct": 0,
-        "merged_batch_extra": 0,
-        "merged_total": 0,
-        "merged_prs": [],
-        "batch_landed_prs": [],
-        "batch_queue_count": 0,
-        "batch_queue_prs": [],
-        "links": [
-          {
-            "label": "GitHub @CubeJerry",
-            "url": "https://github.com/CubeJerry"
-          },
-          {
-            "label": "Batch-Queued PRs",
-            "url": "https://github.com/leanprover-community/riemann-hypothesis/pulls?q=is%3Apr+author%3ACubeJerry+label%3A%22batch+queue%22"
           }
         ]
       },
