@@ -1860,6 +1860,84 @@
       display: flex;
       flex-wrap: wrap;
       gap: 5px;
+      align-items: center;
+    }
+    .tm-view-switch {
+      display: inline-flex;
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 2px;
+      gap: 2px;
+      margin-right: 6px;
+    }
+    .tm-view-btn {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 4px 11px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background .12s ease, color .12s ease, box-shadow .12s ease;
+    }
+    .tm-view-btn.is-active {
+      background: #ffffff;
+      color: var(--text);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+    }
+    .tm-const-wrap {
+      background: radial-gradient(circle at 50% 50%, #fffdf9 0%, #f8f5ee 68%, #f2ede2 100%);
+      border: 1px solid #e4dccd;
+      border-radius: 10px;
+      padding: 8px 10px;
+      overflow-x: auto;
+    }
+    .tm-const-svg {
+      display: block;
+      width: 100%;
+      min-width: 780px;
+      height: auto;
+    }
+    .tm-arc-label {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 10.8px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .tm-star-node {
+      cursor: pointer;
+      transition: opacity .2s ease;
+    }
+    .tm-star-node.is-dim {
+      opacity: 0.2;
+    }
+    .tm-star-node text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+      font-size: 10.2px;
+      fill: #334155;
+      pointer-events: none;
+    }
+    .tm-star-node.is-major text.tm-star-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12.2px;
+      font-weight: 700;
+      fill: #0f172a;
+    }
+    .tm-filament {
+      fill: none;
+      stroke-linecap: round;
+      transition: opacity .2s ease, stroke-width .2s ease;
+    }
+    .tm-filament.is-dim {
+      opacity: 0.08 !important;
+    }
+    .tm-filament.is-lit {
+      opacity: 0.92 !important;
+      stroke-width: 2.2 !important;
     }
     .tm-filter {
       appearance: none;
@@ -2180,6 +2258,10 @@
               <p class="tm-sub">Every box below corresponds to an active subtree in the 804,912-declaration Lean kernel cone (<code>in_cone = true</code>). Click any node to trace its exact dependency path into <code>allChi</code> and inspect its verified Lean entry points.</p>
             </div>
             <div class="tm-filters" id="tmFilters" role="tablist" aria-label="Filter mathematical domain">
+              <div class="tm-view-switch" id="tmViewSwitch" role="group" aria-label="Diagram view mode">
+                <button type="button" class="tm-view-btn is-active" data-view="constellation">Constellation</button>
+                <button type="button" class="tm-view-btn" data-view="flow">Flow Diagram</button>
+              </div>
               <button type="button" class="tm-filter is-active" data-filter="all">All</button>
               <button type="button" class="tm-filter" data-filter="analytic">Analytic</button>
               <button type="button" class="tm-filter" data-filter="geometry">Arakelov &amp; Geometry</button>
@@ -2189,7 +2271,11 @@
             </div>
           </div>
 
-          <div class="tm-plate-wrap">
+          <div class="tm-const-wrap" id="tmConstWrap">
+            <svg class="tm-const-svg" id="tmConstSvg" viewBox="0 0 980 540" role="img" aria-label="Celestial constellation plate of the mathematical theories proving the Riemann Hypothesis"></svg>
+          </div>
+
+          <div class="tm-plate-wrap" id="tmPlateWrap" hidden>
             <svg class="tm-svg" id="tmSvg" viewBox="0 0 980 468" role="img" aria-label="Directed architectural diagram of mathematical theories proving RH and GRH">
               <defs>
                 <marker id="tmArrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
@@ -4088,6 +4174,7 @@
         if (NODES[id] && NODES[id].isDead) {
           for (const n of nodeEls) { n.classList.remove("is-selected"); n.classList.add("is-dim"); }
           for (const e of edgeEls) { e.classList.remove("is-lit"); e.classList.add("is-dim"); e.setAttribute("marker-end", "url(#tmArrow)"); }
+          highlightConstellation(id, null, null);
           renderDetail(id);
           return;
         }
@@ -4105,8 +4192,243 @@
           e.classList.toggle("is-dim", !lit);
           e.setAttribute("marker-end", lit ? "url(#tmArrowLit)" : "url(#tmArrow)");
         }
+        highlightConstellation(id, anc, des);
         renderDetail(id);
       }
+
+      // Editorial Celestial Constellation Plate (#tmConstSvg)
+      const constSvg = document.getElementById("tmConstSvg");
+      const constWrap = document.getElementById("tmConstWrap");
+      const plateWrap = document.getElementById("tmPlateWrap");
+      const viewSwitch = document.getElementById("tmViewSwitch");
+
+      const CX = 490, CY = 276;
+      const COLOR = {
+        m1: "#0f766e",
+        m2: "#1d4ed8",
+        m3: "#6d28d9",
+        m4: "#b45309",
+        gateway: "#0f766e",
+        vwin: "#6d28d9",
+        allchi: "#0f766e",
+        rh: "#b08948",
+        grh: "#0f172a",
+        arith: "#475569",
+        dead: "#991b1b"
+      };
+
+      function polar(deg, r) {
+        const rad = (deg - 90) * Math.PI / 180;
+        return [CX + r * Math.cos(rad), CY + r * Math.sin(rad)];
+      }
+
+      function arcPath(deg1, deg2, r, sweep) {
+        const [x1, y1] = polar(deg1, r);
+        const [x2, y2] = polar(deg2, r);
+        const large = Math.abs(deg2 - deg1) > 180 ? 1 : 0;
+        return `M ${x1.toFixed(1)} ${y1.toFixed(1)} A ${r} ${r} 0 ${large} ${sweep} ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+      }
+
+      const STARS = [
+        // M1 Analytic (upper-left quadrant, -82° to -26°)
+        { parent: "m1", label: "Behrend Sphere (C = 32)", deg: -78, r: 212 },
+        { parent: "m1", label: "Bost–HN Frame Slopes", deg: -60, r: 222 },
+        { parent: "m1", label: "Landau Window [Y, Y^(3/2)]", deg: -43, r: 214 },
+        { parent: "m1", label: "Chebyshev Character Sums", deg: -27, r: 196 },
+        // M2 Geometry (upper-right quadrant, 26° to 82°)
+        { parent: "m2", label: "Hironaka Resolution", deg: 28, r: 198 },
+        { parent: "m2", label: "Arithmetic Hilbert–Samuel", deg: 44, r: 218 },
+        { parent: "m2", label: "Poincaré–Lelong Heights", deg: 61, r: 222 },
+        { parent: "m2", label: "Siegel Toroidal & Covolume", deg: 78, r: 210 },
+        // M3 Galois (lower-right quadrant, 102° to 156°)
+        { parent: "m3", label: "Weight-1 & Kodaira–Spencer", deg: 105, r: 214 },
+        { parent: "m3", label: "Holomorphic Lefschetz", deg: 122, r: 222 },
+        { parent: "m3", label: "Unitary Theta Lift (tLiftK)", deg: 139, r: 216 },
+        { parent: "m3", label: "Étale Descent & Row0b", deg: 155, r: 198 },
+        // M4 Automorphic (lower-left quadrant, -156° to -102°)
+        { parent: "m4", label: "Definite Unitary Base Change", deg: -155, r: 198 },
+        { parent: "m4", label: "Global Siegel–Weil & Rallis", deg: -139, r: 216 },
+        { parent: "m4", label: "GL5 Genus Mass & Capelli", deg: -122, r: 222 },
+        { parent: "m4", label: "Jacquet–Shalika · LinkN", deg: -105, r: 214 },
+      ];
+
+      const MAJOR = {
+        allchi:  { x: CX, y: CY, r: 30, title: "allChi", sub: "99.997% of cone" },
+        rh:      { x: CX, y: CY - 178, r: 22, title: "RiemannHypothesis", sub: "Re(s) = 1/2" },
+        grh:     { x: CX - 86, y: CY - 144, r: 13, title: "Dirichlet GRH", sub: "All χ" },
+        arith:   { x: CX + 86, y: CY - 144, r: 13, title: "Robin & Lagarias", sub: "Zeta-free" },
+        gateway: { x: CX - 108, y: CY - 12, r: 18, title: "Definite-Side Gateway", sub: "Bridge A" },
+        vwin:    { x: CX + 108, y: CY + 42, r: 18, title: "Weak Vandiver (VWin)", sub: "Ferrero–W · TWK · Kato" },
+        m1:      { x: polar(-54, 160)[0], y: polar(-54, 160)[1], r: 11, title: "M1 Analytic", sub: "" },
+        m2:      { x: polar(54, 160)[0],  y: polar(54, 160)[1],  r: 11, title: "M2 Arakelov", sub: "" },
+        m3:      { x: polar(130, 160)[0], y: polar(130, 160)[1], r: 11, title: "M3 Galois", sub: "" },
+        m4:      { x: polar(-130, 160)[0],y: polar(-130, 160)[1],r: 11, title: "M4 Automorphic", sub: "" },
+      };
+
+      const DEAD_COMETS = [
+        { id: "dead_llc",     label: "localLanglands & Caraiani (PR #173)", x: 118, y: 498 },
+        { id: "dead_behrend", label: "BehrendSets (0/89)",                  x: 372, y: 516 },
+        { id: "dead_iwasawa", label: "IwasawaModules Z_p[[T]] (0/16)",      x: 608, y: 516 },
+        { id: "dead_weil",    label: "WeilStabilizerVolume (99.1% dead)",   x: 856, y: 498 },
+      ];
+
+      function buildConstellation() {
+        if (!constSvg) return;
+        const parts = [];
+        parts.push(`<defs>
+          <radialGradient id="tmSunGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#0f766e" stop-opacity="0.22"></stop>
+            <stop offset="65%" stop-color="#b08948" stop-opacity="0.08"></stop>
+            <stop offset="100%" stop-color="#b08948" stop-opacity="0"></stop>
+          </radialGradient>
+          <path id="arcM1" d="${arcPath(-84, -22, 246, 1)}"></path>
+          <path id="arcM2" d="${arcPath(22, 84, 246, 1)}"></path>
+          <path id="arcM3" d="${arcPath(158, 100, 254, 0)}"></path>
+          <path id="arcM4" d="${arcPath(-100, -158, 254, 0)}"></path>
+        </defs>`);
+
+        // Astrolabe concentric rings & subtle cardinal hairlines
+        parts.push(`<circle cx="${CX}" cy="${CY}" r="246" fill="none" stroke="#e2dacb" stroke-width="1"></circle>`);
+        parts.push(`<circle cx="${CX}" cy="${CY}" r="196" fill="none" stroke="#e9e2d5" stroke-width="0.85" stroke-dasharray="2 5"></circle>`);
+        parts.push(`<circle cx="${CX}" cy="${CY}" r="126" fill="none" stroke="#e6dfd1" stroke-width="0.9"></circle>`);
+        parts.push(`<circle cx="${CX}" cy="${CY}" r="64" fill="url(#tmSunGlow)"></circle>`);
+
+        // Golden Critical Line Re(s) = 1/2 axis with first zeta zeros as delicate brass pearls
+        parts.push(`<line x1="${CX}" y1="30" x2="${CX}" y2="480" stroke="#c8a86b" stroke-width="1.15" stroke-dasharray="4 4" opacity="0.72"></line>`);
+        parts.push(`<text x="${CX + 8}" y="42" font-family="Georgia, serif" font-style="italic" font-size="11" fill="#8c6d32">Re(s) = 1/2  (critical line)</text>`);
+        const zeroOffsets = [-122, -96, -72, -52, 54, 76, 98, 124, 148, 174];
+        for (const dy of zeroOffsets) {
+          parts.push(`<circle cx="${CX}" cy="${CY + dy}" r="2.1" fill="#c8a86b" opacity="0.65"></circle>`);
+        }
+
+        // Degree ticks around outer astrolabe
+        for (let a = 0; a < 360; a += 15) {
+          const [x1, y1] = polar(a, 242);
+          const [x2, y2] = polar(a, a % 45 === 0 ? 252 : 247);
+          parts.push(`<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#d6cdbc" stroke-width="0.9"></line>`);
+        }
+
+        // Curved quadrant titles along outer astrolabe ring
+        parts.push(`<text class="tm-arc-label" fill="#0f766e"><textPath href="#arcM1" startOffset="50%" text-anchor="middle">I · Analytic &amp; Additive</textPath></text>`);
+        parts.push(`<text class="tm-arc-label" fill="#1d4ed8"><textPath href="#arcM2" startOffset="50%" text-anchor="middle">II · Arakelov &amp; Geometry</textPath></text>`);
+        parts.push(`<text class="tm-arc-label" fill="#6d28d9"><textPath href="#arcM3" startOffset="50%" text-anchor="middle">III · Galois &amp; Theta Lifts</textPath></text>`);
+        parts.push(`<text class="tm-arc-label" fill="#b45309"><textPath href="#arcM4" startOffset="50%" text-anchor="middle">IV · Definite Automorphy</textPath></text>`);
+
+        // Silky curved filaments from sub-theory stars -> pillar hub -> bridge -> allChi -> headlines
+        const fil = [];
+        for (const s of STARS) {
+          const [sx, sy] = polar(s.deg, s.r);
+          const hub = MAJOR[s.parent];
+          const mx = (sx + hub.x) / 2 + (CX - sx) * 0.08;
+          const my = (sy + hub.y) / 2 + (CY - sy) * 0.08;
+          fil.push(`<path class="tm-filament" data-from="${s.parent}" data-to="${s.parent}" d="M ${sx.toFixed(1)} ${sy.toFixed(1)} Q ${mx.toFixed(1)} ${my.toFixed(1)} ${hub.x.toFixed(1)} ${hub.y.toFixed(1)}" stroke="${COLOR[s.parent]}" stroke-width="1.15" opacity="0.45"></path>`);
+        }
+
+        const macroEdges = [
+          ["m1", "gateway"], ["m2", "gateway"], ["m4", "gateway"],
+          ["m3", "vwin"], ["m4", "vwin"], ["vwin", "gateway"],
+          ["gateway", "allchi"], ["vwin", "allchi"],
+          ["allchi", "rh"], ["allchi", "grh"], ["allchi", "arith"]
+        ];
+        for (const [u, v] of macroEdges) {
+          const A = MAJOR[u], B = MAJOR[v];
+          const mx = (A.x + B.x) / 2 + (CX - (A.x + B.x) / 2) * 0.22;
+          const my = (A.y + B.y) / 2 + (CY - (A.y + B.y) / 2) * 0.22;
+          const col = u === "allchi" ? "#b08948" : (COLOR[u] || "#0f766e");
+          fil.push(`<path class="tm-filament" data-from="${u}" data-to="${v}" d="M ${A.x.toFixed(1)} ${A.y.toFixed(1)} Q ${mx.toFixed(1)} ${my.toFixed(1)} ${B.x.toFixed(1)} ${B.y.toFixed(1)}" stroke="${col}" stroke-width="1.5" opacity="0.55"></path>`);
+        }
+        parts.push(`<g id="tmConstFilaments">${fil.join("")}</g>`);
+
+        // Sub-theory stars & radial labels
+        const starHtml = [];
+        for (const s of STARS) {
+          const [sx, sy] = polar(s.deg, s.r);
+          const col = COLOR[s.parent];
+          const rightSide = sx >= CX;
+          const lx = sx + (rightSide ? 9 : -9);
+          const anchor = rightSide ? "start" : "end";
+          starHtml.push(`<g class="tm-star-node" data-id="${s.parent}" tabindex="0" role="button" aria-label="${s.label}">` +
+            `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="4.2" fill="#ffffff" stroke="${col}" stroke-width="1.8"></circle>` +
+            `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="1.6" fill="${col}"></circle>` +
+            `<text x="${lx.toFixed(1)}" y="${(sy + 3.5).toFixed(1)}" text-anchor="${anchor}">${s.label}</text>` +
+          `</g>`);
+        }
+
+        // Major hubs (pillars, bridges, allChi sun, headline crown)
+        for (const [id, m] of Object.entries(MAJOR)) {
+          const col = COLOR[id];
+          const isSun = id === "allchi";
+          const isCrown = id === "rh";
+          const labelY = isCrown ? m.y - 30 : (isSun ? m.y + 4 : m.y + m.r + 15);
+          const subY = isCrown ? m.y - 17 : (isSun ? m.y + 17 : m.y + m.r + 27);
+          starHtml.push(`<g class="tm-star-node is-major" data-id="${id}" tabindex="0" role="button" aria-label="${m.title}">` +
+            (isSun || isCrown ? `<circle cx="${m.x.toFixed(1)}" cy="${m.y.toFixed(1)}" r="${m.r + 6}" fill="none" stroke="${col}" stroke-width="0.9" stroke-dasharray="2 3" opacity="0.7"></circle>` : "") +
+            `<circle cx="${m.x.toFixed(1)}" cy="${m.y.toFixed(1)}" r="${m.r}" fill="${isSun ? "#0f766e" : "#ffffff"}" stroke="${col}" stroke-width="${isSun || isCrown ? 2.2 : 1.7}"></circle>` +
+            (isSun
+              ? `<text x="${m.x.toFixed(1)}" y="${(m.y - 1).toFixed(1)}" text-anchor="middle" font-family="Georgia, serif" font-size="13.5" font-weight="700" fill="#ffffff">allChi</text>` +
+                `<text x="${m.x.toFixed(1)}" y="${(m.y + 13).toFixed(1)}" text-anchor="middle" font-size="8.6" fill="#ccfbf1">804,887 decls</text>`
+              : `<circle cx="${m.x.toFixed(1)}" cy="${m.y.toFixed(1)}" r="${Math.max(3, m.r * 0.28).toFixed(1)}" fill="${col}"></circle>` +
+                `<text class="tm-star-title" x="${m.x.toFixed(1)}" y="${labelY.toFixed(1)}" text-anchor="middle">${m.title}</text>` +
+                (m.sub ? `<text x="${m.x.toFixed(1)}" y="${subY.toFixed(1)}" text-anchor="middle" font-size="9.5" fill="#64748b">${m.sub}</text>` : "")
+            ) +
+          `</g>`);
+        }
+
+        // Dead-code comets outside the southern horizon arc
+        parts.push(`<path d="M 88 476 Q 490 526 892 476" fill="none" stroke="#e5b8b8" stroke-width="1" stroke-dasharray="3 4"></path>`);
+        parts.push(`<text x="${CX}" y="488" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing="0.08em" fill="#991b1b">OUTSIDE KERNEL CONE · DEAD SUBTREES</text>`);
+        for (const c of DEAD_COMETS) {
+          starHtml.push(`<g class="tm-star-node" data-id="${c.id}" tabindex="0" role="button" aria-label="${c.label}">` +
+            `<circle cx="${c.x}" cy="${c.y}" r="3.6" fill="#fef2f2" stroke="#991b1b" stroke-width="1.3" stroke-dasharray="2 1.5"></circle>` +
+            `<text x="${c.x}" y="${c.y + 15}" text-anchor="middle" font-size="9.6" fill="#991b1b">${c.label}</text>` +
+          `</g>`);
+        }
+
+        parts.push(`<g id="tmConstNodes">${starHtml.join("")}</g>`);
+        constSvg.innerHTML = parts.join("");
+
+        for (const el of constSvg.querySelectorAll(".tm-star-node")) {
+          el.addEventListener("click", () => selectNode(el.dataset.id));
+          el.addEventListener("keydown", (ev) => {
+            if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); selectNode(el.dataset.id); }
+          });
+        }
+      }
+
+      function highlightConstellation(id, anc, des) {
+        if (!constSvg) return;
+        const nodes = constSvg.querySelectorAll(".tm-star-node");
+        const fils = constSvg.querySelectorAll(".tm-filament");
+        if (!anc || !des) {
+          for (const n of nodes) n.classList.toggle("is-dim", n.dataset.id !== id);
+          for (const f of fils) { f.classList.remove("is-lit"); f.classList.add("is-dim"); }
+          return;
+        }
+        const active = new Set([...anc, ...des]);
+        for (const n of nodes) {
+          const nid = n.dataset.id;
+          n.classList.toggle("is-dim", !active.has(nid));
+        }
+        for (const f of fils) {
+          const u = f.dataset.from, v = f.dataset.to;
+          const lit = (u === v && active.has(u)) || (anc.has(u) && anc.has(v)) || (des.has(u) && des.has(v));
+          f.classList.toggle("is-lit", lit);
+          f.classList.toggle("is-dim", !lit);
+        }
+      }
+
+      if (viewSwitch) {
+        viewSwitch.addEventListener("click", (ev) => {
+          const btn = ev.target.closest(".tm-view-btn");
+          if (!btn) return;
+          const v = btn.dataset.view;
+          for (const b of viewSwitch.querySelectorAll(".tm-view-btn")) b.classList.toggle("is-active", b === btn);
+          if (constWrap) constWrap.hidden = v !== "constellation";
+          if (plateWrap) plateWrap.hidden = v !== "flow";
+        });
+      }
+
+      buildConstellation();
 
       for (const n of nodeEls) {
         n.addEventListener("click", () => selectNode(n.dataset.id));
