@@ -2230,25 +2230,145 @@
     @media (max-width: 760px) {
       .tm-detail-grid { grid-template-columns: 1fr; }
     }
+
+    /* Two-Edition Switcher & grh-compact 76k Anatomy */
+    body[data-edition="grh"] [data-edition-scope="alpoge"] { display: none !important; }
+    body[data-edition="alpoge"] [data-edition-scope="grh"] { display: none !important; }
+    .edition-panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 18px;
+    }
+    .edition-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .edition-tabs {
+      display: inline-flex;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f8f6f1;
+    }
+    .edition-tab {
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      padding: 7px 14px;
+      font-size: 12.2px;
+      font-weight: 600;
+      cursor: pointer;
+      border-right: 1px solid var(--border);
+      transition: background .15s, color .15s;
+    }
+    .edition-tab:last-child { border-right: none; }
+    .edition-tab:hover { background: #efece4; color: var(--text); }
+    .edition-tab.is-active { background: #1f3a5f; color: #ffffff; }
+    .ed-branch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    @media (max-width: 860px) {
+      .ed-branch-grid { grid-template-columns: 1fr; }
+    }
+    .ed-card {
+      background: #faf9f6;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .ed-card.is-primary {
+      border-color: #1f3a5f;
+      background: #f5f7fa;
+    }
+    .ed-card-k {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .ed-card-v {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 4px;
+    }
+    .ed-card-sub {
+      font-size: 11.8px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+    .ed-kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 12px 0 14px;
+    }
+    @media (max-width: 760px) {
+      .ed-kpi-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .ed-kpi {
+      background: #faf9f6;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .ed-kpi-n {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+    }
+    .ed-kpi-l {
+      font-size: 11.2px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .ed-lineage-banner {
+      background: #f8f6f1;
+      border: 1px solid var(--border-strong);
+      border-left: 3px solid #1f3a5f;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin: 18px 0 14px;
+      font-size: 12.6px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
   </style>
 </head>
 
-<body>
+<body data-edition="grh">
   <div class="layout">
     <nav class="sidebar" id="toc">
       <h4>Contents</h4>
       <a href="#interactive-dashboard">Kernel Dashboard</a>
+      <a href="#edition-switcher" class="toc-l3">Active Editions (grh-lean / alpoge)</a>
+      <a href="#grh-compact-anatomy" class="toc-l3" data-edition-scope="grh">grh-compact 76k Anatomy</a>
       <a href="#theory-map" class="toc-l3">Mathematical Architecture</a>
+      <a href="#upstream-record" class="toc-l3">Proof Size Over Time</a>
+      <a href="#verifytask-core" class="toc-l3">Playground Core Pillars</a>
+      <a href="#rh-shrink-size" class="toc-l3">rh-shrink per Commit</a>
       <a href="#live-upstream-tracker" class="toc-l3">Live Upstream Tracker</a>
       <a href="#proof-coverage-map" class="toc-l3">Whole-Proof Coverage Map</a>
-      <a href="#verifytask-core" class="toc-l3">Playground Core Pillars</a>
-      <a href="#rh-shrink-size" class="toc-l3">Proof Size per Commit</a>
       <a href="#community-timeline" class="toc-l3">Community News &amp; Timeline</a>
       <a href="#stewardship-hall" class="toc-l3">Maintainers &amp; Contributors</a>
-      <a href="#upstream-frontier" class="toc-l3">Upstream main Frontier</a>
-      <a href="#verified-patterns" class="toc-l3">Verified De-bloating Patterns</a>
-      <a href="#actionable-targets" class="toc-l3">Actionable Cleanup Targets</a>
-      <a href="#witness-explorer" class="toc-l3">Witness-Chain Explorer</a>
+      <a href="#upstream-frontier" class="toc-l3" data-edition-scope="alpoge">Alpöge PR Frontier</a>
+      <a href="#verified-patterns" class="toc-l3" data-edition-scope="alpoge">Alpöge De-bloating Patterns</a>
+      <a href="#actionable-targets" class="toc-l3" data-edition-scope="alpoge">Alpöge Cleanup Targets</a>
+      <a href="#witness-explorer" class="toc-l3" data-edition-scope="alpoge">Witness-Chain Explorer</a>
     </nav>
     <main>
       <div id="interactive-dashboard">
@@ -2278,9 +2398,10 @@
               <div class="eyebrow">Official Upstream Lean 4 Full-Proof Tracker</div>
               <h2 class="hero-title" style="border:none;padding:0;margin:0 0 8px;">Kernel-Grounded Progress Across the
                 Full RH &amp; GRH Proof</h2>
-              <p class="hero-desc">Tracks exact source metrics, kernel-active dominators, toolchain upgrades, and
-                community PRs across Levent Alpöge’s full 175,187-file / 17.37M-line formalization — separating
-                kernel-used declarations (<code>in_cone = true</code>) from unreachable dead subtrees.</p>
+              <p class="hero-desc">Real-time source &amp; verification tracker across both official editions of
+                <code>leanprover-community/riemann-hypothesis</code>: the new <code>lsernau/grh-lean</code> rewrite on
+                <code>main</code> (300k readable / 76k compact code lines, Lean v4.35.0) and Levent Alpöge’s original
+                175,187-file lineage preserved on branch <code>alpoge</code> (Lean v4.37.0-rc1).</p>
               <div class="hero-actions">
                 <span style="font-size:12px;font-weight:600;color:var(--muted);">Explore:</span>
                 <a class="cta-pill cta-dark" href="https://github.com/leanprover-community/riemann-hypothesis/pulls"
@@ -2318,12 +2439,125 @@
           </div>
         </section>
 
+        <section class="edition-panel" id="edition-switcher" aria-label="Proof edition selector">
+          <div class="edition-head">
+            <div>
+              <div class="eyebrow">Two Official Lineages · Live Branch Comparison</div>
+              <h3 style="margin:0;font-size:16px;">Select Edition View (New <code>grh-lean</code> vs. <code>alpoge</code> Archive)</h3>
+            </div>
+            <div class="edition-tabs" id="editionTabs" role="tablist" aria-label="Switch RH proof edition">
+              <button type="button" class="edition-tab is-active" data-edition-btn="grh">grh-lean (New main · 300k / 76k L)</button>
+              <button type="button" class="edition-tab" data-edition-btn="alpoge">Alpöge Lineage (branch alpoge · 58.9k f)</button>
+              <button type="button" class="edition-tab" data-edition-btn="all">Show Both</button>
+            </div>
+          </div>
+          <div class="ed-branch-grid">
+            <div class="ed-card is-primary" id="edCardMain">
+              <div class="ed-card-k">Official <code>main</code> · Readable (<code>lsernau/grh-lean</code>)</div>
+              <div class="ed-card-v" id="edMainVal">803 files · 298,160 code L</div>
+              <div class="ed-card-sub" id="edMainSub">477,124 raw L · 30.05 MB · <code>Lean v4.35.0</code> · 0 <code>maxHeartbeats</code> · <code>main@686902ae1</code> · Third-party rewrite (independent verification pending)</div>
+            </div>
+            <div class="ed-card is-primary" id="edCardCompact">
+              <div class="ed-card-k">Branch <code>grh-lean</code> · Compact (<code>grh-compact/</code>)</div>
+              <div class="ed-card-v">794 files · 76,151 code L</div>
+              <div class="ed-card-sub">112,827 raw L · 7.42 MB · 1,491,576 Lean tokens · 10,376 decls · 0 cheats · 9 <code>maxHeartbeats</code> · Apache 2.0 (active compression base)</div>
+            </div>
+            <div class="ed-card" id="edCardAlpoge">
+              <div class="ed-card-k">Branch <code>alpoge</code> · Community Cleanup (Batch 23)</div>
+              <div class="ed-card-v">58,947 files · 11.00M code L</div>
+              <div class="ed-card-sub">13,710,054 raw L · 920.5 MB · <code>Lean v4.37.0-rc1</code> · <code>756a70250</code> · Comparator ACCEPTED (down from 175,187 files / 17.37M L v0.2.1)</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="grh-compact-anatomy" data-edition-scope="grh" aria-labelledby="grhCompTitle">
+          <div class="eyebrow">Current Shortest Full Proof · <code>lsernau/grh-lean@72fead1</code> (Apache 2.0)</div>
+          <h3 id="grhCompTitle" style="margin:0 0 4px;"><code>grh-compact</code> 76k-Line Structural Anatomy &amp; Compression Seams <span class="badge badge-exact">Exact</span></h3>
+          <p class="panel-sub" style="margin:0 0 8px;">Exact 4-metric audit and module dominator tree from <code>Main.lean</code> across all 794 files of <code>grh-compact/src/</code>. Background library <code>Lib/</code> accounts for <strong>68%</strong> (51.5k code L) while the core RH/GRH argument <code>New/</code> is <strong>32%</strong> (24.6k code L).</p>
+          <div class="ed-kpi-strip">
+            <div class="ed-kpi">
+              <div class="ed-kpi-n">794 / 794</div>
+              <div class="ed-kpi-l">Files reachable from <code>Main</code> (0 dead files)</div>
+            </div>
+            <div class="ed-kpi">
+              <div class="ed-kpi-n">76,151 L</div>
+              <div class="ed-kpi-l">Code lines (112,827 raw L · 7.42 MB · 65.8 B/L)</div>
+            </div>
+            <div class="ed-kpi">
+              <div class="ed-kpi-n">1,491,576</div>
+              <div class="ed-kpi-l">Lean tokens · 4.51M non-ws code chars · 10,376 decls</div>
+            </div>
+            <div class="ed-kpi">
+              <div class="ed-kpi-n">0 Cheats</div>
+              <div class="ed-kpi-l">0 sorry/axiom · 9 <code>maxHeartbeats</code> · 30 <code>backward.*</code> · 0.39% <code>;</code>-packed</div>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="vt-table" aria-describedby="grhCompTitle">
+              <thead>
+                <tr>
+                  <th>Dominator Seam / Subtree</th>
+                  <th class="num">Files</th>
+                  <th class="num">Scale</th>
+                  <th class="num">Share</th>
+                  <th>Compression Lever (76k → &lt;50k Target)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>Lib.GaloisRep.Main.AvatarCompatibility</code><div class="vt-target"><code>SeedRepresentation</code> (111f) → <code>Cohomology.PointClass</code> (75f) + <code>Shimura.IntegralModel</code> (21f)</div></td>
+                  <td class="num">117</td>
+                  <td class="num">1,213 KB</td>
+                  <td class="num">16.4%</td>
+                  <td>Single largest dominated seam (<code>in=2</code>); interface specialization &amp; cohomology factoring</td>
+                </tr>
+                <tr>
+                  <td><code>New.Selmer.FitTwistsExist</code><div class="vt-target"><code>DenominatorBound</code> (19f) · <code>New.Lift.ExponentTheorems</code> (11f) · <code>LongGap</code> (8f)</div></td>
+                  <td class="num">61</td>
+                  <td class="num">624 KB</td>
+                  <td class="num">8.4%</td>
+                  <td>Single-caller subtree under <code>New.Endgame.LongForms</code>; twist-existence shortening</td>
+                </tr>
+                <tr>
+                  <td><code>Lib/Weil</code> &amp; <code>Lib/Shimura</code><div class="vt-target">MixedModel, Periods, Unramified Hecke, ThetaNormality, Uniformisation</div></td>
+                  <td class="num">119</td>
+                  <td class="num">1,151 KB</td>
+                  <td class="num">15.5%</td>
+                  <td>Largest background libraries; collapse manual <code>simp</code>/<code>rw</code>/<code>have</code> chains &amp; consolidate tiny modules</td>
+                </tr>
+                <tr>
+                  <td><code>Lib/General</code><div class="vt-target">82 utility files (<code>ValuationPair</code>, <code>Lefschetz</code>, <code>ZerosCostDegree</code>, <code>ProjectiveSpace</code>, <code>Base</code>)</div></td>
+                  <td class="num">82</td>
+                  <td class="num">506 KB</td>
+                  <td class="num">6.8%</td>
+                  <td>Replace duplicated algebra/analysis helpers with Mathlib v4.37 lemmas; drop <code>import Mathlib</code> monolith</td>
+                </tr>
+                <tr>
+                  <td><code>New.Filling.FillingTheorem</code><div class="vt-target"><code>TopFloor.lean</code> (43 KB) · <code>BoxPartition.lean</code> (38 KB) · <code>Moments</code> (10f) · <code>GlobalToLocal</code> (5f)</div></td>
+                  <td class="num">21</td>
+                  <td class="num">335 KB</td>
+                  <td class="num">4.5%</td>
+                  <td>Contains 2 of the top 3 fattest single files in the entire repo; direct tactic &amp; bound compression</td>
+                </tr>
+                <tr>
+                  <td>Remaining <code>Lib/*</code> &amp; <code>New/*</code> + Hygiene<div class="vt-target"><code>ClassField</code> (436 KB), <code>Adelic</code> (428 KB), <code>DiscreteSeries</code> (384 KB), <code>PadicHodge</code> (373 KB), <code>Exchange</code> (293 KB)</div></td>
+                  <td class="num">394</td>
+                  <td class="num">3,591 KB</td>
+                  <td class="num">48.4%</td>
+                  <td>Eliminate all 9 <code>maxHeartbeats</code> + 30 <code>backward.*</code> + 3 dead lemmas + 19 duplicate signatures; coalesce 794 tiny files</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="vt-src">Tactic profile across <code>grh-compact</code>: 7,570 <code>simp [...]</code> · 4,532 <code>have</code> · 3,648 <code>rw [...]</code> · 2,718 <code>grind</code> · 2,227 <code>ring</code> · 2,042 <code>simp_all</code> · 1,342 <code>aesop</code> · 922 <code>lia</code>. Verification note: independent cold <code>--no-cache</code> build + <code>leanchecker</code> + <code>PrintAxioms</code> is currently running on GCP.</div>
+        </section>
+
         <section class="tm-panel" id="theory-map" aria-labelledby="tmTitle">
           <div class="tm-head">
             <div>
-              <div class="eyebrow">Mathematical Architecture · Kernel-Cone Verified</div>
+              <div class="eyebrow">Mathematical Architecture · Shared Across <code>grh-lean</code> &amp; <code>alpoge</code></div>
               <h3 class="tm-title" id="tmTitle">Which Theories Actually Prove RH &amp; GRH</h3>
-              <p class="tm-sub">Every box below corresponds to an active subtree in the 804,912-declaration Lean kernel cone (<code>in_cone = true</code>). Click any node to trace its exact dependency path into <code>allChi</code> and inspect its verified Lean entry points.</p>
+              <p class="tm-sub">Both the new <code>lsernau/grh-lean</code> rewrite (<code>New.Main</code> → <code>short_forms</code> / <code>enough_forms</code> / <code>integral_forms_long</code>) and Levent Alpöge’s original 804,912-declaration kernel cone on branch <code>alpoge</code> follow this exact multi-pillar reduction into <code>L(s, χ) ≠ 0</code>. Click any node to trace its dependency path.</p>
             </div>
             <div class="tm-filters" id="tmFilters" role="tablist" aria-label="Filter mathematical domain">
               <div class="tm-view-switch" id="tmViewSwitch" role="group" aria-label="Diagram view mode">
@@ -2614,7 +2848,7 @@
           <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/data/upstream_frontier.json"
             target="_blank" rel="noopener">Live Tracker JSON</a>
           <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/actions/workflows/update-tracker.yml"
-            target="_blank" rel="noopener">5-Min Auto-Update</a>
+            target="_blank" rel="noopener">Live Actions Sync</a>
           <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/scripts/audit_spec_citations.py"
             target="_blank" rel="noopener">Citation Auditor</a>
           <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/scripts/audit_ndjson_statement.py"
@@ -2635,10 +2869,10 @@
             <div>
               <h3>Live Official <code>leanprover-community/riemann-hypothesis</code> Progress Tracker <span
                   class="badge badge-exact">Exact</span> <span class="badge badge-verified"
-                  id="liveToolchainBadge">v4.36.0</span></h3>
-              <p class="panel-sub" style="margin:0;">Auto-updated every 5 minutes via fast-path GitHub Actions (plus
-                2-min cached live browser check) directly from official upstream <code>main</code>. Tracks exact
-                <code>.lean</code> files, lines, imports, declarations, compatibility options, and the stacked PR queue.
+                  id="liveToolchainBadge">v4.35.0</span></h3>
+              <p class="panel-sub" style="margin:0;">Real-time browser fetch directly from GitHub API and
+                <code>rh-shrink.github.io</code> (60-second auto-refresh + Actions backup snapshot). Tracks live
+                <code>main</code> metrics alongside the archived <code>alpoge</code> branch PR queue.
               </p>
             </div>
             <div class="live-meta" id="liveMeta">Loading live upstream snapshot…</div>
@@ -2650,9 +2884,9 @@
             </div>
           </div>
           <div class="milestones-strip" id="liveMilestones"></div>
-          <details style="margin-top:12px;" open>
-            <summary style="cursor:pointer;font-weight:600;font-size:13.2px;">Active Stacked Lean 4.37 PR Queue &amp;
-              Metadata Insights <span class="badge badge-open" id="queueCountBadge">Queue</span></summary>
+          <details style="margin-top:12px;">
+            <summary style="cursor:pointer;font-weight:600;font-size:13.2px;">Community PR Queue &amp; Metadata Insights
+              (<code>alpoge</code> Lineage &amp; Repo Infra) <span class="badge badge-open" id="queueCountBadge">Queue</span></summary>
             <div id="prInsightsBar"
               style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;font-size:12px;color:var(--muted);"></div>
             <div class="table-wrap" style="margin-top:8px;">
@@ -2678,16 +2912,23 @@
         </section>
 
         <section class="panel" id="proof-coverage-map">
-          <div class="eyebrow">Whole-Proof Geometry · 175,187 Files · 17.37M Lines</div>
-          <h3 style="margin:0 0 4px;">Interactive Full-RH Proof Spatial Coverage Map <span
-              class="badge badge-exact">Exact</span></h3>
-          <p class="panel-sub" style="margin:0 0 8px;">Proportional breakdown of Levent Alpöge’s full v0.2.1 repository
-            by kernel-cone status and major mathematical pillar. Click any segment to inspect its exact scale and
-            cleanup status.</p>
+          <div class="panel-head" style="margin-bottom:6px;">
+            <div>
+              <div class="eyebrow" id="spatialEyebrow">Whole-Proof Geometry · <code>grh-compact</code> 794 Files · 76,151 Code L</div>
+              <h3 style="margin:0 0 4px;">Interactive Full-RH Proof Spatial Coverage Map <span
+                  class="badge badge-exact">Exact</span></h3>
+              <p class="panel-sub" id="spatialSub" style="margin:0;">Proportional breakdown of the shortest full RH proof
+                (<code>grh-compact</code>, 7.42 MB) vs. Levent Alpöge’s original v0.2.1 repository (17.37M lines). Click any segment to inspect.</p>
+            </div>
+            <div class="seg-group" id="spatialModeToggle">
+              <button type="button" class="pill-btn active" data-spatial-mode="grh">grh-compact (76k L · 7.42 MB)</button>
+              <button type="button" class="pill-btn" data-spatial-mode="alpoge">v0.2.1 Alpöge (17.37M L)</button>
+            </div>
+          </div>
           <div class="spatial-bar" id="spatialBar"></div>
           <div class="spatial-legend" id="spatialLegend"></div>
-          <div class="spatial-detail" id="spatialDetail">Click any pillar above to inspect its exact kernel-active scale
-            and cleanup opportunities.</div>
+          <div class="spatial-detail" id="spatialDetail">Click any pillar above to inspect its exact scale and
+            compression opportunities.</div>
         </section>
 
         <section class="panel" id="community-timeline">
@@ -2714,6 +2955,10 @@
           <div class="people-strip" id="peopleStrip"><span class="status-msg">Loading directory…</span></div>
         </section>
 
+        <div data-edition-scope="alpoge">
+          <div class="ed-lineage-banner">
+            <strong>Alpöge Original Lineage Archive (<code>branch alpoge</code> · v0.2.1 → Batch 23)</strong> — The sections below preserve the exact kernel-cone dissection (175,187 files / 17.37M lines → 58,947 files / 13.71M lines), PR compression frontier, de-bloating patterns, witness chains, and full <code>SPEC.md</code> from Levent Alpöge’s original formalization before <code>main</code> switched to <code>lsernau/grh-lean</code> on 2026-11-26.
+          </div>
         <div class="kpi-grid">
           <div class="kpi">
             <div class="k-num" id="kpi-raw">17,374,215</div>
@@ -2898,16 +3143,17 @@
             </div>
           </details>
         </div>
+        </div>
       </div>
 
-      <article id="spec-root">
+      <article id="spec-root" data-edition-scope="alpoge">
         <p class="status-msg">Loading full kernel-grounded specification from <code>SPEC.md</code>…</p>
       </article>
 
       <footer
         style="margin-top:40px;padding-top:16px;border-top:1px solid var(--border);font-size:12.2px;color:var(--muted);">
         Maintained by Jinho Noh (<a href="https://github.com/thekeunpie-hash" target="_blank"
-          rel="noopener">@thekeunpie-hash</a>) · Auto-updated every 5 minutes from <a
+          rel="noopener">@thekeunpie-hash</a>) · Real-time browser sync + Actions snapshot from <a
           href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank"
           rel="noopener">leanprover-community/riemann-hypothesis</a>.
       </footer>
@@ -3317,12 +3563,79 @@
       });
     }
 
-    function renderSpatialCoverageMap(fdata) {
+    function renderSpatialCoverageMap(fdata, mode) {
       const bar = document.getElementById("spatialBar");
       const leg = document.getElementById("spatialLegend");
       const det = document.getElementById("spatialDetail");
       if (!bar || !leg || !det) return;
-      const segments = [
+      const activeMode = mode || (document.body.dataset.edition === "alpoge" ? "alpoge" : "grh");
+      const eyebrow = document.getElementById("spatialEyebrow");
+      const subEl = document.getElementById("spatialSub");
+      const toggleEl = document.getElementById("spatialModeToggle");
+      if (toggleEl) {
+        toggleEl.querySelectorAll("[data-spatial-mode]").forEach((b) => {
+          b.classList.toggle("active", b.dataset.spatialMode === activeMode);
+        });
+      }
+
+      const GRH_SEGMENTS = [
+        {
+          id: "new_core",
+          label: "New/* · Core RH / GRH Proof",
+          short: "New/* Core Proof (32.0%)",
+          pct: 32.0,
+          color: "#0f766e",
+          scale: "24,600 code L · 2.37 MB",
+          detail: "The core RH & GRH argument (New/Filling 440 KB, New/Selmer 298 KB, New/Exchange 293 KB, New/Rows 223 KB, New/RealPlace 215 KB, New/Seesaw 205 KB, New/Lift 131 KB, New/Endgame + New/Main)."
+        },
+        {
+          id: "lib_galois_cohom",
+          label: "Lib/GaloisRep, Cohomology & PadicHodge",
+          short: "Galois + Cohomology + p-adic (27.6%)",
+          pct: 27.6,
+          color: "#1f3a5f",
+          scale: "21,000 code L · 2.05 MB",
+          detail: "Dominated by #1 mega-seam Lib.GaloisRep.Main.AvatarCompatibility (117 files / 1,213 KB = 16.4% of entire repo), Lib/Cohomology (474 KB), Lib/PadicHodge (373 KB), Lib/PadicComparison (236 KB), and Lib/DiscreteSeries (384 KB)."
+        },
+        {
+          id: "lib_weil_shimura",
+          label: "Lib/Weil & Lib/Shimura",
+          short: "Weil + Shimura (15.5%)",
+          pct: 15.5,
+          color: "#3a5676",
+          scale: "11,898 code L · 1.15 MB · 119 files",
+          detail: "Two largest background libraries: Lib/Weil (67 files / 579 KB) and Lib/Shimura (52 files / 573 KB). High density of step-by-step simp/rw/have chains and tiny modules ready for chapter consolidation."
+        },
+        {
+          id: "lib_cft_adelic",
+          label: "Lib/ClassField & Lib/Adelic",
+          short: "CFT + Adelic (11.7%)",
+          pct: 11.7,
+          color: "#5d7690",
+          scale: "8,718 code L · 864 KB · 111 files",
+          detail: "Global class field theory (55 files / 436 KB) and adelic automorphic forms / Hecke theory (56 files / 428 KB)."
+        },
+        {
+          id: "lib_general",
+          label: "Lib/General (Utilities)",
+          short: "General (6.8%)",
+          pct: 6.8,
+          color: "#8496aa",
+          scale: "5,107 code L · 506 KB · 82 files",
+          detail: "General algebra, geometry, measure, and linear algebra utilities missing from Mathlib v4.35.0; prime target for Mathlib v4.37 lemma substitution."
+        },
+        {
+          id: "lib_local",
+          label: "Lib/LocalGL, SiegelWeil & CM",
+          short: "LocalGL + SW (6.4%)",
+          pct: 6.4,
+          color: "#a8a196",
+          scale: "4,828 code L · 499 KB · 47 files",
+          detail: "Local GL(n) trace comparison / Shintani theory (216 KB), Siegel-Weil / Rallis inner product (161 KB), and CM field background (122 KB)."
+        }
+      ];
+
+      const ALPOGE_SEGMENTS = [
         {
           id: "pillar2",
           label: "Pillar 2 · Definite-Side",
@@ -3379,11 +3692,24 @@
         }
       ];
 
+      const segments = activeMode === "alpoge" ? ALPOGE_SEGMENTS : GRH_SEGMENTS;
+      const denomText = activeMode === "alpoge" ? "17.37M v0.2.1 baseline lines" : "7.42 MB grh-compact (76,151 code L)";
+      if (eyebrow) {
+        eyebrow.innerHTML = activeMode === "alpoge"
+          ? "Whole-Proof Geometry · v0.2.1 Alpöge · 175,187 Files · 17.37M Lines"
+          : "Whole-Proof Geometry · <code>grh-compact</code> · 794 Files · 76,151 Code L (7.42 MB)";
+      }
+      if (subEl) {
+        subEl.innerHTML = activeMode === "alpoge"
+          ? "Proportional breakdown of Levent Alpöge’s original v0.2.1 repository (branch <code>alpoge</code>) by kernel-cone status and major mathematical pillar."
+          : "Proportional breakdown of the shortest full RH proof (<code>lsernau/grh-lean</code> <code>grh-compact/</code>, 794 files, 76,151 code L): <strong>68% background <code>Lib/</code></strong> vs. <strong>32% core proof <code>New/</code></strong>.";
+      }
+
       function selectSeg(id) {
         const seg = segments.find((s) => s.id === id) || segments[0];
         bar.querySelectorAll(".spatial-seg").forEach((el) => el.classList.toggle("active", el.dataset.id === seg.id));
         leg.querySelectorAll(".spatial-card").forEach((el) => el.classList.toggle("active", el.dataset.id === seg.id));
-        det.innerHTML = `<strong>${escHtml(seg.label)}</strong> (${seg.pct}% of 17.37M baseline lines · ${escHtml(seg.scale)}) — ${escHtml(seg.detail)}`;
+        det.innerHTML = `<strong>${escHtml(seg.label)}</strong> (${seg.pct}% of ${denomText} · ${escHtml(seg.scale)}) — ${escHtml(seg.detail)}`;
       }
 
       bar.innerHTML = segments.map((s) =>
@@ -3402,13 +3728,25 @@
 
       bar.querySelectorAll(".spatial-seg").forEach((el) => el.addEventListener("click", () => selectSeg(el.dataset.id)));
       leg.querySelectorAll(".spatial-card").forEach((el) => el.addEventListener("click", () => selectSeg(el.dataset.id)));
-      selectSeg("pillar2");
+      selectSeg(segments[0].id);
     }
 
     function renderTimeline(fdata) {
       const root = document.getElementById("timelineList");
       if (!root) return;
-      const items = fdata.community_timeline || [];
+      const baseItems = fdata.community_timeline || [];
+      const hasSwitch = baseItems.some((it) => String(it.title || "").includes("lsernau/grh-lean") || String(it.title || "").includes("686902ae1"));
+      const items = hasSwitch ? baseItems : [
+        {
+          date: "2026-11-26",
+          tag: "Major Rewrite",
+          cls: "badge-open",
+          title: "Upstream main switches to lsernau/grh-lean (803 files · 300k readable / 76k compact code L)",
+          url: "https://github.com/leanprover-community/riemann-hypothesis/commit/686902ae1da717a63faf52d2dc6a50e5722942cd",
+          detail: "Kim Morrison moved the 58,947-file Alpöge community cleanup (Batch 23, 756a70250) to branch alpoge and switched main to Luke Sernau & Anthropic’s Apache-2.0 rewrite (Lean v4.35.0; grh/ 298,160 code L & grh-compact/ 76,151 code L). Independent cold verification is in progress."
+        },
+        ...baseItems
+      ];
       root.innerHTML = items.map((it) => `
     <div class="tl-item">
       <div class="tl-date">${escHtml(it.date)}</div>
@@ -3911,9 +4249,45 @@
           }
         }
 
+        // Edition Switcher (grh | alpoge | all) + Spatial Coverage Mode sync
+        function setEdition(ed, updateUrl) {
+          const valid = (ed === "alpoge" || ed === "all") ? ed : "grh";
+          document.body.dataset.edition = valid;
+          const tabWrap = document.getElementById("editionTabs");
+          if (tabWrap) {
+            tabWrap.querySelectorAll("[data-edition-btn]").forEach((btn) => {
+              btn.classList.toggle("is-active", btn.dataset.editionBtn === valid);
+            });
+          }
+          renderSpatialCoverageMap(frontierData, valid === "alpoge" ? "alpoge" : "grh");
+          if (updateUrl && window.history && window.history.replaceState) {
+            const url = new URL(window.location.href);
+            if (valid === "grh") url.searchParams.delete("edition");
+            else url.searchParams.set("edition", valid);
+            window.history.replaceState(null, "", url.toString());
+          }
+        }
+        const initialEd = new URLSearchParams(window.location.search).get("edition") || "grh";
+        setEdition(initialEd, false);
+        const tabWrap = document.getElementById("editionTabs");
+        if (tabWrap) {
+          tabWrap.querySelectorAll("[data-edition-btn]").forEach((btn) => {
+            btn.addEventListener("click", () => setEdition(btn.dataset.editionBtn, true));
+          });
+        }
+        const spatialToggle = document.getElementById("spatialModeToggle");
+        if (spatialToggle) {
+          spatialToggle.querySelectorAll("[data-spatial-mode]").forEach((btn) => {
+            btn.addEventListener("click", () => renderSpatialCoverageMap(frontierData, btn.dataset.spatialMode));
+          });
+        }
+
         function applyFreshRhShrink(rsData, liveTc) {
           if (!rsData || !rsData.latest) return;
           renderRhShrink(rsData);
+          if (typeof window.renderUpstreamRecord === "function") {
+            window.renderUpstreamRecord(rsData);
+          }
           const lat = rsData.latest;
           const lm = frontierData.live_main || {};
           const rsTs = Date.parse(lat.date || "");
@@ -3936,13 +4310,21 @@
               const codeNote = typeof lat.code === "number" ? ` · ${lat.code.toLocaleString()} code L` : "";
               heroRedSub.innerHTML = `${lat.files.toLocaleString()} / ${baseFiles.toLocaleString()} files (${fPct}%)${codeNote} on <code>main@${escHtml(rsSha)}</code>`;
             }
+            const edMainVal = document.getElementById("edMainVal");
+            const edMainSub = document.getElementById("edMainSub");
+            const tcShort = String(liveTc || latestToolchain || "v4.35.0").trim().replace(/^leanprover\/lean4:/, "");
+            if (edMainVal) edMainVal.textContent = `${lat.files.toLocaleString()} files · ${typeof lat.code === "number" ? lat.code.toLocaleString() + " code L" : lat.lines.toLocaleString() + " L"}`;
+            if (edMainSub) {
+              const mb = typeof lat.bytes === "number" ? ` · ${(lat.bytes / 1e6).toFixed(2)} MB` : "";
+              const hb = typeof lat.heartbeats === "number" ? ` · ${lat.heartbeats} <code>maxHeartbeats</code>` : "";
+              edMainSub.innerHTML = `${lat.lines.toLocaleString()} raw L${mb} · <code>Lean ${escHtml(tcShort)}</code>${hb} · <code>main@${escHtml(rsSha)}</code> · Third-party rewrite (independent verification pending)`;
+            }
             const kpiEl = document.getElementById("liveKpiGrid");
             if (kpiEl) {
               const declsEst = (typeof lat.theorems === "number" ? lat.theorems : 0) + (typeof lat.defs === "number" ? lat.defs : 0);
               const dDelta = declsEst ? declsEst - 1063284 : null;
               const dPct = dDelta !== null ? ((100 * dDelta) / 1063284).toFixed(1) : "";
               const mbNote = typeof lat.bytes === "number" ? ` (${(lat.bytes / 1e6).toFixed(1)} MB)` : "";
-              const tcShort = String(liveTc || latestToolchain || "").replace(/^leanprover\/lean4:/, "");
               kpiEl.innerHTML = `
                 <div class="live-kpi">
                   <div><span class="lk-val">${lat.files.toLocaleString()}</span><span class="lk-delta">${fDelta.toLocaleString()} (${fPct}%)</span></div>
@@ -3984,7 +4366,7 @@
           updateHeroVerifyStatus(latestToolchain, (frontierData.live_main || {}).lean_files);
         }
 
-        // True real-time browser fetch: GitHub commits/main + lean-toolchain + rh-shrink.github.io/data.json (all CORS *)
+        // True real-time browser fetch: GitHub commits/main + lean-toolchain + rh-shrink.github.io + verifytask API (all CORS *)
         async function runLiveOverlay(force) {
           try {
             const KEY = "rh_live_overlay_v2";
@@ -3997,7 +4379,7 @@
               } catch (_) { }
             }
             const fetchOpts = force ? { cache: "no-store" } : {};
-            const [ghLive, rsRaw] = await Promise.all([
+            const [ghLive, rsRaw, vtRaw] = await Promise.all([
               (async () => {
                 if (live) return live;
                 const [cRes, pRes, tcRes] = await Promise.all([
@@ -4020,6 +4402,9 @@
               })(),
               fetch("https://rh-shrink.github.io/data.json" + (force ? ("?t=" + now) : ""), fetchOpts)
                 .then((r) => (r.ok ? r.json() : null))
+                .catch(() => null),
+              fetch("https://riemann.verifytask.cn/api/board", fetchOpts)
+                .then((r) => (r.ok ? r.json() : null))
                 .catch(() => null)
             ]);
 
@@ -4029,6 +4414,19 @@
               if (norm) applyFreshRhShrink(norm, latestToolchain);
             } else if (ghLive && ghLive.toolchain) {
               updateHeroVerifyStatus(ghLive.toolchain, undefined);
+            }
+            if (vtRaw && vtRaw.summary) {
+              const summaryEl = document.getElementById("vtSummary");
+              const s = vtRaw.summary || {}, pr = vtRaw.progress || {};
+              if (summaryEl && s.core_total) {
+                summaryEl.innerHTML = [
+                  `<span><b>${fmtInt(s.core_solved)}</b> / ${fmtInt(s.core_total)} core pillars solved</span>`,
+                  `<span><b>${fmtInt(s.participants)}</b> participants</span>`,
+                  `<span><b>${fmtInt(s.submissions)}</b> submissions</span>`,
+                  pr.saved_tokens_pct != null ? `<span><b>${Number(pr.saved_tokens_pct).toFixed(1)}%</b> tokens saved across solved cores</span>` : "",
+                  vtRaw.updated_at ? `<span>Live board ${escHtml(String(vtRaw.updated_at).slice(0, 16).replace("T", " "))}</span>` : ""
+                ].filter(Boolean).join("");
+              }
             }
 
             if (ghLive && ghLive.sha) {
@@ -4089,8 +4487,8 @@
   </script>
   <script>
     // Upstream record: one step line of .lean files per measured snapshot, plus three small multiples.
-    // Facts only: every value comes from upstream_frontier.json (live_history + live_main).
-    (async function upstreamRecord() {
+    // Merges committed live_history with real-time rh-shrink data so the chart updates immediately on every main switch.
+    (function setupUpstreamRecord() {
       const svg = document.getElementById("recordChart");
       if (!svg) return;
       const NS = "http://www.w3.org/2000/svg";
@@ -4106,125 +4504,159 @@
         if (text != null) n.textContent = text;
         return n;
       };
-      let data;
-      try { data = JSON.parse(await fetchWithFallback("data/upstream_frontier.json")); }
-      catch (_) { nowEl.textContent = "Snapshot data unavailable right now."; return; }
 
-      let rows = (data.live_history || []).map((r) => ({ ...r, t: Date.parse(r.date) }))
-        .filter((r) => Number.isFinite(r.t) && Number.isFinite(r.lean_files));
-      const lm = data.live_main;
-      if (lm && lm.sha && Number.isFinite(lm.lean_files) && !rows.some((r) => r.sha && lm.sha.startsWith(String(r.sha).slice(0, 7)))) {
-        rows.push({ ...lm, date: lm.commit_date, t: Date.parse(lm.commit_date) });
-      }
-      rows = rows.filter((r) => Number.isFinite(r.t)).sort((a, b) => a.t - b.t);
-      const pts = rows.filter((r, i, a) => i === 0 || r.lean_files !== a[i - 1].lean_files
-        || r.total_lines !== a[i - 1].total_lines || r.toolchain !== a[i - 1].toolchain);
-      if (pts.length < 2) { nowEl.textContent = "Not enough snapshots yet."; return; }
-
-      const first = pts[0], last = pts[pts.length - 1];
-      const endT = Math.max(last.t, Date.parse(lm && lm.measured_at) || last.t);
-      const pct = ((last.lean_files - first.lean_files) / first.lean_files) * 100;
-      nowEl.innerHTML = `<b>${fmt(last.lean_files)}</b> Lean files now &middot; ${pct <= 0 ? "&minus;" : "+"}${Math.abs(pct).toFixed(1)}% since ${escHtml(first.label || "the first snapshot")}`;
-
-      const W = 960, H = 300, L = 58, R = 28, T = 34, B = 30;
-      const t0 = first.t, t1 = endT;
-      const yMax = Math.ceil((Math.max(...pts.map((p) => p.lean_files)) * 1.06) / 50000) * 50000;
-      const x = (t) => L + ((t - t0) / (t1 - t0 || 1)) * (W - L - R);
-      const y = (v) => T + (1 - v / yMax) * (H - T - B);
-
-      for (let v = 0; v <= yMax; v += 50000) {
-        svg.append(el("line", { class: v === 0 ? "ax" : "grid", x1: L, x2: W - R, y1: y(v), y2: y(v) }));
-        svg.append(el("text", { class: "tick", x: L - 8, y: y(v) + 3.5, "text-anchor": "end" }, v === 0 ? "0" : (v / 1000) + "k"));
-      }
-      const dayMs = 86400000;
-      for (let d = Math.ceil(t0 / dayMs) * dayMs; d <= t1; d += dayMs) {
-        svg.append(el("line", { class: "ax", x1: x(d), x2: x(d), y1: H - B, y2: H - B + 4 }));
-        svg.append(el("text", { class: "tick", x: x(d), y: H - B + 16, "text-anchor": "middle" }, day(d)));
-      }
-
-      let d = `M${x(pts[0].t)},${y(pts[0].lean_files)}`;
-      for (let i = 1; i < pts.length; i++) d += `H${x(pts[i].t)}V${y(pts[i].lean_files)}`;
-      d += `H${x(t1)}`;
-      svg.append(el("path", { class: "area", d: `${d}V${y(0)}H${x(pts[0].t)}Z` }));
-      svg.append(el("path", { class: "line", d }));
-      pts.forEach((p) => svg.append(el("circle", { class: "pt", cx: x(p.t), cy: y(p.lean_files), r: 2.6 })));
-
-      // Notes: the first snapshot, every toolchain change, and the largest single drop.
-      const notes = [{ i: 0, text: first.label || "First snapshot", sub: fmt(first.lean_files) + " files" }];
-      let drop = { i: -1, v: 0 };
-      for (let i = 1; i < pts.length; i++) {
-        if (pts[i].toolchain && pts[i].toolchain !== pts[i - 1].toolchain) {
-          notes.push({ i, text: "Lean " + String(pts[i].toolchain).replace(/^.*:v?/, ""), sub: "toolchain bump" });
+      let baseDataPromise = null;
+      function loadBase() {
+        if (!baseDataPromise) {
+          baseDataPromise = Promise.all([
+            fetchWithFallback("data/upstream_frontier.json").then((t) => JSON.parse(t)).catch(() => null),
+            fetchWithFallback("data/rh_shrink.json").then((t) => JSON.parse(t)).catch(() => null)
+          ]);
         }
-        const dv = pts[i - 1].lean_files - pts[i].lean_files;
-        if (dv > drop.v) drop = { i, v: dv };
+        return baseDataPromise;
       }
-      if (drop.i > 0) {
-        const hit = notes.find((n) => n.i === drop.i);
-        const sub = "−" + fmt(drop.v) + " files in one step";
-        if (hit) hit.sub = sub; else notes.push({ i: drop.i, text: "main@" + String(pts[drop.i].sha || "").slice(0, 9), sub });
-      }
-      notes.sort((a, b) => a.i - b.i).forEach((n, k) => {
-        const p = pts[n.i];
-        const px = x(p.t), py = y(p.lean_files);
-        const isDrop = n.i === drop.i;
-        const ny = isDrop ? Math.min(py - 22, y(yMax * 0.55)) : Math.max(T + 10, py - 26 - (k % 2) * 30);
-        const anchor = px > W * 0.72 ? "end" : "start";
-        const dx = anchor === "end" ? -6 : 6;
-        svg.append(el("line", { class: "lead", x1: px, x2: px, y1: py - 4, y2: ny + 4 }));
-        svg.append(el("text", { class: "note", x: px + dx, y: ny - 10, "text-anchor": anchor }, n.text));
-        svg.append(el("text", { class: "note-sub", x: px + dx, y: ny + 2, "text-anchor": anchor }, n.sub));
-      });
 
-      const cursor = el("line", { class: "cursor", y1: T, y2: H - B });
-      svg.append(cursor);
-      const hit = el("rect", { x: L, y: T, width: W - L - R, height: H - T - B, fill: "transparent" });
-      svg.append(hit);
-      const show = (p) => {
-        cursor.setAttribute("x1", x(p.t)); cursor.setAttribute("x2", x(p.t)); cursor.style.opacity = ".35";
-        const parts = [`<b>${fmt(p.lean_files)} files</b>`];
-        if (Number.isFinite(p.total_lines)) parts.push(mil(p.total_lines) + " lines");
-        if (Number.isFinite(p.declarations)) parts.push(fmt(p.declarations) + " declarations");
-        if (p.sha) parts.push("main@" + escHtml(String(p.sha).slice(0, 9)));
-        if (p.toolchain) parts.push(escHtml(String(p.toolchain).replace(/^.*:/, "Lean ")));
-        parts.push(stamp(p.t));
-        readout.innerHTML = parts.join(" &middot; ");
-      };
-      const nearest = (evt) => {
-        const box = svg.getBoundingClientRect();
-        const sx = ((evt.clientX - box.left) / box.width) * W;
-        return pts.reduce((best, p) => (Math.abs(x(p.t) - sx) < Math.abs(x(best.t) - sx) ? p : best), pts[0]);
-      };
-      hit.addEventListener("mousemove", (evt) => show(nearest(evt)));
-      hit.addEventListener("mouseleave", () => { cursor.style.opacity = "0"; show(last); });
-      show(last);
+      async function renderRecord(liveRsOverride) {
+        const [data, rsSnap] = await loadBase();
+        if (!data) { nowEl.textContent = "Snapshot data unavailable right now."; return; }
+        const rs = liveRsOverride || rsSnap;
 
-      // Small multiples: the same snapshots, other measures.
-      const box = document.getElementById("recordMultiples");
-      const series = [
-        { key: "total_lines", label: "Source lines", f: mil },
-        { key: "declarations", label: "Declarations", f: fmt },
-        { key: "import_lines", label: "Import lines", f: mil },
-      ];
-      box.innerHTML = "";
-      for (const s of series) {
-        const sp = pts.filter((p) => Number.isFinite(p[s.key]));
-        if (sp.length < 2) continue;
-        const a = sp[0][s.key], b = sp[sp.length - 1][s.key];
-        const lo = Math.min(...sp.map((p) => p[s.key])), hi = Math.max(...sp.map((p) => p[s.key]));
-        const sx = (t) => 2 + ((t - t0) / (t1 - t0 || 1)) * 296;
-        const sy = (v) => 30 - ((v - lo) / (hi - lo || 1)) * 26;
-        let sd = `M${sx(sp[0].t)},${sy(a)}`;
-        for (let i = 1; i < sp.length; i++) sd += `H${sx(sp[i].t)}V${sy(sp[i][s.key])}`;
-        sd += `H${sx(t1)}`;
-        const ch = ((b - a) / a) * 100;
-        const div = document.createElement("div");
-        div.className = "multiple";
-        div.innerHTML = `<div class="mk">${s.label}</div><div class="mv">${s.f(b)}</div>`
-          + `<div class="md">${ch <= 0 ? "&minus;" : "+"}${Math.abs(ch).toFixed(1)}% since ${day(sp[0].t)}</div>`
-          + `<svg viewBox="0 0 300 34" preserveAspectRatio="none" aria-hidden="true"><path class="spark" d="${sd}" vector-effect="non-scaling-stroke"/></svg>`;
-        box.append(div);
+        let rows = (data.live_history || []).map((r) => ({ ...r, t: Date.parse(r.date) }))
+          .filter((r) => Number.isFinite(r.t) && Number.isFinite(r.lean_files));
+        const lm = data.live_main;
+        if (lm && lm.sha && Number.isFinite(lm.lean_files) && !rows.some((r) => r.sha && lm.sha.startsWith(String(r.sha).slice(0, 7)))) {
+          rows.push({ ...lm, date: lm.commit_date, t: Date.parse(lm.commit_date) });
+        }
+        if (rs && rs.latest && Number.isFinite(rs.latest.files) && rs.latest.sha) {
+          const lat = rs.latest;
+          const rt = Date.parse(lat.date);
+          if (Number.isFinite(rt) && !rows.some((r) => r.sha && String(lat.sha).startsWith(String(r.sha).slice(0, 7)))) {
+            const decls = (Number.isFinite(lat.theorems) ? lat.theorems : 0) + (Number.isFinite(lat.defs) ? lat.defs : 0);
+            rows.push({
+              sha: String(lat.sha).slice(0, 9),
+              date: lat.date,
+              t: rt,
+              lean_files: lat.files,
+              total_lines: lat.lines,
+              declarations: decls || undefined,
+              import_lines: Number.isFinite(lat.imports) ? lat.imports : undefined,
+              toolchain: lat.files <= 2000 ? "leanprover/lean4:v4.35.0" : (lm && lm.toolchain)
+            });
+          }
+        }
+        rows = rows.filter((r) => Number.isFinite(r.t)).sort((a, b) => a.t - b.t);
+        const pts = rows.filter((r, i, a) => i === 0 || r.lean_files !== a[i - 1].lean_files
+          || r.total_lines !== a[i - 1].total_lines || r.toolchain !== a[i - 1].toolchain);
+        if (pts.length < 2) { nowEl.textContent = "Not enough snapshots yet."; return; }
+
+        svg.innerHTML = "";
+        const first = pts[0], last = pts[pts.length - 1];
+        const endT = Math.max(last.t, Date.parse(lm && lm.measured_at) || last.t);
+        const pct = ((last.lean_files - first.lean_files) / first.lean_files) * 100;
+        nowEl.innerHTML = `<b>${fmt(last.lean_files)}</b> Lean files now &middot; ${pct <= 0 ? "&minus;" : "+"}${Math.abs(pct).toFixed(1)}% since ${escHtml(first.label || "the first snapshot")}`;
+
+        const W = 960, H = 300, L = 58, R = 28, T = 34, B = 30;
+        const t0 = first.t, t1 = endT;
+        const yMax = Math.ceil((Math.max(...pts.map((p) => p.lean_files)) * 1.06) / 50000) * 50000;
+        const x = (t) => L + ((t - t0) / (t1 - t0 || 1)) * (W - L - R);
+        const y = (v) => T + (1 - v / yMax) * (H - T - B);
+
+        for (let v = 0; v <= yMax; v += 50000) {
+          svg.append(el("line", { class: v === 0 ? "ax" : "grid", x1: L, x2: W - R, y1: y(v), y2: y(v) }));
+          svg.append(el("text", { class: "tick", x: L - 8, y: y(v) + 3.5, "text-anchor": "end" }, v === 0 ? "0" : (v / 1000) + "k"));
+        }
+        const dayMs = 86400000;
+        for (let d = Math.ceil(t0 / dayMs) * dayMs; d <= t1; d += dayMs) {
+          svg.append(el("line", { class: "ax", x1: x(d), x2: x(d), y1: H - B, y2: H - B + 4 }));
+          svg.append(el("text", { class: "tick", x: x(d), y: H - B + 16, "text-anchor": "middle" }, day(d)));
+        }
+
+        let d = `M${x(pts[0].t)},${y(pts[0].lean_files)}`;
+        for (let i = 1; i < pts.length; i++) d += `H${x(pts[i].t)}V${y(pts[i].lean_files)}`;
+        d += `H${x(t1)}`;
+        svg.append(el("path", { class: "area", d: `${d}V${y(0)}H${x(pts[0].t)}Z` }));
+        svg.append(el("path", { class: "line", d }));
+        pts.forEach((p) => svg.append(el("circle", { class: "pt", cx: x(p.t), cy: y(p.lean_files), r: 2.6 })));
+
+        const notes = [{ i: 0, text: first.label || "First snapshot", sub: fmt(first.lean_files) + " files" }];
+        let drop = { i: -1, v: 0 };
+        for (let i = 1; i < pts.length; i++) {
+          if (pts[i].toolchain && pts[i].toolchain !== pts[i - 1].toolchain) {
+            const isGrhSwitch = pts[i].lean_files <= 2000;
+            notes.push({ i, text: isGrhSwitch ? "grh-lean (v4.35.0)" : ("Lean " + String(pts[i].toolchain).replace(/^.*:v?/, "")), sub: isGrhSwitch ? (fmt(pts[i].lean_files) + " files on main") : "toolchain bump" });
+          }
+          const dv = pts[i - 1].lean_files - pts[i].lean_files;
+          if (dv > drop.v) drop = { i, v: dv };
+        }
+        if (drop.i > 0) {
+          const hit = notes.find((n) => n.i === drop.i);
+          const sub = "−" + fmt(drop.v) + " files in one step";
+          if (hit) hit.sub = sub; else notes.push({ i: drop.i, text: "main@" + String(pts[drop.i].sha || "").slice(0, 9), sub });
+        }
+        notes.sort((a, b) => a.i - b.i).forEach((n, k) => {
+          const p = pts[n.i];
+          const px = x(p.t), py = y(p.lean_files);
+          const isDrop = n.i === drop.i;
+          const ny = isDrop ? Math.min(py - 22, y(yMax * 0.55)) : Math.max(T + 14, py - 26 - (k % 2) * 28);
+          const anchor = px > W * 0.72 ? "end" : "start";
+          const dx = anchor === "end" ? -6 : 6;
+          svg.append(el("line", { class: "lead", x1: px, x2: px, y1: py - 4, y2: ny + 4 }));
+          svg.append(el("text", { class: "note", x: px + dx, y: ny - 10, "text-anchor": anchor }, n.text));
+          svg.append(el("text", { class: "note-sub", x: px + dx, y: ny + 2, "text-anchor": anchor }, n.sub));
+        });
+
+        const cursor = el("line", { class: "cursor", y1: T, y2: H - B });
+        svg.append(cursor);
+        const hit = el("rect", { x: L, y: T, width: W - L - R, height: H - T - B, fill: "transparent" });
+        svg.append(hit);
+        const show = (p) => {
+          cursor.setAttribute("x1", x(p.t)); cursor.setAttribute("x2", x(p.t)); cursor.style.opacity = ".35";
+          const parts = [`<b>${fmt(p.lean_files)} files</b>`];
+          if (Number.isFinite(p.total_lines)) parts.push(mil(p.total_lines) + " lines");
+          if (Number.isFinite(p.declarations)) parts.push(fmt(p.declarations) + " declarations");
+          if (p.sha) parts.push("main@" + escHtml(String(p.sha).slice(0, 9)));
+          if (p.toolchain) parts.push(escHtml(String(p.toolchain).replace(/^.*:/, "Lean ")));
+          parts.push(stamp(p.t));
+          readout.innerHTML = parts.join(" &middot; ");
+        };
+        const nearest = (evt) => {
+          const box = svg.getBoundingClientRect();
+          const sx = ((evt.clientX - box.left) / box.width) * W;
+          return pts.reduce((best, p) => (Math.abs(x(p.t) - sx) < Math.abs(x(best.t) - sx) ? p : best), pts[0]);
+        };
+        hit.addEventListener("mousemove", (evt) => show(nearest(evt)));
+        hit.addEventListener("mouseleave", () => { cursor.style.opacity = "0"; show(last); });
+        show(last);
+
+        const box = document.getElementById("recordMultiples");
+        const series = [
+          { key: "total_lines", label: "Source lines", f: mil },
+          { key: "declarations", label: "Declarations", f: fmt },
+          { key: "import_lines", label: "Import lines", f: fmt },
+        ];
+        box.innerHTML = "";
+        for (const s of series) {
+          const sp = pts.filter((p) => Number.isFinite(p[s.key]));
+          if (sp.length < 2) continue;
+          const a = sp[0][s.key], b = sp[sp.length - 1][s.key];
+          const lo = Math.min(...sp.map((p) => p[s.key])), hi = Math.max(...sp.map((p) => p[s.key]));
+          const sx = (t) => 2 + ((t - t0) / (t1 - t0 || 1)) * 296;
+          const sy = (v) => 30 - ((v - lo) / (hi - lo || 1)) * 26;
+          let sd = `M${sx(sp[0].t)},${sy(a)}`;
+          for (let i = 1; i < sp.length; i++) sd += `H${sx(sp[i].t)}V${sy(sp[i][s.key])}`;
+          sd += `H${sx(t1)}`;
+          const ch = ((b - a) / a) * 100;
+          const div = document.createElement("div");
+          div.className = "multiple";
+          div.innerHTML = `<div class="mk">${s.label}</div><div class="mv">${s.f(b)}</div>`
+            + `<div class="md">${ch <= 0 ? "&minus;" : "+"}${Math.abs(ch).toFixed(1)}% since ${day(sp[0].t)}</div>`
+            + `<svg viewBox="0 0 300 34" preserveAspectRatio="none" aria-hidden="true"><path class="spark" d="${sd}" vector-effect="non-scaling-stroke"/></svg>`;
+          box.append(div);
+        }
       }
+
+      window.renderUpstreamRecord = renderRecord;
+      renderRecord(null);
     })();
   </script>
   <script>
