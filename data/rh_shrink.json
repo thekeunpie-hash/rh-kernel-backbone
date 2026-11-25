@@ -6,7 +6,7 @@
     "method": "text search over .lean files under src/, one point per main commit (rh-shrink collect.py)",
     "schema_version": 6
   },
-  "commits_measured": 186,
+  "commits_measured": 199,
   "original": {
     "sha": "40e56bab026552e089d7afcfeff08d2defb9c005",
     "date": "2026-11-20T09:36:09-05:00",
@@ -23,23 +23,77 @@
     "statements": 777704
   },
   "latest": {
-    "sha": "fcb6eac7534875d32d68030967e2deae6d686151",
-    "date": "2026-11-25T13:41:16+11:00",
-    "subject": "Merge pull request #1853 from leanprover-community/batch/b12-on-1801",
-    "pr": 1853,
-    "files": 59764,
-    "lines": 15656672,
-    "code": 11449098,
-    "theorems": 592823,
-    "defs": 162861,
-    "imports": 367149,
-    "heartbeats": 489,
-    "repeats": 33254,
-    "statements": 564085
+    "sha": "8e5cefeeaffe7e4c12153385b7bb33fb7223c41a",
+    "date": "2026-11-25T22:57:33+11:00",
+    "subject": "Merge pull request #2960 from leanprover-community/batch/b18-on-main",
+    "pr": 2960,
+    "files": 59360,
+    "lines": 14739132,
+    "code": 11178286,
+    "theorems": 577455,
+    "defs": 160312,
+    "imports": 365540,
+    "heartbeats": 424,
+    "repeats": 25523,
+    "statements": 549107
   },
-  "code_left_pct": 78.3,
-  "code_removed": 3172839,
+  "code_left_pct": 76.45,
+  "code_removed": 3443651,
   "recent_changes": [
+    {
+      "sha": "8e5cefeeaffe7e4c12153385b7bb33fb7223c41a",
+      "date": "2026-11-25T22:57:33+11:00",
+      "subject": "Merge pull request #2960 from leanprover-community/batch/b18-on-main",
+      "pr": 2960,
+      "code": 11178286,
+      "code_delta": -26099,
+      "theorems_delta": -236
+    },
+    {
+      "sha": "251c7b05dd869ceba1aa42c6001c00b4010f23f9",
+      "date": "2026-11-25T21:33:41+11:00",
+      "subject": "Merge pull request #2787 from leanprover-community/batch/b17-on-main",
+      "pr": 2787,
+      "code": 11204385,
+      "code_delta": -56145,
+      "theorems_delta": -3183
+    },
+    {
+      "sha": "ef451fc356cbc66861df031531aaafd2843797ac",
+      "date": "2026-11-25T20:07:15+11:00",
+      "subject": "Merge pull request #2491 from leanprover-community/batch/b16-on-main",
+      "pr": 2491,
+      "code": 11260530,
+      "code_delta": -78587,
+      "theorems_delta": -5725
+    },
+    {
+      "sha": "246656fc62ac80c1214f48550138076c4f278569",
+      "date": "2026-11-25T18:17:13+11:00",
+      "subject": "Merge pull request #2318 from leanprover-community/batch/b15-on-main",
+      "pr": 2318,
+      "code": 11339117,
+      "code_delta": -40431,
+      "theorems_delta": -3059
+    },
+    {
+      "sha": "a18a350c3e5aad997766cff2670b292313e46574",
+      "date": "2026-11-25T16:32:50+11:00",
+      "subject": "Merge pull request #2164 from leanprover-community/batch/b14-on-main",
+      "pr": 2164,
+      "code": 11379548,
+      "code_delta": -23234,
+      "theorems_delta": -1441
+    },
+    {
+      "sha": "27b55787485ac2a5b5b3ed2dffc697e0ae6a2f59",
+      "date": "2026-11-25T15:16:12+11:00",
+      "subject": "Merge pull request #2057 from leanprover-community/batch/b13-on-main",
+      "pr": 2057,
+      "code": 11402782,
+      "code_delta": -46316,
+      "theorems_delta": -1724
+    },
     {
       "sha": "fcb6eac7534875d32d68030967e2deae6d686151",
       "date": "2026-11-25T13:41:16+11:00",
@@ -93,60 +147,6 @@
       "code": 11589211,
       "code_delta": -9869,
       "theorems_delta": -470
-    },
-    {
-      "sha": "1da818b50f1e18808db2792b9dc735bda8cb84d8",
-      "date": "2026-11-25T02:42:48+11:00",
-      "subject": "Merge pull request #1198 from leanprover-community/batch/b6-on-1119",
-      "pr": 1198,
-      "code": 11599080,
-      "code_delta": -47679,
-      "theorems_delta": -2979
-    },
-    {
-      "sha": "1cd97d8aa4a16681b109389ab18eefa4b2ba36d8",
-      "date": "2026-11-25T00:35:23+11:00",
-      "subject": "Merge pull request #1119 from leanprover-community/batch/b5-on-1018",
-      "pr": 1119,
-      "code": 11646759,
-      "code_delta": -123464,
-      "theorems_delta": -5837
-    },
-    {
-      "sha": "bb9476b875a219608a9068f8f18d8c56b4e7f1ca",
-      "date": "2026-11-24T22:34:38+11:00",
-      "subject": "Merge pull request #1018 from leanprover-community/batch/b4-on-896",
-      "pr": 1018,
-      "code": 11770223,
-      "code_delta": -56556,
-      "theorems_delta": -2461
-    },
-    {
-      "sha": "c9883164b0b3d762cee21f889d03d59a53b3ba3b",
-      "date": "2026-11-24T20:08:06+11:00",
-      "subject": "Merge pull request #896 from leanprover-community/batch/b3-on-644",
-      "pr": 896,
-      "code": 11826779,
-      "code_delta": -90762,
-      "theorems_delta": -4179
-    },
-    {
-      "sha": "343b1de38bbe4c5c66f1c1c0afd7c34e8645acdf",
-      "date": "2026-11-24T17:57:31+11:00",
-      "subject": "Merge pull request #644 from leanprover-community/batch/b2-on-295",
-      "pr": 644,
-      "code": 11917541,
-      "code_delta": -1838,
-      "theorems_delta": -234
-    },
-    {
-      "sha": "a28ad7ec8b9f5ff4ec448fe210d3ac57aacfffe1",
-      "date": "2026-11-24T15:19:08+11:00",
-      "subject": "Merge pull request #295 from james-shore/trim-duplicates-185",
-      "pr": 295,
-      "code": 11919379,
-      "code_delta": -81863,
-      "theorems_delta": -16805
     }
   ],
   "series": [
@@ -893,6 +893,58 @@
     [
       "2026-11-25T13:41:16+11:00",
       11449098
+    ],
+    [
+      "2026-11-25T15:16:12+11:00",
+      11402782
+    ],
+    [
+      "2026-11-25T16:32:50+11:00",
+      11379548
+    ],
+    [
+      "2026-11-25T18:17:13+11:00",
+      11339117
+    ],
+    [
+      "2026-11-25T02:23:00-05:00",
+      11339117
+    ],
+    [
+      "2026-11-25T02:24:13-05:00",
+      11339117
+    ],
+    [
+      "2026-11-25T02:24:22-05:00",
+      11339117
+    ],
+    [
+      "2026-11-25T02:24:31-05:00",
+      11339117
+    ],
+    [
+      "2026-11-25T02:24:39-05:00",
+      11339117
+    ],
+    [
+      "2026-11-25T02:24:48-05:00",
+      11339117
+    ],
+    [
+      "2026-11-25T20:07:15+11:00",
+      11260530
+    ],
+    [
+      "2026-11-25T04:29:19-05:00",
+      11260530
+    ],
+    [
+      "2026-11-25T21:33:41+11:00",
+      11204385
+    ],
+    [
+      "2026-11-25T22:57:33+11:00",
+      11178286
     ]
   ]
 }
