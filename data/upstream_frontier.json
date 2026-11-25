@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T13:30:40Z",
+  "generated_at": "2026-11-25T22:39:55Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -621,20 +621,20 @@
     }
   ],
   "live_main": {
-    "sha": "d91ae2678",
-    "commit_date": "2026-11-26T00:24:11+11:00",
+    "sha": "756a70250",
+    "commit_date": "2026-11-26T08:25:34+11:00",
     "toolchain": "leanprover/lean4:v4.37.0-rc1",
-    "lean_files": 59261,
-    "total_lines": 14561199,
-    "total_bytes": 961555107,
-    "import_lines": 1532014,
-    "declarations": 735541,
-    "backward_options": 2300,
-    "heartbeat_options": 2489,
-    "files_delta_vs_v021": -115926,
-    "lines_delta_vs_v021": -2813016,
-    "open_pr_count": 489,
-    "measured_at": "2026-11-25T13:30:40Z"
+    "lean_files": 58947,
+    "total_lines": 13710054,
+    "total_bytes": 920532030,
+    "import_lines": 817939,
+    "declarations": 728272,
+    "backward_options": 992,
+    "heartbeat_options": 1514,
+    "files_delta_vs_v021": -116240,
+    "lines_delta_vs_v021": -3664161,
+    "open_pr_count": 1246,
+    "measured_at": "2026-11-25T22:39:55Z"
   },
   "live_history": [
     {
@@ -838,6 +838,18 @@
       "import_lines": 1532014,
       "backward_options": 2300,
       "heartbeat_options": 2489
+    },
+    {
+      "date": "2026-11-26T08:25:34+11:00",
+      "sha": "756a70250",
+      "label": "main@756a70250",
+      "toolchain": "leanprover/lean4:v4.37.0-rc1",
+      "lean_files": 58947,
+      "total_lines": 13710054,
+      "declarations": 728272,
+      "import_lines": 817939,
+      "backward_options": 992,
+      "heartbeat_options": 1514
     }
   ],
   "stacked_pr_queue": [
@@ -849,7 +861,7 @@
       "author": "Deicyde",
       "category": "formatting",
       "scope": "full",
-      "base_ref": "main",
+      "base_ref": "alpoge",
       "mergeable_state": "dirty",
       "blast_radius": "whole-tree",
       "title": "Run Lean auto-formatter over 147,418 files in src/ (v4.36)",
@@ -858,7 +870,7 @@
       "additions": 7021460,
       "deletions": 3846758,
       "net_lines": 3174702,
-      "updated_at": "2026-11-24T11:55:29Z",
+      "updated_at": "2026-11-25T22:36:39Z",
       "merged_at": null,
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/97"
     },
@@ -1187,13 +1199,13 @@
       "scope": "full",
       "base_ref": "main",
       "mergeable_state": "dirty",
-      "blast_radius": "focused",
+      "blast_radius": "whole-tree",
       "title": "Collapse 28,169 thin wrappers & consolidate 93,601 modules into 20,258 bundles (-101,512 files)",
       "raw_title": "Collapse 28,169 thin wrappers and consolidate 93,601 modules into 20,258 bundles (−101,512 files, −67.9%)",
-      "changed_files": 0,
-      "additions": 0,
-      "deletions": 0,
-      "net_lines": 0,
+      "changed_files": 162028,
+      "additions": 8049345,
+      "deletions": 8651158,
+      "net_lines": -601813,
       "updated_at": "2026-11-24T21:31:15Z",
       "merged_at": null,
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/120"
@@ -1313,13 +1325,13 @@
       "scope": "mixed",
       "base_ref": "main",
       "mergeable_state": "unknown",
-      "blast_radius": "whole-tree",
+      "blast_radius": "focused",
       "title": "Bump to Lean & Mathlib v4.36.0, module system, prune 15,068 dead files",
       "raw_title": "Bump to Lean and Mathlib v4.36.0",
-      "changed_files": 164467,
-      "additions": 1883850,
-      "deletions": 3267896,
-      "net_lines": -1384046,
+      "changed_files": 0,
+      "additions": 0,
+      "deletions": 0,
+      "net_lines": 0,
       "updated_at": "2026-11-22T14:09:33Z",
       "merged_at": "2026-11-22T14:09:33Z",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/66"
@@ -1352,9 +1364,9 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-25T13:30:40Z",
-    "total_merged_prs": 2385,
-    "total_batch_queue_prs": 3,
+    "measured_at": "2026-11-25T22:39:55Z",
+    "total_merged_prs": 3821,
+    "total_batch_queue_prs": 1,
     "entries": [
       {
         "slug": "kim-em",
@@ -1373,12 +1385,11 @@
           "ops_review": "Primary merge-queue operator (live merge count from GitHub events)"
         },
         "bio": "Research software engineer at the Lean FRO and Mathlib maintainer. On leanprover-community/riemann-hypothesis, he runs the sharded AWS and donor-runner CI builds (#101), lands reviewed cleanup batches (#115, #150), and coordinates the merge queue through the Lean 4.37.0-rc1 upgrade (#185).",
-        "merged_direct": 2,
+        "merged_direct": 1,
         "merged_batch_extra": 0,
-        "merged_total": 2,
+        "merged_total": 1,
         "merged_prs": [
-          3142,
-          2960
+          4761
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -1419,24 +1430,22 @@
           "ops_review": "High-volume PR triage, labeling & merges (live counts from GitHub events)"
         },
         "bio": "Repository collaborator handling PR review, triage, and verification tooling. Authored the DeepMind formal-conjectures Comparator setup (#88) and the `batch queue` label and batch-assembly workflows (#226, #233).",
-        "merged_direct": 51,
+        "merged_direct": 34,
         "merged_batch_extra": 0,
-        "merged_total": 51,
+        "merged_total": 34,
         "merged_prs": [
-          3077,
-          3074,
-          3072,
-          3071,
-          3070,
-          3069,
-          3066,
-          3065
+          4640,
+          4639,
+          4637,
+          4636,
+          4635,
+          4633,
+          4630,
+          4625
         ],
         "batch_landed_prs": [],
-        "batch_queue_count": 1,
-        "batch_queue_prs": [
-          1021
-        ],
+        "batch_queue_count": 0,
+        "batch_queue_prs": [],
         "links": [
           {
             "label": "GitHub @Deicyde",
