@@ -2128,6 +2128,11 @@
       font-size: 11.8px;
       color: #7f1d1d;
     }
+    .tm-dead-strip.is-clean {
+      background: #f0fdfa;
+      border-color: #99f6e4;
+      color: #115e59;
+    }
     .tm-dead-label {
       font-weight: 700;
       letter-spacing: .03em;
@@ -2150,6 +2155,16 @@
       background: #991b1b;
       color: #ffffff;
       border-color: #991b1b;
+    }
+    .tm-dead-strip.is-clean .tm-dead-btn {
+      border-color: #5eead4;
+      color: #0f766e;
+    }
+    .tm-dead-strip.is-clean .tm-dead-btn:hover,
+    .tm-dead-strip.is-clean .tm-dead-btn.is-selected {
+      background: #0f766e;
+      color: #ffffff;
+      border-color: #0f766e;
     }
     .tm-detail {
       margin-top: 12px;
@@ -2555,21 +2570,20 @@
         <section class="tm-panel" id="theory-map" aria-labelledby="tmTitle">
           <div class="tm-head">
             <div>
-              <div class="eyebrow">Mathematical Architecture · Shared Across <code>grh-lean</code> &amp; <code>alpoge</code></div>
-              <h3 class="tm-title" id="tmTitle">Which Theories Actually Prove RH &amp; GRH</h3>
-              <p class="tm-sub">Both the new <code>lsernau/grh-lean</code> rewrite (<code>New.Main</code> → <code>short_forms</code> / <code>enough_forms</code> / <code>integral_forms_long</code>) and Levent Alpöge’s original 804,912-declaration kernel cone on branch <code>alpoge</code> follow this exact multi-pillar reduction into <code>L(s, χ) ≠ 0</code>. Click any node to trace its dependency path.</p>
+              <div class="eyebrow" id="tmEyebrow">Mathematical Architecture · <code>lsernau/grh-lean</code> (<code>grh-compact</code> 794 Files · 76,151 Code L)</div>
+              <h3 class="tm-title" id="tmTitle">How <code>grh-lean</code> Proves RH &amp; GRH via the Star Inequality (⋆)</h3>
+              <p class="tm-sub" id="tmSub">Every node below maps to verified subdirectories of <code>lsernau/grh-lean</code> (<code>grh-compact/src/</code>: 794/794 files reachable from <code>Main.lean</code>, 0 dead files). Click any star, module hub, or zero pearl to trace the reduction from Theorems A–C through <code>New.star_inequality</code> into <code>New.grh</code>. Switch to <code>Alpöge Lineage</code> to inspect the original 804,912-declaration kernel cone.</p>
             </div>
             <div class="tm-filters" id="tmFilters" role="tablist" aria-label="Filter mathematical domain">
+              <div class="tm-view-switch" id="tmEditionSwitch" role="group" aria-label="Architecture edition">
+                <button type="button" class="tm-view-btn is-active" data-tm-edition="grh">grh-lean (76k L)</button>
+                <button type="button" class="tm-view-btn" data-tm-edition="alpoge">Alpöge (v0.2.1)</button>
+              </div>
               <div class="tm-view-switch" id="tmViewSwitch" role="group" aria-label="Diagram view mode">
                 <button type="button" class="tm-view-btn is-active" data-view="constellation">Constellation</button>
                 <button type="button" class="tm-view-btn" data-view="flow">Flow Diagram</button>
               </div>
-              <button type="button" class="tm-filter is-active" data-filter="all">All</button>
-              <button type="button" class="tm-filter" data-filter="analytic">Analytic</button>
-              <button type="button" class="tm-filter" data-filter="geometry">Arakelov &amp; Geometry</button>
-              <button type="button" class="tm-filter" data-filter="galois">Galois &amp; Theta</button>
-              <button type="button" class="tm-filter" data-filter="automorphic">Automorphic</button>
-              <button type="button" class="tm-filter" data-filter="vwin">Iwasawa / VWin</button>
+              <span id="tmFilterBtns" style="display:inline-flex;flex-wrap:wrap;gap:6px;"></span>
             </div>
           </div>
 
@@ -2581,7 +2595,7 @@
                 <button type="button" class="tm-mini-btn" id="tmPrevBtn">← Prev</button>
                 <button type="button" class="tm-mini-btn" id="tmPlayBtn">▶ Play</button>
                 <button type="button" class="tm-mini-btn" id="tmNextBtn">Next →</button>
-                <span class="tm-step-pill" id="tmStepLabel">Interactive · Click any star, zero pearl, or comet</span>
+                <span class="tm-step-pill" id="tmStepLabel">Interactive · Click any star, zero pearl, or foundation</span>
               </div>
               <div class="tm-tour-group">
                 <button type="button" class="tm-mini-btn" id="tmZoomIn" title="Zoom in">+</button>
@@ -2592,152 +2606,10 @@
           </div>
 
           <div class="tm-plate-wrap" id="tmPlateWrap" hidden>
-            <svg class="tm-svg" id="tmSvg" viewBox="0 0 980 468" role="img" aria-label="Directed architectural diagram of mathematical theories proving RH and GRH">
-              <defs>
-                <marker id="tmArrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-                  <path d="M 1 1.5 L 8.5 5 L 1 8.5 z" fill="#94a3b8"></path>
-                </marker>
-                <marker id="tmArrowLit" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
-                  <path d="M 1 1.5 L 8.5 5 L 1 8.5 z" fill="#0f766e"></path>
-                </marker>
-              </defs>
-
-              <!-- Column Headers -->
-              <text x="16" y="20" class="tm-col-label">I · Foundational Theories</text>
-              <text x="312" y="20" class="tm-col-label">II · Structural Bridges</text>
-              <text x="586" y="20" class="tm-col-label">III · Root Chokepoint</text>
-              <text x="774" y="20" class="tm-col-label">IV · Main.lean Theorems</text>
-
-              <!-- Subtle Column Guides -->
-              <line x1="296" y1="30" x2="296" y2="454" stroke="#e2e8f0" stroke-dasharray="3 4"></line>
-              <line x1="570" y1="30" x2="570" y2="454" stroke="#e2e8f0" stroke-dasharray="3 4"></line>
-              <line x1="758" y1="30" x2="758" y2="454" stroke="#e2e8f0" stroke-dasharray="3 4"></line>
-
-              <!-- Directed Dependency Edges -->
-              <g id="tmEdges">
-                <path class="tm-edge" data-from="m1" data-to="gateway" d="M 278 86 C 296 86, 294 128, 312 128" marker-end="url(#tmArrow)"></path>
-                <path class="tm-edge" data-from="m2" data-to="gateway" d="M 278 194 C 296 194, 294 148, 312 148" marker-end="url(#tmArrow)"></path>
-                <path class="tm-edge" data-from="m4" data-to="gateway" d="M 278 398 C 304 398, 290 172, 312 172" marker-end="url(#tmArrow)"></path>
-                <path class="tm-edge" data-from="m3" data-to="vwin" d="M 278 298 C 296 298, 294 316, 312 316" marker-end="url(#tmArrow)"></path>
-                <path class="tm-edge" data-from="m4" data-to="vwin" d="M 278 412 C 298 412, 294 352, 312 352" marker-end="url(#tmArrow)"></path>
-                <path class="tm-edge" data-from="vwin" data-to="gateway" d="M 432 276 C 432 246, 432 238, 432 214" marker-end="url(#tmArrow)"></path>
-                <path class="tm-edge" data-from="gateway" data-to="allchi" d="M 552 152 C 570 152, 568 220, 586 220" marker-end="url(#tmArrow)"></path>
-                <path class="tm-edge" data-from="vwin" data-to="allchi" d="M 552 334 C 572 334, 568 252, 586 252" marker-end="url(#tmArrow)"></path>
-                <path class="tm-edge" data-from="allchi" data-to="rh" d="M 740 218 C 758 218, 756 126, 774 126" marker-end="url(#tmArrow)"></path>
-                <path class="tm-edge" data-from="allchi" data-to="grh" d="M 740 236 C 758 236, 756 236, 774 236" marker-end="url(#tmArrow)"></path>
-                <path class="tm-edge" data-from="allchi" data-to="arith" d="M 740 254 C 758 254, 756 346, 774 346" marker-end="url(#tmArrow)"></path>
-              </g>
-
-              <!-- Column I: 4 Foundational Pillars -->
-              <g class="tm-node" data-id="m1" data-domain="analytic" tabindex="0" role="button" aria-label="Analytic and Additive Combinatorics">
-                <rect class="tm-box" x="16" y="38" width="262" height="92"></rect>
-                <rect x="16" y="38" width="4" height="92" rx="2" fill="#0f766e"></rect>
-                <text x="30" y="56" class="tm-node-kicker" fill="#0f766e">M1 · Analytic &amp; Additive</text>
-                <text x="30" y="74" class="tm-node-title">Behrend, Bost–HN &amp; Landau</text>
-                <text x="30" y="92" class="tm-node-line">Behrend thick sets (C = 32) · Frame slopes</text>
-                <text x="30" y="107" class="tm-node-line">Windowed Landau [Y, Y^(3/2)] · Chebyshev</text>
-                <text x="30" y="122" class="tm-node-sym">hostThickExists · theoremFSharp</text>
-              </g>
-
-              <g class="tm-node" data-id="m2" data-domain="geometry" tabindex="0" role="button" aria-label="Arakelov and Algebraic Geometry">
-                <rect class="tm-box" x="16" y="146" width="262" height="92"></rect>
-                <rect x="16" y="146" width="4" height="92" rx="2" fill="#1d4ed8"></rect>
-                <text x="30" y="164" class="tm-node-kicker" fill="#1d4ed8">M2 · Arakelov &amp; Geometry</text>
-                <text x="30" y="182" class="tm-node-title">Hironaka, Heights &amp; Toroidal</text>
-                <text x="30" y="200" class="tm-node-line">Resolution (char 0) · Hilbert–Samuel · P–L</text>
-                <text x="30" y="215" class="tm-node-line">Integral Siegel toroidal · Good-tower covol</text>
-                <text x="30" y="230" class="tm-node-sym">siegelToroidalIntegral · CovolumeBoundOfX</text>
-              </g>
-
-              <g class="tm-node" data-id="m3" data-domain="galois" tabindex="0" role="button" aria-label="Galois Representations and Theta Lifts">
-                <rect class="tm-box" x="16" y="254" width="262" height="92"></rect>
-                <rect x="16" y="254" width="4" height="92" rx="2" fill="#6d28d9"></rect>
-                <text x="30" y="272" class="tm-node-kicker" fill="#6d28d9">M3 · Galois &amp; Cohomology</text>
-                <text x="30" y="290" class="tm-node-title">Weight-1, Lefschetz &amp; Theta Lift</text>
-                <text x="30" y="308" class="tm-node-line">Kodaira–Spencer · Holomorphic Lefschetz</text>
-                <text x="30" y="323" class="tm-node-line">Integral p-adic Galois reps · Étale descent</text>
-                <text x="30" y="338" class="tm-node-sym">geoOne_holds · tLiftK · Row0b</text>
-              </g>
-
-              <g class="tm-node" data-id="m4" data-domain="automorphic" tabindex="0" role="button" aria-label="Definite Unitary Automorphy">
-                <rect class="tm-box" x="16" y="362" width="262" height="92"></rect>
-                <rect x="16" y="362" width="4" height="92" rx="2" fill="#b45309"></rect>
-                <text x="30" y="380" class="tm-node-kicker" fill="#b45309">M4 · Automorphic &amp; Unitary</text>
-                <text x="30" y="398" class="tm-node-title">Siegel–Weil, Rallis &amp; GL5</text>
-                <text x="30" y="416" class="tm-node-line">Definite unitary base change · Genus mass</text>
-                <text x="30" y="431" class="tm-node-line">Capelli identities · Jacquet–Shalika · LinkN</text>
-                <text x="30" y="446" class="tm-node-sym">rallis_of_dm · GalC.final_alt_alt</text>
-              </g>
-
-              <!-- Column II: Structural Bridges -->
-              <g class="tm-node" data-id="gateway" data-domain="analytic" tabindex="0" role="button" aria-label="Definite-Side Analytic Gateway">
-                <rect class="tm-box" x="312" y="96" width="240" height="118"></rect>
-                <rect x="312" y="96" width="4" height="118" rx="2" fill="#0f766e"></rect>
-                <text x="326" y="115" class="tm-node-kicker" fill="#0f766e">Bridge A · Analytic–Automorphic</text>
-                <text x="326" y="134" class="tm-node-title">Definite-Side Gateway</text>
-                <text x="326" y="153" class="tm-node-line">Combines Green, VWin, covolume,</text>
-                <text x="326" y="168" class="tm-node-line">and theta-integral matching to rule</text>
-                <text x="326" y="183" class="tm-node-line">out zeros on Re(s) &gt; 1/2.</text>
-                <text x="326" y="203" class="tm-node-sym">every_character_of_green_v_win</text>
-              </g>
-
-              <g class="tm-node" data-id="vwin" data-domain="vwin" tabindex="0" role="button" aria-label="Weak Vandiver Window and Iwasawa Descent">
-                <rect class="tm-box" x="312" y="276" width="240" height="128"></rect>
-                <rect x="312" y="276" width="4" height="128" rx="2" fill="#6d28d9"></rect>
-                <text x="326" y="295" class="tm-node-kicker" fill="#6d28d9">Bridge B · M5 Cyclotomic / Iwasawa</text>
-                <text x="326" y="314" class="tm-node-title">Weak Vandiver Window (VWin)</text>
-                <text x="326" y="333" class="tm-node-line">Ferrero–Washington (μ = 0) · Matrix-det</text>
-                <text x="326" y="348" class="tm-node-line">Iwasawa descent · TWK patching · U(3)</text>
-                <text x="326" y="363" class="tm-node-line">&amp; Sp4 automorphy · Kato Euler system</text>
-                <text x="326" y="381" class="tm-node-sym">vwin_of_row · sp4In0_alt · zetaUr</text>
-                <text x="326" y="395" class="tm-node-sym">katoTwoW_of_printsH</text>
-              </g>
-
-              <!-- Column III: Single Root Chokepoint -->
-              <g class="tm-node is-chokepoint is-selected" data-id="allchi" data-domain="all" tabindex="0" role="button" aria-label="allChi root chokepoint">
-                <rect class="tm-box" x="586" y="176" width="154" height="120"></rect>
-                <text x="600" y="198" class="tm-node-kicker" fill="#0f766e">99.997% of Cone</text>
-                <text x="600" y="218" class="tm-node-title">allChi</text>
-                <text x="600" y="236" class="tm-node-line">L(s, χ) ≠ 0</text>
-                <text x="600" y="251" class="tm-node-line">for Re(s) &gt; 1/2</text>
-                <text x="600" y="269" class="tm-node-sym">804,887 decls</text>
-                <text x="600" y="284" class="tm-node-sym">10.74M cone lines</text>
-              </g>
-
-              <!-- Column IV: Headline Theorems -->
-              <g class="tm-node is-headline" data-id="rh" data-domain="all" tabindex="0" role="button" aria-label="Riemann Hypothesis">
-                <rect class="tm-box" x="774" y="84" width="190" height="84"></rect>
-                <text x="788" y="103" class="tm-node-kicker" fill="#0f172a">M0 · Functional Eq.</text>
-                <text x="788" y="122" class="tm-node-title">RiemannHypothesis</text>
-                <text x="788" y="140" class="tm-node-line">Mathlib defeq · ζ(s) = 0 ⇒ Re = 1/2</text>
-                <text x="788" y="156" class="tm-node-sym">Claim.zeta · 0 sorry</text>
-              </g>
-
-              <g class="tm-node is-headline" data-id="grh" data-domain="all" tabindex="0" role="button" aria-label="Generalized Riemann Hypothesis">
-                <rect class="tm-box" x="774" y="194" width="190" height="84"></rect>
-                <text x="788" y="213" class="tm-node-kicker" fill="#0f172a">M0 · Dirichlet L-Functions</text>
-                <text x="788" y="232" class="tm-node-title">Dirichlet GRH (All χ)</text>
-                <text x="788" y="250" class="tm-node-line">Primitive &amp; imprimitive characters</text>
-                <text x="788" y="266" class="tm-node-sym">Claim.strip · allChi</text>
-              </g>
-
-              <g class="tm-node is-headline" data-id="arith" data-domain="all" tabindex="0" role="button" aria-label="Zeta-free arithmetic consequences">
-                <rect class="tm-box" x="774" y="304" width="190" height="84"></rect>
-                <text x="788" y="323" class="tm-node-kicker" fill="#0f172a">Zeta-Free Audit</text>
-                <text x="788" y="342" class="tm-node-title">Robin &amp; Lagarias</text>
-                <text x="788" y="360" class="tm-node-line">Elementary divisor-sum inequalities</text>
-                <text x="788" y="376" class="tm-node-sym">Robin1984 · 3 std axioms</text>
-              </g>
-            </svg>
+            <svg class="tm-svg" id="tmSvg" viewBox="0 0 980 468" role="img" aria-label="Directed architectural diagram of mathematical theories proving RH and GRH"></svg>
           </div>
 
-          <div class="tm-dead-strip" aria-label="Dead subtrees outside the 5-theorem kernel cone">
-            <span class="tm-dead-label">Outside Kernel Cone (Dead Code):</span>
-            <button type="button" class="tm-dead-btn" data-dead="dead_llc">localLanglands &amp; CaraianiLocalGlobal (PR #173)</button>
-            <button type="button" class="tm-dead-btn" data-dead="dead_behrend">Formalism/BehrendSets (0/89)</button>
-            <button type="button" class="tm-dead-btn" data-dead="dead_iwasawa">IwasawaModules Z_p[[T]] (0/16)</button>
-            <button type="button" class="tm-dead-btn" data-dead="dead_weil">WeilStabilizerVolume (99.1% dead)</button>
-          </div>
+          <div class="tm-dead-strip is-clean" id="tmBottomStrip" aria-label="Shared foundations or dead subtrees"></div>
 
           <div class="tm-detail" id="tmDetail" aria-live="polite"></div>
         </section>
@@ -4260,6 +4132,9 @@
             });
           }
           renderSpatialCoverageMap(frontierData, valid === "alpoge" ? "alpoge" : "grh");
+          if (typeof window.setTheoryMapEdition === "function") {
+            window.setTheoryMapEdition(valid === "alpoge" ? "alpoge" : "grh");
+          }
           if (updateUrl && window.history && window.history.replaceState) {
             const url = new URL(window.location.href);
             if (valid === "grh") url.searchParams.delete("edition");
@@ -4663,138 +4538,611 @@
     (function initTheoryMap() {
       const svg = document.getElementById("tmSvg");
       const detail = document.getElementById("tmDetail");
-      const filters = document.getElementById("tmFilters");
+      const filtersWrap = document.getElementById("tmFilters");
+      const filterBtnsWrap = document.getElementById("tmFilterBtns");
+      const constSvg = document.getElementById("tmConstSvg");
+      const constWrap = document.getElementById("tmConstWrap");
+      const plateWrap = document.getElementById("tmPlateWrap");
+      const viewSwitch = document.getElementById("tmViewSwitch");
+      const editionSwitch = document.getElementById("tmEditionSwitch");
+      const bottomStrip = document.getElementById("tmBottomStrip");
+      const eyebrowEl = document.getElementById("tmEyebrow");
+      const titleEl = document.getElementById("tmTitle");
+      const subEl = document.getElementById("tmSub");
       if (!svg || !detail) return;
 
-      const NODES = {
-        m1: {
-          title: "M1 · Analytic Number Theory & Additive Combinatorics",
-          badge: "Verified · Active Cone",
-          prose: "Constructs Behrend-free thick sets directly from Mathlib's sphere packing lemma (C = 32), performs coset-biased Bernoulli selection over totally complex CM host fields, applies Bost Harder–Narasimhan frame-ensemble slope inequalities, and closes the analytic loop via a windowed Landau criterion on [Y, Y^(3/2)].",
-          theories: ["Behrend Sphere Thick Sets", "Bost Harder–Narasimhan Slopes", "Windowed Landau [Y, Y^(3/2)]", "Pontryagin / Chebyshev Character Sums", "CM Host Field Towers"],
-          symbols: ["Formalism.FrobeniusOrbits.hostThickExists", "Formalism.HN.theoremFSharp", "proposition_size_bound", "zeroFreeAll_of_topG", "supplyChi"],
-          meta: "Grounded in Mathlib Behrend.exists_large_sphere; standalone Formalism/BehrendSets/ (0/89) is dead code."
-        },
-        m2: {
-          title: "M2 · Arakelov Geometry, Resolution & Siegel Toroidal Compactification",
-          badge: "Verified · Active Cone",
-          prose: "Establishes Hironaka resolution of singularities in characteristic zero, arithmetic Hilbert–Samuel and Moriwaki height lower bounds, Poincaré–Lelong cycle height intersection, and integral toroidal compactifications of Siegel moduli schemes to produce the Hodge-bundle covolume bound CovolumeBoundOfX.",
-          theories: ["Hironaka Resolution (char 0)", "Arithmetic Hilbert–Samuel", "Moriwaki & Nadel Heights", "Poincaré–Lelong Currents", "Integral Siegel Toroidal Compactification", "p-Divisible Groups & Hodge–Tate"],
-          symbols: ["GlobalTheory.siegelToroidalIntegral_holds", "topCovolSlim2_use_alt_alt", "goodTower_and_volume", "CovolumeBoundOfX"],
-          meta: "Bohrium compression benchmarks show -95.3% on Poincaré–Lelong (Core 24) and -96.1% on Arithmetic Hilbert–Samuel (Core 23)."
-        },
-        m3: {
-          title: "M3 · Integral Galois Representations, Weight-1 Realization & Theta Lifts",
-          badge: "Verified · Active Cone",
-          prose: "Constructs integral l-adic Galois systems (Row0b) attached to polarized RACSDC automorphic forms using weight-1 geometric realization, Kodaira–Spencer / Kottwitz–Shimura data from the holomorphic Lefschetz trace formula, unitary theta lifting (tLiftK), and étale surjective descent.",
-          theories: ["Weight-1 Geometric Realization", "Kodaira–Spencer & Kottwitz–Shimura", "Holomorphic Lefschetz Trace", "Unitary Theta Lifting (tLiftK)", "Étale Integral Surjective Descent", "p-Adic Witt Lattices"],
-          symbols: ["geometric_realization_of_weight_one", "kodaira_spencer_of_weight_one", "steps_holds", "tLiftK", "galoisLocalGlobalStrong_recParameter"],
-          meta: "Upstream PR #173 confirmed localLanglands and CaraianiLocalGlobal lie outside the 5-theorem cone (-421,112 dead lines)."
-        },
-        m4: {
-          title: "M4 · Definite-Side Unitary Automorphy, Siegel–Weil & Rallis Doubling",
-          badge: "Verified · Active Cone",
-          prose: "Discharges definite-side unitary group hypotheses via base change, convergent global Siegel–Weil formulas, Rallis doubling, Global Lemma 5 genus-mass volumes, Capelli differential identities, Poincaré L^1 decay, and Chebotarev/Jacquet–Shalika norm upgrades from {2, 3} to the full family LinkN.",
-          theories: ["Definite Unitary Base Change", "Global Siegel–Weil Formula", "Rallis Doubling Method", "Global Lemma 5 Genus Mass", "Capelli Identities", "Jacquet–Shalika & Chebotarev Upgrade"],
-          symbols: ["UpperTheory.GalC.final_alt_alt", "siegelWeilUnitaryConvergent", "rallis_of_dm", "GenusMassVolumes", "wuDecayOfGap", "nonempty_hyps_definite_side_of_closed_bound"],
-          meta: "StabilizerVolume is 95.5% active in the cone while WeilStabilizerVolume is 99.1% dead (135 / 14,668 lines)."
-        },
-        gateway: {
-          title: "Bridge A · Definite-Side Analytic–Automorphic Gateway",
-          badge: "Verified · Active Cone",
-          prose: "Unifies the analytic frame/window bounds (M1), Arakelov covolume and toroidal inputs (M2), definite-side theta-integral matching (M4), and the weak Vandiver window VWin (M5) to lift zero-free strips across all primitive and imprimitive Dirichlet characters.",
-          theories: ["Analytic–Automorphic Synthesis", "Closed-Family Transport", "Imprimitive Character Lifting"],
-          symbols: ["UpperTheory.Top.every_character_of_green_v_win", "every_character_of_literature_of_vWin", "shape_closed_link_n_of_green"],
-          meta: "Direct predecessor of the root chokepoint allChi."
-        },
-        vwin: {
-          title: "Bridge B · M5 Weak Vandiver Window (VWin) & Automorphy Lifting",
-          badge: "Verified · Active Cone",
-          prose: "Proves the cyclotomic weak Vandiver window VWin from Row0b via Ferrero–Washington (μ = 0), finite-rank matrix-determinant Iwasawa descent (without formal power series Z_p[[T]]), Taylor–Wiles–Kisin patching, U(3) and Sp4 automorphy lifting, Poitou–Tate duality, and Kato's unramified Euler system.",
-          theories: ["Ferrero–Washington (μ = 0)", "Matrix-Det Iwasawa Descent", "Taylor–Wiles–Kisin Patching", "U(3) & Sp4 Automorphy Lifting", "Kato Unramified Euler System", "Bloch–Kato Selmer Vanishing"],
-          symbols: ["UpperTheory.One.vwin_of_row", "ferreroWashington", "sp4In0_alt", "unitary_three_automorphy_dense_of_prints", "zetaUr", "katoTwoW_of_printsH"],
-          meta: "IwasawaModules/ (Z_p[[T]]) is 0/16 dead; the live proof uses finite Z_l matrix determinants (UpperTheory.V.PropA)."
-        },
-        allchi: {
-          title: "Root Chokepoint · allChi (DirichletLNonvanishingRightOfHalf)",
-          badge: "Exact · 99.997% of Cone",
-          prose: "A single depth-1 theorem asserting that L(s, χ) ≠ 0 for every Dirichlet character χ and every s with Re(s) > 1/2 (away from s = 1 for trivial χ). Exactly 804,887 of the 804,912 active kernel declarations route through this node.",
-          theories: ["Zero-Free Half-Plane Re(s) > 1/2", "Unified RH / GRH Reduction"],
-          symbols: ["allChi", "UpperTheory.EveryCharacter", "LFunction_ne_zero_of_half_lt_re"],
-          meta: "Verified against MIT challenge.ndjson.zst with standard axioms {propext, Classical.choice, Quot.sound} only."
-        },
-        rh: {
-          title: "Headline Theorem · RiemannHypothesis (Mathlib Definitional Match)",
-          badge: "Exact · Kernel Verified",
-          prose: "Derived from allChi by pure Mathlib functional-equation reflection (Claim.zeta): any nontrivial zero of riemannZeta in the critical strip reflects across Re(s) = 1/2, forcing Re(s) = 1/2.",
-          theories: ["Functional Equation Reflection", "Mathlib RiemannHypothesis DefEq"],
-          symbols: ["RiemannHypothesis", "Claim.zeta", "riemannZeta_eq_zero_re"],
-          meta: "Accepted by leanchecker, lean4lean, nanoda, con-leche, con-ron, and DeepMind formal-conjectures Comparator."
-        },
+      const CX = 490, CY = 282;
+      function polar(deg, r) {
+        const rad = (deg - 90) * Math.PI / 180;
+        return [CX + r * Math.cos(rad), CY + r * Math.sin(rad)];
+      }
+
+      const ZETA_ZEROS = [
+        { n: 1,  gamma: "14.134725", dy: -116 },
+        { n: 2,  gamma: "21.022040", dy: -92 },
+        { n: 3,  gamma: "25.010858", dy: -68 },
+        { n: 4,  gamma: "30.424876", dy: -46 },
+        { n: 5,  gamma: "32.935062", dy: 48 },
+        { n: 6,  gamma: "37.586178", dy: 70 },
+        { n: 7,  gamma: "40.918719", dy: 94 },
+        { n: 8,  gamma: "43.327073", dy: 118 },
+        { n: 9,  gamma: "48.005151", dy: 144 },
+        { n: 10, gamma: "49.773832", dy: 170 },
+      ];
+
+      const THEORY_EDITIONS = {
         grh: {
-          title: "Headline Theorems · Dirichlet GRH (Primitive & Imprimitive)",
-          badge: "Exact · Kernel Verified",
-          prose: "Derived from allChi via primitive reduction and Dirichlet L-function functional-equation reflection (Claim.strip), proving all critical-strip zeros of every Dirichlet L-function lie on Re(s) = 1/2.",
-          theories: ["Primitive Character Reduction", "Dirichlet Functional Equation"],
-          symbols: ["Claim.strip", "LFunction_eq_zero_re", "LFunction_eq_zero_re_of_isPrimitive"],
-          meta: "Verified directly against raw lean4export 3.1.0 NDJSON statement ASTs."
+          eyebrow: 'Mathematical Architecture · <code>lsernau/grh-lean</code> (<code>grh-compact</code> 794 Files · 76,151 Code L)',
+          title: 'How <code>grh-lean</code> Proves RH &amp; GRH via the Star Inequality (⋆)',
+          sub: 'Every node below maps to verified subdirectories of <code>lsernau/grh-lean</code> (<code>grh-compact/src/</code>: 794/794 files reachable from <code>Main.lean</code>, 0 dead files). Click any star, bridge, or zero pearl to trace how Theorems A–C cancel <code>mainHeight</code> inside <code>New.star_inequality</code> to prove <code>New.grh</code>.',
+          rootId: "star",
+          rootLabel: "New.grh",
+          sunTitle: "New.grh",
+          sunSub: "794 f · 76k L",
+          stepReset: "Interactive · Click any grh-compact star, zero pearl, or foundation",
+          zeroChain: "New.star_inequality → New.grh → Main.riemannHypothesis",
+          zeroProse: "Every nontrivial zero of the Riemann zeta function lies on the critical line Re(s) = 1/2. In lsernau/grh-lean, New.star_inequality bounds primeError below x^(8ε − 1/2), OneSidedCriterion.entireL_ne_zero_of_primeError_le yields New.grh on Re(s) > 1/2, and New.zeta_zeros_on_line reflects across s ↔ 1 − s.",
+          bottomIsClean: true,
+          bottomConstLabel: "SHARED FOUNDATIONS · 0 DEAD FILES (794/794 REACHABLE)",
+          bottomStripLabel: "Shared Foundations (0 Dead Files):",
+          quadrants: [
+            { x: 242, y: 84, anchor: "end", color: "#0f766e", text: "I · Thm A · Short Forms & Data" },
+            { x: 738, y: 84, anchor: "start", color: "#1d4ed8", text: "II · Thm B · Enough Forms & Adelic" },
+            { x: 738, y: 304, anchor: "start", color: "#6d28d9", text: "III · Thm C · Heights, Weil & Shimura" },
+            { x: 242, y: 304, anchor: "end", color: "#b45309", text: "IV · Twists, Selmer & Galois Reps" },
+          ],
+          filters: [
+            { key: "all", label: "All", target: "star" },
+            { key: "thma", label: "Thm A · Short", target: "p1" },
+            { key: "thmb", label: "Thm B · Enough", target: "p2" },
+            { key: "thmc", label: "Thm C · Heights", target: "p3" },
+            { key: "selmer", label: "Selmer & Galois", target: "p4" },
+            { key: "bounds", label: "Upper / Lower", target: "lower" },
+          ],
+          color: {
+            p1: "#0f766e",
+            p2: "#1d4ed8",
+            p3: "#6d28d9",
+            p4: "#b45309",
+            upper: "#0f766e",
+            lower: "#6d28d9",
+            star: "#0f766e",
+            rh: "#b08948",
+            grh: "#0f172a",
+            landau: "#475569",
+            bottom: "#0f766e"
+          },
+          major: {
+            star:   { x: CX, y: CY, r: 28, title: "New.grh", sub: "star_inequality" },
+            rh:     { x: CX, y: 98, r: 20, title: "RiemannHypothesis", sub: "Main.riemannHypothesis" },
+            grh:    { x: CX - 98, y: 138, r: 11, title: "Dirichlet GRH", sub: "LFunction_eq_zero_re" },
+            landau: { x: CX + 98, y: 138, r: 11, title: "Prime-Error Bound", sub: "OneSidedCriterion" },
+            upper:  { x: CX - 94, y: CY + 12, r: 15, title: "Upper Bound (A+B)", sub: "exists_family_covolumeSq_le" },
+            lower:  { x: CX + 94, y: CY + 12, r: 15, title: "Lower Bound (Thm C)", sub: "integral_forms_long" },
+            p1:     { x: polar(-68, 138)[0],  y: polar(-68, 138)[1],  r: 9.5, title: "Thm A · Short", sub: "" },
+            p2:     { x: polar(68, 138)[0],   y: polar(68, 138)[1],   r: 9.5, title: "Thm B · Enough", sub: "" },
+            p3:     { x: polar(128, 138)[0],  y: polar(128, 138)[1],  r: 9.5, title: "Thm C · Heights", sub: "" },
+            p4:     { x: polar(-128, 138)[0], y: polar(-128, 138)[1], r: 9.5, title: "Selmer & Galois", sub: "" },
+          },
+          edges: [
+            ["p1", "upper", "M 278 86 C 296 86, 294 128, 312 128"],
+            ["p2", "upper", "M 278 194 C 296 194, 294 152, 312 152"],
+            ["p3", "upper", "M 278 286 C 302 286, 292 178, 312 178"],
+            ["p3", "lower", "M 278 308 C 296 308, 294 316, 312 316"],
+            ["p4", "lower", "M 278 408 C 296 408, 294 358, 312 358"],
+            ["upper", "star", "M 552 152 C 570 152, 568 218, 586 218"],
+            ["lower", "star", "M 552 334 C 572 334, 568 254, 586 254"],
+            ["star", "rh", "M 740 218 C 758 218, 756 126, 774 126"],
+            ["star", "grh", "M 740 236 C 758 236, 756 236, 774 236"],
+            ["star", "landau", "M 740 254 C 758 254, 756 346, 774 346"],
+          ],
+          flowCols: [
+            "I · grh-compact Pillars (794 files)",
+            "II · Endgame Bounds (Thms A–C)",
+            "III · Star Chokepoint",
+            "IV · Main.lean & Endgame"
+          ],
+          flowBoxes: [
+            { id: "p1", x: 16, y: 38, w: 262, h: 92, color: "#0f766e", kicker: "I · Thm A · Short Forms (61f · 588 KB)", title: "Seesaw, Columns & Data", line1: "New/Seesaw (21f) · Columns (7f) · TwistedHecke (8f)", line2: "New/Curve & Data (19f) · Trace (4f) · Core (2f)", sym: "Data.short_forms · SeesawTheorem" },
+            { id: "p2", x: 16, y: 146, w: 262, h: 92, color: "#1d4ed8", kicker: "II · Thm B · Enough Forms (183f · 1.70 MB)", title: "Filling, RealPlace & Adelic", line1: "New/Filling (31f · 430 KB) · RealPlace (18f)", line2: "DiscreteSeries (55f) · Lib/Adelic & LocalGL (79f)", sym: "Data.enough_forms · FillingTheorem" },
+            { id: "p3", x: 16, y: 254, w: 262, h: 92, color: "#6d28d9", kicker: "III · Thm C · Heights & Weil (187f · 1.82 MB)", title: "Rows, Exchange, Weil & Shimura", line1: "New/Rows & Heights (21f) · Exchange (31f)", line2: "Lib/Weil & SiegelWeil (83f) · Lib/Shimura (52f)", sym: "RowVolume · HeightLe.nonneg · CrudeRows" },
+            { id: "p4", x: 16, y: 362, w: 262, h: 92, color: "#b45309", kicker: "IV · Twists & Galois (236f · 2.24 MB)", title: "Selmer, Lift & Galois Reps", line1: "New/Selmer & Patching (34f) · New/Lift (8f)", line2: "Lib/GaloisRep & Cohom (78f) · Padic & CFT (116f)", sym: "exists_isFitFamily · AvatarCompatibility" },
+            { id: "upper", x: 312, y: 96, w: 240, h: 118, color: "#0f766e", kicker: "Bridge A · ShortAndEnough (Upper)", title: "Short & Enough Forms", line1: "Combines Theorem A (short_forms),", line2: "Theorem B (enough_forms), and", line3: "heightPerRow_le into covolumeSq_le.", sym: "exists_family_covolumeSq_le" },
+            { id: "lower", x: 312, y: 276, w: 240, h: 128, color: "#6d28d9", kicker: "Bridge B · LongForms (Lower · Thm C)", title: "Integral Forms Are Long", line1: "Combines fit twists (Selmer), row", line2: "volumes, product formula (HeightLe ≥ 0),", line3: "crude rows & one_determinant.", sym: "Data.integral_forms_long", sym2: "volume_iota_eq_prod_liftVolume" },
+            { id: "star", x: 586, y: 176, w: 154, h: 120, kind: "chokepoint", color: "#0f766e", kicker: "100% Reachable Cone", title: "New.grh (⋆)", line1: "m·rem ≤ logB²·𝓑", line2: "L(s, χ) ≠ 0 (Re > 1/2)", sym: "794 files · 76,151 L", sym2: "1.49M tokens · 0 dead" },
+            { id: "rh", x: 774, y: 84, w: 190, h: 84, kind: "headline", color: "#0f172a", kicker: "Main.lean · Functional Eq.", title: "RiemannHypothesis", line1: "Mathlib defeq · ζ(s) = 0 ⇒ Re = 1/2", sym: "New.zeta_zeros_on_line New.grh" },
+            { id: "grh", x: 774, y: 194, w: 190, h: 84, kind: "headline", color: "#0f172a", kicker: "Main.lean · Dirichlet L", title: "Dirichlet GRH (All χ)", line1: "Primitive & imprimitive characters", sym: "New.zeros_on_line New.grh" },
+            { id: "landau", x: 774, y: 304, w: 190, h: 84, kind: "headline", color: "#0f172a", kicker: "New/Endgame · One-Sided", title: "Prime-Error Criterion", line1: "R_{N0}(x) ≤ x^(8ε−1/2) ⇒ no zero", sym: "entireL_ne_zero_of_primeError_le" }
+          ],
+          stars: [
+            // I · Thm A · Short Forms & Data (upper-left)
+            { id: "g_seesaw", parent: "p1", label: "New/Seesaw (21f · 201 KB)", deg: -26, r: 186, ly: 114,
+              prose: "Proves the seesaw identity linking twisted theta-lift pairings to Bessel functionals and generic unitary representations, providing the length upper bound in Theorem A.",
+              sym: "New.Seesaw.SeesawTheorem · BesselGeneric" },
+            { id: "g_columns", parent: "p1", label: "New/Columns (7f · 94 KB)", deg: -42, r: 186, ly: 146,
+              prose: "Constructs the local column-space representations and twisted Hecke types that organize automorphic vectors across split and inert places.",
+              sym: "New.Columns.LocalStatement · TwistedHeckeType" },
+            { id: "g_thecke", parent: "p1", label: "New/TwistedHecke (8f · 87 KB)", deg: -58, r: 186, ly: 184,
+              prose: "Counts twisted Hecke eigenforms and controls local orbital integrals needed for the short-forms multiplicity estimate.",
+              sym: "New.TwistedHecke.Counting · OrbitBound" },
+            { id: "g_data", parent: "p1", label: "New/Curve & Data (19f · 169 KB)", deg: -74, r: 186, ly: 228,
+              prose: "Builds admissible parameter packs Data P (scales log b ≪ x ≪ x1 ≪ b, lift count m ≈ √x, thick places, nominal weights) and curve/trace bookkeeping.",
+              sym: "New.Data.DataExist · AdmissibleData · HasLogBound" },
+            // II · Thm B · Enough Forms & Adelic (upper-right)
+            { id: "g_filling", parent: "p2", label: "New/Filling (31f · 430 KB)", deg: 26, r: 186, ly: 114,
+              prose: "Largest New/ subtree (430 KB, 6,497 raw L): proves FillingTheorem via box partitions and top-floor counting to supply enough linearly independent automorphic forms (missing share ≤ 4/b²).",
+              sym: "New.Filling.FillingTheorem · TopFloor · BoxPartition" },
+            { id: "g_real", parent: "p2", label: "New/RealPlace (18f · 210 KB)", deg: 42, r: 186, ly: 146,
+              prose: "Establishes the archimedean local theorem at real/complex places, matching Harish-Chandra characters and matrix-coefficient asymptotics.",
+              sym: "New.RealPlace.LocalTheorem · ArchimedeanWeight" },
+            { id: "g_disc", parent: "p2", label: "DiscreteSeries (55f · 433 KB)", deg: 58, r: 186, ly: 184,
+              prose: "Combines New/DiscreteSeries (5f) and Lib/DiscreteSeries (50f): Bruhat big-cell decomposition, K-types, and discrete-series matrix coefficients for unitary groups.",
+              sym: "Lib.DiscreteSeries.Bruhat.BigCell · FormalDegree" },
+            { id: "g_adelic", parent: "p2", label: "Lib/Adelic & LocalGL (79f · 628 KB)", deg: 74, r: 186, ly: 228,
+              prose: "Adelic trace comparison, strong approximation, and local GL_n representation theory (Lib/Adelic 56f + Lib/LocalGL 23f) supplying global-to-local factorizations.",
+              sym: "Lib.Adelic.TraceComparison · Lib.LocalGL" },
+            // III · Thm C · Heights, Weil & Shimura (lower-right)
+            { id: "g_rows", parent: "p3", label: "New/Rows & Heights (21f · 234 KB)", deg: 106, r: 186, ly: 334,
+              prose: "Factors the global covolume into lift volumes (volume_iota_eq_prod_liftVolume), bounds ratios via heightLe_liftVolume_ratio, and applies the product formula (HeightLe.nonneg) and one_determinant.",
+              sym: "New.Rows.RowVolume · LiftVolumeHeight · HeightLe.nonneg" },
+            { id: "g_exchange", parent: "p3", label: "New/Exchange (31f · 286 KB)", deg: 122, r: 186, ly: 380,
+              prose: "Proves ExchangeTheorem and crude_rows, exchanging level/weight rows while preserving lower bounds on integral determinant heights.",
+              sym: "New.Exchange.ExchangeTheorem · CrudeRows" },
+            { id: "g_weil", parent: "p3", label: "Lib/Weil & SiegelWeil (83f · 744 KB)", deg: 138, r: 186, ly: 418,
+              prose: "Massive background library (Lib/Weil 67f + Lib/SiegelWeil 13f + New/ 3f): mixed Weil representation models, Rallis inner product sharp data, and regularized Siegel–Weil.",
+              sym: "Lib.Weil.MixedModel · Lib.SiegelWeil.RallisInner.SharpData" },
+            { id: "g_shimura", parent: "p3", label: "Lib/Shimura (52f · 559 KB)", deg: 154, r: 186, ly: 452,
+              prose: "Integral models of unitary Shimura varieties, p-adic uniformisation, and Hodge bundle metrics backing the arithmetic height comparisons.",
+              sym: "Lib.Shimura.IntegralModel.ModelExistence · Uniformisation" },
+            // IV · Twists, Selmer & Galois Reps (lower-left)
+            { id: "g_selmer", parent: "p4", label: "New/Selmer & Patching (34f · 321 KB)", deg: -106, r: 186, ly: 334,
+              prose: "Proves exists_isFitFamily via Selmer group control, Taylor–Wiles patching (New/Patching 2f), and denominator bounds for modular twists.",
+              sym: "New.Selmer.FitTwistsExist · DenominatorBound" },
+            { id: "g_lift", parent: "p4", label: "New/Lift (8f · 128 KB)", deg: -122, r: 186, ly: 380,
+              prose: "Establishes exponent theorems and long-gap controls for the iterated theta-lift chain of length m ≈ √x.",
+              sym: "New.Lift.ExponentTheorems · LongGap" },
+            { id: "g_galois", parent: "p4", label: "Lib/GaloisRep & Cohom (78f · 769 KB)", deg: -138, r: 186, ly: 418,
+              prose: "#1 compression seam in grh-compact: AvatarCompatibility dominates 117 files / 1,213 KB (16.4% of repo) with in-degree 2, routing through SeedRepresentation and PointClass.GaloisRep.",
+              sym: "Lib.GaloisRep.Main.AvatarCompatibility · PointClass.GaloisRep" },
+            { id: "g_padic", parent: "p4", label: "Lib/PadicHodge & CFT (116f · 1.02 MB)", deg: -154, r: 186, ly: 452,
+              prose: "PadicHodge (37f), PadicComparison (24f), and ClassField (55f): Hodge–Tate vectors, crystalline comparison, and Greenberg–Wiles global duality.",
+              sym: "Lib.PadicHodge.HodgeTateVectors · Lib.ClassField.GreenbergWiles" },
+          ],
+          bottomItems: [
+            { id: "f_general", label: "Lib/General (82f · 494 KB)", x: 136, y: 526 },
+            { id: "f_cm_gln",  label: "Lib/CM & GLn (27f · 231 KB)", x: 374, y: 526 },
+            { id: "f_cyc_ana", label: "Lib/Cyclotomic & Analytic (10f · 114 KB)", x: 616, y: 526 },
+            { id: "f_hygiene", label: "Hygiene Debt (9 maxHB · 30 backward.*)", x: 856, y: 526 },
+          ],
+          tour: [
+            { id: "p1",    label: "Step 1/6 · Thm A: Short Forms & Data" },
+            { id: "p2",    label: "Step 2/6 · Thm B: Enough Forms & Filling" },
+            { id: "p3",    label: "Step 3/6 · Thm C: Heights, Weil & Shimura" },
+            { id: "p4",    label: "Step 4/6 · Selmer, Fit Twists & Galois Reps" },
+            { id: "lower", label: "Step 5/6 · Upper (A+B) vs Lower (C) Pinch" },
+            { id: "star",  label: "Step 6/6 · star_inequality → New.grh → RH" },
+          ],
+          nodes: {
+            p1: {
+              title: "Pillar I · Theorem A — Short Forms, Seesaw & Admissible Data",
+              badge: "grh-compact · 61 files · 588 KB",
+              prose: "Constructs admissible data packs D : Data P (scales log b ≪ x ≪ x1 ≪ b, lift count m ≈ √x) and proves Theorem A (Data.short_forms) via New/Seesaw, New/Columns, and New/TwistedHecke, bounding the individual heights of the constructed automorphic forms from above.",
+              theories: ["Seesaw Identity & Bessel Generic", "Twisted Hecke Counting", "Column Local Statements", "Admissible Scale Monomials (HasLogBound)"],
+              symbols: ["Data.short_forms", "New.Seesaw.SeesawTheorem", "New.Data.exists_data", "New.Columns.LocalStatement"],
+              meta: "61 files across New/Seesaw (21f), New/Curve (12f), New/TwistedHecke (8f), New/Columns (7f), New/Data (7f), New/Trace (4f), New/Core (2f)."
+            },
+            p2: {
+              title: "Pillar II · Theorem B — Enough Forms, Filling & Adelic Theory",
+              badge: "grh-compact · 183 files · 1.70 MB",
+              prose: "Proves Theorem B (Data.enough_forms), supplying a linearly independent family covering at least (1 − 4/b²) of the row space dimension d = D.rowDim via New/Filling box partitions, New/RealPlace archimedean matching, DiscreteSeries Bruhat big-cell analysis, and Lib/Adelic trace comparison.",
+              theories: ["Filling Theorem & Box Partitions", "Real-Place Local Theorem", "Discrete Series & Bruhat Big Cell", "Adelic Trace Comparison & Local GL_n"],
+              symbols: ["Data.enough_forms", "New.Filling.FillingTheorem", "New.RealPlace.LocalTheorem", "Lib.DiscreteSeries.Bruhat.BigCell"],
+              meta: "New/Filling (31f · 430 KB) is the single largest directory under New/ and contains 2 of the top 3 fattest single files in grh-compact."
+            },
+            p3: {
+              title: "Pillar III · Theorem C Inputs — Row Volumes, Heights, Weil & Shimura",
+              badge: "grh-compact · 187 files · 1.82 MB",
+              prose: "Supplies the lower-bound geometry for Theorem C: factors the covolume of integral forms across iterated lift volumes (New/Rows), applies the global product formula (HeightLe.nonneg) and exchange row bounds (New/Exchange), supported by Lib/Weil, Lib/SiegelWeil (Rallis inner product), and Lib/Shimura integral models.",
+              theories: ["Lift-Volume Factorization", "Product Formula (HeightLe.nonneg)", "Exchange Theorem & Crude Rows", "Mixed Weil & Rallis Inner Product", "Unitary Shimura Integral Models"],
+              symbols: ["volume_iota_eq_prod_liftVolume", "heightLe_liftVolume_ratio", "HeightLe.nonneg", "New.Exchange.crude_rows", "Lib.Shimura.IntegralModel.ModelExistence"],
+              meta: "Lib/Weil (67f · 565 KB) and Lib/Shimura (52f · 559 KB) are the #1 and #2 largest background libraries in grh-compact."
+            },
+            p4: {
+              title: "Pillar IV · Fit Twists, Selmer Patching & Galois Representations",
+              badge: "grh-compact · 236 files · 2.24 MB",
+              prose: "Constructs fit twist families (exists_isFitFamily) using Selmer bounds and patching (New/Selmer, New/Patching) together with iterated lift exponents (New/Lift), backed by integral Galois representations (Lib/GaloisRep, Lib/Cohomology), p-adic Hodge/comparison theory, and ClassField Greenberg–Wiles duality.",
+              theories: ["Fit Twist Families (Selmer)", "Taylor–Wiles Patching", "Avatar Compatibility & Point-Class Galois Reps", "p-Adic Hodge–Tate & Comparison", "Class Field Theory & Greenberg–Wiles"],
+              symbols: ["New.Selmer.exists_isFitFamily", "New.Lift.ExponentTheorems", "Lib.GaloisRep.Main.AvatarCompatibility", "Lib.Cohomology.PointClass.GaloisRep"],
+              meta: "Top compression seam: Lib.GaloisRep.Main.AvatarCompatibility dominates 117 files / 1,213 KB (16.4% of grh-compact) with in-degree 2."
+            },
+            upper: {
+              title: "Bridge A · Upper Bound — Short & Enough Forms (Theorems A + B)",
+              badge: "New/Endgame/ShortAndEnough.lean",
+              prose: "Combines Theorem A (Data.short_forms), Theorem B (Data.enough_forms), and Data.heightPerRow_le into Data.exists_family_covolumeSq_le: produces n ≥ (1 − 4/b²)d linearly independent integral forms whose individual heights are bounded above by h = mainHeight − m·remainder + L with small index δ ≤ 5d log(1+b²)·budget.",
+              theories: ["Short Forms Upper Bound (Thm A)", "Enough Forms Dimension Bound (Thm B)", "Per-Row Height & Index Control"],
+              symbols: ["Data.exists_family_covolumeSq_le", "Data.short_forms", "Data.enough_forms", "Data.heightPerRow_le"],
+              meta: "Provides the upper side of the pinch inside New.star_inequality."
+            },
+            lower: {
+              title: "Bridge B · Lower Bound — Integral Forms Are Long (Theorem C)",
+              badge: "New/Endgame/LongForms.lean",
+              prose: "Proves Data.integral_forms_long: any large linearly independent integral family has covolume bounded below by d·(mainHeight − 3L). Combines fit twists (exists_isFitFamily), lift-volume factorization, product formula non-negativity (HeightLe.nonneg), crude row estimates, and one_determinant.",
+              theories: ["Covolume Lower Bound (Thm C)", "Product Formula Non-Negativity", "Fit-Twist Determinant Control"],
+              symbols: ["Data.integral_forms_long", "volume_iota_eq_prod_liftVolume", "HeightLe.nonneg", "one_determinant"],
+              meta: "Provides the lower side of the pinch inside New.star_inequality."
+            },
+            star: {
+              title: "Center Chokepoint · New.star_inequality → New.grh",
+              badge: "794/794 Files Reachable · 76,151 Code L",
+              prose: "Pinches d·(mainHeight − 3L) ≤ d·(mainHeight − m·remainder + L + 4x^99 + 10 log(1+b²)·budget), cancelling mainHeight cleanly to yield m·remainder ≤ (log b)²·budget (star_inequality). Choosing a second scale u ∈ [t, t²] gives eventually_primeError_le_rpow, which invokes OneSidedCriterion to prove New.grh (L(s, χ) ≠ 0 on Re(s) > 1/2).",
+              theories: ["Star Inequality (⋆) Cancellation", "Two-Scale Window Choice", "Half-Plane Zero-Free Deduction"],
+              symbols: ["New.star_inequality", "New.eventually_primeError_le_rpow", "New.grh", "DirichletLNonvanishingRightOfHalf"],
+              meta: "Source verified on grh-compact@72fead1 (0 sorry/axiom, 0 dead files). Independent cold --no-cache GCP verification is currently running."
+            },
+            rh: {
+              title: "Headline Theorem · Main.riemannHypothesis (Mathlib DefEq)",
+              badge: "Main.lean · Line 4",
+              prose: "Proved in one line (`theorem riemannHypothesis : RiemannHypothesis := New.zeta_zeros_on_line New.grh`) by applying New.grh to s and 1 − s together with the completed zeta functional equation.",
+              theories: ["Functional Equation Reflection", "Mathlib RiemannHypothesis DefEq"],
+              symbols: ["Main.riemannHypothesis", "Main.riemannZeta_eq_zero_re", "New.zeta_zeros_on_line"],
+              meta: "Identical target type to Mathlib RiemannHypothesis; independent cold verification receipt pending."
+            },
+            grh: {
+              title: "Headline Theorems · Dirichlet GRH (All Primitive & Imprimitive χ)",
+              badge: "Main.lean · Lines 8–13",
+              prose: "Proves both LFunction_ne_zero_of_half_lt_re (directly New.grh) and LFunction_eq_zero_re / LFunction_eq_zero_re_of_isPrimitive via New.zeros_on_line New.grh.",
+              theories: ["Dirichlet Functional Equation", "Primitive & Imprimitive Characters"],
+              symbols: ["Main.LFunction_ne_zero_of_half_lt_re", "Main.LFunction_eq_zero_re", "New.zeros_on_line"],
+              meta: "All 5 headline theorems in Main.lean are 1-line corollaries of New.grh."
+            },
+            landau: {
+              title: "Endgame Bridge · One-Sided Landau Criterion & Polar Window",
+              badge: "New/Endgame/OneSidedCriterion.lean",
+              prose: "Proves that if primeError d M x ≤ x^(β−1) eventually for every prime d ≡ a (mod M) with d ≡ 7 (mod 8), then entireL χ ρ ≠ 0 for Re(ρ) > β. Also proves IsPolar.exists_window_sub_mul_le, replacing pointwise prime-number theorems in progressions with a good second scale u ∈ [t, t²].",
+              theories: ["One-Sided Landau Criterion", "Quadratic Twist Non-Vanishing", "Polar Laplace Window Lemma"],
+              symbols: ["entireL_ne_zero_of_primeError_le", "IsPolar.exists_window_sub_mul_le", "exists_entireL_quadTwist_ne_zero"],
+              meta: "Compact 99-line file in grh-compact/src/New/Endgame/OneSidedCriterion.lean."
+            },
+            f_general: {
+              title: "Shared Foundation · Lib/General (82 files · 494.1 KB)",
+              badge: "100% Active · 0 Dead Files",
+              isCleanBottom: true,
+              prose: "General-purpose Mathlib extensions across algebra, topology, measure theory, harmonic analysis, and p-adic arithmetic imported throughout both Lib/* and New/*. Every file is transitively imported by Main.lean.",
+              theories: ["Shared Algebra & Topology Helpers", "Measure & Integration Utilities", "Local/Global Plumbing"],
+              symbols: ["Lib/General/* (82 files · 8,382 raw L)"],
+              meta: "Prime candidate for upstreaming reusable lemmas to Mathlib or deduplicating helpers."
+            },
+            f_cm_gln: {
+              title: "Shared Foundation · Lib/CM & Lib/GLn (27 files · 230.9 KB)",
+              badge: "100% Active · 0 Dead Files",
+              isCleanBottom: true,
+              prose: "CM field extensions, complex conjugation, and totally real/CM polarization helpers (Lib/CM: 11f · 119.5 KB) alongside GL_n matrix-group representations and orbital tools (Lib/GLn: 16f · 111.4 KB).",
+              theories: ["CM Number Fields", "GL_n Group & Matrix Infrastructure"],
+              symbols: ["Lib/CM/* (11f)", "Lib/GLn/* (16f)"],
+              meta: "Imported directly by Seesaw, RealPlace, Adelic, and Shimura modules."
+            },
+            f_cyc_ana: {
+              title: "Shared Foundation · Lib/Cyclotomic & Lib/Analytic (10 files · 113.8 KB)",
+              badge: "100% Active · 0 Dead Files",
+              isCleanBottom: true,
+              prose: "Cyclotomic field arithmetic (Lib/Cyclotomic: 5f · 63.5 KB) and analytic quadratic-twist non-vanishing / Landau helpers (Lib/Analytic: 5f · 50.3 KB), including ZeroFreeTwist used directly by OneSidedCriterion.",
+              theories: ["Cyclotomic Arithmetic", "Quadratic-Twist Non-Vanishing (ZeroFreeTwist)"],
+              symbols: ["Lib.Analytic.QuadraticTwist.ZeroFreeTwist", "Lib/Cyclotomic/* (5f)"],
+              meta: "Directly feeds New/Endgame/OneSidedCriterion.lean and New/Selmer."
+            },
+            f_hygiene: {
+              title: "Hygiene & Compression Debt · grh-compact Audit",
+              badge: "0 Sorry · 0 Axioms · 0 Dead Files",
+              isCleanBottom: true,
+              prose: "Static audit of grh-compact@72fead1 found 0 sorry, 0 custom axioms, 0 native_decide, 0 dead files, and only 0.39% semicolon-packed lines. Remaining cleanup targets are 9 set_option maxHeartbeats, 30 backward.* compatibility flags, 2 bare import Mathlib lines, 3 unused internal lemmas, and 19 duplicate signatures.",
+              theories: ["Zero-Cheat Audit", "Toolchain Portability (Lean v4.35.0 → v4.34.1 / v4.37)", "Tactic & File Coalescing"],
+              symbols: ["9 maxHeartbeats", "30 backward.*", "2 import Mathlib", "7,570 simp / 2,718 grind"],
+              meta: "Immediate low-risk polish targets alongside major compression seams (AvatarCompatibility 16.4%, Filling 5.8%)."
+            }
+          }
         },
-        arith: {
-          title: "Zeta-Free Arithmetic Check · Robin & Lagarias Inequalities",
-          badge: "Exact · Zero Complex Analysis in Statement",
-          prose: "Combines the formal RH theorem with kimihiro64/Robin1984 to derive elementary inequalities for the sum-of-divisors function σ(n), confirming that the statement itself carries no analytic encoding ambiguity.",
-          theories: ["Robin Inequality (n > 5040)", "Lagarias Inequality (H_n + exp(H_n) log H_n)"],
-          symbols: ["robin_inequality", "lagarias_inequality"],
-          meta: "Elaborated against Mathlib alone: robinStmt names 21 constants directly; verified with {propext, Classical.choice, Quot.sound} only."
-        },
-        dead_llc: {
-          title: "Dead Subtree · localLanglands & CaraianiLocalGlobal",
-          badge: "Outside Kernel Cone · PR #173",
-          isDead: true,
-          prose: "Automated transitive dead-code pruning in upstream PR #173 (-421,112 lines across 14,114 files) demonstrated that neither localLanglands nor CaraianiLocalGlobal enters the dependency cone of the five headline RH/GRH theorems.",
-          theories: ["Transitive Dependency Pruning", "Unreachable Automorphic Lemmas"],
-          symbols: ["localLanglands (unused)", "CaraianiLocalGlobal (unused)"],
-          meta: "Reported on Lean Zulip (Nov 23) during cleanup analysis of leanprover-community/riemann-hypothesis."
-        },
-        dead_behrend: {
-          title: "Dead Subtree · Formalism/BehrendSets/ (0 / 89 active)",
-          badge: "Exact · Outside Kernel Cone",
-          isDead: true,
-          prose: "None of the 89 declarations in Formalism/BehrendSets/ enter the kernel proof terms. The live proof instead wraps Mathlib's Behrend.exists_large_sphere inside Formalism.FrobeniusOrbits.hostThickExists.",
-          theories: ["Static vs. Kernel-Cone Discrepancy"],
-          symbols: ["src/Formalism/BehrendSets/* (0/89 active)"],
-          meta: "Confirmed directly from v0.2.1 decls.csv.gz and cone-constants.txt.gz."
-        },
-        dead_iwasawa: {
-          title: "Dead Subtree · IwasawaModules/ Z_p[[T]] (0 / 16 active)",
-          badge: "Exact · Outside Kernel Cone",
-          isDead: true,
-          prose: "Formal power-series ring theory over Z_p[[T]] is completely unused in the kernel cone. The active proof uses Ferrero–Washington's finite Z_l-rank bound together with R x R matrix determinants in UpperTheory.V.PropA.",
-          theories: ["Unused Formal Power-Series Infrastructure"],
-          symbols: ["IwasawaModules/* (0/16 active)"],
-          meta: "Confirmed directly from v0.2.1 kernel export."
-        },
-        dead_weil: {
-          title: "Dead Subtree · WeilStabilizerVolume (99.1% dead)",
-          badge: "Exact · Clone Asymmetry",
-          isDead: true,
-          prose: "Among three near-duplicate directories under UnitaryGroupMassFormula, StabilizerVolume is 95.5% active and StabilizerOrbitVolume is 34.7% active, whereas WeilStabilizerVolume is 99.1% dead (only 135 of 14,668 lines used).",
-          theories: ["Near-Duplicate Directory Asymmetry"],
-          symbols: ["WeilStabilizerVolume/* (135 / 14,668 lines active)"],
-          meta: "Confirmed directly from v0.2.1 kernel export."
+        alpoge: {
+          eyebrow: 'Mathematical Architecture · Alpöge Lineage (v0.2.1 · 804,912 Kernel-Cone Declarations)',
+          title: 'Which Theories Actually Prove RH &amp; GRH (Alpöge Lineage)',
+          sub: 'Every box below corresponds to an active subtree in the 804,912-declaration Lean kernel cone (<code>in_cone = true</code>) of Levent Alpöge’s original formalization preserved on branch <code>alpoge</code>. Click any node to trace its exact dependency path into <code>allChi</code> and inspect dead subtrees outside the cone.',
+          rootId: "allchi",
+          rootLabel: "allChi",
+          sunTitle: "allChi",
+          sunSub: "804,887 decls",
+          stepReset: "Interactive · Click any Alpöge star, zero pearl, or dead comet",
+          zeroChain: "allChi → Claim.zeta → RiemannHypothesis",
+          zeroProse: "Every nontrivial zero of the Riemann zeta function lies on the golden critical line Re(s) = 1/2. In the Alpöge formal proof, allChi rules out zeros in the open half-plane Re(s) > 1/2, and the functional equation reflection (Claim.zeta) rules out zeros in 0 < Re(s) < 1/2.",
+          bottomIsClean: false,
+          bottomConstLabel: "OUTSIDE KERNEL CONE · DEAD SUBTREES",
+          bottomStripLabel: "Outside Kernel Cone (Dead Code):",
+          quadrants: [
+            { x: 242, y: 84, anchor: "end", color: "#0f766e", text: "I · Analytic & Additive" },
+            { x: 738, y: 84, anchor: "start", color: "#1d4ed8", text: "II · Arakelov & Geometry" },
+            { x: 738, y: 304, anchor: "start", color: "#6d28d9", text: "III · Galois & Theta Lifts" },
+            { x: 242, y: 304, anchor: "end", color: "#b45309", text: "IV · Definite Automorphy" },
+          ],
+          filters: [
+            { key: "all", label: "All", target: "allchi" },
+            { key: "analytic", label: "Analytic", target: "m1" },
+            { key: "geometry", label: "Arakelov & Geometry", target: "m2" },
+            { key: "galois", label: "Galois & Theta", target: "m3" },
+            { key: "automorphic", label: "Automorphic", target: "m4" },
+            { key: "vwin", label: "Iwasawa / VWin", target: "vwin" },
+          ],
+          color: {
+            m1: "#0f766e",
+            m2: "#1d4ed8",
+            m3: "#6d28d9",
+            m4: "#b45309",
+            gateway: "#0f766e",
+            vwin: "#6d28d9",
+            allchi: "#0f766e",
+            rh: "#b08948",
+            grh: "#0f172a",
+            arith: "#475569",
+            bottom: "#991b1b"
+          },
+          major: {
+            allchi:  { x: CX, y: CY, r: 28, title: "allChi", sub: "99.997% of cone" },
+            rh:      { x: CX, y: 98, r: 20, title: "RiemannHypothesis", sub: "Re(s) = 1/2" },
+            grh:     { x: CX - 98, y: 138, r: 11, title: "Dirichlet GRH", sub: "All χ" },
+            arith:   { x: CX + 98, y: 138, r: 11, title: "Robin & Lagarias", sub: "Zeta-free" },
+            gateway: { x: CX - 94, y: CY + 12, r: 15, title: "Definite-Side Gateway", sub: "Bridge A" },
+            vwin:    { x: CX + 94, y: CY + 12, r: 15, title: "Weak Vandiver (VWin)", sub: "Ferrero–W · TWK · Kato" },
+            m1:      { x: polar(-68, 138)[0],  y: polar(-68, 138)[1],  r: 9.5, title: "M1 Analytic", sub: "" },
+            m2:      { x: polar(68, 138)[0],   y: polar(68, 138)[1],   r: 9.5, title: "M2 Arakelov", sub: "" },
+            m3:      { x: polar(128, 138)[0],  y: polar(128, 138)[1],  r: 9.5, title: "M3 Galois", sub: "" },
+            m4:      { x: polar(-128, 138)[0], y: polar(-128, 138)[1], r: 9.5, title: "M4 Automorphic", sub: "" },
+          },
+          edges: [
+            ["m1", "gateway", "M 278 86 C 296 86, 294 128, 312 128"],
+            ["m2", "gateway", "M 278 194 C 296 194, 294 148, 312 148"],
+            ["m4", "gateway", "M 278 398 C 304 398, 290 172, 312 172"],
+            ["m3", "vwin", "M 278 298 C 296 298, 294 316, 312 316"],
+            ["m4", "vwin", "M 278 412 C 298 412, 294 352, 312 352"],
+            ["vwin", "gateway", "M 432 276 C 432 246, 432 238, 432 214"],
+            ["gateway", "allchi", "M 552 152 C 570 152, 568 220, 586 220"],
+            ["vwin", "allchi", "M 552 334 C 572 334, 568 252, 586 252"],
+            ["allchi", "rh", "M 740 218 C 758 218, 756 126, 774 126"],
+            ["allchi", "grh", "M 740 236 C 758 236, 756 236, 774 236"],
+            ["allchi", "arith", "M 740 254 C 758 254, 756 346, 774 346"],
+          ],
+          flowCols: [
+            "I · Foundational Theories",
+            "II · Structural Bridges",
+            "III · Root Chokepoint",
+            "IV · Main.lean Theorems"
+          ],
+          flowBoxes: [
+            { id: "m1", x: 16, y: 38, w: 262, h: 92, color: "#0f766e", kicker: "M1 · Analytic & Additive", title: "Behrend, Bost–HN & Landau", line1: "Behrend thick sets (C = 32) · Frame slopes", line2: "Windowed Landau [Y, Y^(3/2)] · Chebyshev", sym: "hostThickExists · theoremFSharp" },
+            { id: "m2", x: 16, y: 146, w: 262, h: 92, color: "#1d4ed8", kicker: "M2 · Arakelov & Geometry", title: "Hironaka, Heights & Toroidal", line1: "Resolution (char 0) · Hilbert–Samuel · P–L", line2: "Integral Siegel toroidal · Good-tower covol", sym: "siegelToroidalIntegral · CovolumeBoundOfX" },
+            { id: "m3", x: 16, y: 254, w: 262, h: 92, color: "#6d28d9", kicker: "M3 · Galois & Cohomology", title: "Weight-1, Lefschetz & Theta Lift", line1: "Kodaira–Spencer · Holomorphic Lefschetz", line2: "Integral p-adic Galois reps · Étale descent", sym: "geoOne_holds · tLiftK · Row0b" },
+            { id: "m4", x: 16, y: 362, w: 262, h: 92, color: "#b45309", kicker: "M4 · Automorphic & Unitary", title: "Siegel–Weil, Rallis & GL5", line1: "Definite unitary base change · Genus mass", line2: "Capelli identities · Jacquet–Shalika · LinkN", sym: "rallis_of_dm · GalC.final_alt_alt" },
+            { id: "gateway", x: 312, y: 96, w: 240, h: 118, color: "#0f766e", kicker: "Bridge A · Analytic–Automorphic", title: "Definite-Side Gateway", line1: "Combines Green, VWin, covolume,", line2: "and theta-integral matching to rule", line3: "out zeros on Re(s) > 1/2.", sym: "every_character_of_green_v_win" },
+            { id: "vwin", x: 312, y: 276, w: 240, h: 128, color: "#6d28d9", kicker: "Bridge B · M5 Cyclotomic / Iwasawa", title: "Weak Vandiver Window (VWin)", line1: "Ferrero–Washington (μ = 0) · Matrix-det", line2: "Iwasawa descent · TWK patching · U(3)", line3: "& Sp4 automorphy · Kato Euler system", sym: "vwin_of_row · sp4In0_alt · zetaUr", sym2: "katoTwoW_of_printsH" },
+            { id: "allchi", x: 586, y: 176, w: 154, h: 120, kind: "chokepoint", color: "#0f766e", kicker: "99.997% of Cone", title: "allChi", line1: "L(s, χ) ≠ 0", line2: "for Re(s) > 1/2", sym: "804,887 decls", sym2: "10.74M cone lines" },
+            { id: "rh", x: 774, y: 84, w: 190, h: 84, kind: "headline", color: "#0f172a", kicker: "M0 · Functional Eq.", title: "RiemannHypothesis", line1: "Mathlib defeq · ζ(s) = 0 ⇒ Re = 1/2", sym: "Claim.zeta · 0 sorry" },
+            { id: "grh", x: 774, y: 194, w: 190, h: 84, kind: "headline", color: "#0f172a", kicker: "M0 · Dirichlet L-Functions", title: "Dirichlet GRH (All χ)", line1: "Primitive & imprimitive characters", sym: "Claim.strip · allChi" },
+            { id: "arith", x: 774, y: 304, w: 190, h: 84, kind: "headline", color: "#0f172a", kicker: "Zeta-Free Audit", title: "Robin & Lagarias", line1: "Elementary divisor-sum inequalities", sym: "Robin1984 · 3 std axioms" }
+          ],
+          stars: [
+            { id: "s_cheb", parent: "m1", label: "Chebyshev Character Sums", deg: -26, r: 186, ly: 114,
+              prose: "Pontryagin duality and Chebyshev-type window inequalities linking inert prime-power sums in CM host fields directly to the analytic test function G_x.",
+              sym: "proposition_size_bound · characterSumData" },
+            { id: "s_landau", parent: "m1", label: "Landau Window [Y, Y^(3/2)]", deg: -42, r: 186, ly: 146,
+              prose: "A multiplicative-window Landau criterion showing that controlling character sums on intervals [Y, Y^(3/2)] forbids zeros of L(s, χ) to the right of Re(s) = 1/2.",
+              sym: "zeroFreeAll_of_topG · level_of_tiedWin" },
+            { id: "s_bost", parent: "m1", label: "Bost–HN Frame Slopes", deg: -58, r: 186, ly: 184,
+              prose: "Applies Bost's Harder–Narasimhan slope inequalities to Hermitian frame ensembles over totally complex CM number fields to control lattice covolumes.",
+              sym: "Formalism.HN.theoremFSharp" },
+            { id: "s_behrend", parent: "m1", label: "Behrend Sphere (C = 32)", deg: -74, r: 186, ly: 228,
+              prose: "Constructs progression-free thick sets directly from Mathlib's Behrend.exists_large_sphere with explicit constant C = 32, feeding coset-biased Bernoulli host selection.",
+              sym: "Formalism.FrobeniusOrbits.hostThickExists" },
+            { id: "s_hironaka", parent: "m2", label: "Hironaka Resolution", deg: 26, r: 186, ly: 114,
+              prose: "Characteristic-zero embedded resolution of singularities via marked blow-ups and maximal contact, producing smooth normal-crossing models for height integrals.",
+              sym: "ResolutionOfSingularities (Layer01–17)" },
+            { id: "s_hs", parent: "m2", label: "Arithmetic Hilbert–Samuel", deg: 42, r: 186, ly: 146,
+              prose: "Moriwaki and arithmetic Hilbert–Samuel lower bounds on global sections of Hermitian line bundles over arithmetic varieties (Core 23: -96.1% compressible).",
+              sym: "Arakelov.NefRR · ArithmeticHilbertSamuel" },
+            { id: "s_pl", parent: "m2", label: "Poincaré–Lelong Heights", deg: 58, r: 186, ly: 184,
+              prose: "Connects Green currents and singular metrics to Arakelov cycle intersection heights via the Poincaré–Lelong equation (Core 24: -95.3% compressible).",
+              sym: "IntersectionExistsOfPoincareLelong" },
+            { id: "s_toroidal", parent: "m2", label: "Siegel Toroidal & Covolume", deg: 74, r: 186, ly: 228,
+              prose: "Integral toroidal compactifications of Siegel moduli schemes with Mumford charts and polarized fans, yielding the Hodge-bundle covolume bound CovolumeBoundOfX.",
+              sym: "siegelToroidalIntegral_holds · topCovolSlim2" },
+            { id: "s_w1", parent: "m3", label: "Weight-1 & Kodaira–Spencer", deg: 106, r: 186, ly: 334,
+              prose: "Realizes weight-1 automorphic forms geometrically via Kodaira–Spencer isomorphisms and Kottwitz–Shimura congruence data on unitary Shimura varieties.",
+              sym: "geometric_realization_of_weight_one" },
+            { id: "s_lefschetz", parent: "m3", label: "Holomorphic Lefschetz", deg: 122, r: 186, ly: 380,
+              prose: "Evaluates Frobenius-Hecke traces on coherent cohomology of toroidal compactifications to extract local Satake parameters.",
+              sym: "kodaira_spencer_of_weight_one · steps_holds" },
+            { id: "s_theta", parent: "m3", label: "Unitary Theta Lift (tLiftK)", deg: 138, r: 186, ly: 418,
+              prose: "Transfers automorphic representations across dual unitary pairs via global theta kernels and Petersson inner-product estimates.",
+              sym: "UpperTheory.TP.K.tLiftK" },
+            { id: "s_etale", parent: "m3", label: "Étale Descent & Row0b", deg: 154, r: 186, ly: 452,
+              prose: "Assembles integral p-adic Galois representations (Row0b) using étale integral surjective descent and p-adic Witt lattice towers.",
+              sym: "galoisLocalGlobalStrong_recParameter" },
+            { id: "s_js", parent: "m4", label: "Jacquet–Shalika · LinkN", deg: -106, r: 186, ly: 334,
+              prose: "Upgrades local norm bounds at {2, 3} across the full automorphic family LinkN using Jacquet–Shalika rigidity and Chebotarev density.",
+              sym: "UpperTheory.GalC.final_alt_alt" },
+            { id: "s_gl5", parent: "m4", label: "GL5 Genus Mass & Capelli", deg: -122, r: 186, ly: 380,
+              prose: "Combines Global Lemma 5 genus-mass volume bounds with Capelli differential identities and Poincaré L^1 decay (wuDecayOfGap).",
+              sym: "GenusMassVolumes · CapelliIdentities" },
+            { id: "s_sw", parent: "m4", label: "Global Siegel–Weil & Rallis", deg: -138, r: 186, ly: 418,
+              prose: "Relates theta-series integrals to special values of Siegel Eisenstein series and L-functions via convergent unitary Siegel–Weil and Rallis doubling.",
+              sym: "siegelWeilUnitaryConvergent · rallis_of_dm" },
+            { id: "s_bc", parent: "m4", label: "Definite Unitary Base Change", deg: -154, r: 186, ly: 452,
+              prose: "Moves polarized automorphic data onto definite unitary groups where discrete-spectrum multiplicities and open-orbit injections become tractable.",
+              sym: "open0_of_unitary_group_hypotheses" },
+          ],
+          bottomItems: [
+            { id: "dead_llc",     label: "localLanglands & Caraiani (PR #173)", x: 132, y: 526 },
+            { id: "dead_behrend", label: "BehrendSets (0/89)",                  x: 382, y: 526 },
+            { id: "dead_iwasawa", label: "IwasawaModules Z_p[[T]] (0/16)",      x: 602, y: 526 },
+            { id: "dead_weil",    label: "WeilStabilizerVolume (99.1% dead)",   x: 846, y: 526 },
+          ],
+          tour: [
+            { id: "m1",     label: "Step 1/6 · Analytic & Behrend" },
+            { id: "m2",     label: "Step 2/6 · Arakelov & Toroidal" },
+            { id: "m3",     label: "Step 3/6 · Weight-1 & Theta Lift" },
+            { id: "m4",     label: "Step 4/6 · Definite Automorphy" },
+            { id: "vwin",   label: "Step 5/6 · Weak Vandiver (VWin)" },
+            { id: "allchi", label: "Step 6/6 · allChi → RH & GRH" },
+          ],
+          nodes: {
+            m1: {
+              title: "M1 · Analytic Number Theory & Additive Combinatorics",
+              badge: "Verified · Active Cone",
+              prose: "Constructs Behrend-free thick sets directly from Mathlib's sphere packing lemma (C = 32), performs coset-biased Bernoulli selection over totally complex CM host fields, applies Bost Harder–Narasimhan frame-ensemble slope inequalities, and closes the analytic loop via a windowed Landau criterion on [Y, Y^(3/2)].",
+              theories: ["Behrend Sphere Thick Sets", "Bost Harder–Narasimhan Slopes", "Windowed Landau [Y, Y^(3/2)]", "Pontryagin / Chebyshev Character Sums", "CM Host Field Towers"],
+              symbols: ["Formalism.FrobeniusOrbits.hostThickExists", "Formalism.HN.theoremFSharp", "proposition_size_bound", "zeroFreeAll_of_topG", "supplyChi"],
+              meta: "Grounded in Mathlib Behrend.exists_large_sphere; standalone Formalism/BehrendSets/ (0/89) is dead code."
+            },
+            m2: {
+              title: "M2 · Arakelov Geometry, Resolution & Siegel Toroidal Compactification",
+              badge: "Verified · Active Cone",
+              prose: "Establishes Hironaka resolution of singularities in characteristic zero, arithmetic Hilbert–Samuel and Moriwaki height lower bounds, Poincaré–Lelong cycle height intersection, and integral toroidal compactifications of Siegel moduli schemes to produce the Hodge-bundle covolume bound CovolumeBoundOfX.",
+              theories: ["Hironaka Resolution (char 0)", "Arithmetic Hilbert–Samuel", "Moriwaki & Nadel Heights", "Poincaré–Lelong Currents", "Integral Siegel Toroidal Compactification", "p-Divisible Groups & Hodge–Tate"],
+              symbols: ["GlobalTheory.siegelToroidalIntegral_holds", "topCovolSlim2_use_alt_alt", "goodTower_and_volume", "CovolumeBoundOfX"],
+              meta: "Bohrium compression benchmarks show -95.3% on Poincaré–Lelong (Core 24) and -96.1% on Arithmetic Hilbert–Samuel (Core 23)."
+            },
+            m3: {
+              title: "M3 · Integral Galois Representations, Weight-1 Realization & Theta Lifts",
+              badge: "Verified · Active Cone",
+              prose: "Constructs integral l-adic Galois systems (Row0b) attached to polarized RACSDC automorphic forms using weight-1 geometric realization, Kodaira–Spencer / Kottwitz–Shimura data from the holomorphic Lefschetz trace formula, unitary theta lifting (tLiftK), and étale surjective descent.",
+              theories: ["Weight-1 Geometric Realization", "Kodaira–Spencer & Kottwitz–Shimura", "Holomorphic Lefschetz Trace", "Unitary Theta Lifting (tLiftK)", "Étale Integral Surjective Descent", "p-Adic Witt Lattices"],
+              symbols: ["geometric_realization_of_weight_one", "kodaira_spencer_of_weight_one", "steps_holds", "tLiftK", "galoisLocalGlobalStrong_recParameter"],
+              meta: "Upstream PR #173 confirmed localLanglands and CaraianiLocalGlobal lie outside the 5-theorem cone (-421,112 dead lines)."
+            },
+            m4: {
+              title: "M4 · Definite-Side Unitary Automorphy, Siegel–Weil & Rallis Doubling",
+              badge: "Verified · Active Cone",
+              prose: "Discharges definite-side unitary group hypotheses via base change, convergent global Siegel–Weil formulas, Rallis doubling, Global Lemma 5 genus-mass volumes, Capelli differential identities, Poincaré L^1 decay, and Chebotarev/Jacquet–Shalika norm upgrades from {2, 3} to the full family LinkN.",
+              theories: ["Definite Unitary Base Change", "Global Siegel–Weil Formula", "Rallis Doubling Method", "Global Lemma 5 Genus Mass", "Capelli Identities", "Jacquet–Shalika & Chebotarev Upgrade"],
+              symbols: ["UpperTheory.GalC.final_alt_alt", "siegelWeilUnitaryConvergent", "rallis_of_dm", "GenusMassVolumes", "wuDecayOfGap", "nonempty_hyps_definite_side_of_closed_bound"],
+              meta: "StabilizerVolume is 95.5% active in the cone while WeilStabilizerVolume is 99.1% dead (135 / 14,668 lines)."
+            },
+            gateway: {
+              title: "Bridge A · Definite-Side Analytic–Automorphic Gateway",
+              badge: "Verified · Active Cone",
+              prose: "Unifies the analytic frame/window bounds (M1), Arakelov covolume and toroidal inputs (M2), definite-side theta-integral matching (M4), and the weak Vandiver window VWin (M5) to lift zero-free strips across all primitive and imprimitive Dirichlet characters.",
+              theories: ["Analytic–Automorphic Synthesis", "Closed-Family Transport", "Imprimitive Character Lifting"],
+              symbols: ["UpperTheory.Top.every_character_of_green_v_win", "every_character_of_literature_of_vWin", "shape_closed_link_n_of_green"],
+              meta: "Direct predecessor of the root chokepoint allChi."
+            },
+            vwin: {
+              title: "Bridge B · M5 Weak Vandiver Window (VWin) & Automorphy Lifting",
+              badge: "Verified · Active Cone",
+              prose: "Proves the cyclotomic weak Vandiver window VWin from Row0b via Ferrero–Washington (μ = 0), finite-rank matrix-determinant Iwasawa descent (without formal power series Z_p[[T]]), Taylor–Wiles–Kisin patching, U(3) and Sp4 automorphy lifting, Poitou–Tate duality, and Kato's unramified Euler system.",
+              theories: ["Ferrero–Washington (μ = 0)", "Matrix-Det Iwasawa Descent", "Taylor–Wiles–Kisin Patching", "U(3) & Sp4 Automorphy Lifting", "Kato Unramified Euler System", "Bloch–Kato Selmer Vanishing"],
+              symbols: ["UpperTheory.One.vwin_of_row", "ferreroWashington", "sp4In0_alt", "unitary_three_automorphy_dense_of_prints", "zetaUr", "katoTwoW_of_printsH"],
+              meta: "IwasawaModules/ (Z_p[[T]]) is 0/16 dead; the live proof uses finite Z_l matrix determinants (UpperTheory.V.PropA)."
+            },
+            allchi: {
+              title: "Root Chokepoint · allChi (DirichletLNonvanishingRightOfHalf)",
+              badge: "Exact · 99.997% of Cone",
+              prose: "A single depth-1 theorem asserting that L(s, χ) ≠ 0 for every Dirichlet character χ and every s with Re(s) > 1/2 (away from s = 1 for trivial χ). Exactly 804,887 of the 804,912 active kernel declarations route through this node.",
+              theories: ["Zero-Free Half-Plane Re(s) > 1/2", "Unified RH / GRH Reduction"],
+              symbols: ["allChi", "UpperTheory.EveryCharacter", "LFunction_ne_zero_of_half_lt_re"],
+              meta: "Verified against MIT challenge.ndjson.zst with standard axioms {propext, Classical.choice, Quot.sound} only."
+            },
+            rh: {
+              title: "Headline Theorem · RiemannHypothesis (Mathlib Definitional Match)",
+              badge: "Exact · Kernel Verified",
+              prose: "Derived from allChi by pure Mathlib functional-equation reflection (Claim.zeta): any nontrivial zero of riemannZeta in the critical strip reflects across Re(s) = 1/2, forcing Re(s) = 1/2.",
+              theories: ["Functional Equation Reflection", "Mathlib RiemannHypothesis DefEq"],
+              symbols: ["RiemannHypothesis", "Claim.zeta", "riemannZeta_eq_zero_re"],
+              meta: "Accepted by leanchecker, lean4lean, nanoda, con-leche, con-ron, and DeepMind formal-conjectures Comparator."
+            },
+            grh: {
+              title: "Headline Theorems · Dirichlet GRH (Primitive & Imprimitive)",
+              badge: "Exact · Kernel Verified",
+              prose: "Derived from allChi via primitive reduction and Dirichlet L-function functional-equation reflection (Claim.strip), proving all critical-strip zeros of every Dirichlet L-function lie on Re(s) = 1/2.",
+              theories: ["Primitive Character Reduction", "Dirichlet Functional Equation"],
+              symbols: ["Claim.strip", "LFunction_eq_zero_re", "LFunction_eq_zero_re_of_isPrimitive"],
+              meta: "Verified directly against raw lean4export 3.1.0 NDJSON statement ASTs."
+            },
+            arith: {
+              title: "Zeta-Free Arithmetic Check · Robin & Lagarias Inequalities",
+              badge: "Exact · Zero Complex Analysis in Statement",
+              prose: "Combines the formal RH theorem with kimihiro64/Robin1984 to derive elementary inequalities for the sum-of-divisors function σ(n), confirming that the statement itself carries no analytic encoding ambiguity.",
+              theories: ["Robin Inequality (n > 5040)", "Lagarias Inequality (H_n + exp(H_n) log H_n)"],
+              symbols: ["robin_inequality", "lagarias_inequality"],
+              meta: "Elaborated against Mathlib alone: robinStmt names 21 constants directly; verified with {propext, Classical.choice, Quot.sound} only."
+            },
+            dead_llc: {
+              title: "Dead Subtree · localLanglands & CaraianiLocalGlobal",
+              badge: "Outside Kernel Cone · PR #173",
+              isDead: true,
+              prose: "Automated transitive dead-code pruning in upstream PR #173 (-421,112 lines across 14,114 files) demonstrated that neither localLanglands nor CaraianiLocalGlobal enters the dependency cone of the five headline RH/GRH theorems.",
+              theories: ["Transitive Dependency Pruning", "Unreachable Automorphic Lemmas"],
+              symbols: ["localLanglands (unused)", "CaraianiLocalGlobal (unused)"],
+              meta: "Reported on Lean Zulip (Nov 23) during cleanup analysis of leanprover-community/riemann-hypothesis."
+            },
+            dead_behrend: {
+              title: "Dead Subtree · Formalism/BehrendSets/ (0 / 89 active)",
+              badge: "Exact · Outside Kernel Cone",
+              isDead: true,
+              prose: "None of the 89 declarations in Formalism/BehrendSets/ enter the kernel proof terms. The live proof instead wraps Mathlib's Behrend.exists_large_sphere inside Formalism.FrobeniusOrbits.hostThickExists.",
+              theories: ["Static vs. Kernel-Cone Discrepancy"],
+              symbols: ["src/Formalism/BehrendSets/* (0/89 active)"],
+              meta: "Confirmed directly from v0.2.1 decls.csv.gz and cone-constants.txt.gz."
+            },
+            dead_iwasawa: {
+              title: "Dead Subtree · IwasawaModules/ Z_p[[T]] (0 / 16 active)",
+              badge: "Exact · Outside Kernel Cone",
+              isDead: true,
+              prose: "Formal power-series ring theory over Z_p[[T]] is completely unused in the kernel cone. The active proof uses Ferrero–Washington's finite Z_l-rank bound together with R x R matrix determinants in UpperTheory.V.PropA.",
+              theories: ["Unused Formal Power-Series Infrastructure"],
+              symbols: ["IwasawaModules/* (0/16 active)"],
+              meta: "Confirmed directly from v0.2.1 kernel export."
+            },
+            dead_weil: {
+              title: "Dead Subtree · WeilStabilizerVolume (99.1% dead)",
+              badge: "Exact · Clone Asymmetry",
+              isDead: true,
+              prose: "Among three near-duplicate directories under UnitaryGroupMassFormula, StabilizerVolume is 95.5% active and StabilizerOrbitVolume is 34.7% active, whereas WeilStabilizerVolume is 99.1% dead (only 135 of 14,668 lines used).",
+              theories: ["Near-Duplicate Directory Asymmetry"],
+              symbols: ["WeilStabilizerVolume/* (135 / 14,668 lines active)"],
+              meta: "Confirmed directly from v0.2.1 kernel export."
+            }
+          }
         }
       };
 
-      const ADJ_OUT = {};
-      const ADJ_IN = {};
-      const edgeEls = Array.from(svg.querySelectorAll(".tm-edge"));
-      const nodeEls = Array.from(svg.querySelectorAll(".tm-node"));
-      const deadBtns = Array.from(document.querySelectorAll(".tm-dead-btn"));
+      function escSvg(str) {
+        return String(str == null ? "" : str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
 
-      for (const e of edgeEls) {
-        const u = e.dataset.from, v = e.dataset.to;
-        (ADJ_OUT[u] = ADJ_OUT[u] || []).push(v);
-        (ADJ_IN[v] = ADJ_IN[v] || []).push(u);
+      let curEdition = "grh";
+      let ED = THEORY_EDITIONS.grh;
+      let STAR_MAP = {};
+      let ADJ_OUT = {};
+      let ADJ_IN = {};
+      let edgeEls = [];
+      let nodeEls = [];
+      let deadBtns = [];
+      let zoomLevel = 1;
+      let tourIdx = -1;
+      let tourTimer = null;
+      const stepLabel = document.getElementById("tmStepLabel");
+      const playBtn = document.getElementById("tmPlayBtn");
+
+      function stopTour() {
+        if (tourTimer) { clearInterval(tourTimer); tourTimer = null; }
+        if (playBtn) { playBtn.textContent = "▶ Play"; playBtn.classList.remove("is-playing"); }
+      }
+
+      function applyZoom() {
+        if (!constSvg) return;
+        const w = 980 / zoomLevel;
+        const h = 560 / zoomLevel;
+        const x = CX - w / 2;
+        const y = CY - h / 2;
+        constSvg.setAttribute("viewBox", `${x.toFixed(1)} ${y.toFixed(1)} ${w.toFixed(1)} ${h.toFixed(1)}`);
       }
 
       function reachable(start, adj) {
@@ -4810,9 +5158,9 @@
       }
 
       function renderDetail(id) {
-        const d = NODES[id];
+        const d = ED.nodes[id];
         if (!d) return;
-        detail.style.borderLeftColor = d.isDead ? "#991b1b" : "var(--accent)";
+        detail.style.borderLeftColor = d.isDead ? "#991b1b" : (ED.color[id] || "var(--accent)");
         detail.innerHTML =
           `<div class="tm-detail-head">` +
             `<div class="tm-detail-title">${d.title}</div>` +
@@ -4826,9 +5174,38 @@
           `<div class="tm-detail-meta">${d.meta}</div>`;
       }
 
+      function highlightConstellation(id, anc, des) {
+        if (!constSvg) return;
+        const nodes = constSvg.querySelectorAll(".tm-star-node");
+        const fils = constSvg.querySelectorAll(".tm-filament");
+        for (const p of constSvg.querySelectorAll(".tm-zero-pearl")) p.classList.remove("is-selected");
+        if (!anc || !des) {
+          for (const n of nodes) {
+            n.classList.toggle("is-dim", n.dataset.id !== id);
+            n.classList.toggle("is-selected", n.dataset.id === id);
+          }
+          for (const f of fils) { f.classList.remove("is-lit", "is-ray"); f.classList.add("is-dim"); }
+          return;
+        }
+        const active = new Set([...anc, ...des]);
+        for (const n of nodes) {
+          const nid = n.dataset.id;
+          n.classList.toggle("is-dim", !active.has(nid));
+          n.classList.toggle("is-selected", nid === id && !n.dataset.star);
+        }
+        for (const f of fils) {
+          const u = f.dataset.from, v = f.dataset.to;
+          const lit = (u === v && active.has(u)) || (anc.has(u) && anc.has(v)) || (des.has(u) && des.has(v));
+          f.classList.toggle("is-lit", lit);
+          f.classList.toggle("is-ray", lit && id !== ED.rootId);
+          f.classList.toggle("is-dim", !lit);
+        }
+      }
+
       function selectNode(id) {
         for (const b of deadBtns) b.classList.toggle("is-selected", b.dataset.dead === id);
-        if (NODES[id] && NODES[id].isDead) {
+        const info = ED.nodes[id];
+        if (info && (info.isDead || info.isCleanBottom)) {
           for (const n of nodeEls) { n.classList.remove("is-selected"); n.classList.add("is-dim"); }
           for (const e of edgeEls) { e.classList.remove("is-lit"); e.classList.add("is-dim"); e.setAttribute("marker-end", "url(#tmArrow)"); }
           highlightConstellation(id, null, null);
@@ -4853,132 +5230,6 @@
         renderDetail(id);
       }
 
-      // Editorial Celestial Constellation Plate (#tmConstSvg)
-      const constSvg = document.getElementById("tmConstSvg");
-      const constWrap = document.getElementById("tmConstWrap");
-      const plateWrap = document.getElementById("tmPlateWrap");
-      const viewSwitch = document.getElementById("tmViewSwitch");
-
-      const CX = 490, CY = 282;
-      const COLOR = {
-        m1: "#0f766e",
-        m2: "#1d4ed8",
-        m3: "#6d28d9",
-        m4: "#b45309",
-        gateway: "#0f766e",
-        vwin: "#6d28d9",
-        allchi: "#0f766e",
-        rh: "#b08948",
-        grh: "#0f172a",
-        arith: "#475569",
-        dead: "#991b1b"
-      };
-
-      function polar(deg, r) {
-        const rad = (deg - 90) * Math.PI / 180;
-        return [CX + r * Math.cos(rad), CY + r * Math.sin(rad)];
-      }
-
-      const STARS = [
-        // M1 Analytic (upper-left quadrant, r=186 -> left margin column x=242)
-        { id: "s_cheb", parent: "m1", label: "Chebyshev Character Sums", deg: -26, r: 186, ly: 114,
-          prose: "Pontryagin duality and Chebyshev-type window inequalities linking inert prime-power sums in CM host fields directly to the analytic test function G_x.",
-          sym: "proposition_size_bound · characterSumData" },
-        { id: "s_landau", parent: "m1", label: "Landau Window [Y, Y^(3/2)]", deg: -42, r: 186, ly: 146,
-          prose: "A multiplicative-window Landau criterion showing that controlling character sums on intervals [Y, Y^(3/2)] forbids zeros of L(s, χ) to the right of Re(s) = 1/2.",
-          sym: "zeroFreeAll_of_topG · level_of_tiedWin" },
-        { id: "s_bost", parent: "m1", label: "Bost–HN Frame Slopes", deg: -58, r: 186, ly: 184,
-          prose: "Applies Bost's Harder–Narasimhan slope inequalities to Hermitian frame ensembles over totally complex CM number fields to control lattice covolumes.",
-          sym: "Formalism.HN.theoremFSharp" },
-        { id: "s_behrend", parent: "m1", label: "Behrend Sphere (C = 32)", deg: -74, r: 186, ly: 228,
-          prose: "Constructs progression-free thick sets directly from Mathlib's Behrend.exists_large_sphere with explicit constant C = 32, feeding coset-biased Bernoulli host selection.",
-          sym: "Formalism.FrobeniusOrbits.hostThickExists" },
-        // M2 Geometry (upper-right quadrant, r=186 -> right margin column x=738)
-        { id: "s_hironaka", parent: "m2", label: "Hironaka Resolution", deg: 26, r: 186, ly: 114,
-          prose: "Characteristic-zero embedded resolution of singularities via marked blow-ups and maximal contact, producing smooth normal-crossing models for height integrals.",
-          sym: "ResolutionOfSingularities (Layer01–17)" },
-        { id: "s_hs", parent: "m2", label: "Arithmetic Hilbert–Samuel", deg: 42, r: 186, ly: 146,
-          prose: "Moriwaki and arithmetic Hilbert–Samuel lower bounds on global sections of Hermitian line bundles over arithmetic varieties (Core 23: -96.1% compressible).",
-          sym: "Arakelov.NefRR · ArithmeticHilbertSamuel" },
-        { id: "s_pl", parent: "m2", label: "Poincaré–Lelong Heights", deg: 58, r: 186, ly: 184,
-          prose: "Connects Green currents and singular metrics to Arakelov cycle intersection heights via the Poincaré–Lelong equation (Core 24: -95.3% compressible).",
-          sym: "IntersectionExistsOfPoincareLelong" },
-        { id: "s_toroidal", parent: "m2", label: "Siegel Toroidal & Covolume", deg: 74, r: 186, ly: 228,
-          prose: "Integral toroidal compactifications of Siegel moduli schemes with Mumford charts and polarized fans, yielding the Hodge-bundle covolume bound CovolumeBoundOfX.",
-          sym: "siegelToroidalIntegral_holds · topCovolSlim2" },
-        // M3 Galois (lower-right quadrant, r=186 -> right margin column x=738)
-        { id: "s_w1", parent: "m3", label: "Weight-1 & Kodaira–Spencer", deg: 106, r: 186, ly: 334,
-          prose: "Realizes weight-1 automorphic forms geometrically via Kodaira–Spencer isomorphisms and Kottwitz–Shimura congruence data on unitary Shimura varieties.",
-          sym: "geometric_realization_of_weight_one" },
-        { id: "s_lefschetz", parent: "m3", label: "Holomorphic Lefschetz", deg: 122, r: 186, ly: 380,
-          prose: "Evaluates Frobenius-Hecke traces on coherent cohomology of toroidal compactifications to extract local Satake parameters.",
-          sym: "kodaira_spencer_of_weight_one · steps_holds" },
-        { id: "s_theta", parent: "m3", label: "Unitary Theta Lift (tLiftK)", deg: 138, r: 186, ly: 418,
-          prose: "Transfers automorphic representations across dual unitary pairs via global theta kernels and Petersson inner-product estimates.",
-          sym: "UpperTheory.TP.K.tLiftK" },
-        { id: "s_etale", parent: "m3", label: "Étale Descent & Row0b", deg: 154, r: 186, ly: 452,
-          prose: "Assembles integral p-adic Galois representations (Row0b) using étale integral surjective descent and p-adic Witt lattice towers.",
-          sym: "galoisLocalGlobalStrong_recParameter" },
-        // M4 Automorphic (lower-left quadrant, r=186 -> left margin column x=242)
-        { id: "s_js", parent: "m4", label: "Jacquet–Shalika · LinkN", deg: -106, r: 186, ly: 334,
-          prose: "Upgrades local norm bounds at {2, 3} across the full automorphic family LinkN using Jacquet–Shalika rigidity and Chebotarev density.",
-          sym: "UpperTheory.GalC.final_alt_alt" },
-        { id: "s_gl5", parent: "m4", label: "GL5 Genus Mass & Capelli", deg: -122, r: 186, ly: 380,
-          prose: "Combines Global Lemma 5 genus-mass volume bounds with Capelli differential identities and Poincaré L^1 decay (wuDecayOfGap).",
-          sym: "GenusMassVolumes · CapelliIdentities" },
-        { id: "s_sw", parent: "m4", label: "Global Siegel–Weil & Rallis", deg: -138, r: 186, ly: 418,
-          prose: "Relates theta-series integrals to special values of Siegel Eisenstein series and L-functions via convergent unitary Siegel–Weil and Rallis doubling.",
-          sym: "siegelWeilUnitaryConvergent · rallis_of_dm" },
-        { id: "s_bc", parent: "m4", label: "Definite Unitary Base Change", deg: -154, r: 186, ly: 452,
-          prose: "Moves polarized automorphic data onto definite unitary groups where discrete-spectrum multiplicities and open-orbit injections become tractable.",
-          sym: "open0_of_unitary_group_hypotheses" },
-      ];
-
-      const ZETA_ZEROS = [
-        { n: 1,  gamma: "14.134725", dy: -116 },
-        { n: 2,  gamma: "21.022040", dy: -92 },
-        { n: 3,  gamma: "25.010858", dy: -68 },
-        { n: 4,  gamma: "30.424876", dy: -46 },
-        { n: 5,  gamma: "32.935062", dy: 48 },
-        { n: 6,  gamma: "37.586178", dy: 70 },
-        { n: 7,  gamma: "40.918719", dy: 94 },
-        { n: 8,  gamma: "43.327073", dy: 118 },
-        { n: 9,  gamma: "48.005151", dy: 144 },
-        { n: 10, gamma: "49.773832", dy: 170 },
-      ];
-
-      const STAR_MAP = Object.fromEntries(STARS.map((s) => [s.id, s]));
-
-      const MAJOR = {
-        allchi:  { x: CX, y: CY, r: 28, title: "allChi", sub: "99.997% of cone" },
-        rh:      { x: CX, y: 98, r: 20, title: "RiemannHypothesis", sub: "Re(s) = 1/2" },
-        grh:     { x: CX - 98, y: 138, r: 11, title: "Dirichlet GRH", sub: "All χ" },
-        arith:   { x: CX + 98, y: 138, r: 11, title: "Robin & Lagarias", sub: "Zeta-free" },
-        gateway: { x: CX - 94, y: CY + 12, r: 15, title: "Definite-Side Gateway", sub: "Bridge A" },
-        vwin:    { x: CX + 94, y: CY + 12, r: 15, title: "Weak Vandiver (VWin)", sub: "Ferrero–W · TWK · Kato" },
-        m1:      { x: polar(-68, 138)[0], y: polar(-68, 138)[1], r: 9.5, title: "M1 Analytic", sub: "" },
-        m2:      { x: polar(68, 138)[0],  y: polar(68, 138)[1],  r: 9.5, title: "M2 Arakelov", sub: "" },
-        m3:      { x: polar(128, 138)[0], y: polar(128, 138)[1], r: 9.5, title: "M3 Galois", sub: "" },
-        m4:      { x: polar(-128, 138)[0],y: polar(-128, 138)[1],r: 9.5, title: "M4 Automorphic", sub: "" },
-      };
-
-      const DEAD_COMETS = [
-        { id: "dead_llc",     label: "localLanglands & Caraiani (PR #173)", x: 132, y: 526 },
-        { id: "dead_behrend", label: "BehrendSets (0/89)",                  x: 382, y: 526 },
-        { id: "dead_iwasawa", label: "IwasawaModules Z_p[[T]] (0/16)",      x: 602, y: 526 },
-        { id: "dead_weil",    label: "WeilStabilizerVolume (99.1% dead)",   x: 846, y: 526 },
-      ];
-
-      let zoomLevel = 1;
-      function applyZoom() {
-        if (!constSvg) return;
-        const w = 980 / zoomLevel;
-        const h = 560 / zoomLevel;
-        const x = CX - w / 2;
-        const y = CY - h / 2;
-        constSvg.setAttribute("viewBox", `${x.toFixed(1)} ${y.toFixed(1)} ${w.toFixed(1)} ${h.toFixed(1)}`);
-      }
-
       function selectStar(starId) {
         const s = STAR_MAP[starId];
         if (!s) return;
@@ -4998,8 +5249,8 @@
             }
           }
         }
-        const parentInfo = NODES[s.parent];
-        detail.style.borderLeftColor = COLOR[s.parent] || "var(--accent)";
+        const parentInfo = ED.nodes[s.parent];
+        detail.style.borderLeftColor = ED.color[s.parent] || "var(--accent)";
         detail.innerHTML =
           `<div class="tm-detail-head">` +
             `<div class="tm-detail-title">${s.label}</div>` +
@@ -5007,7 +5258,7 @@
           `</div>` +
           `<p class="tm-detail-prose">${s.prose}</p>` +
           `<div class="tm-detail-grid">` +
-            `<div><div class="tm-detail-k">Reduction Path</div><div class="tm-chips"><span class="tm-chip">${s.label}</span><span class="tm-chip">→ ${s.parent.toUpperCase()}</span><span class="tm-chip">→ allChi</span><span class="tm-chip">→ RiemannHypothesis</span></div></div>` +
+            `<div><div class="tm-detail-k">Reduction Path</div><div class="tm-chips"><span class="tm-chip">${s.label}</span><span class="tm-chip">→ ${ED.major[s.parent] ? ED.major[s.parent].title : s.parent}</span><span class="tm-chip">→ ${ED.rootLabel}</span><span class="tm-chip">→ RiemannHypothesis</span></div></div>` +
             `<div><div class="tm-detail-k">Verified Lean Anchor</div><div class="tm-chips"><span class="tm-chip is-mono">${s.sym}</span></div></div>` +
           `</div>` +
           `<div class="tm-detail-meta">Click any other star, hub, or press Next in the Guided Proof Tour to trace the full reduction.</div>`;
@@ -5028,12 +5279,74 @@
             `<div class="tm-detail-title">Nontrivial Zeta Zero ρ_${z.n} = 1/2 + ${z.gamma} i</div>` +
             `<span class="tm-detail-badge">Critical Line Re(s) = 1/2</span>` +
           `</div>` +
-          `<p class="tm-detail-prose">Every nontrivial zero of the Riemann zeta function lies on the golden critical line Re(s) = 1/2. In the formal proof, allChi rules out zeros in the open half-plane Re(s) > 1/2, and the functional equation reflection (Claim.zeta) rules out zeros in 0 &lt; Re(s) &lt; 1/2.</p>` +
+          `<p class="tm-detail-prose">${ED.zeroProse}</p>` +
           `<div class="tm-detail-grid">` +
             `<div><div class="tm-detail-k">Zero Coordinate</div><div class="tm-chips"><span class="tm-chip is-mono">Re(ρ_${z.n}) = 1/2</span><span class="tm-chip is-mono">Im(ρ_${z.n}) ≈ ${z.gamma}</span></div></div>` +
-            `<div><div class="tm-detail-k">Formal Proof Chain</div><div class="tm-chips"><span class="tm-chip is-mono">allChi → Claim.zeta → RiemannHypothesis</span></div></div>` +
+            `<div><div class="tm-detail-k">Formal Proof Chain</div><div class="tm-chips"><span class="tm-chip is-mono">${ED.zeroChain}</span></div></div>` +
           `</div>` +
           `<div class="tm-detail-meta">Zero #${z.n} of the first 10 nontrivial zeros plotted along the critical line axis.</div>`;
+      }
+
+      function buildFlowDiagram() {
+        const parts = [];
+        parts.push(`<defs>
+          <marker id="tmArrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+            <path d="M 1 1.5 L 8.5 5 L 1 8.5 z" fill="#94a3b8"></path>
+          </marker>
+          <marker id="tmArrowLit" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+            <path d="M 1 1.5 L 8.5 5 L 1 8.5 z" fill="#0f766e"></path>
+          </marker>
+        </defs>`);
+        const colX = [16, 312, 586, 774];
+        ED.flowCols.forEach((lbl, i) => {
+          parts.push(`<text x="${colX[i]}" y="20" class="tm-col-label">${escSvg(lbl)}</text>`);
+        });
+        parts.push(`<line x1="296" y1="30" x2="296" y2="454" stroke="#e2e8f0" stroke-dasharray="3 4"></line>`);
+        parts.push(`<line x1="570" y1="30" x2="570" y2="454" stroke="#e2e8f0" stroke-dasharray="3 4"></line>`);
+        parts.push(`<line x1="758" y1="30" x2="758" y2="454" stroke="#e2e8f0" stroke-dasharray="3 4"></line>`);
+
+        parts.push(`<g id="tmEdges">${ED.edges.map(([u, v, d]) =>
+          `<path class="tm-edge" data-from="${u}" data-to="${v}" d="${d}" marker-end="url(#tmArrow)"></path>`
+        ).join("")}</g>`);
+
+        for (const b of ED.flowBoxes) {
+          const cls = b.kind === "chokepoint" ? "tm-node is-chokepoint" : (b.kind === "headline" ? "tm-node is-headline" : "tm-node");
+          const tx = b.x + 14;
+          const accentBar = (!b.kind) ? `<rect x="${b.x}" y="${b.y}" width="4" height="${b.h}" rx="2" fill="${b.color}"></rect>` : "";
+          const kY = b.kind === "chokepoint" ? b.y + 22 : (b.h >= 118 ? b.y + 19 : b.y + 18);
+          const tY = b.kind === "chokepoint" ? b.y + 42 : (b.h >= 118 ? b.y + 38 : b.y + 36);
+          const l1Y = b.kind === "chokepoint" ? b.y + 60 : (b.h >= 118 ? b.y + 57 : b.y + 54);
+          const l2Y = l1Y + 15;
+          const l3Y = l2Y + 15;
+          let body = `<text x="${tx}" y="${kY}" class="tm-node-kicker" fill="${b.color}">${escSvg(b.kicker)}</text>` +
+            `<text x="${tx}" y="${tY}" class="tm-node-title">${escSvg(b.title)}</text>` +
+            `<text x="${tx}" y="${l1Y}" class="tm-node-line">${escSvg(b.line1)}</text>`;
+          if (b.line2) body += `<text x="${tx}" y="${l2Y}" class="tm-node-line">${escSvg(b.line2)}</text>`;
+          if (b.line3) body += `<text x="${tx}" y="${l3Y}" class="tm-node-line">${escSvg(b.line3)}</text>`;
+          const symY = b.sym2 ? (b.y + b.h - 23) : (b.y + b.h - 10);
+          if (b.sym) body += `<text x="${tx}" y="${symY}" class="tm-node-sym">${escSvg(b.sym)}</text>`;
+          if (b.sym2) body += `<text x="${tx}" y="${symY + 14}" class="tm-node-sym">${escSvg(b.sym2)}</text>`;
+          parts.push(`<g class="${cls}" data-id="${b.id}" tabindex="0" role="button" aria-label="${escSvg(b.title)}">` +
+            `<rect class="tm-box" x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}"></rect>` +
+            accentBar + body + `</g>`);
+        }
+
+        svg.innerHTML = parts.join("");
+        ADJ_OUT = {};
+        ADJ_IN = {};
+        edgeEls = Array.from(svg.querySelectorAll(".tm-edge"));
+        nodeEls = Array.from(svg.querySelectorAll(".tm-node"));
+        for (const e of edgeEls) {
+          const u = e.dataset.from, v = e.dataset.to;
+          (ADJ_OUT[u] = ADJ_OUT[u] || []).push(v);
+          (ADJ_IN[v] = ADJ_IN[v] || []).push(u);
+        }
+        for (const n of nodeEls) {
+          n.addEventListener("click", () => { stopTour(); selectNode(n.dataset.id); });
+          n.addEventListener("keydown", (ev) => {
+            if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); stopTour(); selectNode(n.dataset.id); }
+          });
+        }
       }
 
       function buildConstellation() {
@@ -5064,78 +5377,74 @@
           parts.push(`<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#d6cdbc" stroke-width="0.9"></line>`);
         }
 
-        // Clean margin headers for the 4 quadrants (zero overlap with stars or arcs)
-        parts.push(`<text class="tm-arc-label" x="242" y="84" text-anchor="end" fill="#0f766e">I · Analytic &amp; Additive</text>`);
-        parts.push(`<text class="tm-arc-label" x="738" y="84" text-anchor="start" fill="#1d4ed8">II · Arakelov &amp; Geometry</text>`);
-        parts.push(`<text class="tm-arc-label" x="738" y="304" text-anchor="start" fill="#6d28d9">III · Galois &amp; Theta Lifts</text>`);
-        parts.push(`<text class="tm-arc-label" x="242" y="304" text-anchor="end" fill="#b45309">IV · Definite Automorphy</text>`);
-
-        const fil = [];
-        for (const s of STARS) {
-          const [sx, sy] = polar(s.deg, s.r);
-          const hub = MAJOR[s.parent];
-          const mx = (sx + hub.x) / 2 + (CX - sx) * 0.08;
-          const my = (sy + hub.y) / 2 + (CY - sy) * 0.08;
-          fil.push(`<path class="tm-filament" data-star="${s.id}" data-from="${s.parent}" data-to="${s.parent}" d="M ${sx.toFixed(1)} ${sy.toFixed(1)} Q ${mx.toFixed(1)} ${my.toFixed(1)} ${hub.x.toFixed(1)} ${hub.y.toFixed(1)}" stroke="${COLOR[s.parent]}" stroke-width="1.15" opacity="0.45"></path>`);
+        for (const q of ED.quadrants) {
+          parts.push(`<text class="tm-arc-label" x="${q.x}" y="${q.y}" text-anchor="${q.anchor}" fill="${q.color}">${escSvg(q.text)}</text>`);
         }
 
-        const macroEdges = [
-          ["m1", "gateway"], ["m2", "gateway"], ["m4", "gateway"],
-          ["m3", "vwin"], ["m4", "vwin"], ["vwin", "gateway"],
-          ["gateway", "allchi"], ["vwin", "allchi"],
-          ["allchi", "rh"], ["allchi", "grh"], ["allchi", "arith"]
-        ];
-        for (const [u, v] of macroEdges) {
-          const A = MAJOR[u], B = MAJOR[v];
+        const fil = [];
+        for (const s of ED.stars) {
+          const [sx, sy] = polar(s.deg, s.r);
+          const hub = ED.major[s.parent];
+          const mx = (sx + hub.x) / 2 + (CX - sx) * 0.08;
+          const my = (sy + hub.y) / 2 + (CY - sy) * 0.08;
+          fil.push(`<path class="tm-filament" data-star="${s.id}" data-from="${s.parent}" data-to="${s.parent}" d="M ${sx.toFixed(1)} ${sy.toFixed(1)} Q ${mx.toFixed(1)} ${my.toFixed(1)} ${hub.x.toFixed(1)} ${hub.y.toFixed(1)}" stroke="${ED.color[s.parent]}" stroke-width="1.15" opacity="0.45"></path>`);
+        }
+
+        for (const [u, v] of ED.edges) {
+          const A = ED.major[u], B = ED.major[v];
+          if (!A || !B) continue;
           const mx = (A.x + B.x) / 2 + (CX - (A.x + B.x) / 2) * 0.22;
           const my = (A.y + B.y) / 2 + (CY - (A.y + B.y) / 2) * 0.22;
-          const col = u === "allchi" ? "#b08948" : (COLOR[u] || "#0f766e");
+          const col = u === ED.rootId ? "#b08948" : (ED.color[u] || "#0f766e");
           fil.push(`<path class="tm-filament" data-from="${u}" data-to="${v}" d="M ${A.x.toFixed(1)} ${A.y.toFixed(1)} Q ${mx.toFixed(1)} ${my.toFixed(1)} ${B.x.toFixed(1)} ${B.y.toFixed(1)}" stroke="${col}" stroke-width="1.5" opacity="0.55"></path>`);
         }
         parts.push(`<g id="tmConstFilaments">${fil.join("")}</g>`);
 
         const starHtml = [];
-        for (const s of STARS) {
+        for (const s of ED.stars) {
           const [sx, sy] = polar(s.deg, s.r);
-          const col = COLOR[s.parent];
+          const col = ED.color[s.parent];
           const rightSide = sx >= CX;
           const lx = rightSide ? 738 : 242;
           const ex = rightSide ? 730 : 250;
           const ly = typeof s.ly === "number" ? s.ly : sy;
           const anchor = rightSide ? "start" : "end";
-          starHtml.push(`<g class="tm-star-node" data-id="${s.parent}" data-star="${s.id}" tabindex="0" role="button" aria-label="${s.label}">` +
+          starHtml.push(`<g class="tm-star-node" data-id="${s.parent}" data-star="${s.id}" tabindex="0" role="button" aria-label="${escSvg(s.label)}">` +
             `<path d="M ${sx.toFixed(1)} ${sy.toFixed(1)} L ${ex} ${ly.toFixed(1)}" fill="none" stroke="${col}" stroke-width="0.9" stroke-dasharray="2 2.5" opacity="0.55"></path>` +
             `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="4.5" fill="#ffffff" stroke="${col}" stroke-width="1.8"></circle>` +
             `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="1.7" fill="${col}"></circle>` +
-            `<text x="${lx}" y="${(ly + 3.5).toFixed(1)}" text-anchor="${anchor}">${s.label}</text>` +
+            `<text x="${lx}" y="${(ly + 3.5).toFixed(1)}" text-anchor="${anchor}">${escSvg(s.label)}</text>` +
           `</g>`);
         }
 
-        for (const [id, m] of Object.entries(MAJOR)) {
-          const col = COLOR[id];
-          const isSun = id === "allchi";
+        for (const [id, m] of Object.entries(ED.major)) {
+          const col = ED.color[id];
+          const isSun = id === ED.rootId;
           const isCrown = id === "rh";
           const labelY = isCrown ? m.y - 34 : (isSun ? m.y + 4 : m.y + m.r + 14);
           const subY = isCrown ? m.y - 21 : (isSun ? m.y + 16 : m.y + m.r + 25);
-          starHtml.push(`<g class="tm-star-node is-major" data-id="${id}" tabindex="0" role="button" aria-label="${m.title}">` +
+          starHtml.push(`<g class="tm-star-node is-major" data-id="${id}" tabindex="0" role="button" aria-label="${escSvg(m.title)}">` +
             (isSun || isCrown ? `<circle cx="${m.x.toFixed(1)}" cy="${m.y.toFixed(1)}" r="${m.r + 5.5}" fill="none" stroke="${col}" stroke-width="0.9" stroke-dasharray="2 3" opacity="0.7"></circle>` : "") +
             `<circle cx="${m.x.toFixed(1)}" cy="${m.y.toFixed(1)}" r="${m.r}" fill="${isSun ? "#0f766e" : "#ffffff"}" stroke="${col}" stroke-width="${isSun || isCrown ? 2.2 : 1.7}"></circle>` +
             (isSun
-              ? `<text x="${m.x.toFixed(1)}" y="${(m.y - 1).toFixed(1)}" text-anchor="middle" font-family="Georgia, serif" font-size="13.5" font-weight="700" fill="#ffffff">allChi</text>` +
-                `<text x="${m.x.toFixed(1)}" y="${(m.y + 13).toFixed(1)}" text-anchor="middle" font-size="8.6" fill="#ccfbf1">804,887 decls</text>`
+              ? `<text x="${m.x.toFixed(1)}" y="${(m.y - 1).toFixed(1)}" text-anchor="middle" font-family="Georgia, serif" font-size="13.5" font-weight="700" fill="#ffffff">${escSvg(ED.sunTitle)}</text>` +
+                `<text x="${m.x.toFixed(1)}" y="${(m.y + 13).toFixed(1)}" text-anchor="middle" font-size="8.6" fill="#ccfbf1">${escSvg(ED.sunSub)}</text>`
               : `<circle cx="${m.x.toFixed(1)}" cy="${m.y.toFixed(1)}" r="${Math.max(3, m.r * 0.28).toFixed(1)}" fill="${col}"></circle>` +
-                `<text class="tm-star-title" x="${m.x.toFixed(1)}" y="${labelY.toFixed(1)}" text-anchor="middle">${m.title}</text>` +
-                (m.sub ? `<text x="${m.x.toFixed(1)}" y="${subY.toFixed(1)}" text-anchor="middle" font-size="9.3" fill="#64748b">${m.sub}</text>` : "")
+                `<text class="tm-star-title" x="${m.x.toFixed(1)}" y="${labelY.toFixed(1)}" text-anchor="middle">${escSvg(m.title)}</text>` +
+                (m.sub ? `<text x="${m.x.toFixed(1)}" y="${subY.toFixed(1)}" text-anchor="middle" font-size="9.3" fill="#64748b">${escSvg(m.sub)}</text>` : "")
             ) +
           `</g>`);
         }
 
-        parts.push(`<path d="M 88 492 Q 490 508 892 492" fill="none" stroke="#e5b8b8" stroke-width="1" stroke-dasharray="3 4"></path>`);
-        parts.push(`<text x="${CX}" y="509" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing="0.08em" fill="#991b1b">OUTSIDE KERNEL CONE · DEAD SUBTREES</text>`);
-        for (const c of DEAD_COMETS) {
-          starHtml.push(`<g class="tm-star-node" data-id="${c.id}" tabindex="0" role="button" aria-label="${c.label}">` +
-            `<circle cx="${c.x}" cy="${c.y}" r="3.6" fill="#fef2f2" stroke="#991b1b" stroke-width="1.3" stroke-dasharray="2 1.5"></circle>` +
-            `<text x="${c.x}" y="${c.y + 15}" text-anchor="middle" font-size="9.6" fill="#991b1b">${c.label}</text>` +
+        const bStroke = ED.bottomIsClean ? "#99f6e4" : "#e5b8b8";
+        const bText = ED.bottomIsClean ? "#0f766e" : "#991b1b";
+        const bFill = ED.bottomIsClean ? "#f0fdfa" : "#fef2f2";
+        parts.push(`<path d="M 88 492 Q 490 508 892 492" fill="none" stroke="${bStroke}" stroke-width="1" stroke-dasharray="3 4"></path>`);
+        parts.push(`<text x="${CX}" y="509" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing="0.08em" fill="${bText}">${escSvg(ED.bottomConstLabel)}</text>`);
+        for (const c of ED.bottomItems) {
+          starHtml.push(`<g class="tm-star-node" data-id="${c.id}" tabindex="0" role="button" aria-label="${escSvg(c.label)}">` +
+            `<circle cx="${c.x}" cy="${c.y}" r="3.6" fill="${bFill}" stroke="${bText}" stroke-width="1.3"${ED.bottomIsClean ? "" : ' stroke-dasharray="2 1.5"'}></circle>` +
+            `<text x="${c.x}" y="${c.y + 15}" text-anchor="middle" font-size="9.6" fill="${bText}">${escSvg(c.label)}</text>` +
           `</g>`);
         }
 
@@ -5162,63 +5471,60 @@
         }
       }
 
-      function highlightConstellation(id, anc, des) {
-        if (!constSvg) return;
-        const nodes = constSvg.querySelectorAll(".tm-star-node");
-        const fils = constSvg.querySelectorAll(".tm-filament");
-        for (const p of constSvg.querySelectorAll(".tm-zero-pearl")) p.classList.remove("is-selected");
-        if (!anc || !des) {
-          for (const n of nodes) {
-            n.classList.toggle("is-dim", n.dataset.id !== id);
-            n.classList.toggle("is-selected", n.dataset.id === id);
+      function buildBottomStripAndFilters() {
+        if (bottomStrip) {
+          bottomStrip.classList.toggle("is-clean", !!ED.bottomIsClean);
+          bottomStrip.innerHTML =
+            `<span class="tm-dead-label">${escSvg(ED.bottomStripLabel)}</span>` +
+            ED.bottomItems.map((c) => `<button type="button" class="tm-dead-btn" data-dead="${c.id}">${escSvg(c.label)}</button>`).join("");
+          deadBtns = Array.from(bottomStrip.querySelectorAll(".tm-dead-btn"));
+          for (const b of deadBtns) {
+            b.addEventListener("click", () => { stopTour(); selectNode(b.dataset.dead); });
           }
-          for (const f of fils) { f.classList.remove("is-lit", "is-ray"); f.classList.add("is-dim"); }
-          return;
         }
-        const active = new Set([...anc, ...des]);
-        for (const n of nodes) {
-          const nid = n.dataset.id;
-          n.classList.toggle("is-dim", !active.has(nid));
-          n.classList.toggle("is-selected", nid === id && !n.dataset.star);
-        }
-        for (const f of fils) {
-          const u = f.dataset.from, v = f.dataset.to;
-          const lit = (u === v && active.has(u)) || (anc.has(u) && anc.has(v)) || (des.has(u) && des.has(v));
-          f.classList.toggle("is-lit", lit);
-          f.classList.toggle("is-ray", lit && id !== "allchi");
-          f.classList.toggle("is-dim", !lit);
+        if (filterBtnsWrap) {
+          filterBtnsWrap.innerHTML = ED.filters.map((f, i) =>
+            `<button type="button" class="tm-filter${i === 0 ? " is-active" : ""}" data-filter="${f.key}" data-target="${f.target}">${escSvg(f.label)}</button>`
+          ).join("");
         }
       }
 
-      // Guided 6-step proof tour
-      const TOUR = [
-        { id: "m1",      label: "Step 1/6 · Analytic & Behrend" },
-        { id: "m2",      label: "Step 2/6 · Arakelov & Toroidal" },
-        { id: "m3",      label: "Step 3/6 · Weight-1 & Theta Lift" },
-        { id: "m4",      label: "Step 4/6 · Definite Automorphy" },
-        { id: "vwin",    label: "Step 5/6 · Weak Vandiver (VWin)" },
-        { id: "allchi",  label: "Step 6/6 · allChi → RH & GRH" },
-      ];
-      let tourIdx = -1;
-      let tourTimer = null;
-      const stepLabel = document.getElementById("tmStepLabel");
-      const playBtn = document.getElementById("tmPlayBtn");
+      function renderEdition(edKey) {
+        const nextKey = edKey === "alpoge" ? "alpoge" : "grh";
+        stopTour();
+        curEdition = nextKey;
+        ED = THEORY_EDITIONS[curEdition];
+        STAR_MAP = Object.fromEntries(ED.stars.map((s) => [s.id, s]));
+        tourIdx = -1;
+        zoomLevel = 1;
+        applyZoom();
 
-      function stopTour() {
-        if (tourTimer) { clearInterval(tourTimer); tourTimer = null; }
-        if (playBtn) { playBtn.textContent = "▶ Play"; playBtn.classList.remove("is-playing"); }
+        if (eyebrowEl) eyebrowEl.innerHTML = ED.eyebrow;
+        if (titleEl) titleEl.innerHTML = ED.title;
+        if (subEl) subEl.innerHTML = ED.sub;
+        if (stepLabel) stepLabel.textContent = ED.stepReset;
+        if (editionSwitch) {
+          for (const b of editionSwitch.querySelectorAll("[data-tm-edition]")) {
+            b.classList.toggle("is-active", b.dataset.tmEdition === curEdition);
+          }
+        }
+
+        buildBottomStripAndFilters();
+        buildFlowDiagram();
+        buildConstellation();
+        selectNode(ED.rootId);
       }
 
       function goTour(idx) {
-        tourIdx = (idx + TOUR.length) % TOUR.length;
-        const step = TOUR[tourIdx];
+        tourIdx = (idx + ED.tour.length) % ED.tour.length;
+        const step = ED.tour[tourIdx];
         selectNode(step.id);
         if (stepLabel) stepLabel.textContent = step.label;
       }
 
       const prevBtn = document.getElementById("tmPrevBtn");
       const nextBtn = document.getElementById("tmNextBtn");
-      if (prevBtn) prevBtn.addEventListener("click", () => { stopTour(); goTour(tourIdx <= 0 ? TOUR.length - 1 : tourIdx - 1); });
+      if (prevBtn) prevBtn.addEventListener("click", () => { stopTour(); goTour(tourIdx <= 0 ? ED.tour.length - 1 : tourIdx - 1); });
       if (nextBtn) nextBtn.addEventListener("click", () => { stopTour(); goTour(tourIdx + 1); });
       if (playBtn) {
         playBtn.addEventListener("click", () => {
@@ -5235,7 +5541,7 @@
       const zReset = document.getElementById("tmZoomReset");
       if (zIn) zIn.addEventListener("click", () => { zoomLevel = Math.min(2.2, +(zoomLevel + 0.25).toFixed(2)); applyZoom(); });
       if (zOut) zOut.addEventListener("click", () => { zoomLevel = Math.max(0.85, +(zoomLevel - 0.25).toFixed(2)); applyZoom(); });
-      if (zReset) zReset.addEventListener("click", () => { zoomLevel = 1; applyZoom(); stopTour(); selectNode("allchi"); if (stepLabel) stepLabel.textContent = "Interactive · Click any star, zero pearl, or comet"; });
+      if (zReset) zReset.addEventListener("click", () => { zoomLevel = 1; applyZoom(); stopTour(); selectNode(ED.rootId); if (stepLabel) stepLabel.textContent = ED.stepReset; });
 
       if (viewSwitch) {
         viewSwitch.addEventListener("click", (ev) => {
@@ -5248,29 +5554,27 @@
         });
       }
 
-      buildConstellation();
-
-      for (const n of nodeEls) {
-        n.addEventListener("click", () => selectNode(n.dataset.id));
-        n.addEventListener("keydown", (ev) => {
-          if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); selectNode(n.dataset.id); }
+      if (editionSwitch) {
+        editionSwitch.addEventListener("click", (ev) => {
+          const btn = ev.target.closest("[data-tm-edition]");
+          if (!btn) return;
+          renderEdition(btn.dataset.tmEdition);
         });
       }
-      for (const b of deadBtns) {
-        b.addEventListener("click", () => selectNode(b.dataset.dead));
-      }
-      if (filters) {
-        const DOMAIN_FIRST = { all: "allchi", analytic: "m1", geometry: "m2", galois: "m3", automorphic: "m4", vwin: "vwin" };
-        filters.addEventListener("click", (ev) => {
+
+      if (filtersWrap) {
+        filtersWrap.addEventListener("click", (ev) => {
           const btn = ev.target.closest(".tm-filter");
           if (!btn) return;
-          const dom = btn.dataset.filter;
-          for (const f of filters.querySelectorAll(".tm-filter")) f.classList.toggle("is-active", f === btn);
-          selectNode(DOMAIN_FIRST[dom] || "allchi");
+          stopTour();
+          for (const f of filtersWrap.querySelectorAll(".tm-filter")) f.classList.toggle("is-active", f === btn);
+          selectNode(btn.dataset.target || ED.rootId);
         });
       }
 
-      selectNode("allchi");
+      window.setTheoryMapEdition = renderEdition;
+      const startEd = document.body.dataset.edition === "alpoge" ? "alpoge" : "grh";
+      renderEdition(startEd);
     })();
   </script>
 </body>
