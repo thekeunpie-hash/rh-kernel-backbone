@@ -12,7 +12,8 @@
   "rows": [
     { "label": "Files", "fmt": "int", "values": [175187, 803, 794, 802], "alpoge_archive": true },
     { "label": "Raw lines", "fmt": "int", "values": [17374215, 477124, 112827, 475679], "alpoge_archive": true },
-    { "label": "Code lines (no comments or blanks)", "fmt": "int", "values": [10737728, 299902, 76149, 299004] },
+    { "label": "Code lines (no comments or blanks)", "fmt": "int", "values": [null, 299902, 76149, 299004] },
+    { "label": "Declaration lines in the proof cone", "fmt": "int", "values": [10737728, null, null, null] },
     { "label": "Source size", "fmt": "bytes", "values": [1030531854, 30050271, 7420187, 29955129], "alpoge_archive": true },
     { "label": "Non-whitespace code characters", "fmt": "int", "values": [null, 13851128, 4511672, 13808784] },
     { "label": "Lean tokens", "fmt": "int", "values": [null, 4836276, 1520003, 4822217] },

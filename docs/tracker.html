@@ -3380,7 +3380,7 @@
                 pairEl.hidden = true;
               }
               src.textContent = "Static snapshot" + (d.generated_at ? " generated " + String(d.generated_at).slice(0, 10) : "") +
-                ". n/a means the value was not measured for that edition. For the original edition, code lines and constants are counted over its active proof cone.";
+                ". n/a means the value was not measured for that edition. For the original edition, constants are counted over its active proof cone, and the proof-cone line row counts the declaration lines in that cone (SPEC.md §1); its code lines without comments or blanks were not measured, so they are not compared with the grh columns.";
               sec.hidden = false;
             }
             fetch("./data/editions.json", { cache: "no-cache" })
