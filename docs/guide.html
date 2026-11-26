@@ -243,7 +243,13 @@ lake build</code></pre>
 <h3>AI 도구를 쓴다면 고정된 버전부터 확인한다</h3>
 <p><code>AGENTS.md</code>는 모델의 학습 자료가 이 저장소가 쓰는 Lean과 Mathlib보다 오래되었다는 점을 짚는다. 그래서 <code>lean-toolchain</code>과 <code>lake-manifest.json</code>에 고정된 버전에서 무엇을 쓸 수 있는지 먼저 확인하라고 한다. 새 증명에서는 자연수와 정수의 선형 산술에 <code>omega</code>보다 <code>lia</code>를 쓰고, 긴 증명을 손으로 쓰기 전에 <code>grind</code>를 먼저 시도하라는 것이 그 문서의 권고다. <code>omega</code>가 눈에 띄게 빠르다고 프로파일러가 보여 주는 자리에서는 <code>omega</code>를 써도 된다고 덧붙인다.</p>
 
-<p class="src">출처: <a href="https://github.com/leanprover-community/riemann-hypothesis/blob/main/.github/workflows/build.yml">build.yml</a> · <a href="https://github.com/leanprover-community/riemann-hypothesis/blob/main/CACHE.md">CACHE.md</a> · <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/5941/checks">#5941 검사 결과</a> · <a href="https://github.com/leanprover-community/riemann-hypothesis/blob/main/.github/workflows/challenge-files.yml">challenge-files.yml</a> · <a href="https://github.com/leanprover-community/riemann-hypothesis/blob/alpoge/AGENTS.md">AGENTS.md (alpoge)</a></p>
+<h3>AI를 썼다면 PR 설명에 밝히고, 댓글은 내 말로 쓴다</h3>
+<p>이 저장소의 <code>main</code>에는 AI 사용 규칙을 적은 문서가 없다. 가장 가까운 글은 같은 leanprover-community 조직이 낸 <a href="https://leanprover-community.github.io/contribute/index.html#use-of-ai">Mathlib 기여 안내의 "Use of AI" 절</a>이다. 제목이 "Contributing to mathlib"이라 이 저장소에 그대로 적용된다는 문장은 없고, Mathlib에 있는 <code>LLM-generated</code> 라벨도 이 저장소에는 없다(11월 26일 GitHub API로 확인). 그래도 같은 조직의 관리자들이 검토하므로, 이 절을 기준으로 삼는 편이 안전하다.</p>
+<p>그 절이 요구하는 것은 네 가지다. 첫째, Copilot, ChatGPT, Codex, Claude, Gemini, Aristotle 같은 도구를 썼다면 어떤 도구를 어떻게 썼는지 PR 설명에 적는다. 도구가 사람과 다른 종류의 실수를 하므로, 검토자가 그 사실을 알면 흔한 오류를 찾기 쉬워진다는 것이 이유다. 둘째, GitHub와 Zulip에 쓰는 댓글은 LLM으로 쓰지 않고 자기 말로 쓴다.</p>
+<p>셋째, AI가 쓴 내용은 전부 이해하고 있어야 한다. 형식화의 설계 결정 하나하나를 AI 없이 검토자에게 설명할 수 있어야 하며, 그렇지 못한 PR은 커뮤니티에 오히려 손해일 가능성이 크다고 안내는 적는다. 넷째, Lean을 아는 사람의 감독 없이 AI가 쓴 코드는 2026년 중반 기준으로 기준에 크게 못 미친다고 보고, 커뮤니티와 먼저 이야기하지 않고 연 낮은 품질의 LLM PR은 설명 없이 닫는다. 이런 PR을 거듭 열면 PR 작성과 Zulip 참여가 정지되거나 영구 금지될 수 있다.</p>
+<p>같은 안내에는 이 글의 다른 절과 이어지는 내용도 있다. 검토자는 관리자가 아니어도 되고 새 검토자의 검토는 언제나 환영받는다. 빠르게 움직이고 싶은 작업은 별도 저장소를 만들고 Mathlib을 의존성으로 두는 길도 있다.</p>
+
+<p class="src">출처: <a href="https://github.com/leanprover-community/riemann-hypothesis/blob/main/.github/workflows/build.yml">build.yml</a> · <a href="https://github.com/leanprover-community/riemann-hypothesis/blob/main/CACHE.md">CACHE.md</a> · <a href="https://github.com/leanprover-community/riemann-hypothesis/pull/5941/checks">#5941 검사 결과</a> · <a href="https://github.com/leanprover-community/riemann-hypothesis/blob/main/.github/workflows/challenge-files.yml">challenge-files.yml</a> · <a href="https://github.com/leanprover-community/riemann-hypothesis/blob/alpoge/AGENTS.md">AGENTS.md (alpoge)</a> · <a href="https://leanprover-community.github.io/contribute/index.html">Contributing to mathlib (Use of AI)</a></p>
 
 <h2 id="method">7. 무엇을 재고 무엇을 믿을 것인가</h2>
 
@@ -325,7 +331,7 @@ lake build</code></pre>
   <li>고칠 파일을 정하고, 같은 파일을 건드리는 열린 PR이 있는지 찾는다.</li>
   <li>변경 하나만 담는다. 고치면 안 되는 세 파일과 빌드 설정은 건드리지 않는다.</li>
   <li><code>ci-cache-get.py --baseline origin/main</code>으로 바탕 캐시를 깔고 <code>lake build</code>가 오류 없이 끝나는지 본다.</li>
-  <li>Mathlib 규칙에 맞는 제목으로 PR을 열고, 지우거나 이름을 바꾼 선언을 설명에 적는다. 내 컴퓨터의 빌드 결과는 적지 않는다.</li>
+  <li>Mathlib 규칙에 맞는 제목으로 PR을 열고, 지우거나 이름을 바꾼 선언을 설명에 적는다. AI 도구를 썼다면 어떤 도구를 어떻게 썼는지도 적는다. 내 컴퓨터의 빌드 결과는 적지 않는다.</li>
   <li>실패한 검사는 로그를 읽고 내 변경 탓인지 가린다.</li>
   <li>검토자가 돌려보내면 고친 뒤 <code>ready</code>라고만 댓글을 단다. 그다음은 배치를 기다린다.</li>
 </ol>
@@ -340,7 +346,7 @@ lake build</code></pre>
 <ul>
   <li>토론 채널 안내. 업스트림 저장소에 채널 링크가 없고, 로그인 없이 확인할 수 없었다.</li>
   <li><code>main</code>의 코드 스타일 규칙(줄 길이 등). 글로 적힌 문서를 찾지 못했다.</li>
-  <li><code>main</code>에서 AI가 쓴 PR을 어떻게 다루는지에 대한 정책. <code>alpoge</code>의 <code>AGENTS.md</code> 말고는 찾지 못했다.</li>
+  <li>이 저장소 자체의 AI 사용 정책. 같은 조직의 Mathlib 기여 안내에 "Use of AI" 절이 있어 6절에 옮겼지만, 그 절이 이 저장소에도 적용된다고 적힌 곳은 찾지 못했다.</li>
   <li>지금 <code>main</code>을 빌드하는 데 드는 메모리. 저장소 문서에 없다.</li>
   <li>관리자와 검토자 명단. "Triage 권한을 받은 사람들"이라는 표현만 있다.</li>
 </ul>
