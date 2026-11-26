@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T22:41:32Z",
+  "generated_at": "2026-11-26T22:51:39Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -518,8 +518,8 @@
     "heartbeat_options": 1,
     "files_delta_vs_v021": -174385,
     "lines_delta_vs_v021": -16895624,
-    "open_pr_count": 664,
-    "measured_at": "2026-11-26T22:41:32Z"
+    "open_pr_count": 665,
+    "measured_at": "2026-11-26T22:51:39Z"
   },
   "live_history": [
     {
@@ -1375,13 +1375,13 @@
       "scope": "full",
       "base_ref": "main",
       "mergeable_state": "unknown",
-      "blast_radius": "whole-tree",
+      "blast_radius": "focused",
       "title": "Delete 22,054 thin wrappers & clump modules along import graph (148,230 -> 62,159 files)",
       "raw_title": "perf: delete thin wrappers and combine modules into import-graph clumps",
-      "changed_files": 103585,
-      "additions": 6455881,
-      "deletions": 9996025,
-      "net_lines": -3540144,
+      "changed_files": 0,
+      "additions": 0,
+      "deletions": 0,
+      "net_lines": 0,
       "updated_at": "2026-11-24T20:07:19Z",
       "merged_at": "2026-11-23T22:59:49Z",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/324"
@@ -1813,7 +1813,7 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-26T22:41:32Z",
+    "measured_at": "2026-11-26T22:51:39Z",
     "total_merged_prs": 6104,
     "total_batch_queue_prs": 0,
     "entries": [
