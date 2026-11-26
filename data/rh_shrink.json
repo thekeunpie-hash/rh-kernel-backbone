@@ -6,7 +6,7 @@
     "method": "text search over .lean files under src/, one point per main commit (rh-shrink collect.py)",
     "schema_version": 6
   },
-  "commits_measured": 233,
+  "commits_measured": 234,
   "original": {
     "sha": "40e56bab026552e089d7afcfeff08d2defb9c005",
     "date": "2026-11-20T09:36:09-05:00",
@@ -23,23 +23,32 @@
     "statements": 777704
   },
   "latest": {
-    "sha": "90b857677a044ffb6742467c33841874a93b254d",
-    "date": "2026-11-26T05:22:14Z",
-    "subject": "Merge pull request #6202 from leanprover-community/batch/m12-on-main",
-    "pr": 6202,
+    "sha": "ef1760f555d5386fe8eea9c663110f7b8d08e467",
+    "date": "2026-11-26T05:39:16Z",
+    "subject": "Merge pull request #6264 from leanprover-community/batch/m13-on-main",
+    "pr": 6264,
     "files": 802,
-    "lines": 477310,
-    "code": 297142,
-    "theorems": 18019,
-    "defs": 5605,
-    "imports": 1746,
+    "lines": 477166,
+    "code": 297041,
+    "theorems": 18009,
+    "defs": 5599,
+    "imports": 1748,
     "heartbeats": 0,
     "repeats": 44,
-    "statements": 17477
+    "statements": 17468
   },
   "code_left_pct": 2.03,
-  "code_removed": 14324795,
+  "code_removed": 14324896,
   "recent_changes": [
+    {
+      "sha": "ef1760f555d5386fe8eea9c663110f7b8d08e467",
+      "date": "2026-11-26T05:39:16Z",
+      "subject": "Merge pull request #6264 from leanprover-community/batch/m13-on-main",
+      "pr": 6264,
+      "code": 297041,
+      "code_delta": -101,
+      "theorems_delta": -10
+    },
     {
       "sha": "90b857677a044ffb6742467c33841874a93b254d",
       "date": "2026-11-26T05:22:14Z",
@@ -138,15 +147,6 @@
       "code": 298160,
       "code_delta": 298160,
       "theorems_delta": 18227
-    },
-    {
-      "sha": "72fead102f663d5c7a407964a13dc0cf9d977207",
-      "date": "2026-11-25T12:38:07-08:00",
-      "subject": "Lean proof of GRH",
-      "pr": null,
-      "code": 0,
-      "code_delta": -11000328,
-      "theorems_delta": -569590
     }
   ],
   "series": [
@@ -1081,6 +1081,10 @@
     [
       "2026-11-26T05:22:14Z",
       297142
+    ],
+    [
+      "2026-11-26T05:39:16Z",
+      297041
     ]
   ]
 }
