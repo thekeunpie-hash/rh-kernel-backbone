@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T16:05:09Z",
+  "generated_at": "2026-11-26T16:17:09Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -518,8 +518,8 @@
     "heartbeat_options": 1,
     "files_delta_vs_v021": -174386,
     "lines_delta_vs_v021": -16895219,
-    "open_pr_count": 338,
-    "measured_at": "2026-11-26T16:05:09Z"
+    "open_pr_count": 366,
+    "measured_at": "2026-11-26T16:17:09Z"
   },
   "live_history": [
     {
@@ -1777,7 +1777,7 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-26T16:05:09Z",
+    "measured_at": "2026-11-26T16:17:09Z",
     "total_merged_prs": 5968,
     "total_batch_queue_prs": 0,
     "entries": [
@@ -1850,9 +1850,9 @@
           "ops_review": "PR triage, labeling & merges"
         },
         "bio": "Repository collaborator handling PR review, triage, and verification tooling. Authored the DeepMind formal-conjectures Comparator setup (#88) and the `batch queue` label and batch-assembly workflows (#226, #233).",
-        "merged_direct": 982,
+        "merged_direct": 991,
         "merged_batch_extra": 0,
-        "merged_total": 982,
+        "merged_total": 991,
         "merged_prs": [
           8077,
           8031,
@@ -1861,7 +1861,7 @@
           8026,
           8025,
           8024,
-          7679
+          7882
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
