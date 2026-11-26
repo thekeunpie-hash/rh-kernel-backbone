@@ -4,7 +4,9 @@
 
 ## Canonical Pages
 
-- [Live Upstream Dashboard](https://riemannhypothesis.dev/): Source, proof-size, and verification tracker covering both lineages of `leanprover-community/riemann-hypothesis`: `main`, based on the readable edition of `lsernau/grh-lean`, and the community cleanup of Levent Alpöge's original proof on branch `alpoge` (the original release is on branch `original`).
+- [Project Home](https://riemannhypothesis.dev/): Overview of the Lean Riemann Hypothesis formalization and the community work on its sources.
+- [Contributor Guide (Korean)](https://riemannhypothesis.dev/guide.html): Source-linked guide to selecting a contribution, building the project, submitting a pull request, and interpreting measurements. Includes the scope of the material covered and omitted.
+- [Live Upstream Tracker](https://riemannhypothesis.dev/tracker.html): Source, proof-size, and verification tracker covering both lineages of `leanprover-community/riemann-hypothesis`: `main`, based on the readable edition of `lsernau/grh-lean`, and the community cleanup of Levent Alpöge's original proof on branch `alpoge` (the original release is on branch `original`).
 - [Maintainers, Contributors & Lean Foundations](https://riemannhypothesis.dev/profiles.html): Contributor directory organized by build-time speedups, compute and cache infrastructure, codebase/technical-debt reduction, and merge/triage operations, each tied to a PR or public source.
 
 ## Authoritative Technical References
