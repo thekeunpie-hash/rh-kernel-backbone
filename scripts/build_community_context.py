@@ -7,7 +7,7 @@ Combines:
   1. Privileged GitHub actions (/issues/events: merged, labeled, unlabeled, locked, etc.)
   2. author_association across all issues, PRs, issue comments, and review comments
   3. Merged/opened/batch-queue PR counts and main commits
-  4. Lean Zulip #general RH thread activity (web-public spectator or local cache)
+  4. Lean Zulip #general RH + #Riemann Hypothesis thread activity (web-public spectator or local cache)
 """
 
 import glob
@@ -26,6 +26,11 @@ REPO = "leanprover-community/riemann-hypothesis"
 GH_API = f"https://api.github.com/repos/{REPO}"
 ZULIP_SITE = "https://leanprover.zulipchat.com"
 ZULIP_STREAM_ID = 113488  # general
+ZULIP_RH_STREAM_ID = 658556  # Riemann Hypothesis
+ZULIP_STREAMS = [
+    ("general", "general", True),
+    ("Riemann Hypothesis", ZULIP_RH_STREAM_ID, False),
+]
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "data"
@@ -178,7 +183,7 @@ def collect_github():
 
 
 def fetch_zulip_spectator(max_pages: int = 4):
-    """Fetch recent #general RH messages via Zulip web-public spectator mode (no API key needed)."""
+    """Fetch recent #general RH + #Riemann Hypothesis messages via Zulip web-public spectator mode (no API key needed)."""
     cj = http.cookiejar.CookieJar()
     op = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
     op.addheaders = [("User-Agent", "rh-kernel-backbone-context/1.1")]
@@ -187,39 +192,43 @@ def fetch_zulip_spectator(max_pages: int = 4):
 
     by_topic = defaultdict(list)
     seen = set()
-    anchor = "newest"
-    for _ in range(max_pages):
-        params = urllib.parse.urlencode({
-            "anchor": str(anchor),
-            "num_before": "200",
-            "num_after": "0",
-            "apply_markdown": "false",
-            "narrow": json.dumps([
-                {"operator": "channels", "operand": "web-public"},
-                {"operator": "channel", "operand": "general"},
-            ]),
-        })
-        req = urllib.request.Request(
-            f"{ZULIP_SITE}/json/messages?{params}",
-            headers={"X-CSRFToken": csrf, "Referer": f"{ZULIP_SITE}/"},
-        )
-        with op.open(req, timeout=25) as r:
-            d = json.loads(r.read().decode("utf-8"))
-        msgs = d.get("messages", [])
-        if not msgs:
-            break
-        for m in msgs:
-            if m["id"] in seen:
-                continue
-            seen.add(m["id"])
-            subj = m.get("subject", "")
-            low = subj.lower()
-            if low.startswith("rh:") or "alpöge" in low or "alpoge" in low or "riemann" in low:
-                by_topic[subj].append(m)
-        if d.get("found_oldest"):
-            break
-        anchor = min(m["id"] for m in msgs) - 1
-        time.sleep(0.25)
+    for _stream_name, operand, filter_rh in ZULIP_STREAMS:
+        anchor = "newest"
+        for _ in range(max_pages):
+            params = urllib.parse.urlencode({
+                "anchor": str(anchor),
+                "num_before": "200",
+                "num_after": "0",
+                "apply_markdown": "false",
+                "narrow": json.dumps([
+                    {"operator": "channels", "operand": "web-public"},
+                    {"operator": "channel", "operand": operand},
+                ]),
+            })
+            req = urllib.request.Request(
+                f"{ZULIP_SITE}/json/messages?{params}",
+                headers={"X-CSRFToken": csrf, "Referer": f"{ZULIP_SITE}/"},
+            )
+            with op.open(req, timeout=25) as r:
+                d = json.loads(r.read().decode("utf-8"))
+            msgs = d.get("messages", [])
+            if not msgs:
+                break
+            for m in msgs:
+                if m["id"] in seen:
+                    continue
+                seen.add(m["id"])
+                subj = m.get("subject", "")
+                if not filter_rh:
+                    by_topic[subj].append(m)
+                else:
+                    low = subj.lower()
+                    if low.startswith("rh:") or "alpöge" in low or "alpoge" in low or "riemann" in low:
+                        by_topic[subj].append(m)
+            if d.get("found_oldest"):
+                break
+            anchor = min(m["id"] for m in msgs) - 1
+            time.sleep(0.25)
     return dict(by_topic)
 
 
