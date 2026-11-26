@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T21:48:55Z",
+  "generated_at": "2026-11-26T21:59:12Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -506,20 +506,20 @@
     }
   ],
   "live_main": {
-    "sha": "69c5b5e78",
-    "commit_date": "2026-11-26T21:27:07Z",
+    "sha": "159e7919c",
+    "commit_date": "2026-11-26T21:46:56Z",
     "toolchain": "leanprover/lean4:v4.37.0-rc1",
-    "lean_files": 801,
-    "total_lines": 478996,
-    "total_bytes": 29827461,
-    "import_lines": 6895,
-    "declarations": 23041,
+    "lean_files": 802,
+    "total_lines": 478634,
+    "total_bytes": 29801855,
+    "import_lines": 6909,
+    "declarations": 23009,
     "backward_options": 1,
     "heartbeat_options": 1,
-    "files_delta_vs_v021": -174386,
-    "lines_delta_vs_v021": -16895219,
-    "open_pr_count": 869,
-    "measured_at": "2026-11-26T21:48:55Z"
+    "files_delta_vs_v021": -174385,
+    "lines_delta_vs_v021": -16895581,
+    "open_pr_count": 809,
+    "measured_at": "2026-11-26T21:59:12Z"
   },
   "live_history": [
     {
@@ -1275,6 +1275,18 @@
       "import_lines": 6895,
       "backward_options": 1,
       "heartbeat_options": 1
+    },
+    {
+      "date": "2026-11-26T21:46:56Z",
+      "sha": "159e7919c",
+      "label": "main@159e7919c",
+      "toolchain": "leanprover/lean4:v4.37.0-rc1",
+      "lean_files": 802,
+      "total_lines": 478634,
+      "declarations": 23009,
+      "import_lines": 6909,
+      "backward_options": 1,
+      "heartbeat_options": 1
     }
   ],
   "stacked_pr_queue": [
@@ -1789,8 +1801,8 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-26T21:48:55Z",
-    "total_merged_prs": 5969,
+    "measured_at": "2026-11-26T21:59:12Z",
+    "total_merged_prs": 6049,
     "total_batch_queue_prs": 0,
     "entries": [
       {
@@ -1810,18 +1822,18 @@
           "ops_review": "Merges PRs and batch PRs on main"
         },
         "bio": "Research software engineer at the Lean FRO and Mathlib maintainer. On leanprover-community/riemann-hypothesis, Kim runs the sharded AWS and donor-runner CI builds (#101), merged the reviewed cleanup batches (#115, #150) and the Lean 4.37.0-rc1 upgrade (#185, 2026-11-23), and on 2026-11-25 moved the Alpöge-lineage cleanup to branch `alpoge` and based `main` on the readable edition of lsernau/grh-lean.",
-        "merged_direct": 157,
+        "merged_direct": 158,
         "merged_batch_extra": 0,
-        "merged_total": 157,
+        "merged_total": 158,
         "merged_prs": [
+          8896,
           8141,
           8113,
           8071,
           7940,
           7837,
           7721,
-          7691,
-          7663
+          7691
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -1966,18 +1978,18 @@
           "ops_review": "Documentation (#146) & cache-client fix (#202)"
         },
         "bio": "Authored the cache-client fix #202 (remove Lake's saved hashes before unpacking) and documentation PR #146, and hosts the frozen `riemann-hypothesis-original` mirror with a prebuilt Lean 4.33.1 cache.",
-        "merged_direct": 13,
+        "merged_direct": 14,
         "merged_batch_extra": 0,
-        "merged_total": 13,
+        "merged_total": 14,
         "merged_prs": [
+          8130,
           8098,
           8089,
           5777,
           5754,
           706,
           434,
-          202,
-          146
+          202
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -2190,18 +2202,18 @@
           "ops_review": ""
         },
         "bio": "Authored merged dead-module pruning PR #45 (-10,718 unreachable files), organized a 104-volunteer replay of Alpöge's 175,187-module release (`rohanarun/alpoge-rh-replay`; 109,719 modules with recorded evidence, now closed), and proposed module consolidation in #120 (93,601 modules -> 20,258 bundles; closed unmerged — the consolidation that merged is #324).",
-        "merged_direct": 25,
+        "merged_direct": 36,
         "merged_batch_extra": 0,
-        "merged_total": 25,
+        "merged_total": 36,
         "merged_prs": [
-          8076,
-          6417,
-          6246,
-          6245,
-          6096,
-          6093,
-          6078,
-          6077
+          8279,
+          8276,
+          8271,
+          8266,
+          8264,
+          8261,
+          8260,
+          8246
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
