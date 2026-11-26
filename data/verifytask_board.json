@@ -2,17 +2,17 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "b8fdf42e2bfb8228",
-  "updated_at": "2026-11-26T23:41:12.213702+08:00",
+  "revision": "968b24993c108551",
+  "updated_at": "2026-11-26T23:51:00.141396+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T15:44:20Z",
+  "generated_at": "2026-11-26T15:54:20Z",
   "summary": {
     "participants": 121,
     "scored_participants": 98,
     "submissions": 2477,
-    "scored_submissions": 1736,
-    "evaluating": 15,
-    "core_evaluating": 15,
+    "scored_submissions": 1738,
+    "evaluating": 13,
+    "core_evaluating": 13,
     "challenges_total": 49,
     "core_solved": 42,
     "core_total": 48,
@@ -25,10 +25,10 @@
   },
   "progress": {
     "baseline_tokens": 611228972,
-    "best_tokens": 405998478,
+    "best_tokens": 405991916,
     "saved_tokens_pct": 33.58,
     "baseline_chars": 2086571119,
-    "best_chars": 1406797331,
+    "best_chars": 1406786287,
     "saved_chars_pct": 32.58,
     "solved": 42,
     "challenges": 48,
@@ -37,9 +37,9 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1735,
-    "kept_count": 651,
-    "current_best_score": 2869.14,
+    "total_runs": 1737,
+    "kept_count": 652,
+    "current_best_score": 2869.33,
     "current_best_pct": 33.58,
     "points": [
       {
@@ -25889,6 +25889,21 @@
       },
       {
         "i": 1724,
+        "id": 113442,
+        "ts": "2026-11-26T12:54:27+00:00",
+        "key": "core30",
+        "score": 50.0,
+        "compression_pct": 0.0,
+        "best": 2865.38,
+        "best_pct": 33.55,
+        "kept": false,
+        "author": "Mark Baker",
+        "model": "deepseek-v4-flash-max",
+        "harness": "pi",
+        "method": null
+      },
+      {
+        "i": 1725,
         "id": 113454,
         "ts": "2026-11-26T12:59:47+00:00",
         "key": "core29",
@@ -25903,7 +25918,7 @@
         "method": null
       },
       {
-        "i": 1725,
+        "i": 1726,
         "id": 113458,
         "ts": "2026-11-26T13:01:49+00:00",
         "key": "core30",
@@ -25918,7 +25933,7 @@
         "method": "Core 30 · Fast: Prune 32 files + Page/Siegel bound trim"
       },
       {
-        "i": 1726,
+        "i": 1727,
         "id": 113464,
         "ts": "2026-11-26T13:06:42+00:00",
         "key": "core2",
@@ -25933,7 +25948,7 @@
         "method": "Core 2: Frobenius lift & orthogonality + grind automation"
       },
       {
-        "i": 1727,
+        "i": 1728,
         "id": 113498,
         "ts": "2026-11-26T13:18:00+00:00",
         "key": "core37",
@@ -25948,7 +25963,7 @@
         "method": "Core 37 · Fast: Inline 73 helpers + grind automation"
       },
       {
-        "i": 1728,
+        "i": 1729,
         "id": 113560,
         "ts": "2026-11-26T13:41:37+00:00",
         "key": "core8",
@@ -25963,7 +25978,7 @@
         "method": null
       },
       {
-        "i": 1729,
+        "i": 1730,
         "id": 113569,
         "ts": "2026-11-26T13:43:13+00:00",
         "key": "core53",
@@ -25978,7 +25993,7 @@
         "method": "Core 53 · Fast: Inline 25 helpers + grind automation"
       },
       {
-        "i": 1730,
+        "i": 1731,
         "id": 113592,
         "ts": "2026-11-26T13:50:00+00:00",
         "key": "core27",
@@ -25993,13 +26008,28 @@
         "method": "Core 27 · Fast: simp_all fold (−94%)"
       },
       {
-        "i": 1731,
+        "i": 1732,
+        "id": 113693,
+        "ts": "2026-11-26T14:10:01+00:00",
+        "key": "core30",
+        "score": 65.6,
+        "compression_pct": 87.61,
+        "best": 2867.72,
+        "best_pct": 33.56,
+        "kept": true,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": "Core 30 · Fast: Page/Siegel bound trim + grind automation"
+      },
+      {
+        "i": 1733,
         "id": 113719,
         "ts": "2026-11-26T14:18:36+00:00",
         "key": "core33",
         "score": 78.13,
         "compression_pct": 99.73,
-        "best": 2867.66,
+        "best": 2867.85,
         "best_pct": 33.56,
         "kept": true,
         "author": "Andrew Pullin",
@@ -26008,13 +26038,13 @@
         "method": "Core 33 · Fast: Page/Siegel bound trim + grind automation"
       },
       {
-        "i": 1732,
+        "i": 1734,
         "id": 113735,
         "ts": "2026-11-26T14:25:27+00:00",
         "key": "core12",
         "score": 66.88,
         "compression_pct": 90.43,
-        "best": 2867.7,
+        "best": 2867.89,
         "best_pct": 33.56,
         "kept": true,
         "author": "Andrew Pullin",
@@ -26023,13 +26053,13 @@
         "method": "Core 12: grind automation (−90%)"
       },
       {
-        "i": 1733,
+        "i": 1735,
         "id": 113752,
         "ts": "2026-11-26T14:42:33+00:00",
         "key": "core5",
         "score": 59.58,
         "compression_pct": 66.42,
-        "best": 2868.87,
+        "best": 2869.06,
         "best_pct": 33.58,
         "kept": true,
         "author": "Andrew Pullin",
@@ -26038,13 +26068,13 @@
         "method": "Core 5: Inline 566 helpers + grind automation"
       },
       {
-        "i": 1734,
+        "i": 1736,
         "id": 113810,
         "ts": "2026-11-26T15:11:46+00:00",
         "key": "core2",
         "score": 66.41,
         "compression_pct": 89.45,
-        "best": 2869.02,
+        "best": 2869.21,
         "best_pct": 33.58,
         "kept": true,
         "author": "Andrew Pullin",
@@ -26053,13 +26083,13 @@
         "method": "Core 2: Frobenius lift & orthogonality + grind automation"
       },
       {
-        "i": 1735,
+        "i": 1737,
         "id": 113819,
         "ts": "2026-11-26T15:17:04+00:00",
         "key": "core53",
         "score": 68.74,
         "compression_pct": 93.67,
-        "best": 2869.14,
+        "best": 2869.33,
         "best_pct": 33.58,
         "kept": true,
         "author": "Andrew Pullin",
@@ -27247,21 +27277,21 @@
       "metric": "tokens",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-fast-sub-pillar-30-theta-un-9058e5c0",
       "baseline_tokens": 1438064,
-      "best_tokens": 184807,
+      "best_tokens": 178245,
       "baseline_chars": 4636383,
-      "best_chars": 602947,
-      "token_saved_pct": 87.15,
-      "char_saved_pct": 87.0,
-      "reduction_factor": 7.78,
-      "score": 65.4106,
+      "best_chars": 591903,
+      "token_saved_pct": 87.61,
+      "char_saved_pct": 87.23,
+      "reduction_factor": 8.07,
+      "score": 65.5974,
       "attempts": 37,
-      "scored_attempts": 18,
-      "participants": 10,
-      "runs": 18,
-      "kept_runs": 5,
+      "scored_attempts": 20,
+      "participants": 11,
+      "runs": 20,
+      "kept_runs": 6,
       "leader": {
         "author": "Andrew Pullin",
-        "score": 65.41,
+        "score": 65.6,
         "model": "The Council",
         "harness": "pi",
         "axiom_status": "verified_clean",
@@ -27271,15 +27301,15 @@
       "last_update": null,
       "technique": {
         "id": "core30_simplify_3",
-        "attempt_id": 113458,
+        "attempt_id": 113693,
         "challenge_key": "core30",
         "title": "Complex AV Theta Uniformization: Proof Compression (439 → 3 Files)",
         "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
         "author": "Andrew Pullin",
         "model": "The Council",
         "harness": "pi",
-        "metric": "439→3 files · −87.2% tokens",
-        "primary_pct": 87.2
+        "metric": "439→3 files · −87.6% tokens",
+        "primary_pct": 87.6
       }
     },
     {
@@ -28106,9 +28136,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1973,
+    "labeled_scored_runs": 1976,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2022,
+    "total_scored_runs": 2025,
     "pairs_total": 72,
     "top_pairs": [
       {
@@ -28644,15 +28674,15 @@
     },
     {
       "id": "core30_simplify_3",
-      "attempt_id": 113458,
+      "attempt_id": 113693,
       "challenge_key": "core30",
       "title": "Complex AV Theta Uniformization: Proof Compression (439 → 3 Files)",
       "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
       "author": "Andrew Pullin",
       "model": "The Council",
       "harness": "pi",
-      "metric": "439→3 files · −87.2% tokens",
-      "primary_pct": 87.2
+      "metric": "439→3 files · −87.6% tokens",
+      "primary_pct": 87.6
     },
     {
       "id": "core30_simplify_35",
