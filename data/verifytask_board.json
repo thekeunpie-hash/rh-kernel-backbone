@@ -2,17 +2,17 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "d23710d04258fd9f",
-  "updated_at": "2026-11-26T20:00:11.933882+08:00",
+  "revision": "5b8e92d9eb68fea5",
+  "updated_at": "2026-11-26T20:10:04.867076+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T12:01:33Z",
+  "generated_at": "2026-11-26T12:11:54Z",
   "summary": {
     "participants": 121,
     "scored_participants": 98,
     "submissions": 2431,
     "scored_submissions": 1709,
-    "evaluating": 21,
-    "core_evaluating": 21,
+    "evaluating": 19,
+    "core_evaluating": 19,
     "challenges_total": 49,
     "core_solved": 42,
     "core_total": 48,
@@ -28669,7 +28669,7 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-26T11:29:14Z",
+      "ts": "2026-11-26T11:59:08Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
@@ -28678,13 +28678,33 @@
       "highlight": true
     },
     {
-      "id": "upstream-pr-7113",
-      "ts": "2026-11-26T11:17:44Z",
+      "id": "upstream-pr-7222",
+      "ts": "2026-11-26T11:46:36Z",
       "source": "lean_community",
-      "tag": "Upstream PR #7113",
-      "title": "Lower the cup-product exponent at cuts from 51κ to 13κ (−2 lines net)",
-      "summary": "Merged into leanprover-community/riemann-hypothesis by EricHe98.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/7113",
+      "tag": "Upstream PR #7222",
+      "title": "refactor(Lib/ClassField/Places/DecompositionCyclotomic): use Mathlib's ZMod.natCast_zmod_val",
+      "summary": "Merged into leanprover-community/riemann-hypothesis by maaz7409.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/7222",
+      "highlight": true
+    },
+    {
+      "id": "upstream-pr-7246",
+      "ts": "2026-11-26T11:46:35Z",
+      "source": "lean_community",
+      "tag": "Upstream PR #7246",
+      "title": "refactor: drop decidable equality from the branching kernel scaling lemma",
+      "summary": "Merged into leanprover-community/riemann-hypothesis by sqrt-of-2.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/7246",
+      "highlight": true
+    },
+    {
+      "id": "upstream-pr-7243",
+      "ts": "2026-11-26T11:46:35Z",
+      "source": "lean_community",
+      "tag": "Upstream PR #7243",
+      "title": "refactor: drop decidable equality from the Weyl kernel scaling lemma",
+      "summary": "Merged into leanprover-community/riemann-hypothesis by sqrt-of-2.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/7243",
       "highlight": true
     },
     {
@@ -28696,16 +28716,6 @@
       "summary": "Osgood001/riemann-hypothesis merged lightweight static Lean & TOKEN_RE PR checks (#1), synced Core 1–5 frontier Draft PRs (#2–#6), and opened the Discord hub.",
       "url": "https://github.com/Osgood001/riemann-hypothesis/pull/1",
       "highlight": true
-    },
-    {
-      "id": "seed-donor-sharding",
-      "ts": "2026-11-22T15:24:16Z",
-      "source": "lean_community",
-      "tag": "Build Infrastructure",
-      "title": "Distributed donor proof-sharding infrastructure lands upstream (PRs #101–#108)",
-      "summary": "kim-em merged isolated lease workspaces and bounded shard workers so community volunteers can build and publish reusable full-repo .olean caches safely.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/101",
-      "highlight": false
     },
     {
       "id": "seed-upstream-pr66",
@@ -28726,16 +28736,6 @@
       "summary": "Osgood001 submitted a 28-file simplification PR directly to leanprover-community/riemann-hypothesis (−824 lines, zero warnings, 23,008 build jobs passing).",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/95",
       "highlight": true
-    },
-    {
-      "id": "seed-upstream-pr45",
-      "ts": "2026-11-21T20:54:20Z",
-      "source": "lean_community",
-      "tag": "Repo Pruning",
-      "title": "Upstream prunes 11,163 unreachable dead modules (PR #45)",
-      "summary": "rohanarun removed unused top-level imports and 11,163 unreachable modules from leanprover-community/riemann-hypothesis in the first large-scale structural cleanup.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/45",
-      "highlight": false
     },
     {
       "id": "seed-core15-launch",
@@ -28762,7 +28762,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1350★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1357★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true
