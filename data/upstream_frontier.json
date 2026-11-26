@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T15:33:57Z",
+  "generated_at": "2026-11-26T15:44:06Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -518,8 +518,8 @@
     "heartbeat_options": 1,
     "files_delta_vs_v021": -174386,
     "lines_delta_vs_v021": -16895219,
-    "open_pr_count": 269,
-    "measured_at": "2026-11-26T15:33:57Z"
+    "open_pr_count": 297,
+    "measured_at": "2026-11-26T15:44:06Z"
   },
   "live_history": [
     {
@@ -1738,13 +1738,13 @@
       "scope": "mixed",
       "base_ref": "main",
       "mergeable_state": "unknown",
-      "blast_radius": "focused",
+      "blast_radius": "whole-tree",
       "title": "Bump to Lean & Mathlib v4.36.0, module system, prune 15,068 dead files",
       "raw_title": "Bump to Lean and Mathlib v4.36.0",
-      "changed_files": 0,
-      "additions": 0,
-      "deletions": 0,
-      "net_lines": 0,
+      "changed_files": 164467,
+      "additions": 1883850,
+      "deletions": 3267896,
+      "net_lines": -1384046,
       "updated_at": "2026-11-22T14:09:33Z",
       "merged_at": "2026-11-22T14:09:33Z",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/66"
@@ -1777,7 +1777,7 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-26T15:33:57Z",
+    "measured_at": "2026-11-26T15:44:06Z",
     "total_merged_prs": 5968,
     "total_batch_queue_prs": 0,
     "entries": [
