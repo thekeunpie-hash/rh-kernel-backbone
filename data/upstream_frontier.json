@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T04:28:55Z",
+  "generated_at": "2026-11-26T04:39:05Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -621,8 +621,8 @@
     }
   ],
   "live_main": {
-    "sha": "2db908595",
-    "commit_date": "2026-11-26T04:09:26Z",
+    "sha": "de0d3a3f0",
+    "commit_date": "2026-11-26T04:29:50Z",
     "toolchain": "leanprover/lean4:v4.37.0-rc1",
     "lean_files": 802,
     "total_lines": 478157,
@@ -633,8 +633,8 @@
     "heartbeat_options": 1,
     "files_delta_vs_v021": -174385,
     "lines_delta_vs_v021": -16896058,
-    "open_pr_count": 980,
-    "measured_at": "2026-11-26T04:28:55Z"
+    "open_pr_count": 991,
+    "measured_at": "2026-11-26T04:39:05Z"
   },
   "live_history": [
     {
@@ -903,6 +903,18 @@
       "date": "2026-11-26T04:09:26Z",
       "sha": "2db908595",
       "label": "main@2db908595",
+      "toolchain": "leanprover/lean4:v4.37.0-rc1",
+      "lean_files": 802,
+      "total_lines": 478157,
+      "declarations": 23814,
+      "import_lines": 1748,
+      "backward_options": 25,
+      "heartbeat_options": 1
+    },
+    {
+      "date": "2026-11-26T04:29:50Z",
+      "sha": "de0d3a3f0",
+      "label": "main@de0d3a3f0",
       "toolchain": "leanprover/lean4:v4.37.0-rc1",
       "lean_files": 802,
       "total_lines": 478157,
@@ -1424,8 +1436,8 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-26T04:28:55Z",
-    "total_merged_prs": 3943,
+    "measured_at": "2026-11-26T04:39:05Z",
+    "total_merged_prs": 3945,
     "total_batch_queue_prs": 1,
     "entries": [
       {
@@ -1445,18 +1457,18 @@
           "ops_review": "Primary merge-queue operator (live merge count from GitHub events)"
         },
         "bio": "Research software engineer at the Lean FRO and Mathlib maintainer. On leanprover-community/riemann-hypothesis, he runs the sharded AWS and donor-runner CI builds (#101), lands reviewed cleanup batches (#115, #150), and coordinates the merge queue through the Lean 4.37.0-rc1 upgrade (#185).",
-        "merged_direct": 12,
+        "merged_direct": 13,
         "merged_batch_extra": 0,
-        "merged_total": 12,
+        "merged_total": 13,
         "merged_prs": [
+          6088,
           6023,
+          5974,
           5955,
           5894,
           5879,
           5821,
-          5769,
-          5669,
-          5661
+          5769
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
