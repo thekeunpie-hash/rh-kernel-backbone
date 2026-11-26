@@ -1,7 +1,7 @@
 {
-  "refreshed_at": "2026-11-26T18:24:46Z",
+  "refreshed_at": "2026-11-26T18:34:47Z",
   "trigger": "workflow_dispatch",
-  "run_id": "45875651397",
+  "run_id": "45877012930",
   "changed": [
     "data/upstream_frontier.json",
     "data/verifytask_board.json"
