@@ -57,8 +57,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          MIN=$((10#$(date -u +%M)))
-          if [ "$PERIODIC" != "true" ] || [ "$MIN" -lt 5 ]; then
+          # Hourly guard keyed to the last successful build (generated_at in the committed JSON), not to the clock
+          # minute: chained runs drift, so a "minute < 5" window was missed about half the hours, and a failed build
+          # waited a full hour. A missing, unreadable or future timestamp counts as stale.
+          if [ "$PERIODIC" = "true" ] && python3 -c 'import json, sys, datetime as d
+          try:
+              t = d.datetime.strptime(json.load(open("data/community_context.json", encoding="utf-8"))["generated_at"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=d.timezone.utc)
+          except Exception:
+              sys.exit(1)
+          age = (d.datetime.now(d.timezone.utc) - t).total_seconds()
+          sys.exit(0 if 0 <= age < 55 * 60 else 1)'; then
+            echo "Community context built under 55 min ago; skipping."
+          else
             python3 scripts/build_community_context.py || true
           fi
           python3 scripts/update_upstream_tracker.py --data data/upstream_frontier.json
@@ -99,7 +109,12 @@ jobs:
           FILES="$CHANGED data/refresh_status.json"
           MSG="chore(tracker): auto-update upstream main metrics ($(date -u +%Y-%m-%dT%H:%MZ))"
           for attempt in 1 2 3 4; do
-            git fetch -q origin main
+            # A transient fetch error (the step runs under bash -e) used to end the step and drop this run's data.
+            if ! git fetch -q origin main; then
+              echo "Fetch attempt $attempt failed; retrying."
+              sleep $((attempt * 5))
+              continue
+            fi
             BASE="$(git rev-parse origin/main)"
             export GIT_INDEX_FILE="$RUNNER_TEMP/tracker-index"
             git read-tree "$BASE"
@@ -139,6 +154,9 @@ jobs:
         run: |
           case "$INTERVAL_SECONDS" in ''|*[!0-9]*) INTERVAL_SECONDS=600 ;; esac
           case "$STARTED" in ''|*[!0-9]*) STARTED=$(date -u +%s) ;; esac
+          # Base 10: a variable like "0600" would otherwise be read as octal (384 s), and "0900" is a syntax error.
+          INTERVAL_SECONDS=$((10#$INTERVAL_SECONDS))
+          STARTED=$((10#$STARTED))
           ELAPSED=$(( $(date -u +%s) - STARTED ))
           WAIT=$(( INTERVAL_SECONDS - ELAPSED ))
           if [ "$WAIT" -gt 720 ]; then WAIT=720; fi
