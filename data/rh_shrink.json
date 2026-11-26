@@ -6,7 +6,7 @@
     "method": "text search over .lean files under src/, one point per main commit (rh-shrink collect.py)",
     "schema_version": 6
   },
-  "commits_measured": 229,
+  "commits_measured": 230,
   "original": {
     "sha": "40e56bab026552e089d7afcfeff08d2defb9c005",
     "date": "2026-11-20T09:36:09-05:00",
@@ -23,10 +23,10 @@
     "statements": 777704
   },
   "latest": {
-    "sha": "2db90859500407542617a5b86281b4f1e1ee69cb",
-    "date": "2026-11-26T04:09:26Z",
-    "subject": "Merge pull request #6023 from leanprover-community/batch/m9-on-main",
-    "pr": 6023,
+    "sha": "de0d3a3f06d2fb093eee6a2a685225895c90c3ac",
+    "date": "2026-11-26T04:29:50Z",
+    "subject": "Merge pull request #6088 from leanprover-community/batch/m10-on-main",
+    "pr": 6088,
     "files": 802,
     "lines": 478157,
     "code": 297674,
@@ -1064,6 +1064,10 @@
     ],
     [
       "2026-11-26T04:09:26Z",
+      297674
+    ],
+    [
+      "2026-11-26T04:29:50Z",
       297674
     ]
   ]
