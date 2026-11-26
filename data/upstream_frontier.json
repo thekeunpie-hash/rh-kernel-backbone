@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T14:49:39Z",
+  "generated_at": "2026-11-26T15:00:52Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -506,20 +506,20 @@
     }
   ],
   "live_main": {
-    "sha": "61d870d08",
-    "commit_date": "2026-11-26T14:21:30Z",
+    "sha": "d72d07f09",
+    "commit_date": "2026-11-26T14:52:08Z",
     "toolchain": "leanprover/lean4:v4.37.0-rc1",
     "lean_files": 801,
-    "total_lines": 474484,
-    "total_bytes": 29627200,
-    "import_lines": 2909,
+    "total_lines": 478447,
+    "total_bytes": 29802433,
+    "import_lines": 6872,
     "declarations": 23087,
     "backward_options": 1,
     "heartbeat_options": 1,
     "files_delta_vs_v021": -174386,
-    "lines_delta_vs_v021": -16899731,
-    "open_pr_count": 327,
-    "measured_at": "2026-11-26T14:49:39Z"
+    "lines_delta_vs_v021": -16895768,
+    "open_pr_count": 350,
+    "measured_at": "2026-11-26T15:00:52Z"
   },
   "live_history": [
     {
@@ -1227,6 +1227,18 @@
       "import_lines": 2909,
       "backward_options": 1,
       "heartbeat_options": 1
+    },
+    {
+      "date": "2026-11-26T14:52:08Z",
+      "sha": "d72d07f09",
+      "label": "main@d72d07f09",
+      "toolchain": "leanprover/lean4:v4.37.0-rc1",
+      "lean_files": 801,
+      "total_lines": 478447,
+      "declarations": 23087,
+      "import_lines": 6872,
+      "backward_options": 1,
+      "heartbeat_options": 1
     }
   ],
   "stacked_pr_queue": [
@@ -1741,8 +1753,8 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-26T14:49:39Z",
-    "total_merged_prs": 5817,
+    "measured_at": "2026-11-26T15:00:52Z",
+    "total_merged_prs": 5819,
     "total_batch_queue_prs": 0,
     "entries": [
       {
@@ -1762,18 +1774,18 @@
           "ops_review": "Merges PRs and batch PRs on main"
         },
         "bio": "Research software engineer at the Lean FRO and Mathlib maintainer. On leanprover-community/riemann-hypothesis, Kim runs the sharded AWS and donor-runner CI builds (#101), merged the reviewed cleanup batches (#115, #150) and the Lean 4.37.0-rc1 upgrade (#185, 2026-11-23), and on 2026-11-25 moved the Alpöge-lineage cleanup to branch `alpoge` and based `main` on the readable edition of lsernau/grh-lean.",
-        "merged_direct": 153,
+        "merged_direct": 154,
         "merged_batch_extra": 0,
-        "merged_total": 153,
+        "merged_total": 154,
         "merged_prs": [
+          8071,
           7940,
           7837,
           7721,
           7691,
           7663,
           7613,
-          7576,
-          7509
+          7576
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
