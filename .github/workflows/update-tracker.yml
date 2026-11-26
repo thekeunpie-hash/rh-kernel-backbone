@@ -13,6 +13,11 @@ on:
       - "scripts/fetch_upstream_pr_insights.py"
       - ".github/workflows/update-tracker.yml"
   workflow_dispatch:
+    inputs:
+      chained:
+        description: "Set by the rearm job; chained runs keep the hourly guards like scheduled runs"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -22,6 +27,10 @@ permissions:
 concurrency:
   group: update-tracker
   cancel-in-progress: false
+
+env:
+  # Periodic = cron or self-chained dispatch; manual dispatch and push still force the hourly steps.
+  PERIODIC: ${{ github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.chained == 'true') }}
 
 jobs:
   update-tracker:
@@ -35,6 +44,9 @@ jobs:
 
       - name: Checkout rh-kernel-backbone
         uses: actions/checkout@v4
+        with:
+          # Always measure on top of the current main head (push runs would otherwise start from the pushed sha).
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -46,7 +58,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           MIN=$((10#$(date -u +%M)))
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$MIN" -lt 5 ]; then
+          if [ "$PERIODIC" != "true" ] || [ "$MIN" -lt 5 ]; then
             python3 scripts/build_community_context.py || true
           fi
           python3 scripts/update_upstream_tracker.py --data data/upstream_frontier.json
@@ -66,7 +78,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ "${{ github.event_name }}" = "schedule" ]; then
+          if [ "$PERIODIC" = "true" ]; then
             python3 scripts/fetch_upstream_pr_insights.py --data data/upstream_pr_insights.json --min-interval-minutes 50
           else
             python3 scripts/fetch_upstream_pr_insights.py --data data/upstream_pr_insights.json
@@ -77,22 +89,37 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           CHANGED="$(git status --porcelain -- data/upstream_frontier.json data/community_context.json data/COMMUNITY_BRIEF.md data/verifytask_board.json data/rh_shrink.json data/upstream_pr_insights.json | cut -c4-)"
-          if [ -n "$CHANGED" ]; then
-            CHANGED_LIST="$CHANGED" TRIGGER="${{ github.event_name }}" RUN_ID="${{ github.run_id }}" python3 -c 'import json,os,datetime;json.dump({"refreshed_at":datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),"trigger":os.environ["TRIGGER"],"run_id":os.environ["RUN_ID"],"changed":os.environ["CHANGED_LIST"].split()},open("data/refresh_status.json","w",encoding="utf-8"),indent=2)'
-            git add -- $CHANGED data/refresh_status.json
-            git commit -m "chore(tracker): auto-update upstream main metrics ($(date -u +%Y-%m-%dT%H:%MZ))"
-            for attempt in 1 2 3; do
-              if git pull --rebase --autostash origin main && git push; then
-                exit 0
-              fi
-              echo "Push attempt $attempt failed; retrying."
-              git rebase --abort 2>/dev/null || true
-              sleep $((attempt * 10))
-            done
-            exit 1
-          else
+          if [ -z "$CHANGED" ]; then
             echo "No upstream metric changes."
+            exit 0
           fi
+          CHANGED_LIST="$CHANGED" TRIGGER="${{ github.event_name }}" RUN_ID="${{ github.run_id }}" python3 -c 'import json,os,datetime;json.dump({"refreshed_at":datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),"trigger":os.environ["TRIGGER"],"run_id":os.environ["RUN_ID"],"changed":os.environ["CHANGED_LIST"].split()},open("data/refresh_status.json","w",encoding="utf-8"),indent=2)'
+          # The data files are fully regenerated, so on a race this run's copies are laid over the newest main
+          # with plumbing (a rebase conflicts whenever another run rewrote the same JSON).
+          FILES="$CHANGED data/refresh_status.json"
+          MSG="chore(tracker): auto-update upstream main metrics ($(date -u +%Y-%m-%dT%H:%MZ))"
+          for attempt in 1 2 3 4; do
+            git fetch -q origin main
+            BASE="$(git rev-parse origin/main)"
+            export GIT_INDEX_FILE="$RUNNER_TEMP/tracker-index"
+            git read-tree "$BASE"
+            for f in $FILES; do
+              git update-index --add --cacheinfo "100644,$(git hash-object -w "$f"),$f"
+            done
+            TREE="$(git write-tree)"
+            unset GIT_INDEX_FILE
+            if [ "$TREE" = "$(git rev-parse "$BASE^{tree}")" ]; then
+              echo "Newest main already has this data."
+              exit 0
+            fi
+            COMMIT="$(git commit-tree "$TREE" -p "$BASE" -m "$MSG")"
+            if git push origin "$COMMIT:refs/heads/main"; then
+              exit 0
+            fi
+            echo "Push attempt $attempt lost a race; retrying on the newest main."
+            sleep $((attempt * 5))
+          done
+          exit 1
 
   # GitHub's scheduler fires "*/10" cron only a few times a day on this repo (7 scheduled runs in ~2 days),
   # so each run dispatches its successor. The concurrency group keeps at most one running + one pending run,
@@ -115,10 +142,10 @@ jobs:
           ELAPSED=$(( $(date -u +%s) - STARTED ))
           WAIT=$(( INTERVAL_SECONDS - ELAPSED ))
           if [ "$WAIT" -gt 720 ]; then WAIT=720; fi
-          if [ "$WAIT" -lt 240 ]; then WAIT=240; fi
+          if [ "$WAIT" -lt 60 ]; then WAIT=60; fi
           if [ "$WAIT" -gt 0 ]; then echo "Sleeping ${WAIT}s"; sleep "$WAIT"; fi
           for attempt in 1 2 3; do
-            CODE=$(curl -sS -o /tmp/dispatch.out -w '%{http_code}' -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${{ github.repository }}/actions/workflows/update-tracker.yml/dispatches" -d '{"ref":"main"}')
+            CODE=$(curl -sS -o /tmp/dispatch.out -w '%{http_code}' -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${{ github.repository }}/actions/workflows/update-tracker.yml/dispatches" -d '{"ref":"main","inputs":{"chained":"true"}}')
             if [ "$CODE" = "204" ]; then echo "Next run dispatched."; exit 0; fi
             echo "Dispatch attempt $attempt returned $CODE"; cat /tmp/dispatch.out || true
             sleep 15
