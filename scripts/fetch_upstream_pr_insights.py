@@ -26,6 +26,8 @@ from pathlib import Path
 DEFAULT_REPO = "leanprover-community/riemann-hypothesis"
 DEFAULT_DATA = "data/upstream_pr_insights.json"
 DEFAULT_DAYS = 14
+# An unchanged fetch restamps generated_at once the stamp is this old (when no --min-interval-minutes is given).
+STAMP_REFRESH_MINUTES = 50.0
 GRAPHQL_URL = "https://api.github.com/graphql"
 REST_API_BASE = "https://api.github.com"
 USER_AGENT = "rh-kernel-backbone-pr-insights/1.0"
@@ -832,8 +834,17 @@ def main() -> int:
     )
 
     if isinstance(existing_payload, dict) and _strip_volatile(payload) == _strip_volatile(existing_payload):
-        print(f"No PR insight changes for {args.repo}; skipping write.")
-        return 0
+        # generated_at is the --min-interval-minutes guard's only clock. Left untouched on an unchanged fetch, it ages
+        # past the interval in a quiet hour and every 10-minute periodic run calls the API again. Restamp an old stamp
+        # (at most one timestamp-only write per interval); a fresh one is kept so push/manual runs add no churn.
+        refresh_after = args.min_interval_minutes if args.min_interval_minutes > 0 else STAMP_REFRESH_MINUTES
+        prev_dt = parse_iso(existing_payload.get("generated_at"))
+        age_min = (now - prev_dt).total_seconds() / 60.0 if prev_dt is not None else None
+        if age_min is not None and 0 <= age_min < refresh_after:
+            print(f"No PR insight changes for {args.repo}; skipping write.")
+            return 0
+        payload = dict(existing_payload, generated_at=fmt_iso(now))
+        print(f"No PR insight changes for {args.repo}; refreshing generated_at only.")
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     tmp_path = out_path.with_name(f".{out_path.name}.{os.getpid()}.{int(time.time())}.tmp")
