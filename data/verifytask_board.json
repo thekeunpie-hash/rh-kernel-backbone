@@ -2,17 +2,17 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "b4adcb173992357f",
-  "updated_at": "2026-11-27T01:49:37.657082+08:00",
+  "revision": "89ac9268bae18785",
+  "updated_at": "2026-11-27T02:02:37.004674+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T17:51:03Z",
+  "generated_at": "2026-11-26T18:04:23Z",
   "summary": {
     "participants": 122,
     "scored_participants": 98,
     "submissions": 2486,
-    "scored_submissions": 1750,
-    "evaluating": 10,
-    "core_evaluating": 10,
+    "scored_submissions": 1751,
+    "evaluating": 9,
+    "core_evaluating": 9,
     "challenges_total": 49,
     "core_solved": 42,
     "core_total": 48,
@@ -37,7 +37,7 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1749,
+    "total_runs": 1750,
     "kept_count": 662,
     "current_best_score": 2870.28,
     "current_best_pct": 33.58,
@@ -26039,6 +26039,21 @@
       },
       {
         "i": 1734,
+        "id": 113590,
+        "ts": "2026-11-26T13:49:39+00:00",
+        "key": "core35",
+        "score": 50.0,
+        "compression_pct": 0.0,
+        "best": 2867.18,
+        "best_pct": 33.56,
+        "kept": false,
+        "author": "Mark Baker",
+        "model": "deepseek-v4-flash-max",
+        "harness": "pi",
+        "method": null
+      },
+      {
+        "i": 1735,
         "id": 113592,
         "ts": "2026-11-26T13:50:00+00:00",
         "key": "core27",
@@ -26053,7 +26068,7 @@
         "method": "Core 27 · Fast: simp_all fold (−94%)"
       },
       {
-        "i": 1735,
+        "i": 1736,
         "id": 113693,
         "ts": "2026-11-26T14:10:01+00:00",
         "key": "core30",
@@ -26068,7 +26083,7 @@
         "method": "Core 30 · Fast: Page/Siegel bound trim + grind automation"
       },
       {
-        "i": 1736,
+        "i": 1737,
         "id": 113719,
         "ts": "2026-11-26T14:18:36+00:00",
         "key": "core33",
@@ -26083,7 +26098,7 @@
         "method": "Core 33 · Fast: Page/Siegel bound trim + grind automation"
       },
       {
-        "i": 1737,
+        "i": 1738,
         "id": 113735,
         "ts": "2026-11-26T14:25:27+00:00",
         "key": "core12",
@@ -26098,7 +26113,7 @@
         "method": "Core 12: grind automation (−90%)"
       },
       {
-        "i": 1738,
+        "i": 1739,
         "id": 113748,
         "ts": "2026-11-26T14:39:56+00:00",
         "key": "core12",
@@ -26113,7 +26128,7 @@
         "method": "Core 12: grind automation (−91%)"
       },
       {
-        "i": 1739,
+        "i": 1740,
         "id": 113752,
         "ts": "2026-11-26T14:42:33+00:00",
         "key": "core5",
@@ -26128,7 +26143,7 @@
         "method": "Core 5: Inline 566 helpers + grind automation"
       },
       {
-        "i": 1740,
+        "i": 1741,
         "id": 113792,
         "ts": "2026-11-26T15:08:20+00:00",
         "key": "core27",
@@ -26143,7 +26158,7 @@
         "method": "Core 27 · Fast: simp_all fold (−94%)"
       },
       {
-        "i": 1741,
+        "i": 1742,
         "id": 113800,
         "ts": "2026-11-26T15:10:10+00:00",
         "key": "core33",
@@ -26158,7 +26173,7 @@
         "method": "Core 33 · Fast: Page/Siegel bound trim + grind automation"
       },
       {
-        "i": 1742,
+        "i": 1743,
         "id": 113810,
         "ts": "2026-11-26T15:11:46+00:00",
         "key": "core2",
@@ -26173,7 +26188,7 @@
         "method": "Core 2: Frobenius lift & orthogonality + grind automation"
       },
       {
-        "i": 1743,
+        "i": 1744,
         "id": 113813,
         "ts": "2026-11-26T15:13:32+00:00",
         "key": "core5",
@@ -26188,7 +26203,7 @@
         "method": "Core 5: Inline 23 helpers + grind automation"
       },
       {
-        "i": 1744,
+        "i": 1745,
         "id": 113819,
         "ts": "2026-11-26T15:17:04+00:00",
         "key": "core53",
@@ -26203,7 +26218,7 @@
         "method": "Core 53 · Fast: Inline 4 helpers + grind automation"
       },
       {
-        "i": 1745,
+        "i": 1746,
         "id": 113847,
         "ts": "2026-11-26T15:38:25+00:00",
         "key": "core40",
@@ -26218,7 +26233,7 @@
         "method": "Core 40 · Fast: simp_all fold (−100%)"
       },
       {
-        "i": 1746,
+        "i": 1747,
         "id": 113904,
         "ts": "2026-11-26T16:15:54+00:00",
         "key": "core2",
@@ -26233,7 +26248,7 @@
         "method": "Core 2: Frobenius lift & orthogonality + grind automation"
       },
       {
-        "i": 1747,
+        "i": 1748,
         "id": 113905,
         "ts": "2026-11-26T16:17:37+00:00",
         "key": "core40",
@@ -26248,7 +26263,7 @@
         "method": "Core 40 · Fast: simp_all fold (−100%)"
       },
       {
-        "i": 1748,
+        "i": 1749,
         "id": 113909,
         "ts": "2026-11-26T16:24:06+00:00",
         "key": "core33",
@@ -26263,7 +26278,7 @@
         "method": "Core 33 · Fast: Page/Siegel bound trim + grind automation"
       },
       {
-        "i": 1749,
+        "i": 1750,
         "id": 113923,
         "ts": "2026-11-26T16:34:11+00:00",
         "key": "core12",
@@ -27685,9 +27700,9 @@
       "reduction_factor": 15.31,
       "score": 68.6012,
       "attempts": 34,
-      "scored_attempts": 24,
-      "participants": 10,
-      "runs": 24,
+      "scored_attempts": 25,
+      "participants": 11,
+      "runs": 25,
       "kept_runs": 13,
       "leader": {
         "author": "Andrew Pullin",
@@ -28316,9 +28331,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1991,
+    "labeled_scored_runs": 1992,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2040,
+    "total_scored_runs": 2041,
     "pairs_total": 72,
     "top_pairs": [
       {
@@ -29284,22 +29299,12 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-26T17:29:37Z",
+      "ts": "2026-11-26T17:59:34Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
       "summary": "New verified modules from the remaining 99% of Alpöge's proof are now live: CM j-Invariant Integrality, Irreducible Complex Open Connected, Siegel–Weil Local Density (+40 more).",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-core-pillar-6-cm-j-invarian-70b3d4ba",
-      "highlight": true
-    },
-    {
-      "id": "upstream-pr-8087",
-      "ts": "2026-11-26T15:30:15Z",
-      "source": "lean_community",
-      "tag": "Upstream PR #8087",
-      "title": "perf(Lib/General/Algebra): speed up kernel checking in LongExactSequences",
-      "summary": "Merged into leanprover-community/riemann-hypothesis by Dharmavati213.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/8087",
       "highlight": true
     },
     {
@@ -29343,6 +29348,16 @@
       "highlight": true
     },
     {
+      "id": "seed-upstream-pr68",
+      "ts": "2026-11-22T07:25:46Z",
+      "source": "lean_community",
+      "tag": "Proof Cleanup",
+      "title": "Shared GL finiteness rank-induction proof cuts 9,010 Lean lines (PR #68)",
+      "summary": "antoshashakov deduplicated GL finiteness proofs (−9,010 lines) alongside CapelliIdentities typeclass dump cleanups merged in PRs #57, #60, and #65.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/68",
+      "highlight": false
+    },
+    {
       "id": "seed-upstream-pr45",
       "ts": "2026-11-21T20:54:20Z",
       "source": "lean_community",
@@ -29377,7 +29392,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1411★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1419★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true
