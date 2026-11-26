@@ -2,15 +2,15 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "c1aa910f4e52e00e",
-  "updated_at": "2026-11-26T18:35:02.467080+08:00",
+  "revision": "f13ee7b752ce7708",
+  "updated_at": "2026-11-26T18:44:22.821942+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T10:36:42Z",
+  "generated_at": "2026-11-26T10:46:50Z",
   "summary": {
     "participants": 121,
     "scored_participants": 98,
-    "submissions": 2420,
-    "scored_submissions": 1703,
+    "submissions": 2421,
+    "scored_submissions": 1704,
     "evaluating": 20,
     "core_evaluating": 20,
     "challenges_total": 49,
@@ -37,7 +37,7 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1702,
+    "total_runs": 1703,
     "kept_count": 625,
     "current_best_score": 2858.05,
     "current_best_pct": 33.5,
@@ -25544,6 +25544,21 @@
       },
       {
         "i": 1701,
+        "id": 113026,
+        "ts": "2026-11-26T09:12:56+00:00",
+        "key": "core23",
+        "score": 73.28,
+        "compression_pct": 98.19,
+        "best": 2856.47,
+        "best_pct": 33.5,
+        "kept": false,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": null
+      },
+      {
+        "i": 1702,
         "id": 113079,
         "ts": "2026-11-26T09:55:20+00:00",
         "key": "core53",
@@ -25558,7 +25573,7 @@
         "method": "Core 53 · Fast: Inline 111 helpers + grind automation"
       },
       {
-        "i": 1702,
+        "i": 1703,
         "id": 113097,
         "ts": "2026-11-26T10:08:42+00:00",
         "key": "core50",
@@ -25635,7 +25650,7 @@
       "char_saved_pct": 83.56,
       "reduction_factor": 8.71,
       "score": 65.9852,
-      "attempts": 134,
+      "attempts": 135,
       "scored_attempts": 113,
       "participants": 28,
       "runs": 113,
@@ -26452,9 +26467,9 @@
       "reduction_factor": 55.32,
       "score": 73.2828,
       "attempts": 29,
-      "scored_attempts": 11,
+      "scored_attempts": 12,
       "participants": 8,
-      "runs": 11,
+      "runs": 12,
       "kept_runs": 8,
       "leader": {
         "author": "Andrew Pullin",
@@ -27611,9 +27626,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1926,
+    "labeled_scored_runs": 1927,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 1975,
+    "total_scored_runs": 1976,
     "pairs_total": 71,
     "top_pairs": [
       {
@@ -27625,7 +27640,7 @@
         "index_score": 59.03,
         "tasks_solved": 42,
         "tasks_total": 48,
-        "mean_score": 64.67,
+        "mean_score": 64.69,
         "mean_compression_pct": 75.2,
         "pass_rate_pct": 86.5,
         "distinct_authors": 1
