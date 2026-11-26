@@ -2,15 +2,15 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "f4c5d26de49d9f6a",
-  "updated_at": "2026-11-26T15:50:10.894810+08:00",
+  "revision": "c84d4a4e2b5fd707",
+  "updated_at": "2026-11-26T16:02:13.290918+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T07:51:55Z",
+  "generated_at": "2026-11-26T08:03:15Z",
   "summary": {
     "participants": 121,
     "scored_participants": 98,
-    "submissions": 2385,
-    "scored_submissions": 1686,
+    "submissions": 2387,
+    "scored_submissions": 1688,
     "evaluating": 13,
     "core_evaluating": 13,
     "challenges_total": 49,
@@ -25,10 +25,10 @@
   },
   "progress": {
     "baseline_tokens": 611228972,
-    "best_tokens": 406618722,
+    "best_tokens": 406618119,
     "saved_tokens_pct": 33.48,
     "baseline_chars": 2086571119,
-    "best_chars": 1408792414,
+    "best_chars": 1408769884,
     "saved_chars_pct": 32.48,
     "solved": 42,
     "challenges": 48,
@@ -37,9 +37,9 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1685,
-    "kept_count": 611,
-    "current_best_score": 2850.82,
+    "total_runs": 1687,
+    "kept_count": 612,
+    "current_best_score": 2850.87,
     "current_best_pct": 33.48,
     "points": [
       {
@@ -24614,6 +24614,21 @@
       },
       {
         "i": 1639,
+        "id": 112215,
+        "ts": "2026-11-26T01:34:41+00:00",
+        "key": "core42",
+        "score": 56.65,
+        "compression_pct": 50.69,
+        "best": 2847.06,
+        "best_pct": 33.44,
+        "kept": false,
+        "author": "flyi",
+        "model": "GLM-5.4",
+        "harness": "ZCode",
+        "method": null
+      },
+      {
+        "i": 1640,
         "id": 112217,
         "ts": "2026-11-26T01:37:12+00:00",
         "key": "core3",
@@ -24628,7 +24643,7 @@
         "method": "Core 3: Borel–Carathéodory + DSlope + grind automation"
       },
       {
-        "i": 1640,
+        "i": 1641,
         "id": 112218,
         "ts": "2026-11-26T01:38:32+00:00",
         "key": "core33",
@@ -24643,7 +24658,7 @@
         "method": null
       },
       {
-        "i": 1641,
+        "i": 1642,
         "id": 112220,
         "ts": "2026-11-26T01:39:42+00:00",
         "key": "core52",
@@ -24658,7 +24673,7 @@
         "method": "Core 52 · Fast: gcongr compress + local notation (−96%)"
       },
       {
-        "i": 1642,
+        "i": 1643,
         "id": 112226,
         "ts": "2026-11-26T01:42:36+00:00",
         "key": "core42",
@@ -24673,7 +24688,7 @@
         "method": null
       },
       {
-        "i": 1643,
+        "i": 1644,
         "id": 112229,
         "ts": "2026-11-26T01:45:25+00:00",
         "key": "core42",
@@ -24688,7 +24703,7 @@
         "method": null
       },
       {
-        "i": 1644,
+        "i": 1645,
         "id": 112230,
         "ts": "2026-11-26T01:45:28+00:00",
         "key": "core52",
@@ -24703,7 +24718,7 @@
         "method": null
       },
       {
-        "i": 1645,
+        "i": 1646,
         "id": 112232,
         "ts": "2026-11-26T01:46:40+00:00",
         "key": "core50",
@@ -24718,7 +24733,7 @@
         "method": null
       },
       {
-        "i": 1646,
+        "i": 1647,
         "id": 112234,
         "ts": "2026-11-26T01:46:42+00:00",
         "key": "core41",
@@ -24733,7 +24748,7 @@
         "method": null
       },
       {
-        "i": 1647,
+        "i": 1648,
         "id": 112237,
         "ts": "2026-11-26T01:50:17+00:00",
         "key": "core27",
@@ -24748,7 +24763,7 @@
         "method": "Core 27 · Fast: grind automation (−92%)"
       },
       {
-        "i": 1648,
+        "i": 1649,
         "id": 112247,
         "ts": "2026-11-26T01:57:20+00:00",
         "key": "core44",
@@ -24763,7 +24778,7 @@
         "method": "Core 44 · Fast: local notation (−100%)"
       },
       {
-        "i": 1649,
+        "i": 1650,
         "id": 112255,
         "ts": "2026-11-26T02:03:25+00:00",
         "key": "core29",
@@ -24778,7 +24793,7 @@
         "method": null
       },
       {
-        "i": 1650,
+        "i": 1651,
         "id": 112262,
         "ts": "2026-11-26T02:09:59+00:00",
         "key": "core36",
@@ -24793,7 +24808,7 @@
         "method": null
       },
       {
-        "i": 1651,
+        "i": 1652,
         "id": 112274,
         "ts": "2026-11-26T02:13:42+00:00",
         "key": "core52",
@@ -24808,7 +24823,7 @@
         "method": "Core 52 · Fast: Collapse 2→1 file + Inline 8 helpers"
       },
       {
-        "i": 1652,
+        "i": 1653,
         "id": 112275,
         "ts": "2026-11-26T02:16:43+00:00",
         "key": "core26",
@@ -24823,7 +24838,7 @@
         "method": null
       },
       {
-        "i": 1653,
+        "i": 1654,
         "id": 112280,
         "ts": "2026-11-26T02:18:23+00:00",
         "key": "core36",
@@ -24838,7 +24853,7 @@
         "method": "Core 36 · Fast: grind automation (−100%)"
       },
       {
-        "i": 1654,
+        "i": 1655,
         "id": 112298,
         "ts": "2026-11-26T02:20:54+00:00",
         "key": "core1",
@@ -24853,7 +24868,7 @@
         "method": null
       },
       {
-        "i": 1655,
+        "i": 1656,
         "id": 112304,
         "ts": "2026-11-26T02:21:59+00:00",
         "key": "core29",
@@ -24868,7 +24883,7 @@
         "method": null
       },
       {
-        "i": 1656,
+        "i": 1657,
         "id": 112325,
         "ts": "2026-11-26T02:39:38+00:00",
         "key": "core52",
@@ -24883,7 +24898,7 @@
         "method": "Core 52 · Fast: gcongr compress + local notation (−96%)"
       },
       {
-        "i": 1657,
+        "i": 1658,
         "id": 112329,
         "ts": "2026-11-26T02:40:26+00:00",
         "key": "core8",
@@ -24898,7 +24913,7 @@
         "method": "Core 8: Frobenius lift & orthogonality + grind automation"
       },
       {
-        "i": 1658,
+        "i": 1659,
         "id": 112364,
         "ts": "2026-11-26T02:47:40+00:00",
         "key": "core23",
@@ -24913,7 +24928,7 @@
         "method": "Core 23: Prune 19 files + Frobenius lift & orthogonality"
       },
       {
-        "i": 1659,
+        "i": 1660,
         "id": 112376,
         "ts": "2026-11-26T02:48:51+00:00",
         "key": "core29",
@@ -24928,7 +24943,7 @@
         "method": "Core 29 · Fast: Inline 2 helpers + grind automation"
       },
       {
-        "i": 1660,
+        "i": 1661,
         "id": 112538,
         "ts": "2026-11-26T03:13:12+00:00",
         "key": "core44",
@@ -24943,7 +24958,7 @@
         "method": "Core 44 · Fast: Prune helper lemmas & proofs (−100%)"
       },
       {
-        "i": 1661,
+        "i": 1662,
         "id": 112545,
         "ts": "2026-11-26T03:16:30+00:00",
         "key": "core53",
@@ -24958,7 +24973,7 @@
         "method": "Core 53 · Fast: Inline 18 helpers + linarith compress"
       },
       {
-        "i": 1662,
+        "i": 1663,
         "id": 112561,
         "ts": "2026-11-26T03:24:03+00:00",
         "key": "core53",
@@ -24973,7 +24988,7 @@
         "method": "Core 53 · Fast: Inline 19 helpers + gcongr compress"
       },
       {
-        "i": 1663,
+        "i": 1664,
         "id": 112594,
         "ts": "2026-11-26T03:46:58+00:00",
         "key": "core44",
@@ -24988,7 +25003,7 @@
         "method": "Core 44 · Fast: Prune helper lemmas & proofs (−100%)"
       },
       {
-        "i": 1664,
+        "i": 1665,
         "id": 112657,
         "ts": "2026-11-26T04:29:13+00:00",
         "key": "core27",
@@ -25003,7 +25018,7 @@
         "method": "Core 27 · Fast: Inline 80 helpers + grind automation"
       },
       {
-        "i": 1665,
+        "i": 1666,
         "id": 112658,
         "ts": "2026-11-26T04:30:35+00:00",
         "key": "core40",
@@ -25018,7 +25033,7 @@
         "method": "Core 40 · Fast: aesop compress (−100%)"
       },
       {
-        "i": 1666,
+        "i": 1667,
         "id": 112659,
         "ts": "2026-11-26T04:31:43+00:00",
         "key": "core12",
@@ -25033,7 +25048,7 @@
         "method": "Core 12: aesop compress (−90%)"
       },
       {
-        "i": 1667,
+        "i": 1668,
         "id": 112695,
         "ts": "2026-11-26T04:57:25+00:00",
         "key": "core35",
@@ -25048,7 +25063,7 @@
         "method": null
       },
       {
-        "i": 1668,
+        "i": 1669,
         "id": 112697,
         "ts": "2026-11-26T05:01:01+00:00",
         "key": "core44",
@@ -25063,7 +25078,7 @@
         "method": "Core 44 · Fast: trim imports (−100%)"
       },
       {
-        "i": 1669,
+        "i": 1670,
         "id": 112725,
         "ts": "2026-11-26T05:11:31+00:00",
         "key": "core28",
@@ -25078,7 +25093,7 @@
         "method": null
       },
       {
-        "i": 1670,
+        "i": 1671,
         "id": 112737,
         "ts": "2026-11-26T05:13:03+00:00",
         "key": "core45",
@@ -25093,7 +25108,7 @@
         "method": null
       },
       {
-        "i": 1671,
+        "i": 1672,
         "id": 112740,
         "ts": "2026-11-26T05:13:07+00:00",
         "key": "core48",
@@ -25108,7 +25123,7 @@
         "method": null
       },
       {
-        "i": 1672,
+        "i": 1673,
         "id": 112742,
         "ts": "2026-11-26T05:13:40+00:00",
         "key": "core52",
@@ -25123,7 +25138,7 @@
         "method": "Core 52 · Fast: Collapse 2→1 file + Inline 8 helpers"
       },
       {
-        "i": 1673,
+        "i": 1674,
         "id": 112751,
         "ts": "2026-11-26T05:15:05+00:00",
         "key": "core44",
@@ -25138,7 +25153,7 @@
         "method": "Core 44 · Fast: Prune helper lemmas & proofs (−100%)"
       },
       {
-        "i": 1674,
+        "i": 1675,
         "id": 112773,
         "ts": "2026-11-26T05:32:21+00:00",
         "key": "core44",
@@ -25153,7 +25168,7 @@
         "method": "Core 44 · Fast: Prune helper lemmas & proofs (−100%)"
       },
       {
-        "i": 1675,
+        "i": 1676,
         "id": 112789,
         "ts": "2026-11-26T05:45:49+00:00",
         "key": "core42",
@@ -25168,7 +25183,7 @@
         "method": null
       },
       {
-        "i": 1676,
+        "i": 1677,
         "id": 112792,
         "ts": "2026-11-26T05:47:46+00:00",
         "key": "core46",
@@ -25183,7 +25198,7 @@
         "method": null
       },
       {
-        "i": 1677,
+        "i": 1678,
         "id": 112793,
         "ts": "2026-11-26T05:47:58+00:00",
         "key": "core45",
@@ -25198,7 +25213,7 @@
         "method": null
       },
       {
-        "i": 1678,
+        "i": 1679,
         "id": 112794,
         "ts": "2026-11-26T05:48:01+00:00",
         "key": "core50",
@@ -25213,7 +25228,7 @@
         "method": null
       },
       {
-        "i": 1679,
+        "i": 1680,
         "id": 112796,
         "ts": "2026-11-26T05:48:43+00:00",
         "key": "core52",
@@ -25228,7 +25243,7 @@
         "method": null
       },
       {
-        "i": 1680,
+        "i": 1681,
         "id": 112800,
         "ts": "2026-11-26T05:51:33+00:00",
         "key": "core33",
@@ -25243,7 +25258,7 @@
         "method": "Core 33 · Fast: Inline 9 helpers + aesop compress"
       },
       {
-        "i": 1681,
+        "i": 1682,
         "id": 112807,
         "ts": "2026-11-26T06:02:47+00:00",
         "key": "core48",
@@ -25258,7 +25273,7 @@
         "method": null
       },
       {
-        "i": 1682,
+        "i": 1683,
         "id": 112808,
         "ts": "2026-11-26T06:02:55+00:00",
         "key": "core49",
@@ -25273,7 +25288,7 @@
         "method": null
       },
       {
-        "i": 1683,
+        "i": 1684,
         "id": 112810,
         "ts": "2026-11-26T06:03:32+00:00",
         "key": "core53",
@@ -25288,7 +25303,7 @@
         "method": null
       },
       {
-        "i": 1684,
+        "i": 1685,
         "id": 112811,
         "ts": "2026-11-26T06:03:51+00:00",
         "key": "core44",
@@ -25303,7 +25318,7 @@
         "method": null
       },
       {
-        "i": 1685,
+        "i": 1686,
         "id": 112828,
         "ts": "2026-11-26T06:15:49+00:00",
         "key": "core50",
@@ -25316,6 +25331,21 @@
         "model": "The Council",
         "harness": "pi",
         "method": "Core 50 · Fast: Collapse 4→1 file + Inline 83 helpers"
+      },
+      {
+        "i": 1687,
+        "id": 112837,
+        "ts": "2026-11-26T06:22:33+00:00",
+        "key": "core35",
+        "score": 68.11,
+        "compression_pct": 92.68,
+        "best": 2850.87,
+        "best_pct": 33.48,
+        "kept": true,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": "Core 35 · Fast: Inline 70 helpers + aesop compress"
       }
     ]
   },
@@ -26717,23 +26747,23 @@
       "metric": "tokens",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-fast-sub-pillar-35-adelic-h-8cdb9102",
       "baseline_tokens": 773767,
-      "best_tokens": 57256,
+      "best_tokens": 56653,
       "baseline_chars": 2600973,
-      "best_chars": 208070,
-      "token_saved_pct": 92.6,
-      "char_saved_pct": 92.0,
-      "reduction_factor": 13.51,
-      "score": 68.0592,
+      "best_chars": 185540,
+      "token_saved_pct": 92.68,
+      "char_saved_pct": 92.87,
+      "reduction_factor": 13.66,
+      "score": 68.106,
       "attempts": 28,
-      "scored_attempts": 21,
+      "scored_attempts": 22,
       "participants": 10,
-      "runs": 21,
-      "kept_runs": 10,
+      "runs": 22,
+      "kept_runs": 11,
       "leader": {
-        "author": "Mikko Nyman",
-        "score": 68.06,
-        "model": "Fable 5.2, Astra 6.2, Neon 4, Carbon 4",
-        "harness": "Claude Code + Codex + Antigravity",
+        "author": "Andrew Pullin",
+        "score": 68.11,
+        "model": "The Council",
+        "harness": "pi",
         "axiom_status": "verified_clean",
         "quality": "substantive"
       },
@@ -26741,15 +26771,15 @@
       "last_update": null,
       "technique": {
         "id": "core35_simplify_1",
-        "attempt_id": 111838,
+        "attempt_id": 112837,
         "challenge_key": "core35",
         "title": "Hermitian Amplitude Expansion: Proof Compression (405 → 1 Files)",
         "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
-        "author": "Mikko Nyman",
-        "model": "Fable 5.2, Astra 6.2, Neon 4, Carbon 4",
-        "harness": "Claude Code + Codex + Antigravity",
-        "metric": "405→1 files · −92.6% tokens",
-        "primary_pct": 92.6
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "metric": "405→1 files · −92.7% tokens",
+        "primary_pct": 92.7
       }
     },
     {
@@ -26944,10 +26974,10 @@
       "char_saved_pct": 62.29,
       "reduction_factor": 2.62,
       "score": 58.637,
-      "attempts": 11,
-      "scored_attempts": 9,
-      "participants": 6,
-      "runs": 9,
+      "attempts": 12,
+      "scored_attempts": 10,
+      "participants": 7,
+      "runs": 10,
       "kept_runs": 4,
       "leader": {
         "author": "Andrew Pullin",
@@ -27076,7 +27106,7 @@
       "char_saved_pct": 70.71,
       "reduction_factor": 3.3,
       "score": 60.2973,
-      "attempts": 14,
+      "attempts": 15,
       "scored_attempts": 12,
       "participants": 5,
       "runs": 12,
@@ -27356,10 +27386,10 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1900,
+    "labeled_scored_runs": 1902,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 1949,
-    "pairs_total": 70,
+    "total_scored_runs": 1951,
+    "pairs_total": 71,
     "top_pairs": [
       {
         "rank": 1,
@@ -27370,7 +27400,7 @@
         "index_score": 58.78,
         "tasks_solved": 42,
         "tasks_total": 48,
-        "mean_score": 64.52,
+        "mean_score": 64.53,
         "mean_compression_pct": 74.9,
         "pass_rate_pct": 86.0,
         "distinct_authors": 1
@@ -27989,15 +28019,15 @@
     },
     {
       "id": "core35_simplify_1",
-      "attempt_id": 111838,
+      "attempt_id": 112837,
       "challenge_key": "core35",
       "title": "Hermitian Amplitude Expansion: Proof Compression (405 → 1 Files)",
       "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
-      "author": "Mikko Nyman",
-      "model": "Fable 5.2, Astra 6.2, Neon 4, Carbon 4",
-      "harness": "Claude Code + Codex + Antigravity",
-      "metric": "405→1 files · −92.6% tokens",
-      "primary_pct": 92.6
+      "author": "Andrew Pullin",
+      "model": "The Council",
+      "harness": "pi",
+      "metric": "405→1 files · −92.7% tokens",
+      "primary_pct": 92.7
     },
     {
       "id": "core35_simplify_185",
@@ -28313,7 +28343,7 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-26T07:29:40Z",
+      "ts": "2026-11-26T07:59:21Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
@@ -28406,7 +28436,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1317★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1320★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true
