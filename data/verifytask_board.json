@@ -2,17 +2,17 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "28edf0d984c78558",
-  "updated_at": "2026-11-26T12:17:39.336980+08:00",
+  "revision": "0675d05e043b9369",
+  "updated_at": "2026-11-26T12:27:09.222329+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T04:19:03Z",
+  "generated_at": "2026-11-26T04:29:04Z",
   "summary": {
     "participants": 121,
     "scored_participants": 98,
-    "submissions": 2343,
+    "submissions": 2344,
     "scored_submissions": 1664,
-    "evaluating": 1,
-    "core_evaluating": 1,
+    "evaluating": 2,
+    "core_evaluating": 2,
     "challenges_total": 49,
     "core_solved": 42,
     "core_total": 48,
@@ -25788,7 +25788,7 @@
       "char_saved_pct": 0.0,
       "reduction_factor": null,
       "score": 0.0,
-      "attempts": 27,
+      "attempts": 28,
       "scored_attempts": 0,
       "participants": 0,
       "runs": 0,
@@ -27026,9 +27026,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1877,
+    "labeled_scored_runs": 1875,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 1926,
+    "total_scored_runs": 1924,
     "pairs_total": 70,
     "top_pairs": [
       {
@@ -27042,7 +27042,7 @@
         "tasks_total": 48,
         "mean_score": 64.28,
         "mean_compression_pct": 74.3,
-        "pass_rate_pct": 85.2,
+        "pass_rate_pct": 85.6,
         "distinct_authors": 1
       },
       {
