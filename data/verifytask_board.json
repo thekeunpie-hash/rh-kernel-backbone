@@ -3,9 +3,9 @@
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
   "revision": "b4adcb173992357f",
-  "updated_at": "2026-11-27T01:39:40.554579+08:00",
+  "updated_at": "2026-11-27T01:49:37.657082+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T17:40:52Z",
+  "generated_at": "2026-11-26T17:51:03Z",
   "summary": {
     "participants": 122,
     "scored_participants": 98,
@@ -28316,9 +28316,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1990,
+    "labeled_scored_runs": 1991,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2039,
+    "total_scored_runs": 2040,
     "pairs_total": 72,
     "top_pairs": [
       {
