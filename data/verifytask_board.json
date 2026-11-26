@@ -2,15 +2,15 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "ea7936254d9d8250",
-  "updated_at": "2026-11-27T04:00:01.893188+08:00",
+  "revision": "5bb77c068993df85",
+  "updated_at": "2026-11-27T04:09:27.431851+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T20:01:49Z",
+  "generated_at": "2026-11-26T20:11:59Z",
   "summary": {
     "participants": 122,
     "scored_participants": 98,
-    "submissions": 2487,
-    "scored_submissions": 1756,
+    "submissions": 2488,
+    "scored_submissions": 1757,
     "evaluating": 2,
     "core_evaluating": 2,
     "challenges_total": 49,
@@ -37,7 +37,7 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1755,
+    "total_runs": 1756,
     "kept_count": 665,
     "current_best_score": 2870.77,
     "current_best_pct": 33.58,
@@ -25773,7 +25773,7 @@
         "ts": "2026-11-26T12:35:56+00:00",
         "key": "core32",
         "score": 50.88,
-        "compression_pct": 0.0,
+        "compression_pct": 7.88,
         "best": 2863.6,
         "best_pct": 33.54,
         "kept": false,
@@ -26366,6 +26366,21 @@
         "model": "The Council",
         "harness": "pi",
         "method": "Core 30 · Fast: Inline 16 helpers + grind automation"
+      },
+      {
+        "i": 1756,
+        "id": 114018,
+        "ts": "2026-11-26T19:46:59+00:00",
+        "key": "core32",
+        "score": 51.16,
+        "compression_pct": 0.0,
+        "best": 2870.77,
+        "best_pct": 33.58,
+        "kept": false,
+        "author": "Emanuel Barbosa de Moura",
+        "model": "Gemini",
+        "harness": "ci-lean4",
+        "method": null
       }
     ]
   },
@@ -27422,7 +27437,7 @@
       "char_saved_pct": 94.58,
       "reduction_factor": 17.08,
       "score": 69.0641,
-      "attempts": 36,
+      "attempts": 37,
       "scored_attempts": 27,
       "participants": 12,
       "runs": 27,
@@ -27643,9 +27658,9 @@
       "reduction_factor": 1.97,
       "score": 56.4196,
       "attempts": 68,
-      "scored_attempts": 46,
+      "scored_attempts": 47,
       "participants": 16,
-      "runs": 46,
+      "runs": 47,
       "kept_runs": 15,
       "leader": {
         "author": "Andrew Pullin",
@@ -28406,9 +28421,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1997,
+    "labeled_scored_runs": 1998,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2046,
+    "total_scored_runs": 2047,
     "pairs_total": 72,
     "top_pairs": [
       {
