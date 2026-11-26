@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T21:26:20Z",
+  "generated_at": "2026-11-26T21:38:52Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -506,8 +506,8 @@
     }
   ],
   "live_main": {
-    "sha": "c5451bd3b",
-    "commit_date": "2026-11-26T15:26:45Z",
+    "sha": "69c5b5e78",
+    "commit_date": "2026-11-26T21:27:07Z",
     "toolchain": "leanprover/lean4:v4.37.0-rc1",
     "lean_files": 801,
     "total_lines": 478996,
@@ -518,8 +518,8 @@
     "heartbeat_options": 1,
     "files_delta_vs_v021": -174386,
     "lines_delta_vs_v021": -16895219,
-    "open_pr_count": 851,
-    "measured_at": "2026-11-26T21:26:20Z"
+    "open_pr_count": 856,
+    "measured_at": "2026-11-26T21:38:52Z"
   },
   "live_history": [
     {
@@ -1263,6 +1263,18 @@
       "import_lines": 6895,
       "backward_options": 1,
       "heartbeat_options": 1
+    },
+    {
+      "date": "2026-11-26T21:27:07Z",
+      "sha": "69c5b5e78",
+      "label": "main@69c5b5e78",
+      "toolchain": "leanprover/lean4:v4.37.0-rc1",
+      "lean_files": 801,
+      "total_lines": 478996,
+      "declarations": 23041,
+      "import_lines": 6895,
+      "backward_options": 1,
+      "heartbeat_options": 1
     }
   ],
   "stacked_pr_queue": [
@@ -1777,8 +1789,8 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-26T21:26:20Z",
-    "total_merged_prs": 5968,
+    "measured_at": "2026-11-26T21:38:52Z",
+    "total_merged_prs": 5969,
     "total_batch_queue_prs": 0,
     "entries": [
       {
@@ -1850,18 +1862,18 @@
           "ops_review": "PR triage, labeling & merges"
         },
         "bio": "Repository collaborator handling PR review, triage, and verification tooling. Authored the DeepMind formal-conjectures Comparator setup (#88) and the `batch queue` label and batch-assembly workflows (#226, #233).",
-        "merged_direct": 991,
+        "merged_direct": 992,
         "merged_batch_extra": 0,
-        "merged_total": 991,
+        "merged_total": 992,
         "merged_prs": [
+          8880,
           8077,
           8031,
           8028,
           8027,
           8026,
           8025,
-          8024,
-          7882
+          8024
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,

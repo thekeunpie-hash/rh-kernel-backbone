@@ -6,7 +6,7 @@
     "method": "text search over .lean files under src/, one point per main commit (rh-shrink collect.py)",
     "schema_version": 7
   },
-  "commits_measured": 61,
+  "commits_measured": 62,
   "original": {
     "sha": "47fcde57c49eedd5a6352f4c8745d30bebbe4b0b",
     "date": "2026-11-25T22:24:29Z",
@@ -23,10 +23,10 @@
     "statements": 17676
   },
   "latest": {
-    "sha": "c5451bd3ba92480e05c4218f5221bb2900c58706",
-    "date": "2026-11-26T15:26:45Z",
-    "subject": "Merge pull request #8141 from leanprover-community/batch/m45b-on-main",
-    "pr": 8141,
+    "sha": "69c5b5e78c82da0e6df4a090eaca6b96d52ac196",
+    "date": "2026-11-26T21:27:07Z",
+    "subject": "Merge pull request #8880 from leanprover-community/doc/agents-md",
+    "pr": 8880,
     "files": 801,
     "lines": 478996,
     "code": 297622,
@@ -392,6 +392,10 @@
     ],
     [
       "2026-11-26T15:26:45Z",
+      297622
+    ],
+    [
+      "2026-11-26T21:27:07Z",
       297622
     ]
   ]
