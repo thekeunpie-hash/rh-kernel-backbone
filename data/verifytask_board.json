@@ -2,15 +2,15 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "985f28cb2a6bf853",
-  "updated_at": "2026-11-27T06:17:08.566272+08:00",
+  "revision": "5b67f7c9c05b6371",
+  "updated_at": "2026-11-27T06:30:05.772349+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T22:19:32Z",
+  "generated_at": "2026-11-26T22:32:38Z",
   "summary": {
     "participants": 122,
     "scored_participants": 98,
-    "submissions": 2491,
-    "scored_submissions": 1760,
+    "submissions": 2492,
+    "scored_submissions": 1761,
     "evaluating": 2,
     "core_evaluating": 2,
     "challenges_total": 49,
@@ -37,7 +37,7 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1759,
+    "total_runs": 1760,
     "kept_count": 668,
     "current_best_score": 2871.57,
     "current_best_pct": 33.58,
@@ -26373,7 +26373,7 @@
         "ts": "2026-11-26T19:46:59+00:00",
         "key": "core32",
         "score": 51.16,
-        "compression_pct": 0.0,
+        "compression_pct": 10.37,
         "best": 2870.77,
         "best_pct": 33.58,
         "kept": false,
@@ -26426,6 +26426,21 @@
         "model": "The Council",
         "harness": "pi",
         "method": "Core 27 · Fast: Inline 3 helpers + grind automation"
+      },
+      {
+        "i": 1760,
+        "id": 114034,
+        "ts": "2026-11-26T21:24:38+00:00",
+        "key": "core32",
+        "score": 51.23,
+        "compression_pct": 0.0,
+        "best": 2871.57,
+        "best_pct": 33.58,
+        "kept": false,
+        "author": "Emanuel Barbosa de Moura",
+        "model": "Gemini",
+        "harness": "ci-lean4",
+        "method": null
       }
     ]
   },
@@ -27702,10 +27717,10 @@
       "char_saved_pct": 47.99,
       "reduction_factor": 1.97,
       "score": 56.4196,
-      "attempts": 69,
-      "scored_attempts": 47,
+      "attempts": 70,
+      "scored_attempts": 48,
       "participants": 16,
-      "runs": 47,
+      "runs": 48,
       "kept_runs": 15,
       "leader": {
         "author": "Andrew Pullin",
@@ -28466,9 +28481,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 2001,
+    "labeled_scored_runs": 2002,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2050,
+    "total_scored_runs": 2051,
     "pairs_total": 72,
     "top_pairs": [
       {
@@ -29434,22 +29449,12 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-26T21:59:19Z",
+      "ts": "2026-11-26T22:29:24Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
       "summary": "New verified modules from the remaining 99% of Alpöge's proof are now live: CM j-Invariant Integrality, Irreducible Complex Open Connected, Siegel–Weil Local Density (+40 more).",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-core-pillar-6-cm-j-invarian-70b3d4ba",
-      "highlight": true
-    },
-    {
-      "id": "upstream-pr-8259",
-      "ts": "2026-11-26T21:50:20Z",
-      "source": "lean_community",
-      "tag": "Upstream PR #8259",
-      "title": "refactor: use strict monotonicity for the Pieri step kernel",
-      "summary": "Merged into leanprover-community/riemann-hypothesis by nefelibata5136-code.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/8259",
       "highlight": true
     },
     {
@@ -29493,6 +29498,16 @@
       "highlight": true
     },
     {
+      "id": "seed-upstream-pr68",
+      "ts": "2026-11-22T07:25:46Z",
+      "source": "lean_community",
+      "tag": "Proof Cleanup",
+      "title": "Shared GL finiteness rank-induction proof cuts 9,010 Lean lines (PR #68)",
+      "summary": "antoshashakov deduplicated GL finiteness proofs (−9,010 lines) alongside CapelliIdentities typeclass dump cleanups merged in PRs #57, #60, and #65.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/68",
+      "highlight": false
+    },
+    {
       "id": "seed-upstream-pr45",
       "ts": "2026-11-21T20:54:20Z",
       "source": "lean_community",
@@ -29527,7 +29542,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1448★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1451★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true

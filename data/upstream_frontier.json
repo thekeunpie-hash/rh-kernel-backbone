@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T22:19:22Z",
+  "generated_at": "2026-11-26T22:32:26Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -518,8 +518,8 @@
     "heartbeat_options": 1,
     "files_delta_vs_v021": -174385,
     "lines_delta_vs_v021": -16895624,
-    "open_pr_count": 648,
-    "measured_at": "2026-11-26T22:19:22Z"
+    "open_pr_count": 660,
+    "measured_at": "2026-11-26T22:32:26Z"
   },
   "live_history": [
     {
@@ -1813,7 +1813,7 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-26T22:19:22Z",
+    "measured_at": "2026-11-26T22:32:26Z",
     "total_merged_prs": 6104,
     "total_batch_queue_prs": 0,
     "entries": [
@@ -1990,18 +1990,18 @@
           "ops_review": "Documentation (#146) & cache-client fix (#202)"
         },
         "bio": "Authored the cache-client fix #202 (remove Lake's saved hashes before unpacking) and documentation PR #146, and hosts the frozen `riemann-hypothesis-original` mirror with a prebuilt Lean 4.33.1 cache.",
-        "merged_direct": 13,
+        "merged_direct": 14,
         "merged_batch_extra": 0,
-        "merged_total": 13,
+        "merged_total": 14,
         "merged_prs": [
+          8130,
           8098,
           8089,
           5777,
           5754,
           706,
           434,
-          202,
-          146
+          202
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -2214,9 +2214,9 @@
           "ops_review": ""
         },
         "bio": "Authored merged dead-module pruning PR #45 (-10,718 unreachable files), organized a 104-volunteer replay of Alpöge's 175,187-module release (`rohanarun/alpoge-rh-replay`; 109,719 modules with recorded evidence, now closed), and proposed module consolidation in #120 (93,601 modules -> 20,258 bundles; closed unmerged — the consolidation that merged is #324).",
-        "merged_direct": 35,
+        "merged_direct": 38,
         "merged_batch_extra": 0,
-        "merged_total": 35,
+        "merged_total": 38,
         "merged_prs": [
           8382,
           8376,
