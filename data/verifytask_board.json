@@ -2,15 +2,15 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "d2baac7887274a01",
-  "updated_at": "2026-11-27T04:29:39.112204+08:00",
+  "revision": "b58a8c47ba04d2ab",
+  "updated_at": "2026-11-27T04:42:06.725540+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T20:32:12Z",
+  "generated_at": "2026-11-26T20:45:01Z",
   "summary": {
     "participants": 122,
     "scored_participants": 98,
-    "submissions": 2488,
-    "scored_submissions": 1757,
+    "submissions": 2489,
+    "scored_submissions": 1758,
     "evaluating": 2,
     "core_evaluating": 2,
     "challenges_total": 49,
@@ -25,10 +25,10 @@
   },
   "progress": {
     "baseline_tokens": 611228972,
-    "best_tokens": 405977224,
+    "best_tokens": 405975737,
     "saved_tokens_pct": 33.58,
     "baseline_chars": 2086571119,
-    "best_chars": 1406742694,
+    "best_chars": 1406737809,
     "saved_chars_pct": 32.58,
     "solved": 42,
     "challenges": 48,
@@ -37,9 +37,9 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1756,
-    "kept_count": 665,
-    "current_best_score": 2870.77,
+    "total_runs": 1757,
+    "kept_count": 666,
+    "current_best_score": 2871.06,
     "current_best_pct": 33.58,
     "points": [
       {
@@ -26381,6 +26381,21 @@
         "model": "Gemini",
         "harness": "ci-lean4",
         "method": null
+      },
+      {
+        "i": 1757,
+        "id": 114024,
+        "ts": "2026-11-26T20:04:40+00:00",
+        "key": "core27",
+        "score": 69.35,
+        "compression_pct": 94.54,
+        "best": 2871.06,
+        "best_pct": 33.58,
+        "kept": true,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": "Core 27 · Fast: Inline 3 helpers + grind automation"
       }
     ]
   },
@@ -27430,21 +27445,21 @@
       "metric": "tokens",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-fast-sub-pillar-27-tale-coh-2fe2e505",
       "baseline_tokens": 380133,
-      "best_tokens": 22256,
+      "best_tokens": 20769,
       "baseline_chars": 1308094,
-      "best_chars": 70909,
-      "token_saved_pct": 94.15,
-      "char_saved_pct": 94.58,
-      "reduction_factor": 17.08,
-      "score": 69.0641,
-      "attempts": 37,
-      "scored_attempts": 27,
+      "best_chars": 66024,
+      "token_saved_pct": 94.54,
+      "char_saved_pct": 94.95,
+      "reduction_factor": 18.3,
+      "score": 69.3488,
+      "attempts": 38,
+      "scored_attempts": 28,
       "participants": 12,
-      "runs": 27,
-      "kept_runs": 15,
+      "runs": 28,
+      "kept_runs": 16,
       "leader": {
         "author": "Andrew Pullin",
-        "score": 69.06,
+        "score": 69.35,
         "model": "The Council",
         "harness": "pi",
         "axiom_status": "verified_clean",
@@ -27454,15 +27469,15 @@
       "last_update": null,
       "technique": {
         "id": "core27_simplify_1",
-        "attempt_id": 113977,
+        "attempt_id": 114024,
         "challenge_key": "core27",
         "title": "Étale Integral Surjective Descent: Proof Compression (363 → 1 Files)",
         "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
         "author": "Andrew Pullin",
         "model": "The Council",
         "harness": "pi",
-        "metric": "363→1 files · −94.2% tokens",
-        "primary_pct": 94.2
+        "metric": "363→1 files · −94.5% tokens",
+        "primary_pct": 94.5
       }
     },
     {
@@ -28421,9 +28436,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1998,
+    "labeled_scored_runs": 1999,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2047,
+    "total_scored_runs": 2048,
     "pairs_total": 72,
     "top_pairs": [
       {
@@ -28432,10 +28447,10 @@
         "model": "The Council",
         "harness": "pi",
         "provider": "other",
-        "index_score": 59.78,
+        "index_score": 59.79,
         "tasks_solved": 42,
         "tasks_total": 48,
-        "mean_score": 65.13,
+        "mean_score": 65.14,
         "mean_compression_pct": 76.7,
         "pass_rate_pct": 87.8,
         "distinct_authors": 1
@@ -28887,15 +28902,15 @@
     },
     {
       "id": "core27_simplify_1",
-      "attempt_id": 113977,
+      "attempt_id": 114024,
       "challenge_key": "core27",
       "title": "Étale Integral Surjective Descent: Proof Compression (363 → 1 Files)",
       "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
       "author": "Andrew Pullin",
       "model": "The Council",
       "harness": "pi",
-      "metric": "363→1 files · −94.2% tokens",
-      "primary_pct": 94.2
+      "metric": "363→1 files · −94.5% tokens",
+      "primary_pct": 94.5
     },
     {
       "id": "core27_simplify_314",
