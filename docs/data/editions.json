@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-26T12:05:44+09:00",
+  "generated_at": "2026-11-26T14:02:16+09:00",
   "source": "rh-ssot reports: GRH_VS_COMPACT_ANALYSIS.md, grh_vs_compact_comparison.json, cross_edition_dissection.json, grh_compact_full_pairing.json, references_unlinked_map.json, tauceti_candidates.json",
   "editions": [
     { "id": "alpoge_v021", "label": "Original Alpöge v0.2.1" },
     { "id": "grh_readable", "label": "grh/ readable (300k)" },
     { "id": "grh_compact", "label": "grh-compact (76k)" },
-    { "id": "grh_clean", "label": "grh-clean local branch (main@e063a92 − 62 dead decls)" }
+    { "id": "grh_clean", "label": "grh-clean (local branch)" }
   ],
   "rows": [
     { "label": "Files", "fmt": "int", "values": [175187, 803, 794, 802] },
@@ -33,6 +33,11 @@
     "compact_build_sec": 2012
   },
   "cross_repo_pairing": {
+    "measured_at": "2026-11-26T13:38:07+09:00",
+    "similarity_threshold": 0.1461,
+    "merge_edges": 116,
+    "split_edges": 155,
+    "genuine_shorter_rule": "non-whitespace characters down by at least 2,000 and at least 25%, and Lean tokens down by at least 20%",
     "grh_modules": 803,
     "compact_modules": 794,
     "common_path_modules": 74,

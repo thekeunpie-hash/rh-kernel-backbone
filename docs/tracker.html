@@ -3332,25 +3332,33 @@
               }
               var p = d && d.cross_repo_pairing;
               if (pairEl && p && typeof p.grh_modules === "number" && typeof p.non_identical_pairs_accepted === "number") {
-                var pt = "Cross-edition module pairing (" + num(p.grh_modules) + " grh/ vs " + num(p.compact_modules) +
-                  " grh-compact modules, " + num(p.common_path_modules) + " identical paths): Hungarian TF-IDF alignment matched " +
-                  num(p.non_identical_pairs_accepted) + " non-identical pairs (" +
-                  num(p.grh_only_covered) + "/" + num(p.grh_only_total) + " grh-only, " +
-                  num(p.compact_only_covered) + "/" + num(p.compact_only_total) + " compact-only), including " +
-                  num(p.high_confidence_pairs) + " high-confidence mutual top-1 pairs (cosine >= " + p.high_confidence_cosine_min +
-                  "), of which " + num(p.high_confidence_genuine_shorter) + " are shorter in compact (-" +
-                  num(p.high_confidence_genuine_shorter_non_ws_saved) + " non-ws chars; " +
-                  num(p.high_confidence_1to1_genuine_shorter) + " strict 1:1 saving " +
-                  num(p.high_confidence_1to1_non_ws_saved) + " non-ws chars).";
+                // Scope and wording follow downloads/rh-ssot GRH_COMPACT_FULL_PAIRING.md: 533 is the one-to-one
+                // assignment above the threshold; the covered counts also include merge and split links.
+                var links = typeof p.merge_edges === "number" && typeof p.split_edges === "number";
+                var pt = "Cross-edition module pairing" +
+                  (p.measured_at ? " (measured " + String(p.measured_at).slice(0, 10) + ")" : "") + ": grh/ has " +
+                  num(p.grh_modules) + " modules and grh-compact " + num(p.compact_modules) + "; " +
+                  num(p.common_path_modules) + " share a path. The other " + num(p.grh_only_total) + " × " +
+                  num(p.compact_only_total) + " modules were aligned by content (TF-IDF similarity, one-to-one Hungarian assignment): " +
+                  num(p.non_identical_pairs_accepted) + " pairs pass the similarity threshold" +
+                  (typeof p.similarity_threshold === "number" ? " " + p.similarity_threshold : "") +
+                  (links ? ", and with " + num(p.merge_edges) + " merge and " + num(p.split_edges) + " split links added, " : ". In total, ") +
+                  num(p.grh_only_covered) + " of " + num(p.grh_only_total) + " grh-only and " +
+                  num(p.compact_only_covered) + " of " + num(p.compact_only_total) + " compact-only modules have a counterpart. " +
+                  num(p.high_confidence_pairs) + " pairs are high-confidence (each is the other's best match, similarity ≥ " +
+                  p.high_confidence_cosine_min + "). Of these, " + num(p.high_confidence_genuine_shorter) +
+                  " are shorter in compact" + (p.genuine_shorter_rule ? " (" + p.genuine_shorter_rule + ")" : "") +
+                  ", saving " + num(p.high_confidence_genuine_shorter_non_ws_saved) + " non-whitespace characters; the " +
+                  num(p.high_confidence_1to1_genuine_shorter) + " that are not part of a merge or split save " +
+                  num(p.high_confidence_1to1_non_ws_saved) + ".";
                 if (typeof p.references_total === "number" && typeof p.references_unplaced === "number") {
-                  pt += " Literature audit: " + num(p.references_unplaced) + "/" + num(p.references_total) +
-                    " unplaced REFERENCES entries mapped (" + num(p.references_unplaced_high) + " high, " +
-                    num(p.references_unplaced_medium) + " medium, " + num(p.references_unplaced_low) + " low confidence)";
+                  pt += " Literature audit: " + num(p.references_unplaced) + " of " + num(p.references_total) +
+                    " REFERENCES entries give no theorem, section or page; each was matched to candidate declarations (" +
+                    num(p.references_unplaced_high) + " high, " + num(p.references_unplaced_medium) + " medium, " +
+                    num(p.references_unplaced_low) + " low confidence).";
                   if (typeof p.tauceti_candidates === "number") {
-                    pt += ", alongside " + num(p.tauceti_candidates) + " TauCeti upstream candidates (" +
-                      num(p.tauceti_candidate_theorems) + " theorems).";
-                  } else {
-                    pt += ".";
+                    pt += " Separately, " + num(p.tauceti_candidates) + " general-library declarations (" +
+                      num(p.tauceti_candidate_theorems) + " theorems) are TauCeti upstream candidates.";
                   }
                 }
                 pairEl.textContent = pt;
