@@ -2,17 +2,17 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "7fb336ec4d39b7bc",
-  "updated_at": "2026-11-26T19:07:42.639272+08:00",
+  "revision": "f6b304ee21975534",
+  "updated_at": "2026-11-26T19:17:24.330564+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T11:08:59Z",
+  "generated_at": "2026-11-26T11:19:04Z",
   "summary": {
     "participants": 121,
     "scored_participants": 98,
     "submissions": 2426,
-    "scored_submissions": 1706,
-    "evaluating": 21,
-    "core_evaluating": 21,
+    "scored_submissions": 1707,
+    "evaluating": 19,
+    "core_evaluating": 19,
     "challenges_total": 49,
     "core_solved": 42,
     "core_total": 48,
@@ -25,10 +25,10 @@
   },
   "progress": {
     "baseline_tokens": 611228972,
-    "best_tokens": 406431528,
+    "best_tokens": 406430316,
     "saved_tokens_pct": 33.51,
     "baseline_chars": 2086571119,
-    "best_chars": 1408118255,
+    "best_chars": 1408092938,
     "saved_chars_pct": 32.52,
     "solved": 42,
     "challenges": 48,
@@ -37,9 +37,9 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1705,
-    "kept_count": 626,
-    "current_best_score": 2858.59,
+    "total_runs": 1706,
+    "kept_count": 627,
+    "current_best_score": 2858.62,
     "current_best_pct": 33.51,
     "points": [
       {
@@ -25616,6 +25616,21 @@
         "model": "The Council",
         "harness": "pi",
         "method": null
+      },
+      {
+        "i": 1706,
+        "id": 113205,
+        "ts": "2026-11-26T10:57:44+00:00",
+        "key": "core50",
+        "score": 60.15,
+        "compression_pct": 69.06,
+        "best": 2858.62,
+        "best_pct": 33.51,
+        "kept": true,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": "Core 50 · Fast: Page/Siegel bound trim + grind automation"
       }
     ]
   },
@@ -27501,21 +27516,21 @@
       "metric": "tokens",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-fast-sub-pillar-50-siegel-w-6b6fc293",
       "baseline_tokens": 739518,
-      "best_tokens": 229991,
+      "best_tokens": 228779,
       "baseline_chars": 2532957,
-      "best_chars": 784337,
-      "token_saved_pct": 68.9,
-      "char_saved_pct": 69.03,
-      "reduction_factor": 3.22,
-      "score": 60.1155,
+      "best_chars": 759020,
+      "token_saved_pct": 69.06,
+      "char_saved_pct": 70.03,
+      "reduction_factor": 3.23,
+      "score": 60.1519,
       "attempts": 22,
-      "scored_attempts": 18,
+      "scored_attempts": 19,
       "participants": 7,
-      "runs": 18,
-      "kept_runs": 11,
+      "runs": 19,
+      "kept_runs": 12,
       "leader": {
         "author": "Andrew Pullin",
-        "score": 60.12,
+        "score": 60.15,
         "model": "The Council",
         "harness": "pi",
         "axiom_status": "verified_clean",
@@ -27525,15 +27540,15 @@
       "last_update": null,
       "technique": {
         "id": "core50_simplify_1",
-        "attempt_id": 113097,
+        "attempt_id": 113205,
         "challenge_key": "core50",
         "title": "Siegel–Weil Rank-1 Density Bound: Proof Compression (506 → 1 Files)",
         "category": "Phase 4 Fast Sub-Pillar · Proof Simplification",
         "author": "Andrew Pullin",
         "model": "The Council",
         "harness": "pi",
-        "metric": "506→1 files · −68.9% tokens",
-        "primary_pct": 68.9
+        "metric": "506→1 files · −69.1% tokens",
+        "primary_pct": 69.1
       }
     },
     {
@@ -27656,9 +27671,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1930,
+    "labeled_scored_runs": 1931,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 1979,
+    "total_scored_runs": 1980,
     "pairs_total": 71,
     "top_pairs": [
       {
@@ -27670,7 +27685,7 @@
         "index_score": 59.07,
         "tasks_solved": 42,
         "tasks_total": 48,
-        "mean_score": 64.7,
+        "mean_score": 64.69,
         "mean_compression_pct": 75.3,
         "pass_rate_pct": 86.6,
         "distinct_authors": 1
@@ -28517,15 +28532,15 @@
     },
     {
       "id": "core50_simplify_1",
-      "attempt_id": 113097,
+      "attempt_id": 113205,
       "challenge_key": "core50",
       "title": "Siegel–Weil Rank-1 Density Bound: Proof Compression (506 → 1 Files)",
       "category": "Phase 4 Fast Sub-Pillar · Proof Simplification",
       "author": "Andrew Pullin",
       "model": "The Council",
       "harness": "pi",
-      "metric": "506→1 files · −68.9% tokens",
-      "primary_pct": 68.9
+      "metric": "506→1 files · −69.1% tokens",
+      "primary_pct": 69.1
     },
     {
       "id": "core50_simplify_4",
