@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T23:03:51Z",
+  "generated_at": "2026-11-26T03:22:44Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -621,20 +621,20 @@
     }
   ],
   "live_main": {
-    "sha": "686902ae1",
-    "commit_date": "2026-11-25T22:28:51Z",
-    "toolchain": "leanprover/lean4:v4.35.0",
-    "lean_files": 803,
-    "total_lines": 477124,
-    "total_bytes": 30050271,
-    "import_lines": 1742,
-    "declarations": 23968,
-    "backward_options": 33,
+    "sha": "2746005d8",
+    "commit_date": "2026-11-26T03:03:52Z",
+    "toolchain": "leanprover/lean4:v4.37.0-rc1",
+    "lean_files": 802,
+    "total_lines": 476054,
+    "total_bytes": 29979370,
+    "import_lines": 1748,
+    "declarations": 23872,
+    "backward_options": 28,
     "heartbeat_options": 5,
-    "files_delta_vs_v021": -174384,
-    "lines_delta_vs_v021": -16897091,
-    "open_pr_count": 1253,
-    "measured_at": "2026-11-25T23:03:51Z"
+    "files_delta_vs_v021": -174385,
+    "lines_delta_vs_v021": -16898161,
+    "open_pr_count": 883,
+    "measured_at": "2026-11-26T03:22:44Z"
   },
   "live_history": [
     {
@@ -862,30 +862,21 @@
       "import_lines": 1742,
       "backward_options": 33,
       "heartbeat_options": 5
+    },
+    {
+      "date": "2026-11-26T03:03:52Z",
+      "sha": "2746005d8",
+      "label": "main@2746005d8",
+      "toolchain": "leanprover/lean4:v4.37.0-rc1",
+      "lean_files": 802,
+      "total_lines": 476054,
+      "declarations": 23872,
+      "import_lines": 1748,
+      "backward_options": 28,
+      "heartbeat_options": 5
     }
   ],
   "stacked_pr_queue": [
-    {
-      "pr": 97,
-      "state": "open",
-      "draft": true,
-      "batch_queue": false,
-      "author": "Deicyde",
-      "category": "formatting",
-      "scope": "full",
-      "base_ref": "alpoge",
-      "mergeable_state": "dirty",
-      "blast_radius": "whole-tree",
-      "title": "Run Lean auto-formatter over 147,418 files in src/ (v4.36)",
-      "raw_title": "Run the Lean auto-formatter over `src/`",
-      "changed_files": 59672,
-      "additions": 7021460,
-      "deletions": 3846758,
-      "net_lines": 3174702,
-      "updated_at": "2026-11-25T22:36:39Z",
-      "merged_at": null,
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/97"
-    },
     {
       "pr": 378,
       "state": "closed",
@@ -1265,6 +1256,27 @@
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/101"
     },
     {
+      "pr": 97,
+      "state": "closed",
+      "draft": true,
+      "batch_queue": false,
+      "author": "Deicyde",
+      "category": "formatting",
+      "scope": "full",
+      "base_ref": "alpoge",
+      "mergeable_state": "dirty",
+      "blast_radius": "whole-tree",
+      "title": "Run Lean auto-formatter over 147,418 files in src/ (v4.36)",
+      "raw_title": "Run the Lean auto-formatter over `src/`",
+      "changed_files": 59672,
+      "additions": 7021460,
+      "deletions": 3846758,
+      "net_lines": 3174702,
+      "updated_at": "2026-11-26T02:57:08Z",
+      "merged_at": null,
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/97"
+    },
+    {
       "pr": 88,
       "state": "merged",
       "draft": false,
@@ -1315,7 +1327,7 @@
       "category": "active-refactor",
       "scope": "active",
       "base_ref": "main",
-      "mergeable_state": "clean",
+      "mergeable_state": "blocked",
       "blast_radius": "focused",
       "title": "Zero-free region: replace 34-file assembly with 2,447-token proof (Lean 4.36)",
       "raw_title": "Zero-free region: replace the 34-file assembly with a self-contained 2,447-token proof (Lean 4.36)",
@@ -1376,8 +1388,8 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-25T23:03:51Z",
-    "total_merged_prs": 3821,
+    "measured_at": "2026-11-26T03:22:44Z",
+    "total_merged_prs": 3893,
     "total_batch_queue_prs": 1,
     "entries": [
       {
@@ -1397,11 +1409,18 @@
           "ops_review": "Primary merge-queue operator (live merge count from GitHub events)"
         },
         "bio": "Research software engineer at the Lean FRO and Mathlib maintainer. On leanprover-community/riemann-hypothesis, he runs the sharded AWS and donor-runner CI builds (#101), lands reviewed cleanup batches (#115, #150), and coordinates the merge queue through the Lean 4.37.0-rc1 upgrade (#185).",
-        "merged_direct": 1,
+        "merged_direct": 12,
         "merged_batch_extra": 0,
-        "merged_total": 1,
+        "merged_total": 12,
         "merged_prs": [
-          4761
+          5879,
+          5769,
+          5669,
+          5661,
+          5657,
+          5653,
+          5645,
+          5636
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -1442,18 +1461,18 @@
           "ops_review": "High-volume PR triage, labeling & merges (live counts from GitHub events)"
         },
         "bio": "Repository collaborator handling PR review, triage, and verification tooling. Authored the DeepMind formal-conjectures Comparator setup (#88) and the `batch queue` label and batch-assembly workflows (#226, #233).",
-        "merged_direct": 34,
+        "merged_direct": 13,
         "merged_batch_extra": 0,
-        "merged_total": 34,
+        "merged_total": 13,
         "merged_prs": [
-          4640,
-          4639,
-          4637,
-          4636,
-          4635,
-          4633,
-          4630,
-          4625
+          5691,
+          5690,
+          5688,
+          5687,
+          5686,
+          5685,
+          5684,
+          5683
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -1494,10 +1513,16 @@
           "ops_review": "PR area/size auto-labeling (#154, #191), repo values (#184) & triage"
         },
         "bio": "Repository collaborator working on PR labeling automation (#154, #191), repository values documentation (#184), technical-debt tracking (#229), and collaborator oversight on the frozen original archive (`riemann-hypothesis-original`).",
-        "merged_direct": 0,
+        "merged_direct": 5,
         "merged_batch_extra": 0,
-        "merged_total": 0,
-        "merged_prs": [],
+        "merged_total": 5,
+        "merged_prs": [
+          5620,
+          5618,
+          5617,
+          5616,
+          5615
+        ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
         "batch_queue_prs": [],
