@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T05:49:59Z",
+  "generated_at": "2026-11-26T06:00:55Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -621,20 +621,20 @@
     }
   ],
   "live_main": {
-    "sha": "ef1760f55",
-    "commit_date": "2026-11-26T05:39:16Z",
+    "sha": "4249e7b98",
+    "commit_date": "2026-11-26T05:56:17Z",
     "toolchain": "leanprover/lean4:v4.37.0-rc1",
     "lean_files": 802,
-    "total_lines": 477166,
-    "total_bytes": 29876760,
-    "import_lines": 1757,
-    "declarations": 23737,
+    "total_lines": 475141,
+    "total_bytes": 29747607,
+    "import_lines": 1766,
+    "declarations": 23596,
     "backward_options": 21,
     "heartbeat_options": 1,
     "files_delta_vs_v021": -174385,
-    "lines_delta_vs_v021": -16897049,
-    "open_pr_count": 1018,
-    "measured_at": "2026-11-26T05:49:59Z"
+    "lines_delta_vs_v021": -16899074,
+    "open_pr_count": 949,
+    "measured_at": "2026-11-26T06:00:55Z"
   },
   "live_history": [
     {
@@ -968,6 +968,18 @@
       "total_lines": 477166,
       "declarations": 23737,
       "import_lines": 1757,
+      "backward_options": 21,
+      "heartbeat_options": 1
+    },
+    {
+      "date": "2026-11-26T05:56:17Z",
+      "sha": "4249e7b98",
+      "label": "main@4249e7b98",
+      "toolchain": "leanprover/lean4:v4.37.0-rc1",
+      "lean_files": 802,
+      "total_lines": 475141,
+      "declarations": 23596,
+      "import_lines": 1766,
       "backward_options": 21,
       "heartbeat_options": 1
     }
@@ -1484,8 +1496,8 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-26T05:49:59Z",
-    "total_merged_prs": 3988,
+    "measured_at": "2026-11-26T06:00:55Z",
+    "total_merged_prs": 4026,
     "total_batch_queue_prs": 0,
     "entries": [
       {
@@ -1505,18 +1517,18 @@
           "ops_review": "Primary merge-queue operator (live merge count from GitHub events)"
         },
         "bio": "Research software engineer at the Lean FRO and Mathlib maintainer. On leanprover-community/riemann-hypothesis, he runs the sharded AWS and donor-runner CI builds (#101), lands reviewed cleanup batches (#115, #150), and coordinates the merge queue through the Lean 4.37.0-rc1 upgrade (#185).",
-        "merged_direct": 16,
+        "merged_direct": 21,
         "merged_batch_extra": 0,
-        "merged_total": 16,
+        "merged_total": 21,
         "merged_prs": [
+          6291,
+          6281,
           6264,
+          6215,
+          6213,
           6202,
           6161,
-          6135,
-          6124,
-          6088,
-          6023,
-          5974
+          6135
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -1557,9 +1569,9 @@
           "ops_review": "High-volume PR triage, labeling & merges (live counts from GitHub events)"
         },
         "bio": "Repository collaborator handling PR review, triage, and verification tooling. Authored the DeepMind formal-conjectures Comparator setup (#88) and the `batch queue` label and batch-assembly workflows (#226, #233).",
-        "merged_direct": 17,
+        "merged_direct": 14,
         "merged_batch_extra": 0,
-        "merged_total": 17,
+        "merged_total": 14,
         "merged_prs": [
           5956,
           5903,
@@ -1609,10 +1621,14 @@
           "ops_review": "PR area/size auto-labeling (#154, #191), repo values (#184) & triage"
         },
         "bio": "Repository collaborator working on PR labeling automation (#154, #191), repository values documentation (#184), technical-debt tracking (#229), and collaborator oversight on the frozen original archive (`riemann-hypothesis-original`).",
-        "merged_direct": 0,
+        "merged_direct": 3,
         "merged_batch_extra": 0,
-        "merged_total": 0,
-        "merged_prs": [],
+        "merged_total": 3,
+        "merged_prs": [
+          6134,
+          6073,
+          5802
+        ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
         "batch_queue_prs": [],
