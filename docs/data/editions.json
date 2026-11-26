@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "generated_at": "2026-11-26T12:05:44+09:00",
+  "source": "rh-ssot reports: GRH_VS_COMPACT_ANALYSIS.md, grh_vs_compact_comparison.json, cross_edition_dissection.json",
+  "editions": [
+    { "id": "alpoge_v021", "label": "Original Alpöge v0.2.1" },
+    { "id": "grh_readable", "label": "grh/ readable (300k)" },
+    { "id": "grh_compact", "label": "grh-compact (76k)" },
+    { "id": "grh_clean", "label": "grh-clean baseline (main@e063a92)" }
+  ],
+  "rows": [
+    { "label": "Files", "fmt": "int", "values": [175187, 803, 794, 802] },
+    { "label": "Raw lines", "fmt": "int", "values": [17374215, 477124, 112827, 475679] },
+    { "label": "Code lines (no comments or blanks)", "fmt": "int", "values": [10737728, 299902, 76149, 299004] },
+    { "label": "Source size", "fmt": "bytes", "values": [1030531854, 30050271, 7420187, 29955129] },
+    { "label": "Non-whitespace code characters", "fmt": "int", "values": [null, 13851128, 4511672, 13808784] },
+    { "label": "Lean tokens", "fmt": "int", "values": [null, 4836276, 1520003, 4822217] },
+    { "label": "Non-whitespace characters per code line", "fmt": "dec", "values": [null, 46.19, 59.25, 46.18] },
+    { "label": "Semicolons per 1,000 code lines", "fmt": "dec", "values": [null, 4.79, 142.16, 4.8] },
+    { "label": "Longest line (characters)", "fmt": "int", "values": [null, 100, 767, 123] },
+    { "label": "Kernel constants", "fmt": "int", "values": [null, 64358, 51804, 64358] },
+    { "label": "Constants in the proof cone", "fmt": "int", "values": [804912, 49821, 37569, 49821] },
+    { "label": "Kernel export size", "fmt": "bytes", "values": [null, 4485867644, 5172274528, null] },
+    { "label": "Cold build time", "fmt": "dur", "values": [null, 1932, 2012, null] }
+  ],
+  "export_inversion": {
+    "measured_by": "Andrew Sutherland (MIT), lake comparator export, Lean Zulip #658556",
+    "readable_export_bytes": 4485867644,
+    "compact_export_bytes": 5172274528,
+    "compact_vs_readable_export_pct": 15.3,
+    "compact_vs_readable_code_lines_pct": -74.6,
+    "readable_build_sec": 1932,
+    "compact_build_sec": 2012
+  }
+}

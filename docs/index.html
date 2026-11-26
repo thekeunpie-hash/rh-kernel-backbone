@@ -2557,6 +2557,86 @@
           </div>
         </section>
 
+        <section class="panel" id="edition-compare" aria-labelledby="edCmpTitle" hidden>
+          <div class="eyebrow">Four Editions · Source and Kernel Measurements</div>
+          <h3 id="edCmpTitle" style="margin:0 0 4px;">Edition comparison</h3>
+          <p class="panel-sub" style="margin:0 0 8px;">The same proof measured in four editions: the original Alpöge v0.2.1 release, the readable <code>grh/</code> tree, the line-packed <code>grh-compact</code> tree, and the <code>grh-clean</code> baseline.</p>
+          <div class="table-wrap">
+            <table class="vt-table" aria-describedby="edCmpTitle">
+              <thead id="edCmpHead"></thead>
+              <tbody id="edCmpBody"></tbody>
+            </table>
+          </div>
+          <p class="panel-sub" id="edCmpInversion" style="margin:8px 0 0;"></p>
+          <div class="vt-src" id="edCmpSrc"></div>
+        </section>
+        <script>
+          (function () {
+            var sec = document.getElementById("edition-compare");
+            var head = document.getElementById("edCmpHead");
+            var body = document.getElementById("edCmpBody");
+            var inv = document.getElementById("edCmpInversion");
+            var src = document.getElementById("edCmpSrc");
+            if (!sec || !head || !body || !inv || !src || typeof fetch !== "function") return;
+            function num(v) { return Number(v).toLocaleString("en-US"); }
+            function dur(v) { return Math.floor(v / 60) + "m " + (v % 60) + "s"; }
+            function fmt(v, kind) {
+              if (typeof v !== "number" || !isFinite(v)) return "n/a";
+              if (kind === "dec") return v.toFixed(2);
+              if (kind === "bytes") return num(v) + " B";
+              if (kind === "dur") return dur(v);
+              return num(v);
+            }
+            function cell(tag, text, cls) {
+              var el = document.createElement(tag);
+              if (cls) el.className = cls;
+              el.textContent = text;
+              return el;
+            }
+            function render(d) {
+              var eds = d && d.editions, rows = d && d.rows, x = d && d.export_inversion;
+              if (!Array.isArray(eds) || !eds.length || !Array.isArray(rows) || !rows.length) return;
+              var hr = document.createElement("tr");
+              hr.appendChild(cell("th", "Metric"));
+              eds.forEach(function (e) { hr.appendChild(cell("th", String(e.label), "num")); });
+              var frag = document.createDocumentFragment();
+              rows.forEach(function (r) {
+                var tr = document.createElement("tr");
+                tr.appendChild(cell("td", String(r.label)));
+                eds.forEach(function (_, i) {
+                  tr.appendChild(cell("td", fmt(Array.isArray(r.values) ? r.values[i] : null, r.fmt), "num"));
+                });
+                frag.appendChild(tr);
+              });
+              head.textContent = "";
+              head.appendChild(hr);
+              body.textContent = "";
+              body.appendChild(frag);
+              if (x && typeof x.readable_export_bytes === "number" && typeof x.compact_export_bytes === "number") {
+                var t = "Kernel export inversion: the compact edition has " +
+                  Math.abs(x.compact_vs_readable_code_lines_pct) + "% fewer code lines than the readable edition, but its kernel export is " +
+                  x.compact_vs_readable_export_pct + "% larger (" + num(x.compact_export_bytes) + " B vs " +
+                  num(x.readable_export_bytes) + " B)";
+                if (typeof x.readable_build_sec === "number" && typeof x.compact_build_sec === "number") {
+                  t += " and its cold build takes " + dur(x.compact_build_sec) + " vs " + dur(x.readable_build_sec);
+                }
+                t += ".";
+                if (x.measured_by) t += " Measured by " + x.measured_by + ".";
+                inv.textContent = t;
+              } else {
+                inv.hidden = true;
+              }
+              src.textContent = "Static snapshot" + (d.generated_at ? " generated " + String(d.generated_at).slice(0, 10) : "") +
+                ". n/a means the value was not measured for that edition. For the original edition, code lines and constants are counted over its active proof cone.";
+              sec.hidden = false;
+            }
+            fetch("./data/editions.json", { cache: "no-cache" })
+              .then(function (r) { return r.ok ? r.json() : null; })
+              .then(function (d) { if (d) { try { render(d); } catch (_) { sec.hidden = true; } } })
+              .catch(function () { });
+          })();
+        </script>
+
         <section class="panel" id="grh-compact-anatomy" data-edition-scope="grh" aria-labelledby="grhCompTitle">
           <div class="eyebrow">Current Shortest Full Proof · <code>lsernau/grh-lean@72fead1</code> (Apache 2.0)</div>
           <h3 id="grhCompTitle" style="margin:0 0 4px;"><code>grh-compact</code> 76k-Line Structural Anatomy &amp; Compression Seams <span class="badge badge-exact">Exact</span></h3>
