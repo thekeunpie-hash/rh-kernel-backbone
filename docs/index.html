@@ -2465,6 +2465,7 @@
               <div class="brand-title">Riemann Hypothesis · Kernel Backbone &amp; Upstream Tracker</div>
               <div class="brand-sub">Exact Lean 4 kernel-cone accounting &amp; live
                 <code>leanprover-community/riemann-hypothesis</code> progress</div>
+              <div class="brand-sub" id="dataRefreshed" aria-live="polite">Last data refresh: checking…</div>
             </div>
           </div>
           <div class="brand-right">
@@ -5646,6 +5647,47 @@
       window.setTheoryMapEdition = renderEdition;
       const startEd = document.body.dataset.edition === "alpoge" ? "alpoge" : "grh";
       renderEdition(startEd);
+    })();
+  </script>
+  <script>
+    (function () {
+      // Last data refresh stamp: written by the update-tracker Actions run (every ~10 min) into
+      // data/refresh_status.json; falls back to the board snapshot time before the first such run.
+      const el = document.getElementById("dataRefreshed");
+      if (!el) return;
+      const RAW = "https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/";
+      let lastTs = null;
+      async function readJson(name) {
+        const bust = "?v=" + Math.floor(Date.now() / 60000);
+        for (const url of [RAW + name + bust, "../data/" + name + bust]) {
+          try {
+            const r = await fetch(url, { cache: "no-store" });
+            if (r.ok) return await r.json();
+          } catch (_) { }
+        }
+        return null;
+      }
+      function paint() {
+        if (lastTs === null) { el.textContent = "Last data refresh: unavailable"; return; }
+        const d = new Date(lastTs);
+        const mins = Math.max(0, Math.round((Date.now() - lastTs) / 60000));
+        const ago = mins < 1 ? "just now" : mins < 120 ? mins + " min ago" : Math.round(mins / 60) + " h ago";
+        el.textContent = "Last data refresh: " + d.toISOString().slice(0, 16).replace("T", " ") + " UTC (" + ago + ") · auto-updated about every 10 min";
+      }
+      async function load() {
+        let ts = NaN;
+        const st = await readJson("refresh_status.json");
+        if (st && st.refreshed_at) ts = Date.parse(st.refreshed_at);
+        if (Number.isNaN(ts)) {
+          const vt = await readJson("verifytask_board.json");
+          if (vt && vt.generated_at) ts = Date.parse(vt.generated_at);
+        }
+        if (!Number.isNaN(ts) && (lastTs === null || ts > lastTs)) lastTs = ts;
+        paint();
+      }
+      load();
+      setInterval(() => { if (!document.hidden) load(); }, 120000);
+      setInterval(paint, 30000);
     })();
   </script>
 </body>

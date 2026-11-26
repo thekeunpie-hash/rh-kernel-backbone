@@ -16,6 +16,8 @@ on:
 
 permissions:
   contents: write
+  # actions: write lets the rearm job dispatch the next run (GITHUB_TOKEN may trigger workflow_dispatch).
+  actions: write
 
 concurrency:
   group: update-tracker
@@ -70,10 +72,47 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           CHANGED="$(git status --porcelain -- data/upstream_frontier.json data/community_context.json data/COMMUNITY_BRIEF.md data/verifytask_board.json data/rh_shrink.json data/upstream_pr_insights.json | cut -c4-)"
           if [ -n "$CHANGED" ]; then
-            git add -- $CHANGED
+            CHANGED_LIST="$CHANGED" TRIGGER="${{ github.event_name }}" RUN_ID="${{ github.run_id }}" python3 -c 'import json,os,datetime;json.dump({"refreshed_at":datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),"trigger":os.environ["TRIGGER"],"run_id":os.environ["RUN_ID"],"changed":os.environ["CHANGED_LIST"].split()},open("data/refresh_status.json","w",encoding="utf-8"),indent=2)'
+            git add -- $CHANGED data/refresh_status.json
             git commit -m "chore(tracker): auto-update upstream main metrics ($(date -u +%Y-%m-%dT%H:%MZ))"
-            git pull --rebase --autostash origin main
-            git push
+            for attempt in 1 2 3; do
+              if git pull --rebase --autostash origin main && git push; then
+                exit 0
+              fi
+              echo "Push attempt $attempt failed; retrying."
+              git rebase --abort 2>/dev/null || true
+              sleep $((attempt * 10))
+            done
+            exit 1
           else
             echo "No upstream metric changes."
           fi
+
+  # GitHub's scheduler fires "*/10" cron only a few times a day on this repo (7 scheduled runs in ~2 days),
+  # so each run dispatches its successor. The concurrency group keeps at most one running + one pending run,
+  # so overlapping cron/push/dispatch chains collapse into one. Stop the chain by setting the repository
+  # variable TRACKER_SELF_CHAIN=off (Settings > Secrets and variables > Actions > Variables) or disabling the workflow.
+  rearm:
+    needs: update-tracker
+    if: ${{ !cancelled() && vars.TRACKER_SELF_CHAIN != 'off' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Wait for the next 10-minute slot, then dispatch the next run
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INTERVAL_SECONDS: ${{ vars.TRACKER_INTERVAL_SECONDS || '600' }}
+          RUN_STARTED: ${{ github.run_started_at }}
+        run: |
+          START=$(date -u -d "$RUN_STARTED" +%s 2>/dev/null || date -u +%s)
+          ELAPSED=$(( $(date -u +%s) - START ))
+          WAIT=$(( INTERVAL_SECONDS - ELAPSED ))
+          if [ "$WAIT" -gt 720 ]; then WAIT=720; fi
+          if [ "$WAIT" -gt 0 ]; then echo "Sleeping ${WAIT}s"; sleep "$WAIT"; fi
+          for attempt in 1 2 3; do
+            CODE=$(curl -sS -o /tmp/dispatch.out -w '%{http_code}' -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${{ github.repository }}/actions/workflows/update-tracker.yml/dispatches" -d '{"ref":"main"}')
+            if [ "$CODE" = "204" ]; then echo "Next run dispatched."; exit 0; fi
+            echo "Dispatch attempt $attempt returned $CODE"; cat /tmp/dispatch.out || true
+            sleep 15
+          done
+          exit 1
