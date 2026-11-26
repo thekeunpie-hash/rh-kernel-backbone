@@ -2,17 +2,17 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "c083dc13bad47d38",
-  "updated_at": "2026-11-26T21:54:31.936151+08:00",
+  "revision": "c07a032452812c76",
+  "updated_at": "2026-11-26T22:05:26.492147+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T13:57:29Z",
+  "generated_at": "2026-11-26T14:06:58Z",
   "summary": {
     "participants": 121,
     "scored_participants": 98,
-    "submissions": 2461,
-    "scored_submissions": 1719,
-    "evaluating": 28,
-    "core_evaluating": 28,
+    "submissions": 2463,
+    "scored_submissions": 1720,
+    "evaluating": 25,
+    "core_evaluating": 25,
     "challenges_total": 49,
     "core_solved": 42,
     "core_total": 48,
@@ -25,10 +25,10 @@
   },
   "progress": {
     "baseline_tokens": 611228972,
-    "best_tokens": 406321700,
+    "best_tokens": 406315821,
     "saved_tokens_pct": 33.52,
     "baseline_chars": 2086571119,
-    "best_chars": 1407678019,
+    "best_chars": 1407656088,
     "saved_chars_pct": 32.54,
     "solved": 42,
     "challenges": 48,
@@ -37,9 +37,9 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1718,
-    "kept_count": 639,
-    "current_best_score": 2864.73,
+    "total_runs": 1719,
+    "kept_count": 640,
+    "current_best_score": 2865.06,
     "current_best_pct": 33.52,
     "points": [
       {
@@ -25811,6 +25811,21 @@
         "model": "The Council",
         "harness": "pi",
         "method": "Core 37 · Fast: Inline 73 helpers + grind automation"
+      },
+      {
+        "i": 1719,
+        "id": 113569,
+        "ts": "2026-11-26T13:43:13+00:00",
+        "key": "core53",
+        "score": 68.62,
+        "compression_pct": 93.49,
+        "best": 2865.06,
+        "best_pct": 33.52,
+        "kept": true,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": "Core 53 · Fast: Inline 25 helpers + grind automation"
       }
     ]
   },
@@ -27087,7 +27102,7 @@
       "char_saved_pct": 45.49,
       "reduction_factor": 1.87,
       "score": 55.9648,
-      "attempts": 66,
+      "attempts": 67,
       "scored_attempts": 44,
       "participants": 16,
       "runs": 44,
@@ -27307,7 +27322,7 @@
       "char_saved_pct": 97.01,
       "reduction_factor": 41.21,
       "score": 72.3377,
-      "attempts": 26,
+      "attempts": 27,
       "scored_attempts": 21,
       "participants": 8,
       "runs": 21,
@@ -27784,21 +27799,21 @@
       "metric": "tokens",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-fast-sub-pillar-53-unitary-3eeac652",
       "baseline_tokens": 1145592,
-      "best_tokens": 80407,
+      "best_tokens": 74528,
       "baseline_chars": 3848101,
-      "best_chars": 343447,
-      "token_saved_pct": 92.98,
-      "char_saved_pct": 91.07,
-      "reduction_factor": 14.25,
-      "score": 68.2916,
+      "best_chars": 321516,
+      "token_saved_pct": 93.49,
+      "char_saved_pct": 91.64,
+      "reduction_factor": 15.37,
+      "score": 68.6197,
       "attempts": 21,
-      "scored_attempts": 17,
+      "scored_attempts": 18,
       "participants": 6,
-      "runs": 17,
-      "kept_runs": 13,
+      "runs": 18,
+      "kept_runs": 14,
       "leader": {
         "author": "Andrew Pullin",
-        "score": 68.29,
+        "score": 68.62,
         "model": "The Council",
         "harness": "pi",
         "axiom_status": "verified_clean",
@@ -27808,15 +27823,15 @@
       "last_update": null,
       "technique": {
         "id": "core53_simplify_1",
-        "attempt_id": 113405,
+        "attempt_id": 113569,
         "challenge_key": "core53",
         "title": "Unitary Geometric Side Identity: Proof Compression (567 → 1 Files)",
         "category": "Phase 4 Fast Sub-Pillar · Proof Simplification",
         "author": "Andrew Pullin",
         "model": "The Council",
         "harness": "pi",
-        "metric": "567→1 files · −93.0% tokens",
-        "primary_pct": 93.0
+        "metric": "567→1 files · −93.5% tokens",
+        "primary_pct": 93.5
       }
     }
   ],
@@ -27851,9 +27866,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1948,
+    "labeled_scored_runs": 1950,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 1997,
+    "total_scored_runs": 1999,
     "pairs_total": 71,
     "top_pairs": [
       {
@@ -27862,12 +27877,12 @@
         "model": "The Council",
         "harness": "pi",
         "provider": "other",
-        "index_score": 59.3,
+        "index_score": 59.31,
         "tasks_solved": 42,
         "tasks_total": 48,
-        "mean_score": 64.83,
+        "mean_score": 64.84,
         "mean_compression_pct": 75.8,
-        "pass_rate_pct": 87.0,
+        "pass_rate_pct": 87.1,
         "distinct_authors": 1
       },
       {
@@ -28761,15 +28776,15 @@
     },
     {
       "id": "core53_simplify_1",
-      "attempt_id": 113405,
+      "attempt_id": 113569,
       "challenge_key": "core53",
       "title": "Unitary Geometric Side Identity: Proof Compression (567 → 1 Files)",
       "category": "Phase 4 Fast Sub-Pillar · Proof Simplification",
       "author": "Andrew Pullin",
       "model": "The Council",
       "harness": "pi",
-      "metric": "567→1 files · −93.0% tokens",
-      "primary_pct": 93.0
+      "metric": "567→1 files · −93.5% tokens",
+      "primary_pct": 93.5
     },
     {
       "id": "core53_simplify_83",
@@ -28819,32 +28834,12 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-26T13:29:35Z",
+      "ts": "2026-11-26T13:57:19Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
       "summary": "New verified modules from the remaining 99% of Alpöge's proof are now live: CM j-Invariant Integrality, Irreducible Complex Open Connected, Siegel–Weil Local Density (+40 more).",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-core-pillar-6-cm-j-invarian-70b3d4ba",
-      "highlight": true
-    },
-    {
-      "id": "upstream-pr-7535",
-      "ts": "2026-11-26T13:26:19Z",
-      "source": "lean_community",
-      "tag": "Upstream PR #7535",
-      "title": "refactor: combine the exchange kernel sum using bilinearity",
-      "summary": "Merged into leanprover-community/riemann-hypothesis by sqrt-of-2.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/7535",
-      "highlight": true
-    },
-    {
-      "id": "upstream-pr-7565",
-      "ts": "2026-11-26T13:26:18Z",
-      "source": "lean_community",
-      "tag": "Upstream PR #7565",
-      "title": "Use Mathlib’s linear lift through a surjection (−3 lines net)",
-      "summary": "Merged into leanprover-community/riemann-hypothesis by EricHe98.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/7565",
       "highlight": true
     },
     {
@@ -28888,6 +28883,26 @@
       "highlight": true
     },
     {
+      "id": "seed-upstream-pr68",
+      "ts": "2026-11-22T07:25:46Z",
+      "source": "lean_community",
+      "tag": "Proof Cleanup",
+      "title": "Shared GL finiteness rank-induction proof cuts 9,010 Lean lines (PR #68)",
+      "summary": "antoshashakov deduplicated GL finiteness proofs (−9,010 lines) alongside CapelliIdentities typeclass dump cleanups merged in PRs #57, #60, and #65.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/68",
+      "highlight": false
+    },
+    {
+      "id": "seed-upstream-pr45",
+      "ts": "2026-11-21T20:54:20Z",
+      "source": "lean_community",
+      "tag": "Repo Pruning",
+      "title": "Upstream prunes 11,163 unreachable dead modules (PR #45)",
+      "summary": "rohanarun removed unused top-level imports and 11,163 unreachable modules from leanprover-community/riemann-hypothesis in the first large-scale structural cleanup.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/45",
+      "highlight": false
+    },
+    {
       "id": "seed-core15-launch",
       "ts": "2026-11-21T08:00:00Z",
       "source": "playground",
@@ -28912,7 +28927,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1370★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1375★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true

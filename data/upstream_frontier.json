@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T13:57:20Z",
+  "generated_at": "2026-11-26T14:06:44Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -506,20 +506,20 @@
     }
   ],
   "live_main": {
-    "sha": "3ad0b4b58",
-    "commit_date": "2026-11-26T13:39:51Z",
+    "sha": "5cbb17ac3",
+    "commit_date": "2026-11-26T14:02:41Z",
     "toolchain": "leanprover/lean4:v4.37.0-rc1",
     "lean_files": 801,
-    "total_lines": 474607,
-    "total_bytes": 29638588,
-    "import_lines": 2889,
-    "declarations": 23143,
+    "total_lines": 474907,
+    "total_bytes": 29653858,
+    "import_lines": 2894,
+    "declarations": 23145,
     "backward_options": 1,
     "heartbeat_options": 1,
     "files_delta_vs_v021": -174386,
-    "lines_delta_vs_v021": -16899608,
-    "open_pr_count": 233,
-    "measured_at": "2026-11-26T13:57:20Z"
+    "lines_delta_vs_v021": -16899308,
+    "open_pr_count": 221,
+    "measured_at": "2026-11-26T14:06:44Z"
   },
   "live_history": [
     {
@@ -1203,6 +1203,18 @@
       "import_lines": 2889,
       "backward_options": 1,
       "heartbeat_options": 1
+    },
+    {
+      "date": "2026-11-26T14:02:41Z",
+      "sha": "5cbb17ac3",
+      "label": "main@5cbb17ac3",
+      "toolchain": "leanprover/lean4:v4.37.0-rc1",
+      "lean_files": 801,
+      "total_lines": 474907,
+      "declarations": 23145,
+      "import_lines": 2894,
+      "backward_options": 1,
+      "heartbeat_options": 1
     }
   ],
   "stacked_pr_queue": [
@@ -1717,8 +1729,8 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-26T13:57:20Z",
-    "total_merged_prs": 5659,
+    "measured_at": "2026-11-26T14:06:44Z",
+    "total_merged_prs": 5739,
     "total_batch_queue_prs": 0,
     "entries": [
       {
@@ -1738,18 +1750,18 @@
           "ops_review": "Merges PRs and batch PRs on main"
         },
         "bio": "Research software engineer at the Lean FRO and Mathlib maintainer. On leanprover-community/riemann-hypothesis, Kim runs the sharded AWS and donor-runner CI builds (#101), merged the reviewed cleanup batches (#115, #150) and the Lean 4.37.0-rc1 upgrade (#185, 2026-11-23), and on 2026-11-25 moved the Alpöge-lineage cleanup to branch `alpoge` and based `main` on the readable edition of lsernau/grh-lean.",
-        "merged_direct": 150,
+        "merged_direct": 151,
         "merged_batch_extra": 0,
-        "merged_total": 150,
+        "merged_total": 151,
         "merged_prs": [
+          7837,
           7721,
           7691,
           7663,
           7613,
           7576,
           7509,
-          7403,
-          7351
+          7403
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -1790,18 +1802,18 @@
           "ops_review": "PR triage, labeling & merges"
         },
         "bio": "Repository collaborator handling PR review, triage, and verification tooling. Authored the DeepMind formal-conjectures Comparator setup (#88) and the `batch queue` label and batch-assembly workflows (#226, #233).",
-        "merged_direct": 967,
+        "merged_direct": 966,
         "merged_batch_extra": 0,
-        "merged_total": 967,
+        "merged_total": 966,
         "merged_prs": [
-          7583,
-          7575,
-          7574,
-          7573,
-          7572,
-          7570,
-          7569,
-          7445
+          7679,
+          7678,
+          7674,
+          7673,
+          7671,
+          7670,
+          7445,
+          7444
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
