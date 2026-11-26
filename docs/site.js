@@ -387,22 +387,30 @@
       root.append(hair);
 
       if (animate) {
-        // The pen walks up the line once; each zero appears as the pen reaches it.
+        // The pen walks up the line once; each zero appears as the pen reaches it. The Web Animations call
+        // starts from its first frame by itself, so no layout read is needed to kick off a transition; without
+        // it the line is simply drawn whole. The marks lose is-pending two frames on, once their hidden state
+        // has been styled, so their own opacity transition runs.
         const len = curve.getTotalLength();
         curve.style.strokeDasharray = len + " " + len;
-        curve.style.strokeDashoffset = len;
-        curve.getBoundingClientRect();
-        curve.style.transition = "stroke-dashoffset 2600ms linear";
-        curve.style.strokeDashoffset = "0";
-        for (const g of marks) g.classList.remove("is-pending");
+        if (typeof curve.animate === "function") {
+          curve.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }], { duration: 2600, easing: "linear" });
+        }
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          for (const g of marks) g.classList.remove("is-pending");
+        }));
       }
       first = false;
     }
 
-    function point(ev) {
-      if (!geo || !out || !hair) return;
+    // Pointer readout: at most once per frame, reading the box first in the frame, before this frame's
+    // writes, so a fast pointer never forces a layout per event or evaluates Z(t) more than the screen shows.
+    let pendingX = null, frame = 0;
+    function paintPoint() {
+      frame = 0;
+      if (!geo || !out || !hair || pendingX === null) return;
       const box = root.getBoundingClientRect();
-      const t = Math.min(T_MAX, Math.max(0, (ev.clientX - box.left - geo.pad) / (geo.W - 2 * geo.pad) * T_MAX));
+      const t = Math.min(T_MAX, Math.max(0, (pendingX - box.left - geo.pad) / (geo.W - 2 * geo.pad) * T_MAX));
       const px = geo.pad + (geo.W - 2 * geo.pad) * t / T_MAX;
       hair.setAttribute("x1", px);
       hair.setAttribute("x2", px);
@@ -410,9 +418,16 @@
       const z = hardyZ(t);
       out.textContent = "s = 1/2 + " + t.toFixed(2) + "i   Z = " + (z < 0 ? "−" : "+") + Math.abs(z).toFixed(3);
     }
+    function point(ev) {
+      pendingX = ev.clientX;
+      if (!frame) frame = requestAnimationFrame(paintPoint);
+    }
     root.addEventListener("pointermove", point);
     root.addEventListener("pointerdown", point);
     root.addEventListener("pointerleave", function () {
+      if (frame) cancelAnimationFrame(frame);
+      frame = 0;
+      pendingX = null;
       if (hair) hair.style.display = "none";
       if (out) out.textContent = idle;
     });

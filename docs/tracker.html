@@ -340,7 +340,7 @@
       font-size: 12px;
       font-weight: 600;
       cursor: pointer;
-      transition: all .12s ease;
+      transition: border-color .12s ease, color .12s ease, background .12s ease, text-decoration-color .12s ease;
     }
 
     .icon-btn:hover {
@@ -435,7 +435,7 @@
       border: 1px solid var(--border);
       background: #f8fafc;
       color: var(--text);
-      transition: all .12s ease;
+      transition: border-color .12s ease, color .12s ease, background .12s ease, text-decoration-color .12s ease;
     }
 
     .cta-pill:hover {
@@ -5440,13 +5440,23 @@
           parts.push(stamp(p.t));
           readout.innerHTML = parts.join(" &middot; ");
         };
-        const nearest = (evt) => {
+        const nearest = (clientX) => {
           const box = svg.getBoundingClientRect();
-          const sx = ((evt.clientX - box.left) / box.width) * W;
+          const sx = ((clientX - box.left) / box.width) * W;
           return pts.reduce((best, p) => (Math.abs(x(p.t) - sx) < Math.abs(x(best.t) - sx) ? p : best), pts[0]);
         };
-        hit.addEventListener("mousemove", (evt) => show(nearest(evt)));
-        hit.addEventListener("mouseleave", () => { cursor.style.opacity = "0"; show(last); });
+        // At most one readout per frame, the box read first in that frame (before show() writes), so a fast
+        // pointer never forces a layout per mousemove.
+        let pendingX = null, frame = 0;
+        hit.addEventListener("mousemove", (evt) => {
+          pendingX = evt.clientX;
+          if (!frame) frame = requestAnimationFrame(() => { frame = 0; if (pendingX !== null) show(nearest(pendingX)); });
+        });
+        hit.addEventListener("mouseleave", () => {
+          if (frame) cancelAnimationFrame(frame);
+          frame = 0; pendingX = null;
+          cursor.style.opacity = "0"; show(last);
+        });
         show(last);
 
         const box = document.getElementById("recordMultiples");
