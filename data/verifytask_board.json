@@ -2,17 +2,17 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "cab1c831c9b6683d",
-  "updated_at": "2026-11-26T16:41:02.990225+08:00",
+  "revision": "607fe72066562da0",
+  "updated_at": "2026-11-26T16:49:58.885151+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T08:42:38Z",
+  "generated_at": "2026-11-26T08:52:52Z",
   "summary": {
     "participants": 121,
     "scored_participants": 98,
     "submissions": 2396,
-    "scored_submissions": 1691,
-    "evaluating": 15,
-    "core_evaluating": 15,
+    "scored_submissions": 1694,
+    "evaluating": 12,
+    "core_evaluating": 12,
     "challenges_total": 49,
     "core_solved": 42,
     "core_total": 48,
@@ -25,11 +25,11 @@
   },
   "progress": {
     "baseline_tokens": 611228972,
-    "best_tokens": 406618090,
+    "best_tokens": 406569815,
     "saved_tokens_pct": 33.48,
     "baseline_chars": 2086571119,
-    "best_chars": 1408769564,
-    "saved_chars_pct": 32.48,
+    "best_chars": 1408571694,
+    "saved_chars_pct": 32.49,
     "solved": 42,
     "challenges": 48,
     "tokens_measured": 42,
@@ -37,9 +37,9 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1690,
-    "kept_count": 614,
-    "current_best_score": 2851.01,
+    "total_runs": 1693,
+    "kept_count": 616,
+    "current_best_score": 2852.52,
     "current_best_pct": 33.48,
     "points": [
       {
@@ -25109,6 +25109,21 @@
       },
       {
         "i": 1672,
+        "id": 112723,
+        "ts": "2026-11-26T05:11:30+00:00",
+        "key": "core30",
+        "score": 50.0,
+        "compression_pct": 0.0,
+        "best": 2849.58,
+        "best_pct": 33.47,
+        "kept": false,
+        "author": "Keegan Kelly",
+        "model": null,
+        "harness": "Codex CLI",
+        "method": null
+      },
+      {
+        "i": 1673,
         "id": 112725,
         "ts": "2026-11-26T05:11:31+00:00",
         "key": "core28",
@@ -25123,7 +25138,7 @@
         "method": null
       },
       {
-        "i": 1673,
+        "i": 1674,
         "id": 112737,
         "ts": "2026-11-26T05:13:03+00:00",
         "key": "core45",
@@ -25138,7 +25153,7 @@
         "method": null
       },
       {
-        "i": 1674,
+        "i": 1675,
         "id": 112740,
         "ts": "2026-11-26T05:13:07+00:00",
         "key": "core48",
@@ -25153,7 +25168,7 @@
         "method": null
       },
       {
-        "i": 1675,
+        "i": 1676,
         "id": 112742,
         "ts": "2026-11-26T05:13:40+00:00",
         "key": "core52",
@@ -25168,7 +25183,7 @@
         "method": "Core 52 · Fast: Collapse 2→1 file + Inline 8 helpers"
       },
       {
-        "i": 1676,
+        "i": 1677,
         "id": 112751,
         "ts": "2026-11-26T05:15:05+00:00",
         "key": "core44",
@@ -25183,7 +25198,7 @@
         "method": "Core 44 · Fast: Prune helper lemmas & proofs (−100%)"
       },
       {
-        "i": 1677,
+        "i": 1678,
         "id": 112773,
         "ts": "2026-11-26T05:32:21+00:00",
         "key": "core44",
@@ -25198,7 +25213,7 @@
         "method": "Core 44 · Fast: Prune helper lemmas & proofs (−100%)"
       },
       {
-        "i": 1678,
+        "i": 1679,
         "id": 112789,
         "ts": "2026-11-26T05:45:49+00:00",
         "key": "core42",
@@ -25213,7 +25228,7 @@
         "method": null
       },
       {
-        "i": 1679,
+        "i": 1680,
         "id": 112792,
         "ts": "2026-11-26T05:47:46+00:00",
         "key": "core46",
@@ -25228,7 +25243,7 @@
         "method": null
       },
       {
-        "i": 1680,
+        "i": 1681,
         "id": 112793,
         "ts": "2026-11-26T05:47:58+00:00",
         "key": "core45",
@@ -25243,7 +25258,7 @@
         "method": null
       },
       {
-        "i": 1681,
+        "i": 1682,
         "id": 112794,
         "ts": "2026-11-26T05:48:01+00:00",
         "key": "core50",
@@ -25258,7 +25273,7 @@
         "method": null
       },
       {
-        "i": 1682,
+        "i": 1683,
         "id": 112796,
         "ts": "2026-11-26T05:48:43+00:00",
         "key": "core52",
@@ -25273,7 +25288,7 @@
         "method": null
       },
       {
-        "i": 1683,
+        "i": 1684,
         "id": 112800,
         "ts": "2026-11-26T05:51:33+00:00",
         "key": "core33",
@@ -25288,7 +25303,7 @@
         "method": "Core 33 · Fast: Inline 9 helpers + aesop compress"
       },
       {
-        "i": 1684,
+        "i": 1685,
         "id": 112807,
         "ts": "2026-11-26T06:02:47+00:00",
         "key": "core48",
@@ -25303,7 +25318,7 @@
         "method": null
       },
       {
-        "i": 1685,
+        "i": 1686,
         "id": 112808,
         "ts": "2026-11-26T06:02:55+00:00",
         "key": "core49",
@@ -25318,7 +25333,7 @@
         "method": null
       },
       {
-        "i": 1686,
+        "i": 1687,
         "id": 112810,
         "ts": "2026-11-26T06:03:32+00:00",
         "key": "core53",
@@ -25333,7 +25348,7 @@
         "method": null
       },
       {
-        "i": 1687,
+        "i": 1688,
         "id": 112811,
         "ts": "2026-11-26T06:03:51+00:00",
         "key": "core44",
@@ -25348,7 +25363,7 @@
         "method": null
       },
       {
-        "i": 1688,
+        "i": 1689,
         "id": 112828,
         "ts": "2026-11-26T06:15:49+00:00",
         "key": "core50",
@@ -25363,7 +25378,7 @@
         "method": "Core 50 · Fast: Collapse 4→1 file + Inline 83 helpers"
       },
       {
-        "i": 1689,
+        "i": 1690,
         "id": 112837,
         "ts": "2026-11-26T06:22:33+00:00",
         "key": "core35",
@@ -25378,7 +25393,7 @@
         "method": "Core 35 · Fast: Inline 70 helpers + aesop compress"
       },
       {
-        "i": 1690,
+        "i": 1691,
         "id": 112917,
         "ts": "2026-11-26T07:51:46+00:00",
         "key": "core42",
@@ -25391,6 +25406,36 @@
         "model": "GLM-5.4",
         "harness": "ZCode",
         "method": null
+      },
+      {
+        "i": 1692,
+        "id": 112957,
+        "ts": "2026-11-26T08:03:13+00:00",
+        "key": "core35",
+        "score": 68.42,
+        "compression_pct": 93.18,
+        "best": 2851.32,
+        "best_pct": 33.48,
+        "kept": true,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": "Core 35 · Fast: Inline 6 helpers + grind automation"
+      },
+      {
+        "i": 1693,
+        "id": 112994,
+        "ts": "2026-11-26T08:33:37+00:00",
+        "key": "core50",
+        "score": 59.57,
+        "compression_pct": 66.39,
+        "best": 2852.52,
+        "best_pct": 33.48,
+        "kept": true,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": "Core 50 · Fast: Page/Siegel bound trim + aesop compress"
       }
     ]
   },
@@ -26580,9 +26625,9 @@
       "reduction_factor": 6.76,
       "score": 64.6618,
       "attempts": 33,
-      "scored_attempts": 16,
-      "participants": 9,
-      "runs": 16,
+      "scored_attempts": 17,
+      "participants": 10,
+      "runs": 17,
       "kept_runs": 4,
       "leader": {
         "author": "Renxiu Song",
@@ -26792,21 +26837,21 @@
       "metric": "tokens",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-fast-sub-pillar-35-adelic-h-8cdb9102",
       "baseline_tokens": 773767,
-      "best_tokens": 56653,
+      "best_tokens": 52744,
       "baseline_chars": 2600973,
-      "best_chars": 185540,
-      "token_saved_pct": 92.68,
-      "char_saved_pct": 92.87,
-      "reduction_factor": 13.66,
-      "score": 68.106,
+      "best_chars": 181257,
+      "token_saved_pct": 93.18,
+      "char_saved_pct": 93.03,
+      "reduction_factor": 14.67,
+      "score": 68.4188,
       "attempts": 29,
-      "scored_attempts": 22,
+      "scored_attempts": 23,
       "participants": 10,
-      "runs": 22,
-      "kept_runs": 11,
+      "runs": 23,
+      "kept_runs": 12,
       "leader": {
         "author": "Andrew Pullin",
-        "score": 68.11,
+        "score": 68.42,
         "model": "The Council",
         "harness": "pi",
         "axiom_status": "verified_clean",
@@ -26816,15 +26861,15 @@
       "last_update": null,
       "technique": {
         "id": "core35_simplify_1",
-        "attempt_id": 112837,
+        "attempt_id": 112957,
         "challenge_key": "core35",
         "title": "Hermitian Amplitude Expansion: Proof Compression (405 → 1 Files)",
         "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
         "author": "Andrew Pullin",
         "model": "The Council",
         "harness": "pi",
-        "metric": "405→1 files · −92.7% tokens",
-        "primary_pct": 92.7
+        "metric": "405→1 files · −93.2% tokens",
+        "primary_pct": 93.2
       }
     },
     {
@@ -27276,21 +27321,21 @@
       "metric": "tokens",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-fast-sub-pillar-50-siegel-w-6b6fc293",
       "baseline_tokens": 739518,
-      "best_tokens": 292885,
+      "best_tokens": 248519,
       "baseline_chars": 2532957,
-      "best_chars": 1031889,
-      "token_saved_pct": 60.4,
-      "char_saved_pct": 59.26,
-      "reduction_factor": 2.52,
-      "score": 58.3724,
+      "best_chars": 838302,
+      "token_saved_pct": 66.39,
+      "char_saved_pct": 66.9,
+      "reduction_factor": 2.98,
+      "score": 59.5729,
       "attempts": 18,
-      "scored_attempts": 16,
+      "scored_attempts": 17,
       "participants": 7,
-      "runs": 16,
-      "kept_runs": 9,
+      "runs": 17,
+      "kept_runs": 10,
       "leader": {
         "author": "Andrew Pullin",
-        "score": 58.37,
+        "score": 59.57,
         "model": "The Council",
         "harness": "pi",
         "axiom_status": "verified_clean",
@@ -27300,15 +27345,15 @@
       "last_update": null,
       "technique": {
         "id": "core50_simplify_1",
-        "attempt_id": 112828,
+        "attempt_id": 112994,
         "challenge_key": "core50",
         "title": "Siegel–Weil Rank-1 Density Bound: Proof Compression (506 → 1 Files)",
         "category": "Phase 4 Fast Sub-Pillar · Proof Simplification",
         "author": "Andrew Pullin",
         "model": "The Council",
         "harness": "pi",
-        "metric": "506→1 files · −60.4% tokens",
-        "primary_pct": 60.4
+        "metric": "506→1 files · −66.4% tokens",
+        "primary_pct": 66.4
       }
     },
     {
@@ -27431,9 +27476,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1907,
+    "labeled_scored_runs": 1910,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 1956,
+    "total_scored_runs": 1959,
     "pairs_total": 71,
     "top_pairs": [
       {
@@ -27442,12 +27487,12 @@
         "model": "The Council",
         "harness": "pi",
         "provider": "other",
-        "index_score": 58.78,
+        "index_score": 58.81,
         "tasks_solved": 42,
         "tasks_total": 48,
         "mean_score": 64.59,
-        "mean_compression_pct": 75.0,
-        "pass_rate_pct": 86.1,
+        "mean_compression_pct": 75.1,
+        "pass_rate_pct": 86.2,
         "distinct_authors": 1
       },
       {
@@ -28064,15 +28109,15 @@
     },
     {
       "id": "core35_simplify_1",
-      "attempt_id": 112837,
+      "attempt_id": 112957,
       "challenge_key": "core35",
       "title": "Hermitian Amplitude Expansion: Proof Compression (405 → 1 Files)",
       "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
       "author": "Andrew Pullin",
       "model": "The Council",
       "harness": "pi",
-      "metric": "405→1 files · −92.7% tokens",
-      "primary_pct": 92.7
+      "metric": "405→1 files · −93.2% tokens",
+      "primary_pct": 93.2
     },
     {
       "id": "core35_simplify_185",
@@ -28292,15 +28337,15 @@
     },
     {
       "id": "core50_simplify_1",
-      "attempt_id": 112828,
+      "attempt_id": 112994,
       "challenge_key": "core50",
       "title": "Siegel–Weil Rank-1 Density Bound: Proof Compression (506 → 1 Files)",
       "category": "Phase 4 Fast Sub-Pillar · Proof Simplification",
       "author": "Andrew Pullin",
       "model": "The Council",
       "harness": "pi",
-      "metric": "506→1 files · −60.4% tokens",
-      "primary_pct": 60.4
+      "metric": "506→1 files · −66.4% tokens",
+      "primary_pct": 66.4
     },
     {
       "id": "core50_simplify_4",

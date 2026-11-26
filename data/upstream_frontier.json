@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T08:42:25Z",
+  "generated_at": "2026-11-26T08:52:41Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -506,20 +506,20 @@
     }
   ],
   "live_main": {
-    "sha": "acbdb4385",
-    "commit_date": "2026-11-26T08:24:55Z",
+    "sha": "907a395bc",
+    "commit_date": "2026-11-26T08:44:13Z",
     "toolchain": "leanprover/lean4:v4.37.0-rc1",
     "lean_files": 802,
-    "total_lines": 474112,
-    "total_bytes": 29674137,
-    "import_lines": 1818,
-    "declarations": 23487,
+    "total_lines": 473831,
+    "total_bytes": 29657073,
+    "import_lines": 1824,
+    "declarations": 23465,
     "backward_options": 7,
     "heartbeat_options": 1,
     "files_delta_vs_v021": -174385,
-    "lines_delta_vs_v021": -16900103,
-    "open_pr_count": 315,
-    "measured_at": "2026-11-26T08:42:25Z"
+    "lines_delta_vs_v021": -16900384,
+    "open_pr_count": 268,
+    "measured_at": "2026-11-26T08:52:41Z"
   },
   "live_history": [
     {
@@ -961,6 +961,18 @@
       "total_lines": 474112,
       "declarations": 23487,
       "import_lines": 1818,
+      "backward_options": 7,
+      "heartbeat_options": 1
+    },
+    {
+      "date": "2026-11-26T08:44:13Z",
+      "sha": "907a395bc",
+      "label": "main@907a395bc",
+      "toolchain": "leanprover/lean4:v4.37.0-rc1",
+      "lean_files": 802,
+      "total_lines": 473831,
+      "declarations": 23465,
+      "import_lines": 1824,
       "backward_options": 7,
       "heartbeat_options": 1
     }
@@ -1477,8 +1489,8 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-26T08:42:25Z",
-    "total_merged_prs": 4475,
+    "measured_at": "2026-11-26T08:52:41Z",
+    "total_merged_prs": 4555,
     "total_batch_queue_prs": 0,
     "entries": [
       {
@@ -1498,18 +1510,18 @@
           "ops_review": "Merges PRs and batch PRs on main"
         },
         "bio": "Research software engineer at the Lean FRO and Mathlib maintainer. On leanprover-community/riemann-hypothesis, Kim runs the sharded AWS and donor-runner CI builds (#101), merged the reviewed cleanup batches (#115, #150) and the Lean 4.37.0-rc1 upgrade (#185, 2026-11-23), and on 2026-11-25 moved the Alpöge-lineage cleanup to branch `alpoge` and based `main` on the readable edition of lsernau/grh-lean.",
-        "merged_direct": 123,
+        "merged_direct": 124,
         "merged_batch_extra": 0,
-        "merged_total": 123,
+        "merged_total": 124,
         "merged_prs": [
+          6666,
           6588,
           6540,
           6491,
           6469,
           6452,
           6425,
-          6396,
-          6343
+          6396
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -1550,18 +1562,18 @@
           "ops_review": "PR triage, labeling & merges"
         },
         "bio": "Repository collaborator handling PR review, triage, and verification tooling. Authored the DeepMind formal-conjectures Comparator setup (#88) and the `batch queue` label and batch-assembly workflows (#226, #233).",
-        "merged_direct": 917,
+        "merged_direct": 902,
         "merged_batch_extra": 0,
-        "merged_total": 917,
+        "merged_total": 902,
         "merged_prs": [
+          6437,
+          6436,
+          6435,
+          6434,
+          6433,
+          6432,
           6392,
-          6389,
-          6387,
-          6384,
-          6383,
-          6382,
-          6381,
-          6376
+          6389
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -1878,18 +1890,18 @@
           "ops_review": ""
         },
         "bio": "Authored merged dead-module pruning PR #45 (-10,718 unreachable files), organized a 104-volunteer replay of Alpöge's 175,187-module release (`rohanarun/alpoge-rh-replay`; 109,719 modules with recorded evidence, now closed), and proposed module consolidation in #120 (93,601 modules -> 20,258 bundles; closed unmerged — the consolidation that merged is #324).",
-        "merged_direct": 20,
+        "merged_direct": 21,
         "merged_batch_extra": 0,
-        "merged_total": 20,
+        "merged_total": 21,
         "merged_prs": [
+          6417,
           6096,
           6078,
           6077,
           6053,
           6052,
           6051,
-          6050,
-          6049
+          6050
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -1930,18 +1942,18 @@
           "ops_review": ""
         },
         "bio": "Submitted proof-reuse refactors (#192 Yangian block-diagonal, #197 Fubini–Study integral, #210 polynomial eigenvector, #215 saturated submodules, #216 Schur/Jacobson density); 88 merged PRs as of 2026-11-26.",
-        "merged_direct": 109,
+        "merged_direct": 107,
         "merged_batch_extra": 0,
-        "merged_total": 109,
+        "merged_total": 107,
         "merged_prs": [
-          6351,
-          6350,
           6019,
           6018,
           6016,
           6015,
           6014,
-          6012
+          6012,
+          6008,
+          6007
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
