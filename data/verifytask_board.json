@@ -2,17 +2,17 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "f1d53a8ed0571346",
-  "updated_at": "2026-11-26T22:27:25.891953+08:00",
+  "revision": "96c7e196fa93410f",
+  "updated_at": "2026-11-26T22:36:47.564017+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T14:29:40Z",
+  "generated_at": "2026-11-26T14:39:49Z",
   "summary": {
     "participants": 121,
     "scored_participants": 98,
     "submissions": 2466,
-    "scored_submissions": 1722,
-    "evaluating": 24,
-    "core_evaluating": 24,
+    "scored_submissions": 1724,
+    "evaluating": 21,
+    "core_evaluating": 21,
     "challenges_total": 49,
     "core_solved": 42,
     "core_total": 48,
@@ -25,10 +25,10 @@
   },
   "progress": {
     "baseline_tokens": 611228972,
-    "best_tokens": 406134916,
+    "best_tokens": 406134908,
     "saved_tokens_pct": 33.55,
     "baseline_chars": 2086571119,
-    "best_chars": 1407111001,
+    "best_chars": 1407110938,
     "saved_chars_pct": 32.56,
     "solved": 42,
     "challenges": 48,
@@ -37,9 +37,9 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1721,
-    "kept_count": 642,
-    "current_best_score": 2866.41,
+    "total_runs": 1723,
+    "kept_count": 643,
+    "current_best_score": 2866.45,
     "current_best_pct": 33.55,
     "points": [
       {
@@ -24348,7 +24348,7 @@
         "ts": "2026-11-26T00:25:28+00:00",
         "key": "core32",
         "score": 50.78,
-        "compression_pct": 0.0,
+        "compression_pct": 7.06,
         "best": 2844.27,
         "best_pct": 33.39,
         "kept": false,
@@ -25769,6 +25769,21 @@
       },
       {
         "i": 1716,
+        "id": 113389,
+        "ts": "2026-11-26T12:35:56+00:00",
+        "key": "core32",
+        "score": 50.88,
+        "compression_pct": 0.0,
+        "best": 2863.6,
+        "best_pct": 33.54,
+        "kept": false,
+        "author": "Emanuel Barbosa de Moura",
+        "model": "Gemini",
+        "harness": "ci-lean4",
+        "method": null
+      },
+      {
+        "i": 1717,
         "id": 113392,
         "ts": "2026-11-26T12:37:17+00:00",
         "key": "core44",
@@ -25783,7 +25798,7 @@
         "method": "Core 44 · Fast: Prune helper lemmas & proofs (−100%)"
       },
       {
-        "i": 1717,
+        "i": 1718,
         "id": 113405,
         "ts": "2026-11-26T12:40:18+00:00",
         "key": "core53",
@@ -25798,7 +25813,7 @@
         "method": "Core 53 · Fast: Inline 70 helpers + grind automation"
       },
       {
-        "i": 1718,
+        "i": 1719,
         "id": 113420,
         "ts": "2026-11-26T12:43:24+00:00",
         "key": "core2",
@@ -25813,7 +25828,7 @@
         "method": "Core 2: Frobenius lift & orthogonality + grind automation"
       },
       {
-        "i": 1719,
+        "i": 1720,
         "id": 113458,
         "ts": "2026-11-26T13:01:49+00:00",
         "key": "core30",
@@ -25828,7 +25843,7 @@
         "method": "Core 30 · Fast: Prune 32 files + Page/Siegel bound trim"
       },
       {
-        "i": 1720,
+        "i": 1721,
         "id": 113498,
         "ts": "2026-11-26T13:18:00+00:00",
         "key": "core37",
@@ -25843,7 +25858,7 @@
         "method": "Core 37 · Fast: Inline 73 helpers + grind automation"
       },
       {
-        "i": 1721,
+        "i": 1722,
         "id": 113569,
         "ts": "2026-11-26T13:43:13+00:00",
         "key": "core53",
@@ -25856,6 +25871,21 @@
         "model": "The Council",
         "harness": "pi",
         "method": "Core 53 · Fast: Inline 25 helpers + grind automation"
+      },
+      {
+        "i": 1723,
+        "id": 113735,
+        "ts": "2026-11-26T14:25:27+00:00",
+        "key": "core12",
+        "score": 66.88,
+        "compression_pct": 90.43,
+        "best": 2866.45,
+        "best_pct": 33.55,
+        "kept": true,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": "Core 12: grind automation (−90%)"
       }
     ]
   },
@@ -26353,21 +26383,21 @@
       "metric": "tokens",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-core-pillar-12-cyclotomic-p-3bfcc9a1",
       "baseline_tokens": 10193,
-      "best_tokens": 983,
+      "best_tokens": 975,
       "baseline_chars": 41201,
-      "best_chars": 4773,
-      "token_saved_pct": 90.36,
-      "char_saved_pct": 88.42,
-      "reduction_factor": 10.37,
-      "score": 66.8407,
+      "best_chars": 4710,
+      "token_saved_pct": 90.43,
+      "char_saved_pct": 88.57,
+      "reduction_factor": 10.45,
+      "score": 66.8797,
       "attempts": 80,
-      "scored_attempts": 66,
+      "scored_attempts": 67,
       "participants": 20,
-      "runs": 66,
-      "kept_runs": 20,
+      "runs": 67,
+      "kept_runs": 21,
       "leader": {
         "author": "Andrew Pullin",
-        "score": 66.84,
+        "score": 66.88,
         "model": "The Council",
         "harness": "pi",
         "axiom_status": "verified_clean",
@@ -26377,7 +26407,7 @@
       "last_update": null,
       "technique": {
         "id": "core12_simplify_1",
-        "attempt_id": 112999,
+        "attempt_id": 113735,
         "challenge_key": "core12",
         "title": "Cyclotomic Power Series Rigidity: Proof Compression (10 → 1 Files)",
         "category": "Phase 2 Core Pillar · Proof Simplification",
@@ -27133,9 +27163,9 @@
       "reduction_factor": 1.87,
       "score": 55.9648,
       "attempts": 67,
-      "scored_attempts": 44,
+      "scored_attempts": 45,
       "participants": 16,
-      "runs": 44,
+      "runs": 45,
       "kept_runs": 14,
       "leader": {
         "author": "Andrew Pullin",
@@ -27896,10 +27926,10 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1954,
+    "labeled_scored_runs": 1956,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2003,
-    "pairs_total": 71,
+    "total_scored_runs": 2005,
+    "pairs_total": 72,
     "top_pairs": [
       {
         "rank": 1,
@@ -27910,8 +27940,8 @@
         "index_score": 59.64,
         "tasks_solved": 42,
         "tasks_total": 48,
-        "mean_score": 64.86,
-        "mean_compression_pct": 75.9,
+        "mean_score": 64.87,
+        "mean_compression_pct": 76.0,
         "pass_rate_pct": 87.1,
         "distinct_authors": 1
       },
@@ -28170,7 +28200,7 @@
     },
     {
       "id": "core12_simplify_1",
-      "attempt_id": 112999,
+      "attempt_id": 113735,
       "challenge_key": "core12",
       "title": "Cyclotomic Power Series Rigidity: Proof Compression (10 → 1 Files)",
       "category": "Phase 2 Core Pillar · Proof Simplification",
@@ -28864,12 +28894,32 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-26T13:57:19Z",
+      "ts": "2026-11-26T14:29:38Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
       "summary": "New verified modules from the remaining 99% of Alpöge's proof are now live: CM j-Invariant Integrality, Irreducible Complex Open Connected, Siegel–Weil Local Density (+40 more).",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-core-pillar-6-cm-j-invarian-70b3d4ba",
+      "highlight": true
+    },
+    {
+      "id": "upstream-pr-7796",
+      "ts": "2026-11-26T14:24:56Z",
+      "source": "lean_community",
+      "tag": "Upstream PR #7796",
+      "title": "perf(Lib/Cohomology/Etale): speed up kernel checking of the comparison-map lemmas in Basic",
+      "summary": "Merged into leanprover-community/riemann-hypothesis by Dharmavati213.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/7796",
+      "highlight": true
+    },
+    {
+      "id": "upstream-pr-7813",
+      "ts": "2026-11-26T14:24:55Z",
+      "source": "lean_community",
+      "tag": "Upstream PR #7813",
+      "title": "perf(Lib/Cohomology/Hodge): speed up kernel checking of five lemmas in CupProduct",
+      "summary": "Merged into leanprover-community/riemann-hypothesis by Dharmavati213.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/7813",
       "highlight": true
     },
     {
@@ -28913,26 +28963,6 @@
       "highlight": true
     },
     {
-      "id": "seed-upstream-pr68",
-      "ts": "2026-11-22T07:25:46Z",
-      "source": "lean_community",
-      "tag": "Proof Cleanup",
-      "title": "Shared GL finiteness rank-induction proof cuts 9,010 Lean lines (PR #68)",
-      "summary": "antoshashakov deduplicated GL finiteness proofs (−9,010 lines) alongside CapelliIdentities typeclass dump cleanups merged in PRs #57, #60, and #65.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/68",
-      "highlight": false
-    },
-    {
-      "id": "seed-upstream-pr45",
-      "ts": "2026-11-21T20:54:20Z",
-      "source": "lean_community",
-      "tag": "Repo Pruning",
-      "title": "Upstream prunes 11,163 unreachable dead modules (PR #45)",
-      "summary": "rohanarun removed unused top-level imports and 11,163 unreachable modules from leanprover-community/riemann-hypothesis in the first large-scale structural cleanup.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/45",
-      "highlight": false
-    },
-    {
       "id": "seed-core15-launch",
       "ts": "2026-11-21T08:00:00Z",
       "source": "playground",
@@ -28957,7 +28987,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1375★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1382★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true
