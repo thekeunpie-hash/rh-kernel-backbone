@@ -245,42 +245,43 @@
 <body>
   <div class="wrap">
     <nav class="topbar" aria-label="Site navigation">
-      <a href="manual.html">riemannhypothesis.dev / field notes</a>
+      <a href="index.html">riemannhypothesis.dev</a>
       <div class="topnav">
-        <a href="index.html">full tracker</a>
+        <a href="tracker.html">full tracker</a>
         <a href="profiles.html">contributors</a>
         <a href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener">upstream repo</a>
       </div>
     </nav>
 
     <div class="live-strip" id="liveStrip">
-      <strong>main</strong> · loading live snapshot…
+      <strong>main</strong> · loading snapshot…
     </div>
 
     <header>
       <h1>How to Actually Contribute to the Lean Riemann Hypothesis Proof</h1>
       <p class="lede">
-        On November 26, 2026, <code>leanprover-community/riemann-hypothesis</code> moved its
-        58,947-file Alpöge cleanup to branch <code>alpoge</code> and switched <code>main</code>
-        to Luke Sernau and Anthropic’s readable <code>grh-lean</code> proof: 802 Lean files,
-        roughly 300,000 lines of code, zero <code>sorry</code>, and standard axioms only.
-        This page is a plain working manual for people who want to read the proof or land a
-        clean PR without stepping on the traps that waste hours.
+        On November 25, 2026 (UTC), <code>leanprover-community/riemann-hypothesis</code> moved
+        its 58,947-file Alpöge cleanup to branch <code>alpoge</code> and switched
+        <code>main</code> to Luke Sernau and Anthropic’s readable <code>grh-lean</code> proof:
+        803 Lean files at the switch (802 on current <code>main</code>), roughly 300,000 lines
+        of code, zero <code>sorry</code>, and standard axioms only. This is an independent,
+        unofficial working manual for people who want to read the proof or land a clean PR
+        without stepping on the traps that waste hours.
       </p>
     </header>
 
     <main>
       <p>
         A quick note on verification scope, because precision matters here. Andrew Sutherland
-        at MIT independently verified the <code>grh/</code> readable release across four
-        independent checkers (<code>leanchecker</code>, <code>nanoda</code>,
-        <code>con-leche</code>, and <code>con-ron</code>), producing a byte-identical
-        4.49&nbsp;GB kernel export on two machines
+        at MIT independently verified <code>lsernau/grh-lean@72fead10</code> on
+        <code>Lean v4.35.0</code> across independent checkers (<code>leanchecker</code>,
+        <code>nanoda</code>, <code>con-leche</code>, and <code>con-ron</code>), producing a
+        byte-identical 4.49&nbsp;GB kernel export on two machines
         (<a href="https://math.mit.edu/~drew/shortgrh/" target="_blank" rel="noopener">MIT report</a>).
         Since that switch, upstream <code>main</code> upgraded to <code>Lean v4.37.0-rc1</code>,
         added <code>TauCetiProject/TauCeti</code> as a dependency, and started accepting
         community cleanup PRs; every commit on <code>main</code> is checked continuously by
-        GitHub Actions <code>lake build</code> and frozen challenge-file guards.
+        GitHub Actions <code>lake build</code>.
       </p>
 
       <h2>1. The first trap: shorter source can produce a larger kernel proof</h2>
@@ -304,7 +305,7 @@
           <tr>
             <td><code>grh/</code> readable (basis of <code>main</code>)</td>
             <td class="num">299,902</td>
-            <td class="num">4.49 GB</td>
+            <td class="num">4.49 GB (−13.3%)</td>
             <td class="num">32m 12s</td>
           </tr>
           <tr>
@@ -387,7 +388,7 @@ lake env lean -e 'import Main; #print axioms riemannHypothesis'</code></pre>
         <tbody>
           <tr>
             <td><strong>Single-caller flattening</strong><br /><span class="aside-note">Helper lemmas used in only one place (<code>in_degree = 1</code>)</span></td>
-            <td class="num">149,521 L<br /><span class="aside-note">50.0% of code</span></td>
+            <td class="num">149,521 L<br /><span class="aside-note">49.9% of code</span></td>
             <td>Highest density in <code>New/Congruences</code> (70.3%, 15,670&nbsp;L), <code>New/Spanning</code> (63.0%, 24,520&nbsp;L), <code>New/Determinant</code> (66%, 9,065&nbsp;L), and <code>New/UpperBound</code> (60%, 13,055&nbsp;L).</td>
           </tr>
           <tr>
@@ -411,9 +412,9 @@ lake env lean -e 'import Main; #print axioms riemannHypothesis'</code></pre>
       <h2>4. The proof spine in six real Lean files</h2>
       <p>
         Every symbol below is verified directly against the <code>grh-lean</code> kernel
-        environment. If you want to understand how the 802-file proof replaces Alpöge’s
-        Arakelov slope and Taylor–Wiles patching machinery without reading 300,000 lines, read
-        these six files in order:
+        environment (<code>main@e063a92</code>). If you want to trace how the proof reaches
+        <code>riemannHypothesis</code> without reading 300,000 lines, read these six files in
+        order:
       </p>
 
       <ol class="spine">
@@ -479,13 +480,13 @@ lake env lean -e 'import Main; #print axioms riemannHypothesis'</code></pre>
         <a href="https://github.com/leanprover-community/riemann-hypothesis/tree/alpoge" target="_blank" rel="noopener"><code>alpoge</code></a>.
         Historical shrinkage charts live on
         <a href="https://rh-shrink.github.io/" target="_blank" rel="noopener">rh-shrink.github.io</a>,
-        contributor records are on <a href="profiles.html">profiles.html</a>, and the full
-        multi-chart tracker remains available at <a href="index.html">index.html</a>.
+        contributor records are on <a href="profiles.html">profiles.html</a>, and the archived
+        multi-chart tracker remains available at <a href="tracker.html">tracker.html</a>.
       </p>
     </main>
 
     <footer>
-      <span>Maintained as plain field notes for <code>leanprover-community/riemann-hypothesis</code>.</span>
+      <span>Independent, unofficial field notes for <code>leanprover-community/riemann-hypothesis</code>.</span>
       <span><a href="https://github.com/thekeunpie-hash/rh-kernel-backbone" target="_blank" rel="noopener">source &amp; data</a> · <a href="llms.txt">llms.txt</a></span>
     </footer>
   </div>
