@@ -516,15 +516,59 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      min-width: 0;
       padding: 0 6px;
       color: #ffffff;
-      font-size: 11.2px;
+      font-size: 11px;
       font-weight: 700;
       cursor: pointer;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       transition: filter .14s ease, transform .14s ease;
+    }
+
+    .archive-details {
+      background: #fafaf9;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin: 14px 0;
+    }
+
+    .archive-details > summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .archive-details > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .archive-details > summary::before {
+      content: "▸";
+      color: var(--muted);
+      font-size: 11px;
+      transition: transform .15s ease;
+    }
+
+    .archive-details[open] > summary::before {
+      transform: rotate(90deg);
+    }
+
+    .archive-stat {
+      margin-left: auto;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
     }
 
     .spatial-seg:hover,
@@ -2442,15 +2486,16 @@
       <h4>Contents</h4>
       <a href="#interactive-dashboard">Kernel Dashboard</a>
       <a href="#edition-switcher" class="toc-l3">Active Editions (grh-lean / alpoge)</a>
-      <a href="#grh-compact-anatomy" class="toc-l3" data-edition-scope="grh">grh-compact 76k Anatomy</a>
+      <a href="#edition-compare" class="toc-l3">4-Edition Comparison</a>
+      <a href="#grh-lean-anatomy" class="toc-l3" data-edition-scope="grh">grh-lean 300k Anatomy</a>
       <a href="#theory-map" class="toc-l3">Mathematical Architecture</a>
       <a href="#upstream-record" class="toc-l3">Proof Size Over Time</a>
-      <a href="#verifytask-core" class="toc-l3">Playground Core Pillars</a>
       <a href="#rh-shrink-size" class="toc-l3">rh-shrink per Commit</a>
       <a href="#live-upstream-tracker" class="toc-l3">Live Upstream Tracker</a>
       <a href="#proof-coverage-map" class="toc-l3">Whole-Proof Coverage Map</a>
       <a href="#community-timeline" class="toc-l3">Community News &amp; Timeline</a>
       <a href="#stewardship-hall" class="toc-l3">Maintainers &amp; Contributors</a>
+      <a href="#verifytask-core" class="toc-l3">Archived: Playground</a>
       <a href="#upstream-frontier" class="toc-l3" data-edition-scope="alpoge">Alpöge PR Frontier</a>
       <a href="#verified-patterns" class="toc-l3" data-edition-scope="alpoge">Alpöge De-bloating Patterns</a>
       <a href="#actionable-targets" class="toc-l3" data-edition-scope="alpoge">Alpöge Cleanup Targets</a>
@@ -2485,10 +2530,11 @@
               <div class="eyebrow">Official Upstream Lean 4 Full-Proof Tracker</div>
               <h1 class="hero-title" style="border:none;padding:0;margin:0 0 8px;">Kernel-Grounded Progress Across the
                 Full RH &amp; GRH Proof</h1>
-              <p class="hero-desc">Real-time source &amp; verification tracker across both official editions of
-                <code>leanprover-community/riemann-hypothesis</code>: the new <code>lsernau/grh-lean</code> rewrite on
-                <code>main</code> (300k readable / 76k compact code lines, Lean v4.35.0) and Levent Alpöge’s original
-                175,187-file lineage preserved on branch <code>alpoge</code> (Lean v4.37.0-rc1).</p>
+              <p class="hero-desc">Real-time source &amp; verification tracker centered on the canonical readable
+                <code>grh-lean</code> proof on <code>leanprover-community/riemann-hypothesis</code>
+                <code>main</code> (~300k code lines + <code>TauCeti</code>, verified across independent Lean kernels),
+                its <code>grh-clean</code> flattening baseline, and Levent Alpöge’s archived 175,187-file lineage on
+                branch <code>alpoge</code>.</p>
               <div class="hero-actions">
                 <span style="font-size:12px;font-weight:600;color:var(--muted);">Explore:</span>
                 <a class="cta-pill cta-dark" href="https://github.com/leanprover-community/riemann-hypothesis/pulls"
@@ -2497,7 +2543,7 @@
                   target="_blank" rel="noopener">Tech Debt #229 ↗</a>
                 <a class="cta-pill" href="https://leanprover.zulipchat.com/" target="_blank" rel="noopener">Lean Zulip
                   ↗</a>
-                <a class="cta-pill" href="https://math.mit.edu/~drew/grh/" target="_blank" rel="noopener">MIT
+                <a class="cta-pill" href="https://math.mit.edu/~drew/shortgrh/" target="_blank" rel="noopener">MIT
                   Verification ↗</a>
                 <a class="cta-pill" href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/SPEC.md"
                   target="_blank" rel="noopener">SPEC.md ↗</a>
@@ -2533,24 +2579,24 @@
               <h3 style="margin:0;font-size:16px;">Select Edition View (New <code>grh-lean</code> vs. <code>alpoge</code> Archive)</h3>
             </div>
             <div class="edition-tabs" id="editionTabs" role="tablist" aria-label="Switch RH proof edition">
-              <button type="button" class="edition-tab is-active" data-edition-btn="grh">grh-lean (New main · 300k / 76k L)</button>
-              <button type="button" class="edition-tab" data-edition-btn="alpoge">Alpöge Lineage (branch alpoge · 58.9k f)</button>
+              <button type="button" class="edition-tab is-active" data-edition-btn="grh">grh-lean (Official main · 300k L)</button>
+              <button type="button" class="edition-tab" data-edition-btn="alpoge">Alpöge Lineage (branch alpoge · Archive)</button>
               <button type="button" class="edition-tab" data-edition-btn="all">Show Both</button>
             </div>
           </div>
           <div class="ed-branch-grid">
             <div class="ed-card is-primary" id="edCardMain">
-              <div class="ed-card-k">Official <code>main</code> · Readable (<code>lsernau/grh-lean</code>)</div>
-              <div class="ed-card-v" id="edMainVal">803 files · 298,160 code L</div>
-              <div class="ed-card-sub" id="edMainSub">477,124 raw L · 30.05 MB · <code>Lean v4.35.0</code> · 0 <code>maxHeartbeats</code> · <code>main@686902ae1</code> · Third-party rewrite (independent verification pending)</div>
+              <div class="ed-card-k">Official <code>main</code> · Readable (<code>grh-lean</code> + <code>TauCeti</code>)</div>
+              <div class="ed-card-v" id="edMainVal">802 files · 299,501 code L</div>
+              <div class="ed-card-sub" id="edMainSub">476,436 raw L · 28.56M chars · 4.49 GB kernel export · <code>leanchecker</code>, <code>nanoda</code>, <code>con-leche</code>, <code>con-ron</code> passed · Active upstream merge queue</div>
             </div>
-            <div class="ed-card is-primary" id="edCardCompact">
-              <div class="ed-card-k">Branch <code>grh-lean</code> · Compact (<code>grh-compact/</code>)</div>
-              <div class="ed-card-v">794 files · 76,151 code L</div>
-              <div class="ed-card-sub">112,827 raw L · 7.42 MB · 1,491,576 Lean tokens · 10,376 decls · 0 cheats · 9 <code>maxHeartbeats</code> · Apache 2.0 (active compression base)</div>
+            <div class="ed-card is-primary" id="edCardClean">
+              <div class="ed-card-k">Flattening Base · <code>grh-clean</code> (<code>main@e063a92</code> + Wave 0)</div>
+              <div class="ed-card-v">802 files · 49,821 cone consts</div>
+              <div class="ed-card-sub">711,498 typed kernel edges · 25,793 active user decls · 149,521 code L (50.0%) single-caller flattening headroom · Wave 0 pruned −2,948 code L · Zero line-packing</div>
             </div>
             <div class="ed-card" id="edCardAlpoge">
-              <div class="ed-card-k">Branch <code>alpoge</code> · Community Cleanup (Batch 23)</div>
+              <div class="ed-card-k">Branch <code>alpoge</code> · Archived Original Lineage (Batch 23)</div>
               <div class="ed-card-v">58,947 files · 11.00M code L</div>
               <div class="ed-card-sub">13,710,054 raw L · 920.5 MB · <code>Lean v4.37.0-rc1</code> · <code>756a70250</code> · Comparator ACCEPTED (down from 175,187 files / 17.37M L v0.2.1)</div>
             </div>
@@ -2667,98 +2713,98 @@
           })();
         </script>
 
-        <section class="panel" id="grh-compact-anatomy" data-edition-scope="grh" aria-labelledby="grhCompTitle">
-          <div class="eyebrow">Current Shortest Full Proof · <code>lsernau/grh-lean@72fead1</code> (Apache 2.0)</div>
-          <h3 id="grhCompTitle" style="margin:0 0 4px;"><code>grh-compact</code> 76k-Line Structural Anatomy &amp; Compression Seams <span class="badge badge-exact">Exact</span></h3>
-          <p class="panel-sub" style="margin:0 0 8px;">Exact 4-metric audit and module dominator tree from <code>Main.lean</code> across all 794 files of <code>grh-compact/src/</code>. Background library <code>Lib/</code> accounts for <strong>68%</strong> (51.5k code L) while the core RH/GRH argument <code>New/</code> is <strong>32%</strong> (24.6k code L).</p>
+        <section class="panel" id="grh-lean-anatomy" data-edition-scope="grh" aria-labelledby="grhLeanTitle">
+          <div class="eyebrow">Official Canonical Baseline · <code>grh-lean</code> (<code>grh/</code> readable) &amp; <code>grh-clean</code> Kernel Cone</div>
+          <h3 id="grhLeanTitle" style="margin:0 0 4px;"><code>grh-lean</code> 300k-Line Structural Anatomy &amp; Flattening Map <span class="badge badge-exact">Exact</span></h3>
+          <p class="panel-sub" style="margin:0 0 8px;">Exact Lean kernel-cone and single-caller audit from <code>Main.lean</code> across all 802 files of the official readable <code>grh/</code> baseline (<code>main@e063a92</code>). Background library <code>Lib/</code> accounts for <strong>59.3%</strong> (177,479 code L · 495 files) while the core RH/GRH proof <code>New/</code> accounts for <strong>40.7%</strong> (122,022 code L · 307 files).</p>
           <div class="ed-kpi-strip">
             <div class="ed-kpi">
-              <div class="ed-kpi-n">794 / 794</div>
-              <div class="ed-kpi-l">Files reachable from <code>Main</code> (0 dead files)</div>
+              <div class="ed-kpi-n">49,821 / 64,358</div>
+              <div class="ed-kpi-l">Kernel-cone constants (711,498 typed edges · 25,793 active user decls)</div>
             </div>
             <div class="ed-kpi">
-              <div class="ed-kpi-n">76,151 L</div>
-              <div class="ed-kpi-l">Code lines (112,827 raw L · 7.42 MB · 65.8 B/L)</div>
+              <div class="ed-kpi-n">299,501 L</div>
+              <div class="ed-kpi-l">Readable code L (476,436 raw L · 4.49 GB export, 15.3% smaller than <code>grh-compact</code>)</div>
             </div>
             <div class="ed-kpi">
-              <div class="ed-kpi-n">1,491,576</div>
-              <div class="ed-kpi-l">Lean tokens · 4.51M non-ws code chars · 10,376 decls</div>
+              <div class="ed-kpi-n">149,521 L (50.0%)</div>
+              <div class="ed-kpi-l">Single-caller (<code>in_degree = 1</code>) flattening potential (1,535 cross-mod · 6,124 intra-mod)</div>
             </div>
             <div class="ed-kpi">
-              <div class="ed-kpi-n">0 Cheats</div>
-              <div class="ed-kpi-l">0 sorry/axiom · 9 <code>maxHeartbeats</code> · 30 <code>backward.*</code> · 0.39% <code>;</code>-packed</div>
+              <div class="ed-kpi-n">Multi-Kernel PASS</div>
+              <div class="ed-kpi-l">0 sorry/axiom · <code>leanchecker</code>, <code>nanoda</code>, <code>con-leche</code>, <code>con-ron</code> · 5 <code>maxHeartbeats</code> · 28 <code>backward.*</code></div>
             </div>
           </div>
           <div class="table-wrap">
-            <table class="vt-table" aria-describedby="grhCompTitle">
+            <table class="vt-table" aria-describedby="grhLeanTitle">
               <thead>
                 <tr>
-                  <th>Dominator Seam / Subtree</th>
+                  <th><code>grh-lean</code> Subtree / Pillar</th>
                   <th class="num">Files</th>
-                  <th class="num">Scale</th>
+                  <th class="num">Code L</th>
                   <th class="num">Share</th>
-                  <th>Compression Lever (76k → &lt;50k Target)</th>
+                  <th>Flattening &amp; Cleanup Lever (<code>grh-clean</code> / Upstream <code>main</code>)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><code>Lib.GaloisRep.Main.AvatarCompatibility</code><div class="vt-target"><code>SeedRepresentation</code> (111f) → <code>Cohomology.PointClass</code> (75f) + <code>Shimura.IntegralModel</code> (21f)</div></td>
-                  <td class="num">117</td>
-                  <td class="num">1,213 KB</td>
-                  <td class="num">16.4%</td>
-                  <td>Single largest dominated seam (<code>in=2</code>); interface specialization &amp; cohomology factoring</td>
+                  <td><code>New/Spanning</code><div class="vt-target">Frames, MainTerm (GlobalSieve), RemainingTerms, TightFrames (90 files)</div></td>
+                  <td class="num">90</td>
+                  <td class="num">38,950</td>
+                  <td class="num">13.0%</td>
+                  <td>#1 flattening concentration: 24,520 code L (63%) are single-caller (<code>in=1</code>) + 487 dead L</td>
                 </tr>
                 <tr>
-                  <td><code>New.Selmer.FitTwistsExist</code><div class="vt-target"><code>DenominatorBound</code> (19f) · <code>New.Lift.ExponentTheorems</code> (11f) · <code>LongGap</code> (8f)</div></td>
-                  <td class="num">61</td>
-                  <td class="num">624 KB</td>
-                  <td class="num">8.4%</td>
-                  <td>Single-caller subtree under <code>New.Endgame.LongForms</code>; twist-existence shortening</td>
+                  <td><code>New/Congruences</code> &amp; <code>New/UpperBound</code><div class="vt-target">FirstOrder, Lifting (53f · 22,301 L) · Seesaw, ElementaryDivisors (55f · 21,722 L)</div></td>
+                  <td class="num">108</td>
+                  <td class="num">44,023</td>
+                  <td class="num">14.7%</td>
+                  <td>28,725 single-caller L (70% in Congruences, 60% in UpperBound); prime Wave 1 cross-module unrolling</td>
                 </tr>
                 <tr>
-                  <td><code>Lib/Weil</code> &amp; <code>Lib/Shimura</code><div class="vt-target">MixedModel, Periods, Unramified Hecke, ThetaNormality, Uniformisation</div></td>
-                  <td class="num">119</td>
-                  <td class="num">1,151 KB</td>
-                  <td class="num">15.5%</td>
-                  <td>Largest background libraries; collapse manual <code>simp</code>/<code>rw</code>/<code>have</code> chains &amp; consolidate tiny modules</td>
+                  <td><code>Lib/GaloisRep</code>, <code>Cohomology</code> &amp; <code>PadicHodge</code><div class="vt-target">Cohomology (30f · 12.8k), GaloisRep (31f · 12.4k), PadicHodge (24f · 10.3k), PadicComparison (18f · 7.2k)</div></td>
+                  <td class="num">103</td>
+                  <td class="num">42,714</td>
+                  <td class="num">14.3%</td>
+                  <td>Replaces Alpöge’s Hida/Langlands/resolution stack in 42.7k readable L; 15,734 single-caller L</td>
                 </tr>
                 <tr>
-                  <td><code>Lib/General</code><div class="vt-target">82 utility files (<code>ValuationPair</code>, <code>Lefschetz</code>, <code>ZerosCostDegree</code>, <code>ProjectiveSpace</code>, <code>Base</code>)</div></td>
-                  <td class="num">82</td>
-                  <td class="num">506 KB</td>
-                  <td class="num">6.8%</td>
-                  <td>Replace duplicated algebra/analysis helpers with Mathlib v4.37 lemmas; drop <code>import Mathlib</code> monolith</td>
+                  <td><code>Lib/Weil</code> &amp; <code>Lib/Shimura</code><div class="vt-target">Weil (59f · 20,643 L: DualPair, Construction, MixedModel) · Shimura (43f · 18,884 L: ThetaModuli, IntegralModel)</div></td>
+                  <td class="num">102</td>
+                  <td class="num">39,527</td>
+                  <td class="num">13.2%</td>
+                  <td>Two largest single background libraries; 14,552 single-caller L · 655 dead L · active upstream PR cleanups</td>
                 </tr>
                 <tr>
-                  <td><code>New.Filling.FillingTheorem</code><div class="vt-target"><code>TopFloor.lean</code> (43 KB) · <code>BoxPartition.lean</code> (38 KB) · <code>Moments</code> (10f) · <code>GlobalToLocal</code> (5f)</div></td>
-                  <td class="num">21</td>
-                  <td class="num">335 KB</td>
-                  <td class="num">4.5%</td>
-                  <td>Contains 2 of the top 3 fattest single files in the entire repo; direct tactic &amp; bound compression</td>
+                  <td><code>Lib/Adelic</code>, <code>ClassField</code> &amp; <code>DiscreteSeries</code><div class="vt-target">Adelic (54f · 16.5k), DiscreteSeries (40f · 15.7k), ClassField (42f · 14.6k)</div></td>
+                  <td class="num">136</td>
+                  <td class="num">46,758</td>
+                  <td class="num">15.6%</td>
+                  <td>Primary <code>TauCeti</code> offloading targets (baseline <code>tauceti_deps = 0</code>; e.g. finite adele topology PR #5648)</td>
                 </tr>
                 <tr>
-                  <td>Remaining <code>Lib/*</code> &amp; <code>New/*</code> + Hygiene<div class="vt-target"><code>ClassField</code> (436 KB), <code>Adelic</code> (428 KB), <code>DiscreteSeries</code> (384 KB), <code>PadicHodge</code> (373 KB), <code>Exchange</code> (293 KB)</div></td>
-                  <td class="num">394</td>
-                  <td class="num">3,591 KB</td>
-                  <td class="num">48.4%</td>
-                  <td>Eliminate all 9 <code>maxHeartbeats</code> + 30 <code>backward.*</code> + 3 dead lemmas + 19 duplicate signatures; coalesce 794 tiny files</td>
+                  <td>Remaining <code>New/*</code> &amp; <code>Lib/*</code><div class="vt-target">Determinant (13.8k), OneLift (10.7k), Derivatives (7.7k), General (17.0k), SiegelWeil (9.7k), LocalGL/CM/GLn/Analytic</div></td>
+                  <td class="num">263</td>
+                  <td class="num">87,529</td>
+                  <td class="num">29.2%</td>
+                  <td>Wave 0 dead pruning (−2,948 code L in <code>grh-clean</code>) · 2 <code>import Mathlib</code> · 5 <code>maxHeartbeats</code> · 28 <code>backward.*</code></td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="vt-src">Tactic profile across <code>grh-compact</code>: 7,570 <code>simp [...]</code> · 4,532 <code>have</code> · 3,648 <code>rw [...]</code> · 2,718 <code>grind</code> · 2,227 <code>ring</code> · 2,042 <code>simp_all</code> · 1,342 <code>aesop</code> · 922 <code>lia</code>. Verification note: independent cold <code>--no-cache</code> build + <code>leanchecker</code> + <code>PrintAxioms</code> is currently running on GCP.</div>
+          <div class="vt-src">Readable tactic profile across <code>grh/</code>: 38,151 <code>have</code> · 22,685 <code>simp</code> · 14,963 <code>rw</code> · 13,222 <code>let</code> · 11,834 <code>obtain</code> · 11,002 <code>exact</code> · 8,300 <code>refine</code> · 2,550 <code>calc</code> · 1,792 <code>grind</code> · 489 <code>simp_all</code> · 393 <code>aesop</code>. Explicit readable steps preserve kernel term sharing (4.49 GB export, 32m 12s cold build) versus <code>grh-compact</code>’s automated closers (5.17 GB export, 33m 32s).</div>
         </section>
 
         <section class="tm-panel" id="theory-map" aria-labelledby="tmTitle">
           <div class="tm-head">
             <div>
-              <div class="eyebrow" id="tmEyebrow">Mathematical Architecture · <code>lsernau/grh-lean</code> (<code>grh-compact</code> 794 Files · 76,151 Code L)</div>
+              <div class="eyebrow" id="tmEyebrow">Mathematical Architecture · <code>grh-lean</code> (Official <code>main</code> · 802 Files · 299,501 Code L)</div>
               <h3 class="tm-title" id="tmTitle">How <code>grh-lean</code> Proves RH &amp; GRH via the Star Inequality (⋆)</h3>
-              <p class="tm-sub" id="tmSub">Every node below maps to verified subdirectories of <code>lsernau/grh-lean</code> (<code>grh-compact/src/</code>: 794/794 files reachable from <code>Main.lean</code>, 0 dead files). Click any star, module hub, or zero pearl to trace the reduction from Theorems A–C through <code>New.star_inequality</code> into <code>New.grh</code>. Switch to <code>Alpöge Lineage</code> to inspect the original 804,912-declaration kernel cone.</p>
+              <p class="tm-sub" id="tmSub">Every node below maps to verified subdirectories of the official readable <code>grh-lean</code> proof (<code>grh/src/</code>: 802 files, 299,501 code L, 49,821 active kernel-cone constants, 4.49 GB Comparator export). Click any star, module hub, or zero pearl to trace the reduction into <code>New.grh</code> and <code>Main.riemannHypothesis</code>. Switch to <code>Alpöge Lineage</code> to inspect the archived 804,912-declaration kernel cone.</p>
             </div>
             <div class="tm-filters" id="tmFilters" role="tablist" aria-label="Filter mathematical domain">
               <div class="tm-view-switch" id="tmEditionSwitch" role="group" aria-label="Architecture edition">
-                <button type="button" class="tm-view-btn is-active" data-tm-edition="grh">grh-lean (76k L)</button>
+                <button type="button" class="tm-view-btn is-active" data-tm-edition="grh">grh-lean (300k L)</button>
                 <button type="button" class="tm-view-btn" data-tm-edition="alpoge">Alpöge (v0.2.1)</button>
               </div>
               <div class="tm-view-switch" id="tmViewSwitch" role="group" aria-label="Diagram view mode">
@@ -2809,56 +2855,6 @@
           <div class="multiples" id="recordMultiples"></div>
           <div class="record-src">Every point is one measured snapshot of <code>leanprover-community/riemann-hypothesis</code> (<code>live_history</code> in
             <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/data/upstream_frontier.json" target="_blank" rel="noopener">upstream_frontier.json</a>). Repeated snapshots with identical counts are drawn once.</div>
-        </section>
-
-        <section class="panel" id="verifytask-core" aria-labelledby="vtTitle">
-          <div class="eyebrow">Bohrium Playground — external RH proof-compression benchmark</div>
-          <h3 id="vtTitle" style="margin:0 0 4px;">Compressed RH Core Pillars on Playground</h3>
-          <p class="vt-lead">The Bohrium Playground board at <a href="https://riemann.verifytask.cn/" target="_blank" rel="noopener">riemann.verifytask.cn</a> runs each kernel-grounded RH core pillar as a compression challenge: agents and humans submit shorter Lean proofs for the same theorem, and the board keeps the best verified token count per pillar. These are external submissions, not merged into the official upstream tree.</p>
-          <div class="vt-summary" id="vtSummary">Loading Playground results…</div>
-          <div class="vt-grand" id="vtGrand" hidden></div>
-          <div class="vt-wrap">
-            <table class="vt-table" aria-describedby="vtTitle">
-              <thead>
-                <tr>
-                  <th>Core</th>
-                  <th class="vt-col-target">Target theorem</th>
-                  <th class="num">Baseline → best tokens</th>
-                  <th class="num">Reduction</th>
-                  <th class="num">Best score</th>
-                  <th class="num">Last kept</th>
-                  <th>Challenge</th>
-                </tr>
-              </thead>
-              <tbody id="vtRows">
-                <tr><td colspan="7" class="vt-empty">Loading…</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <figure class="vt-frontier">
-            <svg id="vtFrontier" viewBox="0 0 960 220" role="img" aria-label="Running best compression score across all Playground core runs"></svg>
-            <figcaption class="vt-src" id="vtFrontierNote">Aggregate frontier: running best score across all core runs.</figcaption>
-          </figure>
-          <div class="vt-bench" id="vtBench" hidden>
-            <h4 class="vt-bench-title">Board-reported leaders by model × harness</h4>
-            <div class="vt-wrap">
-              <table class="vt-table" aria-describedby="vtBenchNote">
-                <thead>
-                  <tr>
-                    <th class="num">#</th>
-                    <th>Model × harness</th>
-                    <th class="num">Index</th>
-                    <th class="num">Cores solved</th>
-                    <th class="num vt-col-mean">Mean score</th>
-                    <th class="num vt-col-pass">Pass rate</th>
-                  </tr>
-                </thead>
-                <tbody id="vtBenchRows"></tbody>
-              </table>
-            </div>
-            <div class="vt-src" id="vtBenchNote"></div>
-          </div>
-          <div class="vt-src">Source: <a href="https://riemann.verifytask.cn/" target="_blank" rel="noopener">riemann.verifytask.cn</a> live board, stored in <code>data/verifytask_board.json</code> and refreshed with the upstream tracker. Values are the board's own verified per-core bests; nothing here is a merged upstream commit.</div>
         </section>
 
         <section class="panel" id="rh-shrink-size" aria-labelledby="rsTitle">
@@ -2968,21 +2964,21 @@
         <section class="panel" id="proof-coverage-map">
           <div class="panel-head" style="margin-bottom:6px;">
             <div>
-              <div class="eyebrow" id="spatialEyebrow">Whole-Proof Geometry · <code>grh-compact</code> 794 Files · 76,151 Code L</div>
+              <div class="eyebrow" id="spatialEyebrow">Whole-Proof Geometry · <code>grh-lean</code> · 802 Files · 299,501 Code L</div>
               <h3 style="margin:0 0 4px;">Interactive Full-RH Proof Spatial Coverage Map <span
                   class="badge badge-exact">Exact</span></h3>
-              <p class="panel-sub" id="spatialSub" style="margin:0;">Proportional breakdown of the shortest full RH proof
-                (<code>grh-compact</code>, 7.42 MB) vs. Levent Alpöge’s original v0.2.1 repository (17.37M lines). Click any segment to inspect.</p>
+              <p class="panel-sub" id="spatialSub" style="margin:0;">Proportional breakdown of the official readable full RH proof
+                (<code>grh-lean</code> on <code>main</code>, 802 files, 299,501 code L) vs. Levent Alpöge’s archived v0.2.1 repository (17.37M lines). Click any segment to inspect.</p>
             </div>
             <div class="seg-group" id="spatialModeToggle">
-              <button type="button" class="pill-btn active" data-spatial-mode="grh">grh-compact (76k L · 7.42 MB)</button>
-              <button type="button" class="pill-btn" data-spatial-mode="alpoge">v0.2.1 Alpöge (17.37M L)</button>
+              <button type="button" class="pill-btn active" data-spatial-mode="grh">grh-lean (300k L · Official main)</button>
+              <button type="button" class="pill-btn" data-spatial-mode="alpoge">v0.2.1 Alpöge (17.37M L · Archive)</button>
             </div>
           </div>
           <div class="spatial-bar" id="spatialBar"></div>
           <div class="spatial-legend" id="spatialLegend"></div>
           <div class="spatial-detail" id="spatialDetail">Click any pillar above to inspect its exact scale and
-            compression opportunities.</div>
+            flattening headroom.</div>
         </section>
 
         <section class="panel" id="community-timeline">
@@ -3008,6 +3004,61 @@
           </div>
           <div class="people-strip" id="peopleStrip"><span class="status-msg">Loading directory…</span></div>
         </section>
+
+        <details class="archive-details" id="verifytask-core">
+          <summary>
+            <span>Archived External Benchmark · Bohrium Playground (Alpöge Lineage · Grand Challenge Frozen)</span>
+            <span class="badge">Archived</span>
+            <span class="archive-stat" id="vtCollapsedStat">Click to expand historical snapshot</span>
+          </summary>
+          <div style="margin-top:12px;">
+            <p class="vt-lead" style="margin-top:0;">Historical snapshot of the external <a href="https://riemann.verifytask.cn/" target="_blank" rel="noopener">riemann.verifytask.cn</a> compression benchmark against Levent Alpöge’s archived 175,187-file tree (Grand Challenge <code>main</code> frozen on 2026-11-26; none of these external submissions target or merge into the active <code>grh-lean</code> upstream <code>main</code>).</p>
+            <div class="vt-summary" id="vtSummary">Loading Playground snapshot…</div>
+            <div class="vt-grand" id="vtGrand" hidden></div>
+            <div class="vt-wrap">
+              <table class="vt-table" aria-label="Archived Bohrium Playground core pillars">
+                <thead>
+                  <tr>
+                    <th>Core</th>
+                    <th class="vt-col-target">Target theorem</th>
+                    <th class="num">Baseline → best tokens</th>
+                    <th class="num">Reduction</th>
+                    <th class="num">Best score</th>
+                    <th class="num">Last kept</th>
+                    <th>Challenge</th>
+                  </tr>
+                </thead>
+                <tbody id="vtRows">
+                  <tr><td colspan="7" class="vt-empty">Loading…</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figure class="vt-frontier">
+              <svg id="vtFrontier" viewBox="0 0 960 220" role="img" aria-label="Running best compression score across all Playground core runs"></svg>
+              <figcaption class="vt-src" id="vtFrontierNote">Aggregate frontier: running best score across all core runs.</figcaption>
+            </figure>
+            <div class="vt-bench" id="vtBench" hidden>
+              <h4 class="vt-bench-title">Board-reported leaders by model × harness</h4>
+              <div class="vt-wrap">
+                <table class="vt-table" aria-describedby="vtBenchNote">
+                  <thead>
+                    <tr>
+                      <th class="num">#</th>
+                      <th>Model × harness</th>
+                      <th class="num">Index</th>
+                      <th class="num">Cores solved</th>
+                      <th class="num vt-col-mean">Mean score</th>
+                      <th class="num vt-col-pass">Pass rate</th>
+                    </tr>
+                  </thead>
+                  <tbody id="vtBenchRows"></tbody>
+                </table>
+              </div>
+              <div class="vt-src" id="vtBenchNote"></div>
+            </div>
+            <div class="vt-src">Archived external snapshot from <a href="https://riemann.verifytask.cn/" target="_blank" rel="noopener">riemann.verifytask.cn</a> (<code>data/verifytask_board.json</code>).</div>
+          </div>
+        </details>
 
         <div data-edition-scope="alpoge">
           <div class="ed-lineage-banner">
@@ -3636,56 +3687,56 @@
         {
           id: "new_core",
           label: "New/* · Core RH / GRH Proof",
-          short: "New/* Core Proof (32.0%)",
-          pct: 32.0,
+          short: "New/* Core (40.7%)",
+          pct: 40.7,
           color: "#0f766e",
-          scale: "24,600 code L · 2.37 MB",
-          detail: "The core RH & GRH argument (New/Filling 440 KB, New/Selmer 298 KB, New/Exchange 293 KB, New/Rows 223 KB, New/RealPlace 215 KB, New/Seesaw 205 KB, New/Lift 131 KB, New/Endgame + New/Main)."
+          scale: "122,022 code L · 307 files · 11.76M chars",
+          detail: "The core RH & GRH argument in official grh/ (New/Spanning 90f · 38,950 L, New/Congruences 53f · 22,301 L, New/UpperBound 55f · 21,722 L, New/Determinant 33f · 13,766 L, New/OneLift 24f · 10,722 L, New/Derivatives 23f · 7,669 L, New/Reduction 17f · 3,513 L, New/Appendix 9f · 3,328 L). Contains 78,706 L (64.5%) of single-caller flattening targets."
         },
         {
           id: "lib_galois_cohom",
-          label: "Lib/GaloisRep, Cohomology & PadicHodge",
-          short: "Galois + Cohomology + p-adic (27.6%)",
-          pct: 27.6,
+          label: "Lib/GaloisRep, Cohomology & p-adic",
+          short: "Galois + p-adic (14.3%)",
+          pct: 14.3,
           color: "#1f3a5f",
-          scale: "21,000 code L · 2.05 MB",
-          detail: "Dominated by #1 mega-seam Lib.GaloisRep.Main.AvatarCompatibility (117 files / 1,213 KB = 16.4% of entire repo), Lib/Cohomology (474 KB), Lib/PadicHodge (373 KB), Lib/PadicComparison (236 KB), and Lib/DiscreteSeries (384 KB)."
+          scale: "42,714 code L · 103 files · 4.07M chars",
+          detail: "Lib/Cohomology (30f · 12,778 L), Lib/GaloisRep (31f · 12,446 L), Lib/PadicHodge (24f · 10,326 L), and Lib/PadicComparison (18f · 7,164 L). Replaces the much larger Hida/Langlands/resolution stack from Alpöge v0.2.1; 15,734 L are single-caller."
+        },
+        {
+          id: "lib_local_disc",
+          label: "Lib/DiscreteSeries, SiegelWeil & LocalGL",
+          short: "Disc + SW + GL (14.1%)",
+          pct: 14.1,
+          color: "#3a5676",
+          scale: "42,085 code L · 109 files · 3.96M chars",
+          detail: "Lib/DiscreteSeries (40f · 15,726 L), Lib/SiegelWeil (27f · 9,705 L), Lib/LocalGL (13f · 6,025 L), Lib/CM (16f · 5,566 L), and Lib/GLn (13f · 5,063 L). Contains 19,826 L of single-caller declarations."
         },
         {
           id: "lib_weil_shimura",
           label: "Lib/Weil & Lib/Shimura",
-          short: "Weil + Shimura (15.5%)",
-          pct: 15.5,
-          color: "#3a5676",
-          scale: "11,898 code L · 1.15 MB · 119 files",
-          detail: "Two largest background libraries: Lib/Weil (67 files / 579 KB) and Lib/Shimura (52 files / 573 KB). High density of step-by-step simp/rw/have chains and tiny modules ready for chapter consolidation."
+          short: "Weil + Shimura (13.2%)",
+          pct: 13.2,
+          color: "#5d7690",
+          scale: "39,527 code L · 102 files · 3.76M chars",
+          detail: "Two largest single background libraries: Lib/Weil (59f · 20,643 L) and Lib/Shimura (43f · 18,884 L). Holds 14,552 L of single-caller decls and 655 dead code L, actively targeted by upstream cleanup PRs."
         },
         {
           id: "lib_cft_adelic",
-          label: "Lib/ClassField & Lib/Adelic",
-          short: "CFT + Adelic (11.7%)",
-          pct: 11.7,
-          color: "#5d7690",
-          scale: "8,718 code L · 864 KB · 111 files",
-          detail: "Global class field theory (55 files / 436 KB) and adelic automorphic forms / Hecke theory (56 files / 428 KB)."
+          label: "Lib/Adelic, ClassField & Cyclotomic",
+          short: "Adelic + CFT (11.2%)",
+          pct: 11.2,
+          color: "#7a90a6",
+          scale: "33,552 code L · 101 files · 3.20M chars",
+          detail: "Lib/Adelic (54f · 16,461 L), Lib/ClassField (42f · 14,571 L), and Lib/Cyclotomic (5f · 2,520 L). Primary TauCeti offloading targets (e.g. finite adele topology PR #5648; baseline tauceti_deps = 0)."
         },
         {
           id: "lib_general",
-          label: "Lib/General (Utilities)",
-          short: "General (6.8%)",
-          pct: 6.8,
-          color: "#8496aa",
-          scale: "5,107 code L · 506 KB · 82 files",
-          detail: "General algebra, geometry, measure, and linear algebra utilities missing from Mathlib v4.35.0; prime target for Mathlib v4.37 lemma substitution."
-        },
-        {
-          id: "lib_local",
-          label: "Lib/LocalGL, SiegelWeil & CM",
-          short: "LocalGL + SW (6.4%)",
-          pct: 6.4,
+          label: "Lib/General & Analytic Utilities",
+          short: "6.5%",
+          pct: 6.5,
           color: "#a8a196",
-          scale: "4,828 code L · 499 KB · 47 files",
-          detail: "Local GL(n) trace comparison / Shintani theory (216 KB), Siegel-Weil / Rallis inner product (161 KB), and CM field background (122 KB)."
+          scale: "19,601 code L · 80 files · 1.80M chars",
+          detail: "Lib/General (68f · 16,981 L), Lib/Analytic (10f · 2,557 L), Lib/Speed (56 L), and Lib/Base (7 L). General-purpose algebra, measure, and analytic helpers ready for Mathlib v4.37 and TauCeti substitution."
         }
       ];
 
@@ -3747,16 +3798,16 @@
       ];
 
       const segments = activeMode === "alpoge" ? ALPOGE_SEGMENTS : GRH_SEGMENTS;
-      const denomText = activeMode === "alpoge" ? "17.37M v0.2.1 baseline lines" : "7.42 MB grh-compact (76,151 code L)";
+      const denomText = activeMode === "alpoge" ? "17.37M v0.2.1 baseline lines" : "299,501 grh-lean readable code L (802 files)";
       if (eyebrow) {
         eyebrow.innerHTML = activeMode === "alpoge"
           ? "Whole-Proof Geometry · v0.2.1 Alpöge · 175,187 Files · 17.37M Lines"
-          : "Whole-Proof Geometry · <code>grh-compact</code> · 794 Files · 76,151 Code L (7.42 MB)";
+          : "Whole-Proof Geometry · <code>grh-lean</code> (Official <code>main</code>) · 802 Files · 299,501 Code L";
       }
       if (subEl) {
         subEl.innerHTML = activeMode === "alpoge"
-          ? "Proportional breakdown of Levent Alpöge’s original v0.2.1 repository (branch <code>alpoge</code>) by kernel-cone status and major mathematical pillar."
-          : "Proportional breakdown of the shortest full RH proof (<code>lsernau/grh-lean</code> <code>grh-compact/</code>, 794 files, 76,151 code L): <strong>68% background <code>Lib/</code></strong> vs. <strong>32% core proof <code>New/</code></strong>.";
+          ? "Proportional breakdown of Levent Alpöge’s archived v0.2.1 repository (branch <code>alpoge</code>) by kernel-cone status and major mathematical pillar."
+          : "Proportional breakdown of the official readable full RH proof (<code>grh-lean</code> on <code>main</code>, 802 files, 299,501 code L): <strong>59.3% background <code>Lib/</code></strong> vs. <strong>40.7% core proof <code>New/</code></strong>.";
       }
 
       function selectSeg(id) {
@@ -3767,7 +3818,7 @@
       }
 
       bar.innerHTML = segments.map((s) =>
-        `<div class="spatial-seg" data-id="${s.id}" style="width:${s.pct}%;background:${s.color};" title="${escHtml(s.label + ': ' + s.scale)}">${s.pct >= 4 ? escHtml(s.short) : ""}</div>`
+        `<div class="spatial-seg" data-id="${s.id}" style="width:${s.pct}%;background:${s.color};" title="${escHtml(s.label + ': ' + s.scale)}">${s.pct >= 6 ? escHtml(s.short) : ""}</div>`
       ).join("");
 
       leg.innerHTML = segments.map((s) => `
@@ -3972,6 +4023,11 @@
       const summary = (data && data.summary) || {};
       const progress = (data && data.progress) || {};
       const summaryEl = document.getElementById("vtSummary");
+      const collapsedEl = document.getElementById("vtCollapsedStat");
+      if (collapsedEl && summary.core_total) {
+        const savedStr = progress.saved_tokens_pct != null ? ` · ${Number(progress.saved_tokens_pct).toFixed(1)}% saved` : "";
+        collapsedEl.textContent = `${fmtInt(summary.core_solved)}/${fmtInt(summary.core_total)} cores · ${fmtInt(summary.submissions)} runs${savedStr} · Click to expand`;
+      }
       if (summaryEl) {
         const saved = progress.saved_tokens_pct;
         summaryEl.innerHTML = [
@@ -4291,11 +4347,11 @@
           const heroVerVal = document.getElementById("heroVerifyVal");
           const heroVerSub = document.getElementById("heroVerifySub");
           const heroVerBox = document.getElementById("heroVerifyBox");
-          const isThirdPartyRewrite = (typeof filesCount === "number" && filesCount > 0 && filesCount <= 2000) || tcShort === "v4.35.0";
-          if (isThirdPartyRewrite) {
-            if (heroVerBox) heroVerBox.classList.remove("is-green");
-            if (heroVerVal) heroVerVal.textContent = `Lean ${tcShort} · Third-party rewrite (unverified)`;
-            if (heroVerSub) heroVerSub.innerHTML = `<code>lsernau/grh-lean</code> on <code>main</code> (${typeof filesCount === "number" ? filesCount.toLocaleString() : "803"} files) · independent verification pending · Alpöge lineage on branch <code>alpoge</code>`;
+          const isGrhMain = (typeof filesCount === "number" && filesCount > 0 && filesCount <= 2000) || tcShort === "v4.35.0";
+          if (isGrhMain) {
+            if (heroVerBox) heroVerBox.classList.add("is-green");
+            if (heroVerVal) heroVerVal.textContent = `Lean ${tcShort} · Multi-Kernel Verified`;
+            if (heroVerSub) heroVerSub.innerHTML = `<code>grh-lean</code> readable <code>main</code> (${typeof filesCount === "number" ? filesCount.toLocaleString() : "802"} files) · 4.49 GB export · <code>leanchecker</code>, <code>nanoda</code>, <code>con-leche</code>, <code>con-ron</code> PASS`;
           } else {
             if (heroVerBox) heroVerBox.classList.add("is-green");
             if (heroVerVal) heroVerVal.textContent = `Lean ${tcShort} · Comparator ACCEPTED`;
@@ -4374,7 +4430,7 @@
             if (edMainSub) {
               const mb = typeof lat.bytes === "number" ? ` · ${(lat.bytes / 1e6).toFixed(2)} MB` : "";
               const hb = typeof lat.heartbeats === "number" ? ` · ${lat.heartbeats} <code>maxHeartbeats</code>` : "";
-              edMainSub.innerHTML = `${lat.lines.toLocaleString()} raw L${mb} · <code>Lean ${escHtml(tcShort)}</code>${hb} · <code>main@${escHtml(rsSha)}</code> · Third-party rewrite (independent verification pending)`;
+              edMainSub.innerHTML = `${lat.lines.toLocaleString()} raw L${mb} · <code>Lean ${escHtml(tcShort)}</code>${hb} · <code>main@${escHtml(rsSha)}</code> · Multi-kernel verified (4.49 GB export)`;
             }
             const kpiEl = document.getElementById("liveKpiGrid");
             if (kpiEl) {
@@ -4754,31 +4810,31 @@
 
       const THEORY_EDITIONS = {
         grh: {
-          eyebrow: 'Mathematical Architecture · <code>lsernau/grh-lean</code> (<code>grh-compact</code> 794 Files · 76,151 Code L)',
+          eyebrow: 'Mathematical Architecture · <code>grh-lean</code> (Official <code>main</code> · 802 Files · 299,501 Code L)',
           title: 'How <code>grh-lean</code> Proves RH &amp; GRH via the Star Inequality (⋆)',
-          sub: 'Every node below maps to verified subdirectories of <code>lsernau/grh-lean</code> (<code>grh-compact/src/</code>: 794/794 files reachable from <code>Main.lean</code>, 0 dead files). Click any star, bridge, or zero pearl to trace how Theorems A–C cancel <code>mainHeight</code> inside <code>New.star_inequality</code> to prove <code>New.grh</code>.',
+          sub: 'Every node below maps to verified subdirectories of the official readable <code>grh-lean</code> proof (<code>grh/src/</code>: 802 files, 299,501 code L, 49,821 active kernel-cone constants, 4.49 GB Comparator export). Click any star, bridge, or zero pearl to trace how the upper and lower covolume bounds pinch into <code>New.star_inequality</code> and <code>New.grh</code>.',
           rootId: "star",
           rootLabel: "New.grh",
           sunTitle: "New.grh",
-          sunSub: "794 f · 76k L",
-          stepReset: "Interactive · Click any grh-compact star, zero pearl, or foundation",
+          sunSub: "802 f · 300k L",
+          stepReset: "Interactive · Click any grh-lean star, zero pearl, or foundation",
           zeroChain: "New.star_inequality → New.grh → Main.riemannHypothesis",
-          zeroProse: "Every nontrivial zero of the Riemann zeta function lies on the critical line Re(s) = 1/2. In lsernau/grh-lean, New.star_inequality bounds primeError below x^(8ε − 1/2), OneSidedCriterion.entireL_ne_zero_of_primeError_le yields New.grh on Re(s) > 1/2, and New.zeta_zeros_on_line reflects across s ↔ 1 − s.",
+          zeroProse: "Every nontrivial zero of the Riemann zeta function lies on the critical line Re(s) = 1/2. In grh-lean, New.star_inequality bounds primeError below x^(8ε − 1/2), OneSidedCriterion.entireL_ne_zero_of_primeError_le yields New.grh on Re(s) > 1/2, and New.zeta_zeros_on_line reflects across s ↔ 1 − s.",
           bottomIsClean: true,
-          bottomConstLabel: "SHARED FOUNDATIONS · 0 DEAD FILES (794/794 REACHABLE)",
-          bottomStripLabel: "Shared Foundations (0 Dead Files):",
+          bottomConstLabel: "SHARED FOUNDATIONS · 802 FILES · 4.49 GB KERNEL EXPORT",
+          bottomStripLabel: "Shared Foundations & Hygiene (grh-lean):",
           quadrants: [
-            { x: 242, y: 84, anchor: "end", color: "#0f766e", text: "I · Thm A · Short Forms & Data" },
-            { x: 738, y: 84, anchor: "start", color: "#1d4ed8", text: "II · Thm B · Enough Forms & Adelic" },
-            { x: 738, y: 304, anchor: "start", color: "#6d28d9", text: "III · Thm C · Heights, Weil & Shimura" },
-            { x: 242, y: 304, anchor: "end", color: "#b45309", text: "IV · Twists, Selmer & Galois Reps" },
+            { x: 242, y: 84, anchor: "end", color: "#0f766e", text: "I · Upper Bound · Seesaw & Derivatives" },
+            { x: 738, y: 84, anchor: "start", color: "#1d4ed8", text: "II · Spanning · Frames, Sieve & Adelic" },
+            { x: 738, y: 304, anchor: "start", color: "#6d28d9", text: "III · Lower Bound · Determinant, Weil & Shimura" },
+            { x: 242, y: 304, anchor: "end", color: "#b45309", text: "IV · Congruences, OneLift & Galois Reps" },
           ],
           filters: [
             { key: "all", label: "All", target: "star" },
-            { key: "thma", label: "Thm A · Short", target: "p1" },
-            { key: "thmb", label: "Thm B · Enough", target: "p2" },
-            { key: "thmc", label: "Thm C · Heights", target: "p3" },
-            { key: "selmer", label: "Selmer & Galois", target: "p4" },
+            { key: "thma", label: "UpperBound", target: "p1" },
+            { key: "thmb", label: "Spanning & Adelic", target: "p2" },
+            { key: "thmc", label: "Det · Weil · Shimura", target: "p3" },
+            { key: "selmer", label: "Congr & Galois", target: "p4" },
             { key: "bounds", label: "Upper / Lower", target: "lower" },
           ],
           color: {
@@ -4798,13 +4854,13 @@
             star:   { x: CX, y: CY, r: 28, title: "New.grh", sub: "star_inequality" },
             rh:     { x: CX, y: 98, r: 20, title: "RiemannHypothesis", sub: "Main.riemannHypothesis" },
             grh:    { x: CX - 98, y: 138, r: 11, title: "Dirichlet GRH", sub: "LFunction_eq_zero_re" },
-            landau: { x: CX + 98, y: 138, r: 11, title: "Prime-Error Bound", sub: "OneSidedCriterion" },
-            upper:  { x: CX - 94, y: CY + 12, r: 15, title: "Upper Bound (A+B)", sub: "exists_family_covolumeSq_le" },
-            lower:  { x: CX + 94, y: CY + 12, r: 15, title: "Lower Bound (Thm C)", sub: "integral_forms_long" },
-            p1:     { x: polar(-68, 138)[0],  y: polar(-68, 138)[1],  r: 9.5, title: "Thm A · Short", sub: "" },
-            p2:     { x: polar(68, 138)[0],   y: polar(68, 138)[1],   r: 9.5, title: "Thm B · Enough", sub: "" },
-            p3:     { x: polar(128, 138)[0],  y: polar(128, 138)[1],  r: 9.5, title: "Thm C · Heights", sub: "" },
-            p4:     { x: polar(-128, 138)[0], y: polar(-128, 138)[1], r: 9.5, title: "Selmer & Galois", sub: "" },
+            landau: { x: CX + 98, y: 138, r: 11, title: "Prime-Error Bound", sub: "New/Reduction" },
+            upper:  { x: CX - 94, y: CY + 12, r: 15, title: "Upper Bound", sub: "New/UpperBound + Spanning" },
+            lower:  { x: CX + 94, y: CY + 12, r: 15, title: "Lower Bound", sub: "New/Determinant + Congruences" },
+            p1:     { x: polar(-68, 138)[0],  y: polar(-68, 138)[1],  r: 9.5, title: "UpperBound", sub: "" },
+            p2:     { x: polar(68, 138)[0],   y: polar(68, 138)[1],   r: 9.5, title: "Spanning", sub: "" },
+            p3:     { x: polar(128, 138)[0],  y: polar(128, 138)[1],  r: 9.5, title: "Det · Weil", sub: "" },
+            p4:     { x: polar(-128, 138)[0], y: polar(-128, 138)[1], r: 9.5, title: "Congr · Galois", sub: "" },
           },
           edges: [
             ["p1", "upper", "M 278 86 C 296 86, 294 128, 312 128"],
@@ -4819,207 +4875,198 @@
             ["star", "landau", "M 740 254 C 758 254, 756 346, 774 346"],
           ],
           flowCols: [
-            "I · grh-compact Pillars (794 files)",
-            "II · Endgame Bounds (Thms A–C)",
+            "I · grh-lean Pillars (802 files)",
+            "II · Endgame Bounds",
             "III · Star Chokepoint",
-            "IV · Main.lean & Endgame"
+            "IV · Main.lean & Reduction"
           ],
           flowBoxes: [
-            { id: "p1", x: 16, y: 38, w: 262, h: 92, color: "#0f766e", kicker: "I · Thm A · Short Forms (61f · 588 KB)", title: "Seesaw, Columns & Data", line1: "New/Seesaw (21f) · Columns (7f) · TwistedHecke (8f)", line2: "New/Curve & Data (19f) · Trace (4f) · Core (2f)", sym: "Data.short_forms · SeesawTheorem" },
-            { id: "p2", x: 16, y: 146, w: 262, h: 92, color: "#1d4ed8", kicker: "II · Thm B · Enough Forms (183f · 1.70 MB)", title: "Filling, RealPlace & Adelic", line1: "New/Filling (31f · 430 KB) · RealPlace (18f)", line2: "DiscreteSeries (55f) · Lib/Adelic & LocalGL (79f)", sym: "Data.enough_forms · FillingTheorem" },
-            { id: "p3", x: 16, y: 254, w: 262, h: 92, color: "#6d28d9", kicker: "III · Thm C · Heights & Weil (187f · 1.82 MB)", title: "Rows, Exchange, Weil & Shimura", line1: "New/Rows & Heights (21f) · Exchange (31f)", line2: "Lib/Weil & SiegelWeil (83f) · Lib/Shimura (52f)", sym: "RowVolume · HeightLe.nonneg · CrudeRows" },
-            { id: "p4", x: 16, y: 362, w: 262, h: 92, color: "#b45309", kicker: "IV · Twists & Galois (236f · 2.24 MB)", title: "Selmer, Lift & Galois Reps", line1: "New/Selmer & Patching (34f) · New/Lift (8f)", line2: "Lib/GaloisRep & Cohom (78f) · Padic & CFT (116f)", sym: "exists_isFitFamily · AvatarCompatibility" },
-            { id: "upper", x: 312, y: 96, w: 240, h: 118, color: "#0f766e", kicker: "Bridge A · ShortAndEnough (Upper)", title: "Short & Enough Forms", line1: "Combines Theorem A (short_forms),", line2: "Theorem B (enough_forms), and", line3: "heightPerRow_le into covolumeSq_le.", sym: "exists_family_covolumeSq_le" },
-            { id: "lower", x: 312, y: 276, w: 240, h: 128, color: "#6d28d9", kicker: "Bridge B · LongForms (Lower · Thm C)", title: "Integral Forms Are Long", line1: "Combines fit twists (Selmer), row", line2: "volumes, product formula (HeightLe ≥ 0),", line3: "crude rows & one_determinant.", sym: "Data.integral_forms_long", sym2: "volume_iota_eq_prod_liftVolume" },
-            { id: "star", x: 586, y: 176, w: 154, h: 120, kind: "chokepoint", color: "#0f766e", kicker: "100% Reachable Cone", title: "New.grh (⋆)", line1: "m·rem ≤ logB²·𝓑", line2: "L(s, χ) ≠ 0 (Re > 1/2)", sym: "794 files · 76,151 L", sym2: "1.49M tokens · 0 dead" },
-            { id: "rh", x: 774, y: 84, w: 190, h: 84, kind: "headline", color: "#0f172a", kicker: "Main.lean · Functional Eq.", title: "RiemannHypothesis", line1: "Mathlib defeq · ζ(s) = 0 ⇒ Re = 1/2", sym: "New.zeta_zeros_on_line New.grh" },
-            { id: "grh", x: 774, y: 194, w: 190, h: 84, kind: "headline", color: "#0f172a", kicker: "Main.lean · Dirichlet L", title: "Dirichlet GRH (All χ)", line1: "Primitive & imprimitive characters", sym: "New.zeros_on_line New.grh" },
-            { id: "landau", x: 774, y: 304, w: 190, h: 84, kind: "headline", color: "#0f172a", kicker: "New/Endgame · One-Sided", title: "Prime-Error Criterion", line1: "R_{N0}(x) ≤ x^(8ε−1/2) ⇒ no zero", sym: "entireL_ne_zero_of_primeError_le" }
+            { id: "p1", x: 16, y: 38, w: 262, h: 92, color: "#0f766e", kicker: "I · Upper Bound (87f · 32.7k code L)", title: "UpperBound, Derivatives & Appendix", line1: "New/UpperBound (55f · 21.7k L) · Seesaw", line2: "New/Derivatives (23f · 7.7k L) · Appendix (9f)", sym: "Seesaw · ElementaryDivisors · ShortForms" },
+            { id: "p2", x: 16, y: 146, w: 262, h: 92, color: "#1d4ed8", kicker: "II · Spanning & Adelic (197f · 77.2k code L)", title: "Spanning, DiscreteSeries & Adelic", line1: "New/Spanning (90f · 39.0k L · 63% in=1)", line2: "DiscreteSeries (40f) · Adelic (54f) · LocalGL (13f)", sym: "GlobalSieve · TightFrames · TraceComparison" },
+            { id: "p3", x: 16, y: 254, w: 262, h: 92, color: "#6d28d9", kicker: "III · Determinant, Weil & Shimura (162f · 63.0k L)", title: "Determinant, Weil & Shimura", line1: "New/Determinant (33f · 13.8k L · 66% in=1)", line2: "Lib/Weil (59f) · SiegelWeil (27f) · Shimura (43f)", sym: "Exchange · RallisInner · IntegralModel" },
+            { id: "p4", x: 16, y: 362, w: 262, h: 92, color: "#b45309", kicker: "IV · Congruences & Galois (222f · 90.3k code L)", title: "Congruences, OneLift & Galois Reps", line1: "New/Congruences (53f · 22.3k) · OneLift (24f)", line2: "GaloisRep/Cohom (61f) · Padic (42f) · CFT (42f)", sym: "DenominatorBound · CupProductBound · GaloisRep" },
+            { id: "upper", x: 312, y: 96, w: 240, h: 118, color: "#0f766e", kicker: "Bridge A · Upper Side", title: "Short & Spanning Families", line1: "Combines New/UpperBound (seesaw", line2: "height bounds) and New/Spanning", line3: "(Poisson-summation sieve & frames).", sym: "exists_family_covolumeSq_le" },
+            { id: "lower", x: 312, y: 276, w: 240, h: 128, color: "#6d28d9", kicker: "Bridge B · Lower Side", title: "Integral Forms Are Long", line1: "Combines New/Congruences twists,", line2: "New/OneLift chains, New/Determinant", line3: "exchange & Gram product formula.", sym: "integral_forms_long", sym2: "Gram product formula · Hecke L-values" },
+            { id: "star", x: 586, y: 176, w: 154, h: 120, kind: "chokepoint", color: "#0f766e", kicker: "49,821 Active Cone Consts", title: "New.grh (⋆)", line1: "m·rem ≤ logB²·𝓑", line2: "L(s, χ) ≠ 0 (Re > 1/2)", sym: "802 files · 299,501 L", sym2: "4.49 GB export · Verified" },
+            { id: "rh", x: 774, y: 84, w: 190, h: 84, kind: "headline", color: "#0f172a", kicker: "Main.lean · Standard 3 Axioms", title: "RiemannHypothesis", line1: "Mathlib defeq · ζ(s) = 0 ⇒ Re = 1/2", sym: "Main.riemannHypothesis" },
+            { id: "grh", x: 774, y: 194, w: 190, h: 84, kind: "headline", color: "#0f172a", kicker: "Main.lean · Dirichlet L", title: "Dirichlet GRH (All χ)", line1: "Primitive & imprimitive characters", sym: "LFunction_eq_zero_re" },
+            { id: "landau", x: 774, y: 304, w: 190, h: 84, kind: "headline", color: "#0f172a", kicker: "New/Reduction · 17f · 3.5k L", title: "Prime-Error Reduction", line1: "R_{N0}(x) ≤ x^(8ε−1/2) ⇒ no zero", sym: "New/Reduction/Zeros/PrimeError" }
           ],
           stars: [
-            // I · Thm A · Short Forms & Data (upper-left)
-            { id: "g_seesaw", parent: "p1", label: "New/Seesaw (21f · 201 KB)", deg: -26, r: 186, ly: 114,
-              prose: "Proves the seesaw identity linking twisted theta-lift pairings to Bessel functionals and generic unitary representations, providing the length upper bound in Theorem A.",
-              sym: "New.Seesaw.SeesawTheorem · BesselGeneric" },
-            { id: "g_columns", parent: "p1", label: "New/Columns (7f · 94 KB)", deg: -42, r: 186, ly: 146,
-              prose: "Constructs the local column-space representations and twisted Hecke types that organize automorphic vectors across split and inert places.",
-              sym: "New.Columns.LocalStatement · TwistedHeckeType" },
-            { id: "g_thecke", parent: "p1", label: "New/TwistedHecke (8f · 87 KB)", deg: -58, r: 186, ly: 184,
-              prose: "Counts twisted Hecke eigenforms and controls local orbital integrals needed for the short-forms multiplicity estimate.",
-              sym: "New.TwistedHecke.Counting · OrbitBound" },
-            { id: "g_data", parent: "p1", label: "New/Curve & Data (19f · 169 KB)", deg: -74, r: 186, ly: 228,
-              prose: "Builds admissible parameter packs Data P (scales log b ≪ x ≪ x1 ≪ b, lift count m ≈ √x, thick places, nominal weights) and curve/trace bookkeeping.",
-              sym: "New.Data.DataExist · AdmissibleData · HasLogBound" },
-            // II · Thm B · Enough Forms & Adelic (upper-right)
-            { id: "g_filling", parent: "p2", label: "New/Filling (31f · 430 KB)", deg: 26, r: 186, ly: 114,
-              prose: "Largest New/ subtree (430 KB, 6,497 raw L): proves FillingTheorem via box partitions and top-floor counting to supply enough linearly independent automorphic forms (missing share ≤ 4/b²).",
-              sym: "New.Filling.FillingTheorem · TopFloor · BoxPartition" },
-            { id: "g_real", parent: "p2", label: "New/RealPlace (18f · 210 KB)", deg: 42, r: 186, ly: 146,
-              prose: "Establishes the archimedean local theorem at real/complex places, matching Harish-Chandra characters and matrix-coefficient asymptotics.",
-              sym: "New.RealPlace.LocalTheorem · ArchimedeanWeight" },
-            { id: "g_disc", parent: "p2", label: "DiscreteSeries (55f · 433 KB)", deg: 58, r: 186, ly: 184,
-              prose: "Combines New/DiscreteSeries (5f) and Lib/DiscreteSeries (50f): Bruhat big-cell decomposition, K-types, and discrete-series matrix coefficients for unitary groups.",
-              sym: "Lib.DiscreteSeries.Bruhat.BigCell · FormalDegree" },
-            { id: "g_adelic", parent: "p2", label: "Lib/Adelic & LocalGL (79f · 628 KB)", deg: 74, r: 186, ly: 228,
-              prose: "Adelic trace comparison, strong approximation, and local GL_n representation theory (Lib/Adelic 56f + Lib/LocalGL 23f) supplying global-to-local factorizations.",
-              sym: "Lib.Adelic.TraceComparison · Lib.LocalGL" },
-            // III · Thm C · Heights, Weil & Shimura (lower-right)
-            { id: "g_rows", parent: "p3", label: "New/Rows & Heights (21f · 234 KB)", deg: 106, r: 186, ly: 334,
-              prose: "Factors the global covolume into lift volumes (volume_iota_eq_prod_liftVolume), bounds ratios via heightLe_liftVolume_ratio, and applies the product formula (HeightLe.nonneg) and one_determinant.",
-              sym: "New.Rows.RowVolume · LiftVolumeHeight · HeightLe.nonneg" },
-            { id: "g_exchange", parent: "p3", label: "New/Exchange (31f · 286 KB)", deg: 122, r: 186, ly: 380,
-              prose: "Proves ExchangeTheorem and crude_rows, exchanging level/weight rows while preserving lower bounds on integral determinant heights.",
-              sym: "New.Exchange.ExchangeTheorem · CrudeRows" },
-            { id: "g_weil", parent: "p3", label: "Lib/Weil & SiegelWeil (83f · 744 KB)", deg: 138, r: 186, ly: 418,
-              prose: "Massive background library (Lib/Weil 67f + Lib/SiegelWeil 13f + New/ 3f): mixed Weil representation models, Rallis inner product sharp data, and regularized Siegel–Weil.",
-              sym: "Lib.Weil.MixedModel · Lib.SiegelWeil.RallisInner.SharpData" },
-            { id: "g_shimura", parent: "p3", label: "Lib/Shimura (52f · 559 KB)", deg: 154, r: 186, ly: 452,
-              prose: "Integral models of unitary Shimura varieties, p-adic uniformisation, and Hodge bundle metrics backing the arithmetic height comparisons.",
-              sym: "Lib.Shimura.IntegralModel.ModelExistence · Uniformisation" },
-            // IV · Twists, Selmer & Galois Reps (lower-left)
-            { id: "g_selmer", parent: "p4", label: "New/Selmer & Patching (34f · 321 KB)", deg: -106, r: 186, ly: 334,
-              prose: "Proves exists_isFitFamily via Selmer group control, Taylor–Wiles patching (New/Patching 2f), and denominator bounds for modular twists.",
-              sym: "New.Selmer.FitTwistsExist · DenominatorBound" },
-            { id: "g_lift", parent: "p4", label: "New/Lift (8f · 128 KB)", deg: -122, r: 186, ly: 380,
-              prose: "Establishes exponent theorems and long-gap controls for the iterated theta-lift chain of length m ≈ √x.",
-              sym: "New.Lift.ExponentTheorems · LongGap" },
-            { id: "g_galois", parent: "p4", label: "Lib/GaloisRep & Cohom (78f · 769 KB)", deg: -138, r: 186, ly: 418,
-              prose: "#1 compression seam in grh-compact: AvatarCompatibility dominates 117 files / 1,213 KB (16.4% of repo) with in-degree 2, routing through SeedRepresentation and PointClass.GaloisRep.",
-              sym: "Lib.GaloisRep.Main.AvatarCompatibility · PointClass.GaloisRep" },
-            { id: "g_padic", parent: "p4", label: "Lib/PadicHodge & CFT (116f · 1.02 MB)", deg: -154, r: 186, ly: 452,
-              prose: "PadicHodge (37f), PadicComparison (24f), and ClassField (55f): Hodge–Tate vectors, crystalline comparison, and Greenberg–Wiles global duality.",
-              sym: "Lib.PadicHodge.HodgeTateVectors · Lib.ClassField.GreenbergWiles" },
+            // I · Upper Bound (upper-left)
+            { id: "g_seesaw", parent: "p1", label: "New/UpperBound (55f · 21.7k L)", deg: -26, r: 186, ly: 114,
+              prose: "Proves seesaw identities, standard lattice line criteria, elementary divisor averages, and short-form height upper bounds. 13,055 L (60%) are single-caller flattening targets.",
+              sym: "New.UpperBound.Seesaw · ElementaryDivisors" },
+            { id: "g_deriv", parent: "p1", label: "New/Derivatives (23f · 7.7k L)", deg: -48, r: 186, ly: 158,
+              prose: "Archimedean and differential-operator estimates feeding into the upper height bounds; 4,762 L (62%) are single-caller.",
+              sym: "New.Derivatives.*" },
+            { id: "g_appx", parent: "p1", label: "New/Appendix (9f · 3.3k L)", deg: -70, r: 186, ly: 210,
+              prose: "Self-contained auxiliary estimates and parameter bookkeeping supporting the core proof bounds (72% single-caller).",
+              sym: "New.Appendix.*" },
+            // II · Spanning & Adelic (upper-right)
+            { id: "g_spanning", parent: "p2", label: "New/Spanning (90f · 39.0k L)", deg: 26, r: 186, ly: 114,
+              prose: "Largest subtree in grh-lean (90 files, 38,950 code L): Poisson-summation global sieve, tight frames, real-place gauge, and remaining-term bounds. #1 flattening target with 24,520 single-caller L (63%).",
+              sym: "New.Spanning.MainTerm.GlobalSieve · Frames.RealPlaceGauge" },
+            { id: "g_disc", parent: "p2", label: "Lib/DiscreteSeries (40f · 15.7k L)", deg: 46, r: 186, ly: 156,
+              prose: "Bruhat big-cell decomposition, K-type multiplicities, Weyl character formula, and discrete-series matrix coefficients for unitary groups.",
+              sym: "Lib.DiscreteSeries.Character · Haar.CayleyChart" },
+            { id: "g_adelic", parent: "p2", label: "Lib/Adelic & LocalGL (67f · 22.5k L)", deg: 68, r: 186, ly: 210,
+              prose: "Lib/Adelic (54f · 16,461 L) and Lib/LocalGL (13f · 6,025 L): adelic automorphic forms, finite adele topology (TauCeti offload candidate #5648), and local GL_n representation theory.",
+              sym: "Lib.Adelic.* · Lib.LocalGL.Green" },
+            // III · Determinant, Weil & Shimura (lower-right)
+            { id: "g_det", parent: "p3", label: "New/Determinant (33f · 13.8k L)", deg: 108, r: 186, ly: 334,
+              prose: "Exchange steps, auxiliary forms, and Gram-determinant product formula replacing Alpöge’s Arakelov slope inequality. 9,065 L (66%) are single-caller.",
+              sym: "New.Determinant.Exchange.OneSquare · AuxiliaryForms" },
+            { id: "g_weil", parent: "p3", label: "Lib/Weil & SiegelWeil (86f · 30.3k L)", deg: 130, r: 186, ly: 386,
+              prose: "Lib/Weil (59f · 20,643 L) and Lib/SiegelWeil (27f · 9,705 L): dual pairs, mixed models, theta lift convergence, and Rallis inner product.",
+              sym: "Lib.Weil.DualPair · Lib.SiegelWeil.RallisInner" },
+            { id: "g_shimura", parent: "p3", label: "Lib/Shimura (43f · 18.9k L)", deg: 152, r: 186, ly: 444,
+              prose: "Integral models of unitary Shimura varieties, theta moduli, congruence relations, and p-adic uniformisation (8,434 single-caller L).",
+              sym: "Lib.Shimura.ThetaModuli · IntegralModel · Uniformisation" },
+            // IV · Congruences, OneLift & Galois Reps (lower-left)
+            { id: "g_congr", parent: "p4", label: "New/Congruences (53f · 22.3k L)", deg: -108, r: 186, ly: 334,
+              prose: "First-order congruences, denominator bounds, and cup-product lifting replacing Taylor–Wiles patching and Hida theory; 15,670 L (70%) are single-caller.",
+              sym: "New.Congruences.FirstOrder.DenominatorBound · Lifting.CupProductBound" },
+            { id: "g_onelift", parent: "p4", label: "New/OneLift (24f · 10.7k L)", deg: -124, r: 186, ly: 378,
+              prose: "Single-step theta lift estimates, comparison operators, and tested forms (68% single-caller).",
+              sym: "New.OneLift.ComparisonOperator · TestedForms" },
+            { id: "g_galois", parent: "p4", label: "Lib/GaloisRep & Cohom (61f · 25.2k L)", deg: -140, r: 186, ly: 418,
+              prose: "Lib/GaloisRep (31f · 12,446 L) and Lib/Cohomology (30f · 12,778 L): pseudocharacters, base change, proper base change, and Hodge/étale cohomology.",
+              sym: "Lib.GaloisRep.Main · Lib.Cohomology.ProperBaseChange" },
+            { id: "g_padic", parent: "p4", label: "Lib/Padic & ClassField (84f · 32.1k L)", deg: -156, r: 186, ly: 454,
+              prose: "Lib/PadicHodge (24f · 10.3k L), Lib/PadicComparison (18f · 7.2k L), and Lib/ClassField (42f · 14.6k L): crystalline period rings, Bloch–Kato, and global class field theory.",
+              sym: "Lib.PadicHodge · Lib.PadicComparison · Lib.ClassField" },
           ],
           bottomItems: [
-            { id: "f_general", label: "Lib/General (82f · 494 KB)", x: 136, y: 526 },
-            { id: "f_cm_gln",  label: "Lib/CM & GLn (27f · 231 KB)", x: 374, y: 526 },
-            { id: "f_cyc_ana", label: "Lib/Cyclotomic & Analytic (10f · 114 KB)", x: 616, y: 526 },
-            { id: "f_hygiene", label: "Hygiene Debt (9 maxHB · 30 backward.*)", x: 856, y: 526 },
+            { id: "f_general", label: "Lib/General & Analytic (80f · 19.6k L)", x: 142, y: 526 },
+            { id: "f_cm_gln",  label: "Lib/CM, GLn & Cyc (34f · 13.1k L)", x: 382, y: 526 },
+            { id: "f_tauceti", label: "TauCeti Offload (0 baseline imports)", x: 622, y: 526 },
+            { id: "f_hygiene", label: "Hygiene (5 maxHB · 28 backward.*)", x: 856, y: 526 },
           ],
           tour: [
-            { id: "p1",    label: "Step 1/6 · Thm A: Short Forms & Data" },
-            { id: "p2",    label: "Step 2/6 · Thm B: Enough Forms & Filling" },
-            { id: "p3",    label: "Step 3/6 · Thm C: Heights, Weil & Shimura" },
-            { id: "p4",    label: "Step 4/6 · Selmer, Fit Twists & Galois Reps" },
-            { id: "lower", label: "Step 5/6 · Upper (A+B) vs Lower (C) Pinch" },
+            { id: "p1",    label: "Step 1/6 · UpperBound, Seesaw & Derivatives" },
+            { id: "p2",    label: "Step 2/6 · Spanning, Sieve & Adelic" },
+            { id: "p3",    label: "Step 3/6 · Determinant, Weil & Shimura" },
+            { id: "p4",    label: "Step 4/6 · Congruences, OneLift & Galois Reps" },
+            { id: "lower", label: "Step 5/6 · Upper vs Lower Covolume Pinch" },
             { id: "star",  label: "Step 6/6 · star_inequality → New.grh → RH" },
           ],
           nodes: {
             p1: {
-              title: "Pillar I · Theorem A — Short Forms, Seesaw & Admissible Data",
-              badge: "grh-compact · 61 files · 588 KB",
-              prose: "Constructs admissible data packs D : Data P (scales log b ≪ x ≪ x1 ≪ b, lift count m ≈ √x) and proves Theorem A (Data.short_forms) via New/Seesaw, New/Columns, and New/TwistedHecke, bounding the individual heights of the constructed automorphic forms from above.",
-              theories: ["Seesaw Identity & Bessel Generic", "Twisted Hecke Counting", "Column Local Statements", "Admissible Scale Monomials (HasLogBound)"],
-              symbols: ["Data.short_forms", "New.Seesaw.SeesawTheorem", "New.Data.exists_data", "New.Columns.LocalStatement"],
-              meta: "61 files across New/Seesaw (21f), New/Curve (12f), New/TwistedHecke (8f), New/Columns (7f), New/Data (7f), New/Trace (4f), New/Core (2f)."
+              title: "Pillar I · New/UpperBound, Derivatives & Appendix",
+              badge: "grh-lean · 87 files · 32,719 code L",
+              prose: "Constructs admissible data and proves short-form upper bounds via seesaw identities, elementary divisors, and differential estimates.",
+              theories: ["Seesaw Identities & Standard Lattice Lines", "Elementary Divisor Averages", "Differential & Height Upper Bounds"],
+              symbols: ["New.UpperBound.Seesaw", "New.Derivatives", "New.Appendix"],
+              meta: "87 files across New/UpperBound (55f · 21,722 L), New/Derivatives (23f · 7,669 L), and New/Appendix (9f · 3,328 L)."
             },
             p2: {
-              title: "Pillar II · Theorem B — Enough Forms, Filling & Adelic Theory",
-              badge: "grh-compact · 183 files · 1.70 MB",
-              prose: "Proves Theorem B (Data.enough_forms), supplying a linearly independent family covering at least (1 − 4/b²) of the row space dimension d = D.rowDim via New/Filling box partitions, New/RealPlace archimedean matching, DiscreteSeries Bruhat big-cell analysis, and Lib/Adelic trace comparison.",
-              theories: ["Filling Theorem & Box Partitions", "Real-Place Local Theorem", "Discrete Series & Bruhat Big Cell", "Adelic Trace Comparison & Local GL_n"],
-              symbols: ["Data.enough_forms", "New.Filling.FillingTheorem", "New.RealPlace.LocalTheorem", "Lib.DiscreteSeries.Bruhat.BigCell"],
-              meta: "New/Filling (31f · 430 KB) is the single largest directory under New/ and contains 2 of the top 3 fattest single files in grh-compact."
+              title: "Pillar II · New/Spanning, DiscreteSeries & Adelic",
+              badge: "grh-lean · 197 files · 77,162 code L",
+              prose: "Supplies enough linearly independent automorphic forms via Poisson-summation global sieving, tight frames, real-place gauge matching, discrete-series matrix coefficients, and adelic trace comparison.",
+              theories: ["Poisson-Summation Global Sieve", "Tight Frames & Real-Place Gauge", "Discrete Series & Bruhat Big Cell", "Adelic Automorphic Forms & Local GL_n"],
+              symbols: ["New.Spanning.MainTerm.GlobalSieve", "New.Spanning.Frames.RealPlaceGauge", "Lib.DiscreteSeries", "Lib.Adelic"],
+              meta: "New/Spanning (90f · 38,950 L) is the #1 flattening cluster in grh-lean, with 24,520 single-caller code lines (63%)."
             },
             p3: {
-              title: "Pillar III · Theorem C Inputs — Row Volumes, Heights, Weil & Shimura",
-              badge: "grh-compact · 187 files · 1.82 MB",
-              prose: "Supplies the lower-bound geometry for Theorem C: factors the covolume of integral forms across iterated lift volumes (New/Rows), applies the global product formula (HeightLe.nonneg) and exchange row bounds (New/Exchange), supported by Lib/Weil, Lib/SiegelWeil (Rallis inner product), and Lib/Shimura integral models.",
-              theories: ["Lift-Volume Factorization", "Product Formula (HeightLe.nonneg)", "Exchange Theorem & Crude Rows", "Mixed Weil & Rallis Inner Product", "Unitary Shimura Integral Models"],
-              symbols: ["volume_iota_eq_prod_liftVolume", "heightLe_liftVolume_ratio", "HeightLe.nonneg", "New.Exchange.crude_rows", "Lib.Shimura.IntegralModel.ModelExistence"],
-              meta: "Lib/Weil (67f · 565 KB) and Lib/Shimura (52f · 559 KB) are the #1 and #2 largest background libraries in grh-compact."
+              title: "Pillar III · New/Determinant, Lib/Weil & Lib/Shimura",
+              badge: "grh-lean · 162 files · 62,998 code L",
+              prose: "Supplies the lower-bound geometry via exchange steps and the Gram-determinant product formula (replacing Arakelov slope inequalities), backed by Weil dual pairs, Rallis inner product, and unitary Shimura integral models.",
+              theories: ["Gram-Determinant Product Formula", "Exchange Steps & Auxiliary Forms", "Weil Dual Pairs & Siegel–Weil", "Unitary Shimura Integral Models"],
+              symbols: ["New.Determinant.Exchange.OneSquare", "Lib.Weil.DualPair", "Lib.SiegelWeil.RallisInner", "Lib.Shimura.ThetaModuli"],
+              meta: "Lib/Weil (59f · 20,643 L) and Lib/Shimura (43f · 18,884 L) are the two largest background libraries in grh-lean."
             },
             p4: {
-              title: "Pillar IV · Fit Twists, Selmer Patching & Galois Representations",
-              badge: "grh-compact · 236 files · 2.24 MB",
-              prose: "Constructs fit twist families (exists_isFitFamily) using Selmer bounds and patching (New/Selmer, New/Patching) together with iterated lift exponents (New/Lift), backed by integral Galois representations (Lib/GaloisRep, Lib/Cohomology), p-adic Hodge/comparison theory, and ClassField Greenberg–Wiles duality.",
-              theories: ["Fit Twist Families (Selmer)", "Taylor–Wiles Patching", "Avatar Compatibility & Point-Class Galois Reps", "p-Adic Hodge–Tate & Comparison", "Class Field Theory & Greenberg–Wiles"],
-              symbols: ["New.Selmer.exists_isFitFamily", "New.Lift.ExponentTheorems", "Lib.GaloisRep.Main.AvatarCompatibility", "Lib.Cohomology.PointClass.GaloisRep"],
-              meta: "Top compression seam: Lib.GaloisRep.Main.AvatarCompatibility dominates 117 files / 1,213 KB (16.4% of grh-compact) with in-degree 2."
+              title: "Pillar IV · New/Congruences, OneLift & Galois/p-adic/CFT",
+              badge: "grh-lean · 222 files · 90,308 code L",
+              prose: "Replaces Alpöge’s patching, Hida theory, and local Langlands machinery with direct first-order congruences, cup-product bounds, and single-step theta lifts backed by compact Galois, cohomology, p-adic Hodge, and class field libraries.",
+              theories: ["First-Order Congruences & Denominator Bounds", "Cup-Product Lifting & OneLift Estimates", "Pseudocharacters & Étale/Hodge Cohomology", "Crystalline p-adic Hodge & Class Field Theory"],
+              symbols: ["New.Congruences.FirstOrder.DenominatorBound", "New.OneLift.TestedForms", "Lib.GaloisRep", "Lib.PadicHodge", "Lib.ClassField"],
+              meta: "New/Congruences has the highest single-caller density among major pillars (15,670 / 22,301 L = 70.3%)."
             },
             upper: {
-              title: "Bridge A · Upper Bound — Short & Enough Forms (Theorems A + B)",
-              badge: "New/Endgame/ShortAndEnough.lean",
-              prose: "Combines Theorem A (Data.short_forms), Theorem B (Data.enough_forms), and Data.heightPerRow_le into Data.exists_family_covolumeSq_le: produces n ≥ (1 − 4/b²)d linearly independent integral forms whose individual heights are bounded above by h = mainHeight − m·remainder + L with small index δ ≤ 5d log(1+b²)·budget.",
-              theories: ["Short Forms Upper Bound (Thm A)", "Enough Forms Dimension Bound (Thm B)", "Per-Row Height & Index Control"],
-              symbols: ["Data.exists_family_covolumeSq_le", "Data.short_forms", "Data.enough_forms", "Data.heightPerRow_le"],
-              meta: "Provides the upper side of the pinch inside New.star_inequality."
+              title: "Bridge A · Upper Bound — Short & Spanning Families",
+              badge: "New/UpperBound + New/Spanning",
+              prose: "Combines short-form height upper bounds with Poisson-summation spanning frames to bound the covolume of the constructed integral automorphic family from above.",
+              theories: ["Short-Form Height Bounds", "Spanning Frame Dimension Lower Bound", "Poisson-Summation Sieve"],
+              symbols: ["exists_family_covolumeSq_le", "New.UpperBound", "New.Spanning"],
+              meta: "Supplies the upper side of the pinch inside New.star_inequality."
             },
             lower: {
-              title: "Bridge B · Lower Bound — Integral Forms Are Long (Theorem C)",
-              badge: "New/Endgame/LongForms.lean",
-              prose: "Proves Data.integral_forms_long: any large linearly independent integral family has covolume bounded below by d·(mainHeight − 3L). Combines fit twists (exists_isFitFamily), lift-volume factorization, product formula non-negativity (HeightLe.nonneg), crude row estimates, and one_determinant.",
-              theories: ["Covolume Lower Bound (Thm C)", "Product Formula Non-Negativity", "Fit-Twist Determinant Control"],
-              symbols: ["Data.integral_forms_long", "volume_iota_eq_prod_liftVolume", "HeightLe.nonneg", "one_determinant"],
-              meta: "Provides the lower side of the pinch inside New.star_inequality."
+              title: "Bridge B · Lower Bound — Integral Forms Are Long",
+              badge: "New/Determinant + New/Congruences + New/OneLift",
+              prose: "Combines congruence twists, single-step lift bounds, exchange rows, and the Gram-determinant product formula to bound the covolume of any large integral family from below.",
+              theories: ["Gram-Determinant Product Formula", "Congruence Twist Control", "Hecke L-Value Covolume Replacement"],
+              symbols: ["integral_forms_long", "New.Determinant", "New.Congruences"],
+              meta: "Supplies the lower side of the pinch inside New.star_inequality."
             },
             star: {
               title: "Center Chokepoint · New.star_inequality → New.grh",
-              badge: "794/794 Files Reachable · 76,151 Code L",
-              prose: "Pinches d·(mainHeight − 3L) ≤ d·(mainHeight − m·remainder + L + 4x^99 + 10 log(1+b²)·budget), cancelling mainHeight cleanly to yield m·remainder ≤ (log b)²·budget (star_inequality). Choosing a second scale u ∈ [t, t²] gives eventually_primeError_le_rpow, which invokes OneSidedCriterion to prove New.grh (L(s, χ) ≠ 0 on Re(s) > 1/2).",
+              badge: "802 Files · 49,821 Cone Consts · 4.49 GB Export",
+              prose: "Pinches the upper and lower covolume bounds to cancel mainHeight cleanly, yielding the prime-error bound fed into New/Reduction to establish New.grh (L(s, χ) ≠ 0 on Re(s) > 1/2).",
               theories: ["Star Inequality (⋆) Cancellation", "Two-Scale Window Choice", "Half-Plane Zero-Free Deduction"],
-              symbols: ["New.star_inequality", "New.eventually_primeError_le_rpow", "New.grh", "DirichletLNonvanishingRightOfHalf"],
-              meta: "Source verified on grh-compact@72fead1 (0 sorry/axiom, 0 dead files). Independent cold --no-cache GCP verification is currently running."
+              symbols: ["New.star_inequality", "New.grh", "Main.riemannHypothesis"],
+              meta: "Independently verified on grh/ readable by MIT (leanchecker, nanoda, con-leche, con-ron; 4.49 GB byte-identical export across two machines) and locally in grh-clean."
             },
             rh: {
               title: "Headline Theorem · Main.riemannHypothesis (Mathlib DefEq)",
-              badge: "Main.lean · Line 4",
-              prose: "Proved in one line (`theorem riemannHypothesis : RiemannHypothesis := New.zeta_zeros_on_line New.grh`) by applying New.grh to s and 1 − s together with the completed zeta functional equation.",
+              badge: "Main.lean · Standard 3 Axioms Only",
+              prose: "Proved directly from New.grh together with the completed zeta functional equation reflection s ↔ 1 − s.",
               theories: ["Functional Equation Reflection", "Mathlib RiemannHypothesis DefEq"],
-              symbols: ["Main.riemannHypothesis", "Main.riemannZeta_eq_zero_re", "New.zeta_zeros_on_line"],
-              meta: "Identical target type to Mathlib RiemannHypothesis; independent cold verification receipt pending."
+              symbols: ["Main.riemannHypothesis", "Main.riemannZeta_eq_zero_re"],
+              meta: "Exact axioms verified via #print axioms: [propext, Classical.choice, Quot.sound]."
             },
             grh: {
               title: "Headline Theorems · Dirichlet GRH (All Primitive & Imprimitive χ)",
-              badge: "Main.lean · Lines 8–13",
-              prose: "Proves both LFunction_ne_zero_of_half_lt_re (directly New.grh) and LFunction_eq_zero_re / LFunction_eq_zero_re_of_isPrimitive via New.zeros_on_line New.grh.",
+              badge: "Main.lean · 5 Headline Theorems Verified",
+              prose: "Proves LFunction_ne_zero_of_half_lt_re, LFunction_eq_zero_re, and LFunction_eq_zero_re_of_isPrimitive directly from New.grh.",
               theories: ["Dirichlet Functional Equation", "Primitive & Imprimitive Characters"],
-              symbols: ["Main.LFunction_ne_zero_of_half_lt_re", "Main.LFunction_eq_zero_re", "New.zeros_on_line"],
-              meta: "All 5 headline theorems in Main.lean are 1-line corollaries of New.grh."
+              symbols: ["Main.LFunction_ne_zero_of_half_lt_re", "Main.LFunction_eq_zero_re", "Main.LFunction_eq_zero_re_of_isPrimitive"],
+              meta: "All 5 headline theorems pass leanchecker Statements + Main with standard axioms only."
             },
             landau: {
-              title: "Endgame Bridge · One-Sided Landau Criterion & Polar Window",
-              badge: "New/Endgame/OneSidedCriterion.lean",
-              prose: "Proves that if primeError d M x ≤ x^(β−1) eventually for every prime d ≡ a (mod M) with d ≡ 7 (mod 8), then entireL χ ρ ≠ 0 for Re(ρ) > β. Also proves IsPolar.exists_window_sub_mul_le, replacing pointwise prime-number theorems in progressions with a good second scale u ∈ [t, t²].",
-              theories: ["One-Sided Landau Criterion", "Quadratic Twist Non-Vanishing", "Polar Laplace Window Lemma"],
-              symbols: ["entireL_ne_zero_of_primeError_le", "IsPolar.exists_window_sub_mul_le", "exists_entireL_quadTwist_ne_zero"],
-              meta: "Compact 99-line file in grh-compact/src/New/Endgame/OneSidedCriterion.lean."
+              title: "Endgame Reduction · New/Reduction (17 files · 3,513 code L)",
+              badge: "New/Reduction/Zeros/PrimeError.lean",
+              prose: "Bridges the prime-error estimate from New.star_inequality through the one-sided Landau criterion and quadratic-twist non-vanishing into zero-free half-planes for all Dirichlet L-functions.",
+              theories: ["One-Sided Landau Criterion", "Quadratic Twist Non-Vanishing", "Prime-Error Window Reduction"],
+              symbols: ["New.Reduction.Zeros.PrimeError", "Lib.Analytic.QuadraticTwist"],
+              meta: "Compact 17-file endgame bridge in official grh/src/New/Reduction/."
             },
             f_general: {
-              title: "Shared Foundation · Lib/General (82 files · 494.1 KB)",
-              badge: "100% Active · 0 Dead Files",
+              title: "Shared Foundation · Lib/General & Lib/Analytic (80 files · 19,601 code L)",
+              badge: "Active Kernel Cone · 6.5% of grh-lean",
               isCleanBottom: true,
-              prose: "General-purpose Mathlib extensions across algebra, topology, measure theory, harmonic analysis, and p-adic arithmetic imported throughout both Lib/* and New/*. Every file is transitively imported by Main.lean.",
-              theories: ["Shared Algebra & Topology Helpers", "Measure & Integration Utilities", "Local/Global Plumbing"],
-              symbols: ["Lib/General/* (82 files · 8,382 raw L)"],
-              meta: "Prime candidate for upstreaming reusable lemmas to Mathlib or deduplicating helpers."
+              prose: "General-purpose Mathlib extensions (Lib/General 68f · 16,981 L) and analytic twist helpers (Lib/Analytic 10f · 2,557 L) imported across both Lib/* and New/*.",
+              theories: ["Shared Algebra, Measure & Topology Helpers", "Quadratic-Twist Non-Vanishing"],
+              symbols: ["Lib/General/* (68f)", "Lib/Analytic/* (10f)"],
+              meta: "Prime candidates for Mathlib v4.37 and TauCeti upstreaming."
             },
             f_cm_gln: {
-              title: "Shared Foundation · Lib/CM & Lib/GLn (27 files · 230.9 KB)",
-              badge: "100% Active · 0 Dead Files",
+              title: "Shared Foundation · Lib/CM, Lib/GLn & Lib/Cyclotomic (34 files · 13,149 code L)",
+              badge: "Active Kernel Cone · 4.4% of grh-lean",
               isCleanBottom: true,
-              prose: "CM field extensions, complex conjugation, and totally real/CM polarization helpers (Lib/CM: 11f · 119.5 KB) alongside GL_n matrix-group representations and orbital tools (Lib/GLn: 16f · 111.4 KB).",
-              theories: ["CM Number Fields", "GL_n Group & Matrix Infrastructure"],
-              symbols: ["Lib/CM/* (11f)", "Lib/GLn/* (16f)"],
-              meta: "Imported directly by Seesaw, RealPlace, Adelic, and Shimura modules."
+              prose: "CM number fields (16f · 5,566 L), GL_n representation/Schur-module infrastructure (13f · 5,063 L), and cyclotomic arithmetic (5f · 2,520 L).",
+              theories: ["CM Number Fields", "GL_n Schur Modules & Matrix Groups", "Cyclotomic Arithmetic"],
+              symbols: ["Lib/CM/* (16f)", "Lib/GLn/* (13f)", "Lib/Cyclotomic/* (5f)"],
+              meta: "Imported directly across Shimura, Weil, Adelic, and Congruence modules."
             },
-            f_cyc_ana: {
-              title: "Shared Foundation · Lib/Cyclotomic & Lib/Analytic (10 files · 113.8 KB)",
-              badge: "100% Active · 0 Dead Files",
+            f_tauceti: {
+              title: "TauCeti Offloading Headroom · 0 Baseline Imports",
+              badge: "PR #5635 Merged Dependency · High-Leverage Track",
               isCleanBottom: true,
-              prose: "Cyclotomic field arithmetic (Lib/Cyclotomic: 5f · 63.5 KB) and analytic quadratic-twist non-vanishing / Landau helpers (Lib/Analytic: 5f · 50.3 KB), including ZeroFreeTwist used directly by OneSidedCriterion.",
-              theories: ["Cyclotomic Arithmetic", "Quadratic-Twist Non-Vanishing (ZeroFreeTwist)"],
-              symbols: ["Lib.Analytic.QuadraticTwist.ZeroFreeTwist", "Lib/Cyclotomic/* (5f)"],
-              meta: "Directly feeds New/Endgame/OneSidedCriterion.lean and New/Selmer."
+              prose: "Upstream main merged TauCetiProject/TauCeti as a dependency (#5635), yet the e063a92 baseline still had 0 actual TauCeti imports (tauceti_deps = 0). Hundreds of general Lib/* theorems are candidates for TauCeti offloading (e.g. Kim Morrison’s #5648).",
+              theories: ["General Number Theory & Adelic Offloading", "Community grh-Label Sprint"],
+              symbols: ["TauCetiProject/TauCeti", "585 candidate decls / 487 theorems"],
+              meta: "Directly reduces repository maintenance footprint without sacrificing readability."
             },
             f_hygiene: {
-              title: "Hygiene & Compression Debt · grh-compact Audit",
-              badge: "0 Sorry · 0 Axioms · 0 Dead Files",
+              title: "Hygiene & Technical Debt · grh-lean / grh-clean Audit",
+              badge: "0 Sorry · 0 Custom Axioms · Multi-Kernel Verified",
               isCleanBottom: true,
-              prose: "Static audit of grh-compact@72fead1 found 0 sorry, 0 custom axioms, 0 native_decide, 0 dead files, and only 0.39% semicolon-packed lines. Remaining cleanup targets are 9 set_option maxHeartbeats, 30 backward.* compatibility flags, 2 bare import Mathlib lines, 3 unused internal lemmas, and 19 duplicate signatures.",
-              theories: ["Zero-Cheat Audit", "Toolchain Portability (Lean v4.35.0 → v4.34.1 / v4.37)", "Tactic & File Coalescing"],
-              symbols: ["9 maxHeartbeats", "30 backward.*", "2 import Mathlib", "7,570 simp / 2,718 grind"],
-              meta: "Immediate low-risk polish targets alongside major compression seams (AvatarCompatibility 16.4%, Filling 5.8%)."
+              prose: "Kernel audit of official grh/ (main@e063a92) found 0 sorry, 0 custom axioms, 5 maxHeartbeats overrides, 28 backward.* flags, 2 bare import Mathlib lines, and 442 kernel-dead declarations with code (3,643 L; 284 pruned in grh-clean Wave 0 = −2,948 code L).",
+              theories: ["Zero-Cheat Kernel Verification", "Wave 0 Dead-Declaration Pruning", "Anti-Packing Readability Guard"],
+              symbols: ["5 maxHeartbeats", "28 backward.*", "2 import Mathlib", "149,521 L single-caller (50.0%)"],
+              meta: "Explicit readable proof style yields a 15.3% smaller kernel export (4.49 GB) than grh-compact (5.17 GB)."
             }
           }
         },
