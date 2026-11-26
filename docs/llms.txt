@@ -1,23 +1,26 @@
-# riemannhypothesis.dev — Lean 4 Riemann Hypothesis & GRH Upstream Tracker (independent, unofficial)
+# riemannhypothesis.dev — the Lean 4 proof of the Riemann Hypothesis, for readers and contributors (independent, unofficial)
 
-> Independent tracker of `leanprover-community/riemann-hypothesis`: kernel-export measurements, proof-size history, and PR and verification status. Snapshots are refreshed by a scheduled GitHub Actions run; the dashboard also re-reads the GitHub API in the browser.
+> Independent site about `leanprover-community/riemann-hypothesis`: columns on reading the proof and sending a pull request, a dated timeline of the repository, a tracker of measured numbers, and a contributor directory. Numbers name the commit they were measured at and who measured them. The site is not run by the upstream maintainers.
 
-## Canonical Pages
+## Pages
 
-- [Project Home](https://riemannhypothesis.dev/): Overview of the Lean Riemann Hypothesis formalization and the community work on its sources.
-- [Contributor Guide (Korean)](https://riemannhypothesis.dev/guide.html): Source-linked guide to selecting a contribution, building the project, submitting a pull request, and interpreting measurements. Includes the scope of the material covered and omitted.
-- [Live Upstream Tracker](https://riemannhypothesis.dev/tracker.html): Source, proof-size, and verification tracker covering both lineages of `leanprover-community/riemann-hypothesis`: `main`, based on the readable edition of `lsernau/grh-lean`, and the community cleanup of Levent Alpöge's original proof on branch `alpoge` (the original release is on branch `original`).
-- [Maintainers, Contributors & Lean Foundations](https://riemannhypothesis.dev/profiles.html): Contributor directory organized by build-time speedups, compute and cache infrastructure, codebase/technical-debt reduction, and merge/triage operations, each tied to a PR or public source.
+- [Home](https://riemannhypothesis.dev/): What the site covers and where to start, depending on whether you want to contribute, read the proof, follow events, or look up numbers.
+- [Columns and timeline](https://riemannhypothesis.dev/columns.html): The list of columns and a dated timeline of the upstream repository; each timeline entry links to its commit or pull request.
+- [Column: How to Contribute to the Lean Riemann Hypothesis Proof](https://riemannhypothesis.dev/manual.html): Why shorter source can produce a larger kernel export, how to prepare a focused pull request, this site's own measurements at `main@e063a92`, and the declarations to follow from the first construction to `riemannHypothesis`.
+- [Column (Korean): Contributor guide](https://riemannhypothesis.dev/guide.html): Source-linked guide to selecting a contribution, building the project, submitting a pull request, and interpreting measurements. States what it covers and what it leaves out.
+- [Tracker](https://riemannhypothesis.dev/tracker.html): Source, proof-size, and verification tracker covering both lineages of `leanprover-community/riemann-hypothesis`: `main`, based on the readable edition of `lsernau/grh-lean`, and the community cleanup of Levent Alpöge's original proof on branch `alpoge` (the original release is on branch `original`).
+- [Contributors](https://riemannhypothesis.dev/profiles.html): Contributor directory organized by build-time speedups, compute and cache infrastructure, codebase/technical-debt reduction, and merge/triage operations, each tied to a PR or public source.
 
 ## Authoritative Technical References
 
+- [Upstream repository (`leanprover-community/riemann-hypothesis`)](https://github.com/leanprover-community/riemann-hypothesis): Upstream Lean 4 proofs of the Riemann Hypothesis and of GRH for Dirichlet L-functions (machine-checked). Its README is the authority on what the project wants from contributors.
 - [Kernel-Cone Specification (`SPEC.md`)](https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/SPEC.md): Kernel-cone accounting of the original v0.2.1 release (Alpöge lineage) and the token-count method.
-- [Official Upstream Repository (`leanprover-community/riemann-hypothesis`)](https://github.com/leanprover-community/riemann-hypothesis): Upstream Lean 4 proofs of the Riemann Hypothesis and of GRH for Dirichlet L-functions (machine-checked).
-- [Tracker Source Repository (`thekeunpie-hash/rh-kernel-backbone`)](https://github.com/thekeunpie-hash/rh-kernel-backbone): Automation scripts, live JSON snapshots, and GitHub Pages source.
+- [Site source repository (`thekeunpie-hash/rh-kernel-backbone`)](https://github.com/thekeunpie-hash/rh-kernel-backbone): Automation scripts, JSON snapshots, and GitHub Pages source.
 
 ## Machine-Readable Snapshots (GitHub Raw)
 
-- `https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/upstream_frontier.json` — Latest measured upstream HEAD, file/line counts, PR queue, and technical-debt counters (`#229`).
+- `https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/upstream_frontier.json` — Latest measured upstream HEAD, file/line counts, PR queue, timeline entries, and technical-debt counters (`#229`).
 - `https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/rh_shrink.json` — Per-commit proof-size series from `rh-shrink.github.io`.
 - `https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/verifytask_board.json` — Archived Bohrium Playground benchmark results (original Alpöge tree).
 - `https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/community_context.json` — GitHub privileged-action audit and Lean Zulip community context.
+- `https://riemannhypothesis.dev/data/columns.json` — The list of columns with dates.

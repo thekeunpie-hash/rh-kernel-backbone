@@ -3,572 +3,176 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contributing to the Lean Riemann Hypothesis Proof | riemannhypothesis.dev</title>
-  <meta name="description" content="An independent guide to reading the Lean Riemann Hypothesis proof, checking proof-size changes, and preparing a focused upstream pull request." />
+  <title>riemannhypothesis.dev — reading, following and contributing to the Lean proof of the Riemann Hypothesis</title>
+  <meta name="description" content="An independent site about leanprover-community/riemann-hypothesis: columns on reading the Lean 4 proof and sending a pull request, a dated timeline of the repository, and a tracker of measured numbers with their sources." />
+  <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://riemannhypothesis.dev/" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#faf9f5" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="riemannhypothesis.dev" />
   <meta property="og:url" content="https://riemannhypothesis.dev/" />
-  <meta property="og:title" content="Contributing to the Lean Riemann Hypothesis Proof" />
-  <meta property="og:description" content="An independent guide to reading the proof, measuring changes, and preparing an upstream pull request." />
+  <meta property="og:title" content="riemannhypothesis.dev — the Lean proof of the Riemann Hypothesis, for readers and contributors" />
+  <meta property="og:description" content="Columns on reading the proof and sending a pull request, a dated timeline of the repository, and a tracker of measured numbers with their sources. Independent and unofficial." />
   <meta property="og:image" content="https://riemannhypothesis.dev/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="riemannhypothesis.dev — independent tracker of the upstream Lean 4 Riemann Hypothesis and GRH proofs" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://riemannhypothesis.dev/og-image.png" />
-  <style>
-    :root {
-      --paper: #faf9f5;
-      --ink: #171717;
-      --muted: #57534e;
-      --rule: #e4e1d8;
-      --code-bg: #f1efe8;
-      --link: #1d4ed8;
-      --warn: #991b1b;
-      --serif: "Newsreader", "Source Serif 4", Georgia, "Times New Roman", serif;
-      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
-      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.72;
-      overflow-wrap: anywhere;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body {
-      margin: 0;
-      padding: 0 22px 96px;
-    }
-
-    .wrap {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    .topbar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 8px 18px;
-      padding: 18px 0 14px;
-      font-family: var(--mono);
-      font-size: 12.5px;
-      color: var(--muted);
-    }
-
-    .topbar a {
-      color: var(--ink);
-      text-decoration: none;
-    }
-    .topbar a:hover { text-decoration: underline; }
-
-    .topnav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 16px;
-    }
-
-    .live-strip {
-      padding: 12px 0;
-      border-bottom: 1px solid var(--rule);
-      font-family: var(--mono);
-      font-size: 12.5px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-    .live-strip strong {
-      color: var(--ink);
-      font-weight: 600;
-    }
-
-    header {
-      padding: 46px 0 28px;
-    }
-
-    h1 {
-      font-family: var(--serif);
-      font-size: clamp(32px, 5vw, 44px);
-      font-weight: 500;
-      line-height: 1.16;
-      letter-spacing: -0.02em;
-      margin: 0 0 18px;
-    }
-
-    .lede {
-      font-family: var(--serif);
-      font-size: 19.5px;
-      line-height: 1.62;
-      color: #292524;
-      margin: 0;
-    }
-
-    h2 {
-      font-family: var(--serif);
-      font-size: 26px;
-      font-weight: 500;
-      line-height: 1.25;
-      letter-spacing: -0.015em;
-      margin: 54px 0 14px;
-      padding-top: 22px;
-      border-top: 1px solid var(--rule);
-    }
-
-    h3 {
-      font-size: 15.5px;
-      font-weight: 600;
-      margin: 26px 0 8px;
-      color: var(--ink);
-    }
-
-    p {
-      margin: 0 0 16px;
-    }
-
-    a {
-      color: var(--link);
-      text-underline-offset: 3px;
-      text-decoration-thickness: 1px;
-    }
-
-    code {
-      font-family: var(--mono);
-      font-size: 0.86em;
-      background: var(--code-bg);
-      padding: 1.5px 5px;
-      border-radius: 3px;
-    }
-
-    pre {
-      margin: 18px 0 22px;
-      padding: 16px 18px;
-      background: var(--code-bg);
-      border-left: 2px solid #a8a29e;
-      white-space: pre-wrap;
-      font-family: var(--mono);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-    pre code {
-      background: none;
-      padding: 0;
-      font-size: inherit;
-    }
-
-    ol, ul {
-      margin: 0 0 20px;
-      padding-left: 22px;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-
-    .callout {
-      margin: 24px 0;
-      padding: 4px 0 4px 18px;
-      border-left: 2px solid var(--warn);
-      color: #292524;
-    }
-    .callout p:last-child { margin-bottom: 0; }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0 24px;
-      font-size: 14px;
-      line-height: 1.55;
-    }
-    th, td {
-      text-align: left;
-      vertical-align: top;
-      padding: 10px 10px 10px 0;
-      border-bottom: 1px solid var(--rule);
-    }
-    th {
-      font-weight: 600;
-      color: var(--muted);
-      font-size: 12.5px;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-    }
-    td.num, th.num {
-      text-align: right;
-      font-family: var(--mono);
-      white-space: nowrap;
-    }
-
-    .spine {
-      list-style: none;
-      padding-left: 0;
-      margin: 20px 0 24px;
-    }
-    .spine li {
-      padding: 12px 0;
-      border-bottom: 1px solid var(--rule);
-      margin: 0;
-    }
-    .spine li:last-child { border-bottom: none; }
-    .spine-sym {
-      display: block;
-      font-family: var(--mono);
-      font-size: 13.5px;
-      font-weight: 600;
-      margin-bottom: 3px;
-    }
-    .spine-file {
-      font-family: var(--mono);
-      font-size: 12.5px;
-      color: var(--muted);
-    }
-
-    .aside-note {
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    footer {
-      margin-top: 64px;
-      padding-top: 20px;
-      border-top: 1px solid var(--rule);
-      font-size: 13.5px;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    @media (max-width: 600px) {
-      body { padding: 0 16px 64px; }
-      header { padding: 30px 0 20px; }
-      table { font-size: 13px; }
-      th, td { padding-right: 6px; }
-      td.num, th.num { white-space: normal; }
-    }
-  </style>
+  <link rel="stylesheet" href="site.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://riemannhypothesis.dev/#website",
+    "url": "https://riemannhypothesis.dev/",
+    "name": "riemannhypothesis.dev",
+    "description": "Independent, unofficial site about the Lean 4 proof in leanprover-community/riemann-hypothesis: columns, a dated timeline, a tracker and a contributor directory.",
+    "inLanguage": ["en", "ko"]
+  }
+  </script>
 </head>
-<body>
+<body class="ed">
+  <a class="site-skip" href="#content">Skip to content</a>
   <div class="wrap">
-    <nav class="topbar" aria-label="Site navigation">
-      <a href="/">riemannhypothesis.dev</a>
-      <div class="topnav">
-        <a href="guide.html" lang="ko">한국어 기여 가이드</a>
-        <a href="tracker.html">full tracker</a>
-        <a href="profiles.html">contributors</a>
-        <a href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener">upstream repo</a>
+    <header class="site-head">
+      <div class="site-head-in">
+        <a class="site-name" href="./">riemannhypothesis.dev</a>
+        <nav class="site-nav" aria-label="Site">
+          <a href="./" aria-current="page">Home</a>
+          <a href="columns.html">Columns</a>
+          <a href="tracker.html">Tracker</a>
+          <a href="profiles.html">Contributors</a>
+          <a href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener">Upstream</a>
+        </nav>
       </div>
-    </nav>
-
-    <div class="live-strip" id="liveStrip">
-      <a href="https://github.com/leanprover-community/riemann-hypothesis/tree/main">Upstream main on GitHub</a>
-    </div>
-
-    <header>
-      <h1>How to Contribute to the Lean Riemann Hypothesis Proof</h1>
-      <p class="lede">
-        This independent field manual shows where to start reading the proof and how to
-        prepare a focused upstream pull request. On November 25, 2026 (UTC),
-        <code>leanprover-community/riemann-hypothesis</code>
-        <a href="https://github.com/leanprover-community/riemann-hypothesis/commit/47fcde57c49eedd5a6352f4c8745d30bebbe4b0b">moved the readable <code>grh-lean</code> edition to the root of <code>main</code></a>.
-        This edition began with 803 Lean source files and about 300,000 lines of code.
-        The <a href="https://github.com/leanprover-community/riemann-hypothesis/tree/e063a92/src"><code>e063a92</code> snapshot</a>
-        has 802 source files. The earlier Alpöge edition lives on the <code>alpoge</code> branch.
-      </p>
     </header>
 
-    <main>
-      <p>
-        For <code>lsernau/grh-lean@72fead10</code> on Lean <code>v4.35.0</code>,
-        Andrew Sutherland’s <a href="https://math.mit.edu/~drew/shortgrh/" target="_blank" rel="noopener">MIT verification record</a>
-        lists default and paranoid Lean kernel checks plus <code>nanoda</code>,
-        <code>lean4lean</code>, <code>con-leche</code>, and <code>con-ron</code>.
-        The five theorems use only Lean’s three standard axioms, and exports from two
-        machines matched byte for byte. One readable-edition <code>lean4lean</code> run was
-        stopped for memory, and the other passed. For upstream changes,
-        <a href="https://github.com/leanprover-community/riemann-hypothesis/blob/main/.github/workflows/build.yml">the <code>lake build</code> workflow</a>
-        runs for PRs to <code>main</code>, merge groups, and pushes to <code>main</code>.
-      </p>
+    <div class="live-strip" id="liveStrip">
+      <a href="https://github.com/leanprover-community/riemann-hypothesis/tree/main" target="_blank" rel="noopener">Upstream main on GitHub</a>
+    </div>
 
-      <h2>1. The first trap: shorter source can produce a larger kernel proof</h2>
-      <p>
-        If your instinct is to compress proofs by packing lines with semicolons or replacing
-        explicit <code>have</code> steps with <code>grind</code>, <code>simp_all</code>, and
-        <code>aesop</code>, stop and look at what happened when MIT exported both versions of
-        <code>grh-lean</code>:
-      </p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Edition</th>
-            <th class="num">Code lines</th>
-            <th class="num">Kernel export</th>
-            <th class="num">Cold build</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>grh/</code> readable (basis of <code>main</code>)</td>
-            <td class="num">299,902</td>
-            <td class="num">4.49 GB (−13.3%)</td>
-            <td class="num">32m 12s</td>
-          </tr>
-          <tr>
-            <td><code>grh-compact/</code> line-packed</td>
-            <td class="num">76,149 (−74.6%)</td>
-            <td class="num">5.17 GB (+15.3%)</td>
-            <td class="num">33m 32s</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="callout">
-        <p>
-          <strong>Rule of thumb for PRs:</strong> delete dead declarations, inline redundant
-          single-caller wrappers, and offload general lemmas to <code>TauCeti</code> or Mathlib.
-          Keep intermediate steps readable and measure the resulting kernel export.
-          Source line counts alone cannot predict the size of the elaborated proof.
+    <main id="content">
+      <div class="page-head">
+        <h1>The Lean proof of the Riemann Hypothesis, for readers and contributors</h1>
+        <p class="lede">
+          <a href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener"><code>leanprover-community/riemann-hypothesis</code></a>
+          is the community repository for a Lean&nbsp;4 formalization of the 2026 proofs of the Riemann
+          Hypothesis and of GRH for Dirichlet <em>L</em>-functions. This site explains how to read that
+          proof and how to send a pull request to it, and it keeps a dated record of what the repository
+          has done.
         </p>
       </div>
 
-      <h2>2. How to prepare a focused pull request</h2>
-      <p>Start with the smallest build that covers your change. CI checks the full project.</p>
-      <ol>
+      <p>
+        One thing to know before anything else. The proof has been checked by machine and by nobody
+        else yet. The README of <a href="https://github.com/lsernau/grh-lean" target="_blank" rel="noopener"><code>lsernau/grh-lean</code></a>,
+        the edition upstream <code>main</code> is based on, says it in these words: “The proof has
+        passed machine checks only … No mathematician has read it through, and no paper comes with it.”
+        The work that is open to contributors is therefore work on the code: making it faster to
+        build, easier to read, and better connected to Mathlib and to the literature.
+      </p>
+
+      <h2 id="columns">Columns</h2>
+      <p class="section-note">If you want to send a pull request, start with one of these. Each is written against the state of upstream on its date.</p>
+      <ol class="plain" id="colList">
+        <li><span class="item-meta">2026-11-26 · Field notes · English</span>
+          <span class="item-title"><a href="manual.html">How to Contribute to the Lean Riemann Hypothesis Proof</a></span>
+          <p>Why shorter source can mean a larger checked proof, how to prepare a focused pull request, where this site measured the most room, and the proof in six stops.</p></li>
+        <li><span class="item-meta">2026-11-26 · Guide · 한국어</span>
+          <span class="item-title"><a href="guide.html" lang="ko">리만 가설 Lean 증명 저장소에 개발자로 기여하는 법</a></span>
+          <p lang="ko">저장소의 지금 상태, 받아들여지는 기여, 빌드와 PR 절차, 직접 겪은 팁, 측정 방법을 공개 출처와 함께 정리했다.</p></li>
+      </ol>
+      <p class="more"><a href="columns.html">All columns, placed on the timeline</a></p>
+
+      <h2 id="start">Or start from what you need</h2>
+      <ol class="plain">
         <li>
-          <strong>Leave the challenge files alone.</strong> For PRs to <code>main</code>,
-          <a href="https://github.com/leanprover-community/riemann-hypothesis/blob/main/.github/workflows/challenge-files.yml">the challenge workflow</a>
-          protects <code>Challenge.lean</code>, <code>comparator.json</code>, and
-          <code>src/Statements.lean</code>. It also restricts build configuration changes.
-          Proof cleanup usually belongs in <code>src/Lib/</code> or <code>src/New/</code>.
+          <span class="item-meta">If you want to read the proof</span>
+          <span class="item-title"><a href="manual.html#spine">Six stops from the first construction to <code>riemannHypothesis</code></a></span>
+          <p>The declarations to follow, in order, with the file each one lives in, so you can trace the argument without opening every source file.</p>
         </li>
         <li>
-          <strong>Check open PRs before touching a module.</strong> The repository merges
-          quickly and two people editing the same file will collide on rebase.
+          <span class="item-meta">If you want to know what happened and when</span>
+          <span class="item-title"><a href="columns.html#timeline">The repository, day by day</a></span>
+          <p>From the import of the original proof on 2026-11-21 to the switch of <code>main</code> to the readable edition on 2026-11-25. Every entry links to its commit or pull request.</p>
         </li>
         <li>
-          <strong>Build the module you edited and an immediate downstream caller.</strong>
-          A module change can trigger dependent rebuilds. Start near the leaves when the
-          same change can be made there.
+          <span class="item-meta">If you want the numbers</span>
+          <span class="item-title"><a href="tracker.html">Tracker</a></span>
+          <p>File and line counts of upstream <code>main</code>, proof size per commit, the pull-request queue and the published verification records, each with the commit it was measured at.</p>
         </li>
         <li>
-          <strong>Verify zero <code>sorry</code> and standard axioms.</strong> Never introduce
-          <code>set_option maxHeartbeats</code> or <code>set_option backward.*</code> to make a
-          shortened proof pass; the goal is to remove those flags, not add them.
-        </li>
-        <li>
-          <strong>Keep each PR small and single-purpose.</strong> Explain the reason for
-          the change and include the checks you ran.
+          <span class="item-meta">If you want to know who did what</span>
+          <span class="item-title"><a href="profiles.html">Contributors</a></span>
+          <p>Maintainers and contributors listed by the pull requests and public records behind each line, not by commit counts.</p>
         </li>
       </ol>
 
-      <pre><code># 1. Check active open PRs to avoid file collisions
-gh pr list --repo leanprover-community/riemann-hypothesis --state open --limit 30
+      <h2 id="recent">Latest on the timeline</h2>
+      <ol class="timeline is-brief" id="recentList" aria-live="polite"></ol>
+      <p class="status" id="recentStatus">Loading the latest entries…</p>
+      <noscript><p class="status">This list needs JavaScript. The same record is kept in <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/data/upstream_frontier.json">data/upstream_frontier.json</a>.</p></noscript>
+      <p class="more"><a href="columns.html#timeline">The full timeline</a></p>
 
-# 2. Build only the single module you changed
-lake build New.Reduction.ShortAndEnough
-
-# 3. Confirm no sorry or custom axioms crept in
-lake env lean scripts/PrintAxioms.lean</code></pre>
-
-      <h2>3. Where the real leverage is right now</h2>
+      <h2 id="about">About this site</h2>
       <p>
-        Kernel-cone dissection of the <code>main@e063a92</code> baseline (802 files, 49,821
-        active kernel-cone constants out of 64,358 total constants) shows four concrete places
-        where work pays off immediately.
+        This is an independent site. It is not written or endorsed by the maintainers of the upstream
+        repository. A number on it names the commit it was measured at and who measured it, whether
+        that is upstream’s own README, a published verification record, or this site’s scripts. Where
+        a figure is this site’s own measurement and cannot be reproduced from a public source, the
+        page says so.
       </p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Track</th>
-            <th class="num">Measured headroom</th>
-            <th>Where to start</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Single-caller flattening</strong><br /><span class="aside-note">Helper lemmas used in only one place (<code>in_degree = 1</code>)</span></td>
-            <td class="num">149,521 L<br /><span class="aside-note">49.9% of code</span></td>
-            <td>Highest density in <code>New/Congruences</code> (70.3%, 15,670&nbsp;L), <code>New/Spanning</code> (63.0%, 24,520&nbsp;L), <code>New/Determinant</code> (66%, 9,065&nbsp;L), and <code>New/UpperBound</code> (60%, 13,055&nbsp;L).</td>
-          </tr>
-          <tr>
-            <td><strong>TauCeti offloading</strong><br /><span class="aside-note">General lemmas moved out of <code>Lib/</code></span></td>
-            <td class="num">585 decls<br /><span class="aside-note">487 theorems</span></td>
-            <td><code>TauCetiProject/TauCeti</code> was added in PR #5635, yet the <code>e063a92</code> baseline had 0 imports. Start in <code>Lib/Adelic</code>, <code>Lib/General</code>, <code>Lib/Analytic</code>, and <code>Lib/DiscreteSeries</code>.</td>
-          </tr>
-          <tr>
-            <td><strong>Bibliography linking</strong><br /><span class="aside-note">No Lean tactic work required</span></td>
-            <td class="num">127 / 228<br /><span class="aside-note">33 high-priority</span></td>
-            <td>127 entries in <code>REFERENCES.md</code> are not yet linked to the Lean declarations that formalize them. Ideal track for mathematicians reading the proof.</td>
-          </tr>
-          <tr>
-            <td><strong>Hygiene &amp; dead code</strong><br /><span class="aside-note">Options, bare imports, unused decls</span></td>
-            <td class="num" id="hygieneCell"><a href="tracker.html">See the tracker</a></td>
-            <td>Check <code>set_option backward.*</code> flags, <code>maxHeartbeats</code> overrides, and bare <code>import Mathlib</code> lines. The <code>e063a92</code> audit identified 442 declarations outside the <code>Main</code> cone (3,643 lines).</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>4. Trace the proof through seven Lean files</h2>
       <p>
-        Every symbol below is verified directly against the <code>grh-lean</code> kernel
-        environment (<code>main@e063a92</code>). If you want to trace how the proof reaches
-        <code>riemannHypothesis</code> without reading 300,000 lines, follow these declarations in
-        order:
+        Upstream’s README asks contributors for three things: a proof that is accessible (builds
+        without large amounts of compute), readable (code quality moving toward Mathlib’s), and
+        integrated with the community (references to prior work, reuse of existing formalization
+        projects). It also names what it does not want: reports of your own machine’s builds or
+        comparator runs, and files the proof does not need.
+        <a href="https://github.com/leanprover-community/riemann-hypothesis/blob/main/README.md" target="_blank" rel="noopener">Read the README</a>
+        before you start; it is short and it is the authority.
       </p>
-
-      <ol class="spine">
-        <li>
-          <span class="spine-sym">New.Data.enough_forms</span>
-          <a class="spine-file" href="https://github.com/leanprover-community/riemann-hypothesis/blob/e063a92/src/New/Reduction/ShortAndEnough.lean" target="_blank" rel="noopener">src/New/Reduction/ShortAndEnough.lean</a>
-          <p class="aside-note" style="margin:4px 0 0;">
-            Combines short-form height upper bounds (<code>New/UpperBound</code>) with the
-            Poisson-summation spanning sieve (<code>New/Spanning</code>) to construct enough
-            short integral automorphic forms.
-          </p>
-        </li>
-        <li>
-          <span class="spine-sym">New.Data.integral_forms_long</span>
-          <a class="spine-file" href="https://github.com/leanprover-community/riemann-hypothesis/blob/e063a92/src/New/Determinant/Twist/LongForms.lean" target="_blank" rel="noopener">src/New/Determinant/Twist/LongForms.lean</a>
-          <p class="aside-note" style="margin:4px 0 0;">
-            Combines first-order congruences (<code>New/Congruences</code>), single-step lifts
-            (<code>New/OneLift</code>), and the Gram-determinant product formula
-            (<code>New/Determinant</code>) to force any large integral family to be long.
-          </p>
-        </li>
-        <li>
-          <span class="spine-sym">New.star_inequality</span>
-          <a class="spine-file" href="https://github.com/leanprover-community/riemann-hypothesis/blob/e063a92/src/New/Reduction/MainInequality.lean" target="_blank" rel="noopener">src/New/Reduction/MainInequality.lean</a>
-          <p class="aside-note" style="margin:4px 0 0;">
-            Pinches the upper and lower covolume bounds against each other so the main height
-            term cancels, isolating a prime-remainder estimate.
-          </p>
-        </li>
-        <li>
-          <span class="spine-sym">New.Data.primeRemainder_le &nbsp;→&nbsp; New.LFunction_ne_zero_of_primeRemainder_le</span>
-          <a class="spine-file" href="https://github.com/leanprover-community/riemann-hypothesis/blob/e063a92/src/New/Reduction/OneSidedBound.lean" target="_blank" rel="noopener">src/New/Reduction/OneSidedBound.lean</a>
-          &nbsp;·&nbsp;
-          <a class="spine-file" href="https://github.com/leanprover-community/riemann-hypothesis/blob/e063a92/src/New/Reduction/Zeros/Criterion.lean" target="_blank" rel="noopener">src/New/Reduction/Zeros/Criterion.lean</a>
-          <p class="aside-note" style="margin:4px 0 0;">
-            Converts the star inequality into a one-sided Landau bound on prime remainders and
-            rules out zeros of Dirichlet <em>L</em>-functions in the half-plane Re(s)&nbsp;&gt;&nbsp;1/2.
-          </p>
-        </li>
-        <li>
-          <span class="spine-sym">New.grh &nbsp;→&nbsp; New.zeta_zeros_on_line, New.zeros_on_line</span>
-          <a class="spine-file" href="https://github.com/leanprover-community/riemann-hypothesis/blob/e063a92/src/New/Main.lean" target="_blank" rel="noopener">src/New/Main.lean</a>
-          <p class="aside-note" style="margin:4px 0 0;">
-            Reflects the zero-free right half-plane across s&nbsp;↔&nbsp;1&nbsp;−&nbsp;s via the
-            functional equation.
-          </p>
-        </li>
-        <li>
-          <span class="spine-sym">riemannHypothesis, riemannZeta_eq_zero_re, LFunction_eq_zero_re</span>
-          <a class="spine-file" href="https://github.com/leanprover-community/riemann-hypothesis/blob/e063a92/src/Main.lean" target="_blank" rel="noopener">src/Main.lean</a>
-          <p class="aside-note" style="margin:4px 0 0;">
-            Top-level declarations (no <code>Main</code> namespace) matching Mathlib’s
-            canonical <code>RiemannHypothesis</code> statement with
-            <code>[propext, Classical.choice, Quot.sound]</code> only.
-          </p>
-        </li>
-      </ol>
-
-      <h2>5. Where the earlier Alpöge proof went</h2>
       <p>
-        Levent Alpöge’s original 175,187-file formalization and the community’s cleanup down to
-        58,947 files (Batch 23, commit <code>756a70250</code>) are preserved intact on branch
-        <a href="https://github.com/leanprover-community/riemann-hypothesis/tree/alpoge" target="_blank" rel="noopener"><code>alpoge</code></a>.
-        Historical shrinkage charts live on
-        <a href="https://rh-shrink.github.io/" target="_blank" rel="noopener">rh-shrink.github.io</a>,
-        contributor records are on <a href="profiles.html">profiles.html</a>, and the archived
-        multi-chart tracker remains available at <a href="tracker.html">tracker.html</a>.
+        Found a mistake here?
+        <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/issues" target="_blank" rel="noopener">Open an issue on the site’s repository</a>.
       </p>
     </main>
 
-    <footer>
-      <span>Independent, unofficial field notes for <code>leanprover-community/riemann-hypothesis</code>.</span>
-      <span><a href="https://github.com/thekeunpie-hash/rh-kernel-backbone" target="_blank" rel="noopener">source &amp; data</a> · <a href="llms.txt">llms.txt</a></span>
+    <footer class="site-foot">
+      <div class="site-foot-in">
+        <p>riemannhypothesis.dev is an independent, unofficial site. It is not run by the maintainers of <a href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener">leanprover-community/riemann-hypothesis</a>.</p>
+        <p class="site-foot-links">
+          <a href="./">Home</a>
+          <a href="columns.html">Columns</a>
+          <a href="tracker.html">Tracker</a>
+          <a href="profiles.html">Contributors</a>
+          <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone" target="_blank" rel="noopener">Source and data</a>
+          <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/issues" target="_blank" rel="noopener">Report an error</a>
+          <a href="llms.txt">llms.txt</a>
+        </p>
+        <p>Maintained by <a href="https://github.com/thekeunpie-hash" target="_blank" rel="noopener">@thekeunpie-hash</a>.</p>
+      </div>
     </footer>
   </div>
 
+  <script src="site.js"></script>
   <script>
-    (async function hydrateLiveStrip() {
-      const strip = document.getElementById("liveStrip");
-      const hygieneCell = document.getElementById("hygieneCell");
-      const upstream = "https://github.com/leanprover-community/riemann-hypothesis";
-      const metric = (value, label) => Number.isSafeInteger(value) && value >= 0
-        ? value.toLocaleString("en-US") + " " + label : "";
-      const validSha = (value) => typeof value === "string" && /^[a-f0-9]{7,40}$/i.test(value);
-      const shortToolchain = (value) => typeof value === "string"
-        ? value.trim().replace(/^leanprover\/lean4:/, "") : "";
-
-      function showCommit(sha, parts) {
-        const strong = document.createElement("strong");
-        const link = document.createElement("a");
-        link.href = upstream + "/commit/" + sha;
-        link.textContent = sha.slice(0, 9);
-        strong.append("main@", link);
-        strip.replaceChildren(strong, " · " + parts.filter(Boolean).join(" · "));
-      }
-
-      let snapshotSha = "";
-      const snapshotPath = "data/upstream_frontier.json";
-      const raw = "https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/";
-      for (const url of [raw + snapshotPath, "../" + snapshotPath]) {
-        try {
-          const response = await fetch(url, { credentials: "omit" });
-          if (!response.ok) continue;
-          const { live_main: snapshot } = await response.json();
-          if (!validSha(snapshot?.sha)) continue;
-
-          snapshotSha = snapshot.sha;
-          showCommit(snapshotSha, [
-            "snapshot", shortToolchain(snapshot.toolchain),
-            metric(snapshot.lean_files, "files"), metric(snapshot.total_lines, "raw lines")
-          ]);
-          const options = [
-            metric(snapshot.backward_options, "backward.*"),
-            metric(snapshot.heartbeat_options, "maxHeartbeats")
-          ].filter(Boolean);
-          if (options.length) {
-            const note = document.createElement("span");
-            note.className = "aside-note";
-            note.textContent = "Snapshot at " + snapshotSha.slice(0, 9);
-            hygieneCell.replaceChildren(options.join(" · "), document.createElement("br"), note);
-          }
-          break;
-        } catch (_) {}
-      }
-
+    (async function () {
+      const site = window.RHSite;
+      if (!site) return;
+      site.liveStrip(document.getElementById("liveStrip"));
+      site.loadColumns().then((cols) => site.renderColumnList(document.getElementById("colList"), cols));
+      const status = document.getElementById("recentStatus");
       try {
-        const response = await fetch(
-          "https://api.github.com/repos/leanprover-community/riemann-hypothesis/commits/main",
-          { credentials: "omit" }
-        );
-        if (!response.ok) return;
-        const { sha } = await response.json();
-        if (!validSha(sha) || snapshotSha && sha.startsWith(snapshotSha)) return;
-
-        let toolchain = "";
-        try {
-          const response = await fetch(
-            "https://raw.githubusercontent.com/leanprover-community/riemann-hypothesis/" + sha + "/lean-toolchain",
-            { credentials: "omit" }
-          );
-          if (response.ok) toolchain = shortToolchain(await response.text());
-        } catch (_) {}
-        showCommit(sha, ["latest GitHub HEAD", toolchain]);
-      } catch (_) {}
+        const events = await site.loadEvents();
+        site.renderTimeline(document.getElementById("recentList"), events, [], { limit: 3 });
+        status.hidden = events.length > 0;
+        if (!events.length) status.textContent = "No timeline entries yet.";
+      } catch (_) {
+        status.textContent = "The latest entries could not be loaded just now. The full timeline page keeps the same record.";
+      }
     })();
   </script>
 </body>

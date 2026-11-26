@@ -1,13 +1,24 @@
 {
-  "about": "Columns shown on columns.html, placed on the project timeline by date. Add one entry per published column page; the page must exist under docs/ before it is listed.",
+  "about": "Columns shown on index.html and columns.html, placed on the project timeline by date. Add one entry per published column page; the page must exist under docs/ before it is listed. Keep the static fallback lists in index.html and columns.html in step with this file.",
   "columns": [
     {
       "slug": "manual",
       "href": "manual.html",
       "date": "2026-11-26",
       "kicker": "Field notes",
-      "title": "How to Actually Contribute to the Lean Riemann Hypothesis Proof",
-      "summary": "The export-size trap, a clean PR in under an hour, where the leverage is now, and the proof spine in six Lean files."
+      "language": "English",
+      "title": "How to Contribute to the Lean Riemann Hypothesis Proof",
+      "summary": "Why shorter source can mean a larger checked proof, how to prepare a focused pull request, where this site measured the most room, and the proof in six stops."
+    },
+    {
+      "slug": "guide",
+      "href": "guide.html",
+      "date": "2026-11-26",
+      "kicker": "Guide",
+      "language": "한국어",
+      "lang": "ko",
+      "title": "리만 가설 Lean 증명 저장소에 개발자로 기여하는 법",
+      "summary": "저장소의 지금 상태, 받아들여지는 기여, 빌드와 PR 절차, 직접 겪은 팁, 측정 방법을 공개 출처와 함께 정리했다."
     }
   ]
 }
