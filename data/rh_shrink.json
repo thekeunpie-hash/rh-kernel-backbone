@@ -6,7 +6,7 @@
     "method": "text search over .lean files under src/, one point per main commit (rh-shrink collect.py)",
     "schema_version": 7
   },
-  "commits_measured": 44,
+  "commits_measured": 45,
   "original": {
     "sha": "47fcde57c49eedd5a6352f4c8745d30bebbe4b0b",
     "date": "2026-11-25T22:24:29Z",
@@ -23,23 +23,32 @@
     "statements": 17676
   },
   "latest": {
-    "sha": "d71ab41d7b56b19e369bed7da9e23228676495a6",
-    "date": "2026-11-26T10:23:38Z",
-    "subject": "Merge pull request #7034 from leanprover-community/batch/m29-on-main",
-    "pr": 7034,
-    "files": 808,
-    "lines": 475599,
-    "code": 296446,
-    "theorems": 17751,
-    "defs": 5609,
-    "imports": 1838,
+    "sha": "d6cc75e05c9c4fa7a4b29fc24befa16d054684cf",
+    "date": "2026-11-26T10:42:54Z",
+    "subject": "Merge pull request #7088 from leanprover-community/batch/m30c-on-main",
+    "pr": 7088,
+    "files": 809,
+    "lines": 474789,
+    "code": 295902,
+    "theorems": 17709,
+    "defs": 5604,
+    "imports": 1840,
     "heartbeats": 0,
     "repeats": 42,
-    "statements": 17209
+    "statements": 17168
   },
-  "code_left_pct": 99.43,
-  "code_removed": 1714,
+  "code_left_pct": 99.24,
+  "code_removed": 2258,
   "recent_changes": [
+    {
+      "sha": "d6cc75e05c9c4fa7a4b29fc24befa16d054684cf",
+      "date": "2026-11-26T10:42:54Z",
+      "subject": "Merge pull request #7088 from leanprover-community/batch/m30c-on-main",
+      "pr": 7088,
+      "code": 295902,
+      "code_delta": -544,
+      "theorems_delta": -42
+    },
     {
       "sha": "d71ab41d7b56b19e369bed7da9e23228676495a6",
       "date": "2026-11-26T10:23:38Z",
@@ -138,15 +147,6 @@
       "code": 295095,
       "code_delta": 134,
       "theorems_delta": -12
-    },
-    {
-      "sha": "e4098b46b46c934574c0abba2d107d1fd9c8bfcf",
-      "date": "2026-11-26T07:18:30Z",
-      "subject": "Merge pull request #6452 from leanprover-community/batch/m18-on-main",
-      "pr": 6452,
-      "code": 294961,
-      "code_delta": -131,
-      "theorems_delta": -11
     }
   ],
   "series": [
@@ -325,6 +325,10 @@
     [
       "2026-11-26T10:23:38Z",
       296446
+    ],
+    [
+      "2026-11-26T10:42:54Z",
+      295902
     ]
   ]
 }
