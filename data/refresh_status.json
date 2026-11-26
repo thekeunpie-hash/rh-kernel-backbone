@@ -1,11 +1,10 @@
 {
-  "refreshed_at": "2026-11-26T10:04:47Z",
+  "refreshed_at": "2026-11-26T10:06:19Z",
   "trigger": "workflow_dispatch",
-  "run_id": "45796216528",
+  "run_id": "45798105214",
   "changed": [
     "data/rh_shrink.json",
     "data/upstream_frontier.json",
-    "data/upstream_pr_insights.json",
     "data/verifytask_board.json"
   ]
 }

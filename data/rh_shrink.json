@@ -6,7 +6,7 @@
     "method": "text search over .lean files under src/, one point per main commit (rh-shrink collect.py)",
     "schema_version": 7
   },
-  "commits_measured": 41,
+  "commits_measured": 42,
   "original": {
     "sha": "47fcde57c49eedd5a6352f4c8745d30bebbe4b0b",
     "date": "2026-11-25T22:24:29Z",
@@ -23,23 +23,32 @@
     "statements": 17676
   },
   "latest": {
-    "sha": "95bb95715df33ea4df43b5883cd0d700e870490a",
-    "date": "2026-11-26T09:38:16Z",
-    "subject": "Merge pull request #6817 from leanprover-community/batch/m26-on-main",
-    "pr": 6817,
-    "files": 804,
-    "lines": 474416,
-    "code": 295577,
-    "theorems": 17733,
-    "defs": 5593,
-    "imports": 1815,
+    "sha": "235739c2e9f6cc5b05f557e6851562ec47605285",
+    "date": "2026-11-26T09:52:04Z",
+    "subject": "Merge pull request #6900 from leanprover-community/batch/m27-on-main",
+    "pr": 6900,
+    "files": 805,
+    "lines": 474716,
+    "code": 295790,
+    "theorems": 17741,
+    "defs": 5603,
+    "imports": 1818,
     "heartbeats": 0,
     "repeats": 41,
-    "statements": 17196
+    "statements": 17201
   },
-  "code_left_pct": 99.13,
-  "code_removed": 2583,
+  "code_left_pct": 99.21,
+  "code_removed": 2370,
   "recent_changes": [
+    {
+      "sha": "235739c2e9f6cc5b05f557e6851562ec47605285",
+      "date": "2026-11-26T09:52:04Z",
+      "subject": "Merge pull request #6900 from leanprover-community/batch/m27-on-main",
+      "pr": 6900,
+      "code": 295790,
+      "code_delta": 213,
+      "theorems_delta": 8
+    },
     {
       "sha": "95bb95715df33ea4df43b5883cd0d700e870490a",
       "date": "2026-11-26T09:38:16Z",
@@ -138,15 +147,6 @@
       "code": 295406,
       "code_delta": -218,
       "theorems_delta": -6
-    },
-    {
-      "sha": "a7c4d6a94945f49da752e237a6b1e944ab62677e",
-      "date": "2026-11-26T06:20:03Z",
-      "subject": "Merge pull request #6343 from leanprover-community/batch/m15-on-main",
-      "pr": 6343,
-      "code": 295624,
-      "code_delta": -31,
-      "theorems_delta": -10
     }
   ],
   "series": [
@@ -313,6 +313,10 @@
     [
       "2026-11-26T09:38:16Z",
       295577
+    ],
+    [
+      "2026-11-26T09:52:04Z",
+      295790
     ]
   ]
 }
