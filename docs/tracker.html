@@ -3269,6 +3269,7 @@
               <tbody id="edCmpBody"></tbody>
             </table>
           </div>
+          <div class="vt-src" id="edCmpScope" hidden></div>
           <p class="panel-sub" id="edCmpInversion" style="margin:8px 0 0;"></p>
           <p class="panel-sub" id="edCmpPairing" style="margin:6px 0 0;" hidden></p>
           <div class="vt-src" id="edCmpSrc"></div>
@@ -3278,10 +3279,11 @@
             var sec = document.getElementById("edition-compare");
             var head = document.getElementById("edCmpHead");
             var body = document.getElementById("edCmpBody");
+            var scope = document.getElementById("edCmpScope");
             var inv = document.getElementById("edCmpInversion");
             var pairEl = document.getElementById("edCmpPairing");
             var src = document.getElementById("edCmpSrc");
-            if (!sec || !head || !body || !inv || !src || typeof fetch !== "function") return;
+            if (!sec || !head || !body || !scope || !inv || !src || typeof fetch !== "function") return;
             function num(v) { return Number(v).toLocaleString("en-US"); }
             function dur(v) { return Math.floor(v / 60) + "m " + (v % 60) + "s"; }
             function fmt(v, kind) {
@@ -3300,6 +3302,7 @@
             function render(d) {
               var eds = d && d.editions, rows = d && d.rows, x = d && d.export_inversion;
               if (!Array.isArray(eds) || !eds.length || !Array.isArray(rows) || !rows.length) return;
+              var scopeText = typeof d.alpoge_archive_scope === "string" ? d.alpoge_archive_scope : "";
               var hr = document.createElement("tr");
               hr.appendChild(cell("th", "Metric"));
               eds.forEach(function (e) { hr.appendChild(cell("th", String(e.label), "num")); });
@@ -3307,11 +3310,21 @@
               rows.forEach(function (r) {
                 var tr = document.createElement("tr");
                 tr.appendChild(cell("td", String(r.label)));
-                eds.forEach(function (_, i) {
-                  tr.appendChild(cell("td", fmt(Array.isArray(r.values) ? r.values[i] : null, r.fmt), "num"));
+                eds.forEach(function (e, i) {
+                  var value = fmt(Array.isArray(r.values) ? r.values[i] : null, r.fmt);
+                  var td = cell("td", value, "num");
+                  if (scopeText && e.id === "alpoge_v021" && r.alpoge_archive === true && value !== "n/a") {
+                    var mark = cell("sup", "1");
+                    mark.setAttribute("aria-hidden", "true");
+                    td.appendChild(mark);
+                    td.setAttribute("aria-describedby", scope.id);
+                  }
+                  tr.appendChild(td);
                 });
                 frag.appendChild(tr);
               });
+              scope.textContent = scopeText ? "1. " + scopeText : "";
+              scope.hidden = !scopeText;
               head.textContent = "";
               head.appendChild(hr);
               body.textContent = "";
