@@ -2,10 +2,10 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "f6b304ee21975534",
-  "updated_at": "2026-11-26T19:17:24.330564+08:00",
+  "revision": "ed6047e295259746",
+  "updated_at": "2026-11-26T19:27:07.950656+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T11:19:04Z",
+  "generated_at": "2026-11-26T11:29:07Z",
   "summary": {
     "participants": 121,
     "scored_participants": 98,
@@ -27758,6 +27758,7 @@
   },
   "links": {
     "events": "https://play.bohrium.com/competition/pku/events",
+    "season2": "https://play.bohrium.com/challenges/riemann-hypothesis-season-2-76k-compact-proof-comp-ee3261a6",
     "main": "https://play.bohrium.com/challenges/lean-4-verification-riemann-hypothesis-levent-alpo-78ee076d",
     "core1": "https://play.bohrium.com/challenges/lean-4-verification-rh-core-pillar-1-5-classical-z-c7f72729"
   },
@@ -28617,6 +28618,16 @@
   ],
   "timeline": [
     {
+      "id": "seed-season2-live-20261126",
+      "ts": "2026-11-26T11:20:00Z",
+      "source": "playground",
+      "tag": "Season 2 · LIVE",
+      "title": "Season 2 opens on grh-compact (76k LOC) with 5-Pillar Mathlib-Grade Proof Quality rubric",
+      "summary": "Season 2 launches on lsernau/grh-lean/grh-compact (793 editable files, 7.04 MB, 1.62M tokens, Lean v4.35.0) scored across Conciseness (40%), Abstraction Reuse (20%), Taxonomy Alignment (15%), Conceptual Dedup (15%), and Balanced Granularity (10%). Baseline #113189 verified at 51.28.",
+      "url": "https://play.bohrium.com/challenges/riemann-hypothesis-season-2-76k-compact-proof-comp-ee3261a6",
+      "highlight": true
+    },
+    {
       "id": "seed-grh-compact-release-20261126",
       "ts": "2026-11-26T03:00:00Z",
       "source": "github",
@@ -28628,12 +28639,22 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-26T10:59:04Z",
+      "ts": "2026-11-26T11:26:25Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
       "summary": "New verified modules from the remaining 99% of Alpöge's proof are now live: CM j-Invariant Integrality, Irreducible Complex Open Connected, Siegel–Weil Local Density (+40 more).",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-core-pillar-6-cm-j-invarian-70b3d4ba",
+      "highlight": true
+    },
+    {
+      "id": "upstream-pr-7113",
+      "ts": "2026-11-26T11:17:44Z",
+      "source": "lean_community",
+      "tag": "Upstream PR #7113",
+      "title": "Lower the cup-product exponent at cuts from 51κ to 13κ (−2 lines net)",
+      "summary": "Merged into leanprover-community/riemann-hypothesis by EricHe98.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/7113",
       "highlight": true
     },
     {
@@ -28677,16 +28698,6 @@
       "highlight": true
     },
     {
-      "id": "seed-upstream-pr68",
-      "ts": "2026-11-22T07:25:46Z",
-      "source": "lean_community",
-      "tag": "Proof Cleanup",
-      "title": "Shared GL finiteness rank-induction proof cuts 9,010 Lean lines (PR #68)",
-      "summary": "antoshashakov deduplicated GL finiteness proofs (−9,010 lines) alongside CapelliIdentities typeclass dump cleanups merged in PRs #57, #60, and #65.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/68",
-      "highlight": false
-    },
-    {
       "id": "seed-upstream-pr45",
       "ts": "2026-11-21T20:54:20Z",
       "source": "lean_community",
@@ -28721,7 +28732,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1343★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1350★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true
