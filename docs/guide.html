@@ -345,7 +345,7 @@ lake build</code></pre>
 <h3>캐시, 빌드, 검증은 서로 다른 말이다</h3>
 <p>캐시를 받아 <code>lake build --no-build</code>가 통과했다는 것은 공개된 바이트를 받았다는 뜻이다. CI의 <code>lake build</code>가 통과했다는 것은 컴파일되고 <code>sorry</code>가 없으며 공리가 셋뿐이라는 뜻이다. 11월 26일 기준 <code>main</code>의 워크플로 열 개 가운데 Comparator나 외부 검사기를 돌리는 것은 없다.</p>
 
-<p>명제 비교와 독립 검사기까지 거친 기록은 원 저장소 커밋 <code>72fead1</code>에 대한 MIT의 검증 기록이다. 그 기록에 따르면 가독판을 가장 엄격한 방식으로 검사하려면 메모리가 332 GB를 훨씬 넘는 기계와 네 시간쯤이 필요하다. README가 "내 컴퓨터에서 돌렸다"는 주장을 받지 않는 까닭을 이 비용에서 짐작할 수 있다.</p>
+<p>명제 비교와 독립 검사기까지 거친 기록은 원 저장소 커밋 <code>72fead1</code>에 대한 MIT의 검증 기록이다. 가독판에 가장 엄격한 검사(<code>lake comparator --paranoid</code>)를 처음부터 끝까지 돌린 기록은 빌드와 명제 비교, 외부 검사기 전부를 합쳐 4시간 9분 59초였고, 그 가운데 약 2시간 40분이 lean4lean 단계였다. 위 표의 2시간 35분, 332 GB는 lean4lean만 따로 돌린 값이다. 그래서 기록은 가독판의 이 검사에 메모리가 332 GB를 훨씬 넘는 기계와 네 시간쯤이 필요하다고 정리한다. README가 "내 컴퓨터에서 돌렸다"는 주장을 받지 않는 까닭을 이 비용에서 짐작할 수 있다.</p>
 
 <p class="src">출처: <a href="https://math.mit.edu/~drew/shortgrh/">MIT 검증 기록 (Andrew Sutherland)</a> · <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/docs/data/editions.json">editions.json (이 저장소 측정)</a> · <a href="https://rh-shrink.github.io/">rh-shrink</a> · <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/SPEC.md">SPEC.md</a> · <a href="https://github.com/leanprover-community/riemann-hypothesis/blob/main/scripts/technical-debt-metrics.py">technical-debt-metrics.py</a> · <a href="https://github.com/leanprover-community/riemann-hypothesis/tree/main/.github/workflows">워크플로 목록</a></p>
 
