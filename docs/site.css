@@ -295,6 +295,14 @@ body.ed main .article-end { margin: 52px 0 0; padding-top: 20px; border-top: 1px
   body.ed table { font-size: 13px; }
   body.ed th, body.ed td { padding-right: 6px; }
   body.ed td.num, body.ed th.num { white-space: normal; }
+  /* Wide prose tables: one row becomes one block, so no column is squeezed to a few letters */
+  body.ed table.stack, body.ed table.stack tbody, body.ed table.stack tr, body.ed table.stack td { display: block; width: 100%; }
+  body.ed table.stack thead { position: absolute; left: -9999px; }
+  body.ed table.stack tr { padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  body.ed table.stack td { border: 0; padding: 0 0 6px; text-align: left; font-size: 14px; }
+  body.ed table.stack td.num { text-align: left; font-size: 13.5px; }
+  body.ed table.stack td.num br { display: none; }
+  body.ed table.stack td.num .aside-note::before { content: " · "; }
   body.ed main .day { padding-left: 24px; }
   body.ed main .timeline.is-brief .day { padding-left: 0; }
 }
