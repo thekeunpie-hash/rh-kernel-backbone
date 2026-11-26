@@ -2,17 +2,17 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "ff500e4fe08f1101",
-  "updated_at": "2026-11-27T03:06:38.534267+08:00",
+  "revision": "7f9e153d4726a22f",
+  "updated_at": "2026-11-27T03:17:38.257412+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T19:08:10Z",
+  "generated_at": "2026-11-26T19:19:08Z",
   "summary": {
     "participants": 122,
     "scored_participants": 98,
     "submissions": 2486,
-    "scored_submissions": 1753,
-    "evaluating": 4,
-    "core_evaluating": 4,
+    "scored_submissions": 1754,
+    "evaluating": 3,
+    "core_evaluating": 3,
     "challenges_total": 49,
     "core_solved": 42,
     "core_total": 48,
@@ -25,10 +25,10 @@
   },
   "progress": {
     "baseline_tokens": 611228972,
-    "best_tokens": 405987313,
+    "best_tokens": 405980455,
     "saved_tokens_pct": 33.58,
     "baseline_chars": 2086571119,
-    "best_chars": 1406766925,
+    "best_chars": 1406751080,
     "saved_chars_pct": 32.58,
     "solved": 42,
     "challenges": 48,
@@ -37,9 +37,9 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1752,
-    "kept_count": 663,
-    "current_best_score": 2870.29,
+    "total_runs": 1753,
+    "kept_count": 664,
+    "current_best_score": 2870.49,
     "current_best_pct": 33.58,
     "points": [
       {
@@ -26321,6 +26321,21 @@
         "model": "GPT-6.2 Sol",
         "harness": "Codex CLI",
         "method": null
+      },
+      {
+        "i": 1753,
+        "id": 113992,
+        "ts": "2026-11-26T17:25:15+00:00",
+        "key": "core30",
+        "score": 65.8,
+        "compression_pct": 88.08,
+        "best": 2870.49,
+        "best_pct": 33.58,
+        "kept": true,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": "Core 30 · Fast: Inline 16 helpers + grind automation"
       }
     ]
   },
@@ -27502,21 +27517,21 @@
       "metric": "tokens",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-fast-sub-pillar-30-theta-un-9058e5c0",
       "baseline_tokens": 1438064,
-      "best_tokens": 178245,
+      "best_tokens": 171387,
       "baseline_chars": 4636383,
-      "best_chars": 591903,
-      "token_saved_pct": 87.61,
-      "char_saved_pct": 87.23,
-      "reduction_factor": 8.07,
-      "score": 65.5974,
+      "best_chars": 576058,
+      "token_saved_pct": 88.08,
+      "char_saved_pct": 87.58,
+      "reduction_factor": 8.39,
+      "score": 65.7979,
       "attempts": 39,
-      "scored_attempts": 20,
+      "scored_attempts": 21,
       "participants": 11,
-      "runs": 20,
-      "kept_runs": 6,
+      "runs": 21,
+      "kept_runs": 7,
       "leader": {
         "author": "Andrew Pullin",
-        "score": 65.6,
+        "score": 65.8,
         "model": "The Council",
         "harness": "pi",
         "axiom_status": "verified_clean",
@@ -27526,15 +27541,15 @@
       "last_update": null,
       "technique": {
         "id": "core30_simplify_3",
-        "attempt_id": 113693,
+        "attempt_id": 113992,
         "challenge_key": "core30",
         "title": "Complex AV Theta Uniformization: Proof Compression (439 → 3 Files)",
         "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
         "author": "Andrew Pullin",
         "model": "The Council",
         "harness": "pi",
-        "metric": "439→3 files · −87.6% tokens",
-        "primary_pct": 87.6
+        "metric": "439→3 files · −88.1% tokens",
+        "primary_pct": 88.1
       }
     },
     {
@@ -28361,9 +28376,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1994,
+    "labeled_scored_runs": 1995,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2043,
+    "total_scored_runs": 2044,
     "pairs_total": 72,
     "top_pairs": [
       {
@@ -28372,12 +28387,12 @@
         "model": "The Council",
         "harness": "pi",
         "provider": "other",
-        "index_score": 59.77,
+        "index_score": 59.78,
         "tasks_solved": 42,
         "tasks_total": 48,
         "mean_score": 65.11,
         "mean_compression_pct": 76.6,
-        "pass_rate_pct": 87.7,
+        "pass_rate_pct": 87.8,
         "distinct_authors": 1
       },
       {
@@ -28899,15 +28914,15 @@
     },
     {
       "id": "core30_simplify_3",
-      "attempt_id": 113693,
+      "attempt_id": 113992,
       "challenge_key": "core30",
       "title": "Complex AV Theta Uniformization: Proof Compression (439 → 3 Files)",
       "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
       "author": "Andrew Pullin",
       "model": "The Council",
       "harness": "pi",
-      "metric": "439→3 files · −87.6% tokens",
-      "primary_pct": 87.6
+      "metric": "439→3 files · −88.1% tokens",
+      "primary_pct": 88.1
     },
     {
       "id": "core30_simplify_35",
