@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T13:46:27Z",
+  "generated_at": "2026-11-26T13:57:20Z",
   "repo": "leanprover-community/riemann-hypothesis",
   "baseline_raw_lines": 17374215,
   "baseline_files": 175187,
@@ -518,8 +518,8 @@
     "heartbeat_options": 1,
     "files_delta_vs_v021": -174386,
     "lines_delta_vs_v021": -16899608,
-    "open_pr_count": 195,
-    "measured_at": "2026-11-26T13:46:27Z"
+    "open_pr_count": 233,
+    "measured_at": "2026-11-26T13:57:20Z"
   },
   "live_history": [
     {
@@ -1717,7 +1717,7 @@
     }
   ],
   "stewardship_standing": {
-    "measured_at": "2026-11-26T13:46:27Z",
+    "measured_at": "2026-11-26T13:57:20Z",
     "total_merged_prs": 5659,
     "total_batch_queue_prs": 0,
     "entries": [
