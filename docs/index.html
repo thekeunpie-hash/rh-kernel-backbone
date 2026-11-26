@@ -2568,6 +2568,7 @@
             </table>
           </div>
           <p class="panel-sub" id="edCmpInversion" style="margin:8px 0 0;"></p>
+          <p class="panel-sub" id="edCmpPairing" style="margin:6px 0 0;" hidden></p>
           <div class="vt-src" id="edCmpSrc"></div>
         </section>
         <script>
@@ -2576,6 +2577,7 @@
             var head = document.getElementById("edCmpHead");
             var body = document.getElementById("edCmpBody");
             var inv = document.getElementById("edCmpInversion");
+            var pairEl = document.getElementById("edCmpPairing");
             var src = document.getElementById("edCmpSrc");
             if (!sec || !head || !body || !inv || !src || typeof fetch !== "function") return;
             function num(v) { return Number(v).toLocaleString("en-US"); }
@@ -2625,6 +2627,34 @@
                 inv.textContent = t;
               } else {
                 inv.hidden = true;
+              }
+              var p = d && d.cross_repo_pairing;
+              if (pairEl && p && typeof p.grh_modules === "number" && typeof p.non_identical_pairs_accepted === "number") {
+                var pt = "Cross-edition module pairing (" + num(p.grh_modules) + " grh/ vs " + num(p.compact_modules) +
+                  " grh-compact modules, " + num(p.common_path_modules) + " identical paths): Hungarian TF-IDF alignment matched " +
+                  num(p.non_identical_pairs_accepted) + " non-identical pairs (" +
+                  num(p.grh_only_covered) + "/" + num(p.grh_only_total) + " grh-only, " +
+                  num(p.compact_only_covered) + "/" + num(p.compact_only_total) + " compact-only), including " +
+                  num(p.high_confidence_pairs) + " high-confidence mutual top-1 pairs (cosine >= " + p.high_confidence_cosine_min +
+                  "), of which " + num(p.high_confidence_genuine_shorter) + " are shorter in compact (-" +
+                  num(p.high_confidence_genuine_shorter_non_ws_saved) + " non-ws chars; " +
+                  num(p.high_confidence_1to1_genuine_shorter) + " strict 1:1 saving " +
+                  num(p.high_confidence_1to1_non_ws_saved) + " non-ws chars).";
+                if (typeof p.references_total === "number" && typeof p.references_unplaced === "number") {
+                  pt += " Literature audit: " + num(p.references_unplaced) + "/" + num(p.references_total) +
+                    " unplaced REFERENCES entries mapped (" + num(p.references_unplaced_high) + " high, " +
+                    num(p.references_unplaced_medium) + " medium, " + num(p.references_unplaced_low) + " low confidence)";
+                  if (typeof p.tauceti_candidates === "number") {
+                    pt += ", alongside " + num(p.tauceti_candidates) + " TauCeti upstream candidates (" +
+                      num(p.tauceti_candidate_theorems) + " theorems).";
+                  } else {
+                    pt += ".";
+                  }
+                }
+                pairEl.textContent = pt;
+                pairEl.hidden = false;
+              } else if (pairEl) {
+                pairEl.hidden = true;
               }
               src.textContent = "Static snapshot" + (d.generated_at ? " generated " + String(d.generated_at).slice(0, 10) : "") +
                 ". n/a means the value was not measured for that edition. For the original edition, code lines and constants are counted over its active proof cone.";

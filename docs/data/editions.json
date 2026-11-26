@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "generated_at": "2026-11-26T12:05:44+09:00",
-  "source": "rh-ssot reports: GRH_VS_COMPACT_ANALYSIS.md, grh_vs_compact_comparison.json, cross_edition_dissection.json",
+  "source": "rh-ssot reports: GRH_VS_COMPACT_ANALYSIS.md, grh_vs_compact_comparison.json, cross_edition_dissection.json, grh_compact_full_pairing.json, references_unlinked_map.json, tauceti_candidates.json",
   "editions": [
     { "id": "alpoge_v021", "label": "Original Alpöge v0.2.1" },
     { "id": "grh_readable", "label": "grh/ readable (300k)" },
@@ -31,5 +31,28 @@
     "compact_vs_readable_code_lines_pct": -74.6,
     "readable_build_sec": 1932,
     "compact_build_sec": 2012
+  },
+  "cross_repo_pairing": {
+    "grh_modules": 803,
+    "compact_modules": 794,
+    "common_path_modules": 74,
+    "non_identical_pairs_accepted": 533,
+    "grh_only_covered": 649,
+    "grh_only_total": 729,
+    "compact_only_covered": 688,
+    "compact_only_total": 720,
+    "high_confidence_pairs": 354,
+    "high_confidence_cosine_min": 0.3038,
+    "high_confidence_genuine_shorter": 309,
+    "high_confidence_genuine_shorter_non_ws_saved": 4012627,
+    "high_confidence_1to1_genuine_shorter": 184,
+    "high_confidence_1to1_non_ws_saved": 2306445,
+    "references_total": 228,
+    "references_unplaced": 127,
+    "references_unplaced_high": 33,
+    "references_unplaced_medium": 87,
+    "references_unplaced_low": 7,
+    "tauceti_candidates": 585,
+    "tauceti_candidate_theorems": 487
   }
 }
