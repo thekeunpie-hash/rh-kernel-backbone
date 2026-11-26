@@ -2,15 +2,15 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "88bbcd6d9474f6af",
-  "updated_at": "2026-11-26T15:09:34.270545+08:00",
+  "revision": "984bf27cf2571a1a",
+  "updated_at": "2026-11-26T15:40:11.454684+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T07:11:14Z",
+  "generated_at": "2026-11-26T07:41:57Z",
   "summary": {
     "participants": 121,
     "scored_participants": 98,
-    "submissions": 2384,
-    "scored_submissions": 1685,
+    "submissions": 2385,
+    "scored_submissions": 1686,
     "evaluating": 13,
     "core_evaluating": 13,
     "challenges_total": 49,
@@ -37,7 +37,7 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1684,
+    "total_runs": 1685,
     "kept_count": 611,
     "current_best_score": 2850.82,
     "current_best_pct": 33.48,
@@ -25064,6 +25064,21 @@
       },
       {
         "i": 1669,
+        "id": 112725,
+        "ts": "2026-11-26T05:11:31+00:00",
+        "key": "core28",
+        "score": 50.0,
+        "compression_pct": 0.01,
+        "best": 2849.44,
+        "best_pct": 33.47,
+        "kept": false,
+        "author": "Keegan Kelly",
+        "model": null,
+        "harness": "Codex CLI",
+        "method": null
+      },
+      {
+        "i": 1670,
         "id": 112737,
         "ts": "2026-11-26T05:13:03+00:00",
         "key": "core45",
@@ -25078,7 +25093,7 @@
         "method": null
       },
       {
-        "i": 1670,
+        "i": 1671,
         "id": 112740,
         "ts": "2026-11-26T05:13:07+00:00",
         "key": "core48",
@@ -25093,7 +25108,7 @@
         "method": null
       },
       {
-        "i": 1671,
+        "i": 1672,
         "id": 112742,
         "ts": "2026-11-26T05:13:40+00:00",
         "key": "core52",
@@ -25108,7 +25123,7 @@
         "method": "Core 52 · Fast: Collapse 2→1 file + Inline 8 helpers"
       },
       {
-        "i": 1672,
+        "i": 1673,
         "id": 112751,
         "ts": "2026-11-26T05:15:05+00:00",
         "key": "core44",
@@ -25123,7 +25138,7 @@
         "method": "Core 44 · Fast: Prune helper lemmas & proofs (−100%)"
       },
       {
-        "i": 1673,
+        "i": 1674,
         "id": 112773,
         "ts": "2026-11-26T05:32:21+00:00",
         "key": "core44",
@@ -25138,7 +25153,7 @@
         "method": "Core 44 · Fast: Prune helper lemmas & proofs (−100%)"
       },
       {
-        "i": 1674,
+        "i": 1675,
         "id": 112789,
         "ts": "2026-11-26T05:45:49+00:00",
         "key": "core42",
@@ -25153,7 +25168,7 @@
         "method": null
       },
       {
-        "i": 1675,
+        "i": 1676,
         "id": 112792,
         "ts": "2026-11-26T05:47:46+00:00",
         "key": "core46",
@@ -25168,7 +25183,7 @@
         "method": null
       },
       {
-        "i": 1676,
+        "i": 1677,
         "id": 112793,
         "ts": "2026-11-26T05:47:58+00:00",
         "key": "core45",
@@ -25183,7 +25198,7 @@
         "method": null
       },
       {
-        "i": 1677,
+        "i": 1678,
         "id": 112794,
         "ts": "2026-11-26T05:48:01+00:00",
         "key": "core50",
@@ -25198,7 +25213,7 @@
         "method": null
       },
       {
-        "i": 1678,
+        "i": 1679,
         "id": 112796,
         "ts": "2026-11-26T05:48:43+00:00",
         "key": "core52",
@@ -25213,7 +25228,7 @@
         "method": null
       },
       {
-        "i": 1679,
+        "i": 1680,
         "id": 112800,
         "ts": "2026-11-26T05:51:33+00:00",
         "key": "core33",
@@ -25228,7 +25243,7 @@
         "method": "Core 33 · Fast: Inline 9 helpers + aesop compress"
       },
       {
-        "i": 1680,
+        "i": 1681,
         "id": 112807,
         "ts": "2026-11-26T06:02:47+00:00",
         "key": "core48",
@@ -25243,7 +25258,7 @@
         "method": null
       },
       {
-        "i": 1681,
+        "i": 1682,
         "id": 112808,
         "ts": "2026-11-26T06:02:55+00:00",
         "key": "core49",
@@ -25258,7 +25273,7 @@
         "method": null
       },
       {
-        "i": 1682,
+        "i": 1683,
         "id": 112810,
         "ts": "2026-11-26T06:03:32+00:00",
         "key": "core53",
@@ -25273,7 +25288,7 @@
         "method": null
       },
       {
-        "i": 1683,
+        "i": 1684,
         "id": 112811,
         "ts": "2026-11-26T06:03:51+00:00",
         "key": "core44",
@@ -25288,7 +25303,7 @@
         "method": null
       },
       {
-        "i": 1684,
+        "i": 1685,
         "id": 112828,
         "ts": "2026-11-26T06:15:49+00:00",
         "key": "core50",
@@ -26402,9 +26417,9 @@
       "reduction_factor": 8.24,
       "score": 65.708,
       "attempts": 50,
-      "scored_attempts": 45,
-      "participants": 8,
-      "runs": 45,
+      "scored_attempts": 46,
+      "participants": 9,
+      "runs": 46,
       "kept_runs": 24,
       "leader": {
         "author": "Andrew Pullin",
@@ -27326,7 +27341,7 @@
     "baseline_tokens": null,
     "best_tokens": null,
     "token_saved_pct": 0.0,
-    "submissions": 48,
+    "submissions": 49,
     "scored_submissions": 1,
     "participants": 1,
     "score": 50.0,
@@ -27341,9 +27356,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1898,
+    "labeled_scored_runs": 1899,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 1947,
+    "total_scored_runs": 1948,
     "pairs_total": 70,
     "top_pairs": [
       {
@@ -28298,7 +28313,7 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-26T06:59:21Z",
+      "ts": "2026-11-26T07:29:40Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
@@ -28391,7 +28406,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1315★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1317★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true
