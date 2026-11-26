@@ -1,21 +1,21 @@
-# riemannhypothesis.dev — Lean 4 Riemann Hypothesis & GRH Live Upstream Tracker
+# riemannhypothesis.dev — Lean 4 Riemann Hypothesis & GRH Upstream Tracker (independent, unofficial)
 
-> Kernel-grounded minimal backbone, proof-size history, and real-time verification tracker for `leanprover-community/riemann-hypothesis`.
+> Independent tracker of `leanprover-community/riemann-hypothesis`: kernel-export measurements, proof-size history, and PR and verification status. Snapshots are refreshed by a scheduled GitHub Actions run; the dashboard also re-reads the GitHub API in the browser.
 
 ## Canonical Pages
 
-- [Live Upstream Dashboard](https://riemannhypothesis.dev/): Real-time source, proof-size, and verification tracker covering both official editions of `leanprover-community/riemann-hypothesis` (`lsernau/grh-lean` on `main` and Levent Alpöge's original lineage on branch `alpoge`).
-- [Maintainers, Contributors & Lean Foundations](https://riemannhypothesis.dev/profiles.html): Factual engineering-impact directory organized by build-time speedups, donated compute and cache infrastructure, codebase/technical-debt reduction, and live merge/triage operations.
+- [Live Upstream Dashboard](https://riemannhypothesis.dev/): Source, proof-size, and verification tracker covering both lineages of `leanprover-community/riemann-hypothesis`: `main`, based on the readable edition of `lsernau/grh-lean`, and the community cleanup of Levent Alpöge's original proof on branch `alpoge` (the original release is on branch `original`).
+- [Maintainers, Contributors & Lean Foundations](https://riemannhypothesis.dev/profiles.html): Contributor directory organized by build-time speedups, compute and cache infrastructure, codebase/technical-debt reduction, and merge/triage operations, each tied to a PR or public source.
 
 ## Authoritative Technical References
 
-- [Kernel-Cone Specification (`SPEC.md`)](https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/SPEC.md): Exact Lean 4 kernel-cone accounting methodology and anti-golf token metrics.
-- [Official Upstream Repository (`leanprover-community/riemann-hypothesis`)](https://github.com/leanprover-community/riemann-hypothesis): Upstream Lean 4 formalization of the Riemann Hypothesis and Generalized Riemann Hypothesis.
+- [Kernel-Cone Specification (`SPEC.md`)](https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/SPEC.md): Kernel-cone accounting of the original v0.2.1 release (Alpöge lineage) and the token-count method.
+- [Official Upstream Repository (`leanprover-community/riemann-hypothesis`)](https://github.com/leanprover-community/riemann-hypothesis): Upstream Lean 4 proofs of the Riemann Hypothesis and of GRH for Dirichlet L-functions (machine-checked).
 - [Tracker Source Repository (`thekeunpie-hash/rh-kernel-backbone`)](https://github.com/thekeunpie-hash/rh-kernel-backbone): Automation scripts, live JSON snapshots, and GitHub Pages source.
 
-## Machine-Readable Live Snapshots (GitHub Raw)
+## Machine-Readable Snapshots (GitHub Raw)
 
-- `https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/upstream_frontier.json` — Live upstream HEAD, file/line counts, open PR queue, and technical-debt counters (`#229`).
+- `https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/upstream_frontier.json` — Latest measured upstream HEAD, file/line counts, PR queue, and technical-debt counters (`#229`).
 - `https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/rh_shrink.json` — Per-commit proof-size series from `rh-shrink.github.io`.
-- `https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/verifytask_board.json` — Bohrium Playground RH core pillar results.
+- `https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/verifytask_board.json` — Archived Bohrium Playground benchmark results (original Alpöge tree).
 - `https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/community_context.json` — GitHub privileged-action audit and Lean Zulip community context.

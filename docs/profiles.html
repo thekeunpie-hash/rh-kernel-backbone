@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Maintainers, Contributors &amp; Lean Foundations — Riemann Hypothesis Lean 4 Tracker</title>
-<meta name="description" content="Factual contributor directory for leanprover-community/riemann-hypothesis: verified build speedups, compute infrastructure, debt reduction, and Lean foundations.">
+<meta name="description" content="Contributor directory for leanprover-community/riemann-hypothesis, compiled by an independent tracker: build speedups, compute infrastructure, debt reduction, and Lean foundations, each with its PR or source.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="rh-kernel-backbone">
 <meta name="theme-color" content="#1f3a5f">
@@ -20,12 +20,12 @@
 <meta property="og:image" content="https://riemannhypothesis.dev/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="riemannhypothesis.dev — Official Upstream Lean 4 Riemann Hypothesis and GRH Full-Proof Tracker">
+<meta property="og:image:alt" content="riemannhypothesis.dev — independent tracker of the upstream Lean 4 Riemann Hypothesis and GRH proofs">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Maintainers, Contributors &amp; Lean Foundations — RH Lean 4 Tracker">
 <meta name="twitter:description" content="Factual contributor and maintainer directory for leanprover-community/riemann-hypothesis organized by verifiable engineering impact.">
 <meta name="twitter:image" content="https://riemannhypothesis.dev/og-image.png">
-<meta name="twitter:image:alt" content="riemannhypothesis.dev — Official Upstream Lean 4 Riemann Hypothesis and GRH Full-Proof Tracker">
+<meta name="twitter:image:alt" content="riemannhypothesis.dev — independent tracker of the upstream Lean 4 Riemann Hypothesis and GRH proofs">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -35,7 +35,7 @@
       "@id": "https://riemannhypothesis.dev/profiles.html#page",
       "url": "https://riemannhypothesis.dev/profiles.html",
       "name": "Maintainers, Contributors & Lean Foundations",
-      "description": "Factual directory of maintainers, contributors, and Lean foundations for leanprover-community/riemann-hypothesis organized by verified build speedups, compute infrastructure, technical-debt reduction, and triage operations.",
+      "description": "Factual directory of maintainers, contributors, and Lean foundations for leanprover-community/riemann-hypothesis organized by build speedups, compute infrastructure, technical-debt reduction, and triage operations, each tied to a PR or public source.",
       "inLanguage": "en",
       "isPartOf": {
         "@id": "https://riemannhypothesis.dev/#website"
@@ -222,10 +222,10 @@
 
   <main>
   <h1>Maintainers, Contributors &amp; Lean Foundations</h1>
-  <p class="lead">Factual directory organized by verifiable engineering impact — <strong>build-time speedups</strong>, <strong>donated compute &amp; cache infrastructure</strong>, <strong>codebase/technical-debt reduction</strong>, and <strong>live merge/triage operations</strong> — rather than raw commit counts or arbitrary scores.</p>
+  <p class="lead">Factual directory organized by verifiable engineering impact — <strong>build-time speedups</strong>, <strong>donated compute &amp; cache infrastructure</strong>, <strong>codebase/technical-debt reduction</strong>, and <strong>merge/triage operations</strong> — rather than raw commit counts or arbitrary scores.</p>
 
   <section id="spotlightRoot" class="spotlight">
-    <p class="status-msg">Loading live directory from <code>data/upstream_frontier.json</code>…</p>
+    <p class="status-msg">Loading directory from <code>data/upstream_frontier.json</code>…</p>
   </section>
 
   <div class="controls">
@@ -242,7 +242,7 @@
 
   <div class="dir-grid" id="dirGrid"></div>
   </main>
-  <footer style="margin-top:36px;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);">Tracker maintained by <a href="https://github.com/thekeunpie-hash" target="_blank" rel="noopener">@thekeunpie-hash</a> · Data refreshed every 5 min (fast-path) from <code>leanprover-community/riemann-hypothesis</code> via GitHub Actions.</footer>
+  <footer style="margin-top:36px;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);">Independent, unofficial tracker maintained by <a href="https://github.com/thekeunpie-hash" target="_blank" rel="noopener">@thekeunpie-hash</a> · Data refreshed by a scheduled GitHub Actions run (cron every 10 minutes; GitHub may run it less often) from <code>leanprover-community/riemann-hypothesis</code>; hand-written descriptions cite the PR or page they come from.</footer>
 </div>
 
 <script>
@@ -284,74 +284,67 @@ const IMPACT_LABELS = {
 
 const IMPACT_FALLBACK = {
   "kim-em": {
-    build_perf: "Sharded CI & Lean 4.37.0-rc1 merge queue (#185, #115, #150)",
-    compute_infra: "Lean FRO AWS build cluster & donor-runner shard coordination (#101)",
-    footprint_debt: "Landed 53-file (#115) & 79-file (#150) reviewed cleanup batches",
-    ops_review: "Primary merge-queue operator"
+    build_perf: "Sharded CI (#101) and the Lean 4.37.0-rc1 bump (#185, merged 2026-11-23)",
+    compute_infra: "Lean FRO AWS build machines & donor-runner shard coordination (#101)",
+    footprint_debt: "Merged reviewed cleanup batches #115 (54 changed files) & #150 (80 changed files)",
+    ops_review: "Merges PRs and batch PRs on main"
   },
   "deicyde": {
-    build_perf: "Automated batch-queue assembly (#226, #233) to cut redundant CI runs",
-    compute_infra: "DeepMind formal-conjectures Comparator verification setup (#88)",
-    ops_review: "High-volume PR triage, labeling & merges"
+    build_perf: "Batch-queue label (#226) and batch-assembly workflow (#233)",
+    compute_infra: "DeepMind formal-conjectures Comparator setup (#88)",
+    ops_review: "PR triage, labeling & merges"
   },
   "thorimur": {
-    compute_infra: "Collaborator oversight on frozen original archive mirror",
-    footprint_debt: "Authored repo-wide technical-debt tracking specification (#229)",
-    ops_review: "PR area/size auto-labeling (#154, #191), repo values (#184) & triage"
+    footprint_debt: "Opened technical-debt tracking issue #229",
+    ops_review: "PR area/size auto-labeling (#154, #191) & repo values (#184)"
   },
   "homeowmorphism": {
-    build_perf: "Prebuilt .olean cache & cache-client fixes (#202) cut setup time",
+    build_perf: "Cache client: remove Lake's saved hashes before unpacking (#202)",
     compute_infra: "Hosts frozen riemann-hypothesis-original mirror with prebuilt Lean 4.33.1 cache",
-    ops_review: "Documentation & onboarding cache maintenance (#146, #202)"
+    ops_review: "Documentation (#146) & cache-client fix (#202)"
   },
   "vilin97": {
-    build_perf: "239.7 -> 187.2 core-h (-21.9% CPU); critical path 51.2 -> 26.1 min (-49%); 96-core build 2.67 -> 1.99 h (#134/#185)",
-    compute_infra: "Migrated 175k-file repo to Lean v4.36.0 + module system (#66) & custom build driver",
-    footprint_debt: "Full-Mathlib imports 115,573 -> 155 (-99.9%) & public imports 840.9k -> 536.1k (#98); maxHeartbeats 78.8k -> 2.9k (#79); -15,068 dead files (#66)",
-    ops_review: "Repository collaborator on toolchain & build-performance roadmap"
+    build_perf: "239.7 -> 187.2 core-h (-21.9% compile CPU, measured on a 2,167-module sample); critical path 51.2 -> 26.1 min and 96-core build 2.67 -> 1.99 h are the PR's own estimates (#134)",
+    compute_infra: "Ported the repository to Lean & Mathlib v4.36.0 + module system (#66)",
+    footprint_debt: "Full-Mathlib imports 115,573 -> 155 (-99.9%) & public imports 840.9k -> 536.1k (#98); maxHeartbeats 78.8k -> 2.9k (#79); -15,068 dead files (#66)"
   },
   "james-shore": {
-    build_perf: "-42% unused-syntax warnings on Lean 4.37 (#67 -> #243)",
-    compute_infra: "Donated dedicated multi-core CI build server (384 GiB+ RAM) for CI sharding",
-    footprint_debt: "Mechanical ~17,000 theorem/definition deduplication in progress"
+    build_perf: "Unused-syntax linter cleanup #67 -> #243 (author reports -94% unused-linter warnings; merged 2026-11-24)",
+    compute_infra: "Lent a build machine for CI (announced on Lean Zulip, 2026-11-22)",
+    footprint_debt: "Duplicate theorem/definition removal merged as #295 (2026-11-24; 9,332 files)"
   },
   "serdnad": {
-    build_perf: "Batched 10+ overlapping cleanup PRs into 1 merge-queue run (#221)",
-    footprint_debt: "3,076 files consolidated & deduplicated on top of #185",
-    ops_review: "Cross-PR consolidation & rebase coordination"
+    build_perf: "Combined overlapping cleanup PRs into one PR (#221)",
+    footprint_debt: "#221: 3,369 files, +8,063/-229,221 lines (merged 2026-11-23)"
   },
   "marwuint": {
-    compute_infra: "Independent local v4.36 build hardware & .olean cache verification",
-    ops_review: "Declaration-identity audits on open PRs (85/85 downstream modules on #109)"
+    ops_review: "Declaration-identity check on #109: 85/85 downstream modules compile, 83/85 declaration-identical"
   },
   "rohanarun": {
-    build_perf: "Module bundling & wrapper collapse targeting Lake graph overhead (#120: 47,881 modules, -67.9% files)",
-    compute_infra: "Organized 104-volunteer independent replay of all 175,187 modules (rohanarun/alpoge-rh-replay)",
-    footprint_debt: "-10,718 unreachable dead files deleted in merged PR #45; -67.9% file count in #120",
-    ops_review: "Maintains crowd-replay tracker & PR120-BUGS.md bug-claim workflow"
+    compute_infra: "Organized a 104-volunteer replay: 109,719 of 175,187 modules with recorded evidence, now closed (rohanarun/alpoge-rh-replay)",
+    footprint_debt: "-10,718 unreachable dead files deleted in merged PR #45; #120 proposed -101,512 files (closed unmerged)"
   },
   "alectionary": {
-    build_perf: "Replaces slow nlinarith & typeclass elaborations (IsScalarTower, HasBasisAway.map)",
-    footprint_debt: "Focused single-module elaboration speedups accepted into batch queue"
+    footprint_debt: "Merged #213 (far-amplitude proof reuse)"
   },
   "hughperkins": {
-    footprint_debt: "Replaces verbose generated proofs with Mathlib lemmas (#114, #135, #149, #152, #155, #160)"
+    footprint_debt: "Small proof refactors (#135, #149, #152, #155, #160; #170 and #175 merged)"
   },
   "cubejerry": {
-    footprint_debt: "Deduplicates Schur/Jacobson density & module proofs (#192, #197, #210, #215, #216)"
+    footprint_debt: "Proof-reuse refactors (#192, #197, #210, #215, #216); 88 merged PRs as of 2026-11-26"
   },
   "visio-vanitas": {
-    footprint_debt: "Proof cleanup PRs in batch queue (#119, #127, #220, #232), consolidated in #221"
+    footprint_debt: "Proof-reuse and explicit-dump cleanup PRs (#119, #127, #220, #232 closed; 8 merged, e.g. #466, #2531)"
   },
   "thekeunpie-hash": {
-    build_perf: "105 -> 0 warnings (#65); removes legacy backward.* compat flags (#71 in #115, #224)",
-    footprint_debt: "-99.5% norm tokens in FixPiIff (#60); -180 files / -9,730 L (#109); 33 -> 0 backward.* (#224)"
+    build_perf: "105 -> 0 warnings in 4 CapelliIdentities files (#65)",
+    footprint_debt: "8,029 -> 45 lines in FixPiIff.lean (#60); backward.defeqAttrib.useBackward 33 -> 0 (#71 + #224)"
   },
   "sebastien-gouezel": {
-    build_perf: "Lean 4.37.0-rc1 23% Mathlib compilation speedup benchmark catalyzing RH #185"
+    build_perf: "Noted on Lean Zulip (2026-11-22) that Lean 4.37.0-rc1 gave Mathlib a 23% build speedup"
   },
   "andrew-sutherland": {
-    compute_infra: "MIT compute replay of 61 GB export across independent kernels (con-leche, con-run) & mimalloc diagnosis"
+    compute_infra: "MIT independent checks: original 61.57 GB export & grh-lean readable 4.49 GB export (Lean kernel, nanoda, lean4lean, con-leche, con-ron)"
   }
 };
 
@@ -359,8 +352,8 @@ function getImpactMap(p) {
   const base = { ...(IMPACT_FALLBACK[p.slug] || {}), ...(p.impact || {}) };
   if (p.ops_merges > 0 || p.ops_triage > 0) {
     const liveParts = [];
-    if (p.ops_merges > 0) liveParts.push(`${p.ops_merges} PRs merged`);
-    if (p.ops_triage > 0) liveParts.push(`${p.ops_triage} triage/label actions`);
+    if (p.ops_merges > 0) liveParts.push(`≥${p.ops_merges} PRs merged (sampled GitHub events)`);
+    if (p.ops_triage > 0) liveParts.push(`≥${p.ops_triage} triage/label actions (sampled GitHub events)`);
     base.ops_review = `${liveParts.join(" · ")}${base.ops_review ? " — " + base.ops_review : ""}`;
   }
   return base;
@@ -370,7 +363,7 @@ function renderSpotlight(profile, meta) {
   const root = document.getElementById("spotlightRoot");
   if (!profile) {
     root.className = "spotlight";
-    root.innerHTML = `<p class="status-msg">Select any profile below to view their verified impact and primary GitHub links.</p>`;
+    root.innerHTML = `<p class="status-msg">Select any profile below to view their recorded work and primary GitHub links.</p>`;
     return;
   }
   const isHof = profile.kind === "hof";
@@ -389,10 +382,10 @@ function renderSpotlight(profile, meta) {
       badges.push(`<span class="badge badge-hof">${escHtml(profile.milestone_tag)}</span>`);
     }
     if (profile.ops_merges > 0) {
-      badges.push(`<span class="badge badge-exact">${profile.ops_merges} merges run</span>`);
+      badges.push(`<span class="badge badge-exact">≥${profile.ops_merges} merges (sampled events)</span>`);
     }
     if (profile.ops_triage > 0) {
-      badges.push(`<span class="badge badge-queue">${profile.ops_triage} triage actions</span>`);
+      badges.push(`<span class="badge badge-queue">≥${profile.ops_triage} triage actions (sampled events)</span>`);
     }
     if (profile.batch_queue_count > 0) {
       badges.push(`<span class="badge badge-queue">${profile.batch_queue_count} in batch queue</span>`);
@@ -411,10 +404,12 @@ function renderSpotlight(profile, meta) {
 
   let statsHtml = "";
   if (!isHof) {
-    const mergedList = [...(profile.merged_prs || []), ...(profile.batch_landed_prs || [])];
+    const mergedList = profile.merged_prs || [];
+    const landedList = profile.batch_landed_prs || [];
     const queueList = profile.batch_queue_prs || [];
     const prChips = [
       ...mergedList.map((n) => `<a class="pr-chip" href="https://github.com/leanprover-community/riemann-hypothesis/pull/${n}" target="_blank" rel="noopener">Merged #${n}</a>`),
+      ...landedList.map((n) => `<a class="pr-chip" href="https://github.com/leanprover-community/riemann-hypothesis/pull/${n}" target="_blank" rel="noopener">Closed · landed in a batch · #${n}</a>`),
       ...queueList.map((n) => `<a class="pr-chip" href="https://github.com/leanprover-community/riemann-hypothesis/pull/${n}" target="_blank" rel="noopener">Queue #${n}</a>`)
     ].join("");
     statsHtml = `
@@ -445,7 +440,7 @@ function renderSpotlight(profile, meta) {
     `<a class="link-pill" href="${escHtml(lk.url)}" target="_blank" rel="noopener">${escHtml(lk.label)} →</a>`
   ).join("");
 
-  const HOF_GITHUB = { "lean-fro-core": "leodemoura", "mathlib-initiative": "kim-em", "mario-carneiro": "digama0", "kevin-buzzard": "kbuzzard", "sebastien-gouezel": "sgouezel", "david-loeffler": "loefflerd", "alpoge-merten-su": "homeowmorphism" };
+  const HOF_GITHUB = { "lean-fro-core": "leodemoura", "mario-carneiro": "digama0", "kevin-buzzard": "kbuzzard", "sebastien-gouezel": "sgouezel", "david-loeffler": "loefflerd" };
   const ghUser = isHof ? (HOF_GITHUB[profile.slug] || "") : profile.login;
   const spAvHtml = ghUser ? `<img class="sp-avatar" src="https://github.com/${encodeURIComponent(ghUser)}.png?size=128" alt="${escHtml(profile.name)}" onerror="this.style.display='none'">` : "";
   root.innerHTML = `
@@ -491,7 +486,7 @@ function renderDirectory(meta) {
           ? `<span class="badge badge-verified">COLLABORATOR</span>`
           : `<span class="badge badge-open">CONTRIBUTOR</span>`);
     const extra = !isHof
-      ? `${p.milestone_tag ? `<span class="badge badge-hof">${escHtml(p.milestone_tag)}</span>` : ""}${p.ops_merges > 0 ? ` <span class="badge badge-exact">${p.ops_merges} merges</span>` : ""}${p.ops_triage > 0 ? ` <span class="badge badge-queue">${p.ops_triage} triage</span>` : ""}`
+      ? `${p.milestone_tag ? `<span class="badge badge-hof">${escHtml(p.milestone_tag)}</span>` : ""}${p.ops_merges > 0 ? ` <span class="badge badge-exact">≥${p.ops_merges} merges</span>` : ""}${p.ops_triage > 0 ? ` <span class="badge badge-queue">≥${p.ops_triage} triage</span>` : ""}`
       : "";
     const impRows = Object.entries(IMPACT_LABELS)
       .filter(([k]) => imp[k])

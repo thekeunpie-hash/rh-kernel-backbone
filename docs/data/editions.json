@@ -6,7 +6,7 @@
     { "id": "alpoge_v021", "label": "Original Alpöge v0.2.1" },
     { "id": "grh_readable", "label": "grh/ readable (300k)" },
     { "id": "grh_compact", "label": "grh-compact (76k)" },
-    { "id": "grh_clean", "label": "grh-clean baseline (main@e063a92)" }
+    { "id": "grh_clean", "label": "grh-clean local branch (main@e063a92 − 62 dead decls)" }
   ],
   "rows": [
     { "label": "Files", "fmt": "int", "values": [175187, 803, 794, 802] },

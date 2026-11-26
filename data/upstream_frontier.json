@@ -168,7 +168,7 @@
       "net_lines": 178,
       "norm_tokens_before": 17648,
       "norm_tokens_after": 21841,
-      "pattern_id": "pr71",
+      "pattern_id": "",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/71"
     },
     {
@@ -179,7 +179,7 @@
       "status": "merged",
       "category": "active-refactor",
       "in_cone_scope": "active",
-      "title": "Merge 53-file reviewed Lean 4.36 cleanup batch (incl. #70, #71 as da6765973f, #74-#76, #80-#82, #90, #92)",
+      "title": "Merge reviewed Lean 4.36 cleanup batch (54 changed files; incl. #71 as da6765973f)",
       "files_changed": 54,
       "files_deleted": 0,
       "additions": 1064,
@@ -197,7 +197,7 @@
       "status": "merged",
       "category": "active-refactor",
       "in_cone_scope": "active",
-      "title": "Merge remaining 79-file reviewed Lean 4.36 cleanup batch (incl. #54, #62, #94)",
+      "title": "Merge remaining reviewed Lean 4.36 cleanup batch (80 changed files)",
       "files_changed": 80,
       "files_deleted": 0,
       "additions": 1393,
@@ -212,10 +212,10 @@
       "sha": "0d0a55648",
       "date": "2026-11-22T15:42Z",
       "author": "thekeunpie-hash",
-      "status": "open",
+      "status": "merged",
       "category": "active-refactor",
       "in_cone_scope": "active",
-      "title": "Restore #68 shared GL finiteness proof on Lean 4.36 (-180 files, -9,730 L; 85/85 verified by @marwuint)",
+      "title": "Restore #68 shared GL finiteness proof on Lean 4.36 (-180 files, -9,730 L; closed, landed via batch #539)",
       "files_changed": 181,
       "files_deleted": 180,
       "additions": 2,
@@ -223,7 +223,7 @@
       "net_lines": -9730,
       "norm_tokens_before": 135390,
       "norm_tokens_after": 17,
-      "pattern_id": "pr109",
+      "pattern_id": "",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/109"
     },
     {
@@ -231,10 +231,10 @@
       "sha": "5cdd8a23b",
       "date": "2026-11-22T15:43Z",
       "author": "thekeunpie-hash",
-      "status": "open",
+      "status": "merged",
       "category": "active-refactor",
       "in_cone_scope": "active",
-      "title": "Simplify explicit type dumps in cpR and std_cpR (NonzeroPlacesOverPrimesOfLifts.lean, -71.2% norm tokens)",
+      "title": "Simplify explicit type dumps in cpR and std_cpR (NonzeroPlacesOverPrimesOfLifts.lean; closed, landed via batch #539)",
       "files_changed": 1,
       "files_deleted": 0,
       "additions": 2,
@@ -242,7 +242,7 @@
       "net_lines": -10,
       "norm_tokens_before": 2121,
       "norm_tokens_after": 610,
-      "pattern_id": "pr110",
+      "pattern_id": "",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/110"
     },
     {
@@ -250,10 +250,10 @@
       "sha": "bca24c2b6",
       "date": "2026-11-23T02:25Z",
       "author": "thekeunpie-hash",
-      "status": "open",
+      "status": "merged",
       "category": "portability",
       "in_cone_scope": "active",
-      "title": "Remove the final 5 backward.defeqAttrib.useBackward + 6 respectTransparency directives repo-wide (33 -> 0)",
+      "title": "Remove the final 5 backward.defeqAttrib.useBackward + 6 respectTransparency directives (33 -> 0 useBackward; closed, landed via batch #539)",
       "files_changed": 5,
       "files_deleted": 0,
       "additions": 44,
@@ -261,7 +261,7 @@
       "net_lines": 0,
       "norm_tokens_before": 16056,
       "norm_tokens_after": 16160,
-      "pattern_id": "pr224",
+      "pattern_id": "",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/224"
     }
   ],
@@ -272,91 +272,91 @@
       "status": "merged",
       "bucket": "toolchain",
       "category": "Toolchain Port · Lean v4.36.0 + Module System",
-      "title": "Port 175k-File Proof to Lean & Mathlib v4.36.0 and Module System (-15,068 Files)",
-      "summary": "Migrated the entire repository from v4.33.1 to Lean & Mathlib v4.36.0 with explicit module headers, pruning 15,068 unreachable dead files and establishing the live baseline for all subsequent community cleanup.",
+      "title": "Port the Proof to Lean & Mathlib v4.36.0 and the Module System (-15,068 Files)",
+      "summary": "Moved the repository from v4.33.1 to Lean & Mathlib v4.36.0 with module headers and deleted 15,068 files unreachable from Main. This became the baseline of the Alpöge-lineage cleanup (now branch `alpoge`).",
       "metrics": {
-        "loc": "17.37M -> 15.17M L (-1,384,013 L in #66)",
-        "norm_tokens": "15,068 dead modules pruned",
-        "chars": "164,464 files migrated to module system",
-        "warnings": "Full 149k-module CI build green",
-        "cone": "Full repo + 100% active cone preserved",
-        "equivalence": "Main.lean RH & GRH verified on v4.36.0",
+        "loc": "15,068 files deleted",
+        "norm_tokens": "About 149.4k modules converted",
+        "chars": "v4.33.1 -> v4.36.0",
+        "warnings": "Module system",
+        "cone": "Full repository",
+        "equivalence": "Not stated in the PR",
         "axioms": "{propext, Classical.choice, Quot.sound}"
       },
-      "receipt": "Merged to leanprover-community/riemann-hypothesis main (14f383e5e) by @Vilin97 with full sharded AWS CI & public .olean cache.",
+      "receipt": "Authored by @Vilin97; merged by @kim-em as 14f383e5e.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/66",
-      "diff": "# Summary of PR #66 (@Vilin97)\n- Toolchain: leanprover/lean4:v4.33.1 -> leanprover/lean4:v4.36.0\n- Module system: migrated 149,397 active .lean files to `module` + `public import` / `@[expose] public section`\n- Dead-tree pruning: removed 15,068 unreachable modules (-1,384,013 lines)\n- Established the shared v4.36.0 cache baseline used by all downstream cleanup PRs."
+      "diff": "# Summary of PR #66 (@Vilin97)\n- Toolchain: leanprover/lean4:v4.33.1 -> leanprover/lean4:v4.36.0\n- Module system: converts every module except Challenge to `module` + `public import`\n- Deletes 15,068 files unreachable from Main."
     },
     {
       "id": "pr134",
-      "pr_label": "Upstream PR #134 / #185 · @Vilin97 & @kim-em · Open",
-      "status": "open",
+      "pr_label": "Upstream PR #134 / #185 · @Vilin97 & @kim-em · Merged 2026-11-23",
+      "status": "merged",
       "bucket": "toolchain",
       "category": "Build Performance · Lean 4.37.0-rc1 (-21.9% CPU)",
       "title": "Cut Build CPU by 21.9% & Upgrade to Lean 4.37.0-rc1 (Heartbeats 78.8k -> 2.9k)",
-      "summary": "Combines @Vilin97 stacked performance PRs (#79 heartbeat removal, #98 import shaking, #104 slow proofs -> #134) with @kim-em Lean 4.37.0-rc1 & Mathlib upgrade (#185), slashing maxHeartbeats overrides by 96% and cutting total build CPU by 21.9%.",
+      "summary": "Combines @Vilin97's stacked performance PRs (#79 heartbeat removal, #98 import shaking, #104 slow proofs -> #134) with @kim-em's Lean 4.37.0-rc1 & Mathlib upgrade (#185): maxHeartbeats overrides 78,826 -> 2,934 and -21.9% compile CPU on a 2,167-module sample.",
       "metrics": {
         "loc": "149,359 files · heartbeats 78,826 -> 2,934",
         "norm_tokens": "Import shaking + 166 slow proofs optimized",
-        "chars": "-21.9% total build CPU time",
+        "chars": "-21.9% compile CPU (2,167-module sample)",
         "warnings": "Lean 4.37.0-rc1 + Mathlib 31ce06ea",
-        "cone": "Full repository build pipeline",
-        "equivalence": "Sharded AWS + donor-runner CI verification",
+        "cone": "Full repository build",
+        "equivalence": "CI lake build",
         "axioms": "{propext, Classical.choice, Quot.sound}"
       },
-      "receipt": "Stacked performance series (#79/#98/#104 -> #134) integrated into #185 (#1 in linear merge queue), catalyzed by @sgouezel v4.37-rc1 23% Mathlib speedup.",
+      "receipt": "Stacked performance series (#79/#98/#104 -> #134) merged together with #185 on 2026-11-23.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/185",
-      "diff": "# Summary of PR #134 -> #185 (@Vilin97, @kim-em)\n- maxHeartbeats overrides: 78,826 -> 2,934 (-96.3%)\n- Unused imports shaken across src/\n- 166 slowest proofs refactored for faster elaboration\n- Toolchain bumped to leanprover/lean4:v4.37.0-rc1\n- Measured build CPU reduction: -21.9% before 4.37 compiler gains."
+      "diff": "# Summary of PR #134 -> #185 (@Vilin97, @kim-em)\n- maxHeartbeats overrides: 78,826 -> 2,934 (-96.3%)\n- Unused imports shaken across src/\n- 166 slowest proofs refactored for faster elaboration\n- Toolchain bumped to leanprover/lean4:v4.37.0-rc1\n- Compile CPU: -21.9% on a 2,167-module sample (95% CI 21.0-22.8%), before 4.37 compiler gains."
     },
     {
       "id": "pr45",
       "pr_label": "Upstream PR #45 · @rohanarun · Merged (7da4577eb)",
       "status": "merged",
       "bucket": "dead-prune",
-      "category": "Dead-Tree Pruning · First Major Repo Slimming",
+      "category": "Dead-Tree Pruning",
       "title": "Prune Unused Top-Level Imports & 10,718 Unreachable Dead Modules (-785K Lines)",
-      "summary": "Removed 10,718 unreachable dead Lean modules and unused top-level imports in the first large-scale structural cleanup after v0.2.1, cutting 785,258 dead lines with zero impact on the kernel cone.",
+      "summary": "Removed 10,718 unreachable Lean modules and unused top-level imports, the first large structural cleanup after v0.2.1 (-785,258 lines).",
       "metrics": {
         "loc": "-785,258 L (10,718 dead files deleted)",
         "norm_tokens": "10,729 files touched (+5 / -785,263)",
-        "chars": "Zero active-cone declarations modified",
-        "warnings": "Clean CI build on main",
-        "cone": "0% active cone touched (100% dead prune)",
-        "equivalence": "Main.lean kernel DAG identical",
+        "chars": "10,718 files deleted",
+        "warnings": "Dead files only",
+        "cone": "Files unreachable from Main",
+        "equivalence": "Not stated in the PR",
         "axioms": "{propext, Classical.choice, Quot.sound}"
       },
-      "receipt": "Merged to main as commit 7da4577eb; validated that top-level import reachability safely eliminates >10k unused generated modules.",
+      "receipt": "Merged to main as commit 7da4577eb.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/45",
-      "diff": "# Summary of PR #45 (@rohanarun)\n- Files changed: 10,729 (10,718 unreachable .lean files deleted)\n- Net line delta: -785,258 lines (+5 / -785,263)\n- Active kernel cone impact: 0 declarations altered."
+      "diff": "# Summary of PR #45 (@rohanarun)\n- Files changed: 10,729 (10,718 unreachable .lean files deleted)\n- Net line delta: -785,258 lines (+5 / -785,263)."
     },
     {
       "id": "pr243",
-      "pr_label": "Upstream PR #243 · @james-shore · Open",
-      "status": "open",
+      "pr_label": "Upstream PR #243 · @james-shore · Merged 2026-11-24",
+      "status": "merged",
       "bucket": "portability",
-      "category": "Linter Modernization · Lean 4.37 (-42% Warnings)",
-      "title": "Port Unused-Syntax Linter Cleanup to Lean 4.37 (-42% Warnings)",
-      "summary": "Ports mechanical unused-syntax linter cleanup (#67 -> #243) onto the Lean 4.37 branch, eliminating 42% of unused-syntax compiler warnings across the repository while @james-shore also lends a 384 GiB+ multi-core CI runner.",
+      "category": "Linter Cleanup · Lean 4.37",
+      "title": "Remove Proof Syntax Flagged Unused by Lean's Linters (Lean 4.37.0-rc1)",
+      "summary": "Unused-syntax linter cleanup (#67, ported onto Lean 4.37 as #243). The author reports 94% fewer unused-linter warnings. Merged 2026-11-24 (1,226 files).",
       "metrics": {
-        "loc": "Repo-wide mechanical linter cleanup",
-        "norm_tokens": "-42% unused-syntax warnings on Lean 4.37",
-        "chars": "Ported from #67 onto #185 (v4.37-rc1)",
-        "warnings": "Major warning-noise reduction",
+        "loc": "1,226 files",
+        "norm_tokens": "-94% unused-linter warnings (author's figure)",
+        "chars": "Ported from #67 onto Lean 4.37",
+        "warnings": "Linter cleanup",
         "cone": "Full repository",
-        "equivalence": "Statement-preserving syntax cleanup",
+        "equivalence": "Not stated in the PR",
         "axioms": "{propext, Classical.choice, Quot.sound}"
       },
-      "receipt": "Open PR #243 targeting Lean 4.37 branch (#185); pairs with #194 (~10,000 linter/deprecation warnings) to drive repo warnings toward zero.",
+      "receipt": "Merged on 2026-11-24.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/243",
-      "diff": "# Summary of PR #243 (@james-shore)\n- Ported unused-syntax linter fixes from #67 onto Lean 4.37 (#185)\n- Removes 42% of remaining unused-syntax compiler warnings\n- Prepares clean baseline for follow-up ~17,000 theorem deduplication."
+      "diff": "# Summary of PR #243 (@james-shore)\n- Unused-syntax linter fixes from #67, ported onto Lean 4.37\n- Author reports -94% unused-linter warnings\n- Merged 2026-11-24 (1,226 files)."
     },
     {
       "id": "pr60",
-      "pr_label": "Upstream PR #60 · Merged (173225e84)",
+      "pr_label": "Upstream PR #60 · @thekeunpie-hash (tracker author) · Merged (173225e84)",
       "status": "merged",
-      "category": "pp.explicit Removal · Rank #1 Longest Decl",
+      "category": "pp.explicit Removal",
       "title": "Restore Implicit Typeclass Synthesis in FixPiIff.lean",
-      "summary": "Eliminated the repository's single longest declaration (8,001 lines, of which 7,998 were an expanded @NumberField.RingOfIntegers.* signature and only 3 lines were the proof body) while preserving 100% kernel definitional equality.",
+      "summary": "Replaced an 8,001-line declaration (7,998 lines of expanded @NumberField.RingOfIntegers.* signature, 3 lines of proof body) with a short one; the author's check reports the declaration unchanged up to definitional equality.",
       "metrics": {
         "loc": "8,029 → 45 L (-99.4%)",
         "norm_tokens": "93,817 → 505 tok (-99.5%)",
@@ -373,11 +373,11 @@
     },
     {
       "id": "pr65",
-      "pr_label": "Upstream PR #65 · Merged (f1f6d6542)",
+      "pr_label": "Upstream PR #65 · @thekeunpie-hash (tracker author) · Merged (f1f6d6542)",
       "status": "merged",
       "category": "pp.explicit Removal · 4 Kernel-Used Modules",
       "title": "Eliminate Wrapper Duplication & Typeclass Dumps in CapelliIdentities (4 Files)",
-      "summary": "Rewrote FreeModuleQuotient, ContDiffHerm, SquareOfApproximation, and LimitOfFinite (all 100% kernel-used) to drop explicit @-instance dumps and redundant private-aux wrappers, cutting 87.2% of anti-golf normalized Lean tokens and clearing 105 compiler warnings to zero.",
+      "summary": "Rewrote FreeModuleQuotient, ContDiffHerm, SquareOfApproximation, and LimitOfFinite (all 100% kernel-used) to drop explicit @-instance dumps and redundant private-aux wrappers, cutting 87.2% of normalized Lean tokens (author's count) and clearing 105 compiler warnings to zero.",
       "metrics": {
         "loc": "5,073 → 591 L (-88.4%)",
         "norm_tokens": "63,657 → 8,173 tok (-87.2%)",
@@ -391,111 +391,6 @@
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/65",
       "diff": "diff --git a/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FreeModuleQuotient.lean b/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FreeModuleQuotient.lean\nindex 5605016da..c378652a2 100644\n--- a/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FreeModuleQuotient.lean\n+++ b/src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/FreeModuleQuotient.lean\n@@ -1,7 +1,8 @@\n import Mathlib\n \n-private theorem UpperTheory.Reformulated.B.FreeModuleQuotient.aux {R S M : Type} [CommRing R] [CommRing S] [AddCommGroup M]\n-    [Module R M] (s : S →+* R) (I K : Ideal S) (hIK : I ≤ K) (c : ℕ)\n+theorem UpperTheory.Reformulated.B.FreeModuleQuotient.freeN_quot\n+    {R S M : Type} [CommRing R] [CommRing S] [AddCommGroup M] [Module R M]\n+    (s : S →+* R) (I K : Ideal S) (hIK : I ≤ K) (c : ℕ)\n     (e : M ≃+ (Fin c → S ⧸ I)) (he : ∀ (z : S) (x : M), e (s z • x) = z • e x) :\n     ∃ e' : (M ⧸ (Ideal.map s K • ⊤ : Submodule R M)) ≃+ (Fin c → S ⧸ K),\n       ∀ (a : S) (x : M ⧸ (Ideal.map s K • ⊤ : Submodule R M)), e' (s a • x) = a • e' x := by\n@@ -81,2436 +82,3 @@ private theorem UpperTheory.Reformulated.B.FreeModuleQuotient.aux {R S M : Type}\n   obtain ⟨y, rfl⟩ := Submodule.Quotient.mk_surjective _ x\n   rw [← Submodule.Quotient.mk_smul]\n   exact hsm a y\n-\n-theorem UpperTheory.Reformulated.B.FreeModuleQuotient.freeN_quot :\n-    ∀ {R S M : Type} [inst : CommRing R] [inst_1 : CommRing S] [inst_2 : AddCommGroup M]\n-      [inst_3 :\n-        @_root_.Module R M (@CommSemiring.toSemiring R (@CommRing.toCommSemiring R inst))\n-          (@AddCommGroup.toAddCommMonoid M inst_2)]\n-      (s :\n-        @RingHom S R (@Semiring.toNonAssocSemiring S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1)))\n-          (@Semiring.toNonAssocSemiring R (@CommSemiring.toSemiring R (@CommRing.toCommSemiring R inst))))\n-      (I K : @Ideal S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1))),\n-      @LE.le (@Ideal S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1)))\n-          (@Preorder.toLE (@Ideal S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1)))\n-            (@PartialOrder.toPreorder (@Ideal S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1)))\n-              (@Submodule.instPartialOrder S S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1))\n-                (@Semiring.toAddCommMonoid S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1)))\n-                (@Semiring.toModule S (@CommSemiring.toSemiring S (@CommRing.toCommSemiring S inst_1))))))\n-  ... [2,415 lines of duplicated pp.explicit wrapper around private aux omitted] ...",
       "bucket": "active-cone"
-    },
-    {
-      "id": "pr71",
-      "pr_label": "Upstream PR #71 · Merged via #115 (da6765973f)",
-      "status": "merged",
-      "category": "Lean 4.36+ Portability · Transparency Hardening",
-      "title": "Remove 66 backward.* Compatibility Options Across 4 Scheme Modules",
-      "summary": "Cleared 26 of 33 repository-wide backward.defeqAttrib.useBackward directives (78.8%) and 40 backward.isDefEq.respectTransparency directives across 4 100%-kernel-used algebraic-geometry modules using explicit HasAffineProperty.iff, Scheme.Hom.appLE_comp_appLE, and term-mode range equalities—removing a key blocker to upgrading the proof to newer Lean kernels.",
-      "metrics": {
-        "loc": "1,305 → 1,483 L (+13.6% explicit proofs)",
-        "norm_tokens": "17,648 → 21,841 tok (66 → 0 backward.*)",
-        "chars": "63,697 → 76,364 B",
-        "warnings": "0 (-DwarningAsError=true)",
-        "cone": "89/89 decls in_cone = true",
-        "equivalence": "4/4 .olean Kernel.isDefEq & Meta.isDefEq · 5/5 dist=1 importers",
-        "axioms": "{propext, Classical.choice, Quot.sound}"
-      },
-      "receipt": "Merged to main via PR #115 (da6765973f, co-authored, 149,396-module full build & 4.35 GB public cache verified; backward.* 3,000 -> 2,934).",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/71",
-      "diff": "diff --git a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelObjIsoHomSubtype.lean b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelObjIsoHomSubtype.lean\nindex 1bf094875..57b119e78 100644\n--- a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelObjIsoHomSubtype.lean\n+++ b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/RelObjIsoHomSubtype.lean\n@@ -19,6 +19,4 @@ structure QCohSub {X Y : Scheme.{0}} (f : X ⟶ Y) (F : ∀ V : Y.Opens, Subring\n variable {X Y : Scheme.{0}} {f : X ⟶ Y} {F : ∀ V : Y.Opens, Subring Γ(X, f ⁻¹ᵁ V)}\n \n-set_option backward.isDefEq.respectTransparency false in\n-\n def diagram (H : QCohSub f F) : Y.AffineZariskiSiteᵒᵖ ⥤ CommRingCat where\n   obj U := .of (F U.unop.1)\n@@ -45,5 +43,4 @@ def diagramMap (H : QCohSub f F) : (toOpensFunctor Y).op ⋙ Y.presheaf ⟶ diag\n variable [QuasiCompact f] [QuasiSeparated f]\n \n-set_option backward.isDefEq.respectTransparency false in\n lemma coequifibered (H : QCohSub f F) : (diagramMap H).Coequifibered := by\n   refine coequifibered_iff_forall_isLocalizationAway.mpr fun U r ↦ ?_\n@@ -57,5 +54,5 @@ lemma coequifibered (H : QCohSub f F) : (diagramMap H).Coequifibered := by\n     exact isLocalization_basicOpen_of_qcqs (f.isCompact_preimage U.2.isCompact)\n         (f.isQuasiSeparated_preimage U.2.isQuasiSeparated) (f.app _ r)\n-  letI := ((diagram H).map (homOfLE (U.basicOpen_le r)).op).hom.toAlgebra\n+  let := ((diagram H).map (homOfLE (U.basicOpen_le r)).op).hom.toAlgebra\n   refine IsLocalization.Away.mk _ ?_ ?_ ?_\n   · have h1 : IsUnit ((Y.presheaf.map (homOfLE (Y.basicOpen_le r)).op).hom r) :=\n@@ -67,6 +64,5 @@ lemma coequifibered (H : QCohSub f F) : (diagramMap H).Coequifibered := by\n     obtain ⟨k, y, hy, e⟩ := H.loc U.1 U.2 r s.1 s.2\n     refine ⟨k, ⟨y, hy⟩, Subtype.ext ?_⟩\n-    rw [mul_comm] at e\n-    exact e.symm\n+    exact (mul_comm _ _).trans e.symm\n   · intro a b hab\n     have hab' : algebraMap Γ(X, f ⁻¹ᵁ U.1) Γ(X, f ⁻¹ᵁ Y.basicOpen r) a.1 =\n@@ -84,6 +80,9 @@ def relSpec (H : QCohSub f F) : Scheme := (glueData H).glued\n def relCover (H : QCohSub f F) : (relSpec H).OpenCover := (glueData H).cover\n \n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n+private lemma isOpenImmersion_relCover (H : QCohSub f F) (U : Y.affineOpens) :\n+    IsOpenImmersion ((relCover H).f U) :=\n+  (relCover H).map_prop U\n+\n+attribute [local instance] isOpenImmersion_relCover\n \n def toRel (H : QCohSub f F) : X ⟶ relSpec H :=\n@@ -99,15 +98,46 @@ def toRel (H : QCohSub f F) : X ⟶ relSpec H :=\n         (f.preimage_mono (toOpens_mono i.1.1)) := by\n     rw [← cancel_mono (Scheme.Opens.ι _)]\n-    simp +instances [Cover.trans, Cover.locallyDirectedPullbackCover]\n-  rw [← Iso.inv_comp_eq, reassoc_of% this, ← Scheme.Opens.toSpecΓ_SpecMap_presheaf_map_assoc,\n-    ← Spec.map_comp_assoc]\n-  dsimp [relCover]\n-  rw [← colimit.w (glueData H).functor i]\n-  dsimp [glueData, relativeGluingData]\n-  rw [← Spec.map_comp_assoc]\n-  rfl\n+    have h2 : (Cover.trans ((directedCover Y).pullback₁ f) i ≫\n+        (pullbackRestrictIsoRestrict f V.1).hom) ≫ (f ⁻¹ᵁ V.1).ι = pullback.fst f U.1.ι :=\n+      (Category.assoc _ _ _).trans\n+        ((congrArg (Cover.trans ((directedCover Y).pullback₁ f) i ≫ ·)\n+          (pullbackRestrictIsoRestrict_hom_ι f V.1)).trans\n+          ((pullback.lift_fst _ _ _).trans (Category.comp_id _)))\n+    exact (Category.assoc _ _ _).trans\n+      ((congrArg ((pullbackRestrictIsoRestrict f U.1).inv ≫ ·) h2).trans\n+        ((pullbackRestrictIsoRestrict_inv_fst f U.1).trans (Scheme.homOfLE_ι _ _).symm))\n+  refine (Iso.inv_comp_eq _).mp ?_\n+  have h1 : (pullbackRestrictIsoRestrict f U.1).inv ≫\n+      Cover.trans ((directedCover Y).pullback₁ f) i ≫\n+      (pullbackRestrictIsoRestrict f V.1).hom ≫\n+        (f ⁻¹ᵁ V.1).toSpecΓ ≫ Spec.map (CommRingCat.ofHom (F V.1).subtype) ≫ (relCover H).f V =\n+      X.homOfLE (f.preimage_mono (toOpens_mono i.1.1)) ≫\n+        (f ⁻¹ᵁ V.1).toSpecΓ ≫ Spec.map (CommRingCat.ofHom (F V.1).subtype) ≫ (relCover H).f V :=\n+    (Category.assoc _ _ _).symm.trans ((Category.assoc _ _ _).symm.trans\n+      (congrArg (· ≫ (f ⁻¹ᵁ V.1).toSpecΓ ≫\n+        Spec.map (CommRingCat.ofHom (F V.1).subtype) ≫ (relCover H).f V) this))\n+  refine h1.trans ?_\n... [remaining 3 files: CofilteredSchemeLimitExistsLocally, CoequifiberedDiagramMap, ExistsEtaleNeighbourhoodFinitePieceIsolatedPoint — 66 backward.* directives total removed]",
-      "bucket": "portability"
-    },
-    {
-      "id": "pr109",
-      "pr_label": "Upstream PR #109 · Open on Lean 4.36.0 (0d0a55648)",
-      "status": "open",
-      "category": "Lean 4.36 Module Deduplication · Restoring #68",
-      "title": "Restore #68 Shared GL Finiteness Proof on Lean 4.36.0 (-180 Files)",
-      "summary": "Re-applies @antoshashakov's #68 rank-induction GL finiteness deduplication (rolled back in #66 per verification/PR66-MERGED-WORK.md) onto the Lean 4.36.0 module-system tree using a private proof import, deleting 180 unreferenced duplicate modules.",
-      "metrics": {
-        "loc": "9,744 → 14 L (-99.86%, -180 files)",
-        "norm_tokens": "135,390 → 17 tok (-99.99%)",
-        "chars": "596,575 → 441 B (-99.93%)",
-        "warnings": "0 (-DwarningAsError=true)",
-        "cone": "1/1 decl in_cone = true (0 external importers across 149,396 files)",
-        "equivalence": "Kernel.isDefEq = true · Meta.isDefEq = true · 9/9 critical dist=1 importers",
-        "axioms": "{propext, Classical.choice, Quot.sound}"
-      },
-      "receipt": "Lean v4.36.0 · --setup module mode + -DwarningAsError=true (0 warnings) · Exact .olean equivalence vs pinned v4.36.0 cache · 9/9 critical dist=1 importers locally + 85/85 downstream modules independently confirmed by @marwuint.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/109",
-      "diff": "diff --git a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AutomorphicFormsFiniteGL.lean b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AutomorphicFormsFiniteGL.lean\n--- a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AutomorphicFormsFiniteGL.lean\n+++ b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/AutomorphicFormsFiniteGL.lean\n@@ -2,14 +2,13 @@ module\n \n public import Mathlib\n public import Development.AbelianVarietyTheory.PublishedTheorems.AutomorphicForms₂.ExistsSpanFormsNeBot\n-public import Development.AbelianVarietyTheory.Proofs.DivisorProofs.HarishChandraFinitenessAutomorphicGLOfEigenStatement\n-public import Development.AbelianVarietyTheory.Proofs.DivisorProofs.HarishChandraFinitenessTotallyComplexGLProofStatement\n+import Development.AutomorphicArithmetic.AutomorphicVarieties.AutomorphicForms.TemperedLocalComponents.FormsFiniteGL\n \n @[expose] public section\n \n namespace GlobalTheory\n \n theorem automorphicFormsFiniteGL : GlobalTheory.Published.AutomorphicFormsFiniteGL :=\n-  GlobalTheory.T.harishChandra_finiteness_automorphic_GL_of_eigen GlobalTheory.T.harishChandraFinitenessTotallyComplexGL_proof\n+  UpperTheory.V.Af.formsFiniteGL\n \n end GlobalTheory\n# + 180 deleted unreferenced duplicate Harish-Chandra finiteness files (179 in Proofs/DivisorProofs/, 1 Definitions/Divisors/ZeroMemSolSet.lean)",
-      "bucket": "active-cone"
-    },
-    {
-      "id": "pr110",
-      "pr_label": "Upstream PR #110 · Open on Lean 4.36.0 (5cdd8a23b)",
-      "status": "open",
-      "category": "Lean 4.36 Explicit-Dump Cleanup · Zulip Wishlist",
-      "title": "Simplify 2,796-Char Explicit @alg Dumps in cpR & std_cpR",
-      "summary": "Replaces both 2,796-character machine-dumped ((by exact @alg B C a b ...)) type-signature terms in NonzeroPlacesOverPrimesOfLifts.lean with (alg (a := a) b z.alg), removes the unused empty section Types, and drops two redundant maxHeartbeats overrides.",
-      "metrics": {
-        "loc": "80 → 70 L (-12.5%)",
-        "norm_tokens": "2,121 → 610 tok (-71.2%)",
-        "chars": "9,337 → 3,385 B (-63.7%)",
-        "warnings": "0 (-DwarningAsError=true)",
-        "cone": "4/4 decls in_cone = true (cpR, std_cpR, std_of_copy, St.std)",
-        "equivalence": "Kernel.isDefEq = true · Meta.isDefEq = true · 2/2 dist=1 importers (0 warnings)",
-        "axioms": "{propext, Classical.choice, Quot.sound}"
-      },
-      "receipt": "Lean v4.36.0 · --setup module mode + -DwarningAsError=true (0 warnings) · Exact 10/10 imports & 4/4 exported decls (incl. cpR def value) Kernel/Meta isDefEq PASS · Both dist=1 importers (ExistsGeoExtN, LinkedStatesFockPolynomialsAgree) compiled exit 0 with 0 warnings.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/110",
-      "diff": "diff --git a/src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/NonzeroPlacesOverPrimesOfLifts.lean b/src/Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/NonzeroPlacesOverPrimesOfLifts.lean\n@@ -24,26 +24,17 @@\n-section Types\n-  ... [unused empty variable section] ...\n-end Types\n-\n section Std\n \n def cpR (z : Dat a.st I hX T Wt) :\n-    @RealDat3 b.st.toD7 _ _ _ _ _ _ (famR b.st I hX (usedOf I T Wt) z.Xg z.tr) (coreJ b z.core).Q.c.F _ _ ((by exact @alg B C a b ... [2,796 chars] ...)) :=\n+    @RealDat3 b.st.toD7 _ _ _ _ _ _ (famR b.st I hX (usedOf I T Wt) z.Xg z.tr) (coreJ b z.core).Q.c.F _ _ (alg (a := a) b z.alg) :=\n   (by with_unfolding_all exact ((real3 b (iK := z.alg) z.R) :))\n \n-set_option maxHeartbeats 2000000 in\n theorem std_cpR (z : Dat a.st I hX T Wt) (h : z.Std) :\n-    @BrgStd b.st px I hX (usedOf I T Wt) z.Xg z.tr (coreJ b z.core).Q.c.F _ _ ((by exact @alg B C a b ... [2,796 chars] ...))\n+    @BrgStd b.st px I hX (usedOf I T Wt) z.Xg z.tr (coreJ b z.core).Q.c.F _ _ (alg (a := a) b z.alg)\n       (by with_unfolding_all exact (@RealDat3.toRealDat ... (alg (a := a) b z.alg) (cpR b z) :)) := by\n   with_unfolding_all exact (h :)\n \n-set_option maxHeartbeats 2000000 in\n theorem std_of_copy ...",
-      "bucket": "active-cone"
-    },
-    {
-      "id": "pr224",
-      "pr_label": "Upstream PR #224 · Open on Lean 4.36.0 (bca24c2b6)",
-      "status": "open",
-      "category": "Lean 4.36+ Portability · Repo-Wide Milestone (33 → 0)",
-      "title": "Eliminate the Final 5 backward.defeqAttrib.useBackward Directives Repo-Wide",
-      "summary": "Completes the repository-wide elimination of backward.defeqAttrib.useBackward (33 -> 0 across all 149,397 files, following #71's 26 removals merged in #115) together with all 6 co-located backward.isDefEq.respectTransparency overrides across 5 kernel-active algebraic-geometry and Tate-cohomology modules.",
-      "metrics": {
-        "loc": "1,367 → 1,367 L (+0 L; 11 → 0 backward.*)",
-        "norm_tokens": "16,056 → 16,160 tok (5 → 0 useBackward repo-wide)",
-        "chars": "71,485 → 71,150 B (-335 B)",
-        "warnings": "0 new warnings (3/3 clean files pass -DwarningAsError=true; 0 warnings in all edited theorems)",
-        "cone": "91/115 decls in_cone = true across all 5 files",
-        "equivalence": "5/5 .olean Kernel.isDefEq & Meta.isDefEq · 9/9 dist=1 importers",
-        "axioms": "{propext, Classical.choice, Quot.sound}"
-      },
-      "receipt": "Lean v4.36.0 · --setup module mode · 5/5 .olean Kernel.isDefEq & Meta.isDefEq + exact BinderInfo/levelParams/import parity vs pinned v4.36.0 cache · 9/9 direct dist=1 importers (all 7 importers of the 4 smaller modules + 2 normalization importers) exit 0 · Independent read-only subagent review APPROVE.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/224",
-      "diff": "diff --git a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsFilteredColimitEtaleOfIndEt.lean b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsFilteredColimitEtaleOfIndEt.lean\nindex 80346339d0..ad7337234e 100644\n--- a/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsFilteredColimitEtaleOfIndEt.lean\n+++ b/src/Development/AbelianVarietyTheory/Proofs/DivisorProofs/ExistsFilteredColimitEtaleOfIndEt.lean\n@@ -10,14 +10,13 @@ open CategoryTheory Limits AlgebraicGeometry Opposite CochainComplex CochainComp\n namespace GlobalTheory.EtC\n \n \n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n theorem exists_filtered_colimit_etale_of_indEt : ∀ (A O : Type) [CommRing A] [CommRing O] [Algebra A O], IndEt A O → ∃ (J : Type) (_ : SmallCategory J) (_ : IsFiltered J) (D : J ⥤ Under (CommRingCat.of A)) (ι : D ⟶ (Functor.const J).obj (Under.mk (CommRingCat.ofHom (algebraMap A O)))), Nonempty (IsColimit (Cocone.mk _ ι)) ∧ ∀ j, (D.obj j).hom.hom.Etale := by\n   intro A O _ _ _ h\n   obtain ⟨J, _, _, D, t, s, hs, hst⟩ := h\n   have : Nonempty J := IsFiltered.nonempty\n   refine ⟨J, inferInstance, inferInstance, Under.lift D t,\n-    { app j := Under.homMk (s.app j) (by simp [hst]) },\n-    ⟨Under.isColimitLiftCocone _ _ _ _ (by simp [hst]) hs⟩, fun j => (hst j).1⟩\n+    { app j := Under.homMk (s.app j) (hst j).2\n+      naturality _ _ f := by ext1; exact s.naturality f },\n+    ⟨Under.isColimitLiftCocone _ _ _ _ (fun j => (hst j).2) hs⟩, fun j => (hst j).1⟩\n \n end GlobalTheory.EtC\ndiff --git a/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsIsoNormalizationPullbackOfToIntegralClosure.lean b/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsIsoNormalizationPullbackOfToIntegralClosure.lean\nindex 57ffa5cd8a..085aafc09e 100644\n--- a/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsIsoNormalizationPullbackOfToIntegralClosure.lean\n+++ b/src/Development/AbelianVarietyTheory/Proofs/HomogeneousIdeals/IsIsoNormalizationPullbackOfToIntegralClosure.lean\n@@ -180,8 +180,6 @@ instance isIso_toNormalization_fromNormalization {X Y : Scheme.{u}} (f : X ⟶ Y\n   infer_instance\n \n \n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n open TensorProduct in\n theorem isIso_normalizationPullback_of_toIntegralClosure {X S Y : Scheme.{u}} (f : X ⟶ S)\n     (g : Y ⟶ S) [QuasiCompact f] [QuasiSeparated f] [Flat g]\n@@ -194,19 +192,23 @@ theorem isIso_normalizationPullback_of_toIntegralClosure {X S Y : Scheme.{u}} (f\n   obtain ⟨U, hU, V, hV, hVU, hxV, hB⟩ := hg (pullback.snd f.fromNormalization g x)\n   let W := pullback.snd (Scheme.Hom.fromNormalization f) g ⁻¹ᵁ V\n   refine ⟨W, hxV, (isIso_morphismRestrict_iff_isIso_app _ (U := W) (hV.preimage _)).mpr ?_⟩\n+  have hW_eq : W = pullback.fst f.fromNormalization g ⁻¹ᵁ f.fromNormalization ⁻¹ᵁ U ⊓\n+      pullback.snd f.fromNormalization g ⁻¹ᵁ V := by\n+    simp_rw [W, ← Scheme.Hom.comp_preimage, pullback.condition, Scheme.Hom.comp_preimage,\n+      ← Scheme.Hom.preimage_inf, inf_eq_right.mpr hVU]\n   have := isIso_pushoutSection_of_isQuasiSeparated_of_flat_right\n-    (.of_hasPullback f.fromNormalization g) hVU le_rfl (UY := W)\n-    (by simp_rw [W, ← Scheme.Hom.comp_preimage, pullback.condition, Scheme.Hom.comp_preimage,\n-      ← Scheme.Hom.preimage_inf, inf_eq_right.mpr hVU]) hU hV\n+    (.of_hasPullback f.fromNormalization g) hVU le_rfl (UY := W) hW_eq hU hV\n     (hU.preimage f.fromNormalization).isCompact (hU.preimage f.fromNormalization).isQuasiSeparated\n   rw [← @isIso_comp_left_iff _ _ _ _ _ _ _ this,\n     ← isIso_comp_left_iff (pushout.congrHom f.fromNormalization.app_eq_appLE rfl).hom]\n   algebraize [(f.app U).hom, (g.appLE U V hVU).hom, ((pullback.snd f g).app V).hom]\n+  have hV_eq : pullback.snd f g ⁻¹ᵁ V =\n+      pullback.fst f g ⁻¹ᵁ f ⁻¹ᵁ U ⊓ pullback.snd f g ⁻¹ᵁ V := by\n+    simp_rw [← Scheme.Hom.comp_preimage, pullback.condition, Scheme.Hom.comp_preimage,\n+      ← Scheme.Hom.preimage_inf, inf_eq_right.mpr hVU]\n   have := isIso_pushoutSection_of_isQuasiSeparated_of_flat_right\n-    (.of_hasPullback f g) hVU le_rfl (UY := pullback.snd f g ⁻¹ᵁ V)\n-    (by simp_rw [← Scheme.Hom.comp_preimage, pullback.condition, Scheme.Hom.comp_preimage,\n-      ← Scheme.Hom.preimage_inf, inf_eq_right.mpr hVU]) hU hV (f.isCompact_preimage hU.isCompact)\n-    (f.isQuasiSeparated_preimage hU.isQuasiSeparated)\n+    (.of_hasPullback f g) hVU le_rfl (UY := pullback.snd f g ⁻¹ᵁ V) hV_eq hU hV\n+    (f.isCompact_preimage hU.isCompact) (f.isQuasiSeparated_preimage hU.isQuasiSeparated)\n   let e₀ := (CommRingCat.isPushout_tensorProduct ..).flip.isoPushout ≪≫\n     (pushout.congrHom f.app_eq_appLE rfl ≪≫ @asIso _ _ _ _ _ this :)\n   let e : Γ(Y, V) ⊗[Γ(S, U)] Γ(X, f ⁻¹ᵁ U) ≃ₐ[Γ(Y, V)] Γ(pullback f g, pullback.snd f g ⁻¹ᵁ V) :=\n@@ -233,11 +235,14 @@ theorem isIso_normalizationPullback_of_toIntegralClosure {X S Y : Scheme.{u}} (f\n       (by simp only [W, ← Scheme.Hom.comp_preimage, Scheme.Hom.normalizationPullback_snd])).op\n   convert! show IsIso φ by dsimp only [φ]; infer_instance using 1\n   ext1\n-  · dsimp [φ]\n-    simp only [Scheme.Hom.app_eq_appLE, colimit.ι_desc_assoc, span_left, PushoutCocone.mk_pt,\n-      PushoutCocone.mk_ι_app, Category.id_comp, Scheme.Hom.appLE_comp_appLE, eqToHom_op,\n-      Category.assoc, IsPushout.inl_isoPushout_inv_assoc]\n-    simp_rw [← Category.assoc, ← IsIso.comp_inv_eq]\n+  · dsimp only [φ]\n+    simp only [pushout.congrHom_hom]\n+    dsimp only [pushout.map, pushoutSection]\n+    simp only [Category.assoc, pushout.inl_desc_assoc, Category.id_comp,\n+      IsPushout.inl_isoPushout_inv_assoc, Scheme.Hom.app_eq_appLE, Scheme.Hom.appLE_comp_appLE,\n+      eqToHom_op]\n+    simp only [← Category.assoc]\n+    rw [← IsIso.comp_inv_eq, ← IsIso.comp_inv_eq]\n     simp only [← Functor.map_inv, inv_eqToHom, Scheme.Hom.appLE_map, IsIso.Iso.inv_inv,\n       Category.assoc]\n     have : Mono (CommRingCat.ofHom (integralClosure Γ(Y, V)\n@@ -245,7 +250,7 @@ theorem isIso_normalizationPullback_of_toIntegralClosure {X S Y : Scheme.{u}} (f\n       ConcreteCategory.mono_of_injective _ Subtype.val_injective\n     rw [← cancel_mono (CommRingCat.ofHom (Subalgebra.val _).toRingHom)]\n     simp only [Category.assoc, Scheme.Hom.normalizationObjIso_hom_val, Scheme.Hom.appLE_comp_appLE,\n-      Scheme.Hom.toNormalization_normalizationPullback_fst, ← CommRingCat.ofHom_comp]\n+      Scheme.Hom.toNormalization_normalizationPullback_fst]\n     have H : pullback.snd f g ⁻¹ᵁ V ≤ pullback.fst f g ⁻¹ᵁ f ⁻¹ᵁ U := by\n       rw [← Scheme.Hom.comp_preimage, pullback.condition, Scheme.Hom.comp_preimage]\n       exact Scheme.Hom.preimage_mono _ hVU\n@@ -258,11 +263,14 @@ theorem isIso_normalizationPullback_of_toIntegralClosure {X S Y : Scheme.{u}} (f\n       trans (CommRingCat.ofHom Algebra.TensorProduct.includeRight.toRingHom ≫ e₀.hom) x\n       · congr 2; simp [e₀, pushout.inl_desc_assoc]\n       · simp [ψ, toIntegralClosure, e]; rfl\n-  · dsimp [φ]\n-    simp only [Scheme.Hom.app_eq_appLE, colimit.ι_desc_assoc, span_right, PushoutCocone.mk_pt,\n-      PushoutCocone.mk_ι_app, Category.id_comp, Scheme.Hom.appLE_comp_appLE,\n-      Scheme.Hom.normalizationPullback_snd, eqToHom_op, IsPushout.inr_isoPushout_inv_assoc]\n-    simp_rw [← Category.assoc, ← IsIso.comp_inv_eq]\n+  · dsimp only [φ]\n+    simp only [pushout.congrHom_hom]\n+    dsimp only [pushout.map, pushoutSection]\n+    simp only [pushout.inr_desc_assoc, Category.id_comp,\n+      IsPushout.inr_isoPushout_inv_assoc, Scheme.Hom.app_eq_appLE, Scheme.Hom.appLE_comp_appLE,\n+      Scheme.Hom.normalizationPullback_snd, eqToHom_op]\n+    simp only [← Category.assoc]\n+    rw [← IsIso.comp_inv_eq, ← IsIso.comp_inv_eq]\n     simp only [← Functor.map_inv, inv_eqToHom, Scheme.Hom.appLE_map, ← Scheme.Hom.app_eq_appLE,\n       Scheme.Hom.fromNormalization_app _ hV, IsIso.Iso.inv_inv, Category.assoc, Iso.inv_hom_id,\n       Category.comp_id]\n@@ -492,7 +500,6 @@ theorem isIso_toNormalization_morphismRestrict {X Y : Scheme.{u}} (f : X ⟶ Y)\n   infer_instance\n \n \n-set_option backward.isDefEq.respectTransparency false in\n theorem flat_of_isSchemeTheoreticallyDominant {R : Type u} [CommRing R] [IsDomain R]\n     (hR : ∀ (A : Type u) [CommRing A] [Algebra R A], Submodule.torsion R A = ⊥ → Module.Flat R A)\n     {X N : Scheme.{u}} (j : X ⟶ N) [QuasiCompact j] [IsSchemeTheoreticallyDominant j]\n@@ -510,15 +517,18 @@ theorem flat_of_isSchemeTheoreticallyDominant {R : Type u} [CommRing R] [IsDomai\n       RingHom.Flat.holdsForLocalizationAway).left |>.mpr fun y ↦ ?_\n   obtain ⟨_, ⟨(W : N.Opens), hW, rfl⟩, hy, -⟩ := N.isBasis_affineOpens.exists_subset_of_mem_open\n     (Set.mem_univ y) isOpen_univ\n-  refine ⟨⟨⊤, isAffineOpen_top _⟩, ⟨W, hW⟩, hy, le_top, ?_⟩\n-  let φ := (Scheme.ΓSpecIso (.of R)).inv ≫ p.appLE ⊤ W le_top\n+  have hpW : W ≤ p ⁻¹ᵁ ⊤ := fun _ _ ↦ trivial\n+  refine ⟨⟨⊤, isAffineOpen_top _⟩, ⟨W, hW⟩, hy, hpW, ?_⟩\n+  let φ := (Scheme.ΓSpecIso (.of R)).inv ≫ p.appLE ⊤ W hpW\n   suffices φ.hom.Flat by\n     rwa [CommRingCat.hom_comp, RingHom.Flat.respectsIso.cancel_left_isIso] at this\n   let := φ.hom.toAlgebra\n   refine hR _ (eq_bot_iff.mpr fun x ⟨⟨r, hr⟩, hx⟩ ↦ ?_)\n+  have hcW : j' ⁻¹ᵁ W ≤ c ⁻¹ᵁ ⊤ := fun _ _ ↦ trivial\n+  have hciW : j' ⁻¹ᵁ W ≤ (c ≫ ι) ⁻¹ᵁ ⊤ := fun _ _ ↦ trivial\n   have hφ : φ ≫ j'.app W = CommRingCat.ofHom (algebraMap R K) ≫\n-      (Scheme.ΓSpecIso (.of K)).inv ≫ c.appLE ⊤ _ le_top := by\n-    have h1 : p.appLE ⊤ W le_top ≫ j'.app W = (c ≫ ι).appLE ⊤ _ le_top := by\n+      (Scheme.ΓSpecIso (.of K)).inv ≫ c.appLE ⊤ _ hcW := by\n+    have h1 : p.appLE ⊤ W hpW ≫ j'.app W = (c ≫ ι).appLE ⊤ _ hciW := by\n       rw [Scheme.Hom.app_eq_appLE, Scheme.Hom.appLE_comp_appLE]\n       simp only [hc]\n     rw [Scheme.ΓSpecIso_inv_naturality_assoc, Category.assoc, h1, Scheme.Hom.comp_appLE]\ndiff --git a/src/Development/WeilBound/CoreStatements/PadicHodgeComparison/EtaleCohomologyComparison/PerfectoidPullbacks/ConeSectionRestriction/ExistsIntegralNbhd.lean b/src/Development/WeilBound/CoreStatements/PadicHodgeComparison/EtaleCohomologyComparison/PerfectoidPullbacks/ConeSectionRestriction/ExistsIntegralNbhd.lean\nindex c09fbc4f59..84e50ab579 100644\n--- a/src/Development/WeilBound/CoreStatements/PadicHodgeComparison/EtaleCohomologyComparison/PerfectoidPullbacks/ConeSectionRestriction/ExistsIntegralNbhd.lean\n+++ b/src/Development/WeilBound/CoreStatements/PadicHodgeComparison/EtaleCohomologyComparison/PerfectoidPullbacks/ConeSectionRestriction/ExistsIntegralNbhd.lean\n@@ -13,8 +13,6 @@ open CategoryTheory AlgebraicGeometry\n namespace CrystallineSemistableComparison.Pb.EtaleIntegralityFacts\n \n \n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n theorem exists_integral_nbhd {K : Type} [Field K] {X : Scheme.{0}} (q : X ⟶ Spec (CommRingCat.of K))\n     [Smooth q]\n     (hE : ∀ (A : Type) [CommRing A] [Algebra K A] [Algebra.Smooth K A] (p : Ideal A) [p.IsPrime],\n@@ -33,9 +31,11 @@ theorem exists_integral_nbhd {K : Type} [Field K] {X : Scheme.{0}} (q : X ⟶ Sp\n   have : Algebra.Smooth K Γ(X, V) := hφ\n   obtain ⟨r, hr, hdom⟩ := hE Γ(X, V) (hV.primeIdealOf ⟨x, hxV⟩).asIdeal\n   have hxW : x ∈ X.basicOpen r := by\n-    rwa [← PrimeSpectrum.mem_basicOpen, IsAffineOpen.primeIdealOf,\n-      ← hV.fromSpec_preimage_basicOpen, Scheme.Hom.mem_preimage, ← Scheme.Hom.comp_apply,\n-      IsAffineOpen.isoSpec_hom, IsAffineOpen.toSpecΓ_fromSpec] at hr\n+    have hr' : hV.primeIdealOf ⟨x, hxV⟩ ∈ hV.fromSpec ⁻¹ᵁ X.basicOpen r := by\n+      rw [hV.fromSpec_preimage_basicOpen]\n+      exact hr\n+    have hfx : hV.fromSpec (hV.primeIdealOf ⟨x, hxV⟩) = x := hV.fromSpec_primeIdealOf ⟨x, hxV⟩\n+    exact hfx ▸ (hr' : hV.fromSpec (hV.primeIdealOf ⟨x, hxV⟩) ∈ X.basicOpen r)\n   refine ⟨X.basicOpen r, hxW, ?_⟩\n   have hW : IsAffineOpen (X.basicOpen r) := hV.basicOpen r\n   have : IsAffine (X.basicOpen r) := hW\ndiff --git a/src/GroundTheory/TateCohomology/CupConnecting.lean b/src/GroundTheory/TateCohomology/CupConnecting.lean\nindex 0353d7eb3d..28479d93b5 100644\n--- a/src/GroundTheory/TateCohomology/CupConnecting.lean\n+++ b/src/GroundTheory/TateCohomology/CupConnecting.lean\n@@ -68,8 +68,6 @@ theorem δ_π_eq {p : ℕ} (z : cocycles X.X₃ p) (y : (Fin p → G) → X.X₂\n \n \n include hX in\n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n theorem exists_f_eq_of_g_eq_zero (e : X.X₂) (he : X.g.hom e = 0) : ∃ a : X.X₁, X.f.hom a = e := by\n   have : LinearMap.range X.f.hom.toLinearMap = LinearMap.ker X.g.hom.toLinearMap :=\n     (hX.exact.map (forget₂ (Rep k G) (ModuleCat k))).moduleCat_range_eq_ker\ndiff --git a/src/GroundTheory/TateCohomology/DiagonalSuccIsoFreeInvSingle.lean b/src/GroundTheory/TateCohomology/DiagonalSuccIsoFreeInvSingle.lean\nindex 4c296231f0..75dc0646a2 100644\n--- a/src/GroundTheory/TateCohomology/DiagonalSuccIsoFreeInvSingle.lean\n+++ b/src/GroundTheory/TateCohomology/DiagonalSuccIsoFreeInvSingle.lean\n@@ -58,8 +58,6 @@ section Bar\n variable {k G : Type u} [CommRing k] [Group G]\n \n \n-set_option backward.defeqAttrib.useBackward true in\n-set_option backward.isDefEq.respectTransparency false in\n lemma diagonalSuccIsoFree_inv_single (m : ℕ) (f : Fin m → G) (g : G) (r : k) :\n     (diagonalSuccIsoFree k G m).inv.hom (Finsupp.single f (MonoidAlgebra.single g r)) =\n       MonoidAlgebra.single (g • Fin.partialProd f) r := by\n@@ -69,12 +67,7 @@ lemma diagonalSuccIsoFree_inv_single (m : ℕ) (f : Fin m → G) (g : G) (r : k)\n       (Finsupp.single f (.single g r)) = .single g 1 ⊗ₜ[k] .single f r :=\n     Representation.leftRegularTensorTrivialIsoFree_symm_apply_single_single f g r\n   rw [step1]\n-  simp only [mkIso_inv, Representation.linearizeOfMulActionIso, Representation.Equiv.mk_symm,\n-    LinearEquiv.refl_symm, ConcreteCategory.hom_ofHom, Action.tensorObj_V, Action.trivial_V,\n-    Functor.mapIso_inv, tensor_V, tensor_ρ, Iso.symm_inv, Functor.Monoidal.μIso_hom, μ_hom,\n-    MonoidalCategory.tensorIso_inv, Representation.linearizeTrivialIso, hom_tensorHom,\n-    Representation.IntertwiningMap.tensor_apply, Representation.Equiv.coe_toIntertwiningMap,\n-    Representation.Equiv.mk_apply, LinearEquiv.refl_apply]\n+  simp only [Action.tensorObj_V, tensor_V, tensor_ρ]\n   have key₁ := Representation.linearizeMap_single (k := k)\n     (Action.diagonalSuccIsoTensorTrivial G m).inv (g, f) ((1 : k) * r)\n   have key₂ := Representation.LinearizeMonoidal.μ_apply_single_single (k := k)",
-      "bucket": "portability"
-    },
-    {
-      "id": "ndjson",
-      "pr_label": "Standalone Auditor · scripts/audit_ndjson_statement.py",
-      "status": "verified",
-      "category": "Lean-Free TCB & Statement Verification",
-      "title": "Zero-Dependency Python Audit of MIT challenge.ndjson.zst",
-      "summary": "Audits raw lean4export 3.1.0 NDJSON without installing Lean or any third-party Python package: verifies uncompressed SHA-256, checks every axiom/def/opaque/inductive/ctor/rec safety flag, extracts all 5 raw kernel headline statement ASTs, and confirms zero sorryAx inside full statement-type closures.",
-      "metrics": {
-        "loc": "238 L pure Python stdlib",
-        "norm_tokens": "51,692 top-level records (incl. 46 opaque)",
-        "chars": "46.88 MB .zst → 350,862,311 B unpacked",
-        "warnings": "0 unsafe · 0 missing constants",
-        "cone": "5/5 Main.lean headline theorems audited",
-        "equivalence": "SHA-256 bd484ac9…b2b9 bit-for-bit match",
-        "axioms": "{Classical.choice, Quot.sound, propext} only (0 sorryAx in statement closures)"
-      },
-      "receipt": "Verified live on MIT challenge.ndjson.zst (6,495,712 NDJSON lines): riemannHypothesis & riemannZeta_eq_zero_re (32 direct / 4,889 def / 52,527 full), LFunction_ne_zero_of_half_lt_re (34 / 5,126 / 52,889), LFunction_eq_zero_re (29 / 5,119 / 52,869), LFunction_eq_zero_re_of_isPrimitive (30 / 5,236 / 52,992).",
-      "url": "https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/scripts/audit_ndjson_statement.py",
-      "diff": "# Run without Lean or third-party packages:\n$ python scripts/audit_ndjson_statement.py \\\n    --expected-sha256 bd484ac9886a96f26b1d9a7a59ebd45b7a70d102c015d4f31f9302bbdd6ab2b9 \\\n    challenge.ndjson.zst\n\nFile:    challenge.ndjson.zst (350,862,311 unpacked bytes, 6,495,712 lines)\nSHA-256: bd484ac9886a96f26b1d9a7a59ebd45b7a70d102c015d4f31f9302bbdd6ab2b9\nDecls:   51,692 top-level records {'axiom': 4, 'def': 10238, 'opaque': 46, 'thm': 40431, 'inductive': 969, 'quot': 4} | unsafe=0\nAxioms:  ['Classical.choice', 'Quot.sound', 'propext', 'sorryAx']\n\n=== riemannHypothesis (thm) ===\n  Raw kernel type: RiemannHypothesis\n  Direct constants (32): ... riemannZeta, Complex.re, ...\n  Statement def-closure:  4,889 decls | axioms=['Classical.choice', 'Quot.sound', 'propext']\n  Statement full-closure: 52,527 decls | axioms=['Classical.choice', 'Quot.sound', 'propext'] | missing=0\n[PASS] Audited 5 target(s) in challenge mode (unsafe=0).",
-      "bucket": "portability"
     }
   ],
   "actionable_targets": [
@@ -507,7 +402,7 @@
       "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/CovariantDegrees.lean",
       "scale": "6,170 L · 15,334 '@' tokens",
       "est_saving": "−85% to −95% LoC & norm tokens",
-      "why": "Largest untouched kernel-active pp.explicit dump still on upstream main; directly follows the verified PR #60 / #65 pattern."
+      "why": "Largest kernel-active pp.explicit dump on the Alpöge lineage in the v0.2.1 export; same pattern as PR #60 / #65."
     },
     {
       "id": "t2",
@@ -537,7 +432,7 @@
       "path": "src/Development/AutomorphicArithmetic/IntegralCasts/CapelliIdentities/",
       "scale": "7,327 L combined · 7,169 '@' tokens",
       "est_saving": "−80% to −95% LoC & norm tokens",
-      "why": "Twin explicit-typeclass modules (incl. near-identical Re3/Re4 transfer copies) — prime candidate for parameterized helper consolidation."
+      "why": "Twin explicit-typeclass modules (incl. near-identical Re3/Re4 transfer copies)."
     },
     {
       "id": "t5",
@@ -547,17 +442,7 @@
       "path": "src/Formalism/HermitianCurvature/HermitianCurvatureProofs/IsAdmissibleSplittingCharPairMulTwist.lean",
       "scale": "11,902 active decl lines (12,512 total)",
       "est_saving": "Modularity + dead-decl trim (97 unused decls inside file)",
-      "why": "Largest single kernel-active file outside CapelliIdentities; splitting and deduplicating its 1,269 active lemmas improves parallel build time."
-    },
-    {
-      "id": "t6",
-      "bucket": "portability",
-      "in_cone": "Active cone",
-      "target": "Remaining 2,934 backward.* Directives (0 useBackward after #224)",
-      "path": "Repository-wide on main@51d9b1a28 (#71 merged in #115; #224 clears final 5 useBackward)",
-      "scale": "2,934 backward.* directives (only 5 useBackward left) + 78,826 maxHeartbeats",
-      "est_saving": "Full transparency & heartbeat modernization on Lean 4.36+",
-      "why": "PR #71 landed in #115 (-66 backward.*); PR #224 drives backward.defeqAttrib.useBackward to 0 repo-wide while #134/#185 cuts maxHeartbeats 78,826 -> 2,934."
+      "why": "Largest single kernel-active file outside CapelliIdentities in the v0.2.1 export."
     },
     {
       "id": "t7",
@@ -567,7 +452,7 @@
       "path": "src/Development/ResolutionOfSingularities/",
       "scale": "499 active files · 117,323 active decl lines (22,941 exclusive dom lines)",
       "est_saving": "−30% to −40% consolidation potential",
-      "why": "Self-contained algebraic-geometry pillar with 99.0% kernel usage; external Bohrium Core 5 benchmarks already demonstrated −40.6% token compression on Lean 4.34.1."
+      "why": "Self-contained algebraic-geometry subtree with 99.0% kernel usage."
     },
     {
       "id": "t8",
@@ -587,7 +472,7 @@
       "path": "src/ReciprocityTheory/Chebotarev/",
       "scale": "45 wholly-dead files · 3,419 dead decl lines (incl. Cheb.statement_holds)",
       "est_saving": "−3,419 dead lines (only CyclotomicIrreducibleOfForallIsUnramifiedAt & EulerSum are active)",
-      "why": "Only 12 of 273 declarations enter the kernel cone; external static-only benchmarks mistakenly targeted Cheb.statement_holds (in_cone = false)."
+      "why": "Only 12 of 273 declarations enter the kernel cone."
     },
     {
       "id": "t10",
@@ -597,7 +482,7 @@
       "path": "src/Formalism/BehrendSets/",
       "scale": "14 wholly-dead files · 89 dead declarations (769 decl lines)",
       "est_saving": "−14 dead files (completely bypassed by FrobeniusOrbits.hostThickExists + ThickFrames/)",
-      "why": "Classic static-analysis trap cited by multiple external guides; 0/89 declarations reach Main.lean in the v0.2.1 kernel export."
+      "why": "0/89 declarations reach Main.lean in the v0.2.1 kernel export."
     },
     {
       "id": "t11",
@@ -606,18 +491,18 @@
       "target": "LamCopy.lean (32 L → 5.5M Kernel Expr Nodes)",
       "path": "Discovered via tanclary/riemann-blueprint lean4export kernel analysis",
       "scale": "32 source lines expanding into 5,500,000 kernel expression nodes",
-      "est_saving": "Massive kernel export & checker memory reduction",
+      "est_saving": "Kernel export & checker memory",
       "why": "Extreme kernel-term amplification hidden inside a tiny source file; illustrates why source LoC alone misses kernel-size bottlenecks."
     },
     {
       "id": "t12",
       "bucket": "active-bloat",
-      "in_cone": "Kernel export (~241k dup thms)",
-      "target": "Prop-Level Duplicate Theorem Consolidation (~66k already in Mathlib/Core)",
-      "path": "Repository-wide (empirical floor ~105k files / 9.3M lines via con-ron dedup)",
-      "scale": "~241,000 duplicate theorems across the kernel export (~20% export size)",
-      "est_saving": "−20% kernel export size (~44k redundant files / ~5.8M lines potential)",
-      "why": "Tanner Clary's Prop-deduplicated lean4export passes con-ron --compare in ~3 min, proving huge structural deduplication headroom."
+      "in_cone": "Kernel export (241,514 dup thms)",
+      "target": "Prop-Level Duplicate Theorem Consolidation (66,548 already in Mathlib/Core)",
+      "path": "Repository-wide (105,046 files after call-site CSE, per tanclary/riemann-blueprint)",
+      "scale": "241,514 duplicate theorems in the kernel export",
+      "est_saving": "−20.5% kernel export size (as reported)",
+      "why": "Reported by Tanner Clary's Prop-deduplicated lean4export analysis (tanclary/riemann-blueprint)."
     }
   ],
   "live_main": {
@@ -1269,7 +1154,7 @@
       "base_ref": "main",
       "mergeable_state": "unknown",
       "blast_radius": "focused",
-      "title": "Merge remaining 79-file reviewed Lean 4.36 cleanup batch (incl. #54, #62, #94)",
+      "title": "Merge remaining reviewed Lean 4.36 cleanup batch (80 changed files)",
       "raw_title": "Complete the remaining reviewed Lean 4.36 cleanup",
       "changed_files": 80,
       "additions": 1393,
@@ -1332,7 +1217,7 @@
       "base_ref": "main",
       "mergeable_state": "unknown",
       "blast_radius": "focused",
-      "title": "Merge 53-file reviewed Lean 4.36 cleanup batch (incl. #70, #71, #74-#76, #80-#82, #90, #92)",
+      "title": "Merge reviewed Lean 4.36 cleanup batch (54 changed files; incl. #71 as da6765973f)",
       "raw_title": "Land the first reviewed Lean 4.36 cleanup batch",
       "changed_files": 54,
       "additions": 1064,
@@ -1472,9 +1357,9 @@
   "community_milestones": [
     {
       "title": "Lean 4.36 Merges (#66, #115, #150) → Lean 4.37.0-rc1 (#185)",
-      "badge": "Active",
+      "badge": "Merged",
       "badge_cls": "badge-exact",
-      "detail": "#115 (merging #71 as da6765973f, -66 backward.*) and #150 landed 132 reviewed Lean 4.36 files (15,168,601 L, -12.7%). @kim-em's #185 now integrates #134 (-21.9% CPU, heartbeats 78.8k->2.9k) on Lean 4.37.0-rc1.",
+      "detail": "#115 (including #71 as co-authored commit da6765973f, -66 backward.*) and #150 merged 54 + 80 changed files of reviewed Lean 4.36 cleanup. @kim-em's #185 (Lean 4.37.0-rc1) merged on 2026-11-23 together with #134 (-21.9% compile CPU on a 2,167-module sample, heartbeats 78.8k->2.9k). Alpöge lineage, now branch alpoge.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/185",
       "link_label": "Inspect PR #185 →"
     },
@@ -1488,9 +1373,9 @@
     },
     {
       "title": "Kernel Prop Dedup Floor & LamCopy.lean",
-      "badge": "Exact",
+      "badge": "Reported",
       "badge_cls": "badge-reading",
-      "detail": "Kernel-level Prop deduplication (tanclary/riemann-blueprint) found ~241k duplicate theorems (~66k in Mathlib/Core; ~105k files / 9.3M lines floor) and LamCopy.lean (32 L → 5.5M kernel expr nodes).",
+      "detail": "Kernel-level Prop deduplication (tanclary/riemann-blueprint) reports 241,514 duplicate theorems (66,548 already in Mathlib/Core), 105,046 files after call-site CSE, and LamCopy.lean (32 L → 5.5M kernel expr nodes).",
       "url": "https://github.com/tanclary/riemann-blueprint",
       "link_label": "Explore riemann-blueprint →"
     }
@@ -1507,19 +1392,19 @@
         "initials": "KM",
         "tier": "maintainer",
         "github_role": "COLLABORATOR",
-        "role": "Lean FRO · Distributed CI & Merge Queue",
-        "headline": "Coordinates AWS and donated-runner sharded CI and lands the linear merge queue (#115, #150, #185).",
+        "role": "Lean FRO · CI & Merge Queue",
+        "headline": "Runs the AWS and donated-runner sharded CI (#101), merged the reviewed 4.36 cleanup batches (#115, #150) and the Lean 4.37.0-rc1 bump (#185), and based main on the shorter proof on 2026-11-25.",
         "milestone_tag": "CI & Merge Queue",
         "impact": {
-          "build_perf": "Sharded CI & Lean 4.37.0-rc1 merge queue (#185, #115, #150)",
-          "compute_infra": "Lean FRO AWS build cluster & donor-runner shard coordination (#101)",
-          "footprint_debt": "Landed 53-file (#115) & 79-file (#150) reviewed cleanup batches",
-          "ops_review": "Primary merge-queue operator (live merge count from GitHub events)"
+          "build_perf": "Sharded CI (#101) and the Lean 4.37.0-rc1 bump (#185, merged 2026-11-23)",
+          "compute_infra": "Lean FRO AWS build machines & donor-runner shard coordination (#101)",
+          "footprint_debt": "Merged reviewed cleanup batches #115 (54 changed files) & #150 (80 changed files)",
+          "ops_review": "Merges PRs and batch PRs on main"
         },
-        "bio": "Research software engineer at the Lean FRO and Mathlib maintainer. On leanprover-community/riemann-hypothesis, he runs the sharded AWS and donor-runner CI builds (#101), lands reviewed cleanup batches (#115, #150), and coordinates the merge queue through the Lean 4.37.0-rc1 upgrade (#185).",
-        "merged_direct": 21,
+        "bio": "Research software engineer at the Lean FRO and Mathlib maintainer. On leanprover-community/riemann-hypothesis, Kim runs the sharded AWS and donor-runner CI builds (#101), merged the reviewed cleanup batches (#115, #150) and the Lean 4.37.0-rc1 upgrade (#185, 2026-11-23), and on 2026-11-25 moved the Alpöge-lineage cleanup to branch `alpoge` and based `main` on the readable edition of lsernau/grh-lean.",
+        "merged_direct": 111,
         "merged_batch_extra": 0,
-        "merged_total": 21,
+        "merged_total": 111,
         "merged_prs": [
           6291,
           6281,
@@ -1560,18 +1445,18 @@
         "tier": "maintainer",
         "github_role": "COLLABORATOR",
         "role": "Repo Triage, Batch Queue Automation & Comparator",
-        "headline": "Built batch-queue triage automation (#226, #233), formal-conjectures Comparator setup (#88), and README specs.",
+        "headline": "Added the `batch queue` label and batch-assembly workflows (#226, #233) and the formal-conjectures Comparator setup (#88).",
         "milestone_tag": "Batch Queue & Triage",
         "impact": {
-          "build_perf": "Automated batch-queue assembly (#226, #233) to cut redundant CI runs",
-          "compute_infra": "DeepMind formal-conjectures Comparator verification setup (#88)",
+          "build_perf": "Batch-queue label (#226) and batch-assembly workflow (#233)",
+          "compute_infra": "DeepMind formal-conjectures Comparator setup (#88)",
           "footprint_debt": "",
-          "ops_review": "High-volume PR triage, labeling & merges (live counts from GitHub events)"
+          "ops_review": "PR triage, labeling & merges"
         },
         "bio": "Repository collaborator handling PR review, triage, and verification tooling. Authored the DeepMind formal-conjectures Comparator setup (#88) and the `batch queue` label and batch-assembly workflows (#226, #233).",
-        "merged_direct": 14,
+        "merged_direct": 824,
         "merged_batch_extra": 0,
-        "merged_total": 14,
+        "merged_total": 824,
         "merged_prs": [
           5956,
           5903,
@@ -1612,22 +1497,27 @@
         "tier": "maintainer",
         "github_role": "COLLABORATOR",
         "role": "PR Labeling, Repo Values & Tech-Debt Tracking",
-        "headline": "Added PR area/size auto-labeling (#154, #191), repo values (#184), and technical-debt tracking issue (#229).",
+        "headline": "Added PR area/size auto-labeling (#154, #191) and repo values (#184), and opened technical-debt tracking issue #229.",
         "milestone_tag": "Labels & #229",
         "impact": {
           "build_perf": "",
-          "compute_infra": "Collaborator oversight on frozen original archive mirror",
-          "footprint_debt": "Authored repo-wide technical-debt tracking specification (#229)",
-          "ops_review": "PR area/size auto-labeling (#154, #191), repo values (#184) & triage"
+          "compute_infra": "",
+          "footprint_debt": "Opened technical-debt tracking issue #229",
+          "ops_review": "PR area/size auto-labeling (#154, #191) & repo values (#184)"
         },
-        "bio": "Repository collaborator working on PR labeling automation (#154, #191), repository values documentation (#184), technical-debt tracking (#229), and collaborator oversight on the frozen original archive (`riemann-hypothesis-original`).",
-        "merged_direct": 3,
+        "bio": "Repository collaborator working on PR labeling automation (#154, #191), repository values documentation (#184), and technical-debt tracking (issue #229).",
+        "merged_direct": 17,
         "merged_batch_extra": 0,
-        "merged_total": 3,
+        "merged_total": 17,
         "merged_prs": [
           6134,
           6073,
-          5802
+          5802,
+          5620,
+          5618,
+          5617,
+          5616,
+          5615
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -1657,21 +1547,30 @@
         "name": "Hang Lu Su",
         "initials": "HS",
         "tier": "maintainer",
-        "github_role": "CONTRIBUTOR",
+        "github_role": "COLLABORATOR",
         "role": "Cache Client Tooling & Original Proof Mirror",
         "headline": "Landed cache-client and documentation PRs (#202, #146) and maintains the frozen riemann-hypothesis-original mirror.",
         "milestone_tag": "Cache & Archive",
         "impact": {
-          "build_perf": "Prebuilt .olean cache & cache-client fixes (#202) cut contributor setup time",
+          "build_perf": "Cache client: remove Lake's saved hashes before unpacking (#202)",
           "compute_infra": "Hosts frozen riemann-hypothesis-original mirror with prebuilt Lean 4.33.1 cache",
           "footprint_debt": "",
-          "ops_review": "Documentation & onboarding cache maintenance (#146, #202)"
+          "ops_review": "Documentation (#146) & cache-client fix (#202)"
         },
-        "bio": "Maintains cache-client fixes (macOS/Python compatibility, Lake hash handling in #202 and README cleanup in #146) and hosts the frozen `riemann-hypothesis-original` mirror with prebuilt Lean 4.33.1 cache.",
-        "merged_direct": 0,
+        "bio": "Authored the cache-client fix #202 (remove Lake's saved hashes before unpacking) and documentation PR #146, and hosts the frozen `riemann-hypothesis-original` mirror with a prebuilt Lean 4.33.1 cache.",
+        "merged_direct": 9,
         "merged_batch_extra": 0,
-        "merged_total": 0,
-        "merged_prs": [],
+        "merged_total": 9,
+        "merged_prs": [
+          706,
+          434,
+          202,
+          146,
+          123,
+          93,
+          53,
+          51
+        ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
         "batch_queue_prs": [],
@@ -1698,19 +1597,22 @@
         "tier": "major_porting",
         "github_role": "COLLABORATOR",
         "role": "Lean v4.36.0 Baseline Port & Build Performance",
-        "headline": "Executed the v4.36.0 + module-system port (#66, -15,068 files) and -21.9% CPU speedup (#79/#98/#104 -> #134 -> #185).",
+        "headline": "Authored the v4.36.0 + module-system port (#66, -15,068 files) and the -21.9% compile-CPU series (#79/#98/#104 -> #134, merged with #185 on 2026-11-23).",
         "milestone_tag": "v4.36 #66 · -21.9% CPU",
         "impact": {
-          "build_perf": "239.7 -> 187.2 core-h (-21.9% CPU); critical path 51.2 -> 26.1 min (-49%); 96-core build 2.67 -> 1.99 h (#134/#185)",
-          "compute_infra": "Migrated 175k-file repo to Lean v4.36.0 + module system (#66) & custom build driver",
+          "build_perf": "239.7 -> 187.2 core-h (-21.9% compile CPU, measured on a 2,167-module sample); critical path 51.2 -> 26.1 min and 96-core build 2.67 -> 1.99 h are the PR's own estimates (#134)",
+          "compute_infra": "Ported the repository to Lean & Mathlib v4.36.0 + module system (#66)",
           "footprint_debt": "Full-Mathlib imports 115,573 -> 155 (-99.9%) & public imports 840.9k -> 536.1k (#98); maxHeartbeats 78.8k -> 2.9k (#79); -15,068 dead files (#66)",
-          "ops_review": "Repository collaborator on toolchain & build-performance roadmap"
+          "ops_review": ""
         },
-        "bio": "Repository collaborator who ported the 175k-file repository to Lean & Mathlib v4.36.0 with module-system support (#66, pruning 15,068 dead files) and authored the stacked build-performance PRs (#79 heartbeat removal, #98 import reduction, #104 slow proofs -> #134, -21.9% CPU), now folded into Lean 4.37.0-rc1 PR #185.",
-        "merged_direct": 0,
+        "bio": "Repository collaborator who ported the repository to Lean & Mathlib v4.36.0 with module-system support (#66, deleting 15,068 files unreachable from Main) and authored the stacked build-performance PRs (#79 heartbeat removal, #98 import reduction, #104 slow proofs -> #134; -21.9% compile CPU on a 2,167-module sample), merged on 2026-11-23 alongside the Lean 4.37.0-rc1 PR #185.",
+        "merged_direct": 2,
         "merged_batch_extra": 0,
-        "merged_total": 0,
-        "merged_prs": [],
+        "merged_total": 2,
+        "merged_prs": [
+          134,
+          66
+        ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
         "batch_queue_prs": [],
@@ -1740,20 +1642,23 @@
         "initials": "JS",
         "tier": "major_porting",
         "github_role": "CONTRIBUTOR",
-        "role": "Linter Cleanup, Theorem Deduplication & CI Runner",
-        "headline": "Ported unused-syntax linter cleanup (#67 -> #243, -42% warnings on 4.37), ~17k deduplication, and lent a multi-core CI runner.",
-        "milestone_tag": "#243 Linter · CI Runner",
+        "role": "Linter Cleanup, Theorem Deduplication & CI Machine",
+        "headline": "Authored the unused-syntax linter cleanup (#67 -> #243) and the duplicate theorem/definition removal (#295), both merged 2026-11-24, and lent a build machine for CI.",
+        "milestone_tag": "#243 · #295",
         "impact": {
-          "build_perf": "-42% unused-syntax warnings on Lean 4.37 (#67 -> #243)",
-          "compute_infra": "Donated dedicated multi-core CI build server (384 GiB+ RAM) for CI sharding",
-          "footprint_debt": "Mechanical ~17,000 theorem/definition deduplication in progress",
+          "build_perf": "Unused-syntax linter cleanup #67 -> #243 (author reports -94% unused-linter warnings; merged 2026-11-24)",
+          "compute_infra": "Lent a build machine for CI (announced on Lean Zulip, 2026-11-22)",
+          "footprint_debt": "Duplicate theorem/definition removal merged as #295 (2026-11-24; 9,332 files)",
           "ops_review": ""
         },
-        "bio": "Contributor donating a large multi-core build machine (384 GiB+ RAM) for CI sharding, porting unused-syntax linter cleanup (#67 -> #243, removing 42% of unused-syntax warnings on Lean 4.37), and preparing a mechanical ~17,000 theorem/definition deduplication PR.",
-        "merged_direct": 0,
+        "bio": "Authored the unused-syntax linter cleanup (#67, ported onto Lean 4.37 as #243; the author reports 94% fewer unused-linter warnings) and the duplicate theorem/definition removal #295, both merged on 2026-11-24, and lent a build machine for CI.",
+        "merged_direct": 2,
         "merged_batch_extra": 0,
-        "merged_total": 0,
-        "merged_prs": [],
+        "merged_total": 2,
+        "merged_prs": [
+          295,
+          243
+        ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
         "batch_queue_prs": [],
@@ -1767,8 +1672,8 @@
             "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/243"
           },
           {
-            "label": "Original Linter PR #67",
-            "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/67"
+            "label": "Deduplication #295",
+            "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/295"
           }
         ]
       },
@@ -1780,19 +1685,28 @@
         "tier": "major_porting",
         "github_role": "CONTRIBUTOR",
         "role": "Stacked Cleanup Consolidation (#221)",
-        "headline": "Consolidated 10+ redundant-proof PRs (3,076 files) into #221, queued behind #185.",
-        "milestone_tag": "Queue #2 (#221)",
+        "headline": "Consolidated overlapping redundant-proof PRs into #221 (3,369 files, merged 2026-11-23).",
+        "milestone_tag": "#221 merged",
         "impact": {
-          "build_perf": "Batched 10+ overlapping cleanup PRs into 1 merge-queue run (#221)",
+          "build_perf": "Combined overlapping cleanup PRs into one PR (#221)",
           "compute_infra": "",
-          "footprint_debt": "3,076 files consolidated & deduplicated on top of #185",
-          "ops_review": "Cross-PR consolidation & rebase coordination"
+          "footprint_debt": "#221: 3,369 files, +8,063/-229,221 lines (merged 2026-11-23)",
+          "ops_review": ""
         },
-        "bio": "Consolidated ten overlapping redundant-proof and Mathlib-reuse PRs proposed by Martin Hanzlowsky into a single 3,076-file PR (#221) targeting #185, queued next after #185.",
-        "merged_direct": 0,
+        "bio": "Consolidated overlapping redundant-proof and Mathlib-reuse PRs into the single PR #221 (\"Replace redundant proofs with Mathlib or internal reuse\", 3,369 files), merged on 2026-11-23.",
+        "merged_direct": 16,
         "merged_batch_extra": 0,
-        "merged_total": 0,
-        "merged_prs": [],
+        "merged_total": 16,
+        "merged_prs": [
+          2749,
+          2747,
+          2737,
+          2661,
+          2660,
+          2659,
+          2658,
+          2657
+        ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
         "batch_queue_prs": [],
@@ -1814,20 +1728,29 @@
         "initials": "MW",
         "tier": "major_porting",
         "github_role": "CONTRIBUTOR",
-        "role": "Independent Local Build & .olean Verification",
-        "headline": "Runs independent local v4.36 builds and .olean declaration-identity checks on contributor PRs (85/85 on #109).",
+        "role": "Local Build & .olean Checks",
+        "headline": "Ran local v4.36 builds and .olean declaration-identity checks on contributor PRs (#109: 85/85 downstream modules compile, 83/85 declaration-identical).",
         "milestone_tag": "Local .olean Audits",
         "impact": {
           "build_perf": "",
-          "compute_infra": "Independent local v4.36 build hardware & .olean cache verification",
+          "compute_infra": "",
           "footprint_debt": "",
-          "ops_review": "Declaration-identity audits on open PRs (85/85 downstream modules on #109)"
+          "ops_review": "Declaration-identity check on #109: 85/85 downstream modules compile, 83/85 declaration-identical"
         },
-        "bio": "Runs local Lean v4.36 builds and `.olean` declaration-identity comparisons against published caches for open contributor PRs (such as checking 85/85 downstream modules on #109).",
-        "merged_direct": 0,
+        "bio": "Ran local Lean v4.36 builds and `.olean` declaration-identity comparisons against published caches for contributor PRs (on #109: 85/85 downstream modules compile, 83 with declarations identical to the published .oleans).",
+        "merged_direct": 48,
         "merged_batch_extra": 0,
-        "merged_total": 0,
-        "merged_prs": [],
+        "merged_total": 48,
+        "merged_prs": [
+          4252,
+          4249,
+          4244,
+          4240,
+          4237,
+          4231,
+          4227,
+          3889
+        ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
         "batch_queue_prs": [],
@@ -1849,20 +1772,22 @@
         "initials": "RA",
         "tier": "major_porting",
         "github_role": "CONTRIBUTOR",
-        "role": "Dead-Tree Pruning & Module Coalescing",
-        "headline": "Merged dead-module prune #45 (-10,718 files) and explored module coalescing in #120.",
+        "role": "Dead-Tree Pruning & Replay Coordination",
+        "headline": "Merged dead-module prune #45 (-10,718 files) and proposed module consolidation in #120 (closed unmerged).",
         "milestone_tag": "#45 (-10.7k files)",
         "impact": {
-          "build_perf": "Module bundling & wrapper collapse targeting Lake graph overhead (#120: 47,881 modules, -67.9% files)",
-          "compute_infra": "Organized 104-volunteer independent replay of all 175,187 modules (rohanarun/alpoge-rh-replay)",
-          "footprint_debt": "-10,718 unreachable dead files deleted in merged PR #45; -67.9% file count in #120",
-          "ops_review": "Maintains crowd-replay tracker & PR120-BUGS.md bug-claim workflow"
+          "build_perf": "",
+          "compute_infra": "Organized a 104-volunteer replay: 109,719 of 175,187 modules with recorded evidence, now closed (rohanarun/alpoge-rh-replay)",
+          "footprint_debt": "-10,718 unreachable dead files deleted in merged PR #45; #120 proposed -101,512 files (closed unmerged)",
+          "ops_review": ""
         },
-        "bio": "Authored merged dead-module pruning PR #45 (-10,718 unreachable files), organized the 104-volunteer independent replay of Alpoge's 175,187-module release (`rohanarun/alpoge-rh-replay`), and leads the #120 module-consolidation effort (47,881 modules, -67.9% files vs. `main`).",
-        "merged_direct": 0,
+        "bio": "Authored merged dead-module pruning PR #45 (-10,718 unreachable files), organized a 104-volunteer replay of Alpöge's 175,187-module release (`rohanarun/alpoge-rh-replay`; 109,719 modules with recorded evidence, now closed), and proposed module consolidation in #120 (93,601 modules -> 20,258 bundles; closed unmerged — the consolidation that merged is #324).",
+        "merged_direct": 1,
         "merged_batch_extra": 0,
-        "merged_total": 0,
-        "merged_prs": [],
+        "merged_total": 1,
+        "merged_prs": [
+          45
+        ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
         "batch_queue_prs": [],
@@ -1880,7 +1805,7 @@
             "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/45"
           },
           {
-            "label": "Module Coalescing PR #120",
+            "label": "Module Consolidation PR #120 (closed)",
             "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/120"
           }
         ]
@@ -1892,23 +1817,28 @@
         "initials": "CJ",
         "tier": "contributor",
         "github_role": "CONTRIBUTOR",
-        "role": "Algebra & Representation Proof Deduplication",
-        "headline": "Deduplicates Schur/Jacobson density and module proofs (#192, #197, #210, #215, #216).",
+        "role": "Proof-Reuse Refactors",
+        "headline": "Proof-reuse refactors (#192, #197, #210, #215, #216); 88 merged PRs as of 2026-11-26.",
         "milestone_tag": "",
         "impact": {
           "build_perf": "",
           "compute_infra": "",
-          "footprint_debt": "Deduplicates Schur/Jacobson density & module proofs (#192, #197, #210, #215, #216)",
+          "footprint_debt": "Proof-reuse refactors (#192, #197, #210, #215, #216); 88 merged PRs as of 2026-11-26",
           "ops_review": ""
         },
-        "bio": "Consolidates duplicated algebra and representation-theory proofs across focused PRs queued in `batch queue`.",
-        "merged_direct": 3,
+        "bio": "Submitted proof-reuse refactors (#192 Yangian block-diagonal, #197 Fubini–Study integral, #210 polynomial eigenvector, #215 saturated submodules, #216 Schur/Jacobson density); 88 merged PRs as of 2026-11-26.",
+        "merged_direct": 88,
         "merged_batch_extra": 0,
-        "merged_total": 3,
+        "merged_total": 88,
         "merged_prs": [
           5790,
           5785,
-          5767
+          5767,
+          2898,
+          2897,
+          2896,
+          2895,
+          2894
         ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
@@ -1919,8 +1849,8 @@
             "url": "https://github.com/CubeJerry"
           },
           {
-            "label": "Batch-Queued PRs",
-            "url": "https://github.com/leanprover-community/riemann-hypothesis/pulls?q=is%3Apr+author%3ACubeJerry+label%3A%22batch+queue%22"
+            "label": "PRs in RH",
+            "url": "https://github.com/leanprover-community/riemann-hypothesis/pulls?q=is%3Apr+author%3ACubeJerry"
           }
         ]
       },
@@ -1931,20 +1861,22 @@
         "initials": "AL",
         "tier": "contributor",
         "github_role": "CONTRIBUTOR",
-        "role": "Tactic & Elaboration Speedups",
-        "headline": "Targeted nlinarith -> linarith and typeclass speedup PRs in batch queue.",
+        "role": "Proof Reuse & Tactic Speedups",
+        "headline": "Merged #213 (reuse of quantitative bounds in the far-amplitude proof); proposed nlinarith-replacement PRs (#219, closed).",
         "milestone_tag": "",
         "impact": {
-          "build_perf": "Replaces slow nlinarith & typeclass elaborations (IsScalarTower, HasBasisAway.map)",
+          "build_perf": "",
           "compute_infra": "",
-          "footprint_debt": "Focused single-module elaboration speedups accepted into batch queue",
+          "footprint_debt": "Merged #213 (far-amplitude proof reuse)",
           "ops_review": ""
         },
-        "bio": "Replaces slow `nlinarith` calls and typeclass elaborations (`IsScalarTower`, `HasBasisAway.map`) with bounded alternatives across single-module PRs accepted into `batch queue`.",
-        "merged_direct": 0,
+        "bio": "Authored #213 \"Reuse quantitative bounds in the far-amplitude proof\" (merged via batch #591) and proposed `nlinarith`-replacement PRs (#219, closed).",
+        "merged_direct": 1,
         "merged_batch_extra": 0,
-        "merged_total": 0,
-        "merged_prs": [],
+        "merged_total": 1,
+        "merged_prs": [
+          213
+        ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
         "batch_queue_prs": [],
@@ -1954,8 +1886,8 @@
             "url": "https://github.com/alectionary"
           },
           {
-            "label": "Batch-Queued PRs",
-            "url": "https://github.com/leanprover-community/riemann-hypothesis/pulls?q=is%3Apr+author%3Aalectionary+label%3A%22batch+queue%22"
+            "label": "PRs in RH",
+            "url": "https://github.com/leanprover-community/riemann-hypothesis/pulls?q=is%3Apr+author%3Aalectionary"
           }
         ]
       },
@@ -1966,20 +1898,23 @@
         "initials": "HP",
         "tier": "contributor",
         "github_role": "CONTRIBUTOR",
-        "role": "Mathlib Lemma Alignment",
-        "headline": "Replaces verbose generated proofs with standard Mathlib lemmas (#114, #135, #149, #152, #155, #160).",
+        "role": "Small Proof Refactors",
+        "headline": "Small proof refactors (#135, #149, #152, #155, #160; #170 and #175 merged).",
         "milestone_tag": "",
         "impact": {
           "build_perf": "",
           "compute_infra": "",
-          "footprint_debt": "Replaces verbose generated proofs with Mathlib lemmas (#114, #135, #149, #152, #155, #160)",
+          "footprint_debt": "Small proof refactors (#135, #149, #152, #155, #160; #170 and #175 merged)",
           "ops_review": ""
         },
-        "bio": "Replaces generated proof boilerplate with existing Mathlib lemmas across focused single-module PRs accepted into `batch queue`.",
-        "merged_direct": 0,
+        "bio": "Submitted focused single-module proof refactors (#135, #149, #152, #155, #160); #170 and #175 are merged under this login and #135 landed via batch #539.",
+        "merged_direct": 2,
         "merged_batch_extra": 0,
-        "merged_total": 0,
-        "merged_prs": [],
+        "merged_total": 2,
+        "merged_prs": [
+          175,
+          170
+        ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
         "batch_queue_prs": [],
@@ -1989,8 +1924,8 @@
             "url": "https://github.com/hughperkins"
           },
           {
-            "label": "Batch-Queued PRs",
-            "url": "https://github.com/leanprover-community/riemann-hypothesis/pulls?q=is%3Apr+author%3Ahughperkins+label%3A%22batch+queue%22"
+            "label": "PRs in RH",
+            "url": "https://github.com/leanprover-community/riemann-hypothesis/pulls?q=is%3Apr+author%3Ahughperkins"
           }
         ]
       },
@@ -2001,22 +1936,28 @@
         "initials": "JN",
         "tier": "contributor",
         "github_role": "CONTRIBUTOR",
-        "role": "Active-Cone Proof & backward.* Option Cleanup",
-        "headline": "Explicit-dump and backward.* option cleanup (#60, #65, #71 in #115; #109, #110, #224 in batch queue).",
+        "role": "Explicit-Dump & backward.* Option Cleanup (Alpöge lineage)",
+        "headline": "Explicit-dump and backward.* cleanup on the Alpöge lineage: #60, #65 merged; #71 landed as a co-authored commit in #115; #109, #110, #224 closed and landed via batch #539.",
         "milestone_tag": "",
         "impact": {
-          "build_perf": "105 -> 0 warnings (#65); removes legacy backward.* compat flags (#71 in #115, #224)",
+          "build_perf": "105 -> 0 warnings in 4 CapelliIdentities files (#65)",
           "compute_infra": "",
-          "footprint_debt": "-99.5% norm tokens in FixPiIff (#60); -180 files / -9,730 L (#109); 33 -> 0 backward.* (#224)",
+          "footprint_debt": "8,029 -> 45 lines in FixPiIff.lean (#60); backward.defeqAttrib.useBackward 33 -> 0 (#71 + #224)",
           "ops_review": ""
         },
-        "bio": "Submitted explicit-dump and `backward.*` option cleanup PRs (#60, #65, #71 landed in #115; #109, #110, #224 in `batch queue`).",
-        "merged_direct": 0,
-        "merged_batch_extra": 1,
-        "merged_total": 1,
-        "merged_prs": [],
+        "bio": "Tracker author. Submitted explicit-dump and `backward.*` option cleanup PRs on the Alpöge lineage (now branch `alpoge`): #60 and #65 merged; #71 was closed and adapted by Jack McCarthy as co-authored commit da67659 in #115; #109, #110 and #224 were closed and landed via batch #539.",
+        "merged_direct": 2,
+        "merged_batch_extra": 4,
+        "merged_total": 6,
+        "merged_prs": [
+          65,
+          60
+        ],
         "batch_landed_prs": [
-          71
+          71,
+          109,
+          110,
+          224
         ],
         "batch_queue_count": 0,
         "batch_queue_prs": [],
@@ -2043,19 +1984,28 @@
         "tier": "contributor",
         "github_role": "CONTRIBUTOR",
         "role": "Proof Simplification & Cleanup",
-        "headline": "Proof cleanup PRs in batch queue (#119, #127, #220, #232).",
+        "headline": "Proof-reuse and explicit-dump cleanup PRs (#119, #127, #220, #232 closed; 8 merged, e.g. #466, #2531).",
         "milestone_tag": "",
         "impact": {
           "build_perf": "",
           "compute_infra": "",
-          "footprint_debt": "Proof cleanup PRs in batch queue (#119, #127, #220, #232), consolidated in #221",
+          "footprint_debt": "Proof-reuse and explicit-dump cleanup PRs (#119, #127, #220, #232 closed; 8 merged, e.g. #466, #2531)",
           "ops_review": ""
         },
-        "bio": "Submitted proof-simplification PRs accepted into `batch queue` and consolidated in #221.",
-        "merged_direct": 0,
+        "bio": "Submitted proof-simplification PRs (#119, #127, #220, #232, closed) and has 8 merged PRs as of 2026-11-26 (e.g. #466, #2531).",
+        "merged_direct": 8,
         "merged_batch_extra": 0,
-        "merged_total": 0,
-        "merged_prs": [],
+        "merged_total": 8,
+        "merged_prs": [
+          2531,
+          1115,
+          1082,
+          1011,
+          1001,
+          916,
+          861,
+          466
+        ],
         "batch_landed_prs": [],
         "batch_queue_count": 0,
         "batch_queue_prs": [],
@@ -2065,8 +2015,8 @@
             "url": "https://github.com/Visio-Vanitas"
           },
           {
-            "label": "Batch-Queued PRs",
-            "url": "https://github.com/leanprover-community/riemann-hypothesis/pulls?q=is%3Apr+author%3AVisio-Vanitas+label%3A%22batch+queue%22"
+            "label": "PRs in RH",
+            "url": "https://github.com/leanprover-community/riemann-hypothesis/pulls?q=is%3Apr+author%3AVisio-Vanitas"
           }
         ]
       }
@@ -2078,8 +2028,8 @@
       "name": "Leonardo de Moura & Sebastian Ullrich",
       "org": "Lean FRO · leanprover/lean4",
       "pillar": "Lean 4 Core",
-      "contribution": "Created Lean 4, its kernel, elaborator, module system, and the v4.36 / v4.37-rc1 compiler speedups that make million-line verification possible.",
-      "bio": "Co-founders of the Lean Focused Research Organization (Lean FRO) and chief architects of the Lean 4 theorem prover and programming language. Their work on the Lean 4 kernel, elaborator, module system, and recent v4.36/v4.37-rc1 performance improvements underpins both Mathlib and the formal verification of Alpoge's 17M-line RH/GRH proof.",
+      "contribution": "Created Lean 4, its kernel, elaborator and module system.",
+      "bio": "Co-founders of the Lean Focused Research Organization (Lean FRO) and chief architects of the Lean 4 theorem prover and programming language, on which Mathlib and both RH/GRH formalizations are built.",
       "url": "https://github.com/leanprover/lean4",
       "link_label": "leanprover/lean4",
       "links": [
@@ -2099,11 +2049,11 @@
     },
     {
       "slug": "mathlib-initiative",
-      "name": "Kim Morrison & The Mathlib Initiative",
-      "org": "@kim-em · leanprover-community",
+      "name": "Mathlib maintainers & the Mathlib Initiative",
+      "org": "leanprover-community/mathlib4",
       "pillar": "Mathlib & Infra",
-      "contribution": "Stewarded Mathlib's library, tooling, and community infrastructure for years — and now runs RH's live distributed CI and merge queue.",
-      "bio": "The Mathlib Initiative and long-standing leanprover-community maintainers built the unified mathematical library that defines `riemannZeta`, `RiemannHypothesis`, Dirichlet characters, and L-functions. Without Mathlib's vetted definitions, caching infrastructure, and reviewer culture, neither statement auditing nor community-scale cleanup would be possible.",
+      "contribution": "Maintain the mathematical library that defines `riemannZeta`, `RiemannHypothesis`, Dirichlet characters and L-functions.",
+      "bio": "Mathlib is the unified mathematical library whose definitions of `riemannZeta`, `RiemannHypothesis`, Dirichlet characters, and L-functions the formal statements are written against. Its prebuilt cache is the first thing `lake exe cache get` fetches in the RH repository.",
       "url": "https://github.com/leanprover-community/mathlib4",
       "link_label": "mathlib4",
       "links": [
@@ -2124,10 +2074,10 @@
     {
       "slug": "mario-carneiro",
       "name": "Mario Carneiro",
-      "org": "@digama0 · lean4lean / lean4export",
+      "org": "@digama0 · lean4lean",
       "pillar": "Kernel Soundness",
-      "contribution": "Formalized Lean 4's type theory (`lean4lean`) and built the export/checker foundations enabling independent verification outside the main compiler.",
-      "bio": "Foundational Lean and Mathlib architect whose work directly anchors why mathematicians can trust Lean's kernel. He formalized Lean's type theory and kernel specification (`lean4lean`), helped shape `lean4export` and external kernel checking, and continues to advise on modularization and memory footprint at million-line scale.",
+      "contribution": "Author of `lean4lean`, an independent Lean 4 kernel written in Lean and one of the external checkers run on the proofs.",
+      "bio": "Author of `lean4lean`, a Lean 4 kernel implemented in Lean. `lean4lean` is one of the checkers that `lake comparator --paranoid` runs, and its results are reported on Andrew Sutherland's verification pages for both proofs.",
       "url": "https://github.com/digama0/lean4lean",
       "link_label": "digama0/lean4lean",
       "links": [
@@ -2150,8 +2100,8 @@
       "name": "Kevin Buzzard & Xena Project",
       "org": "@kbuzzard · Imperial College",
       "pillar": "Community & Math",
-      "contribution": "Pioneered modern research-math formalization in Lean (LTE, FLT), onboarded a generation of mathematicians, and anchored public verification standards.",
-      "bio": "Professor of Pure Mathematics at Imperial College London and founder of the Xena Project. Through projects including the Liquid Tensor Experiment and Fermat's Last Theorem in Lean, he brought working research mathematicians into the Lean community and set public expectations for transparent, kernel-checked verification.",
+      "contribution": "Founder of the Xena Project; leads the formalization of Fermat's Last Theorem in Lean.",
+      "bio": "Professor of Pure Mathematics at Imperial College London and founder of the Xena Project; leads the ongoing formalization of Fermat's Last Theorem in Lean (ImperialCollegeLondon/FLT).",
       "url": "https://xenaproject.wordpress.com/",
       "link_label": "Xena Project",
       "links": [
@@ -2172,10 +2122,10 @@
     {
       "slug": "sebastien-gouezel",
       "name": "Sébastien Gouëzel",
-      "org": "@sgouezel · Mathlib Core",
+      "org": "@sgouezel · Mathlib",
       "pillar": "Mathlib & Perf",
-      "contribution": "Core Mathlib analysis and performance maintainer whose v4.37-rc1 23% Mathlib speedup report directly catalyzed RH's #185 toolchain bump.",
-      "bio": "CNRS research director and one of Mathlib's core maintainers in analysis, measure theory, and build performance. His benchmark showing a 23% Mathlib compilation speedup on Lean 4.37.0-rc1 directly catalyzed the RH cleanup community's decision to jump straight to v4.37.0-rc1 in PR #185.",
+      "contribution": "Mathlib maintainer; noted on Lean Zulip (2026-11-22) that Lean 4.37.0-rc1 gave Mathlib a 23% build speedup, the day before #185 moved RH to 4.37.0-rc1.",
+      "bio": "Mathlib maintainer working on analysis and measure theory. Noted on Lean Zulip on 2026-11-22 that bumping to Lean 4.37.0-rc1 gave Mathlib a 23% build speedup; PR #185 moved RH to 4.37.0-rc1 the next day.",
       "url": "https://github.com/leanprover-community/mathlib4",
       "link_label": "Mathlib4",
       "links": [
@@ -2192,16 +2142,20 @@
     {
       "slug": "andrew-sutherland",
       "name": "Andrew Sutherland, Szymon Teżewski & External Checkers",
-      "org": "MIT · con-leche / con-agua / nanoda / Gruszka / Pestka",
+      "org": "MIT · Lean kernel / nanoda / lean4lean / con-leche / con-ron",
       "pillar": "Independent Check",
-      "contribution": "Independently compiled and replayed the 61 GB export across 6+ independent kernels (`con-leche`, `con-ron`, `con-agua`, `nanoda`, `Gruszka`, `Pestka`) and published `pp.all` Lagarias/Robin statements.",
-      "bio": "Andrew Sutherland (MIT) led independent end-to-end compilation and 61.57 GB export verification (including Robin/Lagarias inequality equivalence and `pp.all` statement dumps at `math.mit.edu/~drew/grh/`), while Szymon Teżewski and external-checker authors verified the proof across independent languages and runtimes (`con-leche`, `con-ron`, `con-agua`, `nanoda`, `Gruszka`, `Pestka`, including exporter-free `.olean` checks).",
+      "contribution": "Independent build and export checks of both proofs: the original 61.57 GB export (every module replayed through the Lean kernel; full export accepted by nanoda and con-leche; lean4lean per module; `pp.all` Robin/Lagarias statements) and the shorter grh-lean proof (4.49 GB readable export).",
+      "bio": "Andrew Sutherland (MIT) independently built the original release and reproduced its 61.57 GB export byte for byte: every module replays through the Lean kernel, nanoda and con-leche accept the full export, lean4lean accepts every module, and the `--compare` modes of con-leche and con-ron confirm the five theorems. `pp.all` statement dumps and the Robin/Lagarias statements are published at `math.mit.edu/~drew/grh/`. The shorter proof (lsernau/grh-lean@72fead10) is checked at `math.mit.edu/~drew/shortgrh/`. Szymon Teżewski reported further independent kernels (con-agua, Gruszka, Pestka) on Lean Zulip.",
       "url": "https://math.mit.edu/~drew/grh/",
       "link_label": "MIT GRH Verification",
       "links": [
         {
           "label": "MIT GRH Verification Page",
           "url": "https://math.mit.edu/~drew/grh/"
+        },
+        {
+          "label": "MIT Shorter-Proof Verification Page",
+          "url": "https://math.mit.edu/~drew/shortgrh/"
         },
         {
           "label": "Validating Proofs in Lean",
@@ -2211,16 +2165,16 @@
     },
     {
       "slug": "community-moderators",
-      "name": "Johan Commelin, Eric Wieser & Lean Zulip Stewards",
-      "org": "Lean Community · Zulip & Mathlib Maintainers",
+      "name": "Johan Commelin & the Lean community",
+      "org": "Lean Community · Zulip & blog",
       "pillar": "Community Ops",
-      "contribution": "Published the official Lean community verification statement and moderated/organized high-traffic Zulip `RH:` channels so technical cleanup stayed legible.",
-      "bio": "Long-standing Mathlib maintainers and Lean Zulip stewards including Johan Commelin (who published the official Lean community verification statement) and Eric Wieser (who organized and moderated the `#general` and `RH:` cleanup/toolchain/trust discussion streams under peak global traffic).",
+      "contribution": "The Lean community statement on the proof is published on the leanprover-community blog; Johan Commelin announced it on Lean Zulip (2026-11-21).",
+      "bio": "The Lean community's statement about the formal proof is published on the leanprover-community blog. Johan Commelin announced it on Lean Zulip on 2026-11-21.",
       "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
       "link_label": "Community Statement",
       "links": [
         {
-          "label": "Official Community Statement",
+          "label": "Community Statement",
           "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/"
         },
         {
@@ -2231,20 +2185,20 @@
     },
     {
       "slug": "david-loeffler",
-      "name": "David Loeffler & Number Theory Formalizers",
+      "name": "David Loeffler",
       "org": "@loefflerd · Mathlib Number Theory",
-      "pillar": "Statement Vetting",
-      "contribution": "Maintained Mathlib's analytic number theory / L-function definitions and vetted the formal `RiemannHypothesis` and Dirichlet GRH statements.",
-      "bio": "Number theorist and Mathlib contributor whose work on Dirichlet characters, L-functions, and analytic number theory underpins the formal statements of RH and GRH. During the RH verification wave, he audited the 2-line Dirichlet GRH statement against Mathlib and guided community standards for independent verification.",
+      "pillar": "Literature Review",
+      "contribution": "Mathlib number-theory contributor; reviewed the original proof's use of unproved literature statements on Lean Zulip (rh#318).",
+      "bio": "Number theorist and Mathlib contributor (zeta and Dirichlet L-function definitions). On Lean Zulip, examined the original proof's `GlobalTheory.Published` literature statements, including ones that are stated but never instantiated (rh#318).",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
-      "link_label": "Official RH Repo",
+      "link_label": "Upstream RH Repo",
       "links": [
         {
           "label": "GitHub @loefflerd",
           "url": "https://github.com/loefflerd"
         },
         {
-          "label": "Official RH Repo",
+          "label": "Upstream RH Repo",
           "url": "https://github.com/leanprover-community/riemann-hypothesis"
         }
       ]
@@ -2254,8 +2208,8 @@
       "name": "Levent Alpöge, Christian Merten & Hang Lu Su",
       "org": "Proof Release · Blueprint · Archive",
       "pillar": "Open Preservation",
-      "contribution": "Released the formal RH/GRH proof artifact into the open, mapped it via `riemann-blueprint`, and preserved the frozen original cache (`riemann-hypothesis-original`).",
-      "bio": "Levent Alpoge publicly released the complete Lean-verified RH/GRH proof artifact so the mathematical and Lean communities could inspect and refactor it openly. Christian Merten and collaborators built `riemann-blueprint` to map its mathematical structure, while Hang Lu Su (`@homeowmorphism`) maintains the frozen original mirror with a prebuilt community cache.",
+      "contribution": "Released the formal RH/GRH proof artifact, mapped it via `riemann-blueprint`, and preserved the original release with a prebuilt cache (`riemann-hypothesis-original`).",
+      "bio": "Levent Alpöge released the Lean proof artifact (announced 2026-11-20). Christian Merten built `riemann-blueprint` (chrisflav/riemann-blueprint) to map its structure, and Hang Lu Su (`@homeowmorphism`) maintains the frozen original mirror with a prebuilt community cache.",
       "url": "https://github.com/homeowmorphism/riemann-hypothesis-original",
       "link_label": "Original Archive",
       "links": [
@@ -2264,47 +2218,63 @@
           "url": "https://github.com/homeowmorphism/riemann-hypothesis-original"
         },
         {
-          "label": "Official Cleanup Repo",
+          "label": "Upstream Repo",
           "url": "https://github.com/leanprover-community/riemann-hypothesis"
         },
         {
-          "label": "Blueprint SVG Diagrams",
-          "url": "https://scottcochran.github.io/riemann-diagrams/"
+          "label": "riemann-blueprint",
+          "url": "https://github.com/chrisflav/riemann-blueprint"
         }
       ]
     }
   ],
   "community_timeline": [
     {
+      "date": "2026-11-25",
+      "tag": "Base switch",
+      "cls": "badge-verified",
+      "title": "Upstream main switches to the readable edition of lsernau/grh-lean (803 files · ~300k code L)",
+      "detail": "Kim Morrison moved the 58,947-file community cleanup of the Alpöge proof (Batch 23, 756a70250) to branch alpoge and based main on the readable edition (grh/) of lsernau/grh-lean@72fead10, Luke Sernau's shorter Apache-2.0 version of Levent Alpöge's proof (made with Anthropic colleagues and Claude). Main later moved to Lean v4.37.0-rc1 and added TauCeti as a dependency. Andrew Sutherland (MIT) checked grh-lean@72fead10 on Lean v4.35.0: lake comparator --paranoid accepts (Lean kernel, nanoda, lean4lean, con-leche, con-ron), all 803 modules replay through the kernel, and the 4,485,867,644-byte export is byte-identical on two machines.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/commit/686902ae1da717a63faf52d2dc6a50e5722942cd"
+    },
+    {
+      "date": "2026-11-24",
+      "tag": "Merged",
+      "cls": "badge-exact",
+      "title": "#243 (unused-syntax linter cleanup) and #295 (duplicate theorem/definition removal) merged",
+      "detail": "James Shore's #243 (1,226 files) and #295 (9,332 files) merged on the Alpöge lineage.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/295"
+    },
+    {
       "date": "2026-11-23",
-      "tag": "Merge Queue",
-      "cls": "badge-open",
-      "title": "PR #185 (Lean 4.37.0-rc1 + #134 -21.9% CPU), #221 (3,076 files), and #243 (-42% linter warnings) queued",
-      "detail": "Kim Morrison (#185), Andres Gutierrez (#221), and James Shore (#243) lead the next wave of stacked builds on donated multi-core CI shards while @Deicyde batch-assembly (#233) automates smaller PRs.",
+      "tag": "Merged",
+      "cls": "badge-exact",
+      "title": "#185 (Lean 4.37.0-rc1 + #134) and #221 (3,369 files) merged",
+      "detail": "Kim Morrison's #185 merged together with Vasily Ilin's #134 build-performance series; Andres Gutierrez's consolidated cleanup #221 merged the same day.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/185"
+    },
+    {
+      "date": "2026-11-23",
+      "tag": "Verification",
+      "cls": "badge-verified",
+      "title": "DeepMind formal-conjectures Comparator setup (#88) merged",
+      "detail": "Independent checkers accept the original proof: nanoda, con-leche, con-ron and lean4lean at MIT (math.mit.edu/~drew/grh/); con-agua, Gruszka and Pestka were reported on Lean Zulip.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/88"
     },
     {
       "date": "2026-11-22",
       "tag": "Cleanup Batches",
       "cls": "badge-exact",
-      "title": "PR #115 & #150 land 132 reviewed Lean 4.36 cleanup files",
-      "detail": "First two reviewed community batches merged cleanly onto v4.36.0 main (including #54, #62, #70, #71, #74-#76, #80-#82, #90, #92, #94), reducing backward.* directives and redundant proofs.",
+      "title": "PR #115 & #150 merge the first reviewed Lean 4.36 cleanup batches (54 + 80 changed files)",
+      "detail": "Two reviewed community batches merged onto v4.36.0 main.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/150"
-    },
-    {
-      "date": "2026-11-22",
-      "tag": "Verification",
-      "cls": "badge-verified",
-      "title": "DeepMind formal-conjectures Comparator (#88) & 6+ independent checkers accept RH & GRH",
-      "detail": "Full 61.57 GB export verified across con-leche, con-ron, con-agua, nanoda, Gruszka, and Pestka with zero sorry and standard axioms only.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/88"
     },
     {
       "date": "2026-11-22",
       "tag": "Toolchain Port",
       "cls": "badge-verified",
       "title": "PR #66 (@Vilin97) ports repository to Lean & Mathlib v4.36.0 + module system",
-      "detail": "Migrated 164k files to Lean 4.36 module headers and pruned 15,068 unreachable dead files (-1.38M lines), establishing the live community cache baseline.",
+      "detail": "Converted about 149.4k modules to the module system and deleted 15,068 files unreachable from Main.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/66"
     },
     {
@@ -2312,15 +2282,15 @@
       "tag": "Dead Prune",
       "cls": "badge-dead",
       "title": "PR #45 (@rohanarun) removes 10,718 unreachable dead modules (-785K lines)",
-      "detail": "First major structural slimming after v0.2.1, followed by active-cone explicit-dump cleanups (#57, #60, #65, #68).",
+      "detail": "First major structural slimming after v0.2.1, followed by explicit-dump cleanups (#57, #60, #65) and the shared GL-finiteness proof (#68).",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/45"
     },
     {
       "date": "2026-11-21",
-      "tag": "Release",
+      "tag": "Import",
       "cls": "badge-exact",
-      "title": "v0.2.1 Verified RH/GRH Baseline Released (175,187 files · 17.37M lines)",
-      "detail": "Public release of Levent Alpoge formal Lean 4 proof of the Riemann Hypothesis and Dirichlet GRH into leanprover-community/riemann-hypothesis.",
+      "title": "Original proof imported as the v0.2.1 baseline (175,187 files · 17.37M lines)",
+      "detail": "Levent Alpöge's Lean 4 proof of the Riemann Hypothesis and Dirichlet GRH (announced 2026-11-20) imported into leanprover-community/riemann-hypothesis.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/commit/06c2690c1"
     }
   ]
