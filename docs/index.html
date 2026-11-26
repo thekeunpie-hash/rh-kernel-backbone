@@ -4,8 +4,79 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kernel-Grounded Minimal Backbone &amp; Live Upstream Tracker — Lean 4 RH/GRH</title>
+  <title>Riemann Hypothesis Lean 4 Tracker — Kernel-Grounded Live Progress (RH &amp; GRH)</title>
+  <meta name="description" content="Real-time Lean 4 proof and verification tracker for leanprover-community/riemann-hypothesis: kernel-grounded metrics, proof-size history, and live PR progress.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="author" content="rh-kernel-backbone">
+  <meta name="theme-color" content="#1f3a5f">
   <link rel="canonical" href="https://riemannhypothesis.dev/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="https://api.github.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="riemannhypothesis.dev">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://riemannhypothesis.dev/">
+  <meta property="og:title" content="Riemann Hypothesis Lean 4 Tracker — Kernel-Grounded Live Progress">
+  <meta property="og:description" content="Real-time Lean 4 proof and verification tracker for leanprover-community/riemann-hypothesis across grh-lean (main) and alpoge editions.">
+  <meta property="og:image" content="https://riemannhypothesis.dev/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="riemannhypothesis.dev — Official Upstream Lean 4 Riemann Hypothesis and GRH Full-Proof Tracker">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Riemann Hypothesis Lean 4 Tracker — Kernel-Grounded Live Progress">
+  <meta name="twitter:description" content="Real-time Lean 4 proof and verification tracker for leanprover-community/riemann-hypothesis across grh-lean (main) and alpoge editions.">
+  <meta name="twitter:image" content="https://riemannhypothesis.dev/og-image.png">
+  <meta name="twitter:image:alt" content="riemannhypothesis.dev — Official Upstream Lean 4 Riemann Hypothesis and GRH Full-Proof Tracker">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://riemannhypothesis.dev/#website",
+        "url": "https://riemannhypothesis.dev/",
+        "name": "riemannhypothesis.dev",
+        "alternateName": "Riemann Hypothesis Lean 4 Kernel Backbone Tracker",
+        "description": "Kernel-grounded live upstream progress, proof-size history, and verification tracker for leanprover-community/riemann-hypothesis.",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "Dataset",
+        "@id": "https://riemannhypothesis.dev/#dataset",
+        "name": "Lean 4 Riemann Hypothesis & GRH Upstream Proof Metrics",
+        "description": "Mechanically measured Lean 4 kernel-cone accounting, file and line counts, technical-debt counters (#229), rh-shrink proof-size series, and PR verification snapshots for leanprover-community/riemann-hypothesis.",
+        "url": "https://riemannhypothesis.dev/",
+        "isAccessibleForFree": true,
+        "license": "https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/LICENSE",
+        "isBasedOn": "https://github.com/leanprover-community/riemann-hypothesis",
+        "sameAs": "https://github.com/thekeunpie-hash/rh-kernel-backbone",
+        "keywords": [
+          "Riemann Hypothesis",
+          "Generalized Riemann Hypothesis",
+          "Lean 4",
+          "Formal Verification",
+          "Mathlib",
+          "grh-lean",
+          "Proof Compression"
+        ],
+        "distribution": [
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "application/json",
+            "contentUrl": "https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/upstream_frontier.json"
+          },
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "application/json",
+            "contentUrl": "https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/rh_shrink.json"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
   <style>
     :root {
@@ -2367,7 +2438,7 @@
 
 <body data-edition="grh">
   <div class="layout">
-    <nav class="sidebar" id="toc">
+    <nav class="sidebar" id="toc" aria-label="Dashboard sections">
       <h4>Contents</h4>
       <a href="#interactive-dashboard">Kernel Dashboard</a>
       <a href="#edition-switcher" class="toc-l3">Active Editions (grh-lean / alpoge)</a>
@@ -2411,8 +2482,8 @@
           <div class="hero-grid">
             <div>
               <div class="eyebrow">Official Upstream Lean 4 Full-Proof Tracker</div>
-              <h2 class="hero-title" style="border:none;padding:0;margin:0 0 8px;">Kernel-Grounded Progress Across the
-                Full RH &amp; GRH Proof</h2>
+              <h1 class="hero-title" style="border:none;padding:0;margin:0 0 8px;">Kernel-Grounded Progress Across the
+                Full RH &amp; GRH Proof</h1>
               <p class="hero-desc">Real-time source &amp; verification tracker across both official editions of
                 <code>leanprover-community/riemann-hypothesis</code>: the new <code>lsernau/grh-lean</code> rewrite on
                 <code>main</code> (300k readable / 76k compact code lines, Lean v4.35.0) and Levent Alpöge’s original

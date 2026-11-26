@@ -1,0 +1,17 @@
+{
+  "name": "Riemann Hypothesis Lean 4 Tracker",
+  "short_name": "RH Tracker",
+  "description": "Kernel-grounded live upstream progress and verification tracker for leanprover-community/riemann-hypothesis.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f4ef",
+  "theme_color": "#1f3a5f",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

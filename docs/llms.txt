@@ -1,0 +1,21 @@
+# riemannhypothesis.dev — Lean 4 Riemann Hypothesis & GRH Live Upstream Tracker
+
+> Kernel-grounded minimal backbone, proof-size history, and real-time verification tracker for `leanprover-community/riemann-hypothesis`.
+
+## Canonical Pages
+
+- [Live Upstream Dashboard](https://riemannhypothesis.dev/): Real-time source, proof-size, and verification tracker covering both official editions of `leanprover-community/riemann-hypothesis` (`lsernau/grh-lean` on `main` and Levent Alpöge's original lineage on branch `alpoge`).
+- [Maintainers, Contributors & Lean Foundations](https://riemannhypothesis.dev/profiles.html): Factual engineering-impact directory organized by build-time speedups, donated compute and cache infrastructure, codebase/technical-debt reduction, and live merge/triage operations.
+
+## Authoritative Technical References
+
+- [Kernel-Cone Specification (`SPEC.md`)](https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/SPEC.md): Exact Lean 4 kernel-cone accounting methodology and anti-golf token metrics.
+- [Official Upstream Repository (`leanprover-community/riemann-hypothesis`)](https://github.com/leanprover-community/riemann-hypothesis): Upstream Lean 4 formalization of the Riemann Hypothesis and Generalized Riemann Hypothesis.
+- [Tracker Source Repository (`thekeunpie-hash/rh-kernel-backbone`)](https://github.com/thekeunpie-hash/rh-kernel-backbone): Automation scripts, live JSON snapshots, and GitHub Pages source.
+
+## Machine-Readable Live Snapshots (GitHub Raw)
+
+- `https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/upstream_frontier.json` — Live upstream HEAD, file/line counts, open PR queue, and technical-debt counters (`#229`).
+- `https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/rh_shrink.json` — Per-commit proof-size series from `rh-shrink.github.io`.
+- `https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/verifytask_board.json` — Bohrium Playground RH core pillar results.
+- `https://raw.githubusercontent.com/thekeunpie-hash/rh-kernel-backbone/main/data/community_context.json` — GitHub privileged-action audit and Lean Zulip community context.
