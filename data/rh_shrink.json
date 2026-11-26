@@ -6,7 +6,7 @@
     "method": "text search over .lean files under src/, one point per main commit (rh-shrink collect.py)",
     "schema_version": 7
   },
-  "commits_measured": 54,
+  "commits_measured": 55,
   "original": {
     "sha": "47fcde57c49eedd5a6352f4c8745d30bebbe4b0b",
     "date": "2026-11-25T22:24:29Z",
@@ -23,23 +23,32 @@
     "statements": 17676
   },
   "latest": {
-    "sha": "5f593811a7ac880c5eb755aee7802eb82c29411c",
-    "date": "2026-11-26T13:08:25Z",
-    "subject": "Merge pull request #7613 from leanprover-community/batch/tc1-on-main",
-    "pr": 7613,
-    "files": 800,
-    "lines": 474045,
-    "code": 295848,
-    "theorems": 17507,
+    "sha": "120962b4fc014406f9c76adc53b5cf64475143d3",
+    "date": "2026-11-26T13:22:57Z",
+    "subject": "Merge pull request #7663 from leanprover-community/batch/m39-on-main",
+    "pr": 7663,
+    "files": 801,
+    "lines": 474542,
+    "code": 296425,
+    "theorems": 17475,
     "defs": 5580,
-    "imports": 1843,
+    "imports": 1845,
     "heartbeats": 0,
     "repeats": 60,
-    "statements": 16968
+    "statements": 16936
   },
-  "code_left_pct": 99.22,
-  "code_removed": 2312,
+  "code_left_pct": 99.42,
+  "code_removed": 1735,
   "recent_changes": [
+    {
+      "sha": "120962b4fc014406f9c76adc53b5cf64475143d3",
+      "date": "2026-11-26T13:22:57Z",
+      "subject": "Merge pull request #7663 from leanprover-community/batch/m39-on-main",
+      "pr": 7663,
+      "code": 296425,
+      "code_delta": 577,
+      "theorems_delta": -32
+    },
     {
       "sha": "e38782a68eb5f6ee793739847c703aa16080ef6c",
       "date": "2026-11-26T13:00:01Z",
@@ -138,15 +147,6 @@
       "code": 295729,
       "code_delta": -61,
       "theorems_delta": -15
-    },
-    {
-      "sha": "235739c2e9f6cc5b05f557e6851562ec47605285",
-      "date": "2026-11-26T09:52:04Z",
-      "subject": "Merge pull request #6900 from leanprover-community/batch/m27-on-main",
-      "pr": 6900,
-      "code": 295790,
-      "code_delta": 213,
-      "theorems_delta": 8
     }
   ],
   "series": [
@@ -365,6 +365,10 @@
     [
       "2026-11-26T13:08:25Z",
       295848
+    ],
+    [
+      "2026-11-26T13:22:57Z",
+      296425
     ]
   ]
 }
