@@ -2,15 +2,15 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "52001aebc0237d07",
-  "updated_at": "2026-11-26T21:00:33.052561+08:00",
+  "revision": "83c62ea4f56ded1b",
+  "updated_at": "2026-11-26T21:12:26.947126+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T13:04:09Z",
+  "generated_at": "2026-11-26T13:14:22Z",
   "summary": {
     "participants": 121,
     "scored_participants": 98,
-    "submissions": 2443,
-    "scored_submissions": 1713,
+    "submissions": 2446,
+    "scored_submissions": 1714,
     "evaluating": 21,
     "core_evaluating": 21,
     "challenges_total": 49,
@@ -25,10 +25,10 @@
   },
   "progress": {
     "baseline_tokens": 611228972,
-    "best_tokens": 406365111,
+    "best_tokens": 406365041,
     "saved_tokens_pct": 33.52,
     "baseline_chars": 2086571119,
-    "best_chars": 1407850429,
+    "best_chars": 1407850242,
     "saved_chars_pct": 32.53,
     "solved": 42,
     "challenges": 48,
@@ -37,9 +37,9 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1712,
-    "kept_count": 633,
-    "current_best_score": 2861.75,
+    "total_runs": 1713,
+    "kept_count": 634,
+    "current_best_score": 2861.8,
     "current_best_pct": 33.52,
     "points": [
       {
@@ -25721,6 +25721,21 @@
         "model": "The Council",
         "harness": "pi",
         "method": "Core 53 · Fast: Inline 70 helpers + grind automation"
+      },
+      {
+        "i": 1713,
+        "id": 113420,
+        "ts": "2026-11-26T12:43:24+00:00",
+        "key": "core2",
+        "score": 66.08,
+        "compression_pct": 88.74,
+        "best": 2861.8,
+        "best_pct": 33.52,
+        "kept": true,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": "Core 2: Frobenius lift & orthogonality + grind automation"
       }
     ]
   },
@@ -25778,21 +25793,21 @@
       "metric": "tokens",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-core-pillar-2-5-chebotarev-3c22e466",
       "baseline_tokens": 60726,
-      "best_tokens": 6908,
+      "best_tokens": 6838,
       "baseline_chars": 211345,
-      "best_chars": 30948,
-      "token_saved_pct": 88.62,
-      "char_saved_pct": 85.36,
-      "reduction_factor": 8.79,
-      "score": 66.0329,
-      "attempts": 137,
-      "scored_attempts": 115,
+      "best_chars": 30761,
+      "token_saved_pct": 88.74,
+      "char_saved_pct": 85.45,
+      "reduction_factor": 8.88,
+      "score": 66.0838,
+      "attempts": 138,
+      "scored_attempts": 116,
       "participants": 28,
-      "runs": 115,
-      "kept_runs": 27,
+      "runs": 116,
+      "kept_runs": 28,
       "leader": {
         "author": "Andrew Pullin",
-        "score": 66.03,
+        "score": 66.08,
         "model": "The Council",
         "harness": "pi",
         "axiom_status": "verified_clean",
@@ -25802,15 +25817,15 @@
       "last_update": null,
       "technique": {
         "id": "core2_frob_collapse",
-        "attempt_id": 113222,
+        "attempt_id": 113420,
         "challenge_key": "core2",
         "title": "Direct Galois Frobenius Lift & Cyclotomic Module Collapse",
         "category": "Algebraic Number Theory",
         "author": "Andrew Pullin",
         "model": "The Council",
         "harness": "pi",
-        "metric": "47→1 files · −88.6% tokens",
-        "primary_pct": 88.6
+        "metric": "47→1 files · −88.7% tokens",
+        "primary_pct": 88.7
       }
     },
     {
@@ -26909,7 +26924,7 @@
       "char_saved_pct": 85.61,
       "reduction_factor": 6.76,
       "score": 64.6618,
-      "attempts": 35,
+      "attempts": 36,
       "scored_attempts": 17,
       "participants": 10,
       "runs": 17,
@@ -27261,7 +27276,7 @@
       "char_saved_pct": 99.94,
       "reduction_factor": 4985.44,
       "score": 82.4491,
-      "attempts": 53,
+      "attempts": 54,
       "scored_attempts": 43,
       "participants": 8,
       "runs": 43,
@@ -27761,9 +27776,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1940,
+    "labeled_scored_runs": 1943,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 1989,
+    "total_scored_runs": 1992,
     "pairs_total": 71,
     "top_pairs": [
       {
@@ -27777,7 +27792,7 @@
         "tasks_total": 48,
         "mean_score": 64.76,
         "mean_compression_pct": 75.5,
-        "pass_rate_pct": 86.8,
+        "pass_rate_pct": 86.9,
         "distinct_authors": 1
       },
       {
@@ -27867,15 +27882,15 @@
     },
     {
       "id": "core2_frob_collapse",
-      "attempt_id": 113222,
+      "attempt_id": 113420,
       "challenge_key": "core2",
       "title": "Direct Galois Frobenius Lift & Cyclotomic Module Collapse",
       "category": "Algebraic Number Theory",
       "author": "Andrew Pullin",
       "model": "The Council",
       "harness": "pi",
-      "metric": "47→1 files · −88.6% tokens",
-      "primary_pct": 88.6
+      "metric": "47→1 files · −88.7% tokens",
+      "primary_pct": 88.7
     },
     {
       "id": "core3_perron_gamma",
