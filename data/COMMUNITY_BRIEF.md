@@ -1,24 +1,24 @@
-# Community Context Brief (Auto-generated 2026-11-26T06:00:51Z)
+# Community Context Brief (Auto-generated 2026-11-26T06:21:08Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[merged:75, labeled:69], merged PRs=32 (#6291, #6281, #6264, #6215, #6213, #6213, #6202, #6161), main commits=47
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[merged:75, labeled:72], merged PRs=31 (#6291, #6281, #6264, #6215, #6213, #6202, #6161, #6135), main commits=47
 - **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[merged:8], merged PRs=28 (#5956, #5903, #5891, #5849, #5838, #5837, #5836, #5763), main commits=31
 - **thorimur** / Thomas Murrills (`COLLABORATOR`): privileged=[merged:2, unlabeled:1], merged PRs=8 (#6134, #6073, #5802, #5620, #5618, #5617, #5616, #5615), main commits=31
 - **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 - **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 
 ## 2. Active Contributors (GitHub)
-- **sqrt-of-2** (`CONTRIBUTOR`): merged=45 [#5833, #5826, #5825, #5824, #5817], batch_queue=0 [], opened=230
+- **sqrt-of-2** (`CONTRIBUTOR`): merged=45 [#5833, #5826, #5825, #5824, #5817], batch_queue=0 [], opened=237
 - **roy7** (`CONTRIBUTOR`): merged=22 [#5868, #5865, #5864, #5863, #5861], batch_queue=0 [], opened=49
-- **dga471** (`CONTRIBUTOR`): merged=16 [#5848, #5839, #5812, #5811, #5791], batch_queue=0 [], opened=39
+- **dga471** (`CONTRIBUTOR`): merged=16 [#5848, #5839, #5812, #5811, #5791], batch_queue=0 [], opened=45
 - **sangxsh** (`CONTRIBUTOR`): merged=10 [#5743, #5721, #5696, #5672, #5668], batch_queue=0 [], opened=10
 - **weiwensangsang** (`CONTRIBUTOR`): merged=9 [#5842, #5806, #5797, #5796, #5787], batch_queue=0 [], opened=15
-- **ashleyholman** (`CONTRIBUTOR`): merged=6 [#5798, #5708, #5699, #5697, #5671], batch_queue=0 [], opened=14
+- **ashleyholman** (`CONTRIBUTOR`): merged=6 [#5798, #5708, #5699, #5697, #5671], batch_queue=0 [], opened=21
 - **danielkwalsh** (`CONTRIBUTOR`): merged=5 [#5799, #5775, #5702, #5674, #5651], batch_queue=0 [], opened=7
 - **DocLoJag** (`CONTRIBUTOR`): merged=4 [#5823, #5809, #5808, #5807], batch_queue=0 [], opened=28
-- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=4 [#5662, #5658, #5650, #5628], batch_queue=0 [], opened=11
+- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=4 [#5662, #5658, #5650, #5628], batch_queue=0 [], opened=12
 - **CubeJerry** (`CONTRIBUTOR`): merged=3 [#5790, #5785, #5767], batch_queue=0 [], opened=23
-- **TitiSkywalker** (`CONTRIBUTOR`): merged=3 [#5822, #5726, #5711], batch_queue=0 [], opened=6
+- **TitiSkywalker** (`CONTRIBUTOR`): merged=3 [#5822, #5726, #5711], batch_queue=0 [], opened=7
 - **dishank-hai** (`CONTRIBUTOR`): merged=3 [#5630, #5629, #5626], batch_queue=0 [], opened=4
 - **righi** (`CONTRIBUTOR`): merged=2 [#5845, #5642], batch_queue=0 [], opened=6
 - **imvladikon** (`CONTRIBUTOR`): merged=2 [#5644, #5627], batch_queue=0 [], opened=4
@@ -28,7 +28,7 @@
 
 ## 3. Most Active Zulip Participants (RH Threads)
 - **Luke Sernau**: 9 msgs, 127 reactions
-- **Kim Morrison**: 56 msgs, 97 reactions
+- **Kim Morrison**: 56 msgs, 98 reactions
 - **Thomas Murrills**: 120 msgs, 64 reactions
 - **Jonathan Roy**: 190 msgs, 59 reactions
 - **Andrew Sutherland**: 4 msgs, 48 reactions
@@ -74,8 +74,8 @@
 - [New proof in 300k lines] **Andrew Sutherland** (rx:7): In case anyone else checking the proof wants these for comparison:  Exports made by `lake comparator` (Lean v4.35.0) from https://github.com/lsernau/grh-lean at commit `72fead10`.  | Export | Bytes | SHA-256 | |---|---|---| | Challenge | 35
 - [New proof in 300k lines] **Riccardo Brasca** (rx:7): A reasonable goal is to move out of the repo, to for example to Tau Ceti, everything that was mathematically already known so that at the end we can have a proof written in the usual way, with citations but without duplications.
 - [New proof in 300k lines] **Riccardo Brasca** (rx:6): Anyway please don't start a fight mathlib vs Tau Ceti here.
+- [New proof in 300k lines] **Kim Morrison** (rx:6): We're on v4.37.0-rc1 now
 - [New proof in 300k lines] **Jonathan Roy** (rx:6): Well that radically changes the usefulness of my github submissions, lol. :)
 - [Why can I trust Lean?] **Gilson Costa** (rx:6): @**Arthur Paulino**  I'd use Peano Arithmetic, like any other person on the planet. But your question is tricky because you assume 2 things that is not true: 1) that the alternative for "no computer help" means blind brute force test, and i
 - [New proof in 300k lines] **Artie Khovanov** (rx:5): @_**Jonathan Roy|1243299** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643730955): ```quote Presumably as the AIs improve, Tau Ceti must eventually > Mathlib q
 - [New proof in 300k lines] **Artie Khovanov** (rx:5): @_**Joseph Richey|494829** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643731713): ````quote I thought Tau Ceti served as sort of a "pre mathlib" staging area.
-- [New proof in 300k lines] **Kim Morrison** (rx:5): We're on v4.37.0-rc1 now
