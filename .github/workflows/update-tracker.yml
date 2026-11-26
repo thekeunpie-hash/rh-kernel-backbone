@@ -26,7 +26,13 @@ concurrency:
 jobs:
   update-tracker:
     runs-on: ubuntu-latest
+    outputs:
+      started: ${{ steps.clock.outputs.started }}
     steps:
+      - name: Record job start time
+        id: clock
+        run: echo "started=$(date -u +%s)" >> "$GITHUB_OUTPUT"
+
       - name: Checkout rh-kernel-backbone
         uses: actions/checkout@v4
 
@@ -102,12 +108,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           INTERVAL_SECONDS: ${{ vars.TRACKER_INTERVAL_SECONDS || '600' }}
-          RUN_STARTED: ${{ github.run_started_at }}
+          STARTED: ${{ needs.update-tracker.outputs.started }}
         run: |
-          START=$(date -u -d "$RUN_STARTED" +%s 2>/dev/null || date -u +%s)
-          ELAPSED=$(( $(date -u +%s) - START ))
+          case "$INTERVAL_SECONDS" in ''|*[!0-9]*) INTERVAL_SECONDS=600 ;; esac
+          case "$STARTED" in ''|*[!0-9]*) STARTED=$(date -u +%s) ;; esac
+          ELAPSED=$(( $(date -u +%s) - STARTED ))
           WAIT=$(( INTERVAL_SECONDS - ELAPSED ))
           if [ "$WAIT" -gt 720 ]; then WAIT=720; fi
+          if [ "$WAIT" -lt 240 ]; then WAIT=240; fi
           if [ "$WAIT" -gt 0 ]; then echo "Sleeping ${WAIT}s"; sleep "$WAIT"; fi
           for attempt in 1 2 3; do
             CODE=$(curl -sS -o /tmp/dispatch.out -w '%{http_code}' -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${{ github.repository }}/actions/workflows/update-tracker.yml/dispatches" -d '{"ref":"main"}')
