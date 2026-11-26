@@ -1,101 +1,95 @@
-# Community Context Brief (Auto-generated 2026-11-26T09:03:32Z)
+# Community Context Brief (Auto-generated 2026-11-26T11:52:03Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[merged:53, labeled:46], merged PRs=34 (#6687, #6666, #6588, #6540, #6491, #6469, #6452, #6425), main commits=22
-- **thorimur** / Thomas Murrills (`COLLABORATOR`): privileged=[unlabeled:1], merged PRs=3 (#6134, #6073, #5802), main commits=0
-- **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[none], merged PRs=1 (#5754), main commits=1
-- **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=1 (#6463), main commits=1
-- **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[none], merged PRs=126 (#6437, #6436, #6435, #6434, #6433, #6432, #6392, #6389), main commits=0
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[merged:6, labeled:6], merged PRs=26 (#7305, #7248, #7200, #7140, #7099, #7088, #7034, #6989), main commits=6
+- **ashleyholman** (`CONTRIBUTOR`): privileged=[none], merged PRs=28 (#7172, #7069, #7006, #6838, #6782, #6667, #6517, #6507), main commits=6
+- **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=1
+- **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=4 (#7032, #6822, #6492, #6463), main commits=1
+- **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[none], merged PRs=22 (#6437, #6436, #6435, #6434, #6433, #6432, #6392, #6389), main commits=0
+- **thorimur** / Thomas Murrills (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 - **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 
 ## 2. Active Contributors (GitHub)
-- **sqrt-of-2** (`CONTRIBUTOR`): merged=189 [#6487, #6486, #6485, #6484, #6483], batch_queue=0 [], opened=315
-- **roy7** (`CONTRIBUTOR`): merged=38 [#6395, #6393, #6390, #6217, #6205], batch_queue=0 [], opened=59
-- **dga471** (`CONTRIBUTOR`): merged=28 [#6418, #6414, #6411, #6394, #6379], batch_queue=0 [], opened=35
-- **ashleyholman** (`CONTRIBUTOR`): merged=24 [#6475, #6460, #6451, #6430, #6428], batch_queue=0 [], opened=30
-- **DocLoJag** (`CONTRIBUTOR`): merged=23 [#6242, #6239, #6236, #6235, #6233], batch_queue=0 [], opened=28
-- **rohanarun** (`CONTRIBUTOR`): merged=23 [#6417, #6246, #6245, #6096, #6093], batch_queue=0 [], opened=27
-- **CubeJerry** (`CONTRIBUTOR`): merged=23 [#6351, #6350, #6019, #6018, #6016], batch_queue=0 [], opened=24
-- **weiwensangsang** (`CONTRIBUTOR`): merged=18 [#6459, #6453, #6441, #6427, #6424], batch_queue=0 [], opened=98
-- **jasonyandell** (`CONTRIBUTOR`): merged=15 [#6439, #6429, #6412, #6380, #6279], batch_queue=0 [], opened=15
-- **dilarasoylu** (`CONTRIBUTOR`): merged=10 [#6479, #6474, #6461, #6457, #6450], batch_queue=0 [], opened=19
-- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=10 [#6470, #6446, #6404, #6368, #6339], batch_queue=0 [], opened=17
-- **TitiSkywalker** (`CONTRIBUTOR`): merged=10 [#6467, #6466, #6458, #6444, #6442], batch_queue=0 [], opened=16
-- **gmberton** (`CONTRIBUTOR`): merged=10 [#6033, #6026, #6025, #6024, #5951], batch_queue=0 [], opened=10
-- **alkor2000** (`CONTRIBUTOR`): merged=8 [#6462, #6415, #6309, #6193, #6192], batch_queue=0 [], opened=11
-- **josephch405** (`CONTRIBUTOR`): merged=7 [#6465, #6448, #6410, #6360, #6337], batch_queue=0 [], opened=14
-- **cannonballgamesstudio** (`CONTRIBUTOR`): merged=6 [#6403, #6378, #6344, #6329, #6282], batch_queue=0 [], opened=7
-- **maaz7409** (`CONTRIBUTOR`): merged=5 [#6445, #6438, #6423, #6399, #6332], batch_queue=0 [], opened=7
-- **CLaSLoVe** (`CONTRIBUTOR`): merged=4 [#6353, #6345, #6324, #6250], batch_queue=0 [], opened=4
+- **sqrt-of-2** (`CONTRIBUTOR`): merged=366 [#7247, #7246, #7245, #7244, #7243], batch_queue=0 [], opened=423
+- **weiwensangsang** (`CONTRIBUTOR`): merged=143 [#6996, #6992, #6991, #6986, #6985], batch_queue=0 [], opened=166
+- **roy7** (`CONTRIBUTOR`): merged=48 [#7019, #7017, #7016, #7015, #7013], batch_queue=0 [], opened=63
+- **STARDUSTLC666** (`CONTRIBUTOR`): merged=32 [#7242, #7235, #7219, #7198, #7194], batch_queue=0 [], opened=36
+- **dilarasoylu** (`CONTRIBUTOR`): merged=28 [#7236, #7201, #7169, #7137, #7127], batch_queue=0 [], opened=29
+- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=24 [#7185, #7145, #7083, #7068, #7056], batch_queue=0 [], opened=28
+- **Liangebra** (`CONTRIBUTOR`): merged=23 [#7133, #7130, #7128, #7126, #7124], batch_queue=0 [], opened=27
+- **TitiSkywalker** (`CONTRIBUTOR`): merged=21 [#7225, #7220, #7106, #7077, #7049], batch_queue=0 [], opened=21
+- **josephch405** (`CONTRIBUTOR`): merged=12 [#7054, #7025, #6778, #6721, #6663], batch_queue=0 [], opened=13
+- **maaz7409** (`CONTRIBUTOR`): merged=12 [#7222, #7129, #7052, #6842, #6766], batch_queue=0 [], opened=12
+- **alkor2000** (`CONTRIBUTOR`): merged=9 [#7138, #7008, #6812, #6799, #6717], batch_queue=0 [], opened=11
+- **dga471** (`CONTRIBUTOR`): merged=8 [#6418, #6414, #6411, #6394, #6379], batch_queue=0 [], opened=10
+- **EricHe98** (`NONE`): merged=7 [#7187, #7118, #7113, #6692, #6684], batch_queue=0 [], opened=10
+- **yidakra** (`CONTRIBUTOR`): merged=7 [#7171, #7151, #7103, #6978, #6911], batch_queue=0 [], opened=10
+- **hfef7ui2** (`CONTRIBUTOR`): merged=7 [#6990, #6963, #6915, #6909, #6891], batch_queue=0 [], opened=7
+- **CLaSLoVe** (`CONTRIBUTOR`): merged=5 [#7249, #7163, #6353, #6345, #6324], batch_queue=0 [], opened=5
+- **jasonyandell** (`CONTRIBUTOR`): merged=5 [#6729, #6439, #6429, #6412, #6380], batch_queue=0 [], opened=5
+- **cannonballgamesstudio** (`CONTRIBUTOR`): merged=4 [#6403, #6378, #6344, #6329], batch_queue=0 [], opened=4
 - **deancureton** (`CONTRIBUTOR`): merged=3 [#6477, #6468, #6443], batch_queue=0 [], opened=4
-- **hfef7ui2** (`CONTRIBUTOR`): merged=3 [#6362, #6352, #5904], batch_queue=0 [], opened=3
-- **righi** (`CONTRIBUTOR`): merged=3 [#6031, #5992, #5845], batch_queue=0 [], opened=3
-- **Liangebra** (`CONTRIBUTOR`): merged=2 [#6456, #6455], batch_queue=0 [], opened=9
-- **danielkwalsh** (`CONTRIBUTOR`): merged=2 [#5799, #5775], batch_queue=0 [], opened=4
+- **WinglokWong** (`CONTRIBUTOR`): merged=3 [#6714, #6641, #6506], batch_queue=0 [], opened=4
+- **CubeJerry** (`CONTRIBUTOR`): merged=3 [#6351, #6350, #6349], batch_queue=0 [], opened=3
 - **AahilShaikh** (`CONTRIBUTOR`): merged=2 [#6464, #6440], batch_queue=0 [], opened=3
-- **rmsnorm** (`CONTRIBUTOR`): merged=2 [#6354, #6310], batch_queue=0 [], opened=2
-- **zyz758** (`CONTRIBUTOR`): merged=2 [#6260, #6191], batch_queue=0 [], opened=2
-- **lutrarutra** (`CONTRIBUTOR`): merged=1 [#6372], batch_queue=0 [], opened=5
-- **EricHe98** (`NONE`): merged=1 [#6333], batch_queue=0 [], opened=4
-- **thekeunpie-hash** (`CONTRIBUTOR`): merged=1 [#5941], batch_queue=0 [], opened=4
-- **amilcodes** (`CONTRIBUTOR`): merged=1 [#6010], batch_queue=0 [], opened=1
-- **andersonwu2000** (`CONTRIBUTOR`): merged=1 [#5892], batch_queue=0 [], opened=1
-- **bohemian-miser** (`CONTRIBUTOR`): merged=1 [#6070], batch_queue=0 [], opened=1
-- **josephlr** (`CONTRIBUTOR`): merged=1 [#5768], batch_queue=0 [], opened=1
+- **HaraldNordgren** (`CONTRIBUTOR`): merged=2 [#7153, #6854], batch_queue=0 [], opened=2
+- **koefoeden** (`CONTRIBUTOR`): merged=2 [#7229, #7050], batch_queue=0 [], opened=2
+- **lutrarutra** (`CONTRIBUTOR`): merged=1 [#6372], batch_queue=0 [], opened=1
+- **rmsnorm** (`CONTRIBUTOR`): merged=1 [#6354], batch_queue=0 [], opened=1
+- **rohanarun** (`CONTRIBUTOR`): merged=1 [#6417], batch_queue=0 [], opened=1
 - **RudiksChess** (`CONTRIBUTOR`): merged=1 [#6431], batch_queue=0 [], opened=1
-- **sangxsh** (`CONTRIBUTOR`): merged=1 [#5743], batch_queue=0 [], opened=1
-- **TmLev** (`CONTRIBUTOR`): merged=1 [#5874], batch_queue=0 [], opened=1
+- **uos1231234** (`CONTRIBUTOR`): merged=1 [#6711], batch_queue=0 [], opened=1
 
 ## 3. Most Active Zulip Participants (RH Threads)
-- **Luke Sernau**: 9 msgs, 135 reactions
-- **Kim Morrison**: 58 msgs, 112 reactions
-- **Jonathan Roy**: 202 msgs, 62 reactions
-- **Thomas Murrills**: 110 msgs, 58 reactions
-- **Andrew Sutherland**: 4 msgs, 52 reactions
-- **Riccardo Brasca**: 25 msgs, 33 reactions
-- **Jack McCarthy**: 42 msgs, 29 reactions
-- **Artie Khovanov**: 10 msgs, 22 reactions
-- **Michael Righi**: 18 msgs, 20 reactions
-- **Devin Watson**: 13 msgs, 18 reactions
-- **Arthur Paulino**: 7 msgs, 17 reactions
-- **Chris Birkbeck**: 14 msgs, 14 reactions
+- **Luke Sernau**: 9 msgs, 140 reactions
+- **Kim Morrison**: 62 msgs, 122 reactions
+- **Jonathan Roy**: 224 msgs, 68 reactions
+- **Thomas Murrills**: 101 msgs, 58 reactions
+- **Andrew Sutherland**: 4 msgs, 53 reactions
+- **Riccardo Brasca**: 29 msgs, 42 reactions
+- **Jack McCarthy**: 38 msgs, 30 reactions
+- **Artie Khovanov**: 11 msgs, 25 reactions
+- **Michael Righi**: 18 msgs, 21 reactions
+- **David Loeffler**: 26 msgs, 19 reactions
+- **Chris Birkbeck**: 17 msgs, 17 reactions
+- **Devin Watson**: 11 msgs, 16 reactions
 - **Violeta Hernández**: 2 msgs, 13 reactions
-- **David Loeffler**: 25 msgs, 12 reactions
 - **Vasily Ilin**: 6 msgs, 12 reactions
-- **Rohan Arun**: 51 msgs, 7 reactions
-- **Snir Broshi**: 22 msgs, 7 reactions
-- **Joseph Richey**: 9 msgs, 7 reactions
-- **Maxime Rinoldo**: 6 msgs, 6 reactions
-- **Gilson Costa**: 6 msgs, 6 reactions
+- **Arthur Paulino**: 1 msgs, 10 reactions
+- **Snir Broshi**: 22 msgs, 9 reactions
+- **Joseph Richey**: 8 msgs, 7 reactions
+- **Maxime Rinoldo**: 6 msgs, 7 reactions
+- **Daniel Ang**: 2 msgs, 6 reactions
 - **Ashley Holman**: 2 msgs, 6 reactions
-- **Mario Carneiro**: 3 msgs, 5 reactions
-- **Daniel Ang**: 2 msgs, 5 reactions
+- **Rohan Arun**: 39 msgs, 5 reactions
 - **Alex P**: 1 msgs, 5 reactions
 - **Rémy Degenne**: 1 msgs, 5 reactions
+- **Tom Gracey**: 23 msgs, 4 reactions
+- **Thomas Browning**: 1 msgs, 4 reactions
 
 ## 4. High-Signal Zulip Messages (Community Vibe & Key Milestones)
-- [New proof in 300k lines] **Luke Sernau** (rx:102): Hi all, over the past few days I've been sprinting with a few colleagues at Anthropic on a much shorter version of the proof. We've been able to reduce it by about two orders of magnitude, from about 15 million lines to ~76,000. Also remove
-- [New proof in 300k lines] **Kim Morrison** (rx:32): con-leche passes!
+- [New proof in 300k lines] **Luke Sernau** (rx:106): Hi all, over the past few days I've been sprinting with a few colleagues at Anthropic on a much shorter version of the proof. We've been able to reduce it by about two orders of magnitude, from about 15 million lines to ~76,000. Also remove
+- [New proof in 300k lines] **Kim Morrison** (rx:34): con-leche passes!
 - [New proof in 300k lines] **Thomas Murrills** (rx:28): @**Luke Sernau** First off, as one of the community repo maintainers here congrats and thanks! :tada: This is a massive step towards our goals of accessibility of the proof, readability, and integrating this proof with the community :)  @_*
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **Andrew Sutherland** (rx:23): `lake comparator` has finished: "Your solution is okay!", exit 0 at 4:49 PM EST on 25 November. That was the last check running, nothing is pending on https://math.mit.edu/~drew/grh/
-- [New proof in 300k lines] **Andrew Sutherland** (rx:20): `lake comparator --paranoid` passed
+- [New proof in 300k lines] **Andrew Sutherland** (rx:21): `lake comparator --paranoid` passed
 - [New proof in 300k lines] **Luke Sernau** (rx:19): @_**Jonas Whidden|937813** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/Cleaning.20up.20the.20proof/near/643703643): ````quote Anyone else think it's super absurdly funny how much time and resource
 - [New proof in 300k lines] **Michael Righi** (rx:13): If this holds up we are all Masullo now. 🤣
-- [New proof in 300k lines] **Kim Morrison** (rx:12): I have a build of the 300k version, uploading oleans now. But it's very doable for anone.
 - [New proof in 300k lines] **Kim Morrison** (rx:12): https://github.com/leanprover-community/riemann-hypothesis is now the 300kLOC proof, with a cache
+- [New proof in 300k lines] **Kim Morrison** (rx:12): I have a build of the 300k version, uploading oleans now. But it's very doable for anone.
 - [New proof in 300k lines] **Violeta Hernández** (rx:11): @_**Joseph Richey|494829** [dijo](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643740697): ```quote Lean 4.37 port is up: RH#5768 ``` Every time I see a PR number for 
-- [New proof in 300k lines] **Kim Morrison** (rx:10): We're on v4.37.0-rc1 now
-- [New proof in 300k lines] **Arthur Paulino** (rx:9): @**Luke Sernau** can you share your method(s)?
+- [New proof in 300k lines] **Kim Morrison** (rx:11): We're on v4.37.0-rc1 now
+- [New proof in 300k lines] **Arthur Paulino** (rx:10): @**Luke Sernau** can you share your method(s)?
 - [New proof in 300k lines] **Luke Sernau** (rx:9): @_**Jake Levinson|391579** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643714455): ```quote @**Luke Sernau** Can you say a bit more about what else was removed
 - [New proof in 300k lines] **Riccardo Brasca** (rx:9): A reasonable goal is to move out of the repo, to for example to Tau Ceti, everything that was mathematically already known so that at the end we can have a proof written in the usual way, with citations but without duplications.
-- [Cleaning up the proof] **Jack McCarthy** (rx:9): @**Vasily Ilin** Here's the summary - LoC we've dropped 2.2M lines so far (excluding imports).  - We're averaging over 1PR per minute over the last 24 hours; Kim throws them all in a big batch and builds with an agent in the loop to fix any
-- [Cleaning up the proof] **Vasily Ilin** (rx:9): New profile results are [out](https://vilin97.github.io/riemann-hypothesis-source-profile/versions/a18a350c3e5a/). We are down from 50h to 26h single-threaded. Very nice! Also, imports used to take 54% of compilation time and now they take 
-- [New proof in 300k lines] **Kim Morrison** (rx:8): Ooh, interesting, my agent says that in a number of places where the new proof is simpler, the required material is already in Tau Ceti... :-)
-- [New proof in 300k lines] **Riccardo Brasca** (rx:8): Anyway please don't start a fight mathlib vs Tau Ceti here.
+- [New proof in 300k lines] **Riccardo Brasca** (rx:9): Anyway please don't start a fight mathlib vs Tau Ceti here.
+- [New proof in 300k lines] **Kim Morrison** (rx:9): Ooh, interesting, my agent says that in a number of places where the new proof is simpler, the required material is already in Tau Ceti... :-)
+- [Cleaning up Levent's proof] **Jack McCarthy** (rx:9): @**Vasily Ilin** Here's the summary - LoC we've dropped 2.2M lines so far (excluding imports).  - We're averaging over 1PR per minute over the last 24 hours; Kim throws them all in a big batch and builds with an agent in the loop to fix any
+- [Cleaning up Levent's proof] **Vasily Ilin** (rx:9): New profile results are [out](https://vilin97.github.io/riemann-hypothesis-source-profile/versions/a18a350c3e5a/). We are down from 50h to 26h single-threaded. Very nice! Also, imports used to take 54% of compilation time and now they take 
+- [New proof in 300k lines] **Artie Khovanov** (rx:8): @_**Jonathan Roy|1243299** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643730955): ```quote Presumably as the AIs improve, Tau Ceti must eventually > Mathlib q
 - [New proof in 300k lines] **Andrew Sutherland** (rx:7): In case anyone else checking the proof wants these for comparison:  Exports made by `lake comparator` (Lean v4.35.0) from https://github.com/lsernau/grh-lean at commit `72fead10`.  | Export | Bytes | SHA-256 | |---|---|---| | Challenge | 35
-- [New proof in 300k lines] **Artie Khovanov** (rx:7): @_**Jonathan Roy|1243299** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643730955): ```quote Presumably as the AIs improve, Tau Ceti must eventually > Mathlib q
-- [New proof in 300k lines] **Jonathan Roy** (rx:6): Well that radically changes the usefulness of my github submissions, lol. :)
 - [New proof in 300k lines] **Kim Morrison** (rx:6): Yes, can we just focus on the 300k version, not the 76k version from now?
 - [New proof in 300k lines] **Artie Khovanov** (rx:6): @_**Joseph Richey|494829** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643731713): ````quote I thought Tau Ceti served as sort of a "pre mathlib" staging area.
-- [Why can I trust Lean?] **Gilson Costa** (rx:6): @**Arthur Paulino**  I'd use Peano Arithmetic, like any other person on the planet. But your question is tricky because you assume 2 things that is not true: 1) that the alternative for "no computer help" means blind brute force test, and i
+- [New proof in 300k lines] **Jonathan Roy** (rx:6): Well that radically changes the usefulness of my github submissions, lol. :)
 - [New proof in 300k lines] **Kim Morrison** (rx:5): (There is about to be a "sprint mode" at Tau Ceti, whereby we will only admit [`grh`](https://github.com/TauCetiProject/TauCeti/pulls?q=is%3Apr+is%3Aopen+label%3Agrh) labelled PRs into the merge queue for a short while...)
+- [New proof in 300k lines] **Kim Morrison** (rx:5): The bump to v4.37.0-rc1 is coming.
