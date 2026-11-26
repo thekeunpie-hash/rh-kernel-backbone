@@ -2,15 +2,15 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "c84d4a4e2b5fd707",
-  "updated_at": "2026-11-26T16:02:13.290918+08:00",
+  "revision": "30bab62864a420ff",
+  "updated_at": "2026-11-26T16:10:29.931888+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-26T08:03:15Z",
+  "generated_at": "2026-11-26T08:12:21Z",
   "summary": {
     "participants": 121,
     "scored_participants": 98,
-    "submissions": 2387,
-    "scored_submissions": 1688,
+    "submissions": 2388,
+    "scored_submissions": 1689,
     "evaluating": 13,
     "core_evaluating": 13,
     "challenges_total": 49,
@@ -37,7 +37,7 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1687,
+    "total_runs": 1688,
     "kept_count": 612,
     "current_best_score": 2850.87,
     "current_best_pct": 33.48,
@@ -25346,6 +25346,21 @@
         "model": "The Council",
         "harness": "pi",
         "method": "Core 35 · Fast: Inline 70 helpers + aesop compress"
+      },
+      {
+        "i": 1688,
+        "id": 112917,
+        "ts": "2026-11-26T07:51:46+00:00",
+        "key": "core42",
+        "score": 56.65,
+        "compression_pct": 50.69,
+        "best": 2850.87,
+        "best_pct": 33.48,
+        "kept": false,
+        "author": "flyi",
+        "model": "GLM-5.4",
+        "harness": "ZCode",
+        "method": null
       }
     ]
   },
@@ -26754,7 +26769,7 @@
       "char_saved_pct": 92.87,
       "reduction_factor": 13.66,
       "score": 68.106,
-      "attempts": 28,
+      "attempts": 29,
       "scored_attempts": 22,
       "participants": 10,
       "runs": 22,
@@ -26975,9 +26990,9 @@
       "reduction_factor": 2.62,
       "score": 58.637,
       "attempts": 12,
-      "scored_attempts": 10,
+      "scored_attempts": 11,
       "participants": 7,
-      "runs": 10,
+      "runs": 11,
       "kept_runs": 4,
       "leader": {
         "author": "Andrew Pullin",
@@ -27386,9 +27401,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 1902,
+    "labeled_scored_runs": 1903,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 1951,
+    "total_scored_runs": 1952,
     "pairs_total": 71,
     "top_pairs": [
       {
