@@ -1,10 +1,8 @@
 {
-  "refreshed_at": "2026-11-26T19:19:08Z",
+  "refreshed_at": "2026-11-26T19:28:24Z",
   "trigger": "workflow_dispatch",
-  "run_id": "45882595366",
+  "run_id": "45883859588",
   "changed": [
-    "data/COMMUNITY_BRIEF.md",
-    "data/community_context.json",
     "data/upstream_frontier.json",
     "data/verifytask_board.json"
   ]
