@@ -28,7 +28,7 @@ Joining the raw repository file inventory against the `v0.2.1` Lean kernel expor
 | **All parsed declarations (`decls.csv.gz`)** | 175,003 | 1,063,284 | 13,432,480 | 77.3% | 184 files contain 0 declarations (import aggregators & `BuildAid`) |
 | Wholly dead files (`used_decls = 0`) | 28,900 | — | 1,754,237 | 10.1% | 28,716 files with decls + 184 decl-free files outside cone |
 | Unused declarations inside mixed active files | — | — | 940,515 | 5.4% | Total unused decls: `258,372` (`24.3%` of all decls; `2,694,752` decl lines) |
-| **Active Lean kernel cone (`in_cone = true`)** | **146,287** | **804,912** | **10,737,728** | **61.8%** | `1,484,729` kernel constants (`cone-constants.txt.gz`) |
+| **Active Lean kernel cone (`in_cone = true`)** | **146,287** | **804,912** | **10,737,728** | **61.8%** | `1,484,729` kernel constants (`cone-constants.txt.gz`): `1,270,184` project, `204,488` Mathlib, `9,796` Lean core, `258` Batteries, `3` Aesop (`origin` column of `constants.csv.gz`) |
 | ↳ Single-declaration active files (`n_decls = 1, used = 1`) | 63,899 | 63,899 | — | — | Of these, `48,922` files are `≤ 15` decl lines (`213,750` decl lines; thin re-export / wrapper fragmentation) |
 | ↳ Shared across **all 5** `Main.lean` theorems (`thm_mask = 31`) | — | **804,887** | **10,737,528** | **99.997% of cone** | Routed through one root theorem: `allChi` |
 | ↳ Theorem-specific delta across the 5 `Main.lean` theorems | — | **25** | **200** | **0.002% of cone** | `riemannHypothesis` (1L), `rhOfAll` (63L), `LFunction_eq_zero_re` (101L), `LFunction_eq_zero_re_of_isPrimitive` (28L), wrappers (7L) |

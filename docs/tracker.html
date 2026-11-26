@@ -3380,7 +3380,7 @@
                 pairEl.hidden = true;
               }
               src.textContent = "Static snapshot" + (d.generated_at ? " generated " + String(d.generated_at).slice(0, 10) : "") +
-                ". n/a means the value was not measured for that edition. Constants in the proof cone are kernel constants (including the auxiliary constants Lean generates) reachable from the main theorems in every column; declarations in the proof cone are the source declarations behind them. For the original edition, the proof-cone line row counts the declaration lines in that cone (SPEC.md §1); its code lines without comments or blanks were not measured, so they are not compared with the grh columns.";
+                ". n/a means the value was not measured for that edition. Constants in the proof cone are the project's own kernel constants (including the auxiliary constants Lean generates) reachable from the main theorems, counted the same way in every column: Mathlib, Batteries, Aesop and Lean core constants are left out. The original's full kernel cone is 1,484,729 constants, of which 214,545 come from those libraries; declarations in the proof cone are the source declarations behind them. For the original edition, the proof-cone line row counts the declaration lines in that cone (SPEC.md §1); its code lines without comments or blanks were not measured, so they are not compared with the grh columns.";
               sec.hidden = false;
             }
             fetch("./data/editions.json", { cache: "no-cache" })

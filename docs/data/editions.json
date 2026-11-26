@@ -2,7 +2,7 @@
   "schema": 1,
   "generated_at": "2026-11-26T14:02:16+09:00",
   "source": "rh-ssot reports: GRH_VS_COMPACT_ANALYSIS.md, grh_vs_compact_comparison.json, cross_edition_dissection.json, grh_compact_full_pairing.json, references_unlinked_map.json, tauceti_candidates.json",
-  "alpoge_archive_scope": "Files, raw lines, and source size for Alpöge v0.2.1 cover the full archived Lean source tree, including 136,266 Mathlib files. The three grh columns cover their respective source trees.",
+  "alpoge_archive_scope": "Files, raw lines, and source size for Alpöge v0.2.1 cover the full archived project source tree (175,187 files under src/, SPEC.md §1); Mathlib was not part of the archive. The three grh columns cover their respective source trees.",
   "editions": [
     { "id": "alpoge_v021", "label": "Original Alpöge v0.2.1" },
     { "id": "grh_readable", "label": "grh/ readable (300k)" },
@@ -21,7 +21,7 @@
     { "label": "Semicolons per 1,000 code lines", "fmt": "dec", "values": [null, 4.79, 142.16, 4.8] },
     { "label": "Longest line (characters)", "fmt": "int", "values": [null, 100, 767, 123] },
     { "label": "Kernel constants", "fmt": "int", "values": [null, 64358, 51804, 64358] },
-    { "label": "Constants in the proof cone", "fmt": "int", "values": [1484729, 49821, 37569, 49821] },
+    { "label": "Constants in the proof cone", "fmt": "int", "values": [1270184, 49821, 37569, 49821] },
     { "label": "Declarations in the proof cone", "fmt": "int", "values": [804912, 25793, null, null] },
     { "label": "Kernel export size", "fmt": "bytes", "values": [null, 4485867644, 5172274528, null] },
     { "label": "Cold build time", "fmt": "dur", "values": [null, 1932, 2012, null] }
