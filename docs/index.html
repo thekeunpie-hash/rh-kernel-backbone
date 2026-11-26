@@ -9,7 +9,8 @@
   <link rel="canonical" href="https://riemannhypothesis.dev/" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="manifest" href="site.webmanifest" />
-  <meta name="theme-color" content="#faf9f5" />
+  <meta name="theme-color" content="#faf9f5" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#131210" media="(prefers-color-scheme: dark)" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="riemannhypothesis.dev" />
   <meta property="og:url" content="https://riemannhypothesis.dev/" />
@@ -55,89 +56,144 @@
     </div>
 
     <main id="content">
-      <div class="page-head">
-        <h1>The Lean proof of the Riemann Hypothesis, for readers and contributors</h1>
+      <section class="hero" aria-labelledby="top">
+        <h1 id="top">
+          <span class="h1-kicker">The Lean 4 proof of the Riemann Hypothesis</span>
+          Checked by machine.
+          <em>Not yet read by a mathematician.</em>
+        </h1>
         <p class="lede">
           <a href="https://github.com/leanprover-community/riemann-hypothesis" target="_blank" rel="noopener"><code>leanprover-community/riemann-hypothesis</code></a>
           is the community repository for a Lean&nbsp;4 formalization of the 2026 proofs of the Riemann
-          Hypothesis and of GRH for Dirichlet <em>L</em>-functions. This site explains how to read that
-          proof and how to send a pull request to it, and it keeps a dated record of what the repository
-          has done.
+          Hypothesis and of GRH for Dirichlet <em>L</em>-functions. The README of
+          <a href="https://github.com/lsernau/grh-lean" target="_blank" rel="noopener"><code>lsernau/grh-lean</code></a>,
+          the edition upstream <code>main</code> is based on, says where it stands in these words:
+          “The proof has passed machine checks only … No mathematician has read it through, and no
+          paper comes with it.”
         </p>
-      </div>
+        <p class="lede">
+          So the work that is open to contributors is work on the code: making it faster to build,
+          easier to read, and better connected to Mathlib and to the literature. This site explains
+          how to read the proof and how to send a pull request to it, and it keeps a dated record of
+          what the repository has done.
+        </p>
+        <p class="hero-links">
+          <a class="btn is-solid" href="columns.html">Read the columns</a>
+          <a class="btn" href="columns.html#timeline">Follow the timeline</a>
+        </p>
 
-      <p>
-        One thing to know before anything else. The proof has been checked by machine and by nobody
-        else yet. The README of <a href="https://github.com/lsernau/grh-lean" target="_blank" rel="noopener"><code>lsernau/grh-lean</code></a>,
-        the edition upstream <code>main</code> is based on, says it in these words: “The proof has
-        passed machine checks only … No mathematician has read it through, and no paper comes with it.”
-        The work that is open to contributors is therefore work on the code: making it faster to
-        build, easier to read, and better connected to Mathlib and to the literature.
-      </p>
+        <figure class="hero-fig" id="zetaFig">
+          <div class="hero-panel">
+            <div class="hero-bar">
+              <span>The critical line, laid on its side</span>
+              <output aria-hidden="true">height t from 0 to 52</output>
+            </div>
+            <svg viewBox="0 0 1040 250" role="img" aria-label="The critical line Re(s) = 1/2 drawn left to right from height 0 to 52, with the first ten nontrivial zeros of the Riemann zeta function marked at heights 14.134725, 21.022040, 25.010858, 30.424876, 32.935062, 37.586178, 40.918719, 43.327073, 48.005151 and 49.773832.">
+              <line class="zf-axis" x1="20" x2="1020" y1="90" y2="90" />
+              <text class="zf-axis-label" x="26" y="80">Re(s) = 1/2</text>
+              <g class="zf-mark"><circle class="zf-zero" cx="291.8" cy="90" r="5" /><text class="zf-label" x="291.8" y="108" text-anchor="end" dominant-baseline="middle" transform="rotate(-90 291.8 108)">14.134725</text></g>
+              <g class="zf-mark"><circle class="zf-zero" cx="424.3" cy="90" r="5" /><text class="zf-label" x="424.3" y="108" text-anchor="end" dominant-baseline="middle" transform="rotate(-90 424.3 108)">21.022040</text></g>
+              <g class="zf-mark"><circle class="zf-zero" cx="501.0" cy="90" r="5" /><text class="zf-label" x="501.0" y="108" text-anchor="end" dominant-baseline="middle" transform="rotate(-90 501.0 108)">25.010858</text></g>
+              <g class="zf-mark"><circle class="zf-zero" cx="605.1" cy="90" r="5" /><text class="zf-label" x="605.1" y="108" text-anchor="end" dominant-baseline="middle" transform="rotate(-90 605.1 108)">30.424876</text></g>
+              <g class="zf-mark"><circle class="zf-zero" cx="653.4" cy="90" r="5" /><text class="zf-label" x="653.4" y="108" text-anchor="end" dominant-baseline="middle" transform="rotate(-90 653.4 108)">32.935062</text></g>
+              <g class="zf-mark"><circle class="zf-zero" cx="742.8" cy="90" r="5" /><text class="zf-label" x="742.8" y="108" text-anchor="end" dominant-baseline="middle" transform="rotate(-90 742.8 108)">37.586178</text></g>
+              <g class="zf-mark"><circle class="zf-zero" cx="806.9" cy="90" r="5" /><text class="zf-label" x="806.9" y="108" text-anchor="end" dominant-baseline="middle" transform="rotate(-90 806.9 108)">40.918719</text></g>
+              <g class="zf-mark"><circle class="zf-zero" cx="853.2" cy="90" r="5" /><text class="zf-label" x="853.2" y="108" text-anchor="end" dominant-baseline="middle" transform="rotate(-90 853.2 108)">43.327073</text></g>
+              <g class="zf-mark"><circle class="zf-zero" cx="943.2" cy="90" r="5" /><text class="zf-label" x="943.2" y="108" text-anchor="end" dominant-baseline="middle" transform="rotate(-90 943.2 108)">48.005151</text></g>
+              <g class="zf-mark"><circle class="zf-zero" cx="977.2" cy="90" r="5" /><text class="zf-label" x="977.2" y="108" text-anchor="end" dominant-baseline="middle" transform="rotate(-90 977.2 108)">49.773832</text></g>
+            </svg>
+          </div>
+          <figcaption>
+            This is the line Re(s)&nbsp;=&nbsp;1/2, turned so that height runs left to right, the way
+            the timeline on this site runs. The ten dots are the first ten nontrivial zeros of ζ, at
+            their published heights:
+            <span class="zeros">14.134725, 21.022040, 25.010858, 30.424876, 32.935062, 37.586178, 40.918719, 43.327073, 48.005151, 49.773832</span>.
+            <span data-zf-note hidden>The curve is Hardy’s function Z(t), which is real and is zero
+            exactly where ζ(1/2&nbsp;+&nbsp;it) is. Your browser computed it when the page loaded, from
+            the Euler-Maclaurin formula, and it crosses the line at each dot.</span>
+            The hypothesis says every other zero, without end, sits on this same line. A picture can
+            show ten. The Lean proof is about all of them.
+          </figcaption>
+        </figure>
+
+        <dl class="facts" id="facts" hidden></dl>
+        <p class="facts-src" id="factsSrc">
+          The current file, line and pull-request counts of upstream <code>main</code> are on the
+          <a href="tracker.html">tracker</a>, each with the commit it was measured at.
+        </p>
+      </section>
 
       <h2 id="columns">Columns</h2>
       <p class="section-note">If you want to send a pull request, start with one of these. Each is written against the state of upstream on its date.</p>
-      <ol class="plain" id="colList">
-        <li><span class="item-meta">2026-11-26 · Field notes · English</span>
-          <span class="item-title"><a href="manual.html">How to Contribute to the Lean Riemann Hypothesis Proof</a></span>
-          <p>Why shorter source can mean a larger checked proof, how to prepare a focused pull request, where this site measured the most room, and the proof in six stops.</p></li>
-        <li><span class="item-meta">2026-11-26 · Guide · 한국어</span>
-          <span class="item-title"><a href="guide.html" lang="ko">리만 가설 Lean 증명 저장소에 개발자로 기여하는 법</a></span>
-          <p lang="ko">저장소의 지금 상태, 받아들여지는 기여, 빌드와 PR 절차, 직접 겪은 팁, 측정 방법을 공개 출처와 함께 정리했다.</p></li>
+      <ol class="col-grid" id="colList">
+        <li><div class="col-card">
+          <span class="col-kicker">Column · Field notes · English · <time datetime="2026-11-26">26 Nov 2026</time></span>
+          <span class="col-title"><a href="manual.html">How to Contribute to the Lean Riemann Hypothesis Proof</a></span>
+          <p class="col-sum">Why shorter source can mean a larger checked proof, how to prepare a focused pull request, where this site measured the most room, and the proof in six stops.</p>
+          <span class="col-go" aria-hidden="true">Read the column</span>
+        </div></li>
+        <li><div class="col-card">
+          <span class="col-kicker">Column · Guide · 한국어 · <time datetime="2026-11-26">26 Nov 2026</time></span>
+          <span class="col-title"><a href="guide.html" lang="ko">리만 가설 Lean 증명 저장소에 개발자로 기여하는 법</a></span>
+          <p class="col-sum" lang="ko">저장소의 지금 상태, 받아들여지는 기여, 빌드와 PR 절차, 직접 겪은 팁, 측정 방법을 공개 출처와 함께 정리했다.</p>
+          <span class="col-go" aria-hidden="true">Read the column</span>
+        </div></li>
       </ol>
       <p class="more"><a href="columns.html">All columns, placed on the timeline</a></p>
 
-      <h2 id="start">Or start from what you need</h2>
-      <ol class="plain">
+      <h2 id="recent">Latest on the timeline</h2>
+      <ol class="timeline" id="recentList" aria-live="polite"></ol>
+      <p class="status" id="recentStatus">Loading the latest entries…</p>
+      <noscript><p class="status">This list needs JavaScript. The same record is kept in <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/data/upstream_frontier.json">data/upstream_frontier.json</a>.</p></noscript>
+      <p class="more"><a href="columns.html#timeline">The full timeline, back to the import on 21 November 2026</a></p>
+
+      <h2 id="start">Start from what you need</h2>
+      <ol class="routes">
         <li>
-          <span class="item-meta">If you want to read the proof</span>
+          <span class="item-meta">To read the proof</span>
           <span class="item-title"><a href="manual.html#spine">Six stops from the first construction to <code>riemannHypothesis</code></a></span>
           <p>The declarations to follow, in order, with the file each one lives in, so you can trace the argument without opening every source file.</p>
         </li>
         <li>
-          <span class="item-meta">If you want to know what happened and when</span>
-          <span class="item-title"><a href="columns.html#timeline">The repository, day by day</a></span>
-          <p>From the import of the original proof on 2026-11-21 to the switch of <code>main</code> to the readable edition on 2026-11-25. Every entry links to its commit or pull request.</p>
+          <span class="item-meta">To contribute</span>
+          <span class="item-title"><a href="manual.html#pr">How to prepare a focused pull request</a></span>
+          <p>Which files the challenge workflow protects, what to build before you push, and how to keep a change small enough to review.</p>
         </li>
         <li>
-          <span class="item-meta">If you want the numbers</span>
+          <span class="item-meta">For the numbers</span>
           <span class="item-title"><a href="tracker.html">Tracker</a></span>
           <p>File and line counts of upstream <code>main</code>, proof size per commit, the pull-request queue and the published verification records, each with the commit it was measured at.</p>
         </li>
         <li>
-          <span class="item-meta">If you want to know who did what</span>
+          <span class="item-meta">For the people</span>
           <span class="item-title"><a href="profiles.html">Contributors</a></span>
           <p>Maintainers and contributors listed by the pull requests and public records behind each line, not by commit counts.</p>
         </li>
       </ol>
 
-      <h2 id="recent">Latest on the timeline</h2>
-      <ol class="timeline is-brief" id="recentList" aria-live="polite"></ol>
-      <p class="status" id="recentStatus">Loading the latest entries…</p>
-      <noscript><p class="status">This list needs JavaScript. The same record is kept in <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/blob/main/data/upstream_frontier.json">data/upstream_frontier.json</a>.</p></noscript>
-      <p class="more"><a href="columns.html#timeline">The full timeline</a></p>
-
       <h2 id="about">About this site</h2>
-      <p>
-        This is an independent site. It is not written or endorsed by the maintainers of the upstream
-        repository. A number on it names the commit it was measured at and who measured it, whether
-        that is upstream’s own README, a published verification record, or this site’s scripts. Where
-        a figure is this site’s own measurement and cannot be reproduced from a public source, the
-        page says so.
-      </p>
-      <p>
-        Upstream’s README asks contributors for three things: a proof that is accessible (builds
-        without large amounts of compute), readable (code quality moving toward Mathlib’s), and
-        integrated with the community (references to prior work, reuse of existing formalization
-        projects). It also names what it does not want: reports of your own machine’s builds or
-        comparator runs, and files the proof does not need.
-        <a href="https://github.com/leanprover-community/riemann-hypothesis/blob/main/README.md" target="_blank" rel="noopener">Read the README</a>
-        before you start; it is short and it is the authority.
-      </p>
-      <p>
-        Found a mistake here?
-        <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/issues" target="_blank" rel="noopener">Open an issue on the site’s repository</a>.
-      </p>
+      <div class="measure">
+        <p>
+          This is an independent site. It is not written or endorsed by the maintainers of the upstream
+          repository. A number on it names the commit it was measured at and who measured it, whether
+          that is upstream’s own README, a published verification record, or this site’s scripts. Where
+          a figure is this site’s own measurement and cannot be reproduced from a public source, the
+          page says so.
+        </p>
+        <p>
+          Upstream’s README asks contributors for three things: a proof that is accessible (builds
+          without large amounts of compute), readable (code quality moving toward Mathlib’s), and
+          integrated with the community (references to prior work, reuse of existing formalization
+          projects). It also names what it does not want: reports of your own machine’s builds or
+          comparator runs, and files the proof does not need.
+          <a href="https://github.com/leanprover-community/riemann-hypothesis/blob/main/README.md" target="_blank" rel="noopener">Read the README</a>
+          before you start; it is short and it is the authority.
+        </p>
+        <p>
+          Found a mistake here?
+          <a href="https://github.com/thekeunpie-hash/rh-kernel-backbone/issues" target="_blank" rel="noopener">Open an issue on the site’s repository</a>.
+        </p>
+      </div>
     </main>
 
     <footer class="site-foot">
@@ -162,8 +218,11 @@
     (async function () {
       const site = window.RHSite;
       if (!site) return;
-      site.liveStrip(document.getElementById("liveStrip"));
-      site.loadColumns().then((cols) => site.renderColumnList(document.getElementById("colList"), cols));
+      try { site.zetaHero(document.getElementById("zetaFig")); } catch (_) { /* the static figure stays */ }
+      site.liveStrip(document.getElementById("liveStrip")).then((live) => {
+        site.renderFacts(document.getElementById("facts"), document.getElementById("factsSrc"), live);
+      });
+      site.loadColumns().then((cols) => site.renderColumnCards(document.getElementById("colList"), cols));
       const status = document.getElementById("recentStatus");
       try {
         const events = await site.loadEvents();
