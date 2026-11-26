@@ -1,0 +1,13 @@
+{
+  "about": "Columns shown on columns.html, placed on the project timeline by date. Add one entry per published column page; the page must exist under docs/ before it is listed.",
+  "columns": [
+    {
+      "slug": "manual",
+      "href": "manual.html",
+      "date": "2026-11-26",
+      "kicker": "Field notes",
+      "title": "How to Actually Contribute to the Lean Riemann Hypothesis Proof",
+      "summary": "The export-size trap, a clean PR in under an hour, where the leverage is now, and the proof spine in six Lean files."
+    }
+  ]
+}
