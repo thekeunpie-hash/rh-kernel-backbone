@@ -2,15 +2,15 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "df76e2bdbe2c83ff",
-  "updated_at": "2026-11-27T23:37:17.675166+08:00",
+  "revision": "59182ad0e2371aaf",
+  "updated_at": "2026-11-27T23:54:51.789987+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-27T15:41:33Z",
+  "generated_at": "2026-11-27T15:57:37Z",
   "summary": {
     "participants": 122,
     "scored_participants": 98,
-    "submissions": 2521,
-    "scored_submissions": 1778,
+    "submissions": 2522,
+    "scored_submissions": 1779,
     "evaluating": 2,
     "core_evaluating": 2,
     "challenges_total": 49,
@@ -37,7 +37,7 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1777,
+    "total_runs": 1778,
     "kept_count": 668,
     "current_best_score": 2871.57,
     "current_best_pct": 33.58,
@@ -26696,6 +26696,21 @@
         "model": null,
         "harness": "Claude Code",
         "method": null
+      },
+      {
+        "i": 1778,
+        "id": 116096,
+        "ts": "2026-11-27T15:23:46+00:00",
+        "key": "core32",
+        "score": 53.82,
+        "compression_pct": 31.65,
+        "best": 2871.57,
+        "best_pct": 33.58,
+        "kept": false,
+        "author": "Emanuel Barbosa de Moura",
+        "model": null,
+        "harness": "Claude Code",
+        "method": null
       }
     ]
   },
@@ -27972,10 +27987,10 @@
       "char_saved_pct": 47.99,
       "reduction_factor": 1.97,
       "score": 56.4196,
-      "attempts": 88,
-      "scored_attempts": 64,
+      "attempts": 89,
+      "scored_attempts": 65,
       "participants": 16,
-      "runs": 64,
+      "runs": 65,
       "kept_runs": 15,
       "leader": {
         "author": "Andrew Pullin",
@@ -28736,9 +28751,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 2031,
+    "labeled_scored_runs": 2032,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2080,
+    "total_scored_runs": 2081,
     "pairs_total": 72,
     "top_pairs": [
       {
