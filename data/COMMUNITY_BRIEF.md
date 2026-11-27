@@ -1,22 +1,22 @@
-# Community Context Brief (Auto-generated 2026-11-27T22:31:42Z)
+# Community Context Brief (Auto-generated 2026-11-27T23:36:57Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
-- **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:12, merged:1], merged PRs=2 (#9551, #8880), main commits=6
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:126], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
-- **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[labeled:25], merged PRs=0 (none), main commits=0
+- **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:11, merged:1], merged PRs=2 (#9551, #8880), main commits=6
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:124], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
+- **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[labeled:38, unlabeled:2], merged PRs=0 (none), main commits=0
 - **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=0 (none), main commits=3
 - **thorimur** / Thomas Murrills (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 - **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 
 ## 2. Active Contributors (GitHub)
-- **aviadr1** (`CONTRIBUTOR`): merged=1 [#8789], batch_queue=0 [], opened=30
+- **aviadr1** (`CONTRIBUTOR`): merged=1 [#8789], batch_queue=0 [], opened=28
 
 ## 3. Most Active Zulip Participants (RH Threads)
 - **Kim Morrison**: 82 msgs, 177 reactions
 - **Luke Sernau**: 9 msgs, 153 reactions
 - **David Loeffler**: 49 msgs, 92 reactions
 - **Riccardo Brasca**: 44 msgs, 64 reactions
-- **Jonathan Roy**: 227 msgs, 60 reactions
+- **Jonathan Roy**: 228 msgs, 61 reactions
 - **Andrew Sutherland**: 6 msgs, 56 reactions
 - **Jack McCarthy**: 35 msgs, 38 reactions
 - **Thomas Murrills**: 28 msgs, 38 reactions
