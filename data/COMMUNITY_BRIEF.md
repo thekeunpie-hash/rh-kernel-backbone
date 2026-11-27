@@ -1,26 +1,26 @@
-# Community Context Brief (Auto-generated 2026-11-27T16:38:59Z)
+# Community Context Brief (Auto-generated 2026-11-27T17:36:46Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:120, merged:1], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
 - **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:12, merged:1], merged PRs=2 (#9551, #8880), main commits=6
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:120], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
 - **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[labeled:25], merged PRs=0 (none), main commits=0
 - **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=0 (none), main commits=3
 - **thorimur** / Thomas Murrills (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 - **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 
 ## 2. Active Contributors (GitHub)
-- **chopin-op60** (`CONTRIBUTOR`): merged=3 [#8700, #8692, #8688], batch_queue=0 [], opened=22
-- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=1 [#8682], batch_queue=0 [], opened=54
-- **nickita-khylkouski** (`CONTRIBUTOR`): merged=1 [#8686], batch_queue=0 [], opened=47
-- **aviadr1** (`CONTRIBUTOR`): merged=1 [#8789], batch_queue=0 [], opened=36
+- **chopin-op60** (`CONTRIBUTOR`): merged=3 [#8700, #8692, #8688], batch_queue=0 [], opened=21
+- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=1 [#8682], batch_queue=0 [], opened=53
+- **nickita-khylkouski** (`CONTRIBUTOR`): merged=1 [#8686], batch_queue=0 [], opened=45
+- **aviadr1** (`CONTRIBUTOR`): merged=1 [#8789], batch_queue=0 [], opened=32
 - **pranavgundu** (`CONTRIBUTOR`): merged=1 [#8697], batch_queue=0 [], opened=2
 
 ## 3. Most Active Zulip Participants (RH Threads)
-- **Kim Morrison**: 82 msgs, 174 reactions
+- **Kim Morrison**: 82 msgs, 175 reactions
 - **Luke Sernau**: 9 msgs, 152 reactions
-- **David Loeffler**: 51 msgs, 87 reactions
+- **David Loeffler**: 51 msgs, 88 reactions
 - **Riccardo Brasca**: 44 msgs, 63 reactions
-- **Jonathan Roy**: 223 msgs, 59 reactions
+- **Jonathan Roy**: 225 msgs, 59 reactions
 - **Andrew Sutherland**: 6 msgs, 56 reactions
 - **Jack McCarthy**: 36 msgs, 38 reactions
 - **Thomas Murrills**: 28 msgs, 38 reactions
