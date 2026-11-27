@@ -1,41 +1,40 @@
-# Community Context Brief (Auto-generated 2026-11-27T00:37:48Z)
+# Community Context Brief (Auto-generated 2026-11-27T01:41:37Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:72, merged:6], merged PRs=16 (#9069, #9041, #9010, #8996, #8965, #8961, #8960, #8959), main commits=7
-- **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:2, merged:1, unlabeled:1], merged PRs=2 (#8880, #8077), main commits=4
-- **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=5 (#8269, #8247, #8244, #8084, #8079), main commits=3
-- **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[none], merged PRs=3 (#8130, #8098, #8089), main commits=0
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:79, merged:8], merged PRs=19 (#9093, #9079, #9070, #9069, #9041, #9010, #8996, #8965), main commits=8
+- **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:2, merged:1, unlabeled:1], merged PRs=1 (#8880), main commits=4
+- **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=3 (#8269, #8247, #8244), main commits=3
+- **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[none], merged PRs=1 (#8130), main commits=0
 - **thorimur** / Thomas Murrills (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 - **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 
 ## 2. Active Contributors (GitHub)
-- **sqrt-of-2** (`CONTRIBUTOR`): merged=56 [#8460, #8455, #8449, #8447, #8412], batch_queue=0 [], opened=204
+- **sqrt-of-2** (`CONTRIBUTOR`): merged=41 [#8460, #8455, #8449, #8447, #8412], batch_queue=0 [], opened=189
 - **chopin-op60** (`CONTRIBUTOR`): merged=18 [#8700, #8692, #8688, #8456, #8442], batch_queue=0 [], opened=49
-- **alkor2000** (`CONTRIBUTOR`): merged=15 [#8590, #8368, #8364, #8355, #8350], batch_queue=0 [], opened=55
 - **rohanarun** (`CONTRIBUTOR`): merged=13 [#8382, #8376, #8279, #8276, #8271], batch_queue=0 [], opened=62
-- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=12 [#8682, #8408, #8386, #8346, #8344], batch_queue=0 [], opened=36
+- **alkor2000** (`CONTRIBUTOR`): merged=13 [#8590, #8368, #8364, #8355, #8350], batch_queue=0 [], opened=53
+- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=12 [#8682, #8408, #8386, #8346, #8344], batch_queue=0 [], opened=42
+- **roy7** (`CONTRIBUTOR`): merged=12 [#8303, #8302, #8300, #8299, #8298], batch_queue=0 [], opened=21
 - **pranavgundu** (`CONTRIBUTOR`): merged=12 [#8697, #8421, #8420, #8321, #8320], batch_queue=0 [], opened=15
 - **nefelibata5136-code** (`CONTRIBUTOR`): merged=10 [#8452, #8426, #8389, #8352, #8334], batch_queue=0 [], opened=24
-- **roy7** (`CONTRIBUTOR`): merged=10 [#8303, #8302, #8300, #8299, #8298], batch_queue=0 [], opened=19
 - **cannonballgamesstudio** (`CONTRIBUTOR`): merged=6 [#8236, #8232, #8214, #8202, #8185], batch_queue=0 [], opened=9
-- **dilarasoylu** (`CONTRIBUTOR`): merged=3 [#8111, #8095, #8091], batch_queue=0 [], opened=62
-- **koefoeden** (`CONTRIBUTOR`): merged=3 [#8230, #8229, #8088], batch_queue=0 [], opened=12
-- **Dharmavati213** (`CONTRIBUTOR`): merged=2 [#8206, #8087], batch_queue=0 [], opened=31
-- **EricHe98** (`NONE`): merged=2 [#8213, #8133], batch_queue=0 [], opened=14
-- **STARDUSTLC666** (`CONTRIBUTOR`): merged=2 [#8105, #8100], batch_queue=0 [], opened=12
+- **EricHe98** (`NONE`): merged=2 [#8213, #8133], batch_queue=0 [], opened=15
+- **koefoeden** (`CONTRIBUTOR`): merged=2 [#8230, #8229], batch_queue=0 [], opened=11
 - **yidakra** (`CONTRIBUTOR`): merged=2 [#8379, #8131], batch_queue=0 [], opened=4
 - **nickita-khylkouski** (`CONTRIBUTOR`): merged=1 [#8686], batch_queue=0 [], opened=47
-- **JUSTWE-AWAY** (`CONTRIBUTOR`): merged=1 [#8109], batch_queue=0 [], opened=1
+- **Dharmavati213** (`CONTRIBUTOR`): merged=1 [#8206], batch_queue=0 [], opened=30
+- **eumemic** (`CONTRIBUTOR`): merged=1 [#8341], batch_queue=0 [], opened=1
+- **HaraldNordgren** (`CONTRIBUTOR`): merged=1 [#8314], batch_queue=0 [], opened=1
 
 ## 3. Most Active Zulip Participants (RH Threads)
-- **Kim Morrison**: 80 msgs, 158 reactions
+- **Kim Morrison**: 80 msgs, 160 reactions
 - **Luke Sernau**: 9 msgs, 151 reactions
 - **David Loeffler**: 43 msgs, 71 reactions
-- **Jonathan Roy**: 213 msgs, 65 reactions
+- **Jonathan Roy**: 214 msgs, 66 reactions
 - **Riccardo Brasca**: 37 msgs, 55 reactions
 - **Andrew Sutherland**: 6 msgs, 54 reactions
 - **Thomas Murrills**: 44 msgs, 41 reactions
-- **Jack McCarthy**: 36 msgs, 37 reactions
+- **Jack McCarthy**: 35 msgs, 37 reactions
 - **Chris Birkbeck**: 36 msgs, 27 reactions
 - **Artie Khovanov**: 11 msgs, 25 reactions
 - **Devin Watson**: 11 msgs, 21 reactions
@@ -51,8 +50,8 @@
 - **Joseph Richey**: 8 msgs, 7 reactions
 - **Maxime Rinoldo**: 6 msgs, 7 reactions
 - **Daniel Ang**: 4 msgs, 7 reactions
+- **Toby Gee**: 1 msgs, 7 reactions
 - **Rohan Arun**: 18 msgs, 6 reactions
-- **Barinder S Banwait**: 3 msgs, 6 reactions
 
 ## 4. High-Signal Zulip Messages (Community Vibe & Key Milestones)
 - [New proof in 300k lines] **Luke Sernau** (rx:114): Hi all, over the past few days I've been sprinting with a few colleagues at Anthropic on a much shorter version of the proof. We've been able to reduce it by about two orders of magnitude, from about 15 million lines to ~76,000. Also remove
