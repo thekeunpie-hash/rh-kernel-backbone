@@ -3,9 +3,9 @@
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
   "revision": "bb0f92603c12a275",
-  "updated_at": "2026-11-28T02:57:27.375026+08:00",
+  "updated_at": "2026-11-28T03:07:10.854294+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-27T18:59:40Z",
+  "generated_at": "2026-11-27T19:09:50Z",
   "summary": {
     "participants": 122,
     "scored_participants": 98,
@@ -29794,7 +29794,7 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-27T18:29:41Z",
+      "ts": "2026-11-27T18:59:37Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
