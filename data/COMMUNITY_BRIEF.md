@@ -1,7 +1,7 @@
-# Community Context Brief (Auto-generated 2026-11-27T12:50:50Z)
+# Community Context Brief (Auto-generated 2026-11-27T13:47:20Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:118, merged:5], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:116, merged:5], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
 - **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[labeled:25], merged PRs=0 (none), main commits=0
 - **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:7], merged PRs=1 (#8880), main commits=4
 - **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=0 (none), main commits=3
@@ -9,8 +9,8 @@
 - **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 
 ## 2. Active Contributors (GitHub)
-- **chopin-op60** (`CONTRIBUTOR`): merged=3 [#8700, #8692, #8688], batch_queue=0 [], opened=31
-- **alkor2000** (`CONTRIBUTOR`): merged=1 [#8590], batch_queue=0 [], opened=68
+- **chopin-op60** (`CONTRIBUTOR`): merged=3 [#8700, #8692, #8688], batch_queue=0 [], opened=30
+- **alkor2000** (`CONTRIBUTOR`): merged=1 [#8590], batch_queue=0 [], opened=73
 - **CollinYuanjieRen** (`CONTRIBUTOR`): merged=1 [#8682], batch_queue=0 [], opened=47
 - **nickita-khylkouski** (`CONTRIBUTOR`): merged=1 [#8686], batch_queue=0 [], opened=47
 - **pranavgundu** (`CONTRIBUTOR`): merged=1 [#8697], batch_queue=0 [], opened=2
@@ -18,13 +18,13 @@
 ## 3. Most Active Zulip Participants (RH Threads)
 - **Kim Morrison**: 82 msgs, 171 reactions
 - **Luke Sernau**: 9 msgs, 152 reactions
-- **David Loeffler**: 50 msgs, 80 reactions
-- **Jonathan Roy**: 215 msgs, 60 reactions
+- **David Loeffler**: 50 msgs, 81 reactions
+- **Jonathan Roy**: 218 msgs, 57 reactions
+- **Riccardo Brasca**: 41 msgs, 56 reactions
 - **Andrew Sutherland**: 6 msgs, 56 reactions
-- **Riccardo Brasca**: 38 msgs, 55 reactions
-- **Thomas Murrills**: 34 msgs, 40 reactions
-- **Jack McCarthy**: 35 msgs, 38 reactions
-- **Chris Birkbeck**: 38 msgs, 28 reactions
+- **Jack McCarthy**: 36 msgs, 38 reactions
+- **Thomas Murrills**: 29 msgs, 38 reactions
+- **Chris Birkbeck**: 39 msgs, 28 reactions
 - **Artie Khovanov**: 11 msgs, 25 reactions
 - **Devin Watson**: 11 msgs, 21 reactions
 - **Michael Righi**: 13 msgs, 19 reactions
@@ -50,19 +50,19 @@
 - [New proof in 300k lines] **Andrew Sutherland** (rx:22): `lake comparator --paranoid` passed
 - [New proof in 300k lines] **Luke Sernau** (rx:19): @_**Jonas Whidden|937813** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/Cleaning.20up.20the.20proof/near/643703643): ````quote Anyone else think it's super absurdly funny how much time and resource
 - [New proof in 300k lines] **Michael Righi** (rx:14): If this holds up we are all Masullo now. 🤣
-- [New proof in 300k lines] **Kim Morrison** (rx:13): An initial report on minor cleanups using existing "standard" material from Tau Ceti  - Kronecker's first limit formula, rh#5985, −290; - μ, ξ and the kernel of θ, rh#6114, −133; - the ℂ_p API and Ax–Sen–Tate, rh#5970, −144; - elliptic unif
 - [New proof in 300k lines] **David Loeffler** (rx:13): > Does this effectively blow other pruning efforts out of the water, or is there some way to integrate the work? Is the community generally grateful for Sernau's compression or frustrated that it's been done behind closed doors with proprie
+- [New proof in 300k lines] **Kim Morrison** (rx:13): An initial report on minor cleanups using existing "standard" material from Tau Ceti  - Kronecker's first limit formula, rh#5985, −290; - μ, ξ and the kernel of θ, rh#6114, −133; - the ℂ_p API and Ax–Sen–Tate, rh#5970, −144; - elliptic unif
 - [New proof in 300k lines] **Kim Morrison** (rx:13): https://github.com/leanprover-community/riemann-hypothesis is now the 300kLOC proof, with a cache
-- [New proof in 300k lines] **David Loeffler** (rx:12): This is fantastic – the kind of cleanup I really was hoping for all along (cleaning up the mathematics, not just optimizing the build). It's making both Tau Ceti *and* RH better.
 - [New proof in 300k lines] **Riccardo Brasca** (rx:12): It is worth to mention that there are interesting things in the first version that are not in the second one. So having both is *better* than only the second one.
 - [New proof in 300k lines] **Kim Morrison** (rx:12): We're on v4.37.0-rc1 now
+- [New proof in 300k lines] **David Loeffler** (rx:12): This is fantastic – the kind of cleanup I really was hoping for all along (cleaning up the mathematics, not just optimizing the build). It's making both Tau Ceti *and* RH better.
 - [New proof in 300k lines] **Arthur Paulino** (rx:12): @**Luke Sernau** can you share your method(s)?
 - [New proof in 300k lines] **Kim Morrison** (rx:12): I have a build of the 300k version, uploading oleans now. But it's very doable for anone.
 - [New proof in 300k lines] **Luke B** (rx:11): A lot of credit on making that cleanup possible should go to Kim. I've been programming since the '90s, and I've never had onboarding onto a project go as smoothly as to Tau Ceti before. Reducing the minimum to get started to a one-liner th
-- [New proof in 300k lines] **Violeta Hernández** (rx:11): @_**Joseph Richey|494829** [dijo](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643740697): ```quote Lean 4.37 port is up: RH#5768 ``` Every time I see a PR number for 
 - [New proof in 300k lines] **Luke Sernau** (rx:11): @_**Jake Levinson|391579** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643714455): ```quote @**Luke Sernau** Can you say a bit more about what else was removed
+- [New proof in 300k lines] **Violeta Hernández** (rx:11): @_**Joseph Richey|494829** [dijo](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643740697): ```quote Lean 4.37 port is up: RH#5768 ``` Every time I see a PR number for 
+- [New proof in 300k lines] **Riccardo Brasca** (rx:10): A reasonable goal is to move out of the repo, to for example to Tau Ceti, everything that was mathematically already known so that at the end we can have a proof written in the usual way, with citations but without duplications.
 - [New proof in 300k lines] **Kim Morrison** (rx:9): @_**Luke B|1243347** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643866599): ```quote as is how quickly Tau Ceti manages merges ```  It's only the last 48 hour
-- [New proof in 300k lines] **Riccardo Brasca** (rx:9): A reasonable goal is to move out of the repo, to for example to Tau Ceti, everything that was mathematically already known so that at the end we can have a proof written in the usual way, with citations but without duplications.
 - [New proof in 300k lines] **Riccardo Brasca** (rx:9): Anyway please don't start a fight mathlib vs Tau Ceti here.
 - [New proof in 300k lines] **Kim Morrison** (rx:9): Ooh, interesting, my agent says that in a number of places where the new proof is simpler, the required material is already in Tau Ceti... :-)
 - [Library design discrepancies between RH/Mathlib/TauCeti] **Kim Morrison :bot:** (rx:9): :robot: Claude says: Kim is asleep, but she told me I could post this report when I finished: https://gist.github.com/kim-em/373d317a74b860765585d2b7817ee1a2
