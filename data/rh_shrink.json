@@ -6,7 +6,7 @@
     "method": "text search over .lean files under src/, one point per main commit (rh-shrink collect.py)",
     "schema_version": 7
   },
-  "commits_measured": 71,
+  "commits_measured": 72,
   "original": {
     "sha": "47fcde57c49eedd5a6352f4c8745d30bebbe4b0b",
     "date": "2026-11-25T22:24:29Z",
@@ -23,13 +23,13 @@
     "statements": 17676
   },
   "latest": {
-    "sha": "3dce258edd0bceb18e5d097328bcf7b006394a00",
-    "date": "2026-11-27T01:39:23Z",
-    "subject": "Merge pull request #9112 from leanprover-community/batch/ct1-on-main",
-    "pr": 9112,
+    "sha": "7c4ccbd64d02774b0a5b40a5f923f5b7a18e8abc",
+    "date": "2026-11-27T02:09:55Z",
+    "subject": "Merge pull request #9130 from leanprover-community/batch/m51-on-main",
+    "pr": 9130,
     "files": 802,
     "lines": 479436,
-    "code": 297754,
+    "code": 297753,
     "theorems": 17476,
     "defs": 5566,
     "imports": 4253,
@@ -38,8 +38,17 @@
     "statements": 16937
   },
   "code_left_pct": 99.86,
-  "code_removed": 406,
+  "code_removed": 407,
   "recent_changes": [
+    {
+      "sha": "7c4ccbd64d02774b0a5b40a5f923f5b7a18e8abc",
+      "date": "2026-11-27T02:09:55Z",
+      "subject": "Merge pull request #9130 from leanprover-community/batch/m51-on-main",
+      "pr": 9130,
+      "code": 297753,
+      "code_delta": -1,
+      "theorems_delta": 0
+    },
     {
       "sha": "2c2835a388e156b9094725282c03775be9c6b357",
       "date": "2026-11-27T00:49:45Z",
@@ -138,15 +147,6 @@
       "code": 296605,
       "code_delta": 180,
       "theorems_delta": -33
-    },
-    {
-      "sha": "120962b4fc014406f9c76adc53b5cf64475143d3",
-      "date": "2026-11-26T13:22:57Z",
-      "subject": "Merge pull request #7663 from leanprover-community/batch/m39-on-main",
-      "pr": 7663,
-      "code": 296425,
-      "code_delta": 577,
-      "theorems_delta": -32
     }
   ],
   "series": [
@@ -433,6 +433,10 @@
     [
       "2026-11-27T01:39:23Z",
       297754
+    ],
+    [
+      "2026-11-27T02:09:55Z",
+      297753
     ]
   ]
 }
