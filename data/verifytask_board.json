@@ -2,17 +2,17 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "5bcf0d9bf113b578",
-  "updated_at": "2026-11-27T19:50:42.472090+08:00",
+  "revision": "1380e9bf23f033c5",
+  "updated_at": "2026-11-27T20:07:43.609651+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-27T11:53:15Z",
+  "generated_at": "2026-11-27T12:09:34Z",
   "summary": {
     "participants": 122,
     "scored_participants": 98,
     "submissions": 2517,
-    "scored_submissions": 1774,
-    "evaluating": 2,
-    "core_evaluating": 2,
+    "scored_submissions": 1775,
+    "evaluating": 1,
+    "core_evaluating": 1,
     "challenges_total": 49,
     "core_solved": 42,
     "core_total": 48,
@@ -37,7 +37,7 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1773,
+    "total_runs": 1774,
     "kept_count": 668,
     "current_best_score": 2871.57,
     "current_best_pct": 33.58,
@@ -26636,6 +26636,21 @@
         "model": "Gemini",
         "harness": "ci-lean4",
         "method": null
+      },
+      {
+        "i": 1774,
+        "id": 115302,
+        "ts": "2026-11-27T11:38:16+00:00",
+        "key": "core32",
+        "score": 53.59,
+        "compression_pct": 30.0,
+        "best": 2871.57,
+        "best_pct": 33.58,
+        "kept": false,
+        "author": "Emanuel Barbosa de Moura",
+        "model": null,
+        "harness": "Claude Code",
+        "method": null
       }
     ]
   },
@@ -27913,9 +27928,9 @@
       "reduction_factor": 1.97,
       "score": 56.4196,
       "attempts": 84,
-      "scored_attempts": 60,
+      "scored_attempts": 61,
       "participants": 16,
-      "runs": 60,
+      "runs": 61,
       "kept_runs": 15,
       "leader": {
         "author": "Andrew Pullin",
@@ -28676,9 +28691,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 2027,
+    "labeled_scored_runs": 2028,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2076,
+    "total_scored_runs": 2077,
     "pairs_total": 72,
     "top_pairs": [
       {
@@ -29644,7 +29659,7 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-27T11:28:35Z",
+      "ts": "2026-11-27T11:58:55Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
