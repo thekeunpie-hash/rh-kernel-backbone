@@ -1,4 +1,4 @@
-# Community Context Brief (Auto-generated 2026-11-27T17:36:46Z)
+# Community Context Brief (Auto-generated 2026-11-27T18:33:10Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
 - **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:12, merged:1], merged PRs=2 (#9551, #8880), main commits=6
@@ -9,10 +9,8 @@
 - **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 
 ## 2. Active Contributors (GitHub)
-- **chopin-op60** (`CONTRIBUTOR`): merged=3 [#8700, #8692, #8688], batch_queue=0 [], opened=21
-- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=1 [#8682], batch_queue=0 [], opened=53
-- **nickita-khylkouski** (`CONTRIBUTOR`): merged=1 [#8686], batch_queue=0 [], opened=45
-- **aviadr1** (`CONTRIBUTOR`): merged=1 [#8789], batch_queue=0 [], opened=32
+- **aviadr1** (`CONTRIBUTOR`): merged=1 [#8789], batch_queue=0 [], opened=33
+- **chopin-op60** (`CONTRIBUTOR`): merged=1 [#8700], batch_queue=0 [], opened=19
 - **pranavgundu** (`CONTRIBUTOR`): merged=1 [#8697], batch_queue=0 [], opened=2
 
 ## 3. Most Active Zulip Participants (RH Threads)
@@ -36,11 +34,11 @@
 - **David Michael Roberts**: 7 msgs, 9 reactions
 - **Kim Morrison :bot:**: 6 msgs, 9 reactions
 - **Marc Huisinga**: 2 msgs, 8 reactions
+- **Toby Gee**: 1 msgs, 8 reactions
 - **Joseph Richey**: 8 msgs, 7 reactions
 - **Maxime Rinoldo**: 6 msgs, 7 reactions
 - **Daniel Ang**: 4 msgs, 7 reactions
 - **Ashley Holman**: 2 msgs, 7 reactions
-- **Toby Gee**: 1 msgs, 7 reactions
 
 ## 4. High-Signal Zulip Messages (Community Vibe & Key Milestones)
 - [New proof in 300k lines] **Luke Sernau** (rx:115): Hi all, over the past few days I've been sprinting with a few colleagues at Anthropic on a much shorter version of the proof. We've been able to reduce it by about two orders of magnitude, from about 15 million lines to ~76,000. Also remove
