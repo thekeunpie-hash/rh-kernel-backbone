@@ -3,9 +3,9 @@
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
   "revision": "0acb5bac05cfe4f2",
-  "updated_at": "2026-11-28T04:50:12.879030+08:00",
+  "updated_at": "2026-11-28T04:59:56.872704+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-27T20:52:34Z",
+  "generated_at": "2026-11-27T21:02:40Z",
   "summary": {
     "participants": 122,
     "scored_participants": 98,
@@ -29794,7 +29794,7 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-27T20:29:46Z",
+      "ts": "2026-11-27T20:59:14Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
@@ -29887,7 +29887,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1518★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1519★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true
