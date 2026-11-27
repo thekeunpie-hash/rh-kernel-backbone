@@ -2,14 +2,14 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "b841179d0e8aebf9",
-  "updated_at": "2026-11-27T09:48:09.749330+08:00",
+  "revision": "d4abaa18b181dff4",
+  "updated_at": "2026-11-27T10:02:32.330074+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-27T01:51:06Z",
+  "generated_at": "2026-11-27T02:04:23Z",
   "summary": {
     "participants": 122,
     "scored_participants": 98,
-    "submissions": 2505,
+    "submissions": 2506,
     "scored_submissions": 1766,
     "evaluating": 6,
     "core_evaluating": 6,
@@ -27792,7 +27792,7 @@
       "char_saved_pct": 47.99,
       "reduction_factor": 1.97,
       "score": 56.4196,
-      "attempts": 76,
+      "attempts": 77,
       "scored_attempts": 52,
       "participants": 16,
       "runs": 52,
@@ -28556,9 +28556,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 2011,
+    "labeled_scored_runs": 2012,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2060,
+    "total_scored_runs": 2061,
     "pairs_total": 72,
     "top_pairs": [
       {
@@ -29524,7 +29524,7 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-27T01:29:24Z",
+      "ts": "2026-11-27T01:59:16Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
@@ -29617,7 +29617,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1461★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1464★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true
