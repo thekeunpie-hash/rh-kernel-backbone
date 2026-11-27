@@ -1,8 +1,8 @@
-# Community Context Brief (Auto-generated 2026-11-27T20:27:14Z)
+# Community Context Brief (Auto-generated 2026-11-27T21:23:22Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
 - **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:12, merged:1], merged PRs=2 (#9551, #8880), main commits=6
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:122], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:124], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
 - **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[labeled:25], merged PRs=0 (none), main commits=0
 - **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=0 (none), main commits=3
 - **thorimur** / Thomas Murrills (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
