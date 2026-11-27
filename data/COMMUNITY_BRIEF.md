@@ -1,7 +1,7 @@
-# Community Context Brief (Auto-generated 2026-11-27T10:00:21Z)
+# Community Context Brief (Auto-generated 2026-11-27T10:56:25Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:139, merged:7], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:131, merged:6], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
 - **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:7], merged PRs=1 (#8880), main commits=4
 - **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=0 (none), main commits=3
 - **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
@@ -9,18 +9,17 @@
 - **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 
 ## 2. Active Contributors (GitHub)
-- **chopin-op60** (`CONTRIBUTOR`): merged=5 [#8700, #8692, #8688, #8456, #8442], batch_queue=0 [], opened=35
-- **sqrt-of-2** (`CONTRIBUTOR`): merged=4 [#8460, #8455, #8449, #8447], batch_queue=0 [], opened=86
-- **alkor2000** (`CONTRIBUTOR`): merged=1 [#8590], batch_queue=0 [], opened=48
+- **chopin-op60** (`CONTRIBUTOR`): merged=3 [#8700, #8692, #8688], batch_queue=0 [], opened=33
+- **sqrt-of-2** (`CONTRIBUTOR`): merged=1 [#8460], batch_queue=0 [], opened=83
+- **alkor2000** (`CONTRIBUTOR`): merged=1 [#8590], batch_queue=0 [], opened=53
 - **nickita-khylkouski** (`CONTRIBUTOR`): merged=1 [#8686], batch_queue=0 [], opened=47
-- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=1 [#8682], batch_queue=0 [], opened=43
-- **nefelibata5136-code** (`CONTRIBUTOR`): merged=1 [#8452], batch_queue=0 [], opened=12
+- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=1 [#8682], batch_queue=0 [], opened=44
 - **pranavgundu** (`CONTRIBUTOR`): merged=1 [#8697], batch_queue=0 [], opened=2
 
 ## 3. Most Active Zulip Participants (RH Threads)
 - **Kim Morrison**: 82 msgs, 168 reactions
 - **Luke Sernau**: 9 msgs, 152 reactions
-- **David Loeffler**: 47 msgs, 76 reactions
+- **David Loeffler**: 48 msgs, 78 reactions
 - **Jonathan Roy**: 214 msgs, 61 reactions
 - **Andrew Sutherland**: 6 msgs, 56 reactions
 - **Riccardo Brasca**: 38 msgs, 55 reactions
