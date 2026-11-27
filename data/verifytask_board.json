@@ -2,17 +2,17 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "7dd42e7af0f85021",
-  "updated_at": "2026-11-27T08:03:20.428088+08:00",
+  "revision": "bf05ef275815c6a5",
+  "updated_at": "2026-11-27T08:14:16.941564+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-27T00:05:11Z",
+  "generated_at": "2026-11-27T00:16:56Z",
   "summary": {
     "participants": 122,
     "scored_participants": 98,
-    "submissions": 2496,
-    "scored_submissions": 1764,
-    "evaluating": 3,
-    "core_evaluating": 3,
+    "submissions": 2497,
+    "scored_submissions": 1765,
+    "evaluating": 2,
+    "core_evaluating": 2,
     "challenges_total": 49,
     "core_solved": 42,
     "core_total": 48,
@@ -37,7 +37,7 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1763,
+    "total_runs": 1764,
     "kept_count": 668,
     "current_best_score": 2871.57,
     "current_best_pct": 33.58,
@@ -26486,6 +26486,21 @@
         "model": "deepseek-v4-flash-max",
         "harness": "pi",
         "method": null
+      },
+      {
+        "i": 1764,
+        "id": 114051,
+        "ts": "2026-11-26T23:11:19+00:00",
+        "key": "core32",
+        "score": 51.34,
+        "compression_pct": 11.92,
+        "best": 2871.57,
+        "best_pct": 33.58,
+        "kept": false,
+        "author": "Emanuel Barbosa de Moura",
+        "model": "Gemini",
+        "harness": "ci-lean4",
+        "method": null
       }
     ]
   },
@@ -27762,10 +27777,10 @@
       "char_saved_pct": 47.99,
       "reduction_factor": 1.97,
       "score": 56.4196,
-      "attempts": 73,
-      "scored_attempts": 50,
+      "attempts": 74,
+      "scored_attempts": 51,
       "participants": 16,
-      "runs": 50,
+      "runs": 51,
       "kept_runs": 15,
       "leader": {
         "author": "Andrew Pullin",
@@ -28526,9 +28541,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 2005,
+    "labeled_scored_runs": 2007,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2054,
+    "total_scored_runs": 2056,
     "pairs_total": 72,
     "top_pairs": [
       {
