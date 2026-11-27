@@ -1,7 +1,7 @@
-# Community Context Brief (Auto-generated 2026-11-27T10:56:25Z)
+# Community Context Brief (Auto-generated 2026-11-27T11:53:02Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:131, merged:6], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:121, merged:6], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
 - **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:7], merged PRs=1 (#8880), main commits=4
 - **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=0 (none), main commits=3
 - **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
@@ -9,21 +9,20 @@
 - **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 
 ## 2. Active Contributors (GitHub)
-- **chopin-op60** (`CONTRIBUTOR`): merged=3 [#8700, #8692, #8688], batch_queue=0 [], opened=33
-- **sqrt-of-2** (`CONTRIBUTOR`): merged=1 [#8460], batch_queue=0 [], opened=83
-- **alkor2000** (`CONTRIBUTOR`): merged=1 [#8590], batch_queue=0 [], opened=53
+- **chopin-op60** (`CONTRIBUTOR`): merged=3 [#8700, #8692, #8688], batch_queue=0 [], opened=31
+- **alkor2000** (`CONTRIBUTOR`): merged=1 [#8590], batch_queue=0 [], opened=64
 - **nickita-khylkouski** (`CONTRIBUTOR`): merged=1 [#8686], batch_queue=0 [], opened=47
-- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=1 [#8682], batch_queue=0 [], opened=44
+- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=1 [#8682], batch_queue=0 [], opened=46
 - **pranavgundu** (`CONTRIBUTOR`): merged=1 [#8697], batch_queue=0 [], opened=2
 
 ## 3. Most Active Zulip Participants (RH Threads)
 - **Kim Morrison**: 82 msgs, 168 reactions
 - **Luke Sernau**: 9 msgs, 152 reactions
 - **David Loeffler**: 48 msgs, 78 reactions
-- **Jonathan Roy**: 214 msgs, 61 reactions
+- **Jonathan Roy**: 213 msgs, 61 reactions
 - **Andrew Sutherland**: 6 msgs, 56 reactions
 - **Riccardo Brasca**: 38 msgs, 55 reactions
-- **Thomas Murrills**: 39 msgs, 41 reactions
+- **Thomas Murrills**: 38 msgs, 40 reactions
 - **Jack McCarthy**: 35 msgs, 37 reactions
 - **Chris Birkbeck**: 37 msgs, 27 reactions
 - **Artie Khovanov**: 11 msgs, 25 reactions
@@ -33,7 +32,7 @@
 - **Luke B**: 4 msgs, 12 reactions
 - **Arthur Paulino**: 1 msgs, 12 reactions
 - **Violeta Hernández**: 1 msgs, 11 reactions
-- **Snir Broshi**: 16 msgs, 9 reactions
+- **Snir Broshi**: 16 msgs, 10 reactions
 - **David Michael Roberts**: 7 msgs, 9 reactions
 - **Kim Morrison :bot:**: 6 msgs, 9 reactions
 - **Marc Huisinga**: 2 msgs, 8 reactions
@@ -56,8 +55,8 @@
 - [New proof in 300k lines] **David Loeffler** (rx:12): This is fantastic – the kind of cleanup I really was hoping for all along (cleaning up the mathematics, not just optimizing the build). It's making both Tau Ceti *and* RH better.
 - [New proof in 300k lines] **David Loeffler** (rx:12): > Does this effectively blow other pruning efforts out of the water, or is there some way to integrate the work? Is the community generally grateful for Sernau's compression or frustrated that it's been done behind closed doors with proprie
 - [New proof in 300k lines] **Riccardo Brasca** (rx:12): It is worth to mention that there are interesting things in the first version that are not in the second one. So having both is *better* than only the second one.
-- [New proof in 300k lines] **Kim Morrison** (rx:12): I have a build of the 300k version, uploading oleans now. But it's very doable for anone.
 - [New proof in 300k lines] **Arthur Paulino** (rx:12): @**Luke Sernau** can you share your method(s)?
+- [New proof in 300k lines] **Kim Morrison** (rx:12): I have a build of the 300k version, uploading oleans now. But it's very doable for anone.
 - [New proof in 300k lines] **Luke B** (rx:11): A lot of credit on making that cleanup possible should go to Kim. I've been programming since the '90s, and I've never had onboarding onto a project go as smoothly as to Tau Ceti before. Reducing the minimum to get started to a one-liner th
 - [New proof in 300k lines] **Violeta Hernández** (rx:11): @_**Joseph Richey|494829** [dijo](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643740697): ```quote Lean 4.37 port is up: RH#5768 ``` Every time I see a PR number for 
 - [New proof in 300k lines] **Kim Morrison** (rx:11): We're on v4.37.0-rc1 now
