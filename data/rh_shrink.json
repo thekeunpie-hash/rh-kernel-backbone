@@ -6,7 +6,7 @@
     "method": "text search over .lean files under src/, one point per main commit (rh-shrink collect.py)",
     "schema_version": 7
   },
-  "commits_measured": 69,
+  "commits_measured": 70,
   "original": {
     "sha": "47fcde57c49eedd5a6352f4c8745d30bebbe4b0b",
     "date": "2026-11-25T22:24:29Z",
@@ -23,23 +23,32 @@
     "statements": 17676
   },
   "latest": {
-    "sha": "546d484ddd64e55bf7efd859ae13a320fb5ec39d",
-    "date": "2026-11-27T00:35:35Z",
-    "subject": "Merge pull request #9079 from leanprover-community/batch/fx1-on-main",
-    "pr": 9079,
+    "sha": "2c2835a388e156b9094725282c03775be9c6b357",
+    "date": "2026-11-27T00:49:45Z",
+    "subject": "Merge pull request #9093 from leanprover-community/batch/m50-on-main",
+    "pr": 9093,
     "files": 802,
-    "lines": 479478,
-    "code": 297774,
-    "theorems": 17479,
+    "lines": 479436,
+    "code": 297754,
+    "theorems": 17476,
     "defs": 5566,
-    "imports": 4254,
+    "imports": 4253,
     "heartbeats": 0,
     "repeats": 61,
-    "statements": 16940
+    "statements": 16937
   },
-  "code_left_pct": 99.87,
-  "code_removed": 386,
+  "code_left_pct": 99.86,
+  "code_removed": 406,
   "recent_changes": [
+    {
+      "sha": "2c2835a388e156b9094725282c03775be9c6b357",
+      "date": "2026-11-27T00:49:45Z",
+      "subject": "Merge pull request #9093 from leanprover-community/batch/m50-on-main",
+      "pr": 9093,
+      "code": 297754,
+      "code_delta": -20,
+      "theorems_delta": -3
+    },
     {
       "sha": "f714cf9fb3ef5445f94ee250e0bfa46d998ce37f",
       "date": "2026-11-27T00:20:46Z",
@@ -138,15 +147,6 @@
       "code": 296425,
       "code_delta": 577,
       "theorems_delta": -32
-    },
-    {
-      "sha": "e38782a68eb5f6ee793739847c703aa16080ef6c",
-      "date": "2026-11-26T13:00:01Z",
-      "subject": "Merge pull request #7576 from leanprover-community/batch/m38b-on-main",
-      "pr": 7576,
-      "code": 295848,
-      "code_delta": 130,
-      "theorems_delta": -12
     }
   ],
   "series": [
@@ -425,6 +425,10 @@
     [
       "2026-11-27T00:35:35Z",
       297774
+    ],
+    [
+      "2026-11-27T00:49:45Z",
+      297754
     ]
   ]
 }

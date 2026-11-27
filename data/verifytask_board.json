@@ -3,9 +3,9 @@
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
   "revision": "657f95f7dda9b8da",
-  "updated_at": "2026-11-27T08:56:17.368090+08:00",
+  "updated_at": "2026-11-27T09:08:22.179474+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-27T00:57:27Z",
+  "generated_at": "2026-11-27T01:10:35Z",
   "summary": {
     "participants": 122,
     "scored_participants": 98,
@@ -29524,12 +29524,22 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-27T00:29:08Z",
+      "ts": "2026-11-27T00:59:29Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
       "summary": "New verified modules from the remaining 99% of Alpöge's proof are now live: CM j-Invariant Integrality, Irreducible Complex Open Connected, Siegel–Weil Local Density (+40 more).",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-core-pillar-6-cm-j-invarian-70b3d4ba",
+      "highlight": true
+    },
+    {
+      "id": "upstream-pr-9070",
+      "ts": "2026-11-27T00:39:01Z",
+      "source": "lean_community",
+      "tag": "Upstream PR #9070",
+      "title": "fix: fetch privately imported Tau Ceti modules in the CI cache step",
+      "summary": "Merged into leanprover-community/riemann-hypothesis by kim-em.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/9070",
       "highlight": true
     },
     {
@@ -29573,16 +29583,6 @@
       "highlight": true
     },
     {
-      "id": "seed-upstream-pr68",
-      "ts": "2026-11-22T07:25:46Z",
-      "source": "lean_community",
-      "tag": "Proof Cleanup",
-      "title": "Shared GL finiteness rank-induction proof cuts 9,010 Lean lines (PR #68)",
-      "summary": "antoshashakov deduplicated GL finiteness proofs (−9,010 lines) alongside CapelliIdentities typeclass dump cleanups merged in PRs #57, #60, and #65.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/68",
-      "highlight": false
-    },
-    {
       "id": "seed-upstream-pr45",
       "ts": "2026-11-21T20:54:20Z",
       "source": "lean_community",
@@ -29617,7 +29617,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1455★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1456★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true
