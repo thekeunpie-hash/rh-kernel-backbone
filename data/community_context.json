@@ -1,10 +1,219 @@
 {
-  "generated_at": "2026-11-27T04:54:33Z",
+  "generated_at": "2026-11-27T05:57:43Z",
   "github": {
+    "WinglokWong": {
+      "association": "CONTRIBUTOR",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 9296,
+          "title": "refactor: use self-conjugation in the Kolyvagin vanishing proof",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9286,
+          "title": "fix: detect missing Tau Ceti artifacts in cache acceptance",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9285,
+          "title": "refactor: reuse stability of the terms with a fixed link",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9279,
+          "title": "refactor: use Selmer cocycle monotonicity in the relation counts",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9265,
+          "title": "refactor: use the open positive-definite cone for accretive matrices",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9241,
+          "title": "feat: extend the low-degree theta coefficient bound to split primes",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9192,
+          "title": "feat: extend the prime remainder Laplace transform to Re(s) > 1",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9168,
+          "title": "refactor: reuse the Gram formula for a complex frame pair",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
     "Deicyde": {
       "association": "COLLABORATOR",
       "tier": "maintainer_or_collaborator",
       "prs_opened": [
+        {
+          "number": 9295,
+          "title": "refactor(Lib/General/Algebra): use Tau Ceti's PowerSeries.logDeriv_mul",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9294,
+          "title": "refactor(Lib/General/Algebra): use Tau Ceti's IsSMulRegular.adicCompletion",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9291,
+          "title": "refactor(Lib/DiscreteSeries/Haar): use Tau Ceti's linear change of variables in GramCoordinates",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9288,
+          "title": "refactor(Lib/General/Algebra): use Tau Ceti's IsHausdorff.of_injective",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9283,
+          "title": "refactor(Lib/General/NumberTheory): use Tau Ceti's volume of an orthonormal parallelepiped",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9282,
+          "title": "refactor(Lib/DiscreteSeries/Bruhat): use Mathlib's Integrable.integral_compProd in FourierKernels",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9280,
+          "title": "refactor(New/Determinant/Exchange): use Tau Ceti's modular character for compact right translations",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9278,
+          "title": "refactor(Lib/General/LinearAlgebra): use Tau Ceti's pseudo-inverse of a linear map",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9269,
+          "title": "refactor(Lib/Cohomology/ProperBaseChange): use Mathlib's Submonoid.isUnit_iff_of_ne_zero",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9268,
+          "title": "refactor(Lib/General/Analysis): use Tau Ceti's smoothness of matrix products",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9266,
+          "title": "refactor(Lib/General/Geometry): use Mathlib's Scheme.Hom.iSup_preimage_eq_top",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9264,
+          "title": "refactor(Lib/Cohomology/Etale): check exactness objectwise with Tau Ceti",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 9262,
+          "title": "refactor(Lib/Adelic/QuotientMeasure): use Tau Ceti's Equiv.measurePreserving_count",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9257,
+          "title": "refactor(Lib/PadicHodge): use Tau Ceti's norm of ζ - 1 for prime-power roots of unity",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9256,
+          "title": "refactor(Lib/Analytic): use Tau Ceti's Jacobi symbol of the odd part",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 9253,
+          "title": "refactor(New/Congruences/Selmer): use Tau Ceti's detection of nonzero elements by maps to ZMod n",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9250,
+          "title": "refactor(Lib/GaloisRep/BaseChange): use Mathlib's Semiconj.iterate_right in v_ringHom_pow_apply",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9249,
+          "title": "refactor(Lib/Analytic): use Tau Ceti's bound for shifted Dirichlet series terms",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 9248,
+          "title": "refactor(Lib/Adelic/TraceFormula): use Tau Ceti's spectral mapping for traces",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9247,
+          "title": "refactor(Lib/General/Analysis): use Tau Ceti's derivative of polynomial evaluation",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9246,
+          "title": "refactor(Lib/General/Geometry): use Tau Ceti's integral closedness of smooth base change",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9245,
+          "title": "refactor(Lib/CM): use Tau Ceti's norm_one_sub_of_norm_lt_one in norm_pow_sub_one_eq_one",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9244,
+          "title": "refactor(New/Appendix/DiscreteSeries): use Tau Ceti's determinant of a block triangular matrix",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 9243,
+          "title": "refactor(Lib/Weil/Construction): derive relIndex_map_nsmul_toAddSubgroup from Mathlib",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9242,
+          "title": "refactor(Lib/General/Geometry): use Tau Ceti's Chase–Harrison–Rosenberg theorem",
+          "state": "open",
+          "batch_queue": false
+        },
         {
           "number": 9239,
           "title": "refactor(Lib/CM): derive half_mem_lattice_iff_even from Tau Ceti's division points",
@@ -828,155 +1037,43 @@
       "main_commits": 4,
       "merge_commits_authored": 0,
       "privileged_events": {
-        "labeled": 1
+        "labeled": 7
       }
-    },
-    "righi": {
-      "association": "CONTRIBUTOR",
-      "tier": "contributor",
-      "prs_opened": [
-        {
-          "number": 9238,
-          "title": "refactor: use Tau Ceti's diagGL",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8711,
-          "title": "refactor: use Tau Ceti's finite adele component lemmas",
-          "state": "open",
-          "batch_queue": false
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [],
-      "main_commits": 0,
-      "merge_commits_authored": 0,
-      "privileged_events": {}
-    },
-    "EricHe98": {
-      "association": "CONTRIBUTOR",
-      "tier": "contributor",
-      "prs_opened": [
-        {
-          "number": 9237,
-          "title": "refactor(Lib/General/LinearAlgebra): reuse the block determinant bound (−11 net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9228,
-          "title": "refactor(Lib/GLn): define the rational weight action beside its Weyl representation (+5 lines net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9219,
-          "title": "perf(New/Appendix/DiscreteSeries/StationaryPosition): drop HolomorphicFamilies (−1 line net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9135,
-          "title": "refactor(Lib/General/Groups/ProfiniteCharacters): use Tau Ceti's character of ℚ/ℤ (−19 lines net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9123,
-          "title": "refactor(New/Appendix/DiscreteSeries): use column independence for the position left inverse (+0 lines net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9104,
-          "title": "refactor(General/Groups): move block indices beside the matrix parabolic (+18 lines net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9046,
-          "title": "refactor(Lib/LocalGL/Green): move the faithful character into its own module (+20 lines net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8967,
-          "title": "refactor(PadicHodge/PeriodRings/CrystallineRings): identify the special fibre by its presentation (−8 lines net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8838,
-          "title": "refactor(AdmissibleCombinations): use sparse coordinates for the glued and string-frame Gram proofs (−27 lines net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8793,
-          "title": "refactor(SharpMinors): bound the matrix kernel directly (−64 lines net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8754,
-          "title": "refactor(Lib/DiscreteSeries/Bruhat): share the Weyl action across floor and frame proofs (−137 lines net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8685,
-          "title": "Halve the upper bound for the weighted prime sum (−8 lines net)",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8683,
-          "title": "refactor: use Mathlib rank formulas for submodule images and preimages (−13 lines net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8611,
-          "title": "refactor(AutomorphicForms): construct the level kernel from a compactly supported bump (+42 lines net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8608,
-          "title": "refactor(Seesaw): derive string-frame unitarity from its Gram identity (−32 lines net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8544,
-          "title": "refactor: share divisibility of units in absolutely integrally closed rings (+0 lines net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8404,
-          "title": "refactor(New/Congruences/LocalLoss): shrink the exceptional interval of crystallineLoss (−4 lines net)",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8243,
-          "title": "refactor(New/Congruences/Lifting): require a smaller prime-free radius for few low jumps (+1 line net)",
-          "state": "open",
-          "batch_queue": false
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [],
-      "main_commits": 1,
-      "merge_commits_authored": 0,
-      "privileged_events": {}
     },
     "rohanarun": {
       "association": "CONTRIBUTOR",
       "tier": "active_contributor",
       "prs_opened": [
+        {
+          "number": 9293,
+          "title": "refactor(Lib/ClassField/LocalDuality): split cokerKerIndex_local_units into helper lemmas",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9284,
+          "title": "refactor(Lib/CM/Integrality): generalize quadratic and squaring bounds in TorsionValues",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9261,
+          "title": "refactor(Lib/Cohomology/Etale/Basic): use Tau Ceti's objectwise exactness criteria",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9252,
+          "title": "refactor(New/Spanning/RemainingTerms): use Tau Ceti's Gram determinant Cauchy–Schwarz in `liouville_gram`",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9240,
+          "title": "refactor(Lib/CM/Integrality): generalize continuous_rescale and coeff_two_subst from ℂ_[p]",
+          "state": "open",
+          "batch_queue": false
+        },
         {
           "number": 9236,
           "title": "refactor(Lib/GLn/Branching): split weylNormSq_mulVec_le_of_equivariant into helper lemmas",
@@ -1252,102 +1349,6 @@
           "title": "refactor(New/Congruences/Selmer): name the compared residues in exists_tameChar_invAvatar_eq",
           "state": "open",
           "batch_queue": false
-        },
-        {
-          "number": 8280,
-          "title": "perf: speed up New/UpperBound/Objects/AuxiliaryPair",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8279,
-          "title": "perf: speed up New/UpperBound/Divisibility/ValuationAtLevel",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8278,
-          "title": "perf: speed up New/Spanning/Unfolding/SeriesPeriod",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8276,
-          "title": "perf: speed up New/Spanning/Frames/FixedLines",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8275,
-          "title": "refactor(Lib/Weil/Fock): state the measurability side goal explicitly and clear unused hypotheses",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8273,
-          "title": "refactor(Lib/Weil/DualPair): name the ring identities in Flip instead of grind",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8271,
-          "title": "perf: speed up Lib/Shimura/HeckeTower/HeckeData",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8267,
-          "title": "perf: speed up New/UpperBound/Divisibility/SetupAtLevel",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8266,
-          "title": "perf: speed up New/Spanning/Frames/Densities",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8265,
-          "title": "perf: speed up New/Appendix/DiscreteSeries/MinorExpansion",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8264,
-          "title": "perf: speed up Lib/Weil/Periods/Unfolding",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8263,
-          "title": "perf: speed up Lib/PadicHodge/Crystalline/HodgeTateJumps",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8261,
-          "title": "perf: speed up Lib/PadicComparison/Primitive/ComparisonTheorem",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8260,
-          "title": "perf: speed up Lib/General/Algebra/CohomologyBaseChange",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8246,
-          "title": "perf: speed up New/Derivatives/Vacuum/ShortVectors",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8245,
-          "title": "perf: speed up Lib/Shimura/ThetaGroup",
-          "state": "open",
-          "batch_queue": false
         }
       ],
       "prs_merged": [
@@ -1362,54 +1363,6 @@
           "title": "perf: speed up Lib/PadicHodge/Crystalline/Regularity",
           "state": "closed",
           "batch_queue": false
-        },
-        {
-          "number": 8279,
-          "title": "perf: speed up New/UpperBound/Divisibility/ValuationAtLevel",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8276,
-          "title": "perf: speed up New/Spanning/Frames/FixedLines",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8271,
-          "title": "perf: speed up Lib/Shimura/HeckeTower/HeckeData",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8266,
-          "title": "perf: speed up New/Spanning/Frames/Densities",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8264,
-          "title": "perf: speed up Lib/Weil/Periods/Unfolding",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8261,
-          "title": "perf: speed up Lib/PadicComparison/Primitive/ComparisonTheorem",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8260,
-          "title": "perf: speed up Lib/General/Algebra/CohomologyBaseChange",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8246,
-          "title": "perf: speed up New/Derivatives/Vacuum/ShortVectors",
-          "state": "closed",
-          "batch_queue": false
         }
       ],
       "prs_batch_queue": [],
@@ -1417,10 +1370,176 @@
       "merge_commits_authored": 0,
       "privileged_events": {}
     },
+    "EricHe98": {
+      "association": "CONTRIBUTOR",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 9292,
+          "title": "refactor(New/Spanning): share the nonnegativity proof for last-entry densities (−16 net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9287,
+          "title": "refactor(Lib/ClassField): simplify coboundary counts and Selmer bounds (−17 net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9259,
+          "title": "refactor(Lib/ClassField/GaloisCohomology): use Tau Ceti's linear cohomology comparisons (−41 net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9237,
+          "title": "refactor(Lib/General/LinearAlgebra): reuse the block determinant bound (−11 net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9228,
+          "title": "refactor(Lib/GLn): define the rational weight action beside its Weyl representation (+5 lines net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9219,
+          "title": "perf(New/Appendix/DiscreteSeries/StationaryPosition): drop unused HolomorphicFamilies import (−1 line net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9135,
+          "title": "refactor(Lib/General/Groups/ProfiniteCharacters): use Tau Ceti's character of ℚ/ℤ (−19 lines net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9123,
+          "title": "refactor(New/Appendix/DiscreteSeries): use column independence for the position left inverse (+0 lines net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9104,
+          "title": "refactor(General/Groups): move block indices beside the matrix parabolic (+18 lines net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9046,
+          "title": "refactor(Lib/LocalGL/Green): move the faithful character into its own module (+20 lines net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8967,
+          "title": "refactor(PadicHodge/PeriodRings/CrystallineRings): identify the special fibre by its presentation (−8 lines net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8838,
+          "title": "refactor(AdmissibleCombinations): use sparse coordinates for the glued and string-frame Gram proofs (−27 lines net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8793,
+          "title": "refactor(SharpMinors): bound the matrix kernel directly (−64 lines net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8754,
+          "title": "refactor(Lib/DiscreteSeries/Bruhat): share the Weyl action across floor and frame proofs (−137 lines net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8685,
+          "title": "Halve the upper bound for the weighted prime sum (−8 lines net)",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 8683,
+          "title": "refactor: use Mathlib rank formulas for submodule images and preimages (−13 lines net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8611,
+          "title": "refactor(AutomorphicForms): construct the level kernel from a compactly supported bump (+42 lines net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8608,
+          "title": "refactor(Seesaw): derive string-frame unitarity from its Gram identity (−32 lines net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8544,
+          "title": "refactor: share divisibility of units in absolutely integrally closed rings (+0 lines net)",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8404,
+          "title": "refactor(New/Congruences/LocalLoss): shrink the exceptional interval of crystallineLoss (−4 lines net)",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 1,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "rosewei201796": {
+      "association": "NONE",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 9290,
+          "title": "refactor(Lib/PadicComparison/Descent/AlmostDescent): split exists_perfect_valuationRing_factor into helper lemmas",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
     "sqrt-of-2": {
       "association": "CONTRIBUTOR",
       "tier": "active_contributor",
       "prs_opened": [
+        {
+          "number": 9289,
+          "title": "refactor: use TauCeti for units of the finite adeles",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9270,
+          "title": "refactor: use TauCeti for surjectivity of the translated coordinate",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9254,
+          "title": "refactor: use TauCeti for Sah's identity",
+          "state": "open",
+          "batch_queue": false
+        },
         {
           "number": 9234,
           "title": "refactor: use TauCeti for quadratic reciprocity on odd parts",
@@ -2140,108 +2259,6 @@
           "title": "refactor(AlmostDescent): exhibit the vanishing factor in the nilpotence proof",
           "state": "closed",
           "batch_queue": false
-        },
-        {
-          "number": 8289,
-          "title": "refactor(SquareIntegrability): show the block entries by their signs",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8288,
-          "title": "refactor(Lift): show the inclusion behind the column rank bound",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8285,
-          "title": "refactor(LagrangianZeroTerms): state the contradiction to the norm bound",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8284,
-          "title": "refactor: remove a redundant continuity instance in SobolevBound",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8283,
-          "title": "refactor(SiegelTopBound): share the ideal zeta estimate",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8281,
-          "title": "refactor(InvariantAverage): use the explicit bound on the tail sum",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8277,
-          "title": "refactor(HighestVectorsAndFiltration): make the word weight bound explicit",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8270,
-          "title": "refactor(LineIntegration): evaluate the equality from injectivity directly",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8268,
-          "title": "refactor: remove redundant instances in IntegralAsCosetSum",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8262,
-          "title": "refactor(DescentVanishing): show why the idempotent fixes the vector",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8255,
-          "title": "refactor: remove redundant second-countability instances",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8253,
-          "title": "refactor(FiniteMultiplier): apply the determinant map lemma directly",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8250,
-          "title": "refactor: make the point class coordinate evaluation explicit",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8249,
-          "title": "refactor(HolomorphicFamilies): simplify the jet torsion proof",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8242,
-          "title": "refactor(FilteredLimits): use the cohomology identity lemma",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8241,
-          "title": "refactor: evaluate point class gluing squares on generators",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8240,
-          "title": "refactor: remove a redundant membership proof in SphericalExponents",
-          "state": "closed",
-          "batch_queue": false
         }
       ],
       "prs_merged": [
@@ -2328,48 +2345,6 @@
           "title": "refactor: remove a redundant countability instance in ColumnLattice",
           "state": "closed",
           "batch_queue": false
-        },
-        {
-          "number": 8284,
-          "title": "refactor: remove a redundant continuity instance in SobolevBound",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8270,
-          "title": "refactor(LineIntegration): evaluate the equality from injectivity directly",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8268,
-          "title": "refactor: remove redundant instances in IntegralAsCosetSum",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8262,
-          "title": "refactor(DescentVanishing): show why the idempotent fixes the vector",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8255,
-          "title": "refactor: remove redundant second-countability instances",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8242,
-          "title": "refactor(FilteredLimits): use the cohomology identity lemma",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8240,
-          "title": "refactor: remove a redundant membership proof in SphericalExponents",
-          "state": "closed",
-          "batch_queue": false
         }
       ],
       "prs_batch_queue": [],
@@ -2377,10 +2352,633 @@
       "merge_commits_authored": 0,
       "privileged_events": {}
     },
+    "haytmnjwgyge": {
+      "association": "NONE",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 9281,
+          "title": "doc: clarify when a project cache restore needs clean inputs",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9193,
+          "title": "refactor: separate the power inclusion for theta norm balls",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9176,
+          "title": "refactor: drop unused row decidability from the Fock pairing formula",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9169,
+          "title": "doc: clarify the zero reflection for a fixed Dirichlet character",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "bohemian-miser": {
+      "association": "CONTRIBUTOR",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 9277,
+          "title": "refactor(Lib/Adelic/Adeles/Basic): use Tau Ceti for completion maps and adele base change",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9195,
+          "title": "refactor(InvariantAverage): use Tau Ceti for the span of monomial values",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9141,
+          "title": "refactor(Lib/Cohomology/PointClass): remove the erws from ProjectiveNonvanishing",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "Grativy6": {
+      "association": "CONTRIBUTOR",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 9276,
+          "title": "doc: explain how cache source paths become module names",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9263,
+          "title": "refactor(Lib/Cyclotomic): derive the residue-class sum from Tau Ceti’s block decomposition",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "Liangebra": {
+      "association": "CONTRIBUTOR",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 9275,
+          "title": "refactor: weaken the field hypothesis for the local Tate twist identityrefactor: remove CM and root-of-unity assumptions from local Tate twi…",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9274,
+          "title": "refactor: generalize finite cyclic averaging to arbitrary fieldsrefactor: state finite cyclic averaging over an arbitrary field",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9273,
+          "title": "refactor: name the conjugate p-adic place in Hermitian pairingsRefactor/name conjugate padic place",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9272,
+          "title": "refactor: isolate the unramifiedness hypothesis for twisted latticesRefactor/twist unramified hypothesis",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9271,
+          "title": "refactor: generalize the relative length triangle bound to arbitrary ringsRefactor/relative length ring hypotheses",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "righi": {
+      "association": "CONTRIBUTOR",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 9267,
+          "title": "refactor: use Tau Ceti's IsTotallyPositive",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9238,
+          "title": "refactor: use Tau Ceti's diagGL",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8711,
+          "title": "refactor: use Tau Ceti's finite adele component lemmas",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "CollinYuanjieRen": {
+      "association": "CONTRIBUTOR",
+      "tier": "active_contributor",
+      "prs_opened": [
+        {
+          "number": 9260,
+          "title": "refactor(New/Congruences): use the generator span in Ribet’s construction",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9213,
+          "title": "refactor: derive the Flensted-Jensen shift from triangular equivariance",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9196,
+          "title": "refactor: share the integral change of saturated lattice basis",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9191,
+          "title": "refactor: compute the orthogonal lift pairings through the link",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9175,
+          "title": "refactor: share the opposite-row formula for split Gram products",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9171,
+          "title": "refactor: read the adjugate identity through the scalar algebra map",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9160,
+          "title": "refactor: prove compact support in frame coordinates",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9152,
+          "title": "refactor: share the translated theta-square identity",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9129,
+          "title": "refactor(UnimodularCoefficients): specialize the closure identity to the center",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9116,
+          "title": "refactor(IsotropicSplitting): reuse the inverse action on a frame",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9113,
+          "title": "refactor(IsotropicSplitting): exchange frames in the dual coordinate identities",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9111,
+          "title": "refactor(RealTheta): derive the coordinate pairing from the splitting identity",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9110,
+          "title": "refactor(PeriodMatrixBasis): lift the adjugate row identity once",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9106,
+          "title": "refactor(PerfectLine): evaluate sections uniformly on generators",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9105,
+          "title": "refactor(DecompositionCompletion): identify the common fixed subfield",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9092,
+          "title": "refactor(Lib/Cohomology/Etale): share restriction laws for cohomology comparisons",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9058,
+          "title": "refactor(Lib/Shimura): share the level criterion for translated moduli points",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8990,
+          "title": "refactor(New/UpperBound): use Mathlib’s ring homomorphism lemmas in Depth",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8937,
+          "title": "refactor(New): share the Gaussian integral formula for polynomial jets",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8929,
+          "title": "refactor(New/Congruences): reuse the determinant identity in the Ribet argument",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8903,
+          "title": "refactor(New/Congruences): reuse division by E in the power series expansion",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8873,
+          "title": "refactor(Lib/GaloisRep/BaseChange): use the finite-adele presentations in global root gluing",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8867,
+          "title": "refactor(Lib/GaloisRep/BaseChange): share the Bézout inverse calculation in the global root proof",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8847,
+          "title": "refactor(New/Congruences): share the common-denominator argument for Selmer and Ribet cocycles",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8790,
+          "title": "refactor(Lib/Adelic): share the infinite-place Gram identity for adelic frames",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8761,
+          "title": "refactor(Lib): share the unit-lifting argument for integral matrices and finite ideles",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8748,
+          "title": "refactor(Lib/Adelic): use the Galois action on finite adeles for powers and inverses",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8728,
+          "title": "refactor(Lib): use component formulas for the standard rational embedding",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8721,
+          "title": "refactor(Lib/General/Groups): factor entrywise descent for unitary matrices",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8707,
+          "title": "refactor(Lib/PadicComparison): reuse exactness of the split product sequence",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8682,
+          "title": "refactor(Lib/Weil): share the integral factorization for orthogonal sums",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 8658,
+          "title": "refactor: use the double-coset transporter lemma directly",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8653,
+          "title": "refactor(Lib/Weil): use the integral and convolution witnesses directly",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8640,
+          "title": "refactor(New/Spanning): choose the block data directly in FixedLines",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8589,
+          "title": "refactor(ClassField): use the existence and density lemmas for Frobenius",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8579,
+          "title": "refactor(ClassField): use the local Galois lemma for decomposition groups",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8526,
+          "title": "refactor(New/Spanning/Bessel): reuse the Bessel graph measure instances",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8510,
+          "title": "refactor(Lib/Shimura/Eigenspace): reuse the tower model instances",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8492,
+          "title": "refactor(New/Spanning/Bessel): share the open-cell determinant bound",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8434,
+          "title": "refactor(Lib/Adelic/QuotientMeasure): share the coset measure unfolding in integration in stages",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8408,
+          "title": "refactor(Lib/PadicComparison/HodgeTate): share the Yoneda composition step",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 8386,
+          "title": "Share the sign-case calculation in the Frobenius cycle root lemma",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 8346,
+          "title": "Share the finite-place integrality argument for hermitian pairings",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 8344,
+          "title": "Evaluate the diagonal determinant in partial Hecke duality",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 8330,
+          "title": "Use the radical parameter directly in splitting projector recovery",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 8313,
+          "title": "Apply the Rallis kernel criterion directly to the single lift",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [
+        {
+          "number": 8682,
+          "title": "refactor(Lib/Weil): share the integral factorization for orthogonal sums",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 8408,
+          "title": "refactor(Lib/PadicComparison/HodgeTate): share the Yoneda composition step",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 8386,
+          "title": "Share the sign-case calculation in the Frobenius cycle root lemma",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 8346,
+          "title": "Share the finite-place integrality argument for hermitian pairings",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 8344,
+          "title": "Evaluate the diagonal determinant in partial Hecke duality",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 8330,
+          "title": "Use the radical parameter directly in splitting projector recovery",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 8313,
+          "title": "Apply the Rallis kernel criterion directly to the single lift",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_batch_queue": [],
+      "main_commits": 12,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "gato-guina": {
+      "association": "NONE",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 9258,
+          "title": "fix(cache): check project registration records exactly",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9205,
+          "title": "doc(New/Reduction/Data): clarify sphere lemma hypotheses",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9164,
+          "title": "refactor(Lib/General/Analysis): reuse smooth germ extension",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "JoshuaPinckard": {
+      "association": "NONE",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 9255,
+          "title": "refactor(New/OneLift/FalseLifts): reuse hyperplaneSum_mul_labelIdem",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9209,
+          "title": "refactor(New/Spanning/Bessel): extract besselU orbit bound in SobolevBound",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9163,
+          "title": "refactor(Lib/Cohomology/Hodge): share local-symbol restriction on overlaps",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9162,
+          "title": "refactor(New/UpperBound/Objects): reuse n_even in spaceChar_rankTwist",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9136,
+          "title": "refactor(Lib/ClassField/GaloisCohomology): remove unused smul_def in Cohomology",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9133,
+          "title": "refactor(Lib/Analytic): compute the conductor of a quadratic twist",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9128,
+          "title": "doc(Lib/Cohomology): update offClosedFibre references in SmoothBaseChange",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9053,
+          "title": "refactor(New/Spanning/MainTerm): share the Kloosterman coset equivalence",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9038,
+          "title": "style(Lib/DiscreteSeries/Bruhat): remove unused simp argument in BigCell",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9020,
+          "title": "refactor(Lib/Shimura/GoodReduction): split TorsionSizes shift-bound proof into lemmas",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8987,
+          "title": "refactor(New/Spanning/Bessel): remove a redundant MeasurableMul binding in CutTailBound",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8923,
+          "title": "refactor(New/Congruences/Lifting): factor wittFst steps in CupProductBound",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8862,
+          "title": "refactor(Lib/Analytic/Primes): use the maximum modulus principle in the prime window proof",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8816,
+          "title": "refactor(New/Determinant/Exchange): prove the one-square identity directly",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 8795,
+          "title": "refactor(New/Determinant/Exchange): specialize the exchange at the final character",
+          "state": "closed",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
     "josephch405": {
       "association": "CONTRIBUTOR",
       "tier": "contributor",
       "prs_opened": [
+        {
+          "number": 9251,
+          "title": "perf(Lib/LocalGL/Green/CuspidalFunctions): speed up proofs in CuspidalFunctions",
+          "state": "open",
+          "batch_queue": false
+        },
         {
           "number": 9233,
           "title": "perf(Spanning/Unfolding): speed up proofs in BesselLevelStructure",
@@ -2505,22 +3103,9 @@
           "title": "refactor(Lib/General/Algebra): use Tau Ceti for the IsPrecomplete instance on finite modules",
           "state": "open",
           "batch_queue": false
-        },
-        {
-          "number": 8236,
-          "title": "refactor(Lib/Shimura/ThetaModuli): use Tau Ceti's instance that homogeneous forms of a given degree form a finite module",
-          "state": "closed",
-          "batch_queue": false
         }
       ],
-      "prs_merged": [
-        {
-          "number": 8236,
-          "title": "refactor(Lib/Shimura/ThetaModuli): use Tau Ceti's instance that homogeneous forms of a given degree form a finite module",
-          "state": "closed",
-          "batch_queue": false
-        }
-      ],
+      "prs_merged": [],
       "prs_batch_queue": [],
       "main_commits": 5,
       "merge_commits_authored": 0,
@@ -2613,52 +3198,9 @@
           "title": "refactor(New/UpperBound/ElementaryDivisors/RootLemma): use Tau Ceti for root counts over a local ring",
           "state": "open",
           "batch_queue": false
-        },
-        {
-          "number": 8282,
-          "title": "chore: move Tau Ceti to 994bb224 on its main branch",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8269,
-          "title": "doc: update CONTENTS.md and INDEX.md for the GaussianIntegral title",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8247,
-          "title": "refactor(Lib/General/Algebra/SeriesBounds): use Tau Ceti for the coefficient bounds and drop a redundant hypothesis",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8244,
-          "title": "refactor(Lib/General/Algebra/BlockFittingBound): remove the unused form modulo p of the block determinant bound",
-          "state": "closed",
-          "batch_queue": false
         }
       ],
-      "prs_merged": [
-        {
-          "number": 8269,
-          "title": "doc: update CONTENTS.md and INDEX.md for the GaussianIntegral title",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8247,
-          "title": "refactor(Lib/General/Algebra/SeriesBounds): use Tau Ceti for the coefficient bounds and drop a redundant hypothesis",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8244,
-          "title": "refactor(Lib/General/Algebra/BlockFittingBound): remove the unused form modulo p of the block determinant bound",
-          "state": "closed",
-          "batch_queue": false
-        }
-      ],
+      "prs_merged": [],
       "prs_batch_queue": [],
       "main_commits": 3,
       "merge_commits_authored": 0,
@@ -2973,24 +3515,6 @@
           "title": "refactor: reuse finite product measure currying",
           "state": "closed",
           "batch_queue": false
-        },
-        {
-          "number": 8256,
-          "title": "refactor(OpenCellBound): reuse the last-coordinate coefficient formula",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8248,
-          "title": "refactor: use the product finiteness lemma for real shell integrals",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8239,
-          "title": "refactor: use strict submodule length in Selmer descent",
-          "state": "closed",
-          "batch_queue": false
         }
       ],
       "prs_merged": [
@@ -3039,24 +3563,6 @@
         {
           "number": 8304,
           "title": "refactor: reuse finite product measure currying",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8256,
-          "title": "refactor(OpenCellBound): reuse the last-coordinate coefficient formula",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8248,
-          "title": "refactor: use the product finiteness lemma for real shell integrals",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8239,
-          "title": "refactor: use strict submodule length in Selmer descent",
           "state": "closed",
           "batch_queue": false
         }
@@ -3145,342 +3651,6 @@
       "prs_merged": [],
       "prs_batch_queue": [],
       "main_commits": 0,
-      "merge_commits_authored": 0,
-      "privileged_events": {}
-    },
-    "CollinYuanjieRen": {
-      "association": "CONTRIBUTOR",
-      "tier": "active_contributor",
-      "prs_opened": [
-        {
-          "number": 9213,
-          "title": "refactor: derive the Flensted-Jensen shift from triangular equivariance",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9196,
-          "title": "refactor: share the integral change of saturated lattice basis",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9191,
-          "title": "refactor: compute the orthogonal lift pairings through the link",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9175,
-          "title": "refactor: share the opposite-row formula for split Gram products",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9171,
-          "title": "refactor: read the adjugate identity through the scalar algebra map",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9160,
-          "title": "refactor: prove compact support in frame coordinates",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9152,
-          "title": "refactor: share the translated theta-square identity",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9129,
-          "title": "refactor(UnimodularCoefficients): specialize the closure identity to the center",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9116,
-          "title": "refactor(IsotropicSplitting): reuse the inverse action on a frame",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9113,
-          "title": "refactor(IsotropicSplitting): exchange frames in the dual coordinate identities",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9111,
-          "title": "refactor(RealTheta): derive the coordinate pairing from the splitting identity",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9110,
-          "title": "refactor(PeriodMatrixBasis): lift the adjugate row identity once",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9106,
-          "title": "refactor(PerfectLine): evaluate sections uniformly on generators",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9105,
-          "title": "refactor(DecompositionCompletion): identify the common fixed subfield",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9092,
-          "title": "refactor(Lib/Cohomology/Etale): share restriction laws for cohomology comparisons",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9058,
-          "title": "refactor(Lib/Shimura): share the level criterion for translated moduli points",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8990,
-          "title": "refactor(New/UpperBound): use Mathlib’s ring homomorphism lemmas in Depth",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8937,
-          "title": "refactor(New): share the Gaussian integral formula for polynomial jets",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8929,
-          "title": "refactor(New/Congruences): reuse the determinant identity in the Ribet argument",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8903,
-          "title": "refactor(New/Congruences): reuse division by E in the power series expansion",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8873,
-          "title": "refactor(Lib/GaloisRep/BaseChange): use the finite-adele presentations in global root gluing",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8867,
-          "title": "refactor(Lib/GaloisRep/BaseChange): share the Bézout inverse calculation in the global root proof",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8847,
-          "title": "refactor(New/Congruences): share the common-denominator argument for Selmer and Ribet cocycles",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8790,
-          "title": "refactor(Lib/Adelic): share the infinite-place Gram identity for adelic frames",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8761,
-          "title": "refactor(Lib): share the unit-lifting argument for integral matrices and finite ideles",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8748,
-          "title": "refactor(Lib/Adelic): use the Galois action on finite adeles for powers and inverses",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8728,
-          "title": "refactor(Lib): use component formulas for the standard rational embedding",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8721,
-          "title": "refactor(Lib/General/Groups): factor entrywise descent for unitary matrices",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8707,
-          "title": "refactor(Lib/PadicComparison): reuse exactness of the split product sequence",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8682,
-          "title": "refactor(Lib/Weil): share the integral factorization for orthogonal sums",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8658,
-          "title": "refactor: use the double-coset transporter lemma directly",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8653,
-          "title": "refactor(Lib/Weil): use the integral and convolution witnesses directly",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8640,
-          "title": "refactor(New/Spanning): choose the block data directly in FixedLines",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8589,
-          "title": "refactor(ClassField): use the existence and density lemmas for Frobenius",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8579,
-          "title": "refactor(ClassField): use the local Galois lemma for decomposition groups",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8526,
-          "title": "refactor(New/Spanning/Bessel): reuse the Bessel graph measure instances",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8510,
-          "title": "refactor(Lib/Shimura/Eigenspace): reuse the tower model instances",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8492,
-          "title": "refactor(New/Spanning/Bessel): share the open-cell determinant bound",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8434,
-          "title": "refactor(Lib/Adelic/QuotientMeasure): share the coset measure unfolding in integration in stages",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8408,
-          "title": "refactor(Lib/PadicComparison/HodgeTate): share the Yoneda composition step",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8386,
-          "title": "Share the sign-case calculation in the Frobenius cycle root lemma",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8346,
-          "title": "Share the finite-place integrality argument for hermitian pairings",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8344,
-          "title": "Evaluate the diagonal determinant in partial Hecke duality",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8330,
-          "title": "Use the radical parameter directly in splitting projector recovery",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8313,
-          "title": "Apply the Rallis kernel criterion directly to the single lift",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8254,
-          "title": "Compute the Bessel graph action on the definite frame",
-          "state": "closed",
-          "batch_queue": false
-        }
-      ],
-      "prs_merged": [
-        {
-          "number": 8682,
-          "title": "refactor(Lib/Weil): share the integral factorization for orthogonal sums",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8408,
-          "title": "refactor(Lib/PadicComparison/HodgeTate): share the Yoneda composition step",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8386,
-          "title": "Share the sign-case calculation in the Frobenius cycle root lemma",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8346,
-          "title": "Share the finite-place integrality argument for hermitian pairings",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8344,
-          "title": "Evaluate the diagonal determinant in partial Hecke duality",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8330,
-          "title": "Use the radical parameter directly in splitting projector recovery",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8313,
-          "title": "Apply the Rallis kernel criterion directly to the single lift",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8254,
-          "title": "Compute the Bessel graph action on the definite frame",
-          "state": "closed",
-          "batch_queue": false
-        }
-      ],
-      "prs_batch_queue": [],
-      "main_commits": 12,
       "merge_commits_authored": 0,
       "privileged_events": {}
     },
@@ -3813,124 +3983,6 @@
       "merge_commits_authored": 0,
       "privileged_events": {}
     },
-    "JoshuaPinckard": {
-      "association": "NONE",
-      "tier": "contributor",
-      "prs_opened": [
-        {
-          "number": 9209,
-          "title": "refactor(New/Spanning/Bessel): extract besselU orbit bound in SobolevBound",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9163,
-          "title": "refactor(Lib/Cohomology/Hodge): share local-symbol restriction on overlaps",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9162,
-          "title": "refactor(New/UpperBound/Objects): reuse n_even in spaceChar_rankTwist",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9136,
-          "title": "refactor(Lib/ClassField/GaloisCohomology): remove unused smul_def in Cohomology",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9133,
-          "title": "refactor(Lib/Analytic): compute the conductor of a quadratic twist",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9128,
-          "title": "doc(Lib/Cohomology): update offClosedFibre references in SmoothBaseChange",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9053,
-          "title": "refactor(New/Spanning/MainTerm): share the Kloosterman coset equivalence",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9038,
-          "title": "style(Lib/DiscreteSeries/Bruhat): remove unused simp argument in BigCell",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9020,
-          "title": "refactor(Lib/Shimura/GoodReduction): split TorsionSizes shift-bound proof into lemmas",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8987,
-          "title": "refactor(New/Spanning/Bessel): remove a redundant MeasurableMul binding in CutTailBound",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8923,
-          "title": "refactor(New/Congruences/Lifting): factor wittFst steps in CupProductBound",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8862,
-          "title": "refactor(Lib/Analytic/Primes): use the maximum modulus principle in the prime window proof",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8816,
-          "title": "refactor(New/Determinant/Exchange): prove the one-square identity directly",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8795,
-          "title": "refactor(New/Determinant/Exchange): specialize the exchange at the final character",
-          "state": "closed",
-          "batch_queue": false
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [],
-      "main_commits": 0,
-      "merge_commits_authored": 0,
-      "privileged_events": {}
-    },
-    "gato-guina": {
-      "association": "NONE",
-      "tier": "contributor",
-      "prs_opened": [
-        {
-          "number": 9205,
-          "title": "doc(New/Reduction/Data): clarify sphere lemma hypotheses",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9164,
-          "title": "refactor(Lib/General/Analysis): reuse smooth germ extension",
-          "state": "open",
-          "batch_queue": false
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [],
-      "main_commits": 0,
-      "merge_commits_authored": 0,
-      "privileged_events": {}
-    },
     "antoshashakov": {
       "association": "NONE",
       "tier": "contributor",
@@ -3945,81 +3997,6 @@
           "number": 9166,
           "title": "refactor(Lib, New): shorten eleven proofs",
           "state": "closed",
-          "batch_queue": false
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [],
-      "main_commits": 0,
-      "merge_commits_authored": 0,
-      "privileged_events": {}
-    },
-    "bohemian-miser": {
-      "association": "CONTRIBUTOR",
-      "tier": "contributor",
-      "prs_opened": [
-        {
-          "number": 9195,
-          "title": "refactor(InvariantAverage): use Tau Ceti for the span of monomial values",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9141,
-          "title": "refactor(Lib/Cohomology/PointClass): remove the erws from ProjectiveNonvanishing",
-          "state": "open",
-          "batch_queue": false
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [],
-      "main_commits": 0,
-      "merge_commits_authored": 0,
-      "privileged_events": {}
-    },
-    "haytmnjwgyge": {
-      "association": "NONE",
-      "tier": "contributor",
-      "prs_opened": [
-        {
-          "number": 9193,
-          "title": "refactor: separate the power inclusion for theta norm balls",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9176,
-          "title": "refactor: drop unused row decidability from the Fock pairing formula",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9169,
-          "title": "doc: clarify the zero reflection for a fixed Dirichlet character",
-          "state": "open",
-          "batch_queue": false
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [],
-      "main_commits": 0,
-      "merge_commits_authored": 0,
-      "privileged_events": {}
-    },
-    "WinglokWong": {
-      "association": "CONTRIBUTOR",
-      "tier": "contributor",
-      "prs_opened": [
-        {
-          "number": 9192,
-          "title": "feat: extend the prime remainder Laplace transform to Re(s) > 1",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9168,
-          "title": "refactor: reuse the Gram formula for a complex frame pair",
-          "state": "open",
           "batch_queue": false
         }
       ],
@@ -4827,8 +4804,8 @@
       "main_commits": 10,
       "merge_commits_authored": 0,
       "privileged_events": {
-        "labeled": 102,
-        "merged": 10
+        "labeled": 127,
+        "merged": 9
       }
     },
     "ridoy": {
@@ -5148,12 +5125,6 @@
           "number": 8939,
           "title": "refactor(Lib/Cohomology/ProperBaseChange): streamline Theorem and inline single-use private scaffolding",
           "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8938,
-          "title": "refactor(Lib/ClassField/GaloisCohomology): drop DecompositionCyclotomic import from TateIndexFormula",
-          "state": "open",
           "batch_queue": false
         },
         {
@@ -5669,12 +5640,6 @@
           "number": 8340,
           "title": "refactor(Lib/Shimura/Transfer): simplify proofs",
           "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8252,
-          "title": "refactor(New/OneLift/FalseLifts): simplify proofs and remove redundant helpers",
-          "state": "closed",
           "batch_queue": false
         }
       ],
@@ -6339,24 +6304,6 @@
           "title": "refactor: use discrete valuation order in the partial Hecke coset test",
           "state": "closed",
           "batch_queue": false
-        },
-        {
-          "number": 8286,
-          "title": "refactor: use the dyadic unit decomposition for character squares",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8258,
-          "title": "refactor: use the Ext pullback formula in both exact sequences",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8235,
-          "title": "refactor: use the iterated chain rule for Taylor rescaling",
-          "state": "closed",
-          "batch_queue": false
         }
       ],
       "prs_merged": [
@@ -6423,24 +6370,6 @@
         {
           "number": 8307,
           "title": "refactor: use discrete valuation order in the partial Hecke coset test",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8286,
-          "title": "refactor: use the dyadic unit decomposition for character squares",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8258,
-          "title": "refactor: use the Ext pullback formula in both exact sequences",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8235,
-          "title": "refactor: use the iterated chain rule for Taylor rescaling",
           "state": "closed",
           "batch_queue": false
         }
@@ -6614,30 +6543,6 @@
           "title": "refactor: use Haar uniqueness for quotient-measure invariance",
           "state": "open",
           "batch_queue": false
-        },
-        {
-          "number": 8290,
-          "title": "refactor: reuse Tau Ceti's results on absolute integral closure",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8287,
-          "title": "doc: identify the simultaneous weighted Behrend construction",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8259,
-          "title": "refactor: use strict monotonicity for the Pieri step kernel",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8257,
-          "title": "refactor: use the pushforward integral in the Fubini formula",
-          "state": "closed",
-          "batch_queue": false
         }
       ],
       "prs_merged": [
@@ -6668,30 +6573,6 @@
         {
           "number": 8334,
           "title": "refactor: reuse Tau Ceti's divisibility criterion for ideal extension",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8290,
-          "title": "refactor: reuse Tau Ceti's results on absolute integral closure",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8287,
-          "title": "doc: identify the simultaneous weighted Behrend construction",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8259,
-          "title": "refactor: use strict monotonicity for the Pieri step kernel",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8257,
-          "title": "refactor: use the pushforward integral in the Fubini formula",
           "state": "closed",
           "batch_queue": false
         }
@@ -6955,18 +6836,6 @@
           "title": "doc(New/Spanning): drop references to theorems removed in dd2ecbb5",
           "state": "closed",
           "batch_queue": false
-        },
-        {
-          "number": 8238,
-          "title": "refactor(Lib/SiegelWeil/Tower): remove unused `exists_planeConstantTerm_eq_thetaLarge_dualCone`",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8237,
-          "title": "refactor(Lib/PadicHodge/Kisin): remove orphaned `adjoinEDivP` definitions",
-          "state": "closed",
-          "batch_queue": false
         }
       ],
       "prs_merged": [
@@ -7021,18 +6890,6 @@
         {
           "number": 8316,
           "title": "doc(New/Spanning): drop references to theorems removed in dd2ecbb5",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8238,
-          "title": "refactor(Lib/SiegelWeil/Tower): remove unused `exists_planeConstantTerm_eq_thetaLarge_dualCone`",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8237,
-          "title": "refactor(Lib/PadicHodge/Kisin): remove orphaned `adjoinEDivP` definitions",
           "state": "closed",
           "batch_queue": false
         }
@@ -7113,12 +6970,6 @@
         {
           "number": 8646,
           "title": "fix(cache): parse Tau Ceti imports with Lean",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8251,
-          "title": "perf(Lib/Cohomology/Etale): speed up proofs in RelativeChains",
           "state": "open",
           "batch_queue": false
         }
@@ -7236,18 +7087,6 @@
         {
           "number": 8398,
           "title": "refactor(Lib): remove `seal` lines that do not speed up elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8274,
-          "title": "refactor(New): remove local attribute and unseal lines that no proof needs",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8272,
-          "title": "refactor(New): remove `seal` lines that do not speed up elaboration",
           "state": "open",
           "batch_queue": false
         }
