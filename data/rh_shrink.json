@@ -6,7 +6,7 @@
     "method": "text search over .lean files under src/, one point per main commit (rh-shrink collect.py)",
     "schema_version": 7
   },
-  "commits_measured": 67,
+  "commits_measured": 68,
   "original": {
     "sha": "47fcde57c49eedd5a6352f4c8745d30bebbe4b0b",
     "date": "2026-11-25T22:24:29Z",
@@ -23,23 +23,32 @@
     "statements": 17676
   },
   "latest": {
-    "sha": "b5e99ecb40b6ed84581662abe611bb20dd300212",
-    "date": "2026-11-26T23:52:29Z",
-    "subject": "Merge pull request #9041 from leanprover-community/batch/m48-on-main",
-    "pr": 9041,
+    "sha": "f714cf9fb3ef5445f94ee250e0bfa46d998ce37f",
+    "date": "2026-11-27T00:20:46Z",
+    "subject": "Merge pull request #9069 from leanprover-community/batch/m49b-on-main",
+    "pr": 9069,
     "files": 802,
-    "lines": 479447,
-    "code": 297759,
+    "lines": 479478,
+    "code": 297774,
     "theorems": 17479,
     "defs": 5566,
-    "imports": 4253,
+    "imports": 4254,
     "heartbeats": 0,
     "repeats": 61,
     "statements": 16940
   },
   "code_left_pct": 99.87,
-  "code_removed": 401,
+  "code_removed": 386,
   "recent_changes": [
+    {
+      "sha": "f714cf9fb3ef5445f94ee250e0bfa46d998ce37f",
+      "date": "2026-11-27T00:20:46Z",
+      "subject": "Merge pull request #9069 from leanprover-community/batch/m49b-on-main",
+      "pr": 9069,
+      "code": 297774,
+      "code_delta": 15,
+      "theorems_delta": 0
+    },
     {
       "sha": "b5e99ecb40b6ed84581662abe611bb20dd300212",
       "date": "2026-11-26T23:52:29Z",
@@ -138,15 +147,6 @@
       "code": 295848,
       "code_delta": 130,
       "theorems_delta": -12
-    },
-    {
-      "sha": "dc2d78d5dd42ac709bab3bc19a0d2e80dfe2962b",
-      "date": "2026-11-26T12:41:55Z",
-      "subject": "Merge pull request #7509 from leanprover-community/batch/m37-on-main",
-      "pr": 7509,
-      "code": 295718,
-      "code_delta": 123,
-      "theorems_delta": -5
     }
   ],
   "series": [
@@ -417,6 +417,10 @@
     [
       "2026-11-26T23:52:29Z",
       297759
+    ],
+    [
+      "2026-11-27T00:20:46Z",
+      297774
     ]
   ]
 }
