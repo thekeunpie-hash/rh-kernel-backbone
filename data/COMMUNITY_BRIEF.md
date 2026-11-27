@@ -1,7 +1,7 @@
-# Community Context Brief (Auto-generated 2026-11-27T03:52:17Z)
+# Community Context Brief (Auto-generated 2026-11-27T04:54:33Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:93, merged:10], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:102, merged:10], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
 - **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:1], merged PRs=1 (#8880), main commits=4
 - **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=3 (#8269, #8247, #8244), main commits=3
 - **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
@@ -9,28 +9,25 @@
 - **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 
 ## 2. Active Contributors (GitHub)
-- **sqrt-of-2** (`CONTRIBUTOR`): merged=27 [#8460, #8455, #8449, #8447, #8412], batch_queue=0 [], opened=156
-- **chopin-op60** (`CONTRIBUTOR`): merged=16 [#8700, #8692, #8688, #8456, #8442], batch_queue=0 [], opened=46
-- **alkor2000** (`CONTRIBUTOR`): merged=13 [#8590, #8368, #8364, #8355, #8350], batch_queue=0 [], opened=54
+- **sqrt-of-2** (`CONTRIBUTOR`): merged=21 [#8460, #8455, #8449, #8447, #8412], batch_queue=0 [], opened=137
+- **chopin-op60** (`CONTRIBUTOR`): merged=14 [#8700, #8692, #8688, #8456, #8442], batch_queue=0 [], opened=44
 - **roy7** (`CONTRIBUTOR`): merged=12 [#8303, #8302, #8300, #8299, #8298], batch_queue=0 [], opened=23
-- **rohanarun** (`CONTRIBUTOR`): merged=11 [#8382, #8376, #8279, #8276, #8271], batch_queue=0 [], opened=59
-- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=11 [#8682, #8408, #8386, #8346, #8344], batch_queue=0 [], opened=46
+- **alkor2000** (`CONTRIBUTOR`): merged=11 [#8590, #8368, #8364, #8355, #8350], batch_queue=0 [], opened=54
 - **pranavgundu** (`CONTRIBUTOR`): merged=11 [#8697, #8421, #8420, #8321, #8320], batch_queue=0 [], opened=13
-- **nefelibata5136-code** (`CONTRIBUTOR`): merged=10 [#8452, #8426, #8389, #8352, #8334], batch_queue=0 [], opened=23
-- **cannonballgamesstudio** (`CONTRIBUTOR`): merged=4 [#8236, #8232, #8214, #8202], batch_queue=0 [], opened=6
-- **koefoeden** (`CONTRIBUTOR`): merged=2 [#8230, #8229], batch_queue=0 [], opened=11
-- **nickita-khylkouski** (`CONTRIBUTOR`): merged=1 [#8686], batch_queue=0 [], opened=47
-- **Dharmavati213** (`CONTRIBUTOR`): merged=1 [#8206], batch_queue=0 [], opened=30
-- **EricHe98** (`CONTRIBUTOR`): merged=1 [#8213], batch_queue=0 [], opened=16
+- **rohanarun** (`CONTRIBUTOR`): merged=10 [#8382, #8376, #8279, #8276, #8271], batch_queue=0 [], opened=62
+- **nefelibata5136-code** (`CONTRIBUTOR`): merged=9 [#8452, #8426, #8389, #8352, #8334], batch_queue=0 [], opened=21
+- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=8 [#8682, #8408, #8386, #8346, #8344], batch_queue=0 [], opened=46
+- **nickita-khylkouski** (`CONTRIBUTOR`): merged=1 [#8686], batch_queue=0 [], opened=48
+- **cannonballgamesstudio** (`CONTRIBUTOR`): merged=1 [#8236], batch_queue=0 [], opened=5
 - **yidakra** (`CONTRIBUTOR`): merged=1 [#8379], batch_queue=0 [], opened=3
 - **eumemic** (`CONTRIBUTOR`): merged=1 [#8341], batch_queue=0 [], opened=1
 - **HaraldNordgren** (`CONTRIBUTOR`): merged=1 [#8314], batch_queue=0 [], opened=1
 
 ## 3. Most Active Zulip Participants (RH Threads)
-- **Kim Morrison**: 80 msgs, 160 reactions
+- **Kim Morrison**: 80 msgs, 162 reactions
 - **Luke Sernau**: 9 msgs, 151 reactions
-- **David Loeffler**: 43 msgs, 71 reactions
-- **Jonathan Roy**: 219 msgs, 64 reactions
+- **David Loeffler**: 43 msgs, 72 reactions
+- **Jonathan Roy**: 219 msgs, 63 reactions
 - **Riccardo Brasca**: 38 msgs, 55 reactions
 - **Andrew Sutherland**: 6 msgs, 54 reactions
 - **Thomas Murrills**: 42 msgs, 41 reactions
@@ -70,8 +67,8 @@
 - [New proof in 300k lines] **Luke B** (rx:11): A lot of credit on making that cleanup possible should go to Kim. I've been programming since the '90s, and I've never had onboarding onto a project go as smoothly as to Tau Ceti before. Reducing the minimum to get started to a one-liner th
 - [New proof in 300k lines] **Violeta Hernández** (rx:11): @_**Joseph Richey|494829** [dijo](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643740697): ```quote Lean 4.37 port is up: RH#5768 ``` Every time I see a PR number for 
 - [New proof in 300k lines] **Kim Morrison** (rx:11): We're on v4.37.0-rc1 now
-- [New proof in 300k lines] **Arthur Paulino** (rx:11): @**Luke Sernau** can you share your method(s)?
 - [New proof in 300k lines] **Luke Sernau** (rx:11): @_**Jake Levinson|391579** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643714455): ```quote @**Luke Sernau** Can you say a bit more about what else was removed
+- [New proof in 300k lines] **Arthur Paulino** (rx:11): @**Luke Sernau** can you share your method(s)?
 - [New proof in 300k lines] **Kim Morrison** (rx:9): @_**Luke B|1243347** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643866599): ```quote as is how quickly Tau Ceti manages merges ```  It's only the last 48 hour
 - [New proof in 300k lines] **Kim Morrison** (rx:9): Ooh, interesting, my agent says that in a number of places where the new proof is simpler, the required material is already in Tau Ceti... :-)
 - [New proof in 300k lines] **Riccardo Brasca** (rx:9): A reasonable goal is to move out of the repo, to for example to Tau Ceti, everything that was mathematically already known so that at the end we can have a proof written in the usual way, with citations but without duplications.
