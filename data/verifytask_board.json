@@ -3,9 +3,9 @@
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
   "revision": "85e87c7c13ae7f97",
-  "updated_at": "2026-11-27T12:51:03.741220+08:00",
+  "updated_at": "2026-11-27T13:01:02.206023+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-27T04:54:43Z",
+  "generated_at": "2026-11-27T05:03:59Z",
   "summary": {
     "participants": 122,
     "scored_participants": 98,
@@ -29554,7 +29554,7 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-27T04:29:32Z",
+      "ts": "2026-11-27T04:59:34Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
@@ -29570,16 +29570,6 @@
       "title": "refactor: tighten the crystalline defect bound and generalize the loss (+0 lines net)",
       "summary": "Merged into leanprover-community/riemann-hypothesis by EricHe98.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/7776",
-      "highlight": true
-    },
-    {
-      "id": "upstream-pr-9070",
-      "ts": "2026-11-27T00:39:01Z",
-      "source": "lean_community",
-      "tag": "Upstream PR #9070",
-      "title": "fix: fetch privately imported Tau Ceti modules in the CI cache step",
-      "summary": "Merged into leanprover-community/riemann-hypothesis by kim-em.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/9070",
       "highlight": true
     },
     {
@@ -29621,6 +29611,16 @@
       "summary": "Osgood001 submitted a 28-file simplification PR directly to leanprover-community/riemann-hypothesis (−824 lines, zero warnings, 23,008 build jobs passing).",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/95",
       "highlight": true
+    },
+    {
+      "id": "seed-upstream-pr45",
+      "ts": "2026-11-21T20:54:20Z",
+      "source": "lean_community",
+      "tag": "Repo Pruning",
+      "title": "Upstream prunes 11,163 unreachable dead modules (PR #45)",
+      "summary": "rohanarun removed unused top-level imports and 11,163 unreachable modules from leanprover-community/riemann-hypothesis in the first large-scale structural cleanup.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/45",
+      "highlight": false
     },
     {
       "id": "seed-core15-launch",
