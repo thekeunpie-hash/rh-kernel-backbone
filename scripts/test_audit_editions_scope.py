@@ -196,7 +196,12 @@ class TestAuditEditionsScope(unittest.TestCase):
             db_metrics = aes.load_kernel_db(db_path)
             self.assertEqual(
                 db_metrics,
-                {"kernel_constants": 4, "cone_constants": 3, "user_cone_decls": 2},
+                {
+                    "kernel_constants": 4,
+                    "cone_constants": 3,
+                    "user_cone_decls": 2,
+                    "missing_columns": [],
+                },
             )
 
             editions, _, _, _ = _load_live_inputs()
@@ -355,6 +360,134 @@ class TestAuditEditionsScope(unittest.TestCase):
             self.assertTrue(written["ok"])
             self.assertGreater(written["checks_passed"], 70)
             self.assertEqual(written["errors"], [])
+
+
+def _run_cli_on_copy(
+    edit_editions=None,
+    edit_tracker=None,
+    extra_args: list[str] | None = None,
+    drop: str | None = None,
+) -> tuple[int, str, str]:
+    """Copy the four live inputs into a temp dir, mutate one, run main() on the copies."""
+    editions, summary, spec, tracker = _load_live_inputs()
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        if edit_editions is not None:
+            edit_editions(editions)
+        if edit_tracker is not None:
+            new_tracker = edit_tracker(tracker)
+            assert new_tracker != tracker, "tracker mutation did not apply"
+            tracker = new_tracker
+        paths = {
+            "--editions": root / "editions.json",
+            "--summary": root / "kernel_backbone_summary.json",
+            "--spec": root / "SPEC.md",
+            "--tracker": root / "tracker.html",
+        }
+        paths["--editions"].write_text(json.dumps(editions, ensure_ascii=False), encoding="utf-8")
+        paths["--summary"].write_text(json.dumps(summary, ensure_ascii=False), encoding="utf-8")
+        paths["--spec"].write_text(spec, encoding="utf-8")
+        paths["--tracker"].write_text(tracker, encoding="utf-8")
+        if drop is not None:
+            paths[drop] = root / "does-not-exist"
+        argv: list[str] = []
+        for flag, path in paths.items():
+            argv += [flag, str(path)]
+        out, err = io.StringIO(), io.StringIO()
+        with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+            rc = aes.main(argv + list(extra_args or []))
+        return rc, out.getvalue(), err.getvalue()
+
+
+class TestAuditEditionsScopeMutations(unittest.TestCase):
+    """One CLI-level mutation per regression found against the f959fa0 auditor."""
+
+    def assertAuditFails(self, result: tuple[int, str, str], needle: str, rc: int = 1) -> None:
+        got_rc, out, err = result
+        self.assertEqual(got_rc, rc, out + err)
+        self.assertIn(needle, err, out + err)
+
+    def test_unmutated_copy_passes(self) -> None:
+        rc, out, err = _run_cli_on_copy()
+        self.assertEqual(rc, 0, out + err)
+        self.assertIn("[PASS]", out)
+
+    def test_m1_generated_at_before_measured_at(self) -> None:
+        def edit(ed: dict) -> None:
+            ed["generated_at"] = "2026-11-26T13:00:00+09:00"
+
+        self.assertAuditFails(_run_cli_on_copy(edit_editions=edit), "predates cross_repo_pairing.measured_at")
+
+    def test_m2_empty_genuine_shorter_rule(self) -> None:
+        def edit(ed: dict) -> None:
+            ed["cross_repo_pairing"]["genuine_shorter_rule"] = ""
+
+        self.assertAuditFails(_run_cli_on_copy(edit_editions=edit), "genuine_shorter_rule must be a non-empty")
+
+    def test_m3_tracker_missing_editions_fetch(self) -> None:
+        self.assertAuditFails(
+            _run_cli_on_copy(edit_tracker=lambda t: t.replace("./data/editions.json", "./data/editionsX.json")),
+            "must fetch ./data/editions.json",
+        )
+
+    def test_m4_tracker_caption_full_cone_drift(self) -> None:
+        self.assertAuditFails(
+            _run_cli_on_copy(
+                edit_tracker=lambda t: t.replace(
+                    "full kernel cone is 1,484,729", "full kernel cone is 21,484,729"
+                )
+            ),
+            "caption full=21484729",
+        )
+
+    def test_m5_retracted_claim_outside_edition_compare(self) -> None:
+        self.assertAuditFails(
+            _run_cli_on_copy(
+                edit_tracker=lambda t: t.replace(
+                    "<body", "<!-- archive note: 136,266 Mathlib declarations -->\n<body", 1
+                )
+            ),
+            "retracted '136,266 Mathlib' archive claim",
+        )
+
+    def test_m6_decl_lines_exceed_raw_lines_non_alpoge(self) -> None:
+        def edit(ed: dict) -> None:
+            raw = _row_by_label(ed, "Raw lines")["values"][1]
+            _row_by_label(ed, "Declaration lines in the proof cone")["values"][1] = raw + 1000
+
+        self.assertAuditFails(
+            _run_cli_on_copy(edit_editions=edit),
+            "[grh_readable] declaration lines in the proof cone",
+        )
+
+    def test_m7_missing_required_pairing_key(self) -> None:
+        def edit(ed: dict) -> None:
+            ed["cross_repo_pairing"].pop("references_unplaced_low")
+
+        self.assertAuditFails(
+            _run_cli_on_copy(edit_editions=edit),
+            "cross_repo_pairing.references_unplaced_low is required",
+        )
+
+    def test_m8_missing_input_paths_exit_2(self) -> None:
+        for flag in ("--summary", "--spec", "--tracker", "--editions"):
+            with self.subTest(flag=flag):
+                self.assertAuditFails(_run_cli_on_copy(drop=flag), "ERROR:", rc=2)
+
+    def test_m9_kernel_db_missing_cone_columns(self) -> None:
+        editions, _, _, _ = _load_live_inputs()
+        total = _row_by_label(editions, "Kernel constants")["values"][1]
+        with tempfile.TemporaryDirectory() as tmp:
+            db_path = Path(tmp) / "no-cone-columns.sqlite"
+            con = sqlite3.connect(db_path)
+            con.execute("CREATE TABLE decls (name TEXT)")
+            con.executemany("INSERT INTO decls VALUES (?)", [(str(i),) for i in range(total)])
+            con.commit()
+            con.close()
+            self.assertAuditFails(
+                _run_cli_on_copy(extra_args=["--kernel-db", f"grh_readable={db_path}"]),
+                "decls table lacks required column(s): in_cone, is_internal",
+            )
 
 
 if __name__ == "__main__":

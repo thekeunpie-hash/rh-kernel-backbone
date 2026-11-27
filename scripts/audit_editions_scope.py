@@ -32,6 +32,7 @@ from __future__ import annotations
 import argparse
 from collections import Counter
 import csv
+from datetime import datetime
 import gzip
 import json
 import math
@@ -50,6 +51,36 @@ EXPECTED_EDITION_IDS = (
 VALID_FORMATS = {"int", "dec", "bytes", "dur"}
 INT_FORMATS = {"int", "bytes", "dur"}
 EXPECTED_ARCHIVE_ROWS = frozenset({"Files", "Raw lines", "Source size"})
+
+# Integer keys that cross_repo_pairing must carry; a missing key is an error, not a skip.
+REQUIRED_PAIRING_INT_KEYS = (
+    "grh_modules",
+    "compact_modules",
+    "common_path_modules",
+    "grh_only_total",
+    "compact_only_total",
+    "non_identical_pairs_accepted",
+    "grh_only_covered",
+    "compact_only_covered",
+    "high_confidence_pairs",
+    "high_confidence_genuine_shorter",
+    "high_confidence_1to1_genuine_shorter",
+    "high_confidence_genuine_shorter_non_ws_saved",
+    "high_confidence_1to1_non_ws_saved",
+    "references_total",
+    "references_unplaced",
+    "references_unplaced_high",
+    "references_unplaced_medium",
+    "references_unplaced_low",
+    "tauceti_candidates",
+    "tauceti_candidate_theorems",
+)
+KERNEL_DB_REQUIRED_COLUMNS = ("in_cone", "is_internal")
+
+TRACKER_CONE_RE = re.compile(
+    r"full kernel cone is\s+(?P<full>[\d,]+)\s+constants,\s+of which\s+(?P<libs>[\d,]+)\s+"
+    r"come from those libraries"
+)
 
 TOKEN_RE = re.compile(r"[A-Za-z_][A-Za-z0-9_'.]*|\d+|[^\sA-Za-z0-9_]")
 SEMI_RE = re.compile(r";")
@@ -289,6 +320,7 @@ def load_kernel_db(db_path: Path) -> dict[str, int | None]:
         if not cols:
             raise ValueError(f"SQLite database has no 'decls' table: {db_path}")
         total = cur.execute("SELECT COUNT(*) FROM decls").fetchone()[0]
+        missing = [c for c in KERNEL_DB_REQUIRED_COLUMNS if c not in cols]
         cone = (
             cur.execute("SELECT COUNT(*) FROM decls WHERE in_cone=1").fetchone()[0]
             if "in_cone" in cols
@@ -305,6 +337,7 @@ def load_kernel_db(db_path: Path) -> dict[str, int | None]:
             "kernel_constants": int(total),
             "cone_constants": int(cone) if cone is not None else None,
             "user_cone_decls": int(user_cone) if user_cone is not None else None,
+            "missing_columns": missing,
         }
     finally:
         con.close()
@@ -500,6 +533,13 @@ def audit_editions(
                 0 < code_l <= raw_l,
                 f"[{eid}] code lines ({code_l}) must satisfy 0 < code_lines <= raw_lines ({raw_l})",
             )
+        decl_l = get_val("Declaration lines in the proof cone", eid)
+        if isinstance(raw_l, (int, float)) and isinstance(decl_l, (int, float)):
+            check(
+                0 < decl_l <= raw_l,
+                f"[{eid}] declaration lines in the proof cone ({decl_l}) must satisfy "
+                f"0 < decl_lines <= raw_lines ({raw_l})",
+            )
 
         k_const = get_val("Kernel constants", eid)
         cone_const = get_val("Constants in the proof cone", eid)
@@ -583,6 +623,40 @@ def audit_editions(
     pair = editions_data.get("cross_repo_pairing")
     check(isinstance(pair, dict), "cross_repo_pairing must be an object")
     if isinstance(pair, dict):
+        for key in REQUIRED_PAIRING_INT_KEYS:
+            val = pair.get(key)
+            check(
+                isinstance(val, int) and not isinstance(val, bool),
+                f"cross_repo_pairing.{key} is required and must be an int, got {val!r}",
+            )
+        rule = pair.get("genuine_shorter_rule")
+        check(
+            isinstance(rule, str) and bool(rule.strip()),
+            "cross_repo_pairing.genuine_shorter_rule must be a non-empty string",
+        )
+        gen_ts = editions_data.get("generated_at")
+        pair_ts = pair.get("measured_at")
+        gen_dt = pair_dt = None
+        try:
+            gen_dt = datetime.fromisoformat(gen_ts) if isinstance(gen_ts, str) else None
+            pair_dt = datetime.fromisoformat(pair_ts) if isinstance(pair_ts, str) else None
+        except ValueError as exc:
+            check(False, f"invalid ISO timestamp in generated_at/measured_at: {exc}")
+        check(
+            gen_dt is not None and pair_dt is not None,
+            f"generated_at ({gen_ts!r}) and cross_repo_pairing.measured_at ({pair_ts!r}) "
+            "must both be ISO timestamps",
+        )
+        if gen_dt is not None and pair_dt is not None:
+            try:
+                ordered = pair_dt <= gen_dt
+            except TypeError as exc:
+                ordered = False
+                check(False, f"generated_at/measured_at not comparable: {exc}")
+            check(
+                ordered,
+                f"generated_at ({gen_ts}) predates cross_repo_pairing.measured_at ({pair_ts})",
+            )
         grh_files = get_val("Files", "grh_readable")
         cmp_files = get_val("Files", "grh_compact")
         check(
@@ -738,6 +812,14 @@ def audit_editions(
 
     # 7. Cross-check against docs/tracker.html #edition-compare explanation
     if tracker_html is not None:
+        check(
+            "./data/editions.json" in tracker_html,
+            "docs/tracker.html must fetch ./data/editions.json",
+        )
+        check(
+            "136,266 Mathlib" not in tracker_html,
+            "docs/tracker.html contains the retracted '136,266 Mathlib' archive claim",
+        )
         block = extract_edition_compare_block(tracker_html)
         check(
             block is not None,
@@ -759,6 +841,20 @@ def audit_editions(
                     full_fmt in block and libs_fmt in block,
                     f"docs/tracker.html #edition-compare note must cite full cone ({full_fmt}) "
                     f"and excluded library subtotal ({libs_fmt})",
+                )
+            cone_match = TRACKER_CONE_RE.search(block)
+            check(
+                cone_match is not None,
+                "docs/tracker.html #edition-compare is missing the 'full kernel cone is N constants, "
+                "of which M come from those libraries' caption",
+            )
+            if cone_match is not None and spec_origins is not None:
+                t_full = _parse_int_commas(cone_match.group("full"))
+                t_libs = _parse_int_commas(cone_match.group("libs"))
+                check(
+                    t_full == spec_origins["full_cone"] and t_libs == spec_origins["libraries"],
+                    f"docs/tracker.html #edition-compare caption full={t_full}, libs={t_libs} != "
+                    f"SPEC.md full={spec_origins['full_cone']}, libs={spec_origins['libraries']}",
                 )
 
     reproduced: dict[str, Any] = {}
@@ -865,6 +961,17 @@ def audit_editions(
             check(eid in ed_idx, f"--kernel-db references unknown edition id: {eid!r}")
             if eid not in ed_idx:
                 continue
+            missing_cols = db_metrics.get("missing_columns")
+            if missing_cols is None:
+                missing_cols = []
+                if db_metrics.get("cone_constants") is None:
+                    missing_cols.append("in_cone")
+                if db_metrics.get("user_cone_decls") is None:
+                    missing_cols.append("is_internal")
+            check(
+                not missing_cols,
+                f"--kernel-db [{eid}] decls table lacks required column(s): {', '.join(missing_cols)}",
+            )
             expected_total = get_val("Kernel constants", eid)
             if expected_total is not None:
                 check(
@@ -967,21 +1074,10 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         editions_data = json.loads(args.editions.read_text(encoding="utf-8"))
-        summary_data = (
-            json.loads(args.summary.read_text(encoding="utf-8"))
-            if args.summary and args.summary.is_file()
-            else None
-        )
-        spec_text = (
-            args.spec.read_text(encoding="utf-8")
-            if args.spec and args.spec.is_file()
-            else None
-        )
-        tracker_html = (
-            args.tracker.read_text(encoding="utf-8")
-            if args.tracker and args.tracker.is_file()
-            else None
-        )
+        # Missing --summary/--spec/--tracker inputs are CLI input errors (exit 2), never skips.
+        summary_data = json.loads(args.summary.read_text(encoding="utf-8"))
+        spec_text = args.spec.read_text(encoding="utf-8")
+        tracker_html = args.tracker.read_text(encoding="utf-8")
 
         alpoge_export = (
             load_alpoge_export(args.alpoge_export) if args.alpoge_export else None
