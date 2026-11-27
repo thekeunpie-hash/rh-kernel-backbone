@@ -1,7 +1,7 @@
-# Community Context Brief (Auto-generated 2026-11-27T07:01:37Z)
+# Community Context Brief (Auto-generated 2026-11-27T08:05:57Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:131, merged:9], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:136, merged:8], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
 - **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:7], merged PRs=1 (#8880), main commits=4
 - **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=0 (none), main commits=3
 - **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
@@ -9,25 +9,22 @@
 - **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 
 ## 2. Active Contributors (GitHub)
-- **sqrt-of-2** (`CONTRIBUTOR`): merged=11 [#8460, #8455, #8449, #8447, #8412], batch_queue=0 [], opened=112
-- **chopin-op60** (`CONTRIBUTOR`): merged=8 [#8700, #8692, #8688, #8456, #8442], batch_queue=0 [], opened=38
-- **alkor2000** (`CONTRIBUTOR`): merged=5 [#8590, #8368, #8364, #8355, #8350], batch_queue=0 [], opened=48
-- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=5 [#8682, #8408, #8386, #8346, #8344], batch_queue=0 [], opened=47
-- **nefelibata5136-code** (`CONTRIBUTOR`): merged=4 [#8452, #8426, #8389, #8352], batch_queue=0 [], opened=15
+- **sqrt-of-2** (`CONTRIBUTOR`): merged=8 [#8460, #8455, #8449, #8447, #8412], batch_queue=0 [], opened=99
+- **chopin-op60** (`CONTRIBUTOR`): merged=7 [#8700, #8692, #8688, #8456, #8442], batch_queue=0 [], opened=37
+- **CollinYuanjieRen** (`CONTRIBUTOR`): merged=3 [#8682, #8408, #8386], batch_queue=0 [], opened=45
+- **nefelibata5136-code** (`CONTRIBUTOR`): merged=3 [#8452, #8426, #8389], batch_queue=0 [], opened=14
 - **pranavgundu** (`CONTRIBUTOR`): merged=3 [#8697, #8421, #8420], batch_queue=0 [], opened=4
-- **rohanarun** (`CONTRIBUTOR`): merged=2 [#8382, #8376], batch_queue=0 [], opened=53
 - **nickita-khylkouski** (`CONTRIBUTOR`): merged=1 [#8686], batch_queue=0 [], opened=47
-- **yidakra** (`CONTRIBUTOR`): merged=1 [#8379], batch_queue=0 [], opened=2
-- **eumemic** (`CONTRIBUTOR`): merged=1 [#8341], batch_queue=0 [], opened=1
+- **alkor2000** (`CONTRIBUTOR`): merged=1 [#8590], batch_queue=0 [], opened=46
 
 ## 3. Most Active Zulip Participants (RH Threads)
-- **Kim Morrison**: 82 msgs, 164 reactions
+- **Kim Morrison**: 82 msgs, 165 reactions
 - **Luke Sernau**: 9 msgs, 151 reactions
-- **David Loeffler**: 44 msgs, 73 reactions
+- **David Loeffler**: 47 msgs, 74 reactions
 - **Jonathan Roy**: 214 msgs, 60 reactions
+- **Andrew Sutherland**: 6 msgs, 56 reactions
 - **Riccardo Brasca**: 38 msgs, 55 reactions
-- **Andrew Sutherland**: 6 msgs, 54 reactions
-- **Thomas Murrills**: 40 msgs, 41 reactions
+- **Thomas Murrills**: 39 msgs, 41 reactions
 - **Jack McCarthy**: 35 msgs, 37 reactions
 - **Chris Birkbeck**: 36 msgs, 27 reactions
 - **Artie Khovanov**: 11 msgs, 25 reactions
@@ -52,7 +49,7 @@
 - [New proof in 300k lines] **Kim Morrison** (rx:36): con-leche passes!
 - [New proof in 300k lines] **Thomas Murrills** (rx:28): @**Luke Sernau** First off, as one of the community repo maintainers here congrats and thanks! :tada: This is a massive step towards our goals of accessibility of the proof, readability, and integrating this proof with the community :)  @_*
 - [Discussion: Alpöge Proves the Riemann Hypothesis] **Andrew Sutherland** (rx:24): `lake comparator` has finished: "Your solution is okay!", exit 0 at 4:49 PM EST on 25 November. That was the last check running, nothing is pending on https://math.mit.edu/~drew/grh/
-- [New proof in 300k lines] **Andrew Sutherland** (rx:21): `lake comparator --paranoid` passed
+- [New proof in 300k lines] **Andrew Sutherland** (rx:22): `lake comparator --paranoid` passed
 - [New proof in 300k lines] **Luke Sernau** (rx:19): @_**Jonas Whidden|937813** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/Cleaning.20up.20the.20proof/near/643703643): ````quote Anyone else think it's super absurdly funny how much time and resource
 - [New proof in 300k lines] **Kim Morrison** (rx:13): https://github.com/leanprover-community/riemann-hypothesis is now the 300kLOC proof, with a cache
 - [New proof in 300k lines] **Michael Righi** (rx:13): If this holds up we are all Masullo now. 🤣
