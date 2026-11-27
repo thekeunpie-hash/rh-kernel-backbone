@@ -2,15 +2,15 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "bbdc8ada50010633",
-  "updated_at": "2026-11-28T00:37:17.480805+08:00",
+  "revision": "a8f1c19a7060edde",
+  "updated_at": "2026-11-28T00:53:08.604059+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-27T16:39:21Z",
+  "generated_at": "2026-11-27T16:55:21Z",
   "summary": {
     "participants": 122,
     "scored_participants": 98,
-    "submissions": 2523,
-    "scored_submissions": 1780,
+    "submissions": 2524,
+    "scored_submissions": 1781,
     "evaluating": 2,
     "core_evaluating": 2,
     "challenges_total": 49,
@@ -37,7 +37,7 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1779,
+    "total_runs": 1780,
     "kept_count": 668,
     "current_best_score": 2871.57,
     "current_best_pct": 33.58,
@@ -26688,7 +26688,7 @@
         "ts": "2026-11-27T14:44:18+00:00",
         "key": "core32",
         "score": 53.82,
-        "compression_pct": 0.0,
+        "compression_pct": 31.65,
         "best": 2871.57,
         "best_pct": 33.58,
         "kept": false,
@@ -26725,6 +26725,21 @@
         "author": "Emanuel Barbosa de Moura",
         "model": null,
         "harness": "Claude Code",
+        "method": null
+      },
+      {
+        "i": 1780,
+        "id": 116329,
+        "ts": "2026-11-27T16:23:00+00:00",
+        "key": "core32",
+        "score": 53.9,
+        "compression_pct": 0.0,
+        "best": 2871.57,
+        "best_pct": 33.58,
+        "kept": false,
+        "author": "Emanuel Barbosa de Moura",
+        "model": "Gemini",
+        "harness": "ci-lean4",
         "method": null
       }
     ]
@@ -28002,10 +28017,10 @@
       "char_saved_pct": 47.99,
       "reduction_factor": 1.97,
       "score": 56.4196,
-      "attempts": 90,
-      "scored_attempts": 66,
+      "attempts": 91,
+      "scored_attempts": 67,
       "participants": 16,
-      "runs": 66,
+      "runs": 67,
       "kept_runs": 15,
       "leader": {
         "author": "Andrew Pullin",
@@ -28766,9 +28781,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 2033,
+    "labeled_scored_runs": 2034,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2082,
+    "total_scored_runs": 2083,
     "pairs_total": 72,
     "top_pairs": [
       {
