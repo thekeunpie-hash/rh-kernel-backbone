@@ -1,62 +1,69 @@
 #!/usr/bin/env python3
-"""Audit and reproduce the aggregation scopes of docs/data/editions.json.
+"""Audit and reproduce the aggregation scopes in docs/data/editions.json.
 
-Pure Python 3.11+ standard library. Supports three layers of verification:
+Runs in two complementary modes with the Python standard library alone:
 
-1. Standalone repository audit (default; requires no external downloads):
-   Verifies that docs/data/editions.json compares every edition on matching units
-   and scopes, stays consistent with data/kernel_backbone_summary.json, SPEC.md,
-   and docs/tracker.html, and passes all internal arithmetic and pairing checks.
+1. Standalone repository audit (default, no external data required):
+   Cross-checks docs/data/editions.json against data/kernel_backbone_summary.json,
+   SPEC.md, and docs/tracker.html to verify schema integrity, internal arithmetic,
+   project-only vs. library-inclusive kernel-cone scope boundaries, and archive
+   footnote coverage.
 
-2. Optional Alpoge v0.2.1 kernel-export reproduction (--alpoge-export DIR):
-   Recomputes Alpoge archive totals, proof-cone declarations, proof-cone
-   declaration lines, and project-only vs. full proof-cone constants directly
-   from Andrew Sutherland / James Shore's directories.csv.gz, decls.csv.gz, and
-   constants.csv.gz.
+2. Ground-truth reproduction (optional flags):
+   - --alpoge-export <dir>: reproduces the Alpoge v0.2.1 file, line, declaration,
+     and per-origin kernel-constant counts directly from directories.csv(.gz),
+     decls.csv(.gz), and constants.csv(.gz).
+   - --tree <edition_id>=<src_dir> (repeatable): scans a Lean source tree with
+     nested-comment stripping and reproduces all nine static source rows for that
+     edition column.
+   - --kernel-db <edition_id>=<sqlite_path> (repeatable): reads a read-only SQLite
+     kernel index and reproduces kernel-constant and proof-cone rows for that
+     edition column.
 
-3. Optional Lean source-tree reproduction (--tree EDITION_ID=SRC_DIR):
-   Recomputes all nine static source metrics (files, raw lines, comment/blank-
-   stripped code lines, UTF-8 bytes, non-whitespace code characters, Lean tokens,
-   characters per code line, semicolons per 1,000 code lines, longest line) from
-   a local Lean src/ tree and checks exact parity against docs/data/editions.json.
+Usage:
+    python scripts/audit_editions_scope.py
+    python scripts/audit_editions_scope.py \
+        --alpoge-export path/to/v0.2.1-kernel-export \
+        --tree grh_readable=path/to/grh/src \
+        --tree grh_compact=path/to/grh-compact/src
 """
 from __future__ import annotations
 
 import argparse
-import csv
 from collections import Counter
-from datetime import datetime
+import csv
 import gzip
 import json
 import math
 from pathlib import Path
 import re
+import sqlite3
 import sys
 from typing import Any
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-
-REQUIRED_EDITIONS = ("alpoge_v021", "grh_readable", "grh_compact", "grh_clean")
-VALID_FMTS = {"int", "dec", "bytes", "dur"}
-ALPOGE_ARCHIVE_ROWS = frozenset({"Files", "Raw lines", "Source size"})
+EXPECTED_EDITION_IDS = (
+    "alpoge_v021",
+    "grh_readable",
+    "grh_compact",
+    "grh_clean",
+)
+VALID_FORMATS = {"int", "dec", "bytes", "dur"}
+INT_FORMATS = {"int", "bytes", "dur"}
+EXPECTED_ARCHIVE_ROWS = frozenset({"Files", "Raw lines", "Source size"})
 
 TOKEN_RE = re.compile(r"[A-Za-z_][A-Za-z0-9_'.]*|\d+|[^\sA-Za-z0-9_]")
 SEMI_RE = re.compile(r";")
 
-SPEC_CONE_RE = re.compile(
-    r"`(?P<full>[\d,]+)`\s+kernel constants\s*\(`cone-constants\.txt\.gz`\):\s*"
-    r"`(?P<project>[\d,]+)`\s+project,\s*"
-    r"`(?P<mathlib>[\d,]+)`\s+Mathlib,\s*"
-    r"`(?P<core>[\d,]+)`\s+Lean core,\s*"
-    r"`(?P<batteries>[\d,]+)`\s+Batteries,\s*"
-    r"`(?P<aesop>[\d,]+)`\s+Aesop"
+SPEC_ORIGIN_RE = re.compile(
+    r"`(?P<full_cone>[0-9,]+)`\s+kernel constants\s+\(`cone-constants\.txt\.gz`\):\s+"
+    r"`(?P<project>[0-9,]+)`\s+project,\s+"
+    r"`(?P<mathlib>[0-9,]+)`\s+Mathlib,\s+"
+    r"`(?P<core>[0-9,]+)`\s+Lean core,\s+"
+    r"`(?P<batteries>[0-9,]+)`\s+Batteries,\s+"
+    r"`(?P<aesop>[0-9,]+)`\s+Aesop"
 )
 
-TRACKER_CONE_RE = re.compile(
-    r"full kernel cone is\s+(?P<full>[\d,]+)\s+constants,\s+of which\s+(?P<libs>[\d,]+)\s+come from those libraries"
-)
-
-TREE_ROW_KEYS = (
+TREE_ROW_MAP = (
     ("Files", "files"),
     ("Raw lines", "raw_lines"),
     ("Code lines (no comments or blanks)", "code_lines"),
@@ -69,12 +76,16 @@ TREE_ROW_KEYS = (
 )
 
 
-def _parse_int(token: str) -> int:
-    return int(token.replace(",", ""))
+def _parse_int_commas(text: str) -> int:
+    return int(text.replace(",", ""))
 
 
-def _is_finite_number(val: Any) -> bool:
-    return isinstance(val, (int, float)) and not isinstance(val, bool) and math.isfinite(val)
+def _is_valid_number(value: Any, fmt: str) -> bool:
+    if isinstance(value, bool):
+        return False
+    if fmt in INT_FORMATS:
+        return isinstance(value, int) and value >= 0
+    return isinstance(value, (int, float)) and math.isfinite(value) and value >= 0
 
 
 def _open_maybe_gz(path: Path):
@@ -88,14 +99,16 @@ def _resolve_export_file(export_dir: Path, stem: str) -> Path:
         candidate = export_dir / name
         if candidate.is_file():
             return candidate
-    raise FileNotFoundError(f"Missing {stem}.csv.gz (or {stem}.csv) under {export_dir}")
+    raise FileNotFoundError(
+        f"Missing {stem}.csv.gz (or {stem}.csv) under {export_dir}"
+    )
 
 
 def strip_lean_comments(text: str) -> str:
-    """Strip Lean 4 nested block comments (`/- ... -/`) and line comments (`-- ...`).
+    """Strip Lean 4 nested block comments (/- ... -/) and line comments (-- ...).
 
-    Preserves string literals (with backslash escapes) and newlines so line counts
-    and token counts match the edition-comparison source scanner.
+    String literals ("...") with backslash escapes are preserved so comment
+    delimiters inside strings are not mistaken for comments.
     """
     out: list[str] = []
     i = 0
@@ -140,9 +153,10 @@ def strip_lean_comments(text: str) -> str:
 
 
 def scan_lean_tree(src_dir: Path) -> dict[str, int | float]:
-    """Measure static source metrics for a Lean src/ directory."""
+    """Measure all static source-tree metrics for a directory of Lean files."""
     if not src_dir.is_dir():
         raise FileNotFoundError(f"Lean source directory not found: {src_dir}")
+
     tot: Counter[str] = Counter()
     max_line_len = 0
     for path in sorted(src_dir.rglob("*.lean")):
@@ -150,7 +164,9 @@ def scan_lean_tree(src_dir: Path) -> dict[str, int | float]:
         raw_lines = raw.splitlines()
         code = strip_lean_comments(raw)
         code_lines_list = [ln for ln in code.splitlines() if ln.strip()]
-        non_ws = sum(len(ln.replace(" ", "").replace("\t", "")) for ln in code_lines_list)
+        non_ws = sum(
+            len(ln.replace(" ", "").replace("\t", "")) for ln in code_lines_list
+        )
         tokens = len(TOKEN_RE.findall(code))
         semis = len(SEMI_RE.findall(code))
         file_max = max((len(ln) for ln in raw_lines), default=0)
@@ -174,472 +190,852 @@ def scan_lean_tree(src_dir: Path) -> dict[str, int | float]:
         "tokens": tot["tokens"],
         "semis": tot["semis"],
         "max_line_len": max_line_len,
-        "avg_non_ws_per_code_line": round(tot["non_ws"] / code_lines, 2) if code_lines else 0.0,
-        "semis_per_1k_code_lines": round(tot["semis"] * 1000.0 / code_lines, 2) if code_lines else 0.0,
+        "avg_non_ws_per_code_line": (
+            round(tot["non_ws"] / code_lines, 2) if code_lines else 0.0
+        ),
+        "semis_per_1k_code_lines": (
+            round(tot["semis"] * 1000.0 / code_lines, 2) if code_lines else 0.0
+        ),
     }
 
 
-def reproduce_alpoge_export(export_dir: Path) -> dict[str, Any]:
-    """Recompute Alpoge v0.2.1 archive and proof-cone totals from kernel export CSVs."""
+def load_alpoge_export(export_dir: Path) -> dict[str, Any]:
+    """Aggregate v0.2.1 Alpoge kernel-export CSVs by directory, decl, and origin."""
     dirs_path = _resolve_export_file(export_dir, "directories")
     decls_path = _resolve_export_file(export_dir, "decls")
     consts_path = _resolve_export_file(export_dir, "constants")
 
     top_dirs: list[str] = []
     dir_files = 0
+    dir_files_in_cone = 0
     dir_raw_lines = 0
-    dir_cone_decls = 0
-    dir_cone_lines = 0
-    with _open_maybe_gz(dirs_path) as fh:
-        for row in csv.DictReader(fh):
+    dir_decls_total = 0
+    dir_decls_in_cone = 0
+    dir_lines_in_cone = 0
+    with _open_maybe_gz(dirs_path) as f:
+        for row in csv.DictReader(f):
             if row.get("level") == "1":
                 top_dirs.append(row["dir"])
                 dir_files += int(row["files"])
+                if "files_in_cone" in row and row["files_in_cone"]:
+                    dir_files_in_cone += int(row["files_in_cone"])
                 dir_raw_lines += int(row["lines"])
-                dir_cone_decls += int(row["decls_in_cone"])
-                dir_cone_lines += int(row["lines_in_cone"])
+                if "decls" in row and row["decls"]:
+                    dir_decls_total += int(row["decls"])
+                dir_decls_in_cone += int(row["decls_in_cone"])
+                dir_lines_in_cone += int(row["lines_in_cone"])
 
     decls_total = 0
-    decls_cone = 0
-    decls_cone_lines = 0
+    decls_in_cone = 0
+    decl_lines_in_cone = 0
     decl_origins: Counter[str] = Counter()
-    with _open_maybe_gz(decls_path) as fh:
-        for row in csv.DictReader(fh):
+    with _open_maybe_gz(decls_path) as f:
+        reader = csv.DictReader(f)
+        has_origin = "origin" in (reader.fieldnames or [])
+        for row in reader:
             decls_total += 1
-            decl_origins[row.get("origin", "")] += 1
-            if row.get("in_cone", "").lower() == "true":
-                decls_cone += 1
-                decls_cone_lines += int(row["lines"])
+            if has_origin:
+                decl_origins[row["origin"]] += 1
+            if row["in_cone"].lower() == "true":
+                decls_in_cone += 1
+                decl_lines_in_cone += int(row["lines"])
 
+    consts_total = 0
     cone_by_origin: Counter[str] = Counter()
-    with _open_maybe_gz(consts_path) as fh:
-        for row in csv.DictReader(fh):
-            if row.get("in_cone", "").lower() == "true":
-                cone_by_origin[row.get("origin", "")] += 1
+    with _open_maybe_gz(consts_path) as f:
+        for row in csv.DictReader(f):
+            consts_total += 1
+            if row["in_cone"].lower() == "true":
+                cone_by_origin[row["origin"]] += 1
 
     full_cone = sum(cone_by_origin.values())
     project_cone = cone_by_origin.get("project", 0)
     return {
-        "top_level_dirs": sorted(top_dirs),
-        "non_src_top_dirs": sorted(d for d in top_dirs if not d.startswith("src/")),
-        "files": dir_files,
-        "raw_lines": dir_raw_lines,
-        "directories_cone_decls": dir_cone_decls,
-        "directories_cone_lines": dir_cone_lines,
-        "decls_total": decls_total,
-        "decl_origins": dict(decl_origins),
-        "decls_in_cone": decls_cone,
-        "decl_lines_in_cone": decls_cone_lines,
-        "cone_constants_by_origin": dict(cone_by_origin),
-        "project_cone_constants": project_cone,
-        "full_cone_constants": full_cone,
-        "library_cone_constants": full_cone - project_cone,
+        "top_dirs": top_dirs,
+        "directories": {
+            "files": dir_files,
+            "files_in_cone": dir_files_in_cone,
+            "raw_lines": dir_raw_lines,
+            "decls_total": dir_decls_total,
+            "decls_in_cone": dir_decls_in_cone,
+            "lines_in_cone": dir_lines_in_cone,
+        },
+        "decls": {
+            "total": decls_total,
+            "in_cone": decls_in_cone,
+            "lines_in_cone": decl_lines_in_cone,
+            "origins": dict(decl_origins),
+        },
+        "constants": {
+            "total_rows": consts_total,
+            "full_cone": full_cone,
+            "project_cone": project_cone,
+            "library_cone": full_cone - project_cone,
+            "by_origin": dict(cone_by_origin),
+        },
     }
 
 
-def _check_spec_breakdown(spec_text: str, errors: list[str]) -> dict[str, int] | None:
-    match = SPEC_CONE_RE.search(spec_text)
-    if not match:
-        errors.append("SPEC.md: could not parse Alpoge proof-cone origin breakdown in section 1")
-        return None
-    parts = {k: _parse_int(v) for k, v in match.groupdict().items()}
-    libs = parts["mathlib"] + parts["core"] + parts["batteries"] + parts["aesop"]
-    if parts["project"] + libs != parts["full"]:
-        errors.append(
-            f"SPEC.md: origin breakdown sum ({parts['project']} + {libs}) != full cone ({parts['full']})"
+def load_kernel_db(db_path: Path) -> dict[str, int | None]:
+    """Read kernel-constant and proof-cone counts from a read-only SQLite index."""
+    resolved = db_path.resolve()
+    if not resolved.is_file():
+        raise FileNotFoundError(f"SQLite kernel index not found: {db_path}")
+    uri = resolved.as_uri() + "?mode=ro"
+    con = sqlite3.connect(uri, uri=True)
+    try:
+        cur = con.cursor()
+        cols = {row[1] for row in cur.execute("PRAGMA table_info(decls)").fetchall()}
+        if not cols:
+            raise ValueError(f"SQLite database has no 'decls' table: {db_path}")
+        total = cur.execute("SELECT COUNT(*) FROM decls").fetchone()[0]
+        cone = (
+            cur.execute("SELECT COUNT(*) FROM decls WHERE in_cone=1").fetchone()[0]
+            if "in_cone" in cols
+            else None
         )
-    parts["libraries"] = libs
-    return parts
+        user_cone = (
+            cur.execute(
+                "SELECT COUNT(*) FROM decls WHERE is_internal=0 AND in_cone=1"
+            ).fetchone()[0]
+            if {"is_internal", "in_cone"} <= cols
+            else None
+        )
+        return {
+            "kernel_constants": int(total),
+            "cone_constants": int(cone) if cone is not None else None,
+            "user_cone_decls": int(user_cone) if user_cone is not None else None,
+        }
+    finally:
+        con.close()
+
+
+def parse_spec_origin_breakdown(spec_text: str) -> dict[str, int] | None:
+    """Parse the Section 1 full-cone constant origin breakdown from SPEC.md."""
+    m = SPEC_ORIGIN_RE.search(spec_text)
+    if not m:
+        return None
+    full_cone = _parse_int_commas(m.group("full_cone"))
+    project = _parse_int_commas(m.group("project"))
+    mathlib = _parse_int_commas(m.group("mathlib"))
+    core = _parse_int_commas(m.group("core"))
+    batteries = _parse_int_commas(m.group("batteries"))
+    aesop = _parse_int_commas(m.group("aesop"))
+    return {
+        "full_cone": full_cone,
+        "project": project,
+        "mathlib": mathlib,
+        "core": core,
+        "batteries": batteries,
+        "aesop": aesop,
+        "libraries": full_cone - project,
+    }
+
+
+def extract_edition_compare_block(tracker_html: str) -> str | None:
+    """Extract the #edition-compare section and its inline rendering script."""
+    start = tracker_html.find('id="edition-compare"')
+    if start == -1:
+        return None
+    end = tracker_html.find("</script>", start)
+    if end == -1:
+        return None
+    return tracker_html[start : end + len("</script>")]
 
 
 def audit_editions(
-    editions_path: Path,
-    summary_path: Path,
-    spec_path: Path,
-    tracker_path: Path,
-    alpoge_export_dir: Path | None = None,
-    tree_specs: list[tuple[str, Path]] | None = None,
+    editions_data: dict[str, Any],
+    summary_data: dict[str, Any] | None = None,
+    spec_text: str | None = None,
+    tracker_html: str | None = None,
+    alpoge_export: dict[str, Any] | None = None,
+    trees: dict[str, dict[str, int | float]] | None = None,
+    kernel_dbs: dict[str, dict[str, int | None]] | None = None,
 ) -> dict[str, Any]:
-    """Run standalone scope audit plus optional kernel-export and source-tree reproduction."""
+    """Run all scope, unit, arithmetic, cross-file, and artifact audits."""
     errors: list[str] = []
-    checks: list[str] = []
+    warnings: list[str] = []
+    checks_passed = 0
 
-    editions = json.loads(editions_path.read_text(encoding="utf-8"))
-    summary = json.loads(summary_path.read_text(encoding="utf-8"))
-    spec_text = spec_path.read_text(encoding="utf-8")
-    tracker_text = tracker_path.read_text(encoding="utf-8")
+    def check(cond: bool, msg: str) -> None:
+        nonlocal checks_passed
+        if cond:
+            checks_passed += 1
+        else:
+            errors.append(msg)
 
     # 1. Schema and structural integrity
-    if editions.get("schema") != 1:
-        errors.append(f"editions.json: expected schema == 1, got {editions.get('schema')!r}")
-    ed_list = editions.get("editions")
-    rows_list = editions.get("rows")
-    if not isinstance(ed_list, list) or not ed_list:
-        errors.append("editions.json: editions must be a non-empty list")
-        return {"pass": False, "checks": checks, "errors": errors}
-    if not isinstance(rows_list, list) or not rows_list:
-        errors.append("editions.json: rows must be a non-empty list")
-        return {"pass": False, "checks": checks, "errors": errors}
+    check(editions_data.get("schema") == 1, f"schema must be 1, got {editions_data.get('schema')!r}")
 
-    ed_ids = [e.get("id") for e in ed_list if isinstance(e, dict)]
-    ed_index = {eid: idx for idx, eid in enumerate(ed_ids)}
-    for req in REQUIRED_EDITIONS:
-        if req not in ed_index:
-            errors.append(f"editions.json: missing required edition id {req!r}")
-
-    rows_by_label: dict[str, dict[str, Any]] = {}
-    for row in rows_list:
-        label = row.get("label")
-        fmt = row.get("fmt")
-        values = row.get("values")
-        if not isinstance(label, str) or not label:
-            errors.append(f"editions.json: row missing non-empty label: {row!r}")
-            continue
-        if label in rows_by_label:
-            errors.append(f"editions.json: duplicate row label {label!r}")
-        rows_by_label[label] = row
-        if fmt not in VALID_FMTS:
-            errors.append(f"editions.json: row {label!r} has invalid fmt {fmt!r}")
-        if not isinstance(values, list) or len(values) != len(ed_list):
-            errors.append(f"editions.json: row {label!r} values length does not match editions ({len(ed_list)})")
-            continue
-        for idx, val in enumerate(values):
-            if val is not None and (not _is_finite_number(val) or val < 0):
-                errors.append(f"editions.json: row {label!r}[{idx}] must be null or non-negative finite number")
-    checks.append("schema_and_row_shapes")
-
-    def cell(label: str, edition_id: str) -> Any:
-        row = rows_by_label.get(label)
-        idx = ed_index.get(edition_id)
-        if row is None or idx is None or not isinstance(row.get("values"), list) or idx >= len(row["values"]):
-            return None
-        return row["values"][idx]
-
-    # 2. Alpoge archive scope footnote and flags
-    scope_note = editions.get("alpoge_archive_scope")
-    if not isinstance(scope_note, str) or not scope_note.strip():
-        errors.append("editions.json: missing non-empty alpoge_archive_scope")
-    else:
-        if "175,187" not in scope_note or "src/" not in scope_note:
-            errors.append("editions.json: alpoge_archive_scope must state the 175,187-file src/ archive scope")
-        if "136,266" in scope_note:
-            errors.append("editions.json: alpoge_archive_scope repeats false 136,266 Mathlib files claim")
-    flagged = {label for label, r in rows_by_label.items() if r.get("alpoge_archive") is True}
-    if flagged != ALPOGE_ARCHIVE_ROWS:
-        errors.append(
-            f"editions.json: alpoge_archive=true rows {sorted(flagged)} != expected {sorted(ALPOGE_ARCHIVE_ROWS)}"
-        )
-    checks.append("alpoge_archive_scope_flags")
-
-    # 3. Same-unit and same-scope guarantees across Alpoge vs grh columns
-    gt = summary.get("global_totals", {})
-    spec_cone = _check_spec_breakdown(spec_text, errors)
-
-    if cell("Code lines (no comments or blanks)", "alpoge_v021") is not None:
-        errors.append(
-            "editions.json: Alpoge 'Code lines (no comments or blanks)' must be null "
-            "(do not mix proof-cone declaration lines with full-tree code lines)"
-        )
-
-    expected_from_summary = (
-        ("Files", "files_total"),
-        ("Raw lines", "raw_source_lines_total"),
-        ("Declaration lines in the proof cone", "decl_lines_in_cone"),
-        ("Declarations in the proof cone", "decls_in_cone"),
+    editions = editions_data.get("editions")
+    check(
+        isinstance(editions, list) and len(editions) > 0,
+        "editions must be a non-empty list",
     )
-    for row_label, gt_key in expected_from_summary:
-        actual = cell(row_label, "alpoge_v021")
-        expected = gt.get(gt_key)
-        if actual != expected:
-            errors.append(
-                f"editions.json: Alpoge {row_label!r}={actual!r} != "
-                f"kernel_backbone_summary.json global_totals.{gt_key}={expected!r}"
+    ed_ids: list[str] = []
+    if isinstance(editions, list):
+        for idx, entry in enumerate(editions):
+            ok_entry = (
+                isinstance(entry, dict)
+                and isinstance(entry.get("id"), str)
+                and bool(entry["id"].strip())
+                and isinstance(entry.get("label"), str)
+                and bool(entry["label"].strip())
             )
-    checks.append("alpoge_summary_parity")
+            check(ok_entry, f"editions[{idx}] must have non-empty string id and label")
+            if ok_entry:
+                ed_ids.append(entry["id"])
+    check(len(ed_ids) == len(set(ed_ids)), f"duplicate edition ids: {ed_ids}")
+    check(
+        tuple(ed_ids) == EXPECTED_EDITION_IDS,
+        f"edition ids must be {EXPECTED_EDITION_IDS}, got {tuple(ed_ids)}",
+    )
+    ed_idx = {eid: i for i, eid in enumerate(ed_ids)}
 
-    alpoge_cone_consts = cell("Constants in the proof cone", "alpoge_v021")
-    alpoge_cone_decls = cell("Declarations in the proof cone", "alpoge_v021")
-    if spec_cone is not None:
-        if alpoge_cone_consts == spec_cone["full"]:
-            errors.append(
-                f"editions.json: Alpoge 'Constants in the proof cone' uses full library-inclusive cone "
-                f"({spec_cone['full']}); must use project-only count ({spec_cone['project']})"
+    rows_raw = editions_data.get("rows")
+    check(
+        isinstance(rows_raw, list) and len(rows_raw) > 0,
+        "rows must be a non-empty list",
+    )
+    rows_by_label: dict[str, dict[str, Any]] = {}
+    if isinstance(rows_raw, list):
+        for idx, row in enumerate(rows_raw):
+            label = row.get("label") if isinstance(row, dict) else None
+            fmt = row.get("fmt") if isinstance(row, dict) else None
+            values = row.get("values") if isinstance(row, dict) else None
+            valid_row = (
+                isinstance(label, str)
+                and bool(label.strip())
+                and fmt in VALID_FORMATS
+                and isinstance(values, list)
+                and len(values) == len(ed_ids)
             )
-        elif alpoge_cone_consts != spec_cone["project"]:
-            errors.append(
-                f"editions.json: Alpoge 'Constants in the proof cone'={alpoge_cone_consts!r} != "
-                f"SPEC.md project-only cone ({spec_cone['project']})"
+            check(
+                valid_row,
+                f"rows[{idx}] ({label!r}) must have valid label, fmt in {sorted(VALID_FORMATS)}, "
+                f"and {len(ed_ids)} values",
             )
-    if alpoge_cone_consts is not None and alpoge_cone_decls is not None and alpoge_cone_consts == alpoge_cone_decls:
-        errors.append("editions.json: Alpoge 'Constants in the proof cone' must not equal declaration count")
-    checks.append("project_only_proof_cone_scope")
-
-    # 4. Per-edition arithmetic and monotonicity invariants
-    for eid in ed_ids:
-        raw_l = cell("Raw lines", eid)
-        code_l = cell("Code lines (no comments or blanks)", eid)
-        decl_l = cell("Declaration lines in the proof cone", eid)
-        non_ws = cell("Non-whitespace code characters", eid)
-        nws_per_l = cell("Non-whitespace characters per code line", eid)
-        k_consts = cell("Kernel constants", eid)
-        cone_consts = cell("Constants in the proof cone", eid)
-        cone_decls = cell("Declarations in the proof cone", eid)
-
-        if code_l is not None and raw_l is not None and not (0 < code_l <= raw_l):
-            errors.append(f"editions.json: {eid} code_lines ({code_l}) must satisfy 0 < code_lines <= raw_lines ({raw_l})")
-        if decl_l is not None and raw_l is not None and not (0 < decl_l <= raw_l):
-            errors.append(f"editions.json: {eid} decl_lines ({decl_l}) must satisfy 0 < decl_lines <= raw_lines ({raw_l})")
-        if code_l and non_ws is not None and nws_per_l is not None:
-            expected_ratio = round(non_ws / code_l, 2)
-            if abs(expected_ratio - nws_per_l) > 0.01:
-                errors.append(
-                    f"editions.json: {eid} non_ws/code_lines={expected_ratio} != reported {nws_per_l}"
-                )
-        if cone_decls is not None and cone_consts is not None and not (0 < cone_decls <= cone_consts):
-            errors.append(
-                f"editions.json: {eid} Declarations in the proof cone ({cone_decls}) > "
-                f"Constants in the proof cone ({cone_consts})"
-            )
-        if cone_consts is not None and k_consts is not None and not (0 < cone_consts <= k_consts):
-            errors.append(
-                f"editions.json: {eid} Constants in the proof cone ({cone_consts}) > Kernel constants ({k_consts})"
-            )
-    checks.append("per_edition_invariants")
-
-    # 5. Export inversion parity
-    inv = editions.get("export_inversion")
-    if not isinstance(inv, dict):
-        errors.append("editions.json: missing export_inversion object")
-    else:
-        r_exp = inv.get("readable_export_bytes")
-        c_exp = inv.get("compact_export_bytes")
-        r_bld = inv.get("readable_build_sec")
-        c_bld = inv.get("compact_build_sec")
-        if r_exp != cell("Kernel export size", "grh_readable"):
-            errors.append("editions.json: export_inversion.readable_export_bytes != Kernel export size[grh_readable]")
-        if c_exp != cell("Kernel export size", "grh_compact"):
-            errors.append("editions.json: export_inversion.compact_export_bytes != Kernel export size[grh_compact]")
-        if r_bld != cell("Cold build time", "grh_readable"):
-            errors.append("editions.json: export_inversion.readable_build_sec != Cold build time[grh_readable]")
-        if c_bld != cell("Cold build time", "grh_compact"):
-            errors.append("editions.json: export_inversion.compact_build_sec != Cold build time[grh_compact]")
-        if _is_finite_number(r_exp) and _is_finite_number(c_exp) and r_exp > 0:
-            calc_exp_pct = round((c_exp - r_exp) * 100.0 / r_exp, 1)
-            if abs(calc_exp_pct - inv.get("compact_vs_readable_export_pct", float("nan"))) > 0.1:
-                errors.append(
-                    f"editions.json: export_inversion.compact_vs_readable_export_pct="
-                    f"{inv.get('compact_vs_readable_export_pct')} != recomputed {calc_exp_pct}"
-                )
-        cl_r = cell("Code lines (no comments or blanks)", "grh_readable")
-        cl_c = cell("Code lines (no comments or blanks)", "grh_compact")
-        if _is_finite_number(cl_r) and _is_finite_number(cl_c) and cl_r > 0:
-            calc_cl_pct = round((cl_c - cl_r) * 100.0 / cl_r, 1)
-            if abs(calc_cl_pct - inv.get("compact_vs_readable_code_lines_pct", float("nan"))) > 0.1:
-                errors.append(
-                    f"editions.json: export_inversion.compact_vs_readable_code_lines_pct="
-                    f"{inv.get('compact_vs_readable_code_lines_pct')} != recomputed {calc_cl_pct}"
-                )
-    checks.append("export_inversion_parity")
-
-    # 6. Cross-repo pairing scope and timestamp ordering
-    pair = editions.get("cross_repo_pairing")
-    if not isinstance(pair, dict):
-        errors.append("editions.json: missing cross_repo_pairing object")
-    else:
-        gen_ts = editions.get("generated_at")
-        pair_ts = pair.get("measured_at")
-        if isinstance(gen_ts, str) and isinstance(pair_ts, str):
-            try:
-                if datetime.fromisoformat(pair_ts) > datetime.fromisoformat(gen_ts):
-                    errors.append(
-                        f"editions.json: generated_at ({gen_ts}) predates cross_repo_pairing.measured_at ({pair_ts})"
+            if not valid_row:
+                continue
+            check(label not in rows_by_label, f"duplicate row label: {label!r}")
+            rows_by_label[label] = row
+            for eid, val in zip(ed_ids, values):
+                if val is not None:
+                    check(
+                        _is_valid_number(val, fmt),
+                        f"row {label!r} [{eid}] has invalid {fmt} value: {val!r}",
                     )
-            except ValueError as exc:
-                errors.append(f"editions.json: invalid ISO timestamp: {exc}")
-        if not isinstance(pair.get("genuine_shorter_rule"), str) or not pair["genuine_shorter_rule"].strip():
-            errors.append("editions.json: cross_repo_pairing.genuine_shorter_rule must be non-empty")
-        if pair.get("grh_modules") != cell("Files", "grh_readable"):
-            errors.append("editions.json: cross_repo_pairing.grh_modules != Files[grh_readable]")
-        if pair.get("compact_modules") != cell("Files", "grh_compact"):
-            errors.append("editions.json: cross_repo_pairing.compact_modules != Files[grh_compact]")
-        if pair.get("common_path_modules", -1) + pair.get("grh_only_total", -1) != pair.get("grh_modules"):
-            errors.append("editions.json: common_path_modules + grh_only_total != grh_modules")
-        if pair.get("common_path_modules", -1) + pair.get("compact_only_total", -1) != pair.get("compact_modules"):
-            errors.append("editions.json: common_path_modules + compact_only_total != compact_modules")
-        accepted = pair.get("non_identical_pairs_accepted", -1)
-        if not (accepted <= pair.get("grh_only_covered", -1) <= pair.get("grh_only_total", -1)):
-            errors.append("editions.json: grh_only_covered out of [non_identical_pairs_accepted, grh_only_total]")
-        if not (accepted <= pair.get("compact_only_covered", -1) <= pair.get("compact_only_total", -1)):
-            errors.append("editions.json: compact_only_covered out of [non_identical_pairs_accepted, compact_only_total]")
-        if not (
-            pair.get("high_confidence_1to1_genuine_shorter", -1)
-            <= pair.get("high_confidence_genuine_shorter", -1)
-            <= pair.get("high_confidence_pairs", -1)
-            <= accepted
-        ):
-            errors.append("editions.json: high_confidence counts violate subset ordering")
-        ref_sum = (
-            pair.get("references_unplaced_high", -1)
-            + pair.get("references_unplaced_medium", -1)
-            + pair.get("references_unplaced_low", -1)
-        )
-        if ref_sum != pair.get("references_unplaced"):
-            errors.append("editions.json: references_unplaced_{high,medium,low} sum != references_unplaced")
-        if pair.get("references_unplaced", 0) > pair.get("references_total", -1):
-            errors.append("editions.json: references_unplaced > references_total")
-        if pair.get("tauceti_candidate_theorems", 0) > pair.get("tauceti_candidates", -1):
-            errors.append("editions.json: tauceti_candidate_theorems > tauceti_candidates")
-    checks.append("cross_repo_pairing_scope")
 
-    # 7. docs/tracker.html caption and renderer parity
-    if "./data/editions.json" not in tracker_text:
-        errors.append("docs/tracker.html: missing fetch of ./data/editions.json")
-    if "alpoge_archive_scope" not in tracker_text:
-        errors.append("docs/tracker.html: missing alpoge_archive_scope footnote wiring")
-    if "136,266 Mathlib" in tracker_text:
-        errors.append("docs/tracker.html: contains false '136,266 Mathlib' archive claim")
-    tracker_match = TRACKER_CONE_RE.search(tracker_text)
-    if not tracker_match:
-        errors.append("docs/tracker.html: missing Alpoge full-cone / library-constants caption")
-    elif spec_cone is not None:
-        t_full = _parse_int(tracker_match.group("full"))
-        t_libs = _parse_int(tracker_match.group("libs"))
-        if t_full != spec_cone["full"] or t_libs != spec_cone["libraries"]:
-            errors.append(
-                f"docs/tracker.html: caption full={t_full}, libs={t_libs} != "
-                f"SPEC.md full={spec_cone['full']}, libs={spec_cone['libraries']}"
+    def get_val(label: str, eid: str) -> int | float | None:
+        row = rows_by_label.get(label)
+        if row is None or eid not in ed_idx:
+            return None
+        vals = row.get("values")
+        if not isinstance(vals, list) or ed_idx[eid] >= len(vals):
+            return None
+        return vals[ed_idx[eid]]
+
+    # 2. Scope & unit boundary invariants (guards against historical mis-scopes)
+    scope_text = editions_data.get("alpoge_archive_scope")
+    check(
+        isinstance(scope_text, str) and bool(scope_text.strip()),
+        "alpoge_archive_scope must be a non-empty string",
+    )
+    if isinstance(scope_text, str):
+        check(
+            "175,187" in scope_text and "src/" in scope_text and "SPEC.md §1" in scope_text,
+            "alpoge_archive_scope must document the 175,187 src/ files and cite SPEC.md §1",
+        )
+        check(
+            "136,266" not in scope_text,
+            "alpoge_archive_scope must not contain the retracted '136,266' Mathlib file claim",
+        )
+        check(
+            "not part of the archive" in scope_text.lower()
+            or "outside the archive" in scope_text.lower(),
+            "alpoge_archive_scope must clarify that Mathlib was not part of the archive",
+        )
+
+    flagged_archive = frozenset(
+        label
+        for label, row in rows_by_label.items()
+        if row.get("alpoge_archive") is True
+    )
+    check(
+        flagged_archive == EXPECTED_ARCHIVE_ROWS,
+        f"rows with alpoge_archive=true must be exactly {sorted(EXPECTED_ARCHIVE_ROWS)}, "
+        f"got {sorted(flagged_archive)}",
+    )
+    for label, row in rows_by_label.items():
+        if "alpoge_archive" in row:
+            check(
+                isinstance(row["alpoge_archive"], bool),
+                f"row {label!r} alpoge_archive must be bool",
             )
-    checks.append("tracker_caption_parity")
+
+    # Alpoge v0.2.1 line-unit separation: decl lines in cone != stripped code lines
+    check(
+        get_val("Code lines (no comments or blanks)", "alpoge_v021") is None,
+        "alpoge_v021 'Code lines (no comments or blanks)' must be null "
+        "(do not place proof-cone declaration lines into the comment-stripped code-lines row)",
+    )
+    alpoge_decl_lines = get_val("Declaration lines in the proof cone", "alpoge_v021")
+    alpoge_raw_lines = get_val("Raw lines", "alpoge_v021")
+    check(
+        isinstance(alpoge_decl_lines, int) and alpoge_decl_lines > 0,
+        "alpoge_v021 'Declaration lines in the proof cone' must be a positive int",
+    )
+    if isinstance(alpoge_decl_lines, int) and isinstance(alpoge_raw_lines, int):
+        check(
+            alpoge_decl_lines <= alpoge_raw_lines,
+            f"alpoge_v021 declaration lines in cone ({alpoge_decl_lines}) exceed raw lines ({alpoge_raw_lines})",
+        )
+
+    # Monotonicity across every edition column
+    for eid in ed_ids:
+        raw_l = get_val("Raw lines", eid)
+        code_l = get_val("Code lines (no comments or blanks)", eid)
+        if isinstance(raw_l, int) and isinstance(code_l, int):
+            check(
+                0 < code_l <= raw_l,
+                f"[{eid}] code lines ({code_l}) must satisfy 0 < code_lines <= raw_lines ({raw_l})",
+            )
+
+        k_const = get_val("Kernel constants", eid)
+        cone_const = get_val("Constants in the proof cone", eid)
+        cone_decl = get_val("Declarations in the proof cone", eid)
+        if isinstance(k_const, int) and isinstance(cone_const, int):
+            check(
+                0 < cone_const <= k_const,
+                f"[{eid}] Constants in the proof cone ({cone_const}) must satisfy <= Kernel constants ({k_const})",
+            )
+        if isinstance(cone_const, int) and isinstance(cone_decl, int):
+            check(
+                0 < cone_decl <= cone_const,
+                f"[{eid}] Declarations in the proof cone ({cone_decl}) must satisfy <= Constants in the proof cone ({cone_const})",
+            )
+            if eid == "alpoge_v021":
+                check(
+                    cone_decl < cone_const,
+                    f"[alpoge_v021] Constants in the proof cone ({cone_const}) must exceed "
+                    f"Declarations in the proof cone ({cone_decl}) because Lean generates auxiliary constants",
+                )
+
+        # Derived ratio consistency: non_ws / code_lines
+        non_ws = get_val("Non-whitespace code characters", eid)
+        avg_nws = get_val("Non-whitespace characters per code line", eid)
+        if (
+            isinstance(code_l, int)
+            and code_l > 0
+            and isinstance(non_ws, int)
+            and isinstance(avg_nws, (int, float))
+        ):
+            expected_avg = round(non_ws / code_l, 2)
+            check(
+                abs(expected_avg - float(avg_nws)) <= 1e-9,
+                f"[{eid}] Non-whitespace characters per code line is {avg_nws}, "
+                f"expected round({non_ws} / {code_l}, 2) = {expected_avg}",
+            )
+
+    # 3. export_inversion cross-checks
+    inv = editions_data.get("export_inversion")
+    check(isinstance(inv, dict), "export_inversion must be an object")
+    if isinstance(inv, dict):
+        r_exp = get_val("Kernel export size", "grh_readable")
+        c_exp = get_val("Kernel export size", "grh_compact")
+        r_bld = get_val("Cold build time", "grh_readable")
+        c_bld = get_val("Cold build time", "grh_compact")
+        r_cl = get_val("Code lines (no comments or blanks)", "grh_readable")
+        c_cl = get_val("Code lines (no comments or blanks)", "grh_compact")
+
+        check(
+            inv.get("readable_export_bytes") == r_exp,
+            f"export_inversion.readable_export_bytes ({inv.get('readable_export_bytes')}) != table ({r_exp})",
+        )
+        check(
+            inv.get("compact_export_bytes") == c_exp,
+            f"export_inversion.compact_export_bytes ({inv.get('compact_export_bytes')}) != table ({c_exp})",
+        )
+        check(
+            inv.get("readable_build_sec") == r_bld,
+            f"export_inversion.readable_build_sec ({inv.get('readable_build_sec')}) != table ({r_bld})",
+        )
+        check(
+            inv.get("compact_build_sec") == c_bld,
+            f"export_inversion.compact_build_sec ({inv.get('compact_build_sec')}) != table ({c_bld})",
+        )
+        if isinstance(r_exp, int) and r_exp > 0 and isinstance(c_exp, int):
+            exp_pct = round((c_exp - r_exp) * 100.0 / r_exp, 1)
+            check(
+                inv.get("compact_vs_readable_export_pct") == exp_pct,
+                f"export_inversion.compact_vs_readable_export_pct ({inv.get('compact_vs_readable_export_pct')}) "
+                f"!= computed {exp_pct}",
+            )
+        if isinstance(r_cl, int) and r_cl > 0 and isinstance(c_cl, int):
+            cl_pct = round((c_cl - r_cl) * 100.0 / r_cl, 1)
+            check(
+                inv.get("compact_vs_readable_code_lines_pct") == cl_pct,
+                f"export_inversion.compact_vs_readable_code_lines_pct "
+                f"({inv.get('compact_vs_readable_code_lines_pct')}) != computed {cl_pct}",
+            )
+
+    # 4. cross_repo_pairing arithmetic consistency
+    pair = editions_data.get("cross_repo_pairing")
+    check(isinstance(pair, dict), "cross_repo_pairing must be an object")
+    if isinstance(pair, dict):
+        grh_files = get_val("Files", "grh_readable")
+        cmp_files = get_val("Files", "grh_compact")
+        check(
+            pair.get("grh_modules") == grh_files,
+            f"cross_repo_pairing.grh_modules ({pair.get('grh_modules')}) != Files[grh_readable] ({grh_files})",
+        )
+        check(
+            pair.get("compact_modules") == cmp_files,
+            f"cross_repo_pairing.compact_modules ({pair.get('compact_modules')}) != Files[grh_compact] ({cmp_files})",
+        )
+        common = pair.get("common_path_modules")
+        g_only = pair.get("grh_only_total")
+        c_only = pair.get("compact_only_total")
+        if all(isinstance(v, int) for v in (common, g_only, pair.get("grh_modules"))):
+            check(
+                common + g_only == pair["grh_modules"],
+                f"common_path_modules ({common}) + grh_only_total ({g_only}) != grh_modules ({pair['grh_modules']})",
+            )
+        if all(isinstance(v, int) for v in (common, c_only, pair.get("compact_modules"))):
+            check(
+                common + c_only == pair["compact_modules"],
+                f"common_path_modules ({common}) + compact_only_total ({c_only}) != compact_modules ({pair['compact_modules']})",
+            )
+        accepted = pair.get("non_identical_pairs_accepted")
+        g_cov = pair.get("grh_only_covered")
+        c_cov = pair.get("compact_only_covered")
+        if all(isinstance(v, int) for v in (accepted, g_cov, g_only)):
+            check(
+                0 <= accepted <= g_cov <= g_only,
+                f"invalid grh_only coverage chain: accepted={accepted}, covered={g_cov}, total={g_only}",
+            )
+        if all(isinstance(v, int) for v in (accepted, c_cov, c_only)):
+            check(
+                0 <= accepted <= c_cov <= c_only,
+                f"invalid compact_only coverage chain: accepted={accepted}, covered={c_cov}, total={c_only}",
+            )
+        hc_pairs = pair.get("high_confidence_pairs")
+        hc_short = pair.get("high_confidence_genuine_shorter")
+        hc_1to1 = pair.get("high_confidence_1to1_genuine_shorter")
+        if all(isinstance(v, int) for v in (hc_1to1, hc_short, hc_pairs, accepted)):
+            check(
+                0 <= hc_1to1 <= hc_short <= hc_pairs <= accepted,
+                f"invalid high-confidence chain: 1to1={hc_1to1}, shorter={hc_short}, "
+                f"hc_pairs={hc_pairs}, accepted={accepted}",
+            )
+        saved_all = pair.get("high_confidence_genuine_shorter_non_ws_saved")
+        saved_1to1 = pair.get("high_confidence_1to1_non_ws_saved")
+        if isinstance(saved_all, int) and isinstance(saved_1to1, int):
+            check(
+                0 <= saved_1to1 <= saved_all,
+                f"1to1 saved ({saved_1to1}) must be <= total genuine-shorter saved ({saved_all})",
+            )
+        ref_tot = pair.get("references_total")
+        ref_unp = pair.get("references_unplaced")
+        ref_hi = pair.get("references_unplaced_high")
+        ref_md = pair.get("references_unplaced_medium")
+        ref_lo = pair.get("references_unplaced_low")
+        if all(isinstance(v, int) for v in (ref_tot, ref_unp, ref_hi, ref_md, ref_lo)):
+            check(
+                ref_hi + ref_md + ref_lo == ref_unp <= ref_tot,
+                f"references_unplaced breakdown ({ref_hi}+{ref_md}+{ref_lo}) != {ref_unp} (total {ref_tot})",
+            )
+        tc_all = pair.get("tauceti_candidates")
+        tc_thm = pair.get("tauceti_candidate_theorems")
+        if isinstance(tc_all, int) and isinstance(tc_thm, int):
+            check(
+                0 <= tc_thm <= tc_all,
+                f"tauceti_candidate_theorems ({tc_thm}) must be <= tauceti_candidates ({tc_all})",
+            )
+
+    # 5. Cross-check against data/kernel_backbone_summary.json
+    if summary_data is not None:
+        gt = summary_data.get("global_totals", {})
+        check(
+            gt.get("files_total") == get_val("Files", "alpoge_v021"),
+            f"summary global_totals.files_total ({gt.get('files_total')}) != "
+            f"editions Files[alpoge_v021] ({get_val('Files', 'alpoge_v021')})",
+        )
+        check(
+            gt.get("raw_source_lines_total") == get_val("Raw lines", "alpoge_v021"),
+            f"summary global_totals.raw_source_lines_total ({gt.get('raw_source_lines_total')}) != "
+            f"editions Raw lines[alpoge_v021] ({get_val('Raw lines', 'alpoge_v021')})",
+        )
+        check(
+            gt.get("decl_lines_in_cone")
+            == get_val("Declaration lines in the proof cone", "alpoge_v021"),
+            f"summary global_totals.decl_lines_in_cone ({gt.get('decl_lines_in_cone')}) != "
+            f"editions Declaration lines in the proof cone[alpoge_v021] "
+            f"({get_val('Declaration lines in the proof cone', 'alpoge_v021')})",
+        )
+        check(
+            gt.get("decls_in_cone")
+            == get_val("Declarations in the proof cone", "alpoge_v021"),
+            f"summary global_totals.decls_in_cone ({gt.get('decls_in_cone')}) != "
+            f"editions Declarations in the proof cone[alpoge_v021] "
+            f"({get_val('Declarations in the proof cone', 'alpoge_v021')})",
+        )
+        tld = summary_data.get("top_level_directories", [])
+        check(
+            isinstance(tld, list) and len(tld) > 0,
+            "summary top_level_directories must be a non-empty list",
+        )
+        if isinstance(tld, list) and tld:
+            non_src = [d.get("dir") for d in tld if not str(d.get("dir", "")).startswith("src/")]
+            check(
+                not non_src,
+                f"summary top_level_directories contains non-src entries: {non_src}",
+            )
+            check(
+                sum(int(d["files"]) for d in tld) == gt.get("files_total"),
+                "sum of top_level_directories.files != global_totals.files_total",
+            )
+            check(
+                sum(int(d["raw_lines"]) for d in tld) == gt.get("raw_source_lines_total"),
+                "sum of top_level_directories.raw_lines != global_totals.raw_source_lines_total",
+            )
+            check(
+                sum(int(d["decls_in_cone"]) for d in tld) == gt.get("decls_in_cone"),
+                "sum of top_level_directories.decls_in_cone != global_totals.decls_in_cone",
+            )
+            check(
+                sum(int(d["lines_in_cone"]) for d in tld) == gt.get("decl_lines_in_cone"),
+                "sum of top_level_directories.lines_in_cone != global_totals.decl_lines_in_cone",
+            )
+
+    # 6. Cross-check against SPEC.md Section 1 origin breakdown
+    spec_origins: dict[str, int] | None = None
+    if spec_text is not None:
+        spec_origins = parse_spec_origin_breakdown(spec_text)
+        check(
+            spec_origins is not None,
+            "could not parse Section 1 kernel-constant origin breakdown from SPEC.md",
+        )
+        if spec_origins is not None:
+            origin_sum = (
+                spec_origins["project"]
+                + spec_origins["mathlib"]
+                + spec_origins["core"]
+                + spec_origins["batteries"]
+                + spec_origins["aesop"]
+            )
+            check(
+                origin_sum == spec_origins["full_cone"],
+                f"SPEC.md origin parts sum to {origin_sum}, expected {spec_origins['full_cone']}",
+            )
+            alpoge_cone_const = get_val("Constants in the proof cone", "alpoge_v021")
+            check(
+                alpoge_cone_const == spec_origins["project"],
+                f"editions Constants in the proof cone[alpoge_v021] ({alpoge_cone_const}) must match "
+                f"SPEC.md project-only constant count ({spec_origins['project']}), not full cone "
+                f"({spec_origins['full_cone']})",
+            )
+
+    # 7. Cross-check against docs/tracker.html #edition-compare explanation
+    if tracker_html is not None:
+        block = extract_edition_compare_block(tracker_html)
+        check(
+            block is not None,
+            "could not locate id=\"edition-compare\" section and script in docs/tracker.html",
+        )
+        if block is not None:
+            check(
+                "alpoge_archive_scope" in block and "alpoge_archive" in block,
+                "docs/tracker.html #edition-compare must render alpoge_archive_scope and alpoge_archive flags",
+            )
+            check(
+                "136,266" not in block,
+                "docs/tracker.html #edition-compare must not contain the retracted '136,266' claim",
+            )
+            if spec_origins is not None:
+                full_fmt = f"{spec_origins['full_cone']:,}"
+                libs_fmt = f"{spec_origins['libraries']:,}"
+                check(
+                    full_fmt in block and libs_fmt in block,
+                    f"docs/tracker.html #edition-compare note must cite full cone ({full_fmt}) "
+                    f"and excluded library subtotal ({libs_fmt})",
+                )
 
     reproduced: dict[str, Any] = {}
 
-    # 8. Optional direct Alpoge v0.2.1 kernel-export reproduction
-    if alpoge_export_dir is not None:
-        rep = reproduce_alpoge_export(alpoge_export_dir)
-        reproduced["alpoge_export"] = rep
-        if rep["non_src_top_dirs"]:
-            errors.append(f"alpoge-export: non-src/ top-level directories found: {rep['non_src_top_dirs']}")
-        if rep["directories_cone_decls"] != rep["decls_in_cone"]:
-            errors.append(
-                f"alpoge-export: directories.csv decls_in_cone ({rep['directories_cone_decls']}) != "
-                f"decls.csv ({rep['decls_in_cone']})"
-            )
-        if rep["directories_cone_lines"] != rep["decl_lines_in_cone"]:
-            errors.append(
-                f"alpoge-export: directories.csv lines_in_cone ({rep['directories_cone_lines']}) != "
-                f"decls.csv ({rep['decl_lines_in_cone']})"
-            )
-        if set(rep["decl_origins"].keys()) != {"project"}:
-            errors.append(f"alpoge-export: unexpected decls.csv origins: {rep['decl_origins']}")
-        for row_label, rep_key in (
-            ("Files", "files"),
-            ("Raw lines", "raw_lines"),
-            ("Declaration lines in the proof cone", "decl_lines_in_cone"),
-            ("Constants in the proof cone", "project_cone_constants"),
-            ("Declarations in the proof cone", "decls_in_cone"),
-        ):
-            actual = cell(row_label, "alpoge_v021")
-            if actual != rep[rep_key]:
-                errors.append(
-                    f"alpoge-export: editions.json Alpoge {row_label!r}={actual!r} != reproduced {rep[rep_key]!r}"
-                )
-        if spec_cone is not None:
-            if rep["full_cone_constants"] != spec_cone["full"]:
-                errors.append(
-                    f"alpoge-export: reproduced full cone {rep['full_cone_constants']} != SPEC.md {spec_cone['full']}"
-                )
-            if rep["library_cone_constants"] != spec_cone["libraries"]:
-                errors.append(
-                    f"alpoge-export: reproduced library cone {rep['library_cone_constants']} != "
-                    f"SPEC.md {spec_cone['libraries']}"
-                )
-        checks.append("alpoge_export_reproduction")
+    # 8. Optional ground-truth reproduction from Alpoge v0.2.1 kernel export
+    if alpoge_export is not None:
+        top_dirs = alpoge_export["top_dirs"]
+        check(
+            bool(top_dirs) and all(d.startswith("src/") for d in top_dirs),
+            f"Alpoge directories.csv level-1 entries must all start with 'src/', got {top_dirs}",
+        )
+        d_agg = alpoge_export["directories"]
+        check(
+            d_agg["files"] == get_val("Files", "alpoge_v021"),
+            f"directories.csv files ({d_agg['files']}) != editions Files[alpoge_v021] ({get_val('Files', 'alpoge_v021')})",
+        )
+        check(
+            d_agg["raw_lines"] == get_val("Raw lines", "alpoge_v021"),
+            f"directories.csv raw lines ({d_agg['raw_lines']}) != editions Raw lines[alpoge_v021] ({get_val('Raw lines', 'alpoge_v021')})",
+        )
+        check(
+            d_agg["decls_in_cone"] == get_val("Declarations in the proof cone", "alpoge_v021"),
+            f"directories.csv decls_in_cone ({d_agg['decls_in_cone']}) != "
+            f"editions Declarations in the proof cone[alpoge_v021] ({get_val('Declarations in the proof cone', 'alpoge_v021')})",
+        )
+        check(
+            d_agg["lines_in_cone"] == get_val("Declaration lines in the proof cone", "alpoge_v021"),
+            f"directories.csv lines_in_cone ({d_agg['lines_in_cone']}) != "
+            f"editions Declaration lines in the proof cone[alpoge_v021] "
+            f"({get_val('Declaration lines in the proof cone', 'alpoge_v021')})",
+        )
 
-    # 9. Optional Lean source-tree reproduction
-    if tree_specs:
+        dec_agg = alpoge_export["decls"]
+        check(
+            dec_agg["in_cone"] == get_val("Declarations in the proof cone", "alpoge_v021"),
+            f"decls.csv in_cone ({dec_agg['in_cone']}) != "
+            f"editions Declarations in the proof cone[alpoge_v021] ({get_val('Declarations in the proof cone', 'alpoge_v021')})",
+        )
+        check(
+            dec_agg["lines_in_cone"] == get_val("Declaration lines in the proof cone", "alpoge_v021"),
+            f"decls.csv in_cone lines ({dec_agg['lines_in_cone']}) != "
+            f"editions Declaration lines in the proof cone[alpoge_v021] "
+            f"({get_val('Declaration lines in the proof cone', 'alpoge_v021')})",
+        )
+        if dec_agg["origins"]:
+            check(
+                set(dec_agg["origins"].keys()) == {"project"},
+                f"decls.csv origins must be project-only, got {dec_agg['origins']}",
+            )
+
+        c_agg = alpoge_export["constants"]
+        check(
+            c_agg["project_cone"] == get_val("Constants in the proof cone", "alpoge_v021"),
+            f"constants.csv project in_cone ({c_agg['project_cone']}) != "
+            f"editions Constants in the proof cone[alpoge_v021] ({get_val('Constants in the proof cone', 'alpoge_v021')})",
+        )
+        if spec_origins is not None:
+            check(
+                c_agg["full_cone"] == spec_origins["full_cone"],
+                f"constants.csv full cone ({c_agg['full_cone']}) != SPEC.md ({spec_origins['full_cone']})",
+            )
+            check(
+                c_agg["library_cone"] == spec_origins["libraries"],
+                f"constants.csv library cone ({c_agg['library_cone']}) != SPEC.md ({spec_origins['libraries']})",
+            )
+            for origin_key in ("project", "mathlib", "core", "batteries", "aesop"):
+                got_origin = c_agg["by_origin"].get(origin_key, 0)
+                check(
+                    got_origin == spec_origins[origin_key],
+                    f"constants.csv origin={origin_key!r} ({got_origin}) != SPEC.md ({spec_origins[origin_key]})",
+                )
+        reproduced["alpoge_export"] = alpoge_export
+
+    # 9. Optional ground-truth reproduction from Lean source trees
+    if trees:
         reproduced["trees"] = {}
-        for eid, src_dir in tree_specs:
-            if eid not in ed_index:
-                errors.append(f"tree: unknown edition id {eid!r} (valid: {ed_ids})")
+        for eid, metrics in trees.items():
+            check(eid in ed_idx, f"--tree references unknown edition id: {eid!r}")
+            if eid not in ed_idx:
                 continue
-            measured = scan_lean_tree(src_dir)
-            reproduced["trees"][eid] = measured
-            for row_label, m_key in TREE_ROW_KEYS:
-                expected = cell(row_label, eid)
-                if expected is None:
-                    continue
-                if measured[m_key] != expected:
-                    errors.append(
-                        f"tree[{eid}]: editions.json {row_label!r}={expected!r} != reproduced {measured[m_key]!r}"
+            for row_label, metric_key in TREE_ROW_MAP:
+                expected = get_val(row_label, eid)
+                actual = metrics[metric_key]
+                check(
+                    expected is not None,
+                    f"--tree [{eid}] cannot compare row {row_label!r} because editions.json value is null",
+                )
+                if expected is not None:
+                    matches = (
+                        abs(float(actual) - float(expected)) <= 1e-9
+                        if isinstance(expected, float) or isinstance(actual, float)
+                        else actual == expected
                     )
-        checks.append("lean_tree_reproduction")
+                    check(
+                        matches,
+                        f"--tree [{eid}] {row_label!r}: measured {actual!r} != editions.json {expected!r}",
+                    )
+            reproduced["trees"][eid] = metrics
+
+    # 10. Optional ground-truth reproduction from SQLite kernel indices
+    if kernel_dbs:
+        reproduced["kernel_dbs"] = {}
+        for eid, db_metrics in kernel_dbs.items():
+            check(eid in ed_idx, f"--kernel-db references unknown edition id: {eid!r}")
+            if eid not in ed_idx:
+                continue
+            expected_total = get_val("Kernel constants", eid)
+            if expected_total is not None:
+                check(
+                    db_metrics["kernel_constants"] == expected_total,
+                    f"--kernel-db [{eid}] Kernel constants: measured {db_metrics['kernel_constants']} "
+                    f"!= editions.json {expected_total}",
+                )
+            expected_cone = get_val("Constants in the proof cone", eid)
+            if expected_cone is not None and db_metrics["cone_constants"] is not None:
+                check(
+                    db_metrics["cone_constants"] == expected_cone,
+                    f"--kernel-db [{eid}] Constants in the proof cone: measured {db_metrics['cone_constants']} "
+                    f"!= editions.json {expected_cone}",
+                )
+            expected_user = get_val("Declarations in the proof cone", eid)
+            if expected_user is not None and db_metrics["user_cone_decls"] is not None:
+                check(
+                    db_metrics["user_cone_decls"] == expected_user,
+                    f"--kernel-db [{eid}] Declarations in the proof cone: measured {db_metrics['user_cone_decls']} "
+                    f"!= editions.json {expected_user}",
+                )
+            reproduced["kernel_dbs"][eid] = db_metrics
 
     return {
-        "pass": len(errors) == 0,
-        "editions_file": str(editions_path),
-        "checks": checks,
+        "ok": len(errors) == 0,
+        "checks_passed": checks_passed,
         "errors": errors,
+        "warnings": warnings,
         "reproduced": reproduced,
     }
 
 
-def _parse_tree_arg(raw: str) -> tuple[str, Path]:
+def _parse_edition_path_arg(raw: str, flag: str) -> tuple[str, Path]:
     if "=" not in raw:
-        raise argparse.ArgumentTypeError("expected EDITION_ID=PATH_TO_SRC")
+        raise ValueError(f"{flag} expects <edition_id>=<path>, got {raw!r}")
     eid, path_str = raw.split("=", 1)
     eid = eid.strip()
     path_str = path_str.strip()
     if not eid or not path_str:
-        raise argparse.ArgumentTypeError("expected non-empty EDITION_ID=PATH_TO_SRC")
+        raise ValueError(f"{flag} expects non-empty <edition_id>=<path>, got {raw!r}")
     return eid, Path(path_str)
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--editions", type=Path, default=REPO_ROOT / "docs" / "data" / "editions.json")
-    parser.add_argument("--summary", type=Path, default=REPO_ROOT / "data" / "kernel_backbone_summary.json")
-    parser.add_argument("--spec", type=Path, default=REPO_ROOT / "SPEC.md")
-    parser.add_argument("--tracker", type=Path, default=REPO_ROOT / "docs" / "tracker.html")
+    repo_root = Path(__file__).resolve().parent.parent
+    parser = argparse.ArgumentParser(
+        description="Audit and reproduce aggregation scopes in docs/data/editions.json."
+    )
+    parser.add_argument(
+        "--editions",
+        type=Path,
+        default=repo_root / "docs" / "data" / "editions.json",
+        help="Path to editions.json (default: docs/data/editions.json)",
+    )
+    parser.add_argument(
+        "--summary",
+        type=Path,
+        default=repo_root / "data" / "kernel_backbone_summary.json",
+        help="Path to kernel_backbone_summary.json (default: data/kernel_backbone_summary.json)",
+    )
+    parser.add_argument(
+        "--spec",
+        type=Path,
+        default=repo_root / "SPEC.md",
+        help="Path to SPEC.md (default: SPEC.md)",
+    )
+    parser.add_argument(
+        "--tracker",
+        type=Path,
+        default=repo_root / "docs" / "tracker.html",
+        help="Path to docs/tracker.html (default: docs/tracker.html)",
+    )
     parser.add_argument(
         "--alpoge-export",
         type=Path,
         default=None,
-        help="Optional directory with Alpoge v0.2.1 directories.csv.gz, decls.csv.gz, constants.csv.gz",
+        help="Optional directory holding v0.2.1 directories.csv.gz, decls.csv.gz, constants.csv.gz",
     )
     parser.add_argument(
         "--tree",
         action="append",
-        type=_parse_tree_arg,
         default=[],
         metavar="EDITION_ID=SRC_DIR",
-        help="Optional Lean src/ tree to reproduce static source metrics against editions.json (repeatable)",
+        help="Optional Lean src directory to scan and compare against an edition column (repeatable)",
     )
-    parser.add_argument("--json-out", type=Path, default=None, help="Optional path to write JSON audit report")
+    parser.add_argument(
+        "--kernel-db",
+        action="append",
+        default=[],
+        metavar="EDITION_ID=SQLITE_PATH",
+        help="Optional SQLite kernel index to compare against an edition column (repeatable)",
+    )
+    parser.add_argument(
+        "--json-out",
+        type=Path,
+        default=None,
+        help="Optional path to write the JSON audit report",
+    )
     args = parser.parse_args(argv)
 
     try:
-        result = audit_editions(
-            editions_path=args.editions,
-            summary_path=args.summary,
-            spec_path=args.spec,
-            tracker_path=args.tracker,
-            alpoge_export_dir=args.alpoge_export,
-            tree_specs=args.tree,
+        editions_data = json.loads(args.editions.read_text(encoding="utf-8"))
+        summary_data = (
+            json.loads(args.summary.read_text(encoding="utf-8"))
+            if args.summary and args.summary.is_file()
+            else None
         )
-    except (OSError, json.JSONDecodeError) as exc:
-        print(f"[ERROR] {exc}", file=sys.stderr)
+        spec_text = (
+            args.spec.read_text(encoding="utf-8")
+            if args.spec and args.spec.is_file()
+            else None
+        )
+        tracker_html = (
+            args.tracker.read_text(encoding="utf-8")
+            if args.tracker and args.tracker.is_file()
+            else None
+        )
+
+        alpoge_export = (
+            load_alpoge_export(args.alpoge_export) if args.alpoge_export else None
+        )
+        trees: dict[str, dict[str, int | float]] = {}
+        for item in args.tree:
+            eid, src_dir = _parse_edition_path_arg(item, "--tree")
+            trees[eid] = scan_lean_tree(src_dir)
+
+        kernel_dbs: dict[str, dict[str, int | None]] = {}
+        for item in args.kernel_db:
+            eid, db_path = _parse_edition_path_arg(item, "--kernel-db")
+            kernel_dbs[eid] = load_kernel_db(db_path)
+    except (OSError, ValueError, sqlite3.Error) as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
         return 2
 
-    status = "PASS" if result["pass"] else "FAIL"
-    print(f"[{status}] editions scope audit: checks={len(result['checks'])}, errors={len(result['errors'])}")
-    for err in result["errors"]:
-        print(f"  - {err}")
+    report = audit_editions(
+        editions_data=editions_data,
+        summary_data=summary_data,
+        spec_text=spec_text,
+        tracker_html=tracker_html,
+        alpoge_export=alpoge_export,
+        trees=trees or None,
+        kernel_dbs=kernel_dbs or None,
+    )
 
-    if args.json_out is not None:
-        args.json_out.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    if args.json_out:
+        try:
+            args.json_out.parent.mkdir(parents=True, exist_ok=True)
+            args.json_out.write_text(
+                json.dumps(report, indent=2, ensure_ascii=False) + "\n",
+                encoding="utf-8",
+            )
+        except OSError as exc:
+            print(f"ERROR: {exc}", file=sys.stderr)
+            return 2
 
-    return 0 if result["pass"] else 1
+    status = "PASS" if report["ok"] else "FAIL"
+    modes = ["repo"]
+    if alpoge_export is not None:
+        modes.append("alpoge-export")
+    if trees:
+        modes.append("trees:" + ",".join(sorted(trees)))
+    if kernel_dbs:
+        modes.append("kernel-dbs:" + ",".join(sorted(kernel_dbs)))
+    print(
+        f"[{status}] editions scope audit ({'+'.join(modes)}): "
+        f"checks_passed={report['checks_passed']} errors={len(report['errors'])}"
+    )
+    for err in report["errors"]:
+        print(f"  ERROR: {err}", file=sys.stderr)
+    return 0 if report["ok"] else 1
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())

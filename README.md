@@ -78,11 +78,13 @@ To verify the aggregation scopes and unit parity of [`docs/data/editions.json`](
 
 ```sh
 python scripts/audit_editions_scope.py
-# Optional full reproduction from the v0.2.1 kernel export and local src/ trees:
+# Optional full reproduction from the v0.2.1 kernel export, local src/ trees, and SQLite kernel indexes:
 python scripts/audit_editions_scope.py \
   --alpoge-export path/to/v0.2.1-kernel-export \
   --tree grh_readable=path/to/grh-lean/grh/src \
-  --tree grh_compact=path/to/grh-lean/grh-compact/src
+  --tree grh_compact=path/to/grh-lean/grh-compact/src \
+  --kernel-db grh_readable=path/to/grh-readable.sqlite \
+  --kernel-db grh_compact=path/to/grh-compact.sqlite
 ```
 
 ## Repository Layout
@@ -98,7 +100,7 @@ python scripts/audit_editions_scope.py \
 | [skills/bohrium-rh-camp/SKILL.md](skills/bohrium-rh-camp/SKILL.md) | Camp workflow for one core pillar: read the board, build the Lean proof, optionally run it on Bohrium compute with the `bohr` CLI, and submit through the Playground CLI; every authenticated step is skipped when no owner credential is present |
 | [scripts/audit_spec_citations.py](scripts/audit_spec_citations.py) | Zero-dependency Python auditor checking every active qualified Lean identifier against `cone-constants.txt.gz` and `decls.csv.gz` |
 | [scripts/audit_ndjson_statement.py](scripts/audit_ndjson_statement.py) | Zero-dependency Lean-free Python auditor inspecting raw `lean4export 3.1.0` NDJSON statements, safety flags, and axiom closures |
-| [scripts/audit_editions_scope.py](scripts/audit_editions_scope.py) | Zero-dependency Python auditor and scope reproducer for [`docs/data/editions.json`](docs/data/editions.json) (standalone parity checks plus optional `--alpoge-export` and `--tree` reproduction) |
+| [scripts/audit_editions_scope.py](scripts/audit_editions_scope.py) | Zero-dependency Python auditor and scope reproducer for [`docs/data/editions.json`](docs/data/editions.json) (standalone parity checks plus optional `--alpoge-export`, `--tree`, and `--kernel-db` reproduction) |
 | [LICENSE](LICENSE) | MIT License |
 
 For the broader Round 1–2 static dissection, metaprogramming soundness audit, standalone Lean harnesses, and Korean archives, see [`thekeunpie-hash/rh-lean-dissection`](https://github.com/thekeunpie-hash/rh-lean-dissection).
