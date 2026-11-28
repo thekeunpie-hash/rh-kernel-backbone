@@ -1,9 +1,10 @@
-# Community Context Brief (Auto-generated 2026-11-28T05:00:36Z)
+# Community Context Brief (Auto-generated 2026-11-28T06:04:09Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
-- **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:6, merged:2], merged PRs=2 (#9551, #8880), main commits=7
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:100], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
+- **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:5, merged:2], merged PRs=2 (#9551, #8880), main commits=7
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:87, merged:1], merged PRs=21 (#9842, #9130, #9112, #9108, #9093, #9079, #9070, #9069), main commits=11
 - **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[labeled:38, unlabeled:2], merged PRs=0 (none), main commits=0
+- **koefoeden** (`NONE`): privileged=[none], merged PRs=0 (none), main commits=5
 - **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=0 (none), main commits=3
 - **thorimur** / Thomas Murrills (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
 - **Vilin97** / Vasily Ilin (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
@@ -15,8 +16,8 @@
 - **Kim Morrison**: 91 msgs, 180 reactions
 - **Luke Sernau**: 9 msgs, 153 reactions
 - **David Loeffler**: 45 msgs, 91 reactions
-- **Riccardo Brasca**: 41 msgs, 69 reactions
-- **Jonathan Roy**: 233 msgs, 62 reactions
+- **Riccardo Brasca**: 40 msgs, 69 reactions
+- **Jonathan Roy**: 234 msgs, 62 reactions
 - **Andrew Sutherland**: 6 msgs, 56 reactions
 - **Thomas Murrills**: 28 msgs, 38 reactions
 - **Chris Birkbeck**: 40 msgs, 29 reactions
