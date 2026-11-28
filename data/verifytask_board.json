@@ -2,15 +2,15 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "276c1fecd18a3ea5",
-  "updated_at": "2026-11-28T20:34:52.694943+08:00",
+  "revision": "5c1ec78d7f3655ee",
+  "updated_at": "2026-11-28T20:51:21.137607+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-28T12:39:57Z",
+  "generated_at": "2026-11-28T12:53:30Z",
   "summary": {
     "participants": 123,
     "scored_participants": 99,
-    "submissions": 2564,
-    "scored_submissions": 1805,
+    "submissions": 2565,
+    "scored_submissions": 1806,
     "evaluating": 4,
     "core_evaluating": 4,
     "challenges_total": 49,
@@ -37,7 +37,7 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1804,
+    "total_runs": 1805,
     "kept_count": 678,
     "current_best_score": 2872.76,
     "current_best_pct": 33.58,
@@ -27089,6 +27089,21 @@
       },
       {
         "i": 1804,
+        "id": 122113,
+        "ts": "2026-11-28T12:10:15+00:00",
+        "key": "core28",
+        "score": 66.77,
+        "compression_pct": 90.2,
+        "best": 2872.74,
+        "best_pct": 33.58,
+        "kept": false,
+        "author": "Daniel Ferrara",
+        "model": "Claude Opus, Codex, RH edit transformers",
+        "harness": "Claude Code, Codex, Lean 4.33.1",
+        "method": null
+      },
+      {
+        "i": 1805,
         "id": 122134,
         "ts": "2026-11-28T12:18:28+00:00",
         "key": "core28",
@@ -28201,10 +28216,10 @@
       "char_saved_pct": 90.05,
       "reduction_factor": 10.49,
       "score": 66.8955,
-      "attempts": 65,
-      "scored_attempts": 59,
+      "attempts": 66,
+      "scored_attempts": 60,
       "participants": 10,
-      "runs": 59,
+      "runs": 60,
       "kept_runs": 35,
       "leader": {
         "author": "Andrew Pullin",
@@ -29141,9 +29156,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 2066,
+    "labeled_scored_runs": 2067,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2115,
+    "total_scored_runs": 2116,
     "pairs_total": 74,
     "top_pairs": [
       {
@@ -29643,15 +29658,15 @@
     },
     {
       "id": "core28_simplify_12",
-      "attempt_id": 119446,
+      "attempt_id": 122113,
       "challenge_key": "core28",
       "title": "Unitary Fundamental Domain Bound: Proof Compression (408 → 12 Files)",
       "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
       "author": "Daniel Ferrara",
       "model": "Claude Opus, Codex, RH edit transformers",
       "harness": "Claude Code, Codex, Lean 4.33.1",
-      "metric": "408→12 files · −89.7% tokens",
-      "primary_pct": 89.7
+      "metric": "408→12 files · −90.2% tokens",
+      "primary_pct": 90.2
     },
     {
       "id": "core29_simplify_1",
