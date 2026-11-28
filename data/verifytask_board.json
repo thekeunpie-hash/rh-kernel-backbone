@@ -2,17 +2,17 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "1c6d784a0dea18cf",
-  "updated_at": "2026-11-29T00:10:52.336099+08:00",
+  "revision": "739efa3c9e3e4331",
+  "updated_at": "2026-11-29T00:23:31.259974+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-28T16:13:11Z",
+  "generated_at": "2026-11-28T16:26:31Z",
   "summary": {
     "participants": 123,
     "scored_participants": 99,
     "submissions": 2580,
-    "scored_submissions": 1808,
-    "evaluating": 4,
-    "core_evaluating": 4,
+    "scored_submissions": 1809,
+    "evaluating": 3,
+    "core_evaluating": 3,
     "challenges_total": 49,
     "core_solved": 42,
     "core_total": 48,
@@ -25,10 +25,10 @@
   },
   "progress": {
     "baseline_tokens": 611228972,
-    "best_tokens": 405947126,
+    "best_tokens": 405947101,
     "saved_tokens_pct": 33.59,
     "baseline_chars": 2086571119,
-    "best_chars": 1406649839,
+    "best_chars": 1406649717,
     "saved_chars_pct": 32.59,
     "solved": 42,
     "challenges": 48,
@@ -37,9 +37,9 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1807,
-    "kept_count": 680,
-    "current_best_score": 2872.88,
+    "total_runs": 1808,
+    "kept_count": 681,
+    "current_best_score": 2872.98,
     "current_best_pct": 33.59,
     "points": [
       {
@@ -27146,6 +27146,21 @@
         "model": "Claude Opus, Codex, RH edit transformers",
         "harness": "Claude Code, Codex, Lean 4.33.1",
         "method": "Core 28 · Fast: grind automation + local notation (−91%)"
+      },
+      {
+        "i": 1808,
+        "id": 122745,
+        "ts": "2026-11-28T15:56:52+00:00",
+        "key": "core1",
+        "score": 70.14,
+        "compression_pct": 95.53,
+        "best": 2872.98,
+        "best_pct": 33.59,
+        "kept": true,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": "Core 1: Borel–Carathéodory + DSlope + grind automation"
       }
     ]
   },
@@ -27159,23 +27174,23 @@
       "metric": "tokens",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-core-pillar-1-5-classical-z-c7f72729",
       "baseline_tokens": 21641,
-      "best_tokens": 993,
+      "best_tokens": 968,
       "baseline_chars": 74010,
-      "best_chars": 7104,
-      "token_saved_pct": 95.41,
-      "char_saved_pct": 90.4,
-      "reduction_factor": 21.79,
-      "score": 70.0449,
+      "best_chars": 6982,
+      "token_saved_pct": 95.53,
+      "char_saved_pct": 90.57,
+      "reduction_factor": 22.36,
+      "score": 70.1439,
       "attempts": 336,
-      "scored_attempts": 268,
+      "scored_attempts": 269,
       "participants": 68,
-      "runs": 268,
-      "kept_runs": 54,
+      "runs": 269,
+      "kept_runs": 55,
       "leader": {
-        "author": "Mikko Nyman",
-        "score": 70.04,
-        "model": "Fable 5.2, Astra 6.2, Neon 4, Carbon 4",
-        "harness": "Claude Code + Codex + Antigravity",
+        "author": "Andrew Pullin",
+        "score": 70.14,
+        "model": "The Council",
+        "harness": "pi",
         "axiom_status": "verified_clean",
         "quality": "substantive"
       },
@@ -27183,15 +27198,15 @@
       "last_update": null,
       "technique": {
         "id": "core1_borel_dslope",
-        "attempt_id": 101470,
+        "attempt_id": 122745,
         "challenge_key": "core1",
         "title": "Borel–Carathéodory + Divided-Difference (DSlope) Zero Factorization",
         "category": "Complex Analysis · Mathlib Reuse",
-        "author": "Mikko Nyman",
-        "model": "Fable 5.2, Astra 6.2, Neon 4, Carbon 4",
-        "harness": "Claude Code + Codex + Antigravity",
-        "metric": "21→1 files · −95.4% tokens",
-        "primary_pct": 95.4
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "metric": "21→1 files · −95.5% tokens",
+        "primary_pct": 95.5
       }
     },
     {
@@ -29186,9 +29201,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 2081,
+    "labeled_scored_runs": 2082,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2130,
+    "total_scored_runs": 2131,
     "pairs_total": 74,
     "top_pairs": [
       {
@@ -29197,12 +29212,12 @@
         "model": "The Council",
         "harness": "pi",
         "provider": "other",
-        "index_score": 59.83,
+        "index_score": 59.84,
         "tasks_solved": 42,
         "tasks_total": 48,
-        "mean_score": 65.2,
+        "mean_score": 65.22,
         "mean_compression_pct": 77.2,
-        "pass_rate_pct": 84.6,
+        "pass_rate_pct": 84.7,
         "distinct_authors": 1
       },
       {
@@ -29280,15 +29295,15 @@
   "techniques": [
     {
       "id": "core1_borel_dslope",
-      "attempt_id": 101470,
+      "attempt_id": 122745,
       "challenge_key": "core1",
       "title": "Borel–Carathéodory + Divided-Difference (DSlope) Zero Factorization",
       "category": "Complex Analysis · Mathlib Reuse",
-      "author": "Mikko Nyman",
-      "model": "Fable 5.2, Astra 6.2, Neon 4, Carbon 4",
-      "harness": "Claude Code + Codex + Antigravity",
-      "metric": "21→1 files · −95.4% tokens",
-      "primary_pct": 95.4
+      "author": "Andrew Pullin",
+      "model": "The Council",
+      "harness": "pi",
+      "metric": "21→1 files · −95.5% tokens",
+      "primary_pct": 95.5
     },
     {
       "id": "core2_frob_collapse",
