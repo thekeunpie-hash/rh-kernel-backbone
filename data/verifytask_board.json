@@ -2,15 +2,15 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "ca3b6d8848249e5c",
-  "updated_at": "2026-11-28T10:27:03.968548+08:00",
+  "revision": "9bb3b130cc03d953",
+  "updated_at": "2026-11-28T10:36:57.167748+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-28T02:28:35Z",
+  "generated_at": "2026-11-28T02:38:48Z",
   "summary": {
     "participants": 123,
     "scored_participants": 99,
-    "submissions": 2534,
-    "scored_submissions": 1790,
+    "submissions": 2535,
+    "scored_submissions": 1791,
     "evaluating": 2,
     "core_evaluating": 2,
     "challenges_total": 49,
@@ -37,7 +37,7 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1789,
+    "total_runs": 1790,
     "kept_count": 668,
     "current_best_score": 2871.57,
     "current_best_pct": 33.58,
@@ -26876,6 +26876,21 @@
         "model": "Claude Opus, Codex, RH edit transformers",
         "harness": "Claude Code, Codex, Lean 4.33.1",
         "method": null
+      },
+      {
+        "i": 1790,
+        "id": 117445,
+        "ts": "2026-11-28T02:17:20+00:00",
+        "key": "core1",
+        "score": 68.81,
+        "compression_pct": 93.78,
+        "best": 2871.57,
+        "best_pct": 33.58,
+        "kept": false,
+        "author": "Aaron Proctor",
+        "model": "Claude Opus 5.5",
+        "harness": null,
+        "method": null
       }
     ]
   },
@@ -26897,9 +26912,9 @@
       "reduction_factor": 21.79,
       "score": 70.0449,
       "attempts": 315,
-      "scored_attempts": 267,
+      "scored_attempts": 268,
       "participants": 68,
-      "runs": 267,
+      "runs": 268,
       "kept_runs": 54,
       "leader": {
         "author": "Mikko Nyman",
@@ -27976,7 +27991,7 @@
       "char_saved_pct": 87.31,
       "reduction_factor": 8.24,
       "score": 65.708,
-      "attempts": 51,
+      "attempts": 52,
       "scored_attempts": 47,
       "participants": 10,
       "runs": 47,
@@ -28916,10 +28931,10 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 2044,
+    "labeled_scored_runs": 2045,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2093,
-    "pairs_total": 73,
+    "total_scored_runs": 2094,
+    "pairs_total": 74,
     "top_pairs": [
       {
         "rank": 1,
@@ -29884,7 +29899,7 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-28T01:59:35Z",
+      "ts": "2026-11-28T02:28:43Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
@@ -29977,7 +29992,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1526★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1527★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true
