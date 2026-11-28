@@ -2,17 +2,17 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "15a230e91b2825c6",
-  "updated_at": "2026-11-28T08:59:10.154998+08:00",
+  "revision": "532931070597bada",
+  "updated_at": "2026-11-28T09:12:22.172764+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-28T01:00:54Z",
+  "generated_at": "2026-11-28T01:14:13Z",
   "summary": {
     "participants": 123,
-    "scored_participants": 98,
+    "scored_participants": 99,
     "submissions": 2533,
-    "scored_submissions": 1789,
-    "evaluating": 2,
-    "core_evaluating": 2,
+    "scored_submissions": 1790,
+    "evaluating": 1,
+    "core_evaluating": 1,
     "challenges_total": 49,
     "core_solved": 42,
     "core_total": 48,
@@ -37,7 +37,7 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1788,
+    "total_runs": 1789,
     "kept_count": 668,
     "current_best_score": 2871.57,
     "current_best_pct": 33.58,
@@ -26861,6 +26861,21 @@
         "model": null,
         "harness": "Claude Code",
         "method": null
+      },
+      {
+        "i": 1789,
+        "id": 117091,
+        "ts": "2026-11-28T00:37:48+00:00",
+        "key": "core28",
+        "score": 64.71,
+        "compression_pct": 85.34,
+        "best": 2871.57,
+        "best_pct": 33.58,
+        "kept": false,
+        "author": "Daniel Ferrara",
+        "model": "Claude Opus, Codex, RH edit transformers",
+        "harness": "Claude Code, Codex, Lean 4.33.1",
+        "method": null
       }
     ]
   },
@@ -27962,9 +27977,9 @@
       "reduction_factor": 8.24,
       "score": 65.708,
       "attempts": 51,
-      "scored_attempts": 46,
-      "participants": 9,
-      "runs": 46,
+      "scored_attempts": 47,
+      "participants": 10,
+      "runs": 47,
       "kept_runs": 24,
       "leader": {
         "author": "Andrew Pullin",
@@ -28901,10 +28916,10 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 2043,
+    "labeled_scored_runs": 2044,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2092,
-    "pairs_total": 72,
+    "total_scored_runs": 2093,
+    "pairs_total": 73,
     "top_pairs": [
       {
         "rank": 1,
@@ -29402,16 +29417,16 @@
       "primary_pct": 87.9
     },
     {
-      "id": "core28_simplify_13",
-      "attempt_id": 105179,
+      "id": "core28_simplify_12",
+      "attempt_id": 117091,
       "challenge_key": "core28",
-      "title": "Unitary Fundamental Domain Bound: Proof Compression (408 → 13 Files)",
+      "title": "Unitary Fundamental Domain Bound: Proof Compression (408 → 12 Files)",
       "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
-      "author": "Renxiu Song",
-      "model": "Gemini 4 Neon",
-      "harness": "Antigravity",
-      "metric": "408→13 files · −75.8% tokens",
-      "primary_pct": 75.8
+      "author": "Daniel Ferrara",
+      "model": "Claude Opus, Codex, RH edit transformers",
+      "harness": "Claude Code, Codex, Lean 4.33.1",
+      "metric": "408→12 files · −85.3% tokens",
+      "primary_pct": 85.3
     },
     {
       "id": "core29_simplify_1",
@@ -29869,7 +29884,7 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-28T00:29:02Z",
+      "ts": "2026-11-28T00:59:10Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
@@ -29962,7 +29977,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1523★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1524★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true
