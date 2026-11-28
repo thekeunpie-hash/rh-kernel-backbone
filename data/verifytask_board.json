@@ -2,17 +2,17 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "4b4c57118b985680",
-  "updated_at": "2026-11-28T20:28:53.975296+08:00",
+  "revision": "276c1fecd18a3ea5",
+  "updated_at": "2026-11-28T20:34:52.694943+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-28T12:31:13Z",
+  "generated_at": "2026-11-28T12:39:57Z",
   "summary": {
     "participants": 123,
     "scored_participants": 99,
-    "submissions": 2563,
-    "scored_submissions": 1804,
-    "evaluating": 5,
-    "core_evaluating": 5,
+    "submissions": 2564,
+    "scored_submissions": 1805,
+    "evaluating": 4,
+    "core_evaluating": 4,
     "challenges_total": 49,
     "core_solved": 42,
     "core_total": 48,
@@ -25,10 +25,10 @@
   },
   "progress": {
     "baseline_tokens": 611228972,
-    "best_tokens": 405949605,
+    "best_tokens": 405949371,
     "saved_tokens_pct": 33.58,
     "baseline_chars": 2086571119,
-    "best_chars": 1406649684,
+    "best_chars": 1406648876,
     "saved_chars_pct": 32.59,
     "solved": 42,
     "challenges": 48,
@@ -37,9 +37,9 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1803,
-    "kept_count": 677,
-    "current_best_score": 2872.74,
+    "total_runs": 1804,
+    "kept_count": 678,
+    "current_best_score": 2872.76,
     "current_best_pct": 33.58,
     "points": [
       {
@@ -27086,6 +27086,21 @@
         "model": "The Council",
         "harness": "pi",
         "method": "Core 28 · Fast: Inline 13 helpers + grind automation"
+      },
+      {
+        "i": 1804,
+        "id": 122134,
+        "ts": "2026-11-28T12:18:28+00:00",
+        "key": "core28",
+        "score": 66.9,
+        "compression_pct": 90.47,
+        "best": 2872.76,
+        "best_pct": 33.58,
+        "kept": true,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": "Core 28 · Fast: grind automation (−90%)"
       }
     ]
   },
@@ -27106,7 +27121,7 @@
       "char_saved_pct": 90.4,
       "reduction_factor": 21.79,
       "score": 70.0449,
-      "attempts": 323,
+      "attempts": 324,
       "scored_attempts": 268,
       "participants": 68,
       "runs": 268,
@@ -28179,21 +28194,21 @@
       "metric": "tokens",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-fast-sub-pillar-28-fundamen-7b3737ce",
       "baseline_tokens": 920317,
-      "best_tokens": 87974,
+      "best_tokens": 87740,
       "baseline_chars": 2996580,
-      "best_chars": 298837,
-      "token_saved_pct": 90.44,
-      "char_saved_pct": 90.03,
-      "reduction_factor": 10.46,
-      "score": 66.8828,
+      "best_chars": 298029,
+      "token_saved_pct": 90.47,
+      "char_saved_pct": 90.05,
+      "reduction_factor": 10.49,
+      "score": 66.8955,
       "attempts": 65,
-      "scored_attempts": 58,
+      "scored_attempts": 59,
       "participants": 10,
-      "runs": 58,
-      "kept_runs": 34,
+      "runs": 59,
+      "kept_runs": 35,
       "leader": {
         "author": "Andrew Pullin",
-        "score": 66.88,
+        "score": 66.9,
         "model": "The Council",
         "harness": "pi",
         "axiom_status": "verified_clean",
@@ -28203,15 +28218,15 @@
       "last_update": null,
       "technique": {
         "id": "core28_simplify_1",
-        "attempt_id": 121798,
+        "attempt_id": 122134,
         "challenge_key": "core28",
         "title": "Unitary Fundamental Domain Bound: Proof Compression (408 → 1 Files)",
         "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
         "author": "Andrew Pullin",
         "model": "The Council",
         "harness": "pi",
-        "metric": "408→1 files · −90.4% tokens",
-        "primary_pct": 90.4
+        "metric": "408→1 files · −90.5% tokens",
+        "primary_pct": 90.5
       }
     },
     {
@@ -29126,9 +29141,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 2064,
+    "labeled_scored_runs": 2066,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2113,
+    "total_scored_runs": 2115,
     "pairs_total": 74,
     "top_pairs": [
       {
@@ -29140,9 +29155,9 @@
         "index_score": 59.83,
         "tasks_solved": 42,
         "tasks_total": 48,
-        "mean_score": 65.19,
+        "mean_score": 65.2,
         "mean_compression_pct": 77.1,
-        "pass_rate_pct": 87.0,
+        "pass_rate_pct": 86.8,
         "distinct_authors": 1
       },
       {
@@ -29616,15 +29631,15 @@
     },
     {
       "id": "core28_simplify_1",
-      "attempt_id": 121798,
+      "attempt_id": 122134,
       "challenge_key": "core28",
       "title": "Unitary Fundamental Domain Bound: Proof Compression (408 → 1 Files)",
       "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
       "author": "Andrew Pullin",
       "model": "The Council",
       "harness": "pi",
-      "metric": "408→1 files · −90.4% tokens",
-      "primary_pct": 90.4
+      "metric": "408→1 files · −90.5% tokens",
+      "primary_pct": 90.5
     },
     {
       "id": "core28_simplify_12",
@@ -30094,7 +30109,7 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-28T11:59:17Z",
+      "ts": "2026-11-28T12:28:53Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
@@ -30187,7 +30202,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1536★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1537★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true
