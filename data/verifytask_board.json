@@ -2,15 +2,15 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "ddb06ff11d58aecb",
-  "updated_at": "2026-11-28T18:29:05.048354+08:00",
+  "revision": "c0bb3210790c3055",
+  "updated_at": "2026-11-28T18:39:15.388011+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-28T10:32:17Z",
+  "generated_at": "2026-11-28T10:42:22Z",
   "summary": {
     "participants": 123,
     "scored_participants": 99,
-    "submissions": 2549,
-    "scored_submissions": 1799,
+    "submissions": 2550,
+    "scored_submissions": 1800,
     "evaluating": 3,
     "core_evaluating": 3,
     "challenges_total": 49,
@@ -25,11 +25,11 @@
   },
   "progress": {
     "baseline_tokens": 611228972,
-    "best_tokens": 405953991,
+    "best_tokens": 405952626,
     "saved_tokens_pct": 33.58,
     "baseline_chars": 2086571119,
-    "best_chars": 1406663896,
-    "saved_chars_pct": 32.58,
+    "best_chars": 1406659241,
+    "saved_chars_pct": 32.59,
     "solved": 42,
     "challenges": 48,
     "tokens_measured": 42,
@@ -37,9 +37,9 @@
   },
   "frontier": {
     "title": "Core Frontier (All 39 Core Pillars · 27 Fast)",
-    "total_runs": 1798,
-    "kept_count": 674,
-    "current_best_score": 2872.51,
+    "total_runs": 1799,
+    "kept_count": 675,
+    "current_best_score": 2872.58,
     "current_best_pct": 33.58,
     "points": [
       {
@@ -27011,6 +27011,21 @@
         "model": "The Council",
         "harness": "pi",
         "method": "Core 28 · Fast: Inline 6 helpers + grind automation"
+      },
+      {
+        "i": 1799,
+        "id": 120580,
+        "ts": "2026-11-28T09:51:49+00:00",
+        "key": "core28",
+        "score": 66.72,
+        "compression_pct": 90.11,
+        "best": 2872.58,
+        "best_pct": 33.58,
+        "kept": true,
+        "author": "Andrew Pullin",
+        "model": "The Council",
+        "harness": "pi",
+        "method": "Core 28 · Fast: Inline 5 helpers + grind automation"
       }
     ]
   },
@@ -28104,21 +28119,21 @@
       "metric": "tokens",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-fast-sub-pillar-28-fundamen-7b3737ce",
       "baseline_tokens": 920317,
-      "best_tokens": 92360,
+      "best_tokens": 90995,
       "baseline_chars": 2996580,
-      "best_chars": 313049,
-      "token_saved_pct": 89.96,
-      "char_saved_pct": 89.55,
-      "reduction_factor": 9.96,
-      "score": 66.6495,
-      "attempts": 60,
-      "scored_attempts": 54,
+      "best_chars": 308394,
+      "token_saved_pct": 90.11,
+      "char_saved_pct": 89.71,
+      "reduction_factor": 10.11,
+      "score": 66.7212,
+      "attempts": 61,
+      "scored_attempts": 55,
       "participants": 10,
-      "runs": 54,
-      "kept_runs": 30,
+      "runs": 55,
+      "kept_runs": 31,
       "leader": {
         "author": "Andrew Pullin",
-        "score": 66.65,
+        "score": 66.72,
         "model": "The Council",
         "harness": "pi",
         "axiom_status": "verified_clean",
@@ -28128,15 +28143,15 @@
       "last_update": null,
       "technique": {
         "id": "core28_simplify_1",
-        "attempt_id": 120397,
+        "attempt_id": 120580,
         "challenge_key": "core28",
         "title": "Unitary Fundamental Domain Bound: Proof Compression (408 → 1 Files)",
         "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
         "author": "Andrew Pullin",
         "model": "The Council",
         "harness": "pi",
-        "metric": "408→1 files · −90.0% tokens",
-        "primary_pct": 90.0
+        "metric": "408→1 files · −90.1% tokens",
+        "primary_pct": 90.1
       }
     },
     {
@@ -29051,9 +29066,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 2053,
+    "labeled_scored_runs": 2054,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2102,
+    "total_scored_runs": 2103,
     "pairs_total": 74,
     "top_pairs": [
       {
@@ -29541,15 +29556,15 @@
     },
     {
       "id": "core28_simplify_1",
-      "attempt_id": 120397,
+      "attempt_id": 120580,
       "challenge_key": "core28",
       "title": "Unitary Fundamental Domain Bound: Proof Compression (408 → 1 Files)",
       "category": "Phase 3.5 Fast Sub-Pillar · Proof Simplification",
       "author": "Andrew Pullin",
       "model": "The Council",
       "harness": "pi",
-      "metric": "408→1 files · −90.0% tokens",
-      "primary_pct": 90.0
+      "metric": "408→1 files · −90.1% tokens",
+      "primary_pct": 90.1
     },
     {
       "id": "core28_simplify_12",
