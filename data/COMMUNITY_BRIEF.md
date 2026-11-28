@@ -1,8 +1,8 @@
-# Community Context Brief (Auto-generated 2026-11-28T01:45:14Z)
+# Community Context Brief (Auto-generated 2026-11-28T02:49:30Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
 - **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:11, merged:2], merged PRs=2 (#9551, #8880), main commits=7
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:119], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:116], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
 - **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[labeled:38, unlabeled:2], merged PRs=0 (none), main commits=0
 - **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=0 (none), main commits=3
 - **thorimur** / Thomas Murrills (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
@@ -15,12 +15,12 @@
 - **Kim Morrison**: 91 msgs, 179 reactions
 - **Luke Sernau**: 9 msgs, 153 reactions
 - **David Loeffler**: 45 msgs, 89 reactions
-- **Riccardo Brasca**: 44 msgs, 66 reactions
-- **Jonathan Roy**: 229 msgs, 61 reactions
+- **Riccardo Brasca**: 43 msgs, 67 reactions
+- **Jonathan Roy**: 230 msgs, 62 reactions
 - **Andrew Sutherland**: 6 msgs, 56 reactions
 - **Thomas Murrills**: 28 msgs, 38 reactions
 - **Chris Birkbeck**: 41 msgs, 30 reactions
-- **Jack McCarthy**: 34 msgs, 29 reactions
+- **Jack McCarthy**: 33 msgs, 28 reactions
 - **Artie Khovanov**: 11 msgs, 26 reactions
 - **Devin Watson**: 11 msgs, 21 reactions
 - **Michael Righi**: 14 msgs, 19 reactions
@@ -29,8 +29,8 @@
 - **Arthur Paulino**: 1 msgs, 12 reactions
 - **Snir Broshi**: 17 msgs, 11 reactions
 - **Violeta Hernández**: 1 msgs, 11 reactions
+- **Kim Morrison :bot:**: 7 msgs, 10 reactions
 - **David Michael Roberts**: 7 msgs, 9 reactions
-- **Kim Morrison :bot:**: 6 msgs, 9 reactions
 - **Toby Gee**: 1 msgs, 9 reactions
 - **Marc Huisinga**: 2 msgs, 8 reactions
 - **Joseph Richey**: 8 msgs, 7 reactions
@@ -46,9 +46,9 @@
 - [New proof in 300k lines] **Andrew Sutherland** (rx:22): `lake comparator --paranoid` passed
 - [New proof in 300k lines] **Luke Sernau** (rx:19): @_**Jonas Whidden|937813** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/Cleaning.20up.20the.20proof/near/643703643): ````quote Anyone else think it's super absurdly funny how much time and resource
 - [New proof in 300k lines] **Michael Righi** (rx:14): If this holds up we are all Masullo now. 🤣
-- [New proof in 300k lines] **David Loeffler** (rx:13): > Does this effectively blow other pruning efforts out of the water, or is there some way to integrate the work? Is the community generally grateful for Sernau's compression or frustrated that it's been done behind closed doors with proprie
 - [New proof in 300k lines] **Riccardo Brasca** (rx:13): It is worth to mention that there are interesting things in the first version that are not in the second one. So having both is *better* than only the second one.
 - [New proof in 300k lines] **Kim Morrison** (rx:13): An initial report on minor cleanups using existing "standard" material from Tau Ceti  - Kronecker's first limit formula, rh#5985, −290; - μ, ξ and the kernel of θ, rh#6114, −133; - the ℂ_p API and Ax–Sen–Tate, rh#5970, −144; - elliptic unif
+- [New proof in 300k lines] **David Loeffler** (rx:13): > Does this effectively blow other pruning efforts out of the water, or is there some way to integrate the work? Is the community generally grateful for Sernau's compression or frustrated that it's been done behind closed doors with proprie
 - [New proof in 300k lines] **Kim Morrison** (rx:13): https://github.com/leanprover-community/riemann-hypothesis is now the 300kLOC proof, with a cache
 - [New proof in 300k lines] **David Loeffler** (rx:12): This is fantastic – the kind of cleanup I really was hoping for all along (cleaning up the mathematics, not just optimizing the build). It's making both Tau Ceti *and* RH better.
 - [New proof in 300k lines] **Kim Morrison** (rx:12): We're on v4.37.0-rc1 now
