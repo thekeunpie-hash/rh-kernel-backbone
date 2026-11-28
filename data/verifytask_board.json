@@ -2,14 +2,14 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "efa15b31849e6510",
-  "updated_at": "2026-11-28T19:55:00.579072+08:00",
+  "revision": "11f8d66c52a5ca95",
+  "updated_at": "2026-11-28T20:07:50.188473+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-28T11:59:25Z",
+  "generated_at": "2026-11-28T12:09:35Z",
   "summary": {
     "participants": 123,
     "scored_participants": 99,
-    "submissions": 2558,
+    "submissions": 2559,
     "scored_submissions": 1803,
     "evaluating": 5,
     "core_evaluating": 5,
@@ -27091,7 +27091,7 @@
       "char_saved_pct": 90.4,
       "reduction_factor": 21.79,
       "score": 70.0449,
-      "attempts": 320,
+      "attempts": 321,
       "scored_attempts": 268,
       "participants": 68,
       "runs": 268,
@@ -29111,9 +29111,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 2060,
+    "labeled_scored_runs": 2061,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2109,
+    "total_scored_runs": 2110,
     "pairs_total": 74,
     "top_pairs": [
       {
@@ -29127,7 +29127,7 @@
         "tasks_total": 48,
         "mean_score": 65.19,
         "mean_compression_pct": 77.1,
-        "pass_rate_pct": 87.5,
+        "pass_rate_pct": 87.3,
         "distinct_authors": 1
       },
       {
@@ -30079,7 +30079,7 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-28T11:28:34Z",
+      "ts": "2026-11-28T11:59:17Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
@@ -30172,7 +30172,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1537★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1536★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true
