@@ -1,8 +1,8 @@
-# Community Context Brief (Auto-generated 2026-11-28T02:49:30Z)
+# Community Context Brief (Auto-generated 2026-11-28T03:56:57Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
 - **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:11, merged:2], merged PRs=2 (#9551, #8880), main commits=7
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:116], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:115], merged PRs=20 (#9130, #9112, #9108, #9093, #9079, #9070, #9069, #9041), main commits=10
 - **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[labeled:38, unlabeled:2], merged PRs=0 (none), main commits=0
 - **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=0 (none), main commits=3
 - **thorimur** / Thomas Murrills (`COLLABORATOR`): privileged=[none], merged PRs=0 (none), main commits=0
@@ -12,10 +12,10 @@
 - **haytmnjwgyge** (`CONTRIBUTOR`): merged=1 [#9281], batch_queue=0 [], opened=20
 
 ## 3. Most Active Zulip Participants (RH Threads)
-- **Kim Morrison**: 91 msgs, 179 reactions
+- **Kim Morrison**: 91 msgs, 180 reactions
 - **Luke Sernau**: 9 msgs, 153 reactions
-- **David Loeffler**: 45 msgs, 89 reactions
-- **Riccardo Brasca**: 43 msgs, 67 reactions
+- **David Loeffler**: 45 msgs, 90 reactions
+- **Riccardo Brasca**: 42 msgs, 69 reactions
 - **Jonathan Roy**: 230 msgs, 62 reactions
 - **Andrew Sutherland**: 6 msgs, 56 reactions
 - **Thomas Murrills**: 28 msgs, 38 reactions
