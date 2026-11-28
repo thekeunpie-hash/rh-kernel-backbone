@@ -1,10 +1,33 @@
 {
-  "generated_at": "2026-11-28T06:04:09Z",
+  "generated_at": "2026-11-28T07:07:08Z",
   "github": {
+    "VarunVejalla": {
+      "association": "NONE",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 9846,
+          "title": "feat(LinearAlgebra): generalize matrix valuation bounds and integrality criterion",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
     "Grativy6": {
       "association": "CONTRIBUTOR",
       "tier": "contributor",
       "prs_opened": [
+        {
+          "number": 9845,
+          "title": "refactor(ClassField): read the Frobenius exponent on the residue field",
+          "state": "open",
+          "batch_queue": false
+        },
         {
           "number": 9844,
           "title": "refactor(General): use the discrete valuation to choose power witnesses",
@@ -193,7 +216,7 @@
         {
           "number": 9795,
           "title": "perf(Lib/DiscreteSeries/Bruhat): speed up ComplexPlace proofs",
-          "state": "open",
+          "state": "closed",
           "batch_queue": false
         },
         {
@@ -791,7 +814,7 @@
       "merge_commits_authored": 0,
       "privileged_events": {
         "merged": 1,
-        "labeled": 87
+        "labeled": 85
       }
     },
     "roy7": {
@@ -3452,7 +3475,7 @@
         {
           "number": 9741,
           "title": "refactor(Reduction): derive the sign of the main amount from the local bounds",
-          "state": "open",
+          "state": "closed",
           "batch_queue": false
         },
         {
@@ -6634,12 +6657,6 @@
           "title": "refactor(Lib/GaloisRep/BaseChange): streamline PrimeDegreeTransfer and remove private transfer scaffolding",
           "state": "closed",
           "batch_queue": false
-        },
-        {
-          "number": 8841,
-          "title": "refactor(Lib/ClassField/Avatar): split Galois-rep twisting from HeckeBaseChange into HeckeTwist",
-          "state": "open",
-          "batch_queue": false
         }
       ],
       "prs_merged": [],
@@ -6778,12 +6795,6 @@
           "title": "refactor: reindex crystalline jumps by completion-group cosets",
           "state": "open",
           "batch_queue": false
-        },
-        {
-          "number": 8842,
-          "title": "refactor: use the colength bound for simultaneous congruences in null frames",
-          "state": "open",
-          "batch_queue": false
         }
       ],
       "prs_merged": [],
@@ -6920,6 +6931,13 @@
         "New proof in 300k lines": 3
       }
     },
+    "Matthew Davis": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1
+      }
+    },
     "Patrick Seume": {
       "messages": 1,
       "reactions_received": 0,
@@ -6946,8 +6964,8 @@
         "RH: conserving original proof": 1,
         "RH: nonconstructive axioms in Alpöge's proof": 1,
         "RH: why clean up the proof": 1,
-        "New proof in 300k lines": 56,
         "Preserving formalisations no longer needed for GRH": 1,
+        "New proof in 300k lines": 56,
         "Library design discrepancies between RH/Mathlib/TauCeti": 12,
         "Ultra-Compact GRH <55K Lines": 2,
         "Getting the standard material from Masullo into Tau Ceti": 8,
@@ -6956,26 +6974,82 @@
         "Danger of reversing the human–tool relationship": 1
       }
     },
+    "Josiah Park": {
+      "messages": 8,
+      "reactions_received": 0,
+      "topics": {
+        "New summary": 2,
+        "Danger of reversing the human–tool relationship": 6
+      }
+    },
+    "Matthew Bolan": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "New summary": 1
+      }
+    },
+    "Riccardo Brasca": {
+      "messages": 39,
+      "reactions_received": 69,
+      "topics": {
+        "Preserving formalisations no longer needed for GRH": 4,
+        "New proof in 300k lines": 28,
+        "Understanding of the Mathematics": 1,
+        "Semantic alignment with literature": 6
+      }
+    },
+    "Chris Birkbeck": {
+      "messages": 38,
+      "reactions_received": 28,
+      "topics": {
+        "Preserving formalisations no longer needed for GRH": 11,
+        "New proof in 300k lines": 19,
+        "Understanding of the Mathematics": 1,
+        "Library design discrepancies between RH/Mathlib/TauCeti": 4,
+        "Semantic alignment with literature": 3
+      }
+    },
+    "Filippo A. E. Nuccio": {
+      "messages": 12,
+      "reactions_received": 3,
+      "topics": {
+        "Preserving formalisations no longer needed for GRH": 1,
+        "New proof in 300k lines": 5,
+        "Understanding of the Mathematics": 1,
+        "Library design discrepancies between RH/Mathlib/TauCeti": 1,
+        "Semantic alignment with literature": 2,
+        "Managing citations": 2
+      }
+    },
+    "Toby Gee": {
+      "messages": 1,
+      "reactions_received": 9,
+      "topics": {
+        "Preserving formalisations no longer needed for GRH": 1
+      }
+    },
     "David Loeffler": {
-      "messages": 45,
+      "messages": 51,
       "reactions_received": 91,
       "topics": {
-        "New proof in 300k lines": 22,
         "Preserving formalisations no longer needed for GRH": 9,
+        "New proof in 300k lines": 22,
         "Library design discrepancies between RH/Mathlib/TauCeti": 6,
         "Semantic alignment with literature": 2,
+        "Getting the standard material from Masullo into Tau Ceti": 6,
         "Cleaning up Levent's proof": 3,
         "Managing citations": 3
       }
     },
     "Jack McCarthy": {
-      "messages": 32,
-      "reactions_received": 27,
+      "messages": 29,
+      "reactions_received": 25,
       "topics": {
-        "New proof in 300k lines": 17,
         "Preserving formalisations no longer needed for GRH": 1,
+        "New proof in 300k lines": 17,
         "Understanding of the Mathematics": 1,
-        "Cleaning up Levent's proof": 11,
+        "Cleaning up Levent's proof": 8,
         "Conserving the original proof": 1,
         "Managing citations": 1
       }
@@ -6985,18 +7059,6 @@
       "reactions_received": 6,
       "topics": {
         "New proof in 300k lines": 4
-      }
-    },
-    "Chris Birkbeck": {
-      "messages": 40,
-      "reactions_received": 29,
-      "topics": {
-        "New proof in 300k lines": 19,
-        "Preserving formalisations no longer needed for GRH": 11,
-        "Understanding of the Mathematics": 2,
-        "Library design discrepancies between RH/Mathlib/TauCeti": 4,
-        "Semantic alignment with literature": 3,
-        "Cleaning up Levent's proof": 1
       }
     },
     "Kim Morrison :bot:": {
@@ -7016,10 +7078,10 @@
       }
     },
     "Jonathan Roy": {
-      "messages": 234,
+      "messages": 235,
       "reactions_received": 62,
       "topics": {
-        "New proof in 300k lines": 192,
+        "New proof in 300k lines": 193,
         "Ultra-Compact GRH <55K Lines": 5,
         "Cleaning up Levent's proof": 37
       }
@@ -7030,17 +7092,6 @@
       "topics": {
         "New proof in 300k lines": 15,
         "Ultra-Compact GRH <55K Lines": 1,
-        "Cleaning up Levent's proof": 1
-      }
-    },
-    "Riccardo Brasca": {
-      "messages": 40,
-      "reactions_received": 69,
-      "topics": {
-        "New proof in 300k lines": 28,
-        "Preserving formalisations no longer needed for GRH": 4,
-        "Understanding of the Mathematics": 1,
-        "Semantic alignment with literature": 6,
         "Cleaning up Levent's proof": 1
       }
     },
@@ -7068,10 +7119,11 @@
       }
     },
     "David Michael Roberts": {
-      "messages": 7,
+      "messages": 8,
       "reactions_received": 9,
       "topics": {
         "New proof in 300k lines": 6,
+        "Getting the standard material from Masullo into Tau Ceti": 1,
         "Danger of reversing the human–tool relationship": 1
       }
     },
@@ -7113,14 +7165,6 @@
         "New proof in 300k lines": 1
       }
     },
-    "Thomas Murrills": {
-      "messages": 28,
-      "reactions_received": 38,
-      "topics": {
-        "New proof in 300k lines": 24,
-        "idea: upstreaming-extension for vscode": 4
-      }
-    },
     "Frank Natividad": {
       "messages": 4,
       "reactions_received": 2,
@@ -7136,6 +7180,14 @@
         "New proof in 300k lines": 1
       }
     },
+    "Thomas Murrills": {
+      "messages": 28,
+      "reactions_received": 38,
+      "topics": {
+        "New proof in 300k lines": 24,
+        "idea: upstreaming-extension for vscode": 4
+      }
+    },
     "Devin Watson": {
       "messages": 11,
       "reactions_received": 21,
@@ -7149,18 +7201,6 @@
       "reactions_received": 8,
       "topics": {
         "New proof in 300k lines": 2
-      }
-    },
-    "Filippo A. E. Nuccio": {
-      "messages": 12,
-      "reactions_received": 3,
-      "topics": {
-        "New proof in 300k lines": 5,
-        "Preserving formalisations no longer needed for GRH": 1,
-        "Understanding of the Mathematics": 1,
-        "Library design discrepancies between RH/Mathlib/TauCeti": 1,
-        "Semantic alignment with literature": 2,
-        "Managing citations": 2
       }
     },
     "Bartosz Naskręcki": {
@@ -7233,18 +7273,18 @@
         "New proof in 300k lines": 1
       }
     },
-    "Luke Sernau": {
-      "messages": 9,
-      "reactions_received": 153,
-      "topics": {
-        "New proof in 300k lines": 9
-      }
-    },
     "Konge Skog": {
       "messages": 1,
       "reactions_received": 0,
       "topics": {
         "New proof in 300k lines": 1
+      }
+    },
+    "Luke Sernau": {
+      "messages": 9,
+      "reactions_received": 153,
+      "topics": {
+        "New proof in 300k lines": 9
       }
     },
     "Ashley Holman": {
@@ -7397,28 +7437,6 @@
         "New proof in 300k lines": 1
       }
     },
-    "Toby Gee": {
-      "messages": 1,
-      "reactions_received": 9,
-      "topics": {
-        "Preserving formalisations no longer needed for GRH": 1
-      }
-    },
-    "Josiah Park": {
-      "messages": 8,
-      "reactions_received": 0,
-      "topics": {
-        "New summary": 2,
-        "Danger of reversing the human–tool relationship": 6
-      }
-    },
-    "Matthew Bolan": {
-      "messages": 1,
-      "reactions_received": 0,
-      "topics": {
-        "New summary": 1
-      }
-    },
     "Jizhou Guo": {
       "messages": 2,
       "reactions_received": 0,
@@ -7485,13 +7503,6 @@
         "idea: upstreaming-extension for vscode": 2
       }
     },
-    "Rémy Degenne": {
-      "messages": 1,
-      "reactions_received": 5,
-      "topics": {
-        "Cleaning up Levent's proof": 1
-      }
-    },
     "Yaël Dillies": {
       "messages": 1,
       "reactions_received": 0,
@@ -7535,10 +7546,10 @@
       }
     },
     "Hang Lu Su": {
-      "messages": 6,
-      "reactions_received": 2,
+      "messages": 4,
+      "reactions_received": 0,
       "topics": {
-        "Conserving the original proof": 6
+        "Conserving the original proof": 4
       }
     },
     "suhr": {
@@ -7692,6 +7703,12 @@
       "snippet": "A reasonable goal is to move out of the repo, to for example to Tau Ceti, everything that was mathematically already known so that at the end we can have a proof written in the usual way, with citations but without duplications."
     },
     {
+      "topic": "Preserving formalisations no longer needed for GRH",
+      "sender": "Toby Gee",
+      "reactions": 9,
+      "snippet": "It's maybe also worth noting (apologies if it already has been) that even some of the results that are \"standard\" have quite novel/interesting proofs (there are several new arguments in the proof of the existence of Galois representations a"
+    },
+    {
       "topic": "New proof in 300k lines",
       "sender": "Riccardo Brasca",
       "reactions": 9,
@@ -7702,12 +7719,6 @@
       "sender": "Kim Morrison",
       "reactions": 9,
       "snippet": "Ooh, interesting, my agent says that in a number of places where the new proof is simpler, the required material is already in Tau Ceti... :-)"
-    },
-    {
-      "topic": "Preserving formalisations no longer needed for GRH",
-      "sender": "Toby Gee",
-      "reactions": 9,
-      "snippet": "It's maybe also worth noting (apologies if it already has been) that even some of the results that are \"standard\" have quite novel/interesting proofs (there are several new arguments in the proof of the existence of Galois representations a"
     },
     {
       "topic": "Library design discrepancies between RH/Mathlib/TauCeti",
