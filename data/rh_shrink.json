@@ -6,7 +6,7 @@
     "method": "text search over .lean files under src/, one point per main commit (rh-shrink collect.py)",
     "schema_version": 7
   },
-  "commits_measured": 73,
+  "commits_measured": 74,
   "original": {
     "sha": "47fcde57c49eedd5a6352f4c8745d30bebbe4b0b",
     "date": "2026-11-25T22:24:29Z",
@@ -23,10 +23,10 @@
     "statements": 17676
   },
   "latest": {
-    "sha": "8c828edadfd659acdec2107f13ecf010284f919a",
-    "date": "2026-11-27T14:03:42Z",
-    "subject": "Merge pull request #9551 from leanprover-community/batch/ci-8789-on-main",
-    "pr": 9551,
+    "sha": "628d7ed149e6ba156da2725e296861b6990cadb7",
+    "date": "2026-11-28T01:24:03Z",
+    "subject": "Merge pull request #9281 from haytmnjwgyge/patch-4",
+    "pr": 9281,
     "files": 802,
     "lines": 479436,
     "code": 297753,
@@ -440,6 +440,10 @@
     ],
     [
       "2026-11-27T14:03:42Z",
+      297753
+    ],
+    [
+      "2026-11-28T01:24:03Z",
       297753
     ]
   ]
