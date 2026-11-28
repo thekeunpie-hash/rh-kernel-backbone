@@ -2,14 +2,14 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "fb7004a0a0a93905",
-  "updated_at": "2026-11-28T21:55:24.613668+08:00",
+  "revision": "a621af9590ed2800",
+  "updated_at": "2026-11-28T22:05:11.152986+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-28T13:57:12Z",
+  "generated_at": "2026-11-28T14:07:17Z",
   "summary": {
     "participants": 123,
     "scored_participants": 99,
-    "submissions": 2569,
+    "submissions": 2570,
     "scored_submissions": 1807,
     "evaluating": 3,
     "core_evaluating": 3,
@@ -27151,7 +27151,7 @@
       "char_saved_pct": 90.4,
       "reduction_factor": 21.79,
       "score": 70.0449,
-      "attempts": 328,
+      "attempts": 329,
       "scored_attempts": 268,
       "participants": 68,
       "runs": 268,
@@ -29171,9 +29171,9 @@
   },
   "benchmark": {
     "tasks_total": 48,
-    "labeled_scored_runs": 2071,
+    "labeled_scored_runs": 2072,
     "unlabeled_scored_runs": 49,
-    "total_scored_runs": 2120,
+    "total_scored_runs": 2121,
     "pairs_total": 74,
     "top_pairs": [
       {
@@ -29187,7 +29187,7 @@
         "tasks_total": 48,
         "mean_score": 65.2,
         "mean_compression_pct": 77.2,
-        "pass_rate_pct": 86.3,
+        "pass_rate_pct": 86.1,
         "distinct_authors": 1
       },
       {
@@ -30139,12 +30139,22 @@
     },
     {
       "id": "pg-phase2-launch-43",
-      "ts": "2026-11-28T13:27:55Z",
+      "ts": "2026-11-28T13:59:25Z",
       "source": "playground",
       "tag": "Phase 2 Launch",
       "title": "Phase 2 RH decomposition adds 43 new Lean 4 pillar(s) on Playground",
       "summary": "New verified modules from the remaining 99% of Alpöge's proof are now live: CM j-Invariant Integrality, Irreducible Complex Open Connected, Siegel–Weil Local Density (+40 more).",
       "url": "https://play.bohrium.com/challenges/lean-4-verification-rh-core-pillar-6-cm-j-invarian-70b3d4ba",
+      "highlight": true
+    },
+    {
+      "id": "upstream-pr-8358",
+      "ts": "2026-11-28T13:53:30Z",
+      "source": "lean_community",
+      "tag": "Upstream PR #8358",
+      "title": "fix: make the exponent comparisons checkable by a kernel replay (#7560)",
+      "summary": "Merged into leanprover-community/riemann-hypothesis by Dharmavati213.",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/8358",
       "highlight": true
     },
     {
@@ -30165,16 +30175,6 @@
       "title": "refactor(New): remove local attribute and unseal lines that no proof needs",
       "summary": "Merged into leanprover-community/riemann-hypothesis by koefoeden.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/8274",
-      "highlight": true
-    },
-    {
-      "id": "upstream-pr-8272",
-      "ts": "2026-11-28T05:25:06Z",
-      "source": "lean_community",
-      "tag": "Upstream PR #8272",
-      "title": "refactor(New): remove `seal` lines that do not speed up elaboration",
-      "summary": "Merged into leanprover-community/riemann-hypothesis by koefoeden.",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis/pull/8272",
       "highlight": true
     },
     {
@@ -30232,7 +30232,7 @@
       "ts": "2026-11-20T00:00:00Z",
       "source": "lean_community",
       "tag": "Origin Archive",
-      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1541★ on GitHub)",
+      "title": "Alpöge releases 175,187-file Lean 4 RH & GRH formalization (1543★ on GitHub)",
       "summary": "Levent Alpöge publishes remark.pdf and a 17.37M-line Lean v4.33.1 formalization claiming RH and GRH; leanprover-community establishes the open Comparator verification mirror.",
       "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "highlight": true
