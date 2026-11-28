@@ -1,20 +1,134 @@
 {
-  "generated_at": "2026-11-28T07:07:08Z",
+  "generated_at": "2026-11-28T08:10:27Z",
   "github": {
-    "VarunVejalla": {
-      "association": "NONE",
-      "tier": "contributor",
+    "roy7": {
+      "association": "CONTRIBUTOR",
+      "tier": "active_contributor",
       "prs_opened": [
         {
-          "number": 9846,
-          "title": "feat(LinearAlgebra): generalize matrix valuation bounds and integrality criterion",
+          "number": 9849,
+          "title": "refactor(New/UpperBound/Divisibility/ColengthAtLevel): remove the seal on upOperator_mem_integralFormsAt",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9848,
+          "title": "doc(Lib/Speed): correct the claim that no proof relies on the settings",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9841,
+          "title": "refactor(New/UpperBound/Divisibility/ValuationAtLevel): remove the seal on gaugeLe_compositeLift_at_N",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9825,
+          "title": "perf(Lib/General/Geometry): qualify the overloaded lift in IsSeparatingFamily.prod",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9811,
+          "title": "refactor(New/OneLift/HeckeValues): remove two seals in CharacterLift",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9808,
+          "title": "perf(Lib/Adelic/AutomorphicForms/Cuspidality): name the form in isCocompact_radical",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9800,
+          "title": "refactor(Lib/GLn/Dual): name the determinant exponent of the mixed weight",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9780,
+          "title": "chore(Lib/Speed): keep four lemmas in the default simp set",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9763,
+          "title": "chore(Lib): reset four instance priorities to the default",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9749,
+          "title": "style(Lib/Speed, New/UpperBound): wrap two lines over 100 characters",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9707,
+          "title": "refactor(Lib/Cohomology): give addCommGroupH named operations and drop 12 seals",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9596,
+          "title": "refactor(Lib/Cohomology/ProjectiveLine): remove three seals of `addCommGroupH`",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9544,
+          "title": "refactor(New/OneLift/HeckeValues): remove a seal by closing `congr!` goals reducibly",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9349,
+          "title": "perf(Lib/DiscreteSeries/FlenstedJensen/RightDerivatives): make `SmoothU` a `def`",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9323,
+          "title": "chore(Lib/Speed): keep `Nat.sub_self` as a simp lemma",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9177,
+          "title": "style(New/Spanning/Unfolding): drop section-wide open Classical in Climbing",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9127,
+          "title": "refactor: remove two unused declarations",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9124,
+          "title": "doc(Lib/Weil/DualPair): correct the liftBilin docstring",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9115,
+          "title": "refactor(Lib): prove once that the infinite components of an idele are nonzero",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9098,
+          "title": "style: use obtain to destructure propositions",
           "state": "open",
           "batch_queue": false
         }
       ],
       "prs_merged": [],
       "prs_batch_queue": [],
-      "main_commits": 0,
+      "main_commits": 12,
       "merge_commits_authored": 0,
       "privileged_events": {}
     },
@@ -23,8 +137,14 @@
       "tier": "contributor",
       "prs_opened": [
         {
+          "number": 9847,
+          "title": "refactor(Heights): deduce algebraicity from the archimedean bound",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
           "number": 9845,
-          "title": "refactor(ClassField): read the Frobenius exponent on the residue field",
+          "title": "refactor(Lib/ClassField/Places): read the Frobenius exponent on the residue field",
           "state": "open",
           "batch_queue": false
         },
@@ -179,6 +299,23 @@
       "merge_commits_authored": 0,
       "privileged_events": {}
     },
+    "VarunVejalla": {
+      "association": "NONE",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 9846,
+          "title": "feat(LinearAlgebra): generalize matrix valuation bounds and integrality criterion",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
     "josephch405": {
       "association": "CONTRIBUTOR",
       "tier": "contributor",
@@ -234,7 +371,7 @@
         {
           "number": 9752,
           "title": "perf(TangentBound): replace heavy simp/aesop proofs with explicit rewrites",
-          "state": "open",
+          "state": "closed",
           "batch_queue": false
         },
         {
@@ -421,12 +558,6 @@
           "number": 8890,
           "title": "perf(New/Reduction/Data): speed up FieldsAndPlaces proofs",
           "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8844,
-          "title": "perf(Lib/Weil/Unramified): speed up SplitHecke proofs",
-          "state": "closed",
           "batch_queue": false
         }
       ],
@@ -814,127 +945,8 @@
       "merge_commits_authored": 0,
       "privileged_events": {
         "merged": 1,
-        "labeled": 85
+        "labeled": 82
       }
-    },
-    "roy7": {
-      "association": "CONTRIBUTOR",
-      "tier": "active_contributor",
-      "prs_opened": [
-        {
-          "number": 9841,
-          "title": "refactor(New/UpperBound/Divisibility/ValuationAtLevel): remove the seal on gaugeLe_compositeLift_at_N",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9825,
-          "title": "perf(Lib/General/Geometry): qualify the overloaded lift in IsSeparatingFamily.prod",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9811,
-          "title": "refactor(New/OneLift/HeckeValues): remove two seals in CharacterLift",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9808,
-          "title": "perf(Lib/Adelic/AutomorphicForms/Cuspidality): name the form in isCocompact_radical",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9800,
-          "title": "refactor(Lib/GLn/Dual): name the determinant exponent of the mixed weight",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9780,
-          "title": "chore(Lib/Speed): keep four lemmas in the default simp set",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9763,
-          "title": "chore(Lib): reset four instance priorities to the default",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9749,
-          "title": "style(Lib/Speed, New/UpperBound): wrap two lines over 100 characters",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9707,
-          "title": "refactor(Lib/Cohomology): give addCommGroupH named operations and drop 12 seals",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9596,
-          "title": "refactor(Lib/Cohomology/ProjectiveLine): remove three seals of `addCommGroupH`",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9544,
-          "title": "refactor(New/OneLift/HeckeValues): remove a seal by closing `congr!` goals reducibly",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9349,
-          "title": "perf(Lib/DiscreteSeries/FlenstedJensen/RightDerivatives): make `SmoothU` a `def`",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9323,
-          "title": "chore(Lib/Speed): keep `Nat.sub_self` as a simp lemma",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9177,
-          "title": "style(New/Spanning/Unfolding): drop section-wide open Classical in Climbing",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9127,
-          "title": "refactor: remove two unused declarations",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9124,
-          "title": "doc(Lib/Weil/DualPair): correct the liftBilin docstring",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9115,
-          "title": "refactor(Lib): prove once that the infinite components of an idele are nonzero",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9098,
-          "title": "style: use obtain to destructure propositions",
-          "state": "open",
-          "batch_queue": false
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [],
-      "main_commits": 12,
-      "merge_commits_authored": 0,
-      "privileged_events": {}
     },
     "CollinYuanjieRen": {
       "association": "CONTRIBUTOR",
@@ -2165,12 +2177,6 @@
         {
           "number": 8850,
           "title": "refactor: reuse quotient vector annihilation in Selmer proofs",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8845,
-          "title": "refactor: reuse Tate twist triviality in trace relations",
           "state": "open",
           "batch_queue": false
         }
@@ -3447,12 +3453,6 @@
           "number": 8852,
           "title": "Share the induction from stepwise to all-degree bijectivity",
           "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8846,
-          "title": "refactor(New/Spanning/Bessel): define pairKernel through piKernel",
-          "state": "open",
           "batch_queue": false
         }
       ],
@@ -4968,6 +4968,12 @@
           "batch_queue": false
         },
         {
+          "number": 9549,
+          "title": "refactor(Lib/Weil/Periods): split formAdjoint_mul_self_mulVec_apply_eq_of_survives",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
           "number": 9546,
           "title": "refactor(Lib/PadicHodge): split le_of_hodgeTate_stable in TateSen",
           "state": "open",
@@ -5305,12 +5311,6 @@
           "number": 8855,
           "title": "refactor(Lib/Weil): simplify proofs",
           "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8843,
-          "title": "refactor(Lib/Weil): simplify proofs",
-          "state": "closed",
           "batch_queue": false
         }
       ],
@@ -6209,13 +6209,13 @@
         {
           "number": 9154,
           "title": "refactor(Lib/GaloisRep/Hilbert90/UnitaryGroups): extract AdjoinRoot endomorphism and involution lemma",
-          "state": "open",
+          "state": "closed",
           "batch_queue": false
         },
         {
           "number": 9153,
           "title": "refactor(Lib/Shimura/CongruenceRelation/EichlerShimura): extract Frobenius action lemma on the special fibre",
-          "state": "open",
+          "state": "closed",
           "batch_queue": false
         },
         {
@@ -6251,7 +6251,7 @@
         {
           "number": 9139,
           "title": "refactor(New/Reduction/Data/Existence): remove unused eventually_exists_data_of_isAdmissibleData",
-          "state": "open",
+          "state": "closed",
           "batch_queue": false
         },
         {
@@ -6883,7 +6883,7 @@
       "merge_commits_authored": 0,
       "privileged_events": {
         "unlabeled": 2,
-        "labeled": 38
+        "labeled": 39
       }
     },
     "Vilin97": {
@@ -6938,6 +6938,14 @@
         "Discussion: Alpöge Proves the Riemann Hypothesis": 1
       }
     },
+    "Violeta Hernández": {
+      "messages": 2,
+      "reactions_received": 11,
+      "topics": {
+        "Discussion: Alpöge Proves the Riemann Hypothesis": 1,
+        "New proof in 300k lines": 1
+      }
+    },
     "Patrick Seume": {
       "messages": 1,
       "reactions_received": 0,
@@ -6969,34 +6977,9 @@
         "Library design discrepancies between RH/Mathlib/TauCeti": 12,
         "Ultra-Compact GRH <55K Lines": 2,
         "Getting the standard material from Masullo into Tau Ceti": 8,
-        "idea: upstreaming-extension for vscode": 1,
         "Structural metrics: 17.37M vs. grh (300k) & grh-compact": 2,
+        "idea: upstreaming-extension for vscode": 1,
         "Danger of reversing the human–tool relationship": 1
-      }
-    },
-    "Josiah Park": {
-      "messages": 8,
-      "reactions_received": 0,
-      "topics": {
-        "New summary": 2,
-        "Danger of reversing the human–tool relationship": 6
-      }
-    },
-    "Matthew Bolan": {
-      "messages": 1,
-      "reactions_received": 0,
-      "topics": {
-        "New summary": 1
-      }
-    },
-    "Riccardo Brasca": {
-      "messages": 39,
-      "reactions_received": 69,
-      "topics": {
-        "Preserving formalisations no longer needed for GRH": 4,
-        "New proof in 300k lines": 28,
-        "Understanding of the Mathematics": 1,
-        "Semantic alignment with literature": 6
       }
     },
     "Chris Birkbeck": {
@@ -7034,31 +7017,32 @@
       "reactions_received": 91,
       "topics": {
         "Preserving formalisations no longer needed for GRH": 9,
-        "New proof in 300k lines": 22,
-        "Library design discrepancies between RH/Mathlib/TauCeti": 6,
+        "New proof in 300k lines": 23,
+        "Library design discrepancies between RH/Mathlib/TauCeti": 8,
         "Semantic alignment with literature": 2,
-        "Getting the standard material from Masullo into Tau Ceti": 6,
-        "Cleaning up Levent's proof": 3,
-        "Managing citations": 3
+        "Getting the standard material from Masullo into Tau Ceti": 7,
+        "Cleaning up Levent's proof": 1,
+        "Managing citations": 1
       }
     },
     "Jack McCarthy": {
-      "messages": 29,
-      "reactions_received": 25,
+      "messages": 27,
+      "reactions_received": 24,
       "topics": {
         "Preserving formalisations no longer needed for GRH": 1,
         "New proof in 300k lines": 17,
         "Understanding of the Mathematics": 1,
-        "Cleaning up Levent's proof": 8,
-        "Conserving the original proof": 1,
-        "Managing citations": 1
+        "Cleaning up Levent's proof": 8
       }
     },
-    "Barinder S Banwait": {
-      "messages": 4,
-      "reactions_received": 6,
+    "Riccardo Brasca": {
+      "messages": 39,
+      "reactions_received": 69,
       "topics": {
-        "New proof in 300k lines": 4
+        "Preserving formalisations no longer needed for GRH": 4,
+        "New proof in 300k lines": 28,
+        "Understanding of the Mathematics": 1,
+        "Semantic alignment with literature": 6
       }
     },
     "Kim Morrison :bot:": {
@@ -7078,10 +7062,11 @@
       }
     },
     "Jonathan Roy": {
-      "messages": 235,
+      "messages": 239,
       "reactions_received": 62,
       "topics": {
-        "New proof in 300k lines": 193,
+        "New proof in 300k lines": 196,
+        "Library design discrepancies between RH/Mathlib/TauCeti": 1,
         "Ultra-Compact GRH <55K Lines": 5,
         "Cleaning up Levent's proof": 37
       }
@@ -7135,6 +7120,13 @@
         "Ultra-Compact GRH <55K Lines": 2
       }
     },
+    "Barinder S Banwait": {
+      "messages": 4,
+      "reactions_received": 6,
+      "topics": {
+        "New proof in 300k lines": 4
+      }
+    },
     "Michael Stoll": {
       "messages": 1,
       "reactions_received": 6,
@@ -7160,17 +7152,24 @@
     },
     "Michael Rubinstein": {
       "messages": 1,
-      "reactions_received": 3,
+      "reactions_received": 4,
       "topics": {
         "New proof in 300k lines": 1
       }
     },
-    "Frank Natividad": {
-      "messages": 4,
-      "reactions_received": 2,
+    "kai Li": {
+      "messages": 1,
+      "reactions_received": 0,
       "topics": {
-        "New proof in 300k lines": 3,
-        "RH#5667": 1
+        "New proof in 300k lines": 1
+      }
+    },
+    "Maxime Rinoldo": {
+      "messages": 7,
+      "reactions_received": 7,
+      "topics": {
+        "New proof in 300k lines": 6,
+        "Managing citations": 1
       }
     },
     "TrueBoxGuy": {
@@ -7223,8 +7222,8 @@
       "reactions_received": 3,
       "topics": {
         "New proof in 300k lines": 3,
-        "idea: upstreaming-extension for vscode": 2,
-        "Cleaning up Levent's proof": 2
+        "Cleaning up Levent's proof": 2,
+        "idea: upstreaming-extension for vscode": 2
       }
     },
     "Michael Rothgang": {
@@ -7258,12 +7257,12 @@
       }
     },
     "Rohan Arun": {
-      "messages": 14,
+      "messages": 13,
       "reactions_received": 6,
       "topics": {
         "New proof in 300k lines": 4,
         "Cleaning up Levent's proof": 5,
-        "Managing citations": 5
+        "Managing citations": 4
       }
     },
     "Johan Commelin": {
@@ -7273,18 +7272,11 @@
         "New proof in 300k lines": 1
       }
     },
-    "Konge Skog": {
+    "Alex P": {
       "messages": 1,
-      "reactions_received": 0,
+      "reactions_received": 5,
       "topics": {
         "New proof in 300k lines": 1
-      }
-    },
-    "Luke Sernau": {
-      "messages": 9,
-      "reactions_received": 153,
-      "topics": {
-        "New proof in 300k lines": 9
       }
     },
     "Ashley Holman": {
@@ -7294,27 +7286,11 @@
         "New proof in 300k lines": 2
       }
     },
-    "Alex P": {
-      "messages": 1,
-      "reactions_received": 5,
-      "topics": {
-        "New proof in 300k lines": 1
-      }
-    },
     "Anton Mellit": {
-      "messages": 5,
-      "reactions_received": 3,
+      "messages": 2,
+      "reactions_received": 1,
       "topics": {
-        "New proof in 300k lines": 2,
-        "Cleaning up Levent's proof": 3
-      }
-    },
-    "Maxime Rinoldo": {
-      "messages": 6,
-      "reactions_received": 7,
-      "topics": {
-        "New proof in 300k lines": 5,
-        "Managing citations": 1
+        "New proof in 300k lines": 2
       }
     },
     "Vasily Ilin": {
@@ -7330,6 +7306,13 @@
       "reactions_received": 1,
       "topics": {
         "New proof in 300k lines": 1
+      }
+    },
+    "Luke Sernau": {
+      "messages": 9,
+      "reactions_received": 153,
+      "topics": {
+        "New proof in 300k lines": 9
       }
     },
     "Johannes Hostert": {
@@ -7367,16 +7350,17 @@
         "New proof in 300k lines": 23
       }
     },
+    "Frank Natividad": {
+      "messages": 4,
+      "reactions_received": 2,
+      "topics": {
+        "New proof in 300k lines": 3,
+        "RH#5667": 1
+      }
+    },
     "Joseph Myers": {
       "messages": 1,
       "reactions_received": 1,
-      "topics": {
-        "New proof in 300k lines": 1
-      }
-    },
-    "Violeta Hernández": {
-      "messages": 1,
-      "reactions_received": 11,
       "topics": {
         "New proof in 300k lines": 1
       }
@@ -7431,6 +7415,13 @@
       }
     },
     "Joshua Ji": {
+      "messages": 1,
+      "reactions_received": 0,
+      "topics": {
+        "New proof in 300k lines": 1
+      }
+    },
+    "Konge Skog": {
       "messages": 1,
       "reactions_received": 0,
       "topics": {
@@ -7496,13 +7487,6 @@
         "OxiLean (Rust) verification of compact export": 1
       }
     },
-    "Jon Eugster": {
-      "messages": 2,
-      "reactions_received": 1,
-      "topics": {
-        "idea: upstreaming-extension for vscode": 2
-      }
-    },
     "Yaël Dillies": {
       "messages": 1,
       "reactions_received": 0,
@@ -7531,6 +7515,13 @@
         "Structural metrics: 17.37M vs. grh (300k) & grh-compact": 2
       }
     },
+    "Jon Eugster": {
+      "messages": 2,
+      "reactions_received": 1,
+      "topics": {
+        "idea: upstreaming-extension for vscode": 2
+      }
+    },
     "Jakob von Raumer": {
       "messages": 1,
       "reactions_received": 0,
@@ -7545,25 +7536,26 @@
         "Danger of reversing the human–tool relationship": 1
       }
     },
-    "Hang Lu Su": {
-      "messages": 4,
+    "Josiah Park": {
+      "messages": 8,
       "reactions_received": 0,
       "topics": {
-        "Conserving the original proof": 4
+        "Danger of reversing the human–tool relationship": 6,
+        "New summary": 2
       }
     },
-    "suhr": {
-      "messages": 2,
-      "reactions_received": 1,
-      "topics": {
-        "Managing citations": 2
-      }
-    },
-    "Tom de Jong": {
+    "Matthew Bolan": {
       "messages": 1,
-      "reactions_received": 1,
+      "reactions_received": 0,
       "topics": {
-        "Nonconstructive axioms in Alpöge's proof": 1
+        "New summary": 1
+      }
+    },
+    "Hang Lu Su": {
+      "messages": 2,
+      "reactions_received": 0,
+      "topics": {
+        "Conserving the original proof": 2
       }
     },
     "Scott Cochran": {
@@ -7758,12 +7750,6 @@
     },
     {
       "topic": "New proof in 300k lines",
-      "sender": "Andrew Sutherland",
-      "reactions": 7,
-      "snippet": "In case anyone else checking the proof wants these for comparison:  Exports made by `lake comparator` (Lean v4.35.0) from https://github.com/lsernau/grh-lean at commit `72fead10`.  | Export | Bytes | SHA-256 | |---|---|---| | Challenge | 35"
-    },
-    {
-      "topic": "New proof in 300k lines",
       "sender": "Kim Morrison",
       "reactions": 7,
       "snippet": "@_**Artie Khovanov|400289** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643732779): ```quote Not to get too off-topic but I don't really see the attraction of "
@@ -7779,6 +7765,12 @@
       "sender": "Jonathan Roy",
       "reactions": 7,
       "snippet": "If nothing else, iterating on a giant 15 million line proof helped me detect a variety of performance issues in Mathlib, if I work up the nerve to report more of them."
+    },
+    {
+      "topic": "New proof in 300k lines",
+      "sender": "Andrew Sutherland",
+      "reactions": 7,
+      "snippet": "In case anyone else checking the proof wants these for comparison:  Exports made by `lake comparator` (Lean v4.35.0) from https://github.com/lsernau/grh-lean at commit `72fead10`.  | Export | Bytes | SHA-256 | |---|---|---| | Challenge | 35"
     },
     {
       "topic": "Library design discrepancies between RH/Mathlib/TauCeti",
@@ -7812,15 +7804,15 @@
     },
     {
       "topic": "New proof in 300k lines",
-      "sender": "Kim Morrison",
-      "reactions": 6,
-      "snippet": "Keep going from here. It's still a big proof. Separating out the stuff that is \"well known maths that needed to be formalized along the way\" from \"the new ideas\" is key now. We're sprinting a bit at Tau Ceti to get more of the former catego"
-    },
-    {
-      "topic": "New proof in 300k lines",
       "sender": "Artie Khovanov",
       "reactions": 6,
       "snippet": "@_**Joseph Richey|494829** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643731713): ````quote I thought Tau Ceti served as sort of a \"pre mathlib\" staging area."
+    },
+    {
+      "topic": "New proof in 300k lines",
+      "sender": "Kim Morrison",
+      "reactions": 6,
+      "snippet": "Yes, can we just focus on the 300k version, not the 76k version from now?"
     }
   ]
 }
