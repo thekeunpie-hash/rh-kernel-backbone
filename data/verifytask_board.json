@@ -2,10 +2,10 @@
   "source": "https://riemann.verifytask.cn/api/board",
   "site": "https://riemann.verifytask.cn/",
   "rss": "https://riemann.verifytask.cn/rss.xml",
-  "revision": "558fccd8a2399a41",
-  "updated_at": "2026-11-28T13:07:31.802344+08:00",
+  "revision": "e7bbd001a7a31cd5",
+  "updated_at": "2026-11-28T13:16:32.961763+08:00",
   "snapshot_source": "live_api",
-  "generated_at": "2026-11-28T05:10:09Z",
+  "generated_at": "2026-11-28T05:20:18Z",
   "summary": {
     "participants": 123,
     "scored_participants": 99,
