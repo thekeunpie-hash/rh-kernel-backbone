@@ -1,10 +1,368 @@
 {
-  "generated_at": "2026-11-28T14:41:00Z",
+  "generated_at": "2026-11-28T15:43:24Z",
   "github": {
+    "josephch405": {
+      "association": "CONTRIBUTOR",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 9937,
+          "title": "perf(New/UpperBound/Divisibility): speed up ValuationAtNonSplitPrimes proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9933,
+          "title": "perf(New/Spanning/Unfolding): speed up Moments proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9927,
+          "title": "perf(New/UpperBound/Objects): speed up Columns proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9912,
+          "title": "perf(Lib/Shimura/GoodReduction): speed up GaussSums proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9909,
+          "title": "perf(New/OneLift/ComparisonOperator): speed up ThreeExchanges elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9905,
+          "title": "refactor(New/UpperBound/Seesaw): share grade_add_eq_zero proof in EdgePairEvaluation",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9898,
+          "title": "perf(Lib/Shimura/ComplexTheta): speed up DimensionFormula proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9875,
+          "title": "perf(Lib/Adelic/AutomorphicForms): speed up RealConvolution proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9857,
+          "title": "perf(New/Congruences/Lifting): speed up CupOrthogonalityBounds proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9855,
+          "title": "perf(New/Congruences/Lifting): speed up TameCharts proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9853,
+          "title": "perf(New/Spanning/Bessel): speed up FillingData by splitting sync proofs and removing slow tactics",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9843,
+          "title": "perf(Spanning): speed up StandardLevel proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9831,
+          "title": "perf(LocalGL): speed up ParahoricStructure proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9822,
+          "title": "perf(LocalGL): speed up HallAlgebra proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9810,
+          "title": "perf(GLn): speed up MinorBasis proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9801,
+          "title": "perf(Lib/DiscreteSeries/Bessel): speed up UnipotentHaarMeasure proofs",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9795,
+          "title": "perf(Lib/DiscreteSeries/Bruhat): speed up ComplexPlace proofs",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 9791,
+          "title": "perf(DescentVanishing): speed up proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9786,
+          "title": "perf(ConstantTerm): speed up proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9752,
+          "title": "perf(TangentBound): replace heavy simp/aesop proofs with explicit rewrites",
+          "state": "closed",
+          "batch_queue": false
+        },
+        {
+          "number": 9735,
+          "title": "perf(Lib/Shimura/GoodReduction): speed up MultiplicativeNorm",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9726,
+          "title": "perf(New/Congruences/Lifting): speed up CupProductBound",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9700,
+          "title": "perf(New/Congruences/Lifting): speed up HodgeExpansion",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9696,
+          "title": "perf(New/Congruences/Lifting): speed up SidePoints",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9671,
+          "title": "perf(Lib/SiegelWeil/OneVector): speed up proofs in SiegelClassSum",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9625,
+          "title": "perf(Lib/Weil/MixedModel): speed up proofs in IsotropicSplitting",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9548,
+          "title": "perf(Lib/DiscreteSeries/Bruhat): speed up proofs in FloorMeasures",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9508,
+          "title": "perf(New/Spanning/Bessel): speed up proofs in MeanValue",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9486,
+          "title": "perf(New/Determinant/AuxiliaryForms): speed up proofs in Turns",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9480,
+          "title": "perf(Lib/DiscreteSeries/Character): speed up proofs in WeylCharacterFormula",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9465,
+          "title": "perf(New/Spanning/Frames): speed up proofs in Gains",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9446,
+          "title": "perf(Lib/LocalGL/Iwahori): speed up proofs in SphericalExponents",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9427,
+          "title": "perf(New/OneLift/ComparisonOperator): speed up proofs in ProductsSpan",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9421,
+          "title": "perf(New/Spanning/Frames): speed up proofs in Levels",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9414,
+          "title": "perf(Lib/Weil/Periods): speed up proofs in Grading",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9401,
+          "title": "perf(New/Spanning/Frames): speed up proofs in OneFrame",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9393,
+          "title": "perf(New/Spanning/Unfolding): speed up proofs in PoincareSeries",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9334,
+          "title": "perf(Lib/GaloisRep/TaylorWiles): replace slow aesop, grind, and simp calls",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9310,
+          "title": "perf(New/Determinant/AuxiliaryForms/LastPath): replace slow grind and fun_prop calls",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9297,
+          "title": "perf(Lib/Cohomology/Hodge/GrothendieckSymbol): speed up proofs in GrothendieckSymbol",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9251,
+          "title": "perf(Lib/LocalGL/Green/CuspidalFunctions): speed up proofs in CuspidalFunctions",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9233,
+          "title": "perf(Spanning/Unfolding): speed up proofs in BesselLevelStructure",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9216,
+          "title": "perf(CutoffIntegral): replace slow simp, aesop, and grind calls",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9167,
+          "title": "perf(ExponentLattices): replace slow simp calls with direct rewrites",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9155,
+          "title": "perf(PELThetaTori): avoid mulVec/dotProduct sum expansions in polarisationForm",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9150,
+          "title": "perf(New/OneLift/ComparisonOperator/GluingMaps): speed up proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9099,
+          "title": "perf(New/Spanning/Unfolding/ReducedPoints): speed up proof elaboration",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8998,
+          "title": "perf(Lib/SiegelWeil): speed up Reproduction proof",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 8944,
+          "title": "perf(Lib/DiscreteSeries): speed up CuspKernel proofs",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
+    "Lixuu2001": {
+      "association": "NONE",
+      "tier": "contributor",
+      "prs_opened": [
+        {
+          "number": 9936,
+          "title": "perf(ci): skip unlabelled open pull requests when no batch is being built",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9932,
+          "title": "doc: update the guide to logarithmic bound comparisons",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9926,
+          "title": "refactor(New/OneLift): isolate the column datum calculation",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9908,
+          "title": "fix: include credited aliases in contributor pull request links",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9903,
+          "title": "refactor: share Gram invariance under the level character twist",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
+          "number": 9449,
+          "title": "feat: count the edges of a two-grid path exactly",
+          "state": "open",
+          "batch_queue": false
+        }
+      ],
+      "prs_merged": [],
+      "prs_batch_queue": [],
+      "main_commits": 0,
+      "merge_commits_authored": 0,
+      "privileged_events": {}
+    },
     "rohanarun": {
       "association": "CONTRIBUTOR",
       "tier": "active_contributor",
       "prs_opened": [
+        {
+          "number": 9935,
+          "title": "refactor(Lib/Shimura/IntegralModel/PELDataExistence): extract quadratic conjugation helper",
+          "state": "open",
+          "batch_queue": false
+        },
         {
           "number": 9931,
           "title": "refactor(Lib/Shimura/Uniformisation/HolomorphicFamilies): split Uniformisation.hasSignature_iff into helper lemmas",
@@ -227,6 +585,12 @@
       "tier": "active_contributor",
       "prs_opened": [
         {
+          "number": 9934,
+          "title": "refactor: use Tau Ceti for continuity from an open kernel",
+          "state": "open",
+          "batch_queue": false
+        },
+        {
           "number": 9930,
           "title": "refactor(PadicHodge): use Tau Ceti for p-adic truncation quotients",
           "state": "open",
@@ -235,7 +599,7 @@
         {
           "number": 9928,
           "title": "refactor: use Tau Ceti for distances between roots of unity",
-          "state": "open",
+          "state": "closed",
           "batch_queue": false
         },
         {
@@ -693,18 +1057,6 @@
           "title": "refactor: use TauCeti for product measure currying",
           "state": "closed",
           "batch_queue": false
-        },
-        {
-          "number": 8931,
-          "title": "refactor: drop row decidable equality from WeylIndex",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8928,
-          "title": "refactor: drop row decidable equality from Weyl scalar-map lemmas",
-          "state": "open",
-          "batch_queue": false
         }
       ],
       "prs_merged": [],
@@ -900,340 +1252,6 @@
         {
           "number": 9263,
           "title": "refactor(Lib/Cyclotomic): derive the residue-class sum from Tau Ceti’s block decomposition",
-          "state": "open",
-          "batch_queue": false
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [],
-      "main_commits": 0,
-      "merge_commits_authored": 0,
-      "privileged_events": {}
-    },
-    "josephch405": {
-      "association": "CONTRIBUTOR",
-      "tier": "contributor",
-      "prs_opened": [
-        {
-          "number": 9927,
-          "title": "perf(New/UpperBound/Objects): speed up Columns proof elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9912,
-          "title": "perf(Lib/Shimura/GoodReduction): speed up GaussSums proof elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9909,
-          "title": "perf(New/OneLift/ComparisonOperator): speed up ThreeExchanges elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9905,
-          "title": "refactor(New/UpperBound/Seesaw): share grade_add_eq_zero proof in EdgePairEvaluation",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9898,
-          "title": "perf(Lib/Shimura/ComplexTheta): speed up DimensionFormula proof elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9875,
-          "title": "perf(Lib/Adelic/AutomorphicForms): speed up RealConvolution proof elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9857,
-          "title": "perf(New/Congruences/Lifting): speed up CupOrthogonalityBounds proof elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9855,
-          "title": "perf(New/Congruences/Lifting): speed up TameCharts proof elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9853,
-          "title": "perf(New/Spanning/Bessel): speed up FillingData by splitting sync proofs and removing slow tactics",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9843,
-          "title": "perf(Spanning): speed up StandardLevel proof elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9831,
-          "title": "perf(LocalGL): speed up ParahoricStructure proof elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9822,
-          "title": "perf(LocalGL): speed up HallAlgebra proof elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9810,
-          "title": "perf(GLn): speed up MinorBasis proof elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9801,
-          "title": "perf(Lib/DiscreteSeries/Bessel): speed up UnipotentHaarMeasure proofs",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9795,
-          "title": "perf(Lib/DiscreteSeries/Bruhat): speed up ComplexPlace proofs",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 9791,
-          "title": "perf(DescentVanishing): speed up proof elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9786,
-          "title": "perf(ConstantTerm): speed up proof elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9752,
-          "title": "perf(TangentBound): replace heavy simp/aesop proofs with explicit rewrites",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 9735,
-          "title": "perf(Lib/Shimura/GoodReduction): speed up MultiplicativeNorm",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9726,
-          "title": "perf(New/Congruences/Lifting): speed up CupProductBound",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9700,
-          "title": "perf(New/Congruences/Lifting): speed up HodgeExpansion",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9696,
-          "title": "perf(New/Congruences/Lifting): speed up SidePoints",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9671,
-          "title": "perf(Lib/SiegelWeil/OneVector): speed up proofs in SiegelClassSum",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9625,
-          "title": "perf(Lib/Weil/MixedModel): speed up proofs in IsotropicSplitting",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9548,
-          "title": "perf(Lib/DiscreteSeries/Bruhat): speed up proofs in FloorMeasures",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9508,
-          "title": "perf(New/Spanning/Bessel): speed up proofs in MeanValue",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9486,
-          "title": "perf(New/Determinant/AuxiliaryForms): speed up proofs in Turns",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9480,
-          "title": "perf(Lib/DiscreteSeries/Character): speed up proofs in WeylCharacterFormula",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9465,
-          "title": "perf(New/Spanning/Frames): speed up proofs in Gains",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9446,
-          "title": "perf(Lib/LocalGL/Iwahori): speed up proofs in SphericalExponents",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9427,
-          "title": "perf(New/OneLift/ComparisonOperator): speed up proofs in ProductsSpan",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9421,
-          "title": "perf(New/Spanning/Frames): speed up proofs in Levels",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9414,
-          "title": "perf(Lib/Weil/Periods): speed up proofs in Grading",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9401,
-          "title": "perf(New/Spanning/Frames): speed up proofs in OneFrame",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9393,
-          "title": "perf(New/Spanning/Unfolding): speed up proofs in PoincareSeries",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9334,
-          "title": "perf(Lib/GaloisRep/TaylorWiles): replace slow aesop, grind, and simp calls",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9310,
-          "title": "perf(New/Determinant/AuxiliaryForms/LastPath): replace slow grind and fun_prop calls",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9297,
-          "title": "perf(Lib/Cohomology/Hodge/GrothendieckSymbol): speed up proofs in GrothendieckSymbol",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9251,
-          "title": "perf(Lib/LocalGL/Green/CuspidalFunctions): speed up proofs in CuspidalFunctions",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9233,
-          "title": "perf(Spanning/Unfolding): speed up proofs in BesselLevelStructure",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9216,
-          "title": "perf(CutoffIntegral): replace slow simp, aesop, and grind calls",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9167,
-          "title": "perf(ExponentLattices): replace slow simp calls with direct rewrites",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9155,
-          "title": "perf(PELThetaTori): avoid mulVec/dotProduct sum expansions in polarisationForm",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9150,
-          "title": "perf(New/OneLift/ComparisonOperator/GluingMaps): speed up proof elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9099,
-          "title": "perf(New/Spanning/Unfolding/ReducedPoints): speed up proof elaboration",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8998,
-          "title": "perf(Lib/SiegelWeil): speed up Reproduction proof",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8944,
-          "title": "perf(Lib/DiscreteSeries): speed up CuspKernel proofs",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8932,
-          "title": "perf(Lib/Cyclotomic): speed up OddSha proofs",
-          "state": "open",
-          "batch_queue": false
-        }
-      ],
-      "prs_merged": [],
-      "prs_batch_queue": [],
-      "main_commits": 0,
-      "merge_commits_authored": 0,
-      "privileged_events": {}
-    },
-    "Lixuu2001": {
-      "association": "NONE",
-      "tier": "contributor",
-      "prs_opened": [
-        {
-          "number": 9926,
-          "title": "refactor(New/OneLift): isolate the column datum calculation",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9908,
-          "title": "fix: include credited aliases in contributor pull request links",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9903,
-          "title": "refactor: share Gram invariance under the level character twist",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 9449,
-          "title": "feat: count the edges of a two-grid path exactly",
           "state": "open",
           "batch_queue": false
         }
@@ -1668,7 +1686,7 @@
       "main_commits": 12,
       "merge_commits_authored": 0,
       "privileged_events": {
-        "labeled": 85,
+        "labeled": 86,
         "merged": 2
       }
     },
@@ -2515,12 +2533,6 @@
         {
           "number": 8937,
           "title": "refactor(New): share the Gaussian integral formula for polynomial jets",
-          "state": "open",
-          "batch_queue": false
-        },
-        {
-          "number": 8929,
-          "title": "refactor(New/Congruences): reuse the determinant identity in the Ribet argument",
           "state": "open",
           "batch_queue": false
         }
@@ -4951,7 +4963,7 @@
         },
         {
           "number": 9121,
-          "title": "chore: move Tau Ceti to 926a1cd0 on its main branch",
+          "title": "chore: move Tau Ceti to 2e9ee3da on its main branch",
           "state": "open",
           "batch_queue": false
         },
@@ -5582,18 +5594,6 @@
         {
           "number": 8943,
           "title": "refactor(Lib/ClassField): simplify proofs",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8933,
-          "title": "refactor(New/Derivatives): simplify proofs",
-          "state": "closed",
-          "batch_queue": false
-        },
-        {
-          "number": 8930,
-          "title": "refactor(Lib/CM/Sigma): simplify proofs",
           "state": "closed",
           "batch_queue": false
         }
@@ -6968,13 +6968,13 @@
     },
     "Jonathan Roy": {
       "messages": 239,
-      "reactions_received": 61,
+      "reactions_received": 60,
       "topics": {
-        "New proof in 300k lines": 197,
+        "New proof in 300k lines": 199,
         "Library design discrepancies between RH/Mathlib/TauCeti": 5,
         "Ultra-Compact GRH <55K Lines": 5,
         "Why clean up the proof": 1,
-        "Cleaning up Levent's proof": 31
+        "Cleaning up Levent's proof": 29
       }
     },
     "Snir Broshi": {
@@ -7005,10 +7005,10 @@
       }
     },
     "Jack McCarthy": {
-      "messages": 27,
+      "messages": 28,
       "reactions_received": 24,
       "topics": {
-        "New proof in 300k lines": 17,
+        "New proof in 300k lines": 18,
         "Understanding of the Mathematics": 1,
         "Preserving formalisations no longer needed for GRH": 1,
         "Cleaning up Levent's proof": 8
@@ -7031,7 +7031,7 @@
     },
     "David Michael Roberts": {
       "messages": 13,
-      "reactions_received": 25,
+      "reactions_received": 27,
       "topics": {
         "New proof in 300k lines": 11,
         "Getting the standard material from Masullo into Tau Ceti": 1,
@@ -7130,6 +7130,18 @@
         "New proof in 300k lines": 1
       }
     },
+    "Filippo A. E. Nuccio": {
+      "messages": 13,
+      "reactions_received": 3,
+      "topics": {
+        "New proof in 300k lines": 6,
+        "Understanding of the Mathematics": 1,
+        "Preserving formalisations no longer needed for GRH": 1,
+        "Library design discrepancies between RH/Mathlib/TauCeti": 2,
+        "Semantic alignment with literature": 2,
+        "Getting the standard material from Masullo into Tau Ceti": 1
+      }
+    },
     "Devin Watson": {
       "messages": 11,
       "reactions_received": 21,
@@ -7143,18 +7155,6 @@
       "reactions_received": 8,
       "topics": {
         "New proof in 300k lines": 2
-      }
-    },
-    "Filippo A. E. Nuccio": {
-      "messages": 12,
-      "reactions_received": 3,
-      "topics": {
-        "New proof in 300k lines": 5,
-        "Understanding of the Mathematics": 1,
-        "Preserving formalisations no longer needed for GRH": 1,
-        "Library design discrepancies between RH/Mathlib/TauCeti": 2,
-        "Semantic alignment with literature": 2,
-        "Getting the standard material from Masullo into Tau Ceti": 1
       }
     },
     "Bartosz Naskręcki": {
@@ -7235,13 +7235,6 @@
         "New proof in 300k lines": 4
       }
     },
-    "Luke Sernau": {
-      "messages": 9,
-      "reactions_received": 153,
-      "topics": {
-        "New proof in 300k lines": 9
-      }
-    },
     "Johannes Hostert": {
       "messages": 2,
       "reactions_received": 5,
@@ -7319,6 +7312,13 @@
       "reactions_received": 0,
       "topics": {
         "New proof in 300k lines": 1
+      }
+    },
+    "Luke Sernau": {
+      "messages": 9,
+      "reactions_received": 153,
+      "topics": {
+        "New proof in 300k lines": 9
       }
     },
     "Arthur Paulino": {
@@ -7470,20 +7470,6 @@
       "reactions_received": 4,
       "topics": {
         "Library design discrepancies between RH/Mathlib/TauCeti": 1
-      }
-    },
-    "KitaSan": {
-      "messages": 1,
-      "reactions_received": 0,
-      "topics": {
-        "OxiLean (Rust) verification of compact export": 1
-      }
-    },
-    "Timothy  underwood": {
-      "messages": 1,
-      "reactions_received": 0,
-      "topics": {
-        "Why clean up the proof": 1
       }
     },
     "Chen Jiang": {
@@ -7669,6 +7655,12 @@
     },
     {
       "topic": "New proof in 300k lines",
+      "sender": "David Michael Roberts",
+      "reactions": 10,
+      "snippet": "@_**Jonathan Roy|1243299** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/644318919): ```quote Page 1 looks like any other normal paper with Alpoge listed as auth"
+    },
+    {
+      "topic": "New proof in 300k lines",
       "sender": "Kim Morrison",
       "reactions": 10,
       "snippet": "@_**Luke B|1243347** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643866599): ```quote as is how quickly Tau Ceti manages merges ```  It's only the last 48 hour"
@@ -7684,12 +7676,6 @@
       "sender": "Toby Gee",
       "reactions": 10,
       "snippet": "It's maybe also worth noting (apologies if it already has been) that even some of the results that are \"standard\" have quite novel/interesting proofs (there are several new arguments in the proof of the existence of Galois representations a"
-    },
-    {
-      "topic": "New proof in 300k lines",
-      "sender": "David Michael Roberts",
-      "reactions": 9,
-      "snippet": "@_**Jonathan Roy|1243299** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/644318919): ```quote Page 1 looks like any other normal paper with Alpoge listed as auth"
     },
     {
       "topic": "New proof in 300k lines",
