@@ -1,8 +1,8 @@
-# Community Context Brief (Auto-generated 2026-11-28T13:34:36Z)
+# Community Context Brief (Auto-generated 2026-11-28T14:41:00Z)
 
 ## 1. Maintainers & Collaborators (GitHub Privileged Events + Association)
-- **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:5, merged:2], merged PRs=1 (#9551), main commits=7
-- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:85, merged:1], merged PRs=20 (#9842, #9130, #9112, #9108, #9093, #9079, #9070, #9069), main commits=11
+- **Deicyde** / Jack McCarthy (`COLLABORATOR`): privileged=[labeled:6, merged:3], merged PRs=2 (#9920, #9551), main commits=14
+- **kim-em** / Kim Morrison (`COLLABORATOR`): privileged=[labeled:85, merged:2], merged PRs=21 (#9921, #9842, #9130, #9112, #9108, #9093, #9079, #9070), main commits=12
 - **homeowmorphism** / Hang Lu Su (`COLLABORATOR`): privileged=[labeled:38, unlabeled:2], merged PRs=0 (none), main commits=0
 - **koefoeden** (`NONE`): privileged=[none], merged PRs=0 (none), main commits=5
 - **riccardobrasca** (`MEMBER`): privileged=[none], merged PRs=0 (none), main commits=3
@@ -15,17 +15,17 @@
 ## 3. Most Active Zulip Participants (RH Threads)
 - **Kim Morrison**: 91 msgs, 183 reactions
 - **Luke Sernau**: 9 msgs, 153 reactions
-- **David Loeffler**: 50 msgs, 93 reactions
+- **David Loeffler**: 52 msgs, 93 reactions
 - **Riccardo Brasca**: 39 msgs, 70 reactions
-- **Jonathan Roy**: 240 msgs, 62 reactions
+- **Jonathan Roy**: 239 msgs, 61 reactions
 - **Andrew Sutherland**: 6 msgs, 56 reactions
 - **Thomas Murrills**: 28 msgs, 38 reactions
 - **Chris Birkbeck**: 38 msgs, 28 reactions
 - **Artie Khovanov**: 11 msgs, 26 reactions
+- **David Michael Roberts**: 13 msgs, 25 reactions
 - **Jack McCarthy**: 27 msgs, 24 reactions
-- **David Michael Roberts**: 13 msgs, 22 reactions
 - **Devin Watson**: 11 msgs, 21 reactions
-- **Michael Righi**: 14 msgs, 19 reactions
+- **Michael Righi**: 13 msgs, 19 reactions
 - **Luke B**: 4 msgs, 12 reactions
 - **Vasily Ilin**: 3 msgs, 12 reactions
 - **Arthur Paulino**: 1 msgs, 12 reactions
@@ -61,7 +61,7 @@
 - [New proof in 300k lines] **Kim Morrison** (rx:10): @_**Luke B|1243347** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/643866599): ```quote as is how quickly Tau Ceti manages merges ```  It's only the last 48 hour
 - [New proof in 300k lines] **Riccardo Brasca** (rx:10): A reasonable goal is to move out of the repo, to for example to Tau Ceti, everything that was mathematically already known so that at the end we can have a proof written in the usual way, with citations but without duplications.
 - [Preserving formalisations no longer needed for GRH] **Toby Gee** (rx:10): It's maybe also worth noting (apologies if it already has been) that even some of the results that are "standard" have quite novel/interesting proofs (there are several new arguments in the proof of the existence of Galois representations a
+- [New proof in 300k lines] **David Michael Roberts** (rx:9): @_**Jonathan Roy|1243299** [said](https://leanprover.zulipchat.com/#narrow/channel/658556-Riemann-Hypothesis/topic/New.20proof.20in.20300k.20lines/near/644318919): ```quote Page 1 looks like any other normal paper with Alpoge listed as auth
 - [New proof in 300k lines] **Riccardo Brasca** (rx:9): Anyway please don't start a fight mathlib vs Tau Ceti here.
 - [New proof in 300k lines] **Kim Morrison** (rx:9): Ooh, interesting, my agent says that in a number of places where the new proof is simpler, the required material is already in Tau Ceti... :-)
 - [Library design discrepancies between RH/Mathlib/TauCeti] **Kim Morrison :bot:** (rx:9): :robot: Claude says: Kim is asleep, but she told me I could post this report when I finished: https://gist.github.com/kim-em/373d317a74b860765585d2b7817ee1a2
-- [Cleaning up Levent's proof] **Vasily Ilin** (rx:9): New profile results are [out](https://vilin97.github.io/riemann-hypothesis-source-profile/versions/a18a350c3e5a/). We are down from 50h to 26h single-threaded. Very nice! Also, imports used to take 54% of compilation time and now they take 
